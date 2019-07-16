@@ -1,10 +1,11 @@
 {
   "canonicalBase": "http://fhir.org/guides/cdc/opioid-cds",
-  "version" : "3.0.1",
+  "version" : "4.0.0",
   "sct-edition" : "http://snomed.info/sct/731000124108",
   "source": "opioid-cds.xml",
   "npm-name": "fhir.cdc.opioid-cds",
   "license": "CC0-1.0",
+  "fixed-business-version" : "0.2.0",
   "tool" : "jekyll",
   "paths": {
     "resources": ["resources", "examples"],
@@ -12,7 +13,7 @@
     "temp": "temp",
     "output": "output",
     "qa": "qa",
-    "specification": "http://hl7.org/fhir/STU3/"
+    "specification": "http://hl7.org/fhir/R4/"
   },
   "defaults": {
     "Any": {
