@@ -1,8 +1,8 @@
 library OpioidCDS_R4_Common version '0.1.0'
 
-using FHIR version '3.2.0'
+using FHIR version '4.0.0'
 
-include FHIRHelpers version '3.2.0' called FHIRHelpers
+include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OMTKLogic version '0.0.1' called OMTKLogic
 
 codesystem "SNOMED": 'http://snomed.info/sct'
