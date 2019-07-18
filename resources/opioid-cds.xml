@@ -2,1238 +2,1194 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
     <id value="opioid-cds"/>
     <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/opioid-cds"/>
-    <version value="0.2.0"/>
-    <name value="Opioid Prescribing Support Implementation Guide"/>
+    <version value="4.0.0"/>
+    <name value="Opioid CDC"/>
+    <title value="Opioid Prescribing Support Implementation Guide"/>
     <status value="draft"/>
     <experimental value="false"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
     <date value="2017-02-06"/>
     <description value="Opioid Prescribing Support Implementation Guide"/>
-    <fhirVersion value="4.0.0"/>
-    <package>
-        <name value="Opioid Prescribing Support Implementation Guide Package"/>
+    <definition>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-04-long-acting-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-04-long-acting-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-04-long-acting-opioid-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-04-long-acting-opioid-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-04-long-acting-opioid-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-04-new-patient"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-04-new-patient"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-04-new-patient-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-04-not-long-acting-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-04-not-long-acting-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-04-not-long-acting-opioid-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-04-not-long-acting-opioid-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-04-not-long-acting-opioid-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-04-opioid-with-abuse-potential"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-04-opioid-with-abuse-potential"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-04-opioid-with-abuse-potential-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-04-opioid-with-abuse-potential-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-04-opioid-with-abuse-potential-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-05-mme-greater-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-05-mme-greater-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-05-mme-greater-than-fifty-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-05-mme-less-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-05-mme-less-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-05-mme-less-than-fifty-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-07-end-of-life-exclusion"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-07-end-of-life-exclusion"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-07-end-of-life-exclusion-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-end-of-life-exclusion-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-end-of-life-exclusion-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-07-risk-assessment"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-07-risk-assessment"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Procedure/example-rec-07-risk-assessment-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-risk-assessment-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-risk-assessment-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-07-seven-of-past-ten-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-07-seven-of-past-ten-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-07-seven-of-past-ten-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-seven-of-past-ten-days-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-seven-of-past-ten-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-07-six-of-past-ten-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-07-six-of-past-ten-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-07-six-of-past-ten-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-six-of-past-ten-days-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-six-of-past-ten-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-07-sixtythree-of-past-ninety-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-07-sixtythree-of-past-ninety-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-07-sixtythree-of-past-ninety-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-sixtythree-of-past-ninety-days-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-sixtythree-of-past-ninety-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-07-sixtytwo-of-past-ninety-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-07-sixtytwo-of-past-ninety-days"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-07-sixtytwo-of-past-ninety-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-sixtytwo-of-past-ninety-days-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-07-sixtytwo-of-past-ninety-days-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-08-mme-greater-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-08-mme-greater-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-08-mme-greater-than-fifty-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-08-mme-less-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-08-mme-less-than-fifty"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-08-mme-less-than-fifty-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-08-on-benzodiazepine"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-08-on-benzodiazepine"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-08-on-benzodiazepine-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-08-on-benzodiazepine-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-08-on-benzodiazepine-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-08-on-naloxone"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-08-on-naloxone"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-08-on-naloxone-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-08-on-naloxone-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-08-on-naloxone-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-08-substance-abuse"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-08-substance-abuse"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-08-substance-abuse-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-10-end-of-life-med-exclusion"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-10-end-of-life-med-exclusion"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-10-illicit-drugs"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-10-illicit-drugs"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Observation/example-rec-10-illicit-drugs-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-10-illicit-drugs-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-illicit-drugs-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-illicit-drugs-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-10-missing-prescribed-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-10-missing-prescribed-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Observation/example-rec-10-missing-prescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-10-missing-prescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-missing-prescribed-opioids-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-missing-prescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-10-no-screenings"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-10-no-screenings"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-10-no-screenings-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-no-screenings-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-no-screenings-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-10-not-missing-prescribed-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-10-not-missing-prescribed-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Observation/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-not-missing-prescribed-opioids-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-10-unprescribed-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-10-unprescribed-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Observation/example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Observation/example-rec-10-unprescribed-opioids-prefetch-codeine"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-10-unprescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-unprescribed-opioids-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-10-unprescribed-opioids-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-11-benzo-trigger-with-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-11-benzo-trigger-with-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-11-benzo-trigger-with-opioid-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-11-benzo-trigger-with-opioid-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-11-benzo-trigger-with-opioid-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-11-benzo-trigger-without-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-11-benzo-trigger-without-opioid"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-11-benzo-trigger-without-opioid-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-11-opioid-trigger-with-benzo"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-11-opioid-trigger-with-benzo"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="MedicationRequest/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-11-opioid-trigger-with-benzo-context"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Bundle/example-rec-11-opioid-trigger-without-benzo"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Patient/example-rec-11-opioid-trigger-without-benzo"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="Encounter/example-rec-11-opioid-trigger-without-benzo-context"/>
-            </sourceReference>
+            </reference>
         </resource>
 
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ActivityDefinition - ProcedureRequest for risk assessment"/>
-            <sourceReference>
+            <reference>
                 <reference value="ActivityDefinition/opioidcds-risk-assessment-request"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="CarePlan - Example result of recommendation #5"/>
             <description value="Example result of applying the PlanDefinition for recommendation #5"/>
-            <sourceReference>
+            <reference>
                 <reference value="CarePlan/example-opioidcds"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="CodeSystem - CDC Opioid Prescribing Guidelines Indicator"/>
             <description value="System of codes that indicate the urgency/importance of the action"/>
-            <sourceReference>
+            <reference>
                 <reference value="CodeSystem/opioidcds-indicator"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - OMTK Model Info"/>
             <description value="Opioid Management Terminology Knowledge Base Model Information"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/omtk-modelinfo"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - OMTK Logic"/>
             <description value="Opioid Management Terminology Knowledge Base v0.1.0 Logic"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/omtk-logic-0.1.0"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - OMTK Logic"/>
             <description value="Opioid Management Terminology Knowledge Base v0.0.1 Logic"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/library-omtklogic-0-0-1"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - OMTK Data"/>
             <description value="Opioid Management Terminology Knowledge Base v0.0.1 Data"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/omtk-data-0.0.1"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - OMTK Data"/>
             <description value="Opioid Management Terminology Knowledge Base v0.0.2 Data"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/library-omtkdata-0-0-2"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Common"/>
             <description value="Opioid Management Decision Support Logic Common"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/library-opioidcds-stu3-common-0-1-0"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #4"/>
             <description value="Opioid Management Decision Support Logic for recommendation #4"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/opioidcds-recommendation-04"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #5"/>
             <description value="Opioid Management Decision Support Logic for recommendation #5"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/opioidcds-recommendation-05"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #7"/>
             <description value="Opioid Management Decision Support Logic for recommendation #7"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/opioidcds-recommendation-07"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #8"/>
             <description value="Opioid Management Decision Support Logic for recommendation #8"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/opioidcds-recommendation-08"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #10"/>
             <description value="Opioid Management Decision Support Logic for recommendation #10"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/opioidcds-recommendation-10"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #10 Patient View"/>
             <description value="Opioid Management Decision Support Logic for recommendation #10 Patient View"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/library-opioidcds-stu3-rec-10-patient-view-0-1-0"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #11"/>
             <description value="Opioid Management Decision Support Logic for recommendation #11"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/opioidcds-recommendation-11"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #11 Patient View"/>
             <description value="Opioid Management Decision Support Logic for recommendation #11 Patient View"/>
-            <sourceReference>
+            <reference>
                 <reference value="Library/library-opioidcds-stu3-rec-11-patient-view-0-1-0"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="MedicationRequest - CDC Opioid Prescribing Guideline Recommendation #5"/>
             <description value="Fentanyl transdermal patch prescription"/>
-            <sourceReference>
+            <reference>
                 <reference value="MedicationRequest/example-opioidcds"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Observation - CDC Opioid Prescribing Guideline Recommendation #10"/>
             <description value="Observation for illicit drugs"/>
-            <sourceReference>
+            <reference>
                 <reference value="Observation/example-opioidcds"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="Patient - CDC Opioid Prescribing Guidelines"/>
             <description value="Basic test patient"/>
-            <sourceReference>
+            <reference>
                 <reference value="Patient/example-opioidcds"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #4"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #4"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-04"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #5"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #5"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-05"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #7"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #7"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-07"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #8"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #8"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-08"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #10"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-10"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 Patient View"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #10 Patient View"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-10-patient-view"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #11"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #11"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-11"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #11 Patient View"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #11 Patient View"/>
-            <sourceReference>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-11-patient-view"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="RequestGroup - CDC Opioid Prescribing Guideline Example for Recommendation #5"/>
             <description value="RequestGroup referenced by CarePlan with information necessary to construct CDS Cards"/>
-            <sourceReference>
+            <reference>
                 <reference value="RequestGroup/example-opioidcds"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines End Of Life Conditions"/>
             <description value="End of life condition codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/end-of-life-conditions"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines End Of Life Care"/>
             <description value="End of life care procedure codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/end-of-life-care"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Discharge to Hospice"/>
             <description value="Hospice encounter discharge disposition codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/discharge-to-hospice"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Hospice Finding"/>
             <description value="Hospice observation finding codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/hospice-finding"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Hospice Procedure"/>
             <description value="Hospice procedure codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/hospice-procedure"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Limited Life Expectancy Conditions"/>
             <description value="Limited life expectancy condition codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/limited-life-expectancy-conditions"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Metastatic Cancer"/>
             <description value="Metastatic cancer codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/metastatic-cancer"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid Abuse Assessment"/>
             <description value="Opiate therapy risk assessment codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/opioid-abuse-assessment"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Substance Abuse"/>
             <description value="Substance abuse codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/substance-abuse"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid Urine Screening"/>
             <description value="Urine analysis for opioids"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/opioid-urine-screening"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Illicit Drugs Urine Screening"/>
             <description value="Urine analysis for illicit drugs"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/illicit-drug-urine-screening"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Indicator"/>
             <description value="Indicates urgency/importance of the action"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/opioidcds-indicator"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Benzodiazepine Medication"/>
             <description value="Benzodiazepine medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/benzodiazepines"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Long Acting Opioid Medication"/>
             <description value="Long acting opioid medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/long-acting-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Naloxone Medication"/>
             <description value="Naloxone medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/naloxone"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid Medication"/>
             <description value="Opioid medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioids Abused in Ambulatory Care Medication"/>
             <description value="Opioids abused in ambulatory care medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/opioids-abused-in-ambulatory-care"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid Codeine Cough Medication"/>
             <description value="Opioid codeine cough medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/opioids-codeine-cough-meds"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioids Indicating End Of Life Medication"/>
             <description value="Opioids indicating end of life medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/opioids-indicating-end-of-life"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
+            <exampleBoolean value="true"/>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Short Acting Opioids Medication"/>
             <description value="Short acting opioids medication codes"/>
-            <sourceReference>
+            <reference>
                 <reference value="ValueSet/short-acting-opioids"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="StructureDefinition/cdc-requestgroup-action-indicator"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="StructureDefinition/cdc-valueset-query"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="StructureDefinition/cdc-valueset-inclusion"/>
-            </sourceReference>
+            </reference>
         </resource>
         <resource>
-            <example value="true"/>
-            <sourceReference>
+            <exampleBoolean value="true"/>
+            <reference>
                 <reference value="StructureDefinition/cdc-valueset-exclusion"/>
-            </sourceReference>
+            </reference>
         </resource>
-    </package>
-    <binary value="cql/OMTKLogic-0.0.0.cql"/>
-    <binary value="cql/OMTKLogic-0.0.1.cql"/>
-    <binary value="cql/OMTKLogic-0.1.0.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_Common.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_04.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_05.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_07.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_08.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_10.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_11.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_10_patient-view.cql"/>
-    <binary value="cql/OpioidCDS_DSTU2_REC_11_patient-view.cql"/>
-    <binary value="cql/OpioidCDS_STU3_Common.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_04.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_05.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_07.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_08.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_10.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_11.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_10_patient-view.cql"/>
-    <binary value="cql/OpioidCDS_STU3_REC_11_patient-view.cql"/>
-    <binary value="elm/OMTKLogic-0.0.0.xml"/>
-    <binary value="elm/OMTKLogic-0.0.1.xml"/>
-    <binary value="elm/OMTKLogic-0.1.0.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_Common.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_04.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_05.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_07.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_08.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_10.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_11.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_10_patient-view.xml"/>
-    <binary value="elm/OpioidCDS_DSTU2_REC_11_patient-view.xml"/>
-    <binary value="elm/OpioidCDS_STU3_Common.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_04.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_05.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_07.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_08.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_10.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_11.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_10_patient-view.xml"/>
-    <binary value="elm/OpioidCDS_STU3_REC_11_patient-view.xml"/>
-    <binary value="modelinfo/OMTK-modelinfo-0.1.0.xml"/>
-    <page>
-        <source value="index.html"/>
-        <title value="Opioid Prescribing Support Implementation Guide"/>
-        <kind value="page"/>
-        <format value="html"/>
-    </page>
+    </definition>
+    <manifest>
+        <page>
+            <name value="index.html"/>
+            <title value="Opioid Prescribing Support Implementation Guide"/>
+        </page>
+    </manifest>
 </ImplementationGuide>
