@@ -6,8 +6,8 @@
         <value value="cdc-opioid-guidance"/>
     </identifier>
     <version value="0.1.0"/>
-    <name value="PlanDefinition_Recommendation_7"/>
-    <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #7"/>
+    <name value="cdc-opioid-07"/>
+    <title value="CDC Opioid Prescribing Guideline Recommendation #7"/>
     <type>
         <coding>
             <system value="http://hl7.org/fhir/plan-definition-type"/>
@@ -19,8 +19,6 @@
     <date value="2018-03-19"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
     <description value="Clinicians should evaluate benefits and harms with patients within 1 to 4 weeks of starting opioid therapy for chronic pain or of dose escalation. Clinicians should evaluate benefits and harms of continued therapy with patients every 3 months or more frequently."/>
-    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
-    <usage value="If benefits do not outweigh harms of continued opioid therapy, clinicians should optimize other therapies and work with patients to taper opioids to lower dosages or to taper and discontinue opioids."/>
     <useContext>
         <code>
             <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -56,39 +54,31 @@
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
+    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+    <usage value="If benefits do not outweigh harms of continued opioid therapy, clinicians should optimize other therapies and work with patients to taper opioids to lower dosages or to taper and discontinue opioids."/>
+    <copyright value="© CDC 2016+."/>
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
-    <contributor>
-        <type value="author" />
-        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Bryn Rhodes"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Floyd Eisenberg, MD, MPH"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Robert McClure, MD, MPH"/>
-    </contributor>
-    <copyright value="© CDC 2016+."/>
-    <library>
-        <reference value="Library/opioidcds-recommendation-07"/>
-    </library>
+    <author value="Kensaku Kawamoto, MD, PhD, MHS"/>
+    <author value="Bryn Rhodes"/>
+    <author value="Floyd Eisenberg, MD, MPH"/>
+    <author value="Robert McClure, MD, MPH"/>
+    <relatedArtifact>
+        <type value="documentation"/>
+        <display value="CDC guideline for prescribing opioids for chronic pain"/>
+        <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
+    </relatedArtifact>
+    <relatedArtifact>
+        <type value="documentation"/>
+        <display value="MME Conversion Tables"/>
+        <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
+    </relatedArtifact>
+    <library value="Library/opioidcds-recommendation-07"/>
     <action>
         <!-- non-dynamic card summary -->
-        <label value="Assessment of risk for opioid use procedure"/>
         <title value="Existing patient should be evaluated for risk of continued opioid therapy."/>
         <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #7 workflow."/>
-        <documentation>
-            <type value="documentation"/>
-            <display value="CDC guideline for prescribing opioids for chronic pain"/>
-            <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
-        </documentation>
         <documentation>
             <type value="documentation"/>
             <document>
@@ -113,26 +103,22 @@
                 </extension>
             </document>
         </documentation>
-        <triggerDefinition>
+        <trigger>
             <type value="named-event"/>
-            <eventName value="medication-prescribe"/>
-        </triggerDefinition>
+            <name value="medication-prescribe"/>
+        </trigger>
         <condition>
             <kind value="applicability"/>
-            <description value="Check whether the existing patient, without an end of life condition or risk assessment in the past 90 days, has taken an opioid-with-abuse-potential for 7 of the past 10 days or 63 of the past 90 days."/>
-            <language value="text/cql"/>
-            <expression value="Inclusion Criteria"/>
+            <expression>
+                <description value="Check whether the existing patient, without an end of life condition or risk assessment in the past 90 days, has taken an opioid-with-abuse-potential for 7 of the past 10 days or 63 of the past 90 days."/>
+                <language value="text/cql"/>
+                <expression value="Inclusion Criteria"/>
+            </expression>
         </condition>
-        <type>
-            <system value="http://hl7.org/fhir/action-type"/>
-            <code value="create"/>
-        </type>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
         <!-- reference to risk assessment activity definition -->
-        <definition>
-            <reference value="ActivityDefinition/opioidcds-risk-assessment-request"/>
-        </definition>
+            <definitionCanonical value="ActivityDefinition/opioidcds-risk-assessment-request"/>
         <!-- dynamic card elements -->
         <dynamicValue>
             <path value="action.title"/>

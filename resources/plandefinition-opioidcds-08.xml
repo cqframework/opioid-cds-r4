@@ -6,8 +6,8 @@
         <value value="cdc-opioid-guidance"/>
     </identifier>
     <version value="0.1.0"/>
-    <name value="PlanDefinition_Recommendation_8"/>
-    <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #8"/>
+    <name value="cdc-opioid-08"/>
+    <title value="CDC Opioid Prescribing Guideline Recommendation #8"/>
     <type>
         <coding>
             <system value="http://hl7.org/fhir/plan-definition-type"/>
@@ -19,8 +19,6 @@
     <date value="2018-03-19"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
     <description value="Clinicians should incorporate into the management plan strategies to mitigate risk, including considering offering naloxone when factors that increase risk for opioid overdose, such as history of overdose, history of substance use disorder, higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are present."/>
-    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
-    <usage value="Before starting and periodically during continuation of opioid therapy, clinicians should evaluate risk factors for opioid-related harms."/>
     <useContext>
         <code>
             <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -56,43 +54,31 @@
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
+    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+    <usage value="Before starting and periodically during continuation of opioid therapy, clinicians should evaluate risk factors for opioid-related harms."/>
+    <copyright value="© CDC 2016+."/>
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
-    <contributor>
-        <type value="author" />
-        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Bryn Rhodes"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Floyd Eisenberg, MD, MPH"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Robert McClure, MD, MPH"/>
-    </contributor>
-    <copyright value="© CDC 2016+."/>
+    <author value="Kensaku Kawamoto, MD, PhD, MHS"/>
+    <author value="Bryn Rhodes"/>
+    <author value="Floyd Eisenberg, MD, MPH"/>
+    <author value="Robert McClure, MD, MPH"/>
+    <relatedArtifact>
+        <type value="documentation"/>
+        <display value="CDC guideline for prescribing opioids for chronic pain"/>
+        <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
+    </relatedArtifact>
     <relatedArtifact>
         <type value="documentation"/>
         <display value="MME Conversion Tables"/>
         <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
     </relatedArtifact>
-    <library>
-        <reference value="Library/opioidcds-recommendation-08"/>
-    </library>
+    <library value="Library/opioidcds-recommendation-08"/>
     <action>
         <!-- non-dynamic card summary -->
         <title value="Existing patient exhibits risk factors for opioid-related harms."/>
         <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #8 workflow."/>
-        <documentation>
-            <type value="documentation"/>
-            <display value="CDC guideline for prescribing opioids for chronic pain"/>
-            <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
-        </documentation>
         <documentation>
             <type value="documentation"/>
             <document>
@@ -117,15 +103,17 @@
                 </extension>
             </document>
         </documentation>
-        <triggerDefinition>
+        <trigger>
             <type value="named-event"/>
-            <eventName value="medication-prescribe"/>
-        </triggerDefinition>
+            <name value="medication-prescribe"/>
+        </trigger>
         <condition>
             <kind value="applicability"/>
-            <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
-            <language value="text/cql"/>
-            <expression value="Inclusion Criteria"/>
+            <expression>
+                <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
+                <language value="text/cql"/>
+                <expression value="Inclusion Criteria"/>
+            </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>

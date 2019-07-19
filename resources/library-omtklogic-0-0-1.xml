@@ -118,8 +118,8 @@ define function ToUCUM(unit String):
     when 'MG' then 'mg'
     when 'MG/ACTUAT' then 'mg/{actuat}'
     when 'MG/HR' then 'mg/h'
-    when 'MG/ML' then 'mg/mL' 
-    else 'Error: unknown{' + unit + '}' 
+    when 'MG/ML' then 'mg/mL'
+    else 'Error: unknown{' + unit + '}'
   end
 
 /*
@@ -134,8 +134,8 @@ define function ToDaily(frequency Integer, period Quantity):
     when 'd' then frequency * ( 24.0 / period.value ) / 24
     when 'wk' then frequency * ( 24.0 / period.value ) / ( 24 * 7 )
     when 'mo' then frequency * ( 24.0 / period.value ) / ( 24 * 30 ) /* assuming 30 days in month */
-    when 'a' then frequency * ( 24.0 / period.value ) / ( 24 * 365 ) /* assuming 365 days in year */ 
-    else null 
+    when 'a' then frequency * ( 24.0 / period.value ) / ( 24 * 365 ) /* assuming 365 days in year */
+    else null
   end
 
 /*
@@ -187,8 +187,8 @@ define function GetConversionFactor(ingredientCode Code, dailyDose Quantity, dos
     when 1767 then 0 /* Brompheniramine */
     when 1819 then ( /* Buprenorphine */
       case
-        when ToInteger(doseFormCode.code)= 316987 then 12.6 /* Transdermal system */ 
-        else 30 /* Tablet or Film (or Film in MCG) */ 
+        when ToInteger(doseFormCode.code)= 316987 then 12.6 /* Transdermal system */
+        else 30 /* Tablet or Film (or Film in MCG) */
       end
     )
     when 1841 then 7 /* Butorphanol */
@@ -204,7 +204,7 @@ define function GetConversionFactor(ingredientCode Code, dailyDose Quantity, dos
         when ToInteger(doseFormCode.code)in { 970789, 317007, 316992 } then 0.13 /* Buccal Tablet, Sublingual Tablet, Oral Lozenge */
         when ToInteger(doseFormCode.code)= 346163 then 0.18 /* Buccal Film */
         when ToInteger(doseFormCode.code)in { 126542, 346163 } then 0.16 /* Nasal Spray, Mucosal Spray */
-        when IsPatch(doseFormCode)then 2.4 /* Transdermal system */ 
+        when IsPatch(doseFormCode)then 2.4 /* Transdermal system */
         else Message(1000, true, 'Undefined', 'Error', 'The dose form is unexpected')
       end
     )
@@ -219,7 +219,7 @@ define function GetConversionFactor(ingredientCode Code, dailyDose Quantity, dos
         when dailyDose.value between 1 and 20 then 4
         when dailyDose.value between 21 and 40 then 8
         when dailyDose.value between 41 and 60 then 10
-        when dailyDose.value &gt;= 61 then 12 
+        when dailyDose.value &gt;= 61 then 12
         else Message(1000, dailyDose.value &lt; 1, &apos;Undefined&apos;, &apos;Error&apos;, &apos;The dose range is unexpected&apos;)
       end
     )
@@ -245,13 +245,13 @@ define function GetConversionFactor(ingredientCode Code, dailyDose Quantity, dos
     when 35780 then 0 /*  ropivacaine */
     when 237005 then 8 /* Levomethadyl (NOTE: given as Levomethadyl acetate in the CDC conversion table) */
     when 636827 then 0 /* guaiacolsulfonate */
-    when 787390 then 0.4 /* tapentadol */ 
-    else 0 
+    when 787390 then 0.4 /* tapentadol */
+    else 0
   end
 
 define function EnsureMicrogramQuantity(strength Quantity):
   if strength.value &lt; 0.1
-    and ( PositionOf(&apos;mg&apos;, strength.unit)= 0 ) then Quantity { value: strength.value * 1000, unit: &apos;mcg&apos; + Substring(strength.unit, 2)} 
+    and ( PositionOf(&apos;mg&apos;, strength.unit)= 0 ) then Quantity { value: strength.value * 1000, unit: &apos;mcg&apos; + Substring(strength.unit, 2)}
     else strength
 
 /*
@@ -303,7 +303,7 @@ define function GetDailyDose(ingredientCode Code, strength Quantity, doseFormCod
   case
     /* if patch --&gt; daily dose = dose value (e.g, number patches with doseQuantity unit = &quot;patch&quot;) * per-hour strength */
     when IsPatch(doseFormCode)then
-      /* buprenorphine or fentanyl patch */ if ToInteger(ingredientCode.code)in { 1819, 4337 } then Quantity { value: dosesPerDay * doseQuantity.value * strength.value, unit: strength.unit } 
+      /* buprenorphine or fentanyl patch */ if ToInteger(ingredientCode.code)in { 1819, 4337 } then Quantity { value: dosesPerDay * doseQuantity.value * strength.value, unit: strength.unit }
       else null
 
     /* if dose unit in actual mass units (mg or mcg -- when it&apos;s a single med) --&gt; daily dose = numTimesPerDay * dose */
@@ -313,8 +313,8 @@ define function GetDailyDose(ingredientCode Code, strength Quantity, doseFormCod
     when doseQuantity.unit = &apos;mL&apos;
       and ( PositionOf(&apos;/mL&apos;, strength.unit)= Length(strength.unit)- 3 ) then Quantity { value: dosesPerDay * doseQuantity.value * strength.value, unit: Substring(strength.unit, 0, PositionOf(&apos;/&apos;, strength.unit))}
 
-    /* if doseQuantity is not in actual units (e.g., 1 tab, 1 spray -- when it&apos;s a combo med with a unit of tablet, or it&apos;s mg/actuat) --&gt;  daily dose = numTimesPerDay * dose value * strength value */ 
-    else Quantity { value: dosesPerDay * doseQuantity.value * strength.value, unit: Substring(strength.unit, 0, PositionOf(&apos;/&apos;, strength.unit))} 
+    /* if doseQuantity is not in actual units (e.g., 1 tab, 1 spray -- when it&apos;s a combo med with a unit of tablet, or it&apos;s mg/actuat) --&gt;  daily dose = numTimesPerDay * dose value * strength value */
+    else Quantity { value: dosesPerDay * doseQuantity.value * strength.value, unit: Substring(strength.unit, 0, PositionOf(&apos;/&apos;, strength.unit))}
   end
 
 define function GetMedicationName(rxNormCode Code):
@@ -456,22 +456,10 @@ define TestCalculateMMEs:
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
-    <contributor>
-        <type value="author" />
-        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Bryn Rhodes"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Floyd Eisenberg, MD, MPH"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
-        <name value="Robert McClure, MD, MPH"/>
-    </contributor>
+    <author value="Kensaku Kawamoto, MD, PhD, MHS"/>
+    <author value="Bryn Rhodes"/>
+    <author value="Floyd Eisenberg, MD, MPH"/>
+    <author value="Robert McClure, MD, MPH"/>
     <copyright value="© CDC 2016+."/>
     <relatedArtifact>
         <type value="documentation"/>
