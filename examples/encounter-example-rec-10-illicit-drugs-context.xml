@@ -1,6 +1,11 @@
 <Encounter xmlns="http://hl7.org/fhir">
    <id value="example-rec-10-illicit-drugs-context"/>
    <status value="finished"/>
+   <class>
+       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+       <code value="AMB"/>
+       <display value="ambulatory"/>
+   </class>
    <subject>
       <reference value="Patient/example-rec-10-illicit-drugs"/>
    </subject>
