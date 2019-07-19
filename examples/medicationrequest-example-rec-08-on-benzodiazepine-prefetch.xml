@@ -17,9 +17,9 @@
    <subject>
       <reference value="Patient/example-rec-08-on-benzodiazepine"/>
    </subject>
-   <context>
+   <encounter>
       <reference value="Encounter/example-rec-08-on-benzodiazepine-prefetch"/>
-   </context>
+   </encounter>
    <authoredOn>
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
          <valueString value="Today() - 2 weeks"/>
@@ -34,10 +34,12 @@
          </repeat>
       </timing>
       <asNeededBoolean value="false"/>
-      <doseQuantity>
-         <value value="1.0"/>
-         <unit value="tablet"/>
-      </doseQuantity>
+      <doseAndRate>
+          <doseQuantity>
+             <value value="1.0"/>
+             <unit value="tablet"/>
+          </doseQuantity>
+      </doseAndRate>
    </dosageInstruction>
    <dispenseRequest>
       <validityPeriod>

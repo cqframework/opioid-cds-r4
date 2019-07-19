@@ -27,6 +27,7 @@
     }
   },
   "logging": ["init", "progress", "context", "html", "tx"],
+  "suppressedWarningFile": "SuppressedWarnings.txt",
   "extraTemplates": [
     "mappings"
   ],
