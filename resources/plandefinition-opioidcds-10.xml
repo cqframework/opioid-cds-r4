@@ -10,7 +10,7 @@
 	<title value="CDC Opioid Prescribing Guideline Recommendation #10"/>
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/plan-definition-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
 			<code value="eca-rule"/>
 			<display value="ECA Rule"/>
 		</coding>
