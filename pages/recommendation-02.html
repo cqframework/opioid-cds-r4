@@ -72,6 +72,42 @@
   </tbody>
 </table>
 
+<h4>Opioid Review Useful</h4>
+<img src="assets/images/Subroutine-OpioidReviewUseful.png"/>
+<table class="list" style="margin-top: 2em; margin-bottom: 2em">
+  <thead>
+    <tr><th>Definition</th><th>Expression</th><th>Data (Terminology) Requirement</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Age &lt; 18 years</td><td>Exclude patients with age less than 18 years</td><td></td></tr>
+    <tr><td>Conditions indicating end of life present</td><td>Limited life expectancy value set diagnosis exists in <i>active</i> state</td><td>Limited life expectancy value set</td></tr>
+    <tr><td>Order for palliative care in past 90 days</td><td>Existing order for value set for palliative care procedures written within past 90 days</td><td>Palliative care procedures</td></tr>
+    <tr>
+      <td>Conditions including cancer to exclude opioid management indicating end-stage disease present</td>
+      <td>End-stage disease conditions including cancer value set content present in diagnoses in active state. This item is configurable and can address a broader set of conditions or, alternatively, a more constrained set of conditions.</td>
+      <td>Conditions, including cancer, indicating end-stage disease present:
+        <ul>
+          <li>Broader set</li>
+          <li>More constrained set</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Opioid Naive</h4>
+<img src="assets/images/Subroutine-OpioidNaive.png"/>
+<table class="list" style="margin-top: 2em; margin-bottom: 2em">
+  <thead>
+    <tr><th>Definition</th><th>Expression</th><th>Data (Terminology) Requirement</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Opioid with ambulatory care abuse potential prescription found in past 90 days including today</td><td>Existing order (prescription) for opioid with ambulatory use potential authored within the past 90 days (including today)</td><td>Opioids with ambulatory use potential</td></tr>
+    <tr><td>Opioid with ambulatory use potential reporting in past 90 days including today</td><td>Evidence of active medication on the medication list that is in the value set for opioid with ambulatory care abuse potential</td><td>Opioids with ambulatory use potential [Note – orders may be able to use RxNorm, but medication lists and dispensed medication will require an NDC value set and/or local mapping of NDC to RxNorm to enable this element]</td></tr>
+    <tr><td>Opioid with ambulatory abuse potential dispensing event found in past 90 days including today</td><td>Dispensing event for opioid with ambulatory use potential occurring within the past 90 days (including today)</td><td>Opioids with ambulatory use potential [Note – orders may be able to use RxNorm, but medication lists and dispensed medication will require an NDC value set and/or local mapping of NDC to RxNorm to enable this element]</td></tr>
+  </tbody>
+</table>
+
 <p></p>
 <p></p>
 
