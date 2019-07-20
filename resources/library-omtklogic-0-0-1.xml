@@ -456,10 +456,18 @@ define TestCalculateMMEs:
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
-    <author value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    <author value="Bryn Rhodes"/>
-    <author value="Floyd Eisenberg, MD, MPH"/>
-    <author value="Robert McClure, MD, MPH"/>
+    <author>
+        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
+    </author>
+    <author>
+        <name value="Bryn Rhodes"/>
+    </author>
+    <author>
+        <name value="Floyd Eisenberg, MD, MPH"/>
+    </author>
+    <author>
+        <name value="Robert McClure, MD, MPH"/>
+    </author>
     <copyright value="© CDC 2016+."/>
     <relatedArtifact>
         <type value="documentation"/>
