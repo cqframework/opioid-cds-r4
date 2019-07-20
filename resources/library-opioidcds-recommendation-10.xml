@@ -6,6 +6,7 @@
       <value value="OpioidCDS_REC_10"/>
    </identifier>
    <version value="0.1.0"/>
+   <name value="Library_opioid_cds_recommendation_10"/>
    <title value="Opioid CDS Logic for recommendation #10"/>
    <status value="active"/>
    <experimental value="false"/>
@@ -85,14 +86,14 @@
       <type value="Observation"/>
       <codeFilter>
          <path value="combo-code"/>
-         <valueSetUri value="Illicit Drug Screening"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/illicit-drug-urine-screening"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="Observation"/>
       <codeFilter>
          <path value="combo-code"/>
-         <valueSetUri value="Opioid Drug Screening"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-screening"/>
       </codeFilter>
    </dataRequirement>
    <content>

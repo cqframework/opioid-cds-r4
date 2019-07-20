@@ -1,7 +1,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="cdc-requestgroup-action-indicator"/>
     <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup-action-indicator"/>
-    <name value="indicator"/>
+    <name value="Indicator"/>
     <title value="OpioidCDSIndicator"/>
     <status value="draft"/>
     <date value="2018-04-19"/>
@@ -14,8 +14,10 @@
     </mapping>
     <kind value="complex-type"/>
     <abstract value="false"/>
-    <contextType value="resource"/>
-    <context value="RequestGroup.action"/>
+    <context>
+		<type value="element"/>
+		<expression value="RequestGroup.action"/>
+	</context>
     <type value="Extension"/>
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
     <derivation value="constraint"/>
@@ -110,9 +112,7 @@
             <binding>
                 <strength value="required"/>
                 <description value="List of codes that indicate the urgency/importance of the action"/>
-                <valueSetReference>
-                    <reference value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioidcds-indicator"/>
-                </valueSetReference>
+                <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioidcds-indicator"/>
             </binding>
             <mapping>
                 <identity value="rim"/>
@@ -150,9 +150,7 @@
             <binding>
                 <strength value="required"/>
                 <description value="List of codes that indicate the urgency/importance of the action"/>
-                <valueSetReference>
-                    <reference value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioidcds-indicator"/>
-                </valueSetReference>
+                <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioidcds-indicator"/>
             </binding>
         </element>
     </differential>

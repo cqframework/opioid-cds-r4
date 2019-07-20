@@ -6,7 +6,7 @@
         <value value="cdc-opioid-guidance"/>
     </identifier>
     <version value="0.1.0"/>
-    <name value="cdc-opioid-08"/>
+    <name value="CDC_opioid_08"/>
     <title value="CDC Opioid Prescribing Guideline Recommendation #8"/>
     <type>
         <coding>
@@ -91,19 +91,19 @@
             <type value="documentation"/>
             <document>
                 <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation">
+                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/recommendation-strength"/>
+                            <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
                             <code value="strong"/>
                             <display value="Strong"/>
                         </coding>
                     </valueCodeableConcept>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/evidence-quality"/>
+                            <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
                             <code value="very-low"/>
                             <display value="Very Low quality"/>
                         </coding>
@@ -127,17 +127,26 @@
         <selectionBehavior value="exactly-one"/>
         <!-- dynamic card elements -->
         <dynamicValue>
-            <path value="action.description"/>
-            <expression value="Get Detail"/>
-        </dynamicValue>
-        <dynamicValue>
-            <path value="action.title"/>
-            <expression value="Get Summary"/>
-        </dynamicValue>
-        <dynamicValue>
-            <path value="action.extension"/>
-            <expression value="Get Indicator"/>
-        </dynamicValue>
+			<path value="action.title"/>
+			<expression>
+                <language value="text/cql"/>
+				<expression value="Get Summary"/>
+			</expression>
+		</dynamicValue>
+		<dynamicValue>
+			<path value="action.description"/>
+			<expression>
+                <language value="text/cql"/>
+				<expression value="Get Detail"/>
+			</expression>
+		</dynamicValue>
+		<dynamicValue>
+			<path value="activity.extension"/>
+			<expression>
+                <language value="text/cql"/>
+				<expression value="Get Indicator"/>
+			</expression>
+		</dynamicValue>
         <action>
             <description value="Will offer Naloxone instead"/>
             <!-- Open Order Set, where available -->

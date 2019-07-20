@@ -3,7 +3,7 @@
     <id value="opioid-cds"/>
     <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/opioid-cds"/>
     <version value="4.0.0"/>
-    <name value="Opioid CDC"/>
+    <name value="Opioid_CDC"/>
     <title value="Opioid Prescribing Support Implementation Guide"/>
     <status value="draft"/>
     <experimental value="false"/>
@@ -1186,10 +1186,4 @@
             </reference>
         </resource>
     </definition>
-    <manifest>
-        <page>
-            <name value="index.html"/>
-            <title value="Opioid Prescribing Support Implementation Guide"/>
-        </page>
-    </manifest>
 </ImplementationGuide>

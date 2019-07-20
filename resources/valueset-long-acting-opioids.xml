@@ -15,7 +15,7 @@
    </extension>
    <url value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/long-acting-opioids"/>
    <version value="1.0.0"/>
-   <name value="valueset-extended-release-opioid-medications-with-ambulatory-abuse-potential"/>
+   <name value="Valueset_extended_release_opioid_medications_with_ambulatory_abuse_potential"/>
    <title value="RxNorm Extended Release Opioid Medications with Ambulatory Abuse Potential"/>
    <status value="active"/>
    <experimental value="false"/>
@@ -46,11 +46,11 @@
          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
          <concept>
             <code value="1049502"/>
-            <display value="12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"/>
+            <display value="oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"/>
          </concept>
          <concept>
             <code value="1049504"/>
-            <display value="Abuse-Deterrent 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet [Oxycontin]"/>
+            <display value="Abuse-Deterrent oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet [Oxycontin]"/>
          </concept>
          <concept>
             <code value="1049543"/>
@@ -494,7 +494,7 @@
          </concept>
          <concept>
             <code value="1860157"/>
-            <display value="Abuse-Deterrent 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"/>
+            <display value="Abuse-Deterrent oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"/>
          </concept>
          <concept>
             <code value="1860491"/>
@@ -1131,4 +1131,3 @@
       </include>
    </compose>
 </ValueSet>
-

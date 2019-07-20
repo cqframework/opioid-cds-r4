@@ -6,6 +6,7 @@
       <value value="OpioidCDS_REC_05"/>
    </identifier>
    <version value="0.1.0"/>
+   <name value="Library_opioid_cds_recommendation_05"/>
    <title value="Opioid CDS Logic for recommendation #5"/>
    <status value="active"/>
    <experimental value="false"/>
@@ -97,7 +98,7 @@
       <codeFilter>
          <path value="category"/>
          <code>
-           <system value="http://hl7.org/fhir/medication-request-category"/>
+           <system value="http://terminology.hl7.org/CodeSystem/medication-request-category"/>
            <code value="outpatient"/>
          </code>
       </codeFilter>

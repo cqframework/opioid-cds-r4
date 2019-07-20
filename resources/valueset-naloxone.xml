@@ -15,7 +15,7 @@
    </extension>
    <url value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone"/>
    <version value="1.0.0"/>
-   <name value="valueset-nalaxone-drugs"/>
+   <name value="Valueset_nalaxone_drugs"/>
    <title value="RxNorm Nalaxone Drugs"/>
    <status value="active"/>
    <experimental value="false"/>
@@ -287,4 +287,3 @@
       </include>
    </compose>
 </ValueSet>
-

@@ -6,7 +6,7 @@
         <value value="OMTKData"/>
     </identifier>
     <version value="0.0.1"/>
-    <name value="Library - OMTK Data Logic"/>
+    <name value="Library_OMTK_Data_Logic_0_0_1"/>
     <title value="OMTK Logic"/>
     <status value="active"/>
     <experimental value="true"/>
@@ -20,8 +20,6 @@
     <date value="2017-05-05"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
     <description value="Opioid Management Terminology Knowledge Base Logic for use in implementing CDC Opioid Prescribing Guidelines."/>
-    <purpose value="This library acts as a pure CQL representation of the RxNav database."/>
-    <usage value="This library is used to provide information about an opioid prescription necessary to offer opioid management guidance for a patient."/>
     <useContext>
         <code>
             <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -57,6 +55,9 @@
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
+    <purpose value="This library acts as a pure CQL representation of the RxNav database."/>
+    <usage value="This library is used to provide information about an opioid prescription necessary to offer opioid management guidance for a patient."/>
+    <copyright value="© CDC 2016+."/>
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
@@ -72,7 +73,6 @@
     <author>
         <name value="Robert McClure, MD, MPH"/>
     </author>
-    <copyright value="© CDC 2016+."/>
     <relatedArtifact>
         <type value="documentation"/>
         <display value="CDC guideline for prescribing opioids for chronic pain"/>

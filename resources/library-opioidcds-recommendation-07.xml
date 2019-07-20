@@ -6,6 +6,7 @@
       <value value="OpioidCDS_REC_07"/>
    </identifier>
    <version value="0.1.0"/>
+   <name value="Library_opioid_cds_recommendation_07"/>
    <title value="Opioid CDS Logic for recommendation #7"/>
    <status value="active"/>
    <experimental value="false"/>
@@ -85,7 +86,7 @@
       <type value="Procedure"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="Risk Assessment"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-abuse-assessment"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>

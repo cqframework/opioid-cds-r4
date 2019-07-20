@@ -4,13 +4,14 @@
         <valueMarkdown value="Note that the terminologies included in this implementation guide will need to be updated, because the ideal mechanism for distribution (as an expression) is not currently supported by the content logical definition constructs available in the FHIR ValueSet resource and all known implementations of it. Before use in a production environment, ensure you have the latest value sets based on the definitions for each value set (as defined in the inclusion/exclusion criteria for each one)."/>
     </extension>
     <url value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"/>
+    <name value="Valueset_opioids_indicating_end_of_life"/>
     <status value="active"/>
     <compose>
         <include>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
             <concept>
                 <code value="1012727"/>
-                <display value="Carbinoxamine maleate 0.4 MG/ML / Hydrocodone Bitartrate 1 MG/ML / Pseudoephedrine Hydrochloride 6 MG/ML Oral Solution"/>
+                <display value="carbinoxamine maleate 2 MG / HYDROcodone bitartrate 5 MG / pseudoephedrine hydrochloride 30 MG per 5 ML Oral Solution"/>
             </concept>
             <concept>
                 <code value="1042693"/>
@@ -1107,4 +1108,3 @@
         </include>
     </compose>
 </ValueSet>
-

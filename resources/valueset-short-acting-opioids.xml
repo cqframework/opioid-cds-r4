@@ -15,7 +15,7 @@
     </extension>
     <url value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/short-acting-opioids"/>
     <version value="1.0.0"/>
-    <name value="valueset-intermediate-release-opioid-medications-with-ambulatory-abuse-potential"/>
+    <name value="Valueset_intermediate_release_opioid_medications_with_ambulatory_abuse_potential"/>
     <title value="RxNorm Intermediate Release Opioid Medications with Ambulatory Abuse Potential"/>
     <status value="active"/>
     <experimental value="false"/>
@@ -70,7 +70,7 @@
             </concept>
             <concept>
                 <code value="1012727"/>
-                <display value="Carbinoxamine maleate 0.4 MG/ML / Hydrocodone Bitartrate 1 MG/ML / Pseudoephedrine Hydrochloride 6 MG/ML Oral Solution"/>
+                <display value="carbinoxamine maleate 2 MG / HYDROcodone bitartrate 5 MG / pseudoephedrine hydrochloride 30 MG per 5 ML Oral Solution"/>
             </concept>
             <concept>
                 <code value="1014599"/>
@@ -3383,4 +3383,3 @@
         </include>
     </compose>
 </ValueSet>
-

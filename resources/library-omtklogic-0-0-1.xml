@@ -402,7 +402,7 @@ define TestCalculateMMEs:
     </text>
     <url value="http://fhir.org/guides/cdc/opioid-cds/Library/library-omtklogic-0-0-1"/>
     <version value="0.0.1"/>
-    <name value="OMTKLogic"/>
+    <name value="Library_OMTK_Logic_0_0_1"/>
     <title value="OMTK Logic"/>
     <status value="active"/>
     <experimental value="true"/>
@@ -416,8 +416,6 @@ define TestCalculateMMEs:
     <date value="2018-04-17"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
     <description value="Opioid Management Terminology Knowledge Base Logic for use in implementing CDC Opioid Prescribing Guidelines."/>
-    <purpose value="This library normalizes units to UCUM units, identifies the conversion factor for the given ingredient, identifies the non-surgical opioid ingredients and their strengths that make up a drug identified by the given rxNormCode, calculates daily dose for a specific ingredient based on the ingredient strength, dose form, dose quantity, and daily frequency, calculates daily frequency given frequency within a period, and calculates the Morphine Milligram Equivalency (MME) for a given prescription."/>
-    <usage value="This library is used to gather information about an opioid prescription necessary to offer opioid management guidance for a patient."/>
     <useContext>
         <code>
             <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -453,6 +451,9 @@ define TestCalculateMMEs:
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
+    <purpose value="This library normalizes units to UCUM units, identifies the conversion factor for the given ingredient, identifies the non-surgical opioid ingredients and their strengths that make up a drug identified by the given rxNormCode, calculates daily dose for a specific ingredient based on the ingredient strength, dose form, dose quantity, and daily frequency, calculates daily frequency given frequency within a period, and calculates the Morphine Milligram Equivalency (MME) for a given prescription."/>
+    <usage value="This library is used to gather information about an opioid prescription necessary to offer opioid management guidance for a patient."/>
+    <copyright value="© CDC 2016+."/>
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
@@ -468,7 +469,6 @@ define TestCalculateMMEs:
     <author>
         <name value="Robert McClure, MD, MPH"/>
     </author>
-    <copyright value="© CDC 2016+."/>
     <relatedArtifact>
         <type value="documentation"/>
         <display value="CDC guideline for prescribing opioids for chronic pain"/>
@@ -481,9 +481,7 @@ define TestCalculateMMEs:
     </relatedArtifact>
     <relatedArtifact>
         <type value="depends-on"/>
-        <resource>
-            <reference value="Library/library-omtkdata-0-0-2"/>
-        </resource>
+        <resource value="Library/library-omtkdata-0-0-2"/>
     </relatedArtifact>
     <relatedArtifact>
         <type value="depends-on"/>

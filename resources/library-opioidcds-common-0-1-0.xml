@@ -1,11 +1,12 @@
 <Library xmlns="http://hl7.org/fhir">
-   <id value="opioidcds-common-0-1-0"/>
+   <id value="library-opioidcds-common-0-1-0"/>
    <url value="http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-common"/>
    <identifier>
       <use value="official"/>
       <value value="OpioidCDS_Common"/>
    </identifier>
    <version value="0.1.0"/>
+   <name value="Library_opioid_cds_common_0_1_0"/>
    <title value="Opioid CDS Common Logic"/>
    <status value="active"/>
    <experimental value="false"/>
@@ -90,63 +91,63 @@
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="Ambulatory Abuse Potential Opioids"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="Benzodiazepines"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="Naloxone"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="Ambulatory Abuse Potential Opioids"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="Condition"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="End of Life Conditions"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="Condition"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="Limited Life Expectancy Conditions"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="Procedure"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="Hospice Procedure Codes"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="ServiceRequest"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="Hospice Procedure Codes"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="Observation"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="Hospice Finding Codes"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
@@ -156,28 +157,28 @@
       <type value="MedicationAdministration"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="End Of Life Opioids"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="MedicationDispense"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="End Of Life Opioids"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="End Of Life Opioids"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="MedicationStatement"/>
       <codeFilter>
          <path value="code"/>
-         <valueSetUri value="End Of Life Opioids"/>
+         <valueSet value="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"/>
       </codeFilter>
    </dataRequirement>
    <content>

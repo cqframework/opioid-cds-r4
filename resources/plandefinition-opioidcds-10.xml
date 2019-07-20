@@ -6,7 +6,7 @@
 		<value value="cdc-opioid-guidance"/>
 	</identifier>
 	<version value="0.1.0"/>
-	<name value="cdc-opioid-10"/>
+	<name value="CDC_opioid_10"/>
 	<title value="CDC Opioid Prescribing Guideline Recommendation #10"/>
 	<type>
 		<coding>
@@ -85,19 +85,19 @@
 			<type value="documentation"/>
 			<document>
 				<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation">
+				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://hl7.org/fhir/recommendation-strength"/>
+							<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
 							<code value="weak"/>
 							<display value="Weak"/>
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://hl7.org/fhir/evidence-quality"/>
+							<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 							<code value="very-low"/>
 							<display value="Very Low quality"/>
 						</coding>
@@ -119,7 +119,10 @@
 		</condition>
 		<dynamicValue>
 			<path value="activity.extension"/>
-			<expression value="Get Indicator"/>
+			<expression>
+                <language value="text/cql"/>
+				<expression value="Get Indicator"/>
+			</expression>
 		</dynamicValue>
 		<action>
 			<description value="Will perform urine screening"/>
@@ -136,19 +139,19 @@
 			<type value="documentation"/>
 			<document>
 				<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation">
+				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://hl7.org/fhir/recommendation-strength"/>
+							<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
 							<code value="weak"/>
 							<display value="Weak"/>
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://hl7.org/fhir/evidence-quality"/>
+							<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 							<code value="very-low"/>
 							<display value="Very Low quality"/>
 						</coding>
@@ -171,19 +174,19 @@
 				<type value="documentation"/>
 				<document>
 					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation">
+					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
 						<valueCodeableConcept>
 							<coding>
-								<system value="http://hl7.org/fhir/recommendation-strength"/>
+								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
 								<code value="strong"/>
 								<display value="Strong"/>
 							</coding>
 						</valueCodeableConcept>
 					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
 						<valueCodeableConcept>
 							<coding>
-								<system value="http://hl7.org/fhir/evidence-quality"/>
+								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 								<code value="low"/>
 								<display value="Low quality"/>
 							</coding>
@@ -201,11 +204,17 @@
 			</condition>
 			<dynamicValue>
 				<path value="activity.extension"/>
-				<expression value="Get Indicator"/>
+				<expression>
+	                <language value="text/cql"/>
+					<expression value="Get Indicator"/>
+				</expression>
 			</dynamicValue>
 			<dynamicValue>
 				<path value="action.description"/>
-				<expression value="Inconsistent Unprescribed Opioids"/>
+				<expression>
+	                <language value="text/cql"/>
+					<expression value="Inconsistent Unprescribed Opioids"/>
+				</expression>
 			</dynamicValue>
 			<action>
 				<description value="Not for chronic pain management. Snooze 3 months"/>
@@ -218,19 +227,19 @@
 				<type value="documentation"/>
 				<document>
 					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation">
+					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
 						<valueCodeableConcept>
 							<coding>
-								<system value="http://hl7.org/fhir/recommendation-strength"/>
+								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
 								<code value="strong"/>
 								<display value="Strong"/>
 							</coding>
 						</valueCodeableConcept>
 					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
 						<valueCodeableConcept>
 							<coding>
-								<system value="http://hl7.org/fhir/evidence-quality"/>
+								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 								<code value="low"/>
 								<display value="Low quality"/>
 							</coding>
@@ -248,11 +257,17 @@
 			</condition>
 			<dynamicValue>
 				<path value="activity.extension"/>
-				<expression value="Get Indicator"/>
+				<expression>
+	                <language value="text/cql"/>
+					<expression value="Get Indicator"/>
+				</expression>
 			</dynamicValue>
 			<dynamicValue>
 				<path value="action.description"/>
-				<expression value="Inconsistent Missing Opioids"/>
+				<expression>
+	                <language value="text/cql"/>
+					<expression value="Inconsistent Missing Opioids"/>
+				</expression>
 			</dynamicValue>
 		</action>
 		<action>
@@ -262,19 +277,19 @@
 				<type value="documentation"/>
 				<document>
 					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation">
+					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
 						<valueCodeableConcept>
 							<coding>
-								<system value="http://hl7.org/fhir/recommendation-strength"/>
+								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
 								<code value="strong"/>
 								<display value="Strong"/>
 							</coding>
 						</valueCodeableConcept>
 					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
 						<valueCodeableConcept>
 							<coding>
-								<system value="http://hl7.org/fhir/evidence-quality"/>
+								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 								<code value="low"/>
 								<display value="Low quality"/>
 							</coding>
@@ -292,11 +307,17 @@
 			</condition>
 			<dynamicValue>
 				<path value="activity.extension"/>
-				<expression value="Get Indicator"/>
+				<expression>
+	                <language value="text/cql"/>
+					<expression value="Get Indicator"/>
+				</expression>
 			</dynamicValue>
 			<dynamicValue>
 				<path value="action.description"/>
-				<expression value="Inconsistent Illicit Drugs"/>
+				<expression>
+	                <language value="text/cql"/>
+					<expression value="Inconsistent Illicit Drugs"/>
+				</expression>
 			</dynamicValue>
 			<action>
 				<description value="Not for chronic pain management. Snooze 3 months"/>
