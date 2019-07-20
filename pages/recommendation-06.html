@@ -65,6 +65,19 @@
   </tbody>
 </table>
 
+<h4>Active Cancer Treatment</h4>
+<img src="assets/images/Subroutine-ActiveCancerTreatment.png"/>
+<table class="list" style="margin-top: 2em; margin-bottom: 2em">
+  <thead>
+    <tr><th>Definition</th><th>Expression</th><th>Data (Terminology) Requirement</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Encounter</td><td>Minimum of two distinct encounters within 12 months of the date of the current visit</td><td>All ambulatory encounters</td></tr>
+    <tr><td>Encounter participant (primary participant = practitioner performing the encounter)</td><td>PractitionerRole with Oncology specialty</td><td>Oncology specialty designations using NUCC as with US-Core R4</td></tr>
+    <tr><td>Active cancer diagnoses</td><td>From among all diagnoses recorded as a reason for the encounter (i.e., primary, co-morbidity, etc.)</td><td>Cancer diagnoses (value set based on CDC guidance)</td></tr>
+  </tbody>
+</table>
+
 <p></p>
 <p></p>
 
