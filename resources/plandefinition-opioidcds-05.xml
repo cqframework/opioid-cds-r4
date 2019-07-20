@@ -21,7 +21,7 @@
 	<description value="When opioids are started, providers should prescribe the lowest effective dosage."/>
 	<useContext>
 		<code>
-			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 			<code value="focus"/>
 			<display value="Clinical Focus"/>
 		</code>
@@ -35,7 +35,7 @@
 	</useContext>
 	<useContext>
 		<code>
-			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 			<code value="focus"/>
 			<display value="Clinical Focus"/>
 		</code>

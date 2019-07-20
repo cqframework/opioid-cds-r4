@@ -12,9 +12,12 @@
       <reference value="Patient/example-rec-10-missing-prescribed-opioids"/>
    </subject>
    <effectiveDateTime>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-         <valueString value="Today() - 4 weeks"/>
-      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+            <valueExpression>
+                <language value="text/cql"/>
+                <expression value="Today() - 4 weeks"/>
+            </valueExpression>
+        </extension>
    </effectiveDateTime>
    <interpretation>
       <coding>

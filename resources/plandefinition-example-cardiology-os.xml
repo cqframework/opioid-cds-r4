@@ -8,7 +8,7 @@
       <status value="active"/>
       <type>
          <coding>
-            <system value="http://hl7.org/fhir/library-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
             <code value="logic-library"/>
             <display value="Logic Library"/>
          </coding>
@@ -33,9 +33,12 @@
       <timingTiming>
         <event>
           <!--  The expression here specifies the value for the timing of the resulting resource. In this case, referralRequest.fulfillmentTime.start  -->
-          <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-            <valueString value="Now()" />
-          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+            <valueExpression>
+                <language value="text/cql"/>
+                <expression value="Now()"/>
+            </valueExpression>
+        </extension>
         </event>
       </timingTiming>
       <participant>

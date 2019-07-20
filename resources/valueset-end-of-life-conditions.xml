@@ -24,7 +24,7 @@
     <description value="ValueSet containing conditions that generally are thought to have terminal prognosis."/>
     <useContext>
         <code>
-            <system value="http://hl7.org/fhir/usage-context-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
             <code value="focus"/>
             <display value="Clinical Focus"/>
         </code>

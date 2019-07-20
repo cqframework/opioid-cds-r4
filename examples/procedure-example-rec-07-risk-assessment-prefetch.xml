@@ -11,14 +11,17 @@
    <subject>
       <reference value="Patient/example-rec-07-risk-assessment"/>
    </subject>
-   <context>
+   <encounter>
       <reference value="Encounter/example-rec-07-risk-assessment-prefetch"/>
-   </context>
+  </encounter>
    <performedPeriod>
       <start>
-         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-            <valueString value="FHIR.Period { start: FHIR.dateTime { value: Today() - 2 weeks }, end: FHIR.dateTime { value: Today() - 2 weeks } }"/>
-         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+            <valueExpression>
+                <language value="text/cql"/>
+                <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 2 weeks }, end: FHIR.dateTime { value: Today() - 2 weeks } }"/>
+            </valueExpression>
+        </extension>
       </start>
    </performedPeriod>
 </Procedure>

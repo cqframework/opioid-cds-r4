@@ -46,9 +46,12 @@
    </dosageInstruction>
    <dispenseRequest>
       <validityPeriod>
-         <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-            <valueString value="FHIR.Period { start: FHIR.dateTime { value: Today() - 10 days }, end: FHIR.dateTime { value: Today() } }"/>
-         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+            <valueExpression>
+                <language value="text/cql"/>
+                <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 10 days }, end: FHIR.dateTime { value: Today() } }"/>
+            </valueExpression>
+        </extension>
       </validityPeriod>
       <numberOfRepeatsAllowed value="1"/>
       <expectedSupplyDuration>

@@ -21,7 +21,7 @@
     <description value="Clinicians should evaluate benefits and harms with patients within 1 to 4 weeks of starting opioid therapy for chronic pain or of dose escalation. Clinicians should evaluate benefits and harms of continued therapy with patients every 3 months or more frequently."/>
     <useContext>
         <code>
-            <system value="http://hl7.org/fhir/usage-context-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
             <code value="focus"/>
             <display value="Clinical Focus"/>
         </code>
@@ -35,7 +35,7 @@
     </useContext>
     <useContext>
         <code>
-            <system value="http://hl7.org/fhir/usage-context-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
             <code value="focus"/>
             <display value="Clinical Focus"/>
         </code>

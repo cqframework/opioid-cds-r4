@@ -10,7 +10,7 @@
     <description value="As part of the workflow for recommendation 7, it is recommended that a risk assessment be conducted if the inclusion criteria is met."/>
     <useContext>
         <code>
-            <system value="http://hl7.org/fhir/usage-context-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
             <code value="focus"/>
             <display value="Clinical Focus"/>
         </code>

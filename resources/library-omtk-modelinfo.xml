@@ -12,7 +12,7 @@
 	<experimental value="true"/>
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/library-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/library-type"/>
 			<code value="model-definition"/>
 		</coding>
 	</type>
@@ -23,7 +23,7 @@
 	<usage value="This library is used to resolve data elements in the Opioid Management Terminology Knowledge Base model"/>
 	<useContext>
 		<code>
-			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 			<code value="focus"/>
 			<display value="Clinical Focus"/>
 		</code>
@@ -37,7 +37,7 @@
 	</useContext>
 	<useContext>
 		<code>
-			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 			<code value="focus"/>
 			<display value="Clinical Focus"/>
 		</code>
