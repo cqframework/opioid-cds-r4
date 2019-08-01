@@ -25,3 +25,6 @@ context Patient
     Opioid with ambulatory care abuse potential reported in past 90 days
     Opioid with ambulatory care abuse potential dispensing event found in past 90 days including today
 */
+
+define "Is Opioid Naive":
+    false

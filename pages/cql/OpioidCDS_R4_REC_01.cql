@@ -42,9 +42,17 @@ define "Inclusion Criteria":
   AgeInYears() >= 18
     and "Validate Trigger Event"
     and not "Exclusion Criteria"
-    
+    and "Opioid Review Would Be Useful"
+    and not "Is Opioid Naive"
+
 define "Exclusion Criteria":
   false
+
+define "Opioid Review Would Be Useful":
+    OpioidReviewUseful."Opioid Review Would Be Useful"
+
+define "Is Opioid Naive":
+    OpioidNaive."Is Opioid Naive"
 
 define "Get Indicator":
   if "Inclusion Criteria"
@@ -53,7 +61,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative'
   else null
 
 define "Get Detail":

@@ -19,3 +19,6 @@ include OpioidCDS_R4_Common_Config version '0.1.0' called Config
 
 
 context Patient
+
+define "Opioid Review Would Be Useful":
+    true
