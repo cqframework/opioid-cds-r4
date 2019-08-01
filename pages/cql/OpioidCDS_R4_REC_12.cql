@@ -25,8 +25,17 @@ include OpioidCDS_R4_Common_Config version '0.1.0' called Config
 
 context Patient
 
+define "Trigger Event Prescriptions":
+  ContextPrescriptions triggerScripts
+      where true //TODO
+
+define "Validate Trigger Event":
+  exists( "Trigger Event Prescriptions" )
+
 define "Inclusion Criteria":
-  true
+  AgeInYears() >= 18
+    and "Validate Trigger Event"
+    and not "Exclusion Criteria"
 
 define "Exclusion Criteria":
   false

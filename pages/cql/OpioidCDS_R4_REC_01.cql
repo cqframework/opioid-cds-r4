@@ -26,12 +26,23 @@ include OpioidCDS_R4_OpioidNaive version '0.1.0' called OpioidNaive
 	http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-01.html
 */
 
+// Trigger Event Rx
+parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
-define "Inclusion Criteria":
-  true
+define "Trigger Event Prescriptions":
+  ContextPrescriptions triggerScripts
+      where triggerScripts.medication in Common."Ambulatory Abuse Potential Opioids"
 
+define "Validate Trigger Event":
+  exists( "Trigger Event Prescriptions" )
+
+define "Inclusion Criteria":
+  AgeInYears() >= 18
+    and "Validate Trigger Event"
+    and not "Exclusion Criteria"
+    
 define "Exclusion Criteria":
   false
 
