@@ -1,0 +1,155 @@
+<PlanDefinition xmlns="http://hl7.org/fhir">
+    <id value="opioidcds-12"/>
+    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-12"/>
+    <identifier>
+        <use value="official"/>
+        <value value="cdc-opioid-guidance"/>
+    </identifier>
+    <version value="0.1.0"/>
+    <name value="CDC_opioid_12"/>
+    <title value="CDC Opioid Prescribing Guideline Recommendation #12"/>
+    <type>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+            <code value="eca-rule"/>
+            <display value="ECA Rule"/>
+        </coding>
+    </type>
+    <status value="draft"/>
+    <date value="2019-08-01"/>
+    <publisher value="Centers for Disease Control and Prevention (CDC)"/>
+    <description value="Arrange evidence-based treatment (usually medication-assisted treatment with buprenorphine or methadone in combination with behavioral therapies) for patients with opioid use disorder."/>
+    <useContext>
+        <code>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+            <code value="focus"/>
+            <display value="Clinical Focus"/>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="182888003"/>
+                <display value="Medication requested (situation)"/>
+            </coding>
+        </valueCodeableConcept>
+    </useContext>
+    <useContext>
+        <code>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+            <code value="focus"/>
+            <display value="Clinical Focus"/>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="82423001"/>
+                <display value="Chronic pain (finding)"/>
+            </coding>
+        </valueCodeableConcept>
+    </useContext>
+    <jurisdiction>
+        <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+            <display value="United States of America"/>
+        </coding>
+    </jurisdiction>
+    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+    <usage value="Clinicians should offer or arrange evidence-based treatment (usually medication-assisted treatment with buprenorphine or methadone in combination with behavioral therapies) for patients with opioid use disorder."/>
+    <copyright value="© CDC 2016+."/>
+    <topic>
+        <text value="Opioid Prescribing"/>
+    </topic>
+    <author>
+        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
+    </author>
+    <author>
+        <name value="Bryn Rhodes"/>
+    </author>
+    <author>
+        <name value="Floyd Eisenberg, MD, MPH"/>
+    </author>
+    <author>
+        <name value="Robert McClure, MD, MPH"/>
+    </author>
+    <relatedArtifact>
+        <type value="documentation"/>
+        <display value="CDC guideline for prescribing opioids for chronic pain"/>
+        <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
+    </relatedArtifact>
+    <library value="Library/opioidcds-recommendation-12"/>
+    <action>
+        <!-- non-dynamic card summary -->
+        <title value="Current patient is 18 or older and recieving evidence-based treatment for Opioid Misuse Disorders."/>
+        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #12 workflow."/>
+        <documentation>
+            <type value="documentation"/>
+            <document>
+                <!-- We can use the example code systems from the FHIR Clinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
+                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+                            <code value="strong"/>
+                            <display value="Strong"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+                            <code value="moderate"/>
+                            <display value="Moderate quality"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </document>
+        </documentation>
+        <trigger>
+            <type value="named-event"/>
+            <name value="order-select"/>
+        </trigger>
+        <condition>
+            <kind value="applicability"/>
+            <expression>
+                <description value="Check whether the current patient is 18 or older and recieving evidence-based treatment for Opioid Misuse Disorders."/>
+                <language value="text/cql"/>
+                <expression value="Inclusion Criteria"/>
+            </expression>
+        </condition>
+        <groupingBehavior value="visual-group"/>
+        <selectionBehavior value="exactly-one"/>
+        <!-- dynamic card elements -->
+        <dynamicValue>
+			<path value="action.title"/>
+			<expression>
+                <language value="text/cql"/>
+				<expression value="Get Summary"/>
+			</expression>
+		</dynamicValue>
+		<dynamicValue>
+			<path value="action.description"/>
+			<expression>
+                <language value="text/cql"/>
+				<expression value="Get Detail"/>
+			</expression>
+		</dynamicValue>
+		<dynamicValue>
+			<path value="activity.extension"/>
+			<expression>
+                <language value="text/cql"/>
+				<expression value="Get Indicator"/>
+			</expression>
+		</dynamicValue>
+        <action>
+            <description value="Will order methadone or buprenorphine"/>
+        </action>
+        <action>
+            <description value="Will also refer to qualified treatment provider (i.e., substance disorder specialist)"/>
+        </action>
+        <action>
+            <description value="N/A-see comment; snooze 3 months"/>
+        </action>
+    </action>
+</PlanDefinition>
