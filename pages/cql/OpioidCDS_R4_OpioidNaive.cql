@@ -25,6 +25,23 @@ context Patient
     Opioid with ambulatory care abuse potential reported in past 90 days
     Opioid with ambulatory care abuse potential dispensing event found in past 90 days including today
 */
+define "Prescription Inclusion Period":
+    Interval[Today() - 91 days, Today()]
+
+define "Report Inclusion Period":
+    Interval[Today() - 91 days, Today() - 1 days]
+
+define "Dispensing Event Inclusion Period":
+    Interval[Today() - 91 days, Today()]
 
 define "Is Opioid Naive":
+    false
+
+define "Has Prescription in Past 90 Days Including Today for Opioid with Ambulatory Abuse Potential":
+    false
+
+define "Has Report of Opioid with ambulatory care abuse potential reported in past 90 days":
+    false
+
+define "Has Dispense of in Past 90 Days Including Today of Opioid with ambulatory care abuse potential":
     false
