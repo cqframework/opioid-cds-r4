@@ -30,9 +30,9 @@ define "Opioid Review Would Be Useful":
     then false
     else IsFalse("Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present")
 
-/* Needs Config*/
 define "Patient Age Less Than 18":
-  AgeInYearsAt(Today()) < 18
+  Config."Patient Age Less Than 18 Criteria Enabled"
+    and AgeInYearsAt(Today()) < 18
 
 define "Order For Palliative Care In Past 90 Days":
   [Procedure: Common."Therapies Indicating End of Life Care"] EOLP
@@ -49,10 +49,10 @@ define "Order For Palliative Care In Past 90 Days":
 define "Conditions Indicating End Of Life Present":
   [Condition: Common."Limited Life Expectancy Conditions"] LLEC
     where LLEC.clinicalStatus ~ 'active'
-/*"Conditions Including Cancer..." sliddeck describes valuesets as including cancer, not sure if that means additional valuesets possibly not indicated in the Opioid Terminology Sheet*/
 
-/*Needs Config*/
+/*"Conditions Including Cancer..." sliddeck describes valuesets as including cancer, not sure if that means additional valuesets possibly not indicated in the Opioid Terminology Sheet*/
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
-  exists ([Condition: Common."End of Life Conditions"] EOLC
-    where EOLC.clinicalStatus ~ 'active'
-  )
+  Config."End-Stage Disease Criteria Enabled"
+    and exists ([Condition: Common."End of Life Conditions"] EOLC
+      where EOLC.clinicalStatus ~ 'active'
+    )

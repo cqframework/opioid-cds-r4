@@ -68,8 +68,9 @@ define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
         and O.performer ~ "Trigger Event Prescriptions".recorder
   )
 
-  define "Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
-    exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")
+define "Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
+  Conflig."Opioid Treatment Plan Verification Enabled"
+    and exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")
       or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
 
 define ""
