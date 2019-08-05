@@ -32,26 +32,19 @@ parameter ContextPrescriptions List<FHIR.MedicationRequest>
 context Patient
 
 define "Trigger Event Prescriptions":
-Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions)
+  Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions)
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
 define "Inclusion Criteria":
-  /* AgeInYears() >= 18 */
   "Validate Trigger Event"
     and not ("Exclusion Criteria")
-    and "Opioid Review Would Be Useful"
-    and "Is Opioid Naive"
+    and OpioidReviewUseful."Opioid Review Would Be Useful"
+    and OpioidNaive."Is Opioid Naive"
 
 define "Exclusion Criteria":
   false
-
-define "Opioid Review Would Be Useful":
-    OpioidReviewUseful."Opioid Review Would Be Useful"
-
-define "Is Opioid Naive":
-    OpioidNaive."Is Opioid Naive"
 
 define "Get Indicator":
   if "Inclusion Criteria"

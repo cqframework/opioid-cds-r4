@@ -49,7 +49,7 @@ define "Active Ambulatory Naloxone Rx":
   )
 
 define "Ambulatory Opioid Rx":
-  "Is Active Ambulatory Medication Request?"(
+  "Is Ambulatory Medication Request?"(
     [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
   )
 
@@ -57,6 +57,13 @@ define function "Is Active Ambulatory Medication Request?" (value List<Medicatio
   value Rx
     where Rx.status.value = 'active'
       and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
+      )
+
+define function "Is Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
+  value Rx
+    where exists (
         Rx.category RxCategory
           where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
       )

@@ -34,12 +34,8 @@ define "Is Opioid Naive":
     and not ("Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
 
 define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
-    [MedicationRequest: Common."Ambulatory Abuse Potential Opioids"] Rx
-      where Rx.status = 'active'
-        and exists (Rx.category.coding Coding
-          where Coding.code = 'outpatient'
-        )
-            and FHIRHelpers.ToDateTime(Rx.authoredOn) during day of "Prescription/Dispense Inclusion Period"
+  Common."Active Ambulatory Opioid Rx" Rx
+      where FHIRHelpers.ToDateTime(Rx.authoredOn) during day of "Prescription/Dispense Inclusion Period"
 
 define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
     Config."Opioid Naive Prescription Condition Is Enabled"
