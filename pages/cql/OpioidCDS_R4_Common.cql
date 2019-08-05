@@ -32,23 +32,32 @@ code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 define IsForChronicPain: true
 
 define "Active Ambulatory Opioid Rx":
-  [MedicationRequest: "Ambulatory Abuse Potential Opioids"] Rx
-    where Rx.status.value = 'active'
-      and FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Active Ambulatory Medication Request?"(
+    [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
+  )
 
 define "Active Ambulatory Benzodiazepine Rx":
-  [MedicationRequest: "Benzodiazepines"] Rx
-    where Rx.status.value = 'active'
-      and FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Active Ambulatory Medication Request?"(
+    [MedicationRequest: "Benzodiazepines"]
+  )
 
 define "Active Ambulatory Naloxone Rx":
-  [MedicationRequest: "Naloxone"] Rx
-    where Rx.status.value = 'active'
-      and FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Active Ambulatory Medication Request?"(
+    [MedicationRequest: "Naloxone"]
+  )
 
 define "Ambulatory Opioid Rx":
-  [MedicationRequest: "Ambulatory Abuse Potential Opioids"] Rx
-      where FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Active Ambulatory Medication Request?"(
+    [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
+  )
+
+define function "Is Active Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
+  value Rx
+    where Rx.status.value = 'active'
+      and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
+      )
 
 define function "Is Context Prescription End of Life Opioid?" (ContextPrescriptions List<MedicationRequest>):
   exists (
@@ -247,16 +256,27 @@ define function GetMedicationNames(medications List<MedicationRequest>):
 define function CodeableConceptsToString(concepts List<FHIR.CodeableConcept>):
   concepts c return CodeableConceptToString(c)
 
+
+define function CodingToString(coding FHIR.Coding):
+  if (coding is null)
+  then null
+  else
+    'Code {' &
+      'code: ' & coding.code &
+      'system: ' & coding.system &
+      'version: ' & coding.version &
+      'display: ' & coding.display &
+    '}'
+
 define function CodeableConceptToString(concept FHIR.CodeableConcept):
   if (concept is null or concept.coding is null)
   then null
   else
-    'CodeableConcept { ' &
-      'code: ' & concept.coding.code &
-      ' system: ' & concept.coding.system &
-      ' version: ' & concept.coding.version &
-      ' display: ' & concept.coding.display &
-    ' }'
+    'CodeableConcept {' &
+      'Coding: [' &
+        Combine(concept.coding Coding return CodingToString(Coding), ',')
+      & ']'
+    & '}'
 
 define function ToCode(coding FHIR.Coding):
   System.Code {
