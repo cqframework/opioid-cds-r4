@@ -25,6 +25,8 @@ valueset "Ambulatory Abuse Potential Opioids": 'http://fhir.org/guides/cdc/opioi
 valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
 
+valueset "Therapies Indicating End of Life Care": 'http://fhir.org/TODO'
+
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 
