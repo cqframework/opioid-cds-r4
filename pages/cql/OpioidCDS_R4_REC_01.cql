@@ -27,12 +27,12 @@ include OpioidCDS_R4_OpioidNaive version '0.1.0' called OpioidNaive
 */
 
 // Trigger Event Rx
-parameter "Context Prescriptions" List<FHIR.MedicationRequest>
+parameter ContextPrescriptions List<FHIR.MedicationRequest>
 
 context Patient
 
 define "Trigger Event Prescriptions":
-Common."Is Active Ambulatory Medication Request?"("Context Prescriptions")
+Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions)
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
