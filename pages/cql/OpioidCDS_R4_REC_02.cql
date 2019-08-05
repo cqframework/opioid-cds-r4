@@ -32,17 +32,47 @@ parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
+define "Treatment Plan Lookback Period":
+  Interval[Now() - 90 days, Now()]
+
 define "Trigger Event Prescriptions":
-  ContextPrescriptions triggerScripts
-      where true //TODO
+("Is Active Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript
+    where Common.GetDurationInDays(TriggerScript.dispenseRequest.expectedSupplyDuration) >= 28 days
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
-    and not "Exclusion Criteria"
+    "Validate Trigger Event"
+      and not ("Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?")
+      and OpioidNaive."Is Opioid Naive"
+      and OpioidReviewUseful."Opioid Review Would Be Useful"
+      /* and not ("Exclusion Criteria") */
+
+define "Opioid Treatment Plan Creation or Update in Past 90 Days":
+  [CarePlan: Common."Opioid Treatment Plan"] CP
+    let creation: CP.created during day of "Treatment Plan Lookback Period"
+        update: (CP.meta.lastUpdated Update
+                  where (Update after creation)
+                    and Update.id ~ creation.id)
+    where CP.status in { 'active', 'completed' }
+      and (exists (creation) or exists (update))
+        and CP.author ~ "Trigger Event Prescriptions".recorder
+
+define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
+  exists ([Observation: Common."Opioid Treatment Plan Review"] O
+      where (
+        O.issued during day of "Treatment Plan Lookback Period"
+          or O.effective as dateTime during day of "Treatment Plan Lookback Period"
+      )
+        and O.performer ~ "Trigger Event Prescriptions".recorder
+  )
+
+  define "Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
+    exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")
+      or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
+
+define ""
 
 define "Exclusion Criteria":
   false
@@ -54,7 +84,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Recommend creation, review or update of opioid treatment plan'
   else null
 
 define "Get Detail":
