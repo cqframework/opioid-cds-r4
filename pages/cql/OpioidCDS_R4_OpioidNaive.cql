@@ -23,55 +23,42 @@ context Patient
     Opioid with ambulatory care abuse potential dispensing event found in past 90 days including today
 */
 define "Prescription/Dispense Inclusion Period":
-    Interval[Today() - 89 days, Today()]
+    Interval[Now() - 89 days, Now()]
 
 define "Report Inclusion Period":
-    Interval[Today() - 90 days, Today())
+    Interval[Now() - 90 days, Now())
 
 define "Is Opioid Naive":
-    "Prescription Criteria Satisfied"
-        and "Report Criteria Satisfied"
-        and "Dispense Criteria Satisfied"
+    not ("Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+    and not ("Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
+    and not ("Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
 
-define "Prescription Criteria Satisfied":
-    not (Config."Opioid Naive Prescription Condition Is Enabled"
-        or "Has Opioid RX With Ambulatory Abuse Potential In Past 90 Days"
-    )
-
-define "Opioid RX With Ambulatory Abuse Potential In Past 90 Days":
-[MedicationRequest: Common."Ambulatory Abuse Potential Opioids"] Rx
-  where Rx.status.value = 'active'
-    and exists (Rx.category.coding Coding
-      where Coding.code = 'outpatient'
-    )
-        and Rx.authoredOn during day of "Prescription/Dispense Inclusion Period"
-
-define "Has Opioid RX With Ambulatory Abuse Potential In Past 90 Days":
-    exists ("Opioid RX With Ambulatory Abuse Potential In Past 90 Days")
-
-
-    define "Report Criteria Satisfied":
-        not (Config."Opioid Naive Report Condition Is Enabled
-            or "Has Report of Opioid with ambulatory care abuse potential reported in past 90 days"
+define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
+    [MedicationRequest: Common."Ambulatory Abuse Potential Opioids"] Rx
+      where Rx.status = 'active'
+        and exists (Rx.category.coding Coding
+          where Coding.code = 'outpatient'
         )
+            and Rx.authoredOn during day of "Prescription/Dispense Inclusion Period"
 
-define "Reports of Opioid with ambulatory care abuse potential reported in past 90 days":
-    [MedicationStatement: "Ambulatory Abuse Potential Opioids"] Statement
-      where Statement.status in {'active', 'completed'}
-        and Statement.effective as dateTime during day of "Report Inclusion Period"
+define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
+    Config."Opioid Naive Prescription Condition Is Enabled"
+        and exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
 
-define "Has Report of Opioid with ambulatory care abuse potential reported in past 90 days":
-    exists ("Reports of Opioid with ambulatory care abuse potential reported in past 90 days")
+define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
+    [MedicationStatement: Common."Ambulatory Abuse Potential Opioids"] Statement
+        where Statement.status in {'active', 'completed'}
+            and Statement.effective as dateTime during day of "Report Inclusion Period"
 
+define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
+    Config."Opioid Naive Report Condition Is Enabled"
+        and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
 
-    define "Dispense Criteria Satisfied":
-        not (Config."Opioid Naive Dispense Condition Is Enabled"
-            or "Has Opioid Dispense With Ambulatory Abuse Potential In Past 90 Days"
-        )
-define "Opioid Dispense With Ambulatory Abuse Potential In Past 90 Days":
-    [MedicationDispense: "Ambulatory Abuse Potential Opioids"] OpioidDispense
-      where OpioidDispense.whenHandedOver during day of "Prescription/Dispense Inclusion Period"
-        and OpioidDispense.status = 'completed'
+define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
+    [MedicationDispense: Common."Ambulatory Abuse Potential Opioids"] OpioidDispense
+        where OpioidDispense.whenHandedOver during day of "Prescription/Dispense Inclusion Period"
+            and OpioidDispense.status = 'completed'
 
-define "Has Opioid Dispense With Ambulatory Abuse Potential In Past 90 Days":
-    exists ("Opioid Dispense With Ambulatory Abuse Potential In Past 90 Days")
+define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
+    Config."Opioid Naive Dispense Condition Is Enabled"
+        and exists ("Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
