@@ -116,22 +116,22 @@ define "End of Life Assessment":
     // 3. Medications indicating end of life
     or exists (
       (
-        [MedicationAdministration: code in "End Of Life Opioids"] MA
+        [MedicationAdministration: "End Of Life Opioids"] MA
           where MA.status.value in { 'in-progress', 'on-hold', 'completed' }
       )
       union
       (
-        [MedicationDispense: code in "End Of Life Opioids"] MD
+        [MedicationDispense: "End Of Life Opioids"] MD
           where MD.status.value in { 'preparation', 'in-progress', 'on-hold', 'completed' }
       )
       union
       (
-        [MedicationRequest: code in "End Of Life Opioids"] MR
+        [MedicationRequest: "End Of Life Opioids"] MR
           where MR.status.value in { 'active', 'completed' }
       )
       union
       (
-        [MedicationStatement: code in "End Of Life Opioids"] MS
+        [MedicationStatement: "End Of Life Opioids"] MS
           where MS.status.value in { 'active', 'completed', 'intended' }
       )
     )
