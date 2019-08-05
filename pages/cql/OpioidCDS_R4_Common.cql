@@ -70,12 +70,18 @@ define "End of Life Assessment":
     exists (
       (
         [Condition: "End of Life Conditions"] C
-          where C.clinicalStatus.value in { 'active', 'recurrence' }
+          where exists (
+            C.clinicalStatus.coding Coding
+              where Coding.code in { 'active', 'recurrence' }
+          )
       )
       union
       (
         [Condition: code in "Limited Life Expectancy Conditions"] C
-          where C.clinicalStatus.value in { 'active', 'recurrence' }
+          where exists (
+            C.clinicalStatus.coding Coding
+              where Coding.code in { 'active', 'recurrence' }
+          )
       )
     )
     // 2. Admitted/referred/discharged to hospice care
@@ -138,17 +144,19 @@ define function Prescriptions(Orders List<MedicationRequest>):
       medicationName: OMTKLogic.GetMedicationName(rxNormCode),
       // NOTE: Assuming a single dosage instruction element
       dosageInstruction: O.dosageInstruction[0],
+      // NOTE: Assuming a single dose and rate element
+      doseAndRate: dosageInstruction.doseAndRate[0],
       repeat: dosageInstruction.timing.repeat,
       frequency: Coalesce(repeat.frequencyMax.value, repeat.frequency.value),
       period: System.Quantity { value: repeat.period.value, unit: repeat.periodUnit.value },
       doseDescription:
         Coalesce(
           // There should be a conversion from FHIR.SimpleQuantity to System.Quantity
-          if dosageInstruction.dose is FHIR.Range
-            then ToString(ToQuantity(dosageInstruction.dose.low))
-                          + '-' + ToString(ToQuantity(dosageInstruction.dose.high))
-                          + dosageInstruction.dose.high.unit.value
-            else ToString(ToQuantity(dosageInstruction.dose)),
+          if doseAndRate.dose is FHIR.Range
+            then ToString(ToQuantity(doseAndRate.dose.low))
+                          + '-' + ToString(ToQuantity(doseAndRate.dose.high))
+                          + doseAndRate.dose.high.unit.value
+            else ToString(ToQuantity(doseAndRate.dose)),
             ''
         ),
       frequencyDescription:
@@ -169,9 +177,9 @@ define function Prescriptions(Orders List<MedicationRequest>):
           // TODO: Shouldn't need the .value here on asNeededBoolean
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded.value then ' PRN' else ''),
       // TODO: Shouldn't need the ToQuantity here...
-      dose: if dosageInstruction.dose is FHIR.Range
-            then ToQuantity(dosageInstruction.dose.high)
-            else ToQuantity(dosageInstruction.dose),
+      dose: if doseAndRate.dose is FHIR.Range
+            then ToQuantity(doseAndRate.dose.high)
+            else ToQuantity(doseAndRate.dose),
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), 1.0)
     }
 
