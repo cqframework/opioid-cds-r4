@@ -20,3 +20,6 @@ define "End-Stage Disease Criteria Enabled":
 
 define "90 Day Opioid Treatment Plan History":
   true
+
+define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
+  true

@@ -51,7 +51,7 @@ define "Ambulatory Opioid Rx":
     [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
   )
 
-define function "Is Active Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
+define function "Is Active Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>):
   value Rx
     where Rx.status.value = 'active'
       and exists (
