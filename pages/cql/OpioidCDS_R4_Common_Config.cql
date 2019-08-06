@@ -23,3 +23,7 @@ define "90 Day Opioid Treatment Plan History":
 
 define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
   true
+
+define "PDMP Data Review in Past 90 Days Criteria Enabled":
+  true
+  
