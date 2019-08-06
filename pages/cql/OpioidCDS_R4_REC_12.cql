@@ -47,7 +47,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine and/or behavioral therapy.'
   else null
 
 define "Get Detail":

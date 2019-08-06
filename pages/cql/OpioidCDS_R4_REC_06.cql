@@ -52,7 +52,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Recommend limiting therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids.'
   else null
 
 define "Get Detail":
