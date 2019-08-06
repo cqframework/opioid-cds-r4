@@ -31,16 +31,29 @@ parameter ContextPrescriptions List<MedicationRequest>
 context Patient
 
 define "Trigger Event Prescriptions":
-  ContextPrescriptions triggerScripts
-      where triggerScripts.medication in Common."Ambulatory Abuse Potential Opioids"
+Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions)
+
+define "Order is to Treat Acute Pain":
+  exists (
+    "Trigger Event Prescriptions" TriggerScripts
+      where Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) > 28 days
+  )
+
+define "Order is for Long-Acting Opioid":
+  exists (
+    "Trigger Event Prescriptions" TriggerScripts
+      where TriggerScripts.code in Common."Extended Release Opioid with Ambulatory Abuse Potential"
+  )
 
 define "Validate Trigger Event":
-  exists( "Trigger Event Prescriptions" )
+  exists ("Trigger Event Prescriptions")
 
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
-    and not "Exclusion Criteria"
+  "Validate Trigger Event"
+    and "Order is to Treat Acute Pain"
+    and OpioidReviewUseful."Opioid Review Would Be Useful"
+    and "Order is for Long-Acting Opioid"
+    and not ("Exclusion Criteria")
 
 define "Exclusion Criteria":
   false
@@ -52,7 +65,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'Recommend limiting therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids.'
+    then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids'
   else null
 
 define "Get Detail":

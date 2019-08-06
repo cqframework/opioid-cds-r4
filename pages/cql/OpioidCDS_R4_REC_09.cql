@@ -32,17 +32,29 @@ parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
+/*TODO: Are We Not Looking for 'active' status here?*/
 define "Trigger Event Prescriptions":
-  ContextPrescriptions triggerScripts
-      where triggerScripts.medication in Common."Ambulatory Abuse Potential Opioids"
+"Is Active Ambulatory Medication Request?"(ContextPrescriptions)
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
+define "PDMP Data Reviewed in Past 90 Days":
+  Config."PDMP Data Review in Past 90 Days Criteria Enabled"
+    and exists (
+      [Procedure: Common."Review PDMP Data Procedure"] P
+        where P.status ~ 'completed'
+      )
+      or exists (
+        [Observation: Common."PDMP Data Review Done Situation"] O
+          where O.status in { 'final', or 'amended' }
+        )
+
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
-    and not "Exclusion Criteria"
+  "Validate Trigger Event"
+    and OpioidReviewUseful."Opioid Review Would Be Useful"
+    and not ("PDMP Data Reviewed in Past 90 Days")
+    /* and not "Exclusion Criteria" */
 
 define "Exclusion Criteria":
   false
