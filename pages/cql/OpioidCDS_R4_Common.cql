@@ -24,6 +24,7 @@ valueset "Opioid Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSe
 valueset "Ambulatory Abuse Potential Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care'
 valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
+valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html'
 
 valueset "Therapies Indicating End of Life Care": 'http://fhir.org/TODO'
 
