@@ -26,7 +26,6 @@ define "Opioid Review Would Be Useful":
     if IsTrue(
       "Patient Age Less Than 18"
         or "Conditions Indicating End Of Life Present"
-        or "Opioid Agents Used for End of Life Treatment Present"
         or "Order For Palliative Care In Past 90 Days"
         or ActiveCancerTreatment."Active Cancer Treatment"
         or "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
@@ -47,10 +46,6 @@ define "Conditions Indicating End Of Life Present":
           where Coding.code in Common."Active Condition"
       )
   )
-
-define "Opioid Agents Used for End of Life Treatment Present":
-  Config."Opioid Agents Used for End of Life Treatment Present Is Enabled"
-    and exists (Common."Medications Indicating End of Life")
 
 define "Order For Palliative Care In Past 90 Days":
   exists (
