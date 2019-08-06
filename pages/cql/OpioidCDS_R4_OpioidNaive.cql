@@ -38,7 +38,7 @@ define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
       where FHIRHelpers.ToDateTime(Rx.authoredOn) during day of "Prescription/Dispense Inclusion Period"
 
 define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
-    Config."Opioid Naive Prescription Condition Is Enabled"
+    Config."Opioid Naive-Prescription Condition Is Enabled"
         and exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
 
 define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
@@ -47,7 +47,7 @@ define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 
             and FHIRHelpers.ToDateTime(Statement.effective as dateTime) during day of "Report Inclusion Period"
 
 define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
-    Config."Opioid Naive Report Condition Is Enabled"
+    Config."Opioid Naive-Report Condition Is Enabled"
         and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
 
 define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
@@ -56,5 +56,5 @@ define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
             and OpioidDispense.status = 'completed'
 
 define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
-    Config."Opioid Naive Dispense Condition Is Enabled"
+    Config."Opioid Naive-Dispense Condition Is Enabled"
         and exists ("Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")

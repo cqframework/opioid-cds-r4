@@ -24,9 +24,13 @@ valueset "Opioid Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSe
 valueset "Ambulatory Abuse Potential Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care'
 valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
+valueset "All Ambulatory Encounters": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
 valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html'
 
-valueset "Therapies Indicating End of Life Care": 'http://fhir.org/TODO'
+// TODO: need to define these valuesets
+valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/therapies-indicating-end-of-life'
+valueset "Active Condition": 'http://todo.com/ValueSet/active-conditions'
+valueset "Oncology specialty designations (NUCC)": 'http://todo.com/ValueSet/oncology-specialty'
 
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
@@ -78,73 +82,83 @@ define function "Is Context Prescription End of Life Opioid?" (ContextPrescripti
 define "End of Life Assessment":
   // 1. Conditions indicating end of life or with limited life expectancy
     exists (
-      (
-        [Condition: "End of Life Conditions"] C
-          where exists (
-            C.clinicalStatus.coding Coding
-              where Coding.code in { 'active', 'recurrence' }
-          )
-      )
-      union
-      (
-        [Condition: code in "Limited Life Expectancy Conditions"] C
-          where exists (
-            C.clinicalStatus.coding Coding
-              where Coding.code in { 'active', 'recurrence' }
-          )
-      )
+      "Conditions Indicating End of Life or With Limited Life Expectancy"
     )
     // 2. Admitted/referred/discharged to hospice care
     or exists (
-      (
-        [Procedure: code in "Hospice Procedure Codes"] P
-          where P.status.value in { 'in-progress', 'completed' }
-      )
-      union
-      (
-        [ServiceRequest: code in "Hospice Procedure Codes"] E
-          where E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
-      )
-      union
-      (
-        [Observation: code in "Hospice Finding Codes"] O
-          where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
-      )
-      union
-      (
-        [Encounter] E
-          where
-            (
-              if E.hospitalization.dischargeDisposition.coding is null
-                  or not exists (E.hospitalization.dischargeDisposition.coding)
-                then false
-              else E.hospitalization.dischargeDisposition in "Hospice Disposition"
-            )
-            and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
-      )
+      "Admitted/Referred/Discharged to Hospice Care"
     )
     // 3. Medications indicating end of life
     or exists (
-      (
-        [MedicationAdministration: "End Of Life Opioids"] MA
-          where MA.status.value in { 'in-progress', 'on-hold', 'completed' }
-      )
-      union
-      (
-        [MedicationDispense: "End Of Life Opioids"] MD
-          where MD.status.value in { 'preparation', 'in-progress', 'on-hold', 'completed' }
-      )
-      union
-      (
-        [MedicationRequest: "End Of Life Opioids"] MR
-          where MR.status.value in { 'active', 'completed' }
-      )
-      union
-      (
-        [MedicationStatement: "End Of Life Opioids"] MS
-          where MS.status.value in { 'active', 'completed', 'intended' }
-      )
+      "Medications Indicating End of Life"
     )
+
+define "Conditions Indicating End of Life or With Limited Life Expectancy":
+  (
+    [Condition: "End of Life Conditions"] C
+      where exists (
+        C.clinicalStatus.coding Coding
+          where Coding.code in "Active Condition"
+      )
+  )
+  union
+  (
+    [Condition: code in "Limited Life Expectancy Conditions"] C
+      where exists (
+        C.clinicalStatus.coding Coding
+          where Coding.code in "Active Condition"
+      )
+  )
+
+define "Admitted/Referred/Discharged to Hospice Care":
+  (
+    [Procedure: code in "Hospice Procedure Codes"] P
+      where P.status.value in { 'in-progress', 'completed' }
+  )
+  union
+  (
+    [ServiceRequest: code in "Hospice Procedure Codes"] E
+      where E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
+  )
+  union
+  (
+    [Observation: code in "Hospice Finding Codes"] O
+      where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+  )
+  union
+  (
+    [Encounter] E
+      where
+        (
+          if E.hospitalization.dischargeDisposition.coding is null
+              or not exists (E.hospitalization.dischargeDisposition.coding)
+            then false
+          else E.hospitalization.dischargeDisposition in "Hospice Disposition"
+        )
+        and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
+  )
+
+define "Medications Indicating End of Life":
+  (
+    [MedicationAdministration: "End Of Life Opioids"] MA
+      where MA.status.value in { 'in-progress', 'on-hold', 'completed' }
+  )
+  union
+  (
+    [MedicationDispense: "End Of Life Opioids"] MD
+      where MD.status.value in { 'preparation', 'in-progress', 'on-hold', 'completed' }
+  )
+  union
+  (
+    [MedicationRequest: "End Of Life Opioids"] MR
+      where MR.status.value in { 'active', 'completed' }
+  )
+  union
+  (
+    [MedicationStatement: "End Of Life Opioids"] MS
+      where MS.status.value in { 'active', 'completed', 'intended' }
+  )
+
 
 define function Prescriptions(Orders List<MedicationRequest>):
   Orders O
