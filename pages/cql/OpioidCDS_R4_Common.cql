@@ -26,6 +26,7 @@ valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
 
 valueset "Therapies Indicating End of Life Care": 'http://fhir.org/TODO'
+valueset "All Ambulatory Encounters": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
 
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
