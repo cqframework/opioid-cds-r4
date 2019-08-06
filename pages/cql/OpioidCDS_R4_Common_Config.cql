@@ -26,4 +26,7 @@ define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
 
 define "PDMP Data Review in Past 90 Days Criteria Enabled":
   true
+
+define "Evidence Based Treatment Criteria For Opioid Use Disorder":
+  true
   

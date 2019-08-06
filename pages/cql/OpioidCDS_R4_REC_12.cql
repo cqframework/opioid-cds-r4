@@ -25,17 +25,48 @@ include OpioidCDS_R4_Common_Config version '0.1.0' called Config
 
 context Patient
 
-define "Trigger Event Prescriptions":
-  ContextPrescriptions triggerScripts
-      where true //TODO
+define "Opioid Use Disorder Lookback Period":
+  Interval[Now() - 90 days, Now()]
 
-define "Validate Trigger Event":
-  exists( "Trigger Event Prescriptions" )
+define "Trigger Event":
+  true
+
+/* define "Validate Trigger Event":
+  exists( "Trigger Event" ) */
+
+define "Receiving Evidence-Based Treatment for Opioid Use Disorder":
+  Config."Evidence Based Treatment Criteria For Opioid Use Disorder"
+    and AgeInYears() >=18
+      and exists (
+        [MedicationRequest: Common."Buprenorphine/Methadone Medications"] MR
+          where MR.status in { 'active', 'completed' }
+            and MR.authoredOn during day of "Opioid Use Disorder Lookback Period"
+        )
+        or exists (
+          [Procedure: "Opioid Specific Behavioral Counseling"] P
+            where P.status ~ 'completed'
+              and P.performed as dateTime during day of "Opioid Use Disorder Lookback Period"
+          )
+
+define "Presence of Diagnosis of Opioid Use Disorder":
+  exists (
+    [Condition: Common."Opioid Misuse Disorders"] C
+      where exists (
+        C.clinicalStatus.coding Coding
+          where Coding.code in { 'active', 'recurrence', 'relapse' }
+      )
+          and C.recordedDate during day of "Opioid Use Disorder Lookback Period"
+    )
+
+define "Positive Result from Opioid Use Disorder Evaluation Tool":
+  /*TODO - FUTURE OPTION?*/ true
+
 
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
-    and not "Exclusion Criteria"
+  not ("Receiving Evidence-Based Treatment for Opioid Use Disorder")
+    and "Presence of Diagnosis of Opioid Use Disorder"
+    /* and "Validate Trigger Event" */
+    /* and not "Exclusion Criteria" */
 
 define "Exclusion Criteria":
   false
@@ -47,7 +78,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine  and /or behavioral therapy'
   else null
 
 define "Get Detail":
