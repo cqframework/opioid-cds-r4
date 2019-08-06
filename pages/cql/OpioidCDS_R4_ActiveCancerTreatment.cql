@@ -28,9 +28,32 @@ define "Active Cancer Treatment":
   Config."Active Cancer Treatment-Encounters Condition Is Enabled"
     and "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
 
+define "Active Cancer Diagnoses":
+  [Condition]
+
+define "Oncologist Practitioner Roles":
+  [PractitionerRole] PractitionerRole
+    where exists (
+      PractitionerRole.specialty Specialty
+        where Specialty in Common."Oncology specialty designations (NUCC)"
+    )
+
 define "Encounters with Cancer Diagnosis During Encounter Period":
-  [Encounter: Common."All Ambulatory Encounters"] encounters
-    where date from encounters.period."start".value in day of "Encounter Period"
+  [Encounter: Common."All Ambulatory Encounters"] Encounter
+    where date from Encounter.period."start".value in day of "Encounter Period"
+      and exists (
+        Encounter.diagnosis EncounterDiagnosis
+          with "Active Cancer Diagnoses" CancerDiagnosis
+          such that EndsWith(EncounterDiagnosis.condition.reference, CancerDiagnosis.id)
+      )
+      and exists (
+        Encounter.participant EncounterParticipant
+          where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
+            or exists (
+              "Oncologist Practitioner Roles" PractitionerRole
+                where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
+            )
+      )
 
 define "Number of Enounters with Cancer Diagnosis During Encounter Period":
   Count ("Encounters with Cancer Diagnosis During Encounter Period")

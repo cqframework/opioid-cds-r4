@@ -26,29 +26,34 @@ define "Opioid Review Would Be Useful":
     if IsTrue(
       "Patient Age Less Than 18"
         or "Conditions Indicating End Of Life Present"
+        or "Opioid Agents Used for End of Life Treatment Present"
         or "Order For Palliative Care In Past 90 Days"
         or ActiveCancerTreatment."Active Cancer Treatment"
+        or "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
       )
     then false
-    else IsFalse("Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present")
+    else true
 
 /* Needs Config*/
 define "Patient Age Less Than 18":
-  AgeInYearsAt(Today()) < 18
+  Config."Age Less than 18 Years Is Enabled"
+    and AgeInYearsAt(Today()) < 18
 
 define "Conditions Indicating End Of Life Present":
-  exists(
+  exists (
     [Condition: Common."Limited Life Expectancy Conditions"] LLEC
       where exists (
         LLEC.clinicalStatus.coding Coding
-          where Coding.code ~ 'active'
-          // does this mean "active" state?
-          //where Coding.code in { 'active', 'recurrence' }
+          where Coding.code in Common."Active Condition"
       )
   )
 
+define "Opioid Agents Used for End of Life Treatment Present":
+  Config."Opioid Agents Used for End of Life Treatment Present Is Enabled"
+    and exists (Common."Medications Indicating End of Life")
+
 define "Order For Palliative Care In Past 90 Days":
-  exists(
+  exists (
     [ServiceRequest: Common."Therapies Indicating End of Life Care"] SR
       where SR.status in { 'active', 'completed'}
         and SR.intent =! null
@@ -58,13 +63,11 @@ define "Order For Palliative Care In Past 90 Days":
 /*"Conditions Including Cancer..." slidedeck describes valuesets as including cancer, not sure if that means additional valuesets possibly not indicated in the Opioid Terminology Sheet*/
 /*Needs Config*/
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
-  //Config."something" and
-    exists(
+  Config."Conditions Including Cancer to Exclude Opioid Management Indicating End-Stage Disease Present Is Enabled"
+    and exists (
       [Condition: Common."End of Life Conditions"] EOLC
         where exists (
           EOLC.clinicalStatus.coding Coding
-            where Coding.code ~ 'active'
-            // does this mean "active" state?
-            //where Coding.code in { 'active', 'recurrence' }
+            where Coding.code in Common."Active Condition"
         )
     )
