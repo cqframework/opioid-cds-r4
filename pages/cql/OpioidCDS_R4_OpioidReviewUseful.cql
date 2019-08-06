@@ -61,7 +61,6 @@ define "Order For Palliative Care In Past 90 Days":
   )
 
 /*"Conditions Including Cancer..." slidedeck describes valuesets as including cancer, not sure if that means additional valuesets possibly not indicated in the Opioid Terminology Sheet*/
-/*Needs Config*/
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
   Config."Conditions Including Cancer to Exclude Opioid Management Indicating End-Stage Disease Present Is Enabled"
     and exists (
