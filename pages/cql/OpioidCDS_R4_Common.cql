@@ -25,6 +25,8 @@ valueset "Ambulatory Abuse Potential Opioids": 'http://fhir.org/guides/cdc/opioi
 valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
 
+valueset "Therapies Indicating End of Life Care": 'http://fhir.org/TODO'
+
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 
@@ -32,23 +34,39 @@ code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 define IsForChronicPain: true
 
 define "Active Ambulatory Opioid Rx":
-  [MedicationRequest: "Ambulatory Abuse Potential Opioids"] Rx
-    where Rx.status.value = 'active'
-      and FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Active Ambulatory Medication Request?"(
+    [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
+  )
 
 define "Active Ambulatory Benzodiazepine Rx":
-  [MedicationRequest: "Benzodiazepines"] Rx
-    where Rx.status.value = 'active'
-      and FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Active Ambulatory Medication Request?"(
+    [MedicationRequest: "Benzodiazepines"]
+  )
 
 define "Active Ambulatory Naloxone Rx":
-  [MedicationRequest: "Naloxone"] Rx
-    where Rx.status.value = 'active'
-      and FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Active Ambulatory Medication Request?"(
+    [MedicationRequest: "Naloxone"]
+  )
 
 define "Ambulatory Opioid Rx":
-  [MedicationRequest: "Ambulatory Abuse Potential Opioids"] Rx
-      where FHIRHelpers.ToConcept(Rx.category) contains "Outpatient"
+  "Is Ambulatory Medication Request?"(
+    [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
+  )
+
+define function "Is Active Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
+  value Rx
+    where Rx.status.value = 'active'
+      and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
+      )
+
+define function "Is Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
+  value Rx
+    where exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
+      )
 
 define function "Is Context Prescription End of Life Opioid?" (ContextPrescriptions List<MedicationRequest>):
   exists (
@@ -61,12 +79,18 @@ define "End of Life Assessment":
     exists (
       (
         [Condition: "End of Life Conditions"] C
-          where C.clinicalStatus.value in { 'active', 'recurrence' }
+          where exists (
+            C.clinicalStatus.coding Coding
+              where Coding.code in { 'active', 'recurrence' }
+          )
       )
       union
       (
         [Condition: code in "Limited Life Expectancy Conditions"] C
-          where C.clinicalStatus.value in { 'active', 'recurrence' }
+          where exists (
+            C.clinicalStatus.coding Coding
+              where Coding.code in { 'active', 'recurrence' }
+          )
       )
     )
     // 2. Admitted/referred/discharged to hospice care
@@ -101,22 +125,22 @@ define "End of Life Assessment":
     // 3. Medications indicating end of life
     or exists (
       (
-        [MedicationAdministration: code in "End Of Life Opioids"] MA
+        [MedicationAdministration: "End Of Life Opioids"] MA
           where MA.status.value in { 'in-progress', 'on-hold', 'completed' }
       )
       union
       (
-        [MedicationDispense: code in "End Of Life Opioids"] MD
+        [MedicationDispense: "End Of Life Opioids"] MD
           where MD.status.value in { 'preparation', 'in-progress', 'on-hold', 'completed' }
       )
       union
       (
-        [MedicationRequest: code in "End Of Life Opioids"] MR
+        [MedicationRequest: "End Of Life Opioids"] MR
           where MR.status.value in { 'active', 'completed' }
       )
       union
       (
-        [MedicationStatement: code in "End Of Life Opioids"] MS
+        [MedicationStatement: "End Of Life Opioids"] MS
           where MS.status.value in { 'active', 'completed', 'intended' }
       )
     )
@@ -129,17 +153,19 @@ define function Prescriptions(Orders List<MedicationRequest>):
       medicationName: OMTKLogic.GetMedicationName(rxNormCode),
       // NOTE: Assuming a single dosage instruction element
       dosageInstruction: O.dosageInstruction[0],
+      // NOTE: Assuming a single dose and rate element
+      doseAndRate: dosageInstruction.doseAndRate[0],
       repeat: dosageInstruction.timing.repeat,
       frequency: Coalesce(repeat.frequencyMax.value, repeat.frequency.value),
       period: System.Quantity { value: repeat.period.value, unit: repeat.periodUnit.value },
       doseDescription:
         Coalesce(
           // There should be a conversion from FHIR.SimpleQuantity to System.Quantity
-          if dosageInstruction.dose is FHIR.Range
-            then ToString(ToQuantity(dosageInstruction.dose.low))
-                          + '-' + ToString(ToQuantity(dosageInstruction.dose.high))
-                          + dosageInstruction.dose.high.unit.value
-            else ToString(ToQuantity(dosageInstruction.dose)),
+          if doseAndRate.dose is FHIR.Range
+            then ToString(ToQuantity(doseAndRate.dose.low))
+                          + '-' + ToString(ToQuantity(doseAndRate.dose.high))
+                          + doseAndRate.dose.high.unit.value
+            else ToString(ToQuantity(doseAndRate.dose)),
             ''
         ),
       frequencyDescription:
@@ -160,9 +186,9 @@ define function Prescriptions(Orders List<MedicationRequest>):
           // TODO: Shouldn't need the .value here on asNeededBoolean
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded.value then ' PRN' else ''),
       // TODO: Shouldn't need the ToQuantity here...
-      dose: if dosageInstruction.dose is FHIR.Range
-            then ToQuantity(dosageInstruction.dose.high)
-            else ToQuantity(dosageInstruction.dose),
+      dose: if doseAndRate.dose is FHIR.Range
+            then ToQuantity(doseAndRate.dose.high)
+            else ToQuantity(doseAndRate.dose),
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), 1.0)
     }
 
@@ -247,16 +273,27 @@ define function GetMedicationNames(medications List<MedicationRequest>):
 define function CodeableConceptsToString(concepts List<FHIR.CodeableConcept>):
   concepts c return CodeableConceptToString(c)
 
+
+define function CodingToString(coding FHIR.Coding):
+  if (coding is null)
+  then null
+  else
+    'Code {' &
+      'code: ' & coding.code &
+      'system: ' & coding.system &
+      'version: ' & coding.version &
+      'display: ' & coding.display &
+    '}'
+
 define function CodeableConceptToString(concept FHIR.CodeableConcept):
   if (concept is null or concept.coding is null)
   then null
   else
-    'CodeableConcept { ' &
-      'code: ' & concept.coding.code &
-      ' system: ' & concept.coding.system &
-      ' version: ' & concept.coding.version &
-      ' display: ' & concept.coding.display &
-    ' }'
+    'CodeableConcept {' &
+      'Coding: [' &
+        Combine(concept.coding Coding return CodingToString(Coding), ',')
+      & ']'
+    & '}'
 
 define function ToCode(coding FHIR.Coding):
   System.Code {
