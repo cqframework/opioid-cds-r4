@@ -54,7 +54,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Notify: PDMP data for this patient has not been reviewed in the past 90 days.'
   else null
 
 define "Get Detail":

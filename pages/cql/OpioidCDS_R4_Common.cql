@@ -25,6 +25,8 @@ valueset "Ambulatory Abuse Potential Opioids": 'http://fhir.org/guides/cdc/opioi
 valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
 
+valueset "Therapies Indicating End of Life Care": 'http://fhir.org/TODO'
+
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 
@@ -47,7 +49,7 @@ define "Active Ambulatory Naloxone Rx":
   )
 
 define "Ambulatory Opioid Rx":
-  "Is Active Ambulatory Medication Request?"(
+  "Is Ambulatory Medication Request?"(
     [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
   )
 
@@ -55,6 +57,13 @@ define function "Is Active Ambulatory Medication Request?" (value List<Medicatio
   value Rx
     where Rx.status.value = 'active'
       and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
+      )
+
+define function "Is Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
+  value Rx
+    where exists (
         Rx.category RxCategory
           where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
       )
@@ -116,22 +125,22 @@ define "End of Life Assessment":
     // 3. Medications indicating end of life
     or exists (
       (
-        [MedicationAdministration: code in "End Of Life Opioids"] MA
+        [MedicationAdministration: "End Of Life Opioids"] MA
           where MA.status.value in { 'in-progress', 'on-hold', 'completed' }
       )
       union
       (
-        [MedicationDispense: code in "End Of Life Opioids"] MD
+        [MedicationDispense: "End Of Life Opioids"] MD
           where MD.status.value in { 'preparation', 'in-progress', 'on-hold', 'completed' }
       )
       union
       (
-        [MedicationRequest: code in "End Of Life Opioids"] MR
+        [MedicationRequest: "End Of Life Opioids"] MR
           where MR.status.value in { 'active', 'completed' }
       )
       union
       (
-        [MedicationStatement: code in "End Of Life Opioids"] MS
+        [MedicationStatement: "End Of Life Opioids"] MS
           where MS.status.value in { 'active', 'completed', 'intended' }
       )
     )
