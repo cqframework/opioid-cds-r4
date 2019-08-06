@@ -1,8 +1,8 @@
 library OpioidCDS_R4_Common_Config version '0.1.0'
 
-// Opiokd Review Useful
+// Opioid Review Useful
 
-// Active Cancer Triatment
+// Active Cancer Treatment
 define "Active Cancer Treatment-Encounters Condition Is Enabled":
   true
 
