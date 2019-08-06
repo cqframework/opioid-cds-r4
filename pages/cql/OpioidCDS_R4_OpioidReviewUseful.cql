@@ -33,7 +33,6 @@ define "Opioid Review Would Be Useful":
     then false
     else true
 
-/* Needs Config*/
 define "Patient Age Less Than 18":
   Config."Age Less than 18 Years Is Enabled"
     and AgeInYearsAt(Today()) < 18
@@ -57,7 +56,7 @@ define "Order For Palliative Care In Past 90 Days":
 
 /*"Conditions Including Cancer..." slidedeck describes valuesets as including cancer, not sure if that means additional valuesets possibly not indicated in the Opioid Terminology Sheet*/
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
-  Config."Conditions Including Cancer to Exclude Opioid Management Indicating End-Stage Disease Present Is Enabled"
+  Config."End-Stage Disease Criteria Enabled"
     and exists (
       [Condition: Common."End of Life Conditions"] EOLC
         where exists (

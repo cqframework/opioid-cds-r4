@@ -28,20 +28,31 @@ parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
+define "Opioid Harms & Risks Counseling Lookback Period":
+  Interval[Now() - 90 days, Now()]
+
 define "Trigger Event Prescriptions":
-  ContextPrescriptions triggerScripts
-      where triggerScripts.medication in Common."Ambulatory Abuse Potential Opioids"
+  "Is Active Ambulatory Medication Request?" (
+    [MedicationRequest: Common."Extended Release Opioid with Ambulatory Abuse Potential"]
+  )
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
-    and not "Exclusion Criteria"
+  "Validate Trigger Event"
+    and OpioidReviewUseful."Opioid Review Would Be Useful"
+    and not ("Exclusion Criteria")
+
 
 define "Exclusion Criteria":
-  false
+  Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
+    and exists ("Documented Discussion of Opioid Harms and Risks in Past 90 Days Including Today")
+
+  define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
+    [Procedure: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] P
+      where P.performed as dateTime during day of "Opioid Harms & Risks Counseling Lookback Period"
+        and P.status ~ 'completed'
 
 define "Get Indicator":
   if "Inclusion Criteria"
@@ -50,7 +61,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Recommend counseling regarding potential opioid harms and risks'
   else null
 
 define "Get Detail":

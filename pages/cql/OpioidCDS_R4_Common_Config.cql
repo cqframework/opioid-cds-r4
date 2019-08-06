@@ -10,15 +10,31 @@ define "Opioid Agents Used for End of Life Treatment Present Is Enabled":
 define "Active Cancer Treatment-Encounters Condition Is Enabled":
   true
 
-define "Conditions Including Cancer to Exclude Opioid Management Indicating End-Stage Disease Present Is Enabled":
+define "End-Stage Disease Criteria Enabled":
   true
 
-/* Opioid Naive */
-define "Opioid Naive-Prescription Condition Is Enabled":
+// Opioid Naive
+define "Opioid Naive Prescription Condition Is Enabled":
   true
 
-define "Opioid Naive-Report Condition Is Enabled":
+define "Opioid Naive Report Condition Is Enabled":
   true
 
-define "Opioid Naive-Dispense Condition Is Enabled":
+define "Opioid Naive Dispense Condition Is Enabled":
   true
+
+define "Patient Age Less Than 18 Criteria Enabled":
+  true
+
+define "90 Day Opioid Treatment Plan History":
+  true
+
+define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
+  true
+
+define "PDMP Data Review in Past 90 Days Criteria Enabled":
+  true
+
+define "Evidence Based Treatment Criteria For Opioid Use Disorder":
+  true
+  

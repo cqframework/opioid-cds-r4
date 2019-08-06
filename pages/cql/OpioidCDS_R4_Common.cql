@@ -25,6 +25,7 @@ valueset "Ambulatory Abuse Potential Opioids": 'http://fhir.org/guides/cdc/opioi
 valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
 valueset "All Ambulatory Encounters": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
+valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html'
 
 // TODO: need to define these valuesets
 valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/therapies-indicating-end-of-life'
