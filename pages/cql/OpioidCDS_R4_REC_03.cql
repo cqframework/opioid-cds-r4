@@ -40,7 +40,7 @@ define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
 define "Inclusion Criteria":
-    and "Validate Trigger Event"
+  "Validate Trigger Event"
     and OpioidReviewUseful."Opioid Review Would Be Useful"
     and not ("Exclusion Criteria")
 
@@ -49,7 +49,7 @@ define "Exclusion Criteria":
   Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
     and exists ("Documented Discussion of Opioid Harms and Risks in Past 90 Days Including Today")
 
-  define "Documented Discussion of Opioid Harms and Risks in Past 90 Days Including Today":
+  define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
     [Procedure: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] P
       where P.performed as dateTime during day of "Opioid Harms & Risks Counseling Lookback Period"
         and P.status ~ 'completed'
