@@ -1,0 +1,51 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-c846e1fb-b178-4c70-8f6c-64cd51717f10",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "c846e1fb-b178-4c70-8f6c-64cd51717f10-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/c846e1fb-b178-4c70-8f6c-64cd51717f10-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationStatement",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationStatement"
+                    ]
+                },
+                "id": "c846e1fb-b178-4c70-8f6c-64cd51717f10-4",
+                "status": "active",
+                "subject": {
+                    "reference": "Patient/c846e1fb-b178-4c70-8f6c-64cd51717f10-1"
+                },
+                "effectiveDateTime": "2018-01-01T00:00:00.0",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care",
+                            "code": "TODO",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationStatement/c846e1fb-b178-4c70-8f6c-64cd51717f10-4"
+            }
+        }
+    ]
+}

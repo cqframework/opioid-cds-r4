@@ -1,0 +1,95 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2000-01-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/6786477b-0719-4e6a-a27e-e72fa61a19b3-1"
+            }
+        },
+        {
+            "fullUrl": "http//motivemi.com/ras-CRN/MedicationDispense/6786477b-0719-4e6a-a27e-e72fa61a19b3-10",
+            "resource": {
+                "resourceType": "MedicationDispense",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationDispense"
+                    ]
+                },
+                "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-10",
+                "whenHandedOver": "2018-08-01",
+                "status": "completed",
+                "subject": {
+                    "reference": "Patient/6786477b-0719-4e6a-a27e-e72fa61a19b3-1"
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "NDC",
+                            "code": "TODO",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationDispense/6786477b-0719-4e6a-a27e-e72fa61a19b3-10"
+            }
+        },
+        {
+            "fullUrl": "http//motivemi.com/ras-CRN/Condition/6786477b-0719-4e6a-a27e-e72fa61a19b3-4",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-4",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Condition"
+                    ]
+                },
+                "clinicalStatus": [
+                    {
+                    "code": {
+                            "coding": [
+                                {
+                                    "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions",
+                                    "code": "NOT ACTIVE",
+                                    "display": "Active Condition"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "verificationStatus": "confirmed",
+                "subject": {
+                    "reference": "Patient/6786477b-0719-4e6a-a27e-e72fa61a19b3-1"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
+                            "code": "TODO",
+                            "display": "Limited Life Expectancy Conditions"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Condition/6786477b-0719-4e6a-a27e-e72fa61a19b3-4"
+            }
+        }
+    ]
+}

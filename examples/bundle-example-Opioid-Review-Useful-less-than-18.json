@@ -1,0 +1,62 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-97464c57-6a16-4a11-8852-7efcc947c160",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "97464c57-6a16-4a11-8852-7efcc947c160-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2002-08-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/97464c57-6a16-4a11-8852-7efcc947c160-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationRequest"
+                    ]
+                },
+                "id": "97464c57-6a16-4a11-8852-7efcc947c160-11",
+                "authoredOn": "2019-08-01T00:00:00.0",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/97464c57-6a16-4a11-8852-7efcc947c160-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care",
+                            "code": "",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationRequest/97464c57-6a16-4a11-8852-7efcc947c160-11"
+            }
+        }
+    ]
+}

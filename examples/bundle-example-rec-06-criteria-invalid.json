@@ -1,0 +1,68 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2000-01-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationRequest"
+                    ]
+                },
+                "id": "d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-3",
+                "authoredOn": "2018-08-01T00:00:00.0",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html",
+                            "code": "TODO",
+                            "display": "Extended Releast Opioid with Ambulatory Abuse Potential"
+                        }
+                    ]
+                }
+            },
+            "dispenseRequest": {
+                "expectedSupplyDuration": {
+                    "value": "27",
+                    "unit": "days"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationRequest/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-3"
+            }
+        }
+    ]
+}
