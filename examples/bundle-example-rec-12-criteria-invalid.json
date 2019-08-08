@@ -1,0 +1,62 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-1a036bca-f293-46a6-b5cc-25b298894288",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1a036bca-f293-46a6-b5cc-25b298894288-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2000-01-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/1a036bca-f293-46a6-b5cc-25b298894288-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Condition",
+                "id": "1a036bca-f293-46a6-b5cc-25b298894288-5",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
+                                "code": "active",
+                                "display": "Active Condition"
+                            }
+                        ]
+                    }
+                },
+                "verificationStatus": "confirmed",
+                "subject": {
+                    "reference": "Patient/1a036bca-f293-46a6-b5cc-25b298894288-1"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "TODO",
+                            "code": "Not In VS",
+                            "display": "Opioid Misuse Disorders"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Condition/1a036bca-f293-46a6-b5cc-25b298894288-5"
+            }
+        }
+    ]
+}
