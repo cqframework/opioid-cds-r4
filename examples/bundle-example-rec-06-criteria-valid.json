@@ -46,9 +46,9 @@
                 "medicationCodeableConcept": {
                     "coding": [
                         {
-                            "system": "http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html",
-                            "code": "TODO",
-                            "display": "Extended Releast Opioid with Ambulatory Abuse Potential"
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1049502",
+                            "display": "oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
                         }
                     ]
                 }

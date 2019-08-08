@@ -37,8 +37,8 @@
                 "medicationCodeableConcept": {
                     "coding": [
                         {
-                            "system": "NDC",
-                            "code": "TODO",
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
                             "display": "Ambulatory Abuse Potential Opioids"
                         }
                     ]
@@ -64,9 +64,9 @@
                     "code": {
                             "coding": [
                                 {
-                                    "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions",
-                                    "code": "TODO",
-                                    "display": "Active Condition"
+                                    "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
+                                    "code": "active",
+                                    "display": "Active"
                                 }
                             ]
                         }
@@ -79,8 +79,8 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
-                            "code": "TODO",
+                            "system": "http://snomed.info/sct",
+                            "code": "162607003",
                             "display": "Limited Life Expectancy Conditions"
                         }
                     ]

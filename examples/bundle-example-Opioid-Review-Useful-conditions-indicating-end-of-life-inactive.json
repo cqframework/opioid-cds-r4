@@ -37,8 +37,8 @@
                 "medicationCodeableConcept": {
                     "coding": [
                         {
-                            "system": "NDC",
-                            "code": "TODO",
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010600",
                             "display": "Ambulatory Abuse Potential Opioids"
                         }
                     ]
@@ -64,7 +64,7 @@
                     "code": {
                             "coding": [
                                 {
-                                    "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions",
+                                    "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
                                     "code": "NOT ACTIVE",
                                     "display": "Active Condition"
                                 }

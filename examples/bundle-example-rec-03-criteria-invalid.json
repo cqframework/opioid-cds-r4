@@ -46,8 +46,8 @@
                 "medicationCodeableConcept": {
                     "coding": [
                         {
-                            "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care",
-                            "code": "TODO",
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
                             "display": "Ambulatory Abuse Potential Opioids"
                         }
                     ]
