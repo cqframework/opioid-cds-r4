@@ -31,18 +31,20 @@ parameter ContextPrescriptions List<MedicationRequest>
 context Patient
 
 define "Trigger Event Prescriptions":
-Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions)
+  Common."Is Ambulatory Medication Request?"(ContextPrescriptions)
 
 define "Order is to Treat Acute Pain":
-  exists (
-    "Trigger Event Prescriptions" TriggerScripts
-      where Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) > 28 days
-  )
+  Config."Order is to Treat Acute Pain Enabled"
+    and exists (
+      "Trigger Event Prescriptions" TriggerScripts
+        where Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) < 28
+    )
 
 define "Order is for Long-Acting Opioid":
   exists (
     "Trigger Event Prescriptions" TriggerScripts
-      where TriggerScripts.code in Common."Extended Release Opioid with Ambulatory Abuse Potential"
+      where TriggerScripts.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
+        or Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) > 7
   )
 
 define "Validate Trigger Event":
@@ -50,8 +52,8 @@ define "Validate Trigger Event":
 
 define "Inclusion Criteria":
   "Validate Trigger Event"
-    and "Order is to Treat Acute Pain"
     and OpioidReviewUseful."Opioid Review Would Be Useful"
+    and "Order is to Treat Acute Pain"
     and "Order is for Long-Acting Opioid"
     and not ("Exclusion Criteria")
 
@@ -68,7 +70,7 @@ define "Get Summary":
     then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids'
   else null
 
-define "Get Detail":
-  if "Inclusion Criteria"
-    then 'blah'
-  else null
+  define "Get Detail":
+    if "Inclusion Criteria"
+      then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Trigger Event Prescriptions"), ', ')
+    else null
