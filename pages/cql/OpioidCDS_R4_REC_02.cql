@@ -50,7 +50,6 @@ define "Inclusion Criteria":
       and OpioidReviewUseful."Opioid Review Would Be Useful"
       /* and not ("Exclusion Criteria") */
 
-
 define "Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
   Config."Opioid Treatment Plan Verification Enabled"
     and exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")

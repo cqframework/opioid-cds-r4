@@ -1,0 +1,94 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-5e6d9f47-52ac-4ded-b885-fa329160dd7e",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "5e6d9f47-52ac-4ded-b885-fa329160dd7e-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2002-01-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/5e6d9f47-52ac-4ded-b885-fa329160dd7e-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationRequest"
+                    ]
+                },
+                "id": "5e6d9f47-52ac-4ded-b885-fa329160dd7e-3",
+                "authoredOn": "2018-08-01T00:00:00.0",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/5e6d9f47-52ac-4ded-b885-fa329160dd7e-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationRequest/5e6d9f47-52ac-4ded-b885-fa329160dd7e-3"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "5e6d9f47-52ac-4ded-b885-fa329160dd7e-21",
+                "meta": {
+                    "profile": [
+                        "https://hl7.org/fhir/profiles/Procedure"
+                    ]
+                },
+                "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "TODO",
+                            "code": "TODO",
+                            "display": "Procedure For Counseling Regarding Potential Opioid Harms and Risks"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/5e6d9f47-52ac-4ded-b885-fa329160dd7e-1"
+                },
+                "performedPeriod": {
+                    "start": "2018-08-01T00:00:00",
+                    "end": "2018-08-02T00:00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Procedure/5e6d9f47-52ac-4ded-b885-fa329160dd7e-21"
+            }
+        }
+    ]
+}

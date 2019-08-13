@@ -1,0 +1,101 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2000-01-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationRequest"
+                    ]
+                },
+                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-3",
+                "authoredOn": "2018-08-01T00:00:00.0",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            },
+            "recorder": {
+                "reference": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationRequest/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-3"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "CarePlan",
+                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded9",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/CarePlan"
+                    ],
+                    "lastUpdated": "2018-08-01T12:00:00.0"
+                },
+                "status": "active",
+                "intent": "plan",
+                "subject": {
+                    "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                },
+                "created": "2018-08-01T00:00:00.0",
+                "author": {
+                    "reference": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+                }
+            },
+            //TODO: Need guidance on how CarePlan will be determined to be an Opioid Treatment Plan
+            "request": {
+                "method": "PUT",
+                "url": "CarePlan/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-5"
+            }
+        }
+    ]
+}

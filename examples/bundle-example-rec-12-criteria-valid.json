@@ -1,0 +1,62 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-f961a3a5-f1fa-4053-ba17-032aa1836284",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "f961a3a5-f1fa-4053-ba17-032aa1836284-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2000-01-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Condition",
+                "id": "f961a3a5-f1fa-4053-ba17-032aa1836284-5",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
+                                "code": "active",
+                                "display": "Active Condition"
+                            }
+                        ]
+                    }
+                },
+                "verificationStatus": "confirmed",
+                "subject": {
+                    "reference": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "TODO",
+                            "code": "TODO",
+                            "display": "Opioid Misuse Disorders"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Condition/f961a3a5-f1fa-4053-ba17-032aa1836284-5"
+            }
+        }
+    ]
+}

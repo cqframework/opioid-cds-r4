@@ -32,9 +32,8 @@ define "Opioid Harms & Risks Counseling Lookback Period":
   Interval[Now() - 90 days, Now()]
 
 define "Trigger Event Prescriptions":
-  "Is Active Ambulatory Medication Request?" (
-    [MedicationRequest: Common."Extended Release Opioid with Ambulatory Abuse Potential"]
-  )
+  Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions) TriggerScript
+    where TriggerScript.code in Common."Extended Release Opioid with Ambulatory Abuse Potential"]
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )

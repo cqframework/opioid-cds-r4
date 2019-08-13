@@ -1,0 +1,68 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-ae923976-6992-49d5-8ea0-97c752088770",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "ae923976-6992-49d5-8ea0-97c752088770-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2000-01-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/ae923976-6992-49d5-8ea0-97c752088770-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationRequest"
+                    ]
+                },
+                "id": "ae923976-6992-49d5-8ea0-97c752088770-3",
+                "authoredOn": "2018-08-01T00:00:00.0",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/ae923976-6992-49d5-8ea0-97c752088770-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1049502",
+                            "display": "oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
+                        }
+                    ]
+                }
+            },
+            "dispenseRequest": {
+                "expectedSupplyDuration": {
+                    "value": "29",
+                    "unit": "days"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationRequest/ae923976-6992-49d5-8ea0-97c752088770-3"
+            }
+        }
+    ]
+}
