@@ -41,4 +41,8 @@ define "Opioid Treatment Plan Verification Enabled":
 
 // Recommendation 3
 define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
-true
+  true
+
+// Recommendation 6
+define "Order is to Treat Acute Pain Enabled":
+  true
