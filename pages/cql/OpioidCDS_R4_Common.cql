@@ -33,6 +33,7 @@ valueset "CDC Malignant Cancer Conditions": 'http://todo.com/cdc-malignant-cance
 valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/therapies-indicating-end-of-life'
 valueset "Active Condition": 'http://todo.com/ValueSet/active-conditions'
 valueset "Oncology specialty designations (NUCC)": 'http://todo.com/ValueSet/oncology-specialty'
+valueset "Procedure For Counseling Regarding Potential Opioid Harms and Risks": 'http://todo.com/ValueSet/opioid-potential-harm-counseling'
 
 // Recommendation #2
 valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
