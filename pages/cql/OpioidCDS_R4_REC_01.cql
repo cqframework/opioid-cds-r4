@@ -32,7 +32,7 @@ parameter ContextPrescriptions List<FHIR.MedicationRequest>
 context Patient
 
 define "Trigger Event Prescriptions":
-  Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions)
+  Common."Is Ambulatory Medication Request?"(ContextPrescriptions)
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
@@ -44,7 +44,7 @@ define "Inclusion Criteria":
     and OpioidNaive."Is Opioid Naive"
 
 define "Exclusion Criteria":
-  false
+  false // none
 
 define "Get Indicator":
   if "Inclusion Criteria"
@@ -58,5 +58,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Trigger Event Prescriptions"), ', ')
   else null
