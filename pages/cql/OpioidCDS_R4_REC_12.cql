@@ -53,7 +53,7 @@ define "Presence of Diagnosis of Opioid Use Disorder":
     [Condition: Common."Opioid Misuse Disorders"] C
       where exists (
         C.clinicalStatus.coding Coding
-          where Coding.code in { 'active', 'recurrence', 'relapse' }
+          where Coding.code in "Active Condition"
       )
           and C.recordedDate during day of "Opioid Use Disorder Lookback Period"
     )

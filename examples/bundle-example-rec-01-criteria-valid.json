@@ -1,0 +1,90 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-8119002c-6322-4d16-988b-36bb6d9b3940",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "birthDate": "2002-08-01",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationStatement",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationStatement"
+                    ]
+                },
+                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-4",
+                "status": "active",
+                "subject": {
+                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                },
+                "effectiveDateTime": "2018-01-01T00:00:00.0",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationStatement/8119002c-6322-4d16-988b-36bb6d9b3940-4"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationRequest"
+                    ]
+                },
+                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-3",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationRequest/8119002c-6322-4d16-988b-36bb6d9b3940-3"
+            }
+        }
+    ]
+}

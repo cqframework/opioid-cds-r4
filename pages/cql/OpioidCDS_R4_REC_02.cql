@@ -49,6 +49,10 @@ define "Inclusion Criteria":
       and OpioidReviewUseful."Opioid Review Would Be Useful"
       /* and not ("Exclusion Criteria") */
 
+
+/*TODO-Not sure how we want to confirm that CarePlan is an "Opioid Treatment Plan" as CarePlan doesn't have a .code attribute 
+-> current implementation is just a conceptual representation. Actual implentation will have to validate something other than "code in VS."*/
+
 define "Opioid Treatment Plan Creation or Update in Past 90 Days":
   [CarePlan: Common."Opioid Treatment Plan"] CP
     let creation: CP.created during day of "Treatment Plan Lookback Period"
