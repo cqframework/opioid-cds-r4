@@ -90,8 +90,8 @@ define "Get Summary":
   if "Inclusion Criteria"
     then 'Recommend creation, review or update of opioid treatment plan'
   else null
-
+  
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Trigger Event Prescriptions"), ', ')
   else null
