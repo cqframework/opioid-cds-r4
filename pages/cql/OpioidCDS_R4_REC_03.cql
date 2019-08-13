@@ -29,11 +29,11 @@ parameter ContextPrescriptions List<MedicationRequest>
 context Patient
 
 define "Opioid Harms & Risks Counseling Lookback Period":
-  Interval[Now() - 90 days, Now()]
+  Interval[Now() - 90 days, Now() - 1 days]
 
 define "Trigger Event Prescriptions":
-  Common."Is Active Ambulatory Medication Request?"(ContextPrescriptions) TriggerScript
-    where TriggerScript.code in Common."Extended Release Opioid with Ambulatory Abuse Potential"]
+  (Common."Is Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript
+    where TriggerScript.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
@@ -43,15 +43,21 @@ define "Inclusion Criteria":
     and OpioidReviewUseful."Opioid Review Would Be Useful"
     and not ("Exclusion Criteria")
 
-
 define "Exclusion Criteria":
   Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
-    and exists ("Documented Discussion of Opioid Harms and Risks in Past 90 Days Including Today")
+    and (
+      exists ("Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
+        or exists ("Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
+    )
 
-  define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
-    [Procedure: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] P
-      where P.performed as dateTime during day of "Opioid Harms & Risks Counseling Lookback Period"
-        and P.status ~ 'completed'
+define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
+  [Procedure: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] P
+    where FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
+      and P.status ~ 'completed'
+
+define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
+  [ServiceRequest: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] SR
+    where FHIRHelpers.ToDateTime(SR.occurrence as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
 
 define "Get Indicator":
   if "Inclusion Criteria"
@@ -65,5 +71,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Trigger Event Prescriptions"), ', ')
   else null
