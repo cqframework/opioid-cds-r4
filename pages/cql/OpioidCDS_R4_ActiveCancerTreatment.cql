@@ -25,11 +25,11 @@ define "Encounter Period":
   Interval[Now() - 12 months, Now())
 
 define "Active Cancer Treatment":
-  Config."Active Cancer Treatment-Encounters Condition Is Enabled"
+  Config."Active Cancer Treatment Encounters Condition Is Enabled"
     and "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
 
 define "Active Cancer Diagnoses":
-  [Condition]
+  [Condition: Common."CDC Malignant Cancer Conditions"]
 
 define "Oncologist Practitioner Roles":
   [PractitionerRole] PractitionerRole

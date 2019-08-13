@@ -28,6 +28,7 @@ valueset "All Ambulatory Encounters": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16
 valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html'
 
 // TODO: need to define these valuesets
+valueset "CDC Malignant Cancer Conditions": 'http://todo.com/cdc-malignant-cancer-conditions'
 valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/therapies-indicating-end-of-life'
 valueset "Active Condition": 'http://todo.com/ValueSet/active-conditions'
 valueset "Oncology specialty designations (NUCC)": 'http://todo.com/ValueSet/oncology-specialty'

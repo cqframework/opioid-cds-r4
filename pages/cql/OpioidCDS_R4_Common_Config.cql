@@ -7,7 +7,7 @@ define "Age Less than 18 Years Is Enabled":
 define "Opioid Agents Used for End of Life Treatment Present Is Enabled":
   true
 
-define "Active Cancer Treatment-Encounters Condition Is Enabled":
+define "Active Cancer Treatment Encounters Condition Is Enabled":
   true
 
 define "End-Stage Disease Criteria Enabled":
@@ -37,4 +37,3 @@ define "PDMP Data Review in Past 90 Days Criteria Enabled":
 
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":
   true
-  
