@@ -37,3 +37,7 @@ define "PDMP Data Review in Past 90 Days Criteria Enabled":
 
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":
   true
+
+// Recommendation 2
+define "Opioid Treatment Plan Verification Enabled":
+  true

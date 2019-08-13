@@ -5,6 +5,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OMTKLogic version '0.0.1' called OMTKLogic
 
+codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
 codesystem "Medication Request Category Codes": 'http://hl7.org/fhir/medication-request-category'
 
@@ -32,6 +33,10 @@ valueset "CDC Malignant Cancer Conditions": 'http://todo.com/cdc-malignant-cance
 valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/therapies-indicating-end-of-life'
 valueset "Active Condition": 'http://todo.com/ValueSet/active-conditions'
 valueset "Oncology specialty designations (NUCC)": 'http://todo.com/ValueSet/oncology-specialty'
+
+// Recommendation #2
+valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
+code "Pain Management Treatment Plan": '80764-4' from "LOINC" //Pain medicine Plan of care note
 
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
@@ -249,7 +254,7 @@ define function ProbableDaysInRange(Orders List<MedicationRequest>, daysPast Int
       else
         (dosesPerDay * ((repeat * supplyDuration) / validityPeriod) * (daysPast - endDifference)) >= numDaysInDaysPast
 
-define function GetPeriodDays(value System.String):
+define function GetPeriodDays(value System.String): // returns Decimal:
   case
     when value = 'a' then 365.0
     when value = 'mo' then 30.0
@@ -260,7 +265,7 @@ define function GetPeriodDays(value System.String):
     else 1.0
   end
 
-define function GetDurationInDays(value FHIR.Duration):
+define function GetDurationInDays(value FHIR.Duration): // returns Decimal:
     case
       when StartsWith(value.unit.value, 'a') then value.value.value * 365.0
       when StartsWith(value.unit.value, 'mo') then value.value.value * 30.0

@@ -5,7 +5,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_R4_Common version '0.1.0' called Common
 include OpioidCDS_R4_Common_Config version '0.1.0' called Config
-//include OpioidCDS_R4_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
+include OpioidCDS_R4_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
 include OpioidCDS_R4_OpioidNaive version '0.1.0' called OpioidNaive
 
 /*
@@ -32,12 +32,13 @@ parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
+// within the past 90 days (including the day of the visit)
 define "Treatment Plan Lookback Period":
-  Interval[Now() - 90 days, Now()]
+  Interval[Now() - 89 days, Now()]
 
 define "Trigger Event Prescriptions":
-("Is Active Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript
-    where Common.GetDurationInDays(TriggerScript.dispenseRequest.expectedSupplyDuration) >= 28 days
+(Common."Is Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript
+    where Common.GetDurationInDays(TriggerScript.dispenseRequest.expectedSupplyDuration) >= 28
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
@@ -49,31 +50,33 @@ define "Inclusion Criteria":
       and OpioidReviewUseful."Opioid Review Would Be Useful"
       /* and not ("Exclusion Criteria") */
 
-define "Opioid Treatment Plan Creation or Update in Past 90 Days":
-  [CarePlan: Common."Opioid Treatment Plan"] CP
-    let creation: CP.created during day of "Treatment Plan Lookback Period"
-        update: (CP.meta.lastUpdated Update
-                  where (Update after creation)
-                    and Update.id ~ creation.id)
-    where CP.status in { 'active', 'completed' }
-      and (exists (creation) or exists (update))
-        and CP.author ~ "Trigger Event Prescriptions".recorder
-
-define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
-  exists ([Observation: Common."Opioid Treatment Plan Review"] O
-      where (
-        O.issued during day of "Treatment Plan Lookback Period"
-          or O.effective as dateTime during day of "Treatment Plan Lookback Period"
-      )
-        and O.performer ~ "Trigger Event Prescriptions".recorder
-  )
 
 define "Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
-  Conflig."Opioid Treatment Plan Verification Enabled"
+  Config."Opioid Treatment Plan Verification Enabled"
     and exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")
       or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
 
-define ""
+define "Opioid Treatment Plan Creation or Update in Past 90 Days":
+  [CarePlan] CP
+    where exists (
+        CP.category Category
+          where FHIRHelpers.ToConcept(Category) ~ Common."Pain Management Treatment Plan"
+      )
+      and CP.status in { 'active', 'completed' }
+      and (
+        FHIRHelpers.ToDateTime(CP.created) during day of "Treatment Plan Lookback Period" or
+          FHIRHelpers.ToDateTime(CP.meta.lastUpdated) during day of "Treatment Plan Lookback Period"
+      )
+      //and CP.author ~ "Trigger Event Prescriptions".recorder
+
+define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
+  exists ([Observation: Common."Pain Management Treatment Plan Review"] O
+      where (
+        FHIRHelpers.ToDateTime(O.issued) during day of "Treatment Plan Lookback Period"
+          or FHIRHelpers.ToDateTime(O.effective as dateTime) during day of "Treatment Plan Lookback Period"
+      )
+        //and O.performer ~ "Trigger Event Prescriptions".recorder
+  )
 
 define "Exclusion Criteria":
   false
