@@ -806,7 +806,7 @@
             <name value="Library - OMTK Logic"/>
             <description value="Opioid Management Terminology Knowledge Base v0.1.0 Logic"/>
             <reference>
-                <reference value="Library/omtk-logic-0.1.0"/>
+                <reference value="Library/omtk-logic-0-1-0"/>
             </reference>
         </resource>
         <resource>
@@ -814,7 +814,7 @@
             <name value="Library - OMTK Logic"/>
             <description value="Opioid Management Terminology Knowledge Base v0.0.1 Logic"/>
             <reference>
-                <reference value="Library/library-omtklogic-0-0-1"/>
+                <reference value="Library/library-omtk-logic-0-0-1"/>
             </reference>
         </resource>
         <resource>
@@ -822,7 +822,7 @@
             <name value="Library - OMTK Data"/>
             <description value="Opioid Management Terminology Knowledge Base v0.0.1 Data"/>
             <reference>
-                <reference value="Library/omtk-data-0.0.1"/>
+                <reference value="Library/omtk-data-0-0-1"/>
             </reference>
         </resource>
         <resource>
@@ -830,7 +830,7 @@
             <name value="Library - OMTK Data"/>
             <description value="Opioid Management Terminology Knowledge Base v0.0.2 Data"/>
             <reference>
-                <reference value="Library/library-omtkdata-0-0-2"/>
+                <reference value="Library/library-omtk-data-0-0-2"/>
             </reference>
         </resource>
         <resource>
@@ -839,6 +839,30 @@
             <description value="Opioid Management Decision Support Logic Common"/>
             <reference>
                 <reference value="Library/library-opioidcds-common-0-1-0"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="Library - Opioid CDS Recommendation #1"/>
+            <description value="Opioid Management Decision Support Logic for recommendation #1"/>
+            <reference>
+                <reference value="Library/opioidcds-recommendation-01"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="Library - Opioid CDS Recommendation #2"/>
+            <description value="Opioid Management Decision Support Logic for recommendation #2"/>
+            <reference>
+                <reference value="Library/opioidcds-recommendation-02"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="Library - Opioid CDS Recommendation #3"/>
+            <description value="Opioid Management Decision Support Logic for recommendation #3"/>
+            <reference>
+                <reference value="Library/opioidcds-recommendation-03"/>
             </reference>
         </resource>
         <resource>
@@ -859,6 +883,14 @@
         </resource>
         <resource>
             <exampleBoolean value="true"/>
+            <name value="Library - Opioid CDS Recommendation #6"/>
+            <description value="Opioid Management Decision Support Logic for recommendation #6"/>
+            <reference>
+                <reference value="Library/opioidcds-recommendation-06"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
             <name value="Library - Opioid CDS Recommendation #7"/>
             <description value="Opioid Management Decision Support Logic for recommendation #7"/>
             <reference>
@@ -871,6 +903,14 @@
             <description value="Opioid Management Decision Support Logic for recommendation #8"/>
             <reference>
                 <reference value="Library/opioidcds-recommendation-08"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="Library - Opioid CDS Recommendation #9"/>
+            <description value="Opioid Management Decision Support Logic for recommendation #9"/>
+            <reference>
+                <reference value="Library/opioidcds-recommendation-09"/>
             </reference>
         </resource>
         <resource>
@@ -907,6 +947,14 @@
         </resource> -->
         <resource>
             <exampleBoolean value="true"/>
+            <name value="Library - Opioid CDS Recommendation #12"/>
+            <description value="Opioid Management Decision Support Logic for recommendation #12"/>
+            <reference>
+                <reference value="Library/opioidcds-recommendation-12"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
             <name value="MedicationRequest - CDC Opioid Prescribing Guideline Recommendation #5"/>
             <description value="Fentanyl transdermal patch prescription"/>
             <reference>
@@ -931,6 +979,30 @@
         </resource>
         <resource>
             <exampleBoolean value="true"/>
+            <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #1"/>
+            <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #1"/>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-01"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #2"/>
+            <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #2"/>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-02"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #3"/>
+            <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #3"/>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-03"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #4"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #4"/>
             <reference>
@@ -947,6 +1019,14 @@
         </resource>
         <resource>
             <exampleBoolean value="true"/>
+            <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #6"/>
+            <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #6"/>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-06"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #7"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #7"/>
             <reference>
@@ -959,6 +1039,14 @@
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #8"/>
             <reference>
                 <reference value="PlanDefinition/opioidcds-08"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #9"/>
+            <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #9"/>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-09"/>
             </reference>
         </resource>
         <resource>
@@ -993,6 +1081,14 @@
                 <reference value="PlanDefinition/opioidcds-11-patient-view"/>
             </reference>
         </resource> -->
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #12"/>
+            <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #12"/>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-12"/>
+            </reference>
+        </resource>
         <resource>
             <exampleBoolean value="true"/>
             <name value="RequestGroup - CDC Opioid Prescribing Guideline Example for Recommendation #5"/>

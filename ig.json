@@ -567,21 +567,21 @@
       "source": "codesystem-opioidcds-indicator.xml",
       "base": "CodeSystem-opioidcds-indicator.html"
     },
-    "Library/omtk-logic-0.1.0": {
-      "source": "library-omtk-logic-0.1.0.xml",
-      "base": "Library-omtk-logic-0.1.0.html"
+    "Library/omtk-logic-0-1-0": {
+      "source": "library-omtk-logic-0-1-0.xml",
+      "base": "Library-omtk-logic-0-1-0.html"
     },
-    "Library/library-omtklogic-0-0-1": {
-      "source": "library-omtklogic-0-0-1.xml",
-      "base": "Library-omtklogic-0-0-1.html"
+    "Library/library-omtk-logic-0-0-1": {
+      "source": "library-omtk-logic-0-0-1.xml",
+      "base": "Library-omtk-logic-0-0-1.html"
     },
-    "Library/omtk-data-0.0.1": {
-      "source": "library-omtk-data-0.0.1.xml",
-      "base": "Library-omtk-data-0.0.1.html"
+    "Library/omtk-data-0-0-1": {
+      "source": "library-omtk-data-0-0-1.xml",
+      "base": "Library-omtk-data-0-0-1.html"
     },
-    "Library/library-omtkdata-0-0-2": {
-      "source": "library-omtkdata-0-0-2.xml",
-      "base": "Library-omtkdata-0-0-2.html"
+    "Library/library-omtk-data-0-0-2": {
+      "source": "library-omtk-data-0-0-2.xml",
+      "base": "Library-omtk-data-0-0-2.html"
     },
     "Library/omtk-modelinfo": {
       "source": "library-omtk-modelinfo.xml",
@@ -591,6 +591,18 @@
       "source": "library-opioidcds-common-0-1-0.xml",
       "base": "Library-opioidcds-common-0-1-0.html"
     },
+    "Library/opioidcds-recommendation-01": {
+      "source": "library-opioidcds-recommendation-01.xml",
+      "base": "Library-opioidcds-recommendation-01.html"
+    },
+    "Library/opioidcds-recommendation-02": {
+      "source": "library-opioidcds-recommendation-02.xml",
+      "base": "Library-opioidcds-recommendation-02.html"
+    },
+    "Library/opioidcds-recommendation-03": {
+      "source": "library-opioidcds-recommendation-03.xml",
+      "base": "Library-opioidcds-recommendation-03.html"
+    },
     "Library/opioidcds-recommendation-04": {
       "source": "library-opioidcds-recommendation-04.xml",
       "base": "Library-opioidcds-recommendation-04.html"
@@ -599,6 +611,10 @@
       "source": "library-opioidcds-recommendation-05.xml",
       "base": "Library-opioidcds-recommendation-05.html"
     },
+    "Library/opioidcds-recommendation-06": {
+      "source": "library-opioidcds-recommendation-06.xml",
+      "base": "Library-opioidcds-recommendation-06.html"
+    },
     "Library/opioidcds-recommendation-07": {
       "source": "library-opioidcds-recommendation-07.xml",
       "base": "Library-opioidcds-recommendation-07.html"
@@ -606,6 +622,10 @@
     "Library/opioidcds-recommendation-08": {
       "source": "library-opioidcds-recommendation-08.xml",
       "base": "Library-opioidcds-recommendation-08.html"
+    },
+    "Library/opioidcds-recommendation-09": {
+      "source": "library-opioidcds-recommendation-09.xml",
+      "base": "Library-opioidcds-recommendation-09.html"
     },
     "Library/opioidcds-recommendation-10": {
       "source": "library-opioidcds-recommendation-10.xml",
@@ -623,6 +643,10 @@
       "source": "library-opioidcds-stu3-rec-11-patient-view-0-1-0.xml",
       "base": "Library-opioidcds-stu3-rec-11-patient-view-0-1-0.html"
     },
+    "Library/opioidcds-recommendation-12": {
+      "source": "library-opioidcds-recommendation-12.xml",
+      "base": "Library-opioidcds-recommendation-12.html"
+    },
     "MedicationRequest/example-opioidcds": {
       "source": "medicationrequest-example-opioidcds.xml",
       "base": "MedicationRequest-example-opioidcds.html"
@@ -635,6 +659,18 @@
       "source": "patient-example-opioidcds.xml",
       "base": "Patient-example-opioidcds.html"
     },
+    "PlanDefinition/opioidcds-01": {
+      "source": "plandefinition-opioidcds-01.xml",
+      "base": "PlanDefinition-opioidcds-01.html"
+    },
+    "PlanDefinition/opioidcds-02": {
+      "source": "plandefinition-opioidcds-02.xml",
+      "base": "PlanDefinition-opioidcds-02.html"
+    },
+    "PlanDefinition/opioidcds-03": {
+      "source": "plandefinition-opioidcds-03.xml",
+      "base": "PlanDefinition-opioidcds-03.html"
+    },
     "PlanDefinition/opioidcds-04": {
       "source": "plandefinition-opioidcds-04.xml",
       "base": "PlanDefinition-opioidcds-04.html"
@@ -643,6 +679,10 @@
       "source": "plandefinition-opioidcds-05.xml",
       "base": "PlanDefinition-opioidcds-05.html"
     },
+    "PlanDefinition/opioidcds-06": {
+      "source": "plandefinition-opioidcds-06.xml",
+      "base": "PlanDefinition-opioidcds-06.html"
+    },
     "PlanDefinition/opioidcds-07": {
       "source": "plandefinition-opioidcds-07.xml",
       "base": "PlanDefinition-opioidcds-07.html"
@@ -650,6 +690,10 @@
     "PlanDefinition/opioidcds-08": {
       "source": "plandefinition-opioidcds-08.xml",
       "base": "PlanDefinition-opioidcds-08.html"
+    },
+    "PlanDefinition/opioidcds-09": {
+      "source": "plandefinition-opioidcds-09.xml",
+      "base": "PlanDefinition-opioidcds-09.html"
     },
     "PlanDefinition/opioidcds-10": {
       "source": "plandefinition-opioidcds-10.xml",
@@ -666,6 +710,10 @@
     "PlanDefinition/opioidcds-11-patient-view": {
       "source": "plandefinition-opioidcds-11-patient-view.xml",
       "base": "PlanDefinition-opioidcds-11-patient-view.html"
+    },
+    "PlanDefinition/opioidcds-12": {
+      "source": "plandefinition-opioidcds-12.xml",
+      "base": "PlanDefinition-opioidcds-12.html"
     },
     "RequestGroup/example-opioidcds": {
       "source": "requestgroup-example-opioidcds.xml",

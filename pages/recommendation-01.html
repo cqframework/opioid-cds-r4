@@ -13,8 +13,6 @@
     <li><a href="#rec01" id="markdown-toc-rec01">Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration(DRAFT)</a></li>
     <li><a href="#funcdesc" id="markdown-toc-funcdesc">Functional Description</a></li>
     <li><a href="#content" id="markdown-toc-content">Content</a></li>
-    <li><a href="#stu3content" id="markdown-toc-stu3content">STU3 Content</a></li>
-    <li><a href="#dstu2content" id="markdown-toc-dstu2content">DSTU2 Content</a></li>
 </ul>
 
 <a name="rec01"> </a>
@@ -22,7 +20,7 @@
 
 <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#1_Nonpharmacologic_therapy" target="_blank">Recommendation #1:</a></p>
 <p>
-    1. Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient. If opioids are used, they should be combined with nonpharmacologic therapy and nonopioid pharmacologic therapy, as appropriate (recommendation category: A, evidence type: 3).
+    <strong>Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient. If opioids are used, they should be combined with nonpharmacologic therapy and nonopioid pharmacologic therapy, as appropriate (recommendation category: A, evidence type: 3).</strong>
 </p>
 
 <a name="funcdesc"> </a>
@@ -52,66 +50,18 @@
 
 <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
-<table class="list">
-    <thead>
-    <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
-    </thead>
-    <tbody>
-    <tr><td><a href="Library-omtk-logic-0.1.0.html">Opioid Terminology Management Knowledgdebase v0.1.0 Logic (OMTK) Library</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides logic for implementation of opioid management functionality including Milligram Morphine Equivalents (MME).</td></tr>
-    <tr><td><a href="cql/OMTKLogic-0.1.0.cql">Opioid Terminology Management Knowledgebase v0.1.0 Logic (OMTK)</a></td><td>CQL Source</td><td>For reference, the complete CQL source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="elm/OMTKLogic-0.1.0.xml">Opioid Terminology Management Knowledgebase v0.1.0 Logic (OMTK)</a></td><td>ELM Source</td><td>For reference, the complete ELM source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="Library-omtklogic-0-0-1.html">Opioid Terminology Management Knowledgdebase v0.0.1 Logic (OMTK) Library</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides logic for implementation of opioid management functionality including Milligram Morphine Equivalents (MME).</td></tr>
-    <tr><td><a href="cql/OMTKLogic-0.0.1.cql">Opioid Terminology Management Knowledgebase v0.0.1 Logic (OMTK)</a></td><td>CQL Source</td><td>For reference, the complete CQL source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="elm/OMTKLogic-0.0.1.xml">Opioid Terminology Management Knowledgebase v0.0.1 Logic (OMTK)</a></td><td>ELM Source</td><td>For reference, the complete ELM source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="Library-omtk-data-0.0.1.html">Opioid Terminology Management Knowledgdebase v0.0.1 Data (OMTK) Library</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides logic for implementation of opioid management functionality including Milligram Morphine Equivalents (MME).</td></tr>
-    <tr><td><a href="modelinfo/OMTK-modelinfo-0.1.0.xml">Opioid Terminology Management Knowledgebase v0.1.0 Model Info (OMTK)</a></td><td>XML Source</td><td>For reference, the complete XML source for the OMTK Model Info.</td></tr>
-    <tr><td><a href="cql/OMTKData-0.0.1.cql">Opioid Terminology Management Knowledgebase v0.0.1 Data (OMTK)</a></td><td>CQL Source</td><td>For reference, the complete CQL source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="elm/OMTKData-0.0.1.xml">Opioid Terminology Management Knowledgebase v0.0.1 Data (OMTK)</a></td><td>ELM Source</td><td>For reference, the complete ELM source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="Library-omtkdata-0-0-2.html">Opioid Terminology Management Knowledgdebase v0.0.2 Data (OMTK) Library</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides logic for implementation of opioid management functionality including Milligram Morphine Equivalents (MME).</td></tr>
-    <tr><td><a href="cql/OMTKData-0.0.2.cql">Opioid Terminology Management Knowledgebase v0.0.2 Data (OMTK)</a></td><td>CQL Source</td><td>For reference, the complete CQL source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="elm/OMTKData-0.0.2.xml">Opioid Terminology Management Knowledgebase v0.0.2 Data (OMTK)</a></td><td>ELM Source</td><td>For reference, the complete ELM source for the OMTK Logic Library.</td></tr>
-    <tr><td><a href="Library-opioidcds-stu3-common-0-1-0.html">Common Opioid Decision Support Logic</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides common logic for the recommendations</td></tr>
-    <tr><td><a href="cql/OpioidCDS_R4_Common.cql">Common Opioid Decision Support Logic</a></td><td>R4 CQL Source</td><td>For reference, the complete CQL source for the common logic.</td></tr>
-    <tr><td><a href="elm/OpioidCDS_R4_Common.xml">Common Opioid Decision Support Logic</a></td><td>R4 ELM Source</td><td>For reference, the complete ELM source for the common logic.</td></tr>
-    <tr><td><a href="PlanDefinition-opioidcds-01.html">CDC Opioid Prescribing Guideline Recommendation #1</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #1</td></tr>
-    <tr><td><a href="Library-opioidcds-recommendation-01.html">Recommendation #1 - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #1</td></tr>
-    <tr><td><a href="cql/OpioidCDS_R4_REC_01.cql">Recommendation #1 - DESCRIPTION HERE prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td>R4 CQL Source</td><td>For reference, the complete CQL content for recommendation #1</td></tr>
-    <tr><td><a href="elm/OpioidCDS_R4_REC_01.xml">Recommendation #1 - DESCRIPTION HERE prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td>R4 ELM Source</td><td>For reference, the complete ELM content for recommendation #1</td></tr>
-    </tbody>
-</table>
+<a name="commonlibraries"> </a>
+<h4><a href="common.html#common" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
 
-<a name="stu3content"> </a>
-<h3><span class="sectioncount">8.6.3</span> STU3 Content <a href="recommendation-01.html#stu3content" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
-
-<p>The following STU3 artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+<p></p>
 
 <table class="list">
     <thead>
     <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
     </thead>
     <tbody>
-      <!-- <tr><td><a href="Library-opioidcds-stu3-common-0-1-0.html">Common Opioid Decision Support Logic</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides common logic for the recommendations</td></tr> -->
-      <tr><td><a href="cql/OpioidCDS_STU3_Common.cql">Common Opioid Decision Support Logic</a></td><td>STU3 CQL Source</td><td>For reference, the complete CQL source for the common logic.</td></tr>
-      <tr><td><a href="elm/OpioidCDS_STU3_Common.xml">Common Opioid Decision Support Logic</a></td><td>STU3 ELM Source</td><td>For reference, the complete ELM source for the common logic.</td></tr>
-      <tr><td><a href="cql/OpioidCDS_STU3_REC_01.cql">Recommendation #1 - DESCRIPTION HERE prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td>STU3 CQL Source</td><td>For reference, the complete CQL content for recommendation #1</td></tr>
-      <tr><td><a href="elm/OpioidCDS_STU3_REC_01.xml">Recommendation #1 - DESCRIPTION HERE prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td>STU3 ELM Source</td><td>For reference, the complete ELM content for recommendation #1</td></tr>
-    </tbody>
-</table>
-
-<a name="dstu2content"> </a>
-<h3><span class="sectioncount">8.6.4</span> DSTU2 Content <a href="recommendation-01.html#dstu2content" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
-
-<p>The following DSTU2 artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
-
-<table class="list">
-    <thead>
-    <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
-    </thead>
-    <tbody>
-    <tr><td><a href="cql/OpioidCDS_DSTU2_Common.cql">Common Opioid Decision Support Logic</a></td><td>DSTU2 CQL Source</td><td>For reference, the complete CQL source for the common logic.</td></tr>
-    <tr><td><a href="elm/OpioidCDS_DSTU2_Common.xml">Common Opioid Decision Support Logic</a></td><td>DSTU2 ELM Source</td><td>For reference, the complete ELM source for the common logic.</td></tr>
-    <tr><td><a href="cql/OpioidCDS_DSTU2_REC_01.cql">Recommendation #1 - DESCRIPTION HERE</a></td><td>DSTU2 CQL Source</td><td>For reference, the complete CQL content for recommendation #1</td></tr>
-    <tr><td><a href="elm/OpioidCDS_DSTU2_REC_01.xml">Recommendation #1 - DESCRIPTION HERE</a></td><td>DSTU2 ELM Source</td><td>For reference, the complete ELM content for recommendation #1</td></tr>
+      <tr><td><a href="PlanDefinition-opioidcds-01.html">CDC Opioid Prescribing Guideline Recommendation #1</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #1</td></tr>
+      <tr><td><a href="Library-opioidcds-recommendation-01.html">Recommendation #1 - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #1</td></tr>
     </tbody>
 </table>
 

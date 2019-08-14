@@ -75,7 +75,7 @@
                      <span>
                         <span style="padding-left: 25px;">
                            <b>reference: </b>
-                           <span>Library/library-omtklogic-0-0-1/_history/10</span>
+                           <span>Library/library-omtk-logic-0-0-1/_history/10</span>
                         </span>
                      </span>
                   </p>
@@ -830,7 +830,7 @@ define function ToQuantity(quantity FHIR.Quantity):
    <relatedArtifact>
       <type value="depends-on"/>
       <resource>
-         <reference value="Library/library-omtklogic-0-0-1"/>
+         <reference value="Library/library-omtk-logic-0-0-1"/>
       </resource>
    </relatedArtifact>
    <relatedArtifact>
