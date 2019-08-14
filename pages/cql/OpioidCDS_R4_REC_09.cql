@@ -34,26 +34,28 @@ context Patient
 
 /*TODO: Are We Not Looking for 'active' status here?*/
 define "Trigger Event Prescriptions":
-"Is Active Ambulatory Medication Request?"(ContextPrescriptions)
+  Common."Is Ambulatory Medication Request?"(ContextPrescriptions)
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
-define "PDMP Data Reviewed in Past 90 Days":
-  Config."PDMP Data Review in Past 90 Days Criteria Enabled"
-    and exists (
-      [Procedure: Common."Review PDMP Data Procedure"] P
-        where P.status ~ 'completed'
+define "PDMP Data Not Reviewed in Past 90 Days":
+  Config."PDMP Data Not Reviewed in Past 90 Days Criteria Enabled"
+    and not (
+      exists (
+        [Procedure: Common."Review PDMP Data Procedure"] P
+          where P.status ~ 'completed'
       )
       or exists (
         [Observation: Common."PDMP Data Review Done Situation"] O
-          where O.status in { 'final', or 'amended' }
-        )
+          where O.status in { 'final', 'amended' }
+      )
+    )
 
 define "Inclusion Criteria":
   "Validate Trigger Event"
     and OpioidReviewUseful."Opioid Review Would Be Useful"
-    and not ("PDMP Data Reviewed in Past 90 Days")
+    and "PDMP Data Not Reviewed in Past 90 Days"
     /* and not "Exclusion Criteria" */
 
 define "Exclusion Criteria":
@@ -71,5 +73,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'blah'
+    then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Trigger Event Prescriptions"), ', ')
   else null
