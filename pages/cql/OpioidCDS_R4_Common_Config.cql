@@ -37,7 +37,7 @@ define "Order is to Treat Acute Pain Enabled":
   true
 
 // Recommendation 9
-define "PDMP Data Review in Past 90 Days Criteria Enabled":
+define "PDMP Data Not Reviewed in Past 90 Days Criteria Enabled":
   true
 
 // Recommendation 12

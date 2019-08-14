@@ -37,6 +37,8 @@ valueset "Procedure For Counseling Regarding Potential Opioid Harms and Risks": 
 valueset "Buprenorphine/Methadone Medications": 'http://todo.com/ValueSet/buprenorphine-methadone-medications'
 valueset "Opioid Specific Behavioral Counseling": 'http://todo.com/ValueSet/opioid-specific-behavioral-counseling'
 valueset "Opioid Misuse Disorders": 'http://todo.com/ValueSet/opioid-misuse-disorders'
+valueset "Review PDMP Data Procedure": 'http://todo.com/ValueSet/review-pdmp-data'
+valueset "PDMP Data Review Done Situation": 'http://todo.com/ValueSet/review-done-pdmp-data'
 
 // Recommendation #2
 valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
