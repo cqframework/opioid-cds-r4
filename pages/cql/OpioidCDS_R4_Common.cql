@@ -34,6 +34,8 @@ valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/ther
 valueset "Active Condition": 'http://todo.com/ValueSet/active-conditions'
 valueset "Oncology specialty designations (NUCC)": 'http://todo.com/ValueSet/oncology-specialty'
 valueset "Procedure For Counseling Regarding Potential Opioid Harms and Risks": 'http://todo.com/ValueSet/opioid-potential-harm-counseling'
+valueset "Review PDMP Data Procedure": 'http://todo.com/ValueSet/review-pdmp-data'
+valueset "PDMP Data Review Done Situation": 'http://todo.com/ValueSet/review-done-pdmp-data'
 
 // Recommendation #2
 valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'

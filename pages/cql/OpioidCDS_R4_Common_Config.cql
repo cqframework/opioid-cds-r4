@@ -29,9 +29,6 @@ define "Patient Age Less Than 18 Criteria Enabled":
 define "90 Day Opioid Treatment Plan History":
   true
 
-define "PDMP Data Review in Past 90 Days Criteria Enabled":
-  true
-
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":
   true
 
@@ -45,4 +42,8 @@ define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
 
 // Recommendation 6
 define "Order is to Treat Acute Pain Enabled":
+  true
+
+// Recommendation 9
+define "PDMP Data Not Reviewed in Past 90 Days Criteria Enabled":
   true
