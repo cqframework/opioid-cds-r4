@@ -29,7 +29,7 @@ parameter ContextPrescriptions List<MedicationRequest>
 context Patient
 
 define "Opioid Harms & Risks Counseling Lookback Period":
-  Interval[Now() - 90 days, Now() - 1 days]
+  Interval[Now() - 89 days, Now()]
 
 define "Trigger Event Prescriptions":
   (Common."Is Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript
@@ -41,21 +41,21 @@ define "Validate Trigger Event":
 define "Inclusion Criteria":
   "Validate Trigger Event"
     and OpioidReviewUseful."Opioid Review Would Be Useful"
-    and not ("Exclusion Criteria")
+    and "No Documented Discussions of Opioid Harms and Risks"
 
-define "Exclusion Criteria":
+define "No Documented Discussions of Opioid Harms and Risks":
   Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
-    and (
-      exists ("Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
-        or exists ("Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
+    and not (
+      exists ("Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today")
+        or exists ("Ordered Discussions of Opioid Harms and Risks in Past 90 Days Including Today")
     )
 
-define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
+define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
   [Procedure: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] P
     where FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
       and P.status ~ 'completed'
 
-define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
+define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
   [ServiceRequest: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] SR
     where FHIRHelpers.ToDateTime(SR.occurrence as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
 
