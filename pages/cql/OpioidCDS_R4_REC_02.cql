@@ -45,15 +45,16 @@ define "Validate Trigger Event":
 
 define "Inclusion Criteria":
     "Validate Trigger Event"
-      and not ("Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?")
       and OpioidNaive."Is Opioid Naive"
       and OpioidReviewUseful."Opioid Review Would Be Useful"
-      /* and not ("Exclusion Criteria") */
+      and "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?"
 
-define "Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
+define "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
   Config."Opioid Treatment Plan Verification Enabled"
-    and exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")
-      or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
+    and not (
+      exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")
+        or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
+    )
 
 define "Opioid Treatment Plan Creation or Update in Past 90 Days":
   [CarePlan] CP
@@ -77,9 +78,6 @@ define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
         //and O.performer ~ "Trigger Event Prescriptions".recorder
   )
 
-define "Exclusion Criteria":
-  false
-
 define "Get Indicator":
   if "Inclusion Criteria"
     then 'warning'
@@ -89,7 +87,7 @@ define "Get Summary":
   if "Inclusion Criteria"
     then 'Recommend creation, review or update of opioid treatment plan'
   else null
-  
+
 define "Get Detail":
   if "Inclusion Criteria"
     then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Trigger Event Prescriptions"), ', ')
