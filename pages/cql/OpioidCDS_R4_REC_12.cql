@@ -34,39 +34,41 @@ define "Trigger Event":
 /* define "Validate Trigger Event":
   exists( "Trigger Event" ) */
 
-define "Receiving Evidence-Based Treatment for Opioid Use Disorder":
+define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
   Config."Evidence Based Treatment Criteria For Opioid Use Disorder"
-    and AgeInYears() >=18
-      and exists (
-        [MedicationRequest: Common."Buprenorphine/Methadone Medications"] MR
-          where MR.status in { 'active', 'completed' }
-            and MR.authoredOn during day of "Opioid Use Disorder Lookback Period"
-        )
-        or exists (
-          [Procedure: "Opioid Specific Behavioral Counseling"] P
-            where P.status ~ 'completed'
-              and P.performed as dateTime during day of "Opioid Use Disorder Lookback Period"
+    and not (
+      AgeInYears() >=18
+        and (
+          exists (
+            [MedicationRequest: Common."Buprenorphine/Methadone Medications"] MR
+              where MR.status in { 'active', 'completed' }
+                and FHIRHelpers.ToDateTime(MR.authoredOn) during day of "Opioid Use Disorder Lookback Period"
           )
+          or exists (
+            [Procedure: Common."Opioid Specific Behavioral Counseling"] P
+              where P.status ~ 'completed'
+                and FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Use Disorder Lookback Period"
+          )
+        )
+    )
 
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
     [Condition: Common."Opioid Misuse Disorders"] C
       where exists (
         C.clinicalStatus.coding Coding
-          where Coding.code in "Active Condition"
+          where Coding.code in Common."Active Condition"
       )
-          and C.recordedDate during day of "Opioid Use Disorder Lookback Period"
+          and FHIRHelpers.ToDateTime(C.recordedDate) during day of "Opioid Use Disorder Lookback Period"
     )
 
 define "Positive Result from Opioid Use Disorder Evaluation Tool":
-  /*TODO - FUTURE OPTION?*/ true
-
+  /* TODO - FUTURE OPTION */ true
 
 define "Inclusion Criteria":
-  not ("Receiving Evidence-Based Treatment for Opioid Use Disorder")
+  "Not Receiving Evidence-Based Treatment for Opioid Use Disorder"
     and "Presence of Diagnosis of Opioid Use Disorder"
-    /* and "Validate Trigger Event" */
-    /* and not "Exclusion Criteria" */
+    /* and "Positive Result from Opioid Use Disorder Evaluation Tool" */
 
 define "Exclusion Criteria":
   false
@@ -83,5 +85,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'blah'
+    then null
   else null

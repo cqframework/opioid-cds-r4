@@ -34,6 +34,9 @@ valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/ther
 valueset "Active Condition": 'http://todo.com/ValueSet/active-conditions'
 valueset "Oncology specialty designations (NUCC)": 'http://todo.com/ValueSet/oncology-specialty'
 valueset "Procedure For Counseling Regarding Potential Opioid Harms and Risks": 'http://todo.com/ValueSet/opioid-potential-harm-counseling'
+valueset "Buprenorphine/Methadone Medications": 'http://todo.com/ValueSet/buprenorphine-methadone-medications'
+valueset "Opioid Specific Behavioral Counseling": 'http://todo.com/ValueSet/opioid-specific-behavioral-counseling'
+valueset "Opioid Misuse Disorders": 'http://todo.com/ValueSet/opioid-misuse-disorders'
 
 // Recommendation #2
 valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
