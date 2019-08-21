@@ -122,26 +122,26 @@
         <selectionBehavior value="exactly-one"/>
         <!-- dynamic card elements -->
         <dynamicValue>
-			<path value="action.title"/>
-			<expression>
+            <path value="action.title"/>
+            <expression>
                 <language value="text/cql"/>
-				<expression value="Get Summary"/>
-			</expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="action.description"/>
-			<expression>
+                <expression value="Get Summary"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="action.description"/>
+            <expression>
                 <language value="text/cql"/>
-				<expression value="Get Detail"/>
-			</expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="activity.extension"/>
-			<expression>
+                <expression value="Get Detail"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="activity.extension"/>
+            <expression>
                 <language value="text/cql"/>
-				<expression value="Get Indicator"/>
-			</expression>
-		</dynamicValue>
+                <expression value="Get Indicator"/>
+            </expression>
+        </dynamicValue>
         <action>
             <description value="Create treatment plan with goals for opioid use"/>
         </action>
