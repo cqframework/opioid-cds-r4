@@ -29,47 +29,7 @@
 {% include recommendation02-functional-description.html %}
 
 <img src="assets/images/Recommendation02-Flow.png" style="max-width: 790px;" />
-
-<table class="list" style="margin-top: 2em; margin-bottom: 2em">
-  <thead>
-    <tr><th>Definition</th><th>Expression</th><th>Data (Terminology) Requirement</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Order for opioid to treat chronic pain</td>
-      <td>Current order for opioids in relevant value set – ideally the order should be selected prior to being committed to the system; AND the order is intended for a duration of &gt; 28 days</td>
-      <td>Opioids with ambulatory use potential</td>
-    </tr>
-    <tr>
-      <td>Opioid treatment plan exists, was edited or reviewed</td>
-      <td>An opioid treatment plan has been established, reviewed or edited within the past 90 days (including the day of the visit)
-        <ul>
-          <li>Treatment plan initiation date, edit date or review date within the past 90 days.</li>
-          <li>The actions of creation, review or editing within the past 90 days must have been performed by the <b>same</b> individual who is performing the “medication select.”</li>
-        </ul>
-      </td>
-      <td>
-        <p>
-          Opioid Treatment Plan – as a plan of care (rather than a health record artifact)
-          <br/>Opioid treatment plan procedure (i.e., create treatment plan)
-          <br/>Opioid treatment plan review procedure
-          <br/>Opioid treatment plan edit procedure
-        </p>
-        <p>
-          <b>To <i>differentiate edit</i> from <i>review</i>:</b>
-          <ul>
-            <li>Use FHIR CarePlan metadata to address “create” or “update” (i.e., edit) – but these data may not be recorded in the patient’s chart. The expression should expect that such information is present.</li>
-            <li>For “review” we need a ‘document review’ – FHIR observation resource</li>
-          </ul>
-        </p>
-        <p>Possible terminology:
-            SNOMED procedure – “review the care plan”
-            SNOMED finding such as “opioid care plan reviewed” (situation with explicit context)
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<img src="assets/images/Recommendation02-Definitions.png" style="max-width: 790px;" />
 
 {% include opioid-review-useful-definitions.html %}
 
