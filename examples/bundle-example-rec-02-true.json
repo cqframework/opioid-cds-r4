@@ -1,32 +1,39 @@
 {
     "resourceType": "Bundle",
-    "id": "MMI-d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded",
+    "id": "MMI-6e7f1d02-bd26-4988-a520-cd7e106f132d",
     "type": "transaction",
     "entry": [
         {
             "resource": {
                 "resourceType": "Patient",
-                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1",
+                "id": "6e7f1d02-bd26-4988-a520-cd7e106f132d-1",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
                 }
             },
-            "birthDate": "2000-01-01",
+            "birthDate": {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                  "valueString": "Today() - 20 years"
+                }
+              ]
+            },
             "request": {
                 "method": "PUT",
-                "url": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                "url": "Patient/6e7f1d02-bd26-4988-a520-cd7e106f132d-1"
             }
         },
         {
             "resource": {
                 "resourceType": "Practitioner",
-                "id": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+                "id": "Practitioner/6e7f1d02-bd26-4988-a520-cd7e106f132d-9"
             },
             "request": {
                 "method": "PUT",
-                "url": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+                "url": "Practitioner/6e7f1d02-bd26-4988-a520-cd7e106f132d-9"
             }
         },
         {
@@ -37,12 +44,12 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-3",
-                "authoredOn": "2018-08-01T00:00:00.0",
+                "id": "6e7f1d02-bd26-4988-a520-cd7e106f132d-3",
+                "authoredOn": "2018-01-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                    "reference": "Patient/6e7f1d02-bd26-4988-a520-cd7e106f132d-1"
                 },
                 "category": {
                     "coding": [
@@ -64,17 +71,17 @@
                 }
             },
             "recorder": {
-                "reference": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+                "reference": "Practitioner/6e7f1d02-bd26-4988-a520-cd7e106f132d-9"
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-3"
+                "url": "MedicationRequest/6e7f1d02-bd26-4988-a520-cd7e106f132d-3"
             }
         },
         {
             "resource": {
                 "resourceType": "CarePlan",
-                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded9",
+                "id": "6e7f1d02-bd26-4988-a520-cd7e106f132d9",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/CarePlan"
@@ -84,17 +91,24 @@
                 "status": "active",
                 "intent": "plan",
                 "subject": {
-                    "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                    "reference": "Patient/6e7f1d02-bd26-4988-a520-cd7e106f132d-1"
                 },
-                "created": "2018-08-01T00:00:00.0",
+                "created": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                      "valueString": "Today() - 100 days"
+                    }
+                  ]
+                },
                 "author": {
-                    "reference": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
+                    "reference": "Practitioner/6e7f1d02-bd26-4988-a520-cd7e106f132d-9"
                 }
             },
             //TODO: Need guidance on how CarePlan will be determined to be an Opioid Treatment Plan
             "request": {
                 "method": "PUT",
-                "url": "CarePlan/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-5"
+                "url": "CarePlan/6e7f1d02-bd26-4988-a520-cd7e106f132d-5"
             }
         }
     ]
