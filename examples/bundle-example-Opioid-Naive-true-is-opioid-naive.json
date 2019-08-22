@@ -31,7 +31,14 @@
                 "subject": {
                     "reference": "Patient/c846e1fb-b178-4c70-8f6c-64cd51717f10-1"
                 },
-                "effectiveDateTime": "2018-01-01T00:00:00.0",
+                "effectiveDateTime": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                      "valueString": "Today() - 6 months"
+                    }
+                  ]
+                },
                 "medicationCodeableConcept": {
                     "coding": [
                         {
