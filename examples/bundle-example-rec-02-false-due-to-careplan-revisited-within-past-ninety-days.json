@@ -86,7 +86,14 @@
                     "profile": [
                         "http://hl7.org/fhir/profiles/CarePlan"
                     ],
-                    "lastUpdated": "2018-08-01T12:00:00.0"
+                    "lastUpdated": {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                          "valueString": "Today() - 89 days"
+                        }
+                      ]
+                    },
                 },
                 "status": "active",
                 "intent": "plan",
@@ -97,7 +104,7 @@
                   "extension": [
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                      "valueString": "Today() - 89 days"
+                      "valueString": "Today() - 120 days"
                     }
                   ]
                 },
