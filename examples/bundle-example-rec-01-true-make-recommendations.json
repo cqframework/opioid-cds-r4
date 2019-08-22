@@ -1,22 +1,29 @@
 {
     "resourceType": "Bundle",
-    "id": "MMI-facb1929-f917-4a5c-afcd-fd9c02c5da84",
+    "id": "MMI-8119002c-6322-4d16-988b-36bb6d9b3940",
     "type": "transaction",
     "entry": [
         {
             "resource": {
                 "resourceType": "Patient",
-                "id": "facb1929-f917-4a5c-afcd-fd9c02c5da84-1",
+                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-1",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
                 }
             },
-            "birthDate": "2002-08-01",
+            "birthDate": {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                  "valueString": "Today() - 17 years"
+                }
+              ]
+            },
             "request": {
                 "method": "PUT",
-                "url": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
+                "url": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
             }
         },
         {
@@ -27,12 +34,20 @@
                         "http://hl7.org/fhir/profiles/MedicationStatement"
                     ]
                 },
-                "id": "facb1929-f917-4a5c-afcd-fd9c02c5da84-4",
+                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-4",
                 "status": "active",
                 "subject": {
-                    "reference": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
+                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
                 },
-                "effectiveDateTime": "2018-01-01T00:00:00.0",
+                "effectiveDateTime":
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                      "valueString": "Today() - 95 days"
+                    }
+                  ]
+                },
                 "medicationCodeableConcept": {
                     "coding": [
                         {
@@ -45,7 +60,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationStatement/facb1929-f917-4a5c-afcd-fd9c02c5da84-4"
+                "url": "MedicationStatement/8119002c-6322-4d16-988b-36bb6d9b3940-4"
             }
         },
         {
@@ -56,18 +71,18 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "facb1929-f917-4a5c-afcd-fd9c02c5da84-3",
+                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-3",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
+                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
                 },
                 "category": {
                     "coding": [
                         {
                             "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                            "code": "inpatient",
-                            "display": "Inpatient"
+                            "code": "outpatient",
+                            "display": "Outpatient"
                         }
                     ]
                 },
@@ -83,7 +98,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/facb1929-f917-4a5c-afcd-fd9c02c5da84-3"
+                "url": "MedicationRequest/8119002c-6322-4d16-988b-36bb6d9b3940-3"
             }
         }
     ]
