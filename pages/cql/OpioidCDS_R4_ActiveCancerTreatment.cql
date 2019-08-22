@@ -10,11 +10,6 @@ include OpioidCDS_R4_Common_Config version '0.1.0' called Config
 **  Opioid Naive subroutine
 */
 
-/*
-  Plan Definition: http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-activecancertreatment.html
-*/
-
-
 context Patient
 
 /*

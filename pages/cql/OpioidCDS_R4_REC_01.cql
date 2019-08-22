@@ -22,7 +22,7 @@ include OpioidCDS_R4_OpioidNaive version '0.1.0' called OpioidNaive
 /*
 
   Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-01.html
+	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-01.html
 */
 
 // Trigger Event Rx

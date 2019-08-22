@@ -18,9 +18,8 @@ include OpioidCDS_R4_OpioidReviewUseful version '0.1.0' called OpioidReviewUsefu
 */
 
 /*
-
   Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-03.html
+	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-03.html
 */
 
 // Trigger Event Rx

@@ -40,7 +40,7 @@ include OpioidCDS_R4_Common version '0.1.0' called Common
     then use EHR snoozing functionality to allow "Have assessed/will assess. Snooze 3 months."
 
   Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-07.html
+	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-07.html
 */
 
 parameter ContextPrescriptions List<MedicationRequest>

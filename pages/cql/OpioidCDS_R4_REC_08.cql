@@ -37,7 +37,7 @@ include OpioidCDS_R4_Common version '0.1.0' called Common
         ICD9: 304, Drug dependence and 303, Alcohol dependence syndrome
 
   Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-08.html
+	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-08.html
 */
 
 parameter ContextPrescriptions List<MedicationRequest>

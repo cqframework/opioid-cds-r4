@@ -12,11 +12,6 @@ include OpioidCDS_R4_ActiveCancerTreatment version '0.1.0' called ActiveCancerTr
 **
 */
 
-/*
-
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-opioidreviewuseful.html
-*/
 context Patient
 
 define "Palliative Care Lookback Period":

@@ -19,7 +19,7 @@ include OpioidCDS_R4_Common_Config version '0.1.0' called Config
 /*
 
   Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds/stu4/PlanDefinition-opioidcds-12.html
+	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-12.html
 */
 
 

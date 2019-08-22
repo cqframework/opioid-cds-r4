@@ -13,7 +13,14 @@
                     ]
                 }
             },
-            "birthDate": "2000-01-01",
+            "birthDate": {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                  "valueString": "Today() - 20 years"
+                }
+              ]
+            },
             "request": {
                 "method": "PUT",
                 "url": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
