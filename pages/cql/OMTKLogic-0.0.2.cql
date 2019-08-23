@@ -2,11 +2,13 @@ library OMTKLogic version '0.0.2'
 
 /*
 This version of the OMTKLogic library uses the FHIR MedicationKnowledge Resource
-as the source for drug ingredient and strength information, rather than the 
+as the source for drug ingredient and strength information, rather than the
 OMTK data source.
 */
 
 using FHIR version '4.0.0'
+
+include OMTKData version '0.0.2'
 
 codesystem RxNorm: 'http://www.nlm.nih.gov/research/umls/rxnorm'
 
@@ -71,11 +73,11 @@ define function GetConversionFactor(ingredientCode Code, dailyDose Quantity, dos
     when 1223 then 0 /*	Atropine */
     when 1767 then 0 /*	Brompheniramine */
     when 1819 then ( /*	Buprenorphine */
-      case 
+      case
         when ToInteger(doseFormCode.code) = 316987 then 12.6 /* Transdermal system */
         else 30 /* Tablet or Film (or Film in MCG) */
       end
-    ) 
+    )
     when 1841 then 7 /*	Butorphanol */
     when 1886 then 0 /*	Caffeine */
     when 2101 then 0 /*	Carisoprodol */
@@ -159,16 +161,16 @@ define function EnsureMicrogramQuantity(strength Quantity):
 
 /*
 DrugIngredients:
-  List<{ 
-    drugCode Integer, 
-    drugName String, 
-    doseFormCode Integer, 
-    doseFormName String, 
-    ingredientCode Integer, 
-    ingredientName String, 
-    strength String, 
-    strengthValue Decimal, 
-    strengthUnit String 
+  List<{
+    drugCode Integer,
+    drugName String,
+    doseFormCode Integer,
+    doseFormName String,
+    ingredientCode Integer,
+    ingredientName String,
+    strength String,
+    strengthValue Decimal,
+    strengthUnit String
   }>
 */
 define function GetIngredients(rxNormCode Code):
@@ -191,7 +193,7 @@ define function GetIngredients(rxNormCode Code):
 define function GetIngredients(rxNormCode Code):
   flatten (
     [MedicationKnowledge: rxNormCode] M
-      return 
+      return
         M.ingredient I
           where I.code in "Opioid Ingredients" // TODO: Need a value set of opioid ingredients
           return {
@@ -229,11 +231,11 @@ define function GetDailyDose(ingredientCode Code, strength Quantity, doseFormCod
     else
       Quantity { value: dosesPerDay * doseQuantity.value * strength.value, unit: Substring(strength.unit, 0, PositionOf('/', strength.unit)) }
   end
-  
+
 define function GetMedicationName(rxNormCode Code):
   if rxNormCode.display is null then
     SingletonFrom(
-      OMTKData.DrugIngredients DI 
+      OMTKData.DrugIngredients DI
         where DI.drugCode = ToInteger(rxNormCode.code)
         return DI.drugName
     )

@@ -2,6 +2,8 @@ library OMTKLogic version '0.1.0'
 
 using OMTK version '0.1.0'
 
+include OMTKData version '0.0.2'
+
 codesystem RxNorm: 'http://www.nlm.nih.gov/research/umls/rxnorm'
 
 // Given an RxNorm Code:
@@ -132,8 +134,8 @@ define function ToDaily(frequency Integer, period System.Quantity):
     when 's' then frequency * (24.0 / period.value) * 60 * 60
     when 'd' then frequency * (24.0 / period.value) / 24
     when 'wk' then frequency * (24.0 / period.value) / (24 * 7)
-    when 'mo' then frequency * (24.0 / period.value) / (24 * 30) // assuming 30 days in month
-    when 'a' then frequency * (24.0 / period.value) / (24 * 365) // assuming 365 days in year
+    when 'mo' then frequency * (24.0 / period.value) / (24 * 30) /* assuming 30 days in month */
+    when 'a' then frequency * (24.0 / period.value) / (24 * 365) /* assuming 365 days in year */
     else null
   end
 
