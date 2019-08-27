@@ -1,0 +1,162 @@
+{
+  "resourceType": "Library",
+  "id": "opioidcds-rec-11",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">opioidcds-rec-11</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/codesystem-library-type.html</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">0.1.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr>  <!-- <th:block th:each=\"cont, iter : ${resource.contributor}\"> -->  <!-- <tr style=\"vertical-align: top;\"> -->  <!-- <th th:if=\"${iter.index == 0}\" th:rowspan=\"${iter.size}\"  scope=\"row\"><b>Contributor: </b></th> -->  <!-- <td style=\"padding-left: 25px; padding-right: 25px;\"> -->  <!-- <b><span th:narrative=\"${cont.type.toCode()}\"></span>: </b><span th:narrative=\"${cont.name}\"></span> -->  <!-- </td> -->  <!-- </tr> -->  <!-- </th:block> --><tr style=\"vertical-align: top;\"><th rowspan=\"2\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/fhirhelpers</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/opioidcds-common</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"14\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Procedure</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>ServiceRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationAdministration</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationDispense</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationStatement</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life</span></span></p></div></td></tr>  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library OpioidCDS_REC_11 version '0.1.0'using FHIR version '4.0.0'include FHIRHelpers version '4.0.0' called FHIRHelpersinclude OpioidCDS_Common version '0.1.0' called Common/*****  Recommendation #11**    Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible***//*  Trigger context:    Primary care/ambulatory care  Trigger event:    Prescription of benzodiazepine or opioid with ambulatory care abuse potential  Assumptions:    Count only ambulatory prescriptions  Inclusion criteria:    On both opioid with ambulatory care abuse potential and benzodiazepine  Notification:    Avoid prescribing opioid pain mediation and benzodiazepine concurrently whenever possible.    Ref: CDC Recommendation #11.  EHR expectations:    Have availability to snooze if benefits outweigh risks  Plan Definition:\thttp://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-11.html*/parameter ContextPrescriptions List&lt;MedicationRequest&gt;context Patientdefine \"Validate Trigger Event For Benzodiazepine\":  exists(    ContextPrescriptions triggerScript      where triggerScript.medication in Common.\"Benzodiazepines\"  )define \"Validate Trigger Event For Ambulatory Care Abuse Potential\":  exists(    ContextPrescriptions triggerScript      where triggerScript.medication in Common.\"Ambulatory Abuse Potential Opioids\"  )define \"Inclusion Criteria\":  AgeInYears() &gt;= 18    and (\"Validate Trigger Event For Benzodiazepine\"      or \"Validate Trigger Event For Ambulatory Care Abuse Potential\")    and not \"Exclusion Criteria\"    and \"On Benzodiazepine\"    and \"Opioid with Ambulatory Care Abuse Potential\"define \"Exclusion Criteria\":  Common.\"End of Life Assessment\"    or Common.\"Is Context Prescription End of Life Opioid?\"(ContextPrescriptions)define \"On Benzodiazepine\":  \"Validate Trigger Event For Benzodiazepine\"  or exists( Common.\"Active Ambulatory Benzodiazepine Rx\" )define \"Opioid with Ambulatory Care Abuse Potential\":  \"Validate Trigger Event For Ambulatory Care Abuse Potential\"  or exists( Common.\"Active Ambulatory Opioid Rx\" )define \"Get Indicator\":  if \"Inclusion Criteria\"    then 'warning'  else nulldefine \"Get Summary\":  if \"Inclusion Criteria\"    then 'Avoid prescribing opioid pain medication and benzodiazepine concurrently whenever possible.'  else nulldefine \"Get Detail\":  if \"Inclusion Criteria\"    then      if \"Validate Trigger Event For Benzodiazepine\"        then 'The benzodiazepine prescription request is concurrent with an active opioid prescription'      else 'The opioid prescription request is concurrent with an active benzodiazepine prescription'  else null</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
+  },
+  "version": "0.1.0",
+  "name": "OpioidCDS_REC_11",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/codesystem-library-type.html",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": "Library/fhirhelpers"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/opioidcds-common"
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+        }
+      ]
+    },
+    {
+      "type": "Procedure",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "Observation",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding"
+        }
+      ]
+    },
+    {
+      "type": "Encounter"
+    },
+    {
+      "type": "MedicationAdministration",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"
+        }
+      ]
+    },
+    {
+      "type": "MedicationDispense",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"
+        }
+      ]
+    },
+    {
+      "type": "MedicationStatement",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "contentType": "application/elm+xml",
+      "data": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGxpYnJhcnkgeG1sbnM9InVybjpobDctb3JnOmVsbTpyMSIgeG1sbnM6dD0idXJuOmhsNy1vcmc6ZWxtLXR5cGVzOnIxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczp4c2Q9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiB4bWxuczpmaGlyPSJodHRwOi8vaGw3Lm9yZy9maGlyIiB4bWxuczpxZG00Mz0idXJuOmhlYWx0aGl0LWdvdjpxZG06djRfMyIgeG1sbnM6cWRtNTM9InVybjpoZWFsdGhpdC1nb3Y6cWRtOnY1XzMiIHhtbG5zOmE9InVybjpobDctb3JnOmNxbC1hbm5vdGF0aW9uczpyMSI+CiAgIDxpZGVudGlmaWVyIGlkPSJPcGlvaWRDRFNfUkVDXzExIiB2ZXJzaW9uPSIwLjEuMCIvPgogICA8c2NoZW1hSWRlbnRpZmllciBpZD0idXJuOmhsNy1vcmc6ZWxtIiB2ZXJzaW9uPSJyMSIvPgogICA8dXNpbmdzPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iU3lzdGVtIiB1cmk9InVybjpobDctb3JnOmVsbS10eXBlczpyMSIvPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iRkhJUiIgdXJpPSJodHRwOi8vaGw3Lm9yZy9maGlyIiB2ZXJzaW9uPSI0LjAuMCIvPgogICA8L3VzaW5ncz4KICAgPGluY2x1ZGVzPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iRkhJUkhlbHBlcnMiIHBhdGg9IkZISVJIZWxwZXJzIiB2ZXJzaW9uPSI0LjAuMCIvPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iQ29tbW9uIiBwYXRoPSJPcGlvaWRDRFNfQ29tbW9uIiB2ZXJzaW9uPSIwLjEuMCIvPgogICA8L2luY2x1ZGVzPgogICA8cGFyYW1ldGVycz4KICAgICAgPGRlZiBuYW1lPSJDb250ZXh0UHJlc2NyaXB0aW9ucyIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxwYXJhbWV0ZXJUeXBlU3BlY2lmaWVyIHhzaTp0eXBlPSJMaXN0VHlwZVNwZWNpZmllciI+CiAgICAgICAgICAgIDxlbGVtZW50VHlwZSBuYW1lPSJmaGlyOk1lZGljYXRpb25SZXF1ZXN0IiB4c2k6dHlwZT0iTmFtZWRUeXBlU3BlY2lmaWVyIi8+CiAgICAgICAgIDwvcGFyYW1ldGVyVHlwZVNwZWNpZmllcj4KICAgICAgPC9kZWY+CiAgIDwvcGFyYW1ldGVycz4KICAgPHN0YXRlbWVudHM+CiAgICAgIDxkZWYgbmFtZT0iUGF0aWVudCIgY29udGV4dD0iUGF0aWVudCI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJTaW5nbGV0b25Gcm9tIj4KICAgICAgICAgICAgPG9wZXJhbmQgZGF0YVR5cGU9ImZoaXI6UGF0aWVudCIgeHNpOnR5cGU9IlJldHJpZXZlIi8+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iVmFsaWRhdGUgVHJpZ2dlciBFdmVudCBGb3IgQmVuem9kaWF6ZXBpbmUiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iRXhpc3RzIj4KICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9IlF1ZXJ5Ij4KICAgICAgICAgICAgICAgPHNvdXJjZSBhbGlhcz0idHJpZ2dlclNjcmlwdCI+CiAgICAgICAgICAgICAgICAgIDxleHByZXNzaW9uIG5hbWU9IkNvbnRleHRQcmVzY3JpcHRpb25zIiB4c2k6dHlwZT0iUGFyYW1ldGVyUmVmIi8+CiAgICAgICAgICAgICAgIDwvc291cmNlPgogICAgICAgICAgICAgICA8d2hlcmUgeHNpOnR5cGU9IkluVmFsdWVTZXQiPgogICAgICAgICAgICAgICAgICA8Y29kZSBuYW1lPSJUb0NvbmNlcHQiIGxpYnJhcnlOYW1lPSJGSElSSGVscGVycyIgeHNpOnR5cGU9IkZ1bmN0aW9uUmVmIj4KICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgYXNUeXBlPSJmaGlyOkNvZGVhYmxlQ29uY2VwdCIgeHNpOnR5cGU9IkFzIj4KICAgICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgcGF0aD0ibWVkaWNhdGlvbiIgc2NvcGU9InRyaWdnZXJTY3JpcHQiIHhzaTp0eXBlPSJQcm9wZXJ0eSIvPgogICAgICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgIDwvY29kZT4KICAgICAgICAgICAgICAgICAgPHZhbHVlc2V0IG5hbWU9IkJlbnpvZGlhemVwaW5lcyIgbGlicmFyeU5hbWU9IkNvbW1vbiIvPgogICAgICAgICAgICAgICA8L3doZXJlPgogICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iVmFsaWRhdGUgVHJpZ2dlciBFdmVudCBGb3IgQW1idWxhdG9yeSBDYXJlIEFidXNlIFBvdGVudGlhbCIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJFeGlzdHMiPgogICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iUXVlcnkiPgogICAgICAgICAgICAgICA8c291cmNlIGFsaWFzPSJ0cmlnZ2VyU2NyaXB0Ij4KICAgICAgICAgICAgICAgICAgPGV4cHJlc3Npb24gbmFtZT0iQ29udGV4dFByZXNjcmlwdGlvbnMiIHhzaTp0eXBlPSJQYXJhbWV0ZXJSZWYiLz4KICAgICAgICAgICAgICAgPC9zb3VyY2U+CiAgICAgICAgICAgICAgIDx3aGVyZSB4c2k6dHlwZT0iSW5WYWx1ZVNldCI+CiAgICAgICAgICAgICAgICAgIDxjb2RlIG5hbWU9IlRvQ29uY2VwdCIgbGlicmFyeU5hbWU9IkZISVJIZWxwZXJzIiB4c2k6dHlwZT0iRnVuY3Rpb25SZWYiPgogICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBhc1R5cGU9ImZoaXI6Q29kZWFibGVDb25jZXB0IiB4c2k6dHlwZT0iQXMiPgogICAgICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBwYXRoPSJtZWRpY2F0aW9uIiBzY29wZT0idHJpZ2dlclNjcmlwdCIgeHNpOnR5cGU9IlByb3BlcnR5Ii8+CiAgICAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgICAgPC9jb2RlPgogICAgICAgICAgICAgICAgICA8dmFsdWVzZXQgbmFtZT0iQW1idWxhdG9yeSBBYnVzZSBQb3RlbnRpYWwgT3Bpb2lkcyIgbGlicmFyeU5hbWU9IkNvbW1vbiIvPgogICAgICAgICAgICAgICA8L3doZXJlPgogICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iRXhjbHVzaW9uIENyaXRlcmlhIiBjb250ZXh0PSJQYXRpZW50IiBhY2Nlc3NMZXZlbD0iUHVibGljIj4KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9Ik9yIj4KICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iRW5kIG9mIExpZmUgQXNzZXNzbWVudCIgbGlicmFyeU5hbWU9IkNvbW1vbiIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iSXMgQ29udGV4dCBQcmVzY3JpcHRpb24gRW5kIG9mIExpZmUgT3Bpb2lkPyIgbGlicmFyeU5hbWU9IkNvbW1vbiIgeHNpOnR5cGU9IkZ1bmN0aW9uUmVmIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iQ29udGV4dFByZXNjcmlwdGlvbnMiIHhzaTp0eXBlPSJQYXJhbWV0ZXJSZWYiLz4KICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICAgICA8ZGVmIG5hbWU9Ik9uIEJlbnpvZGlhemVwaW5lIiBjb250ZXh0PSJQYXRpZW50IiBhY2Nlc3NMZXZlbD0iUHVibGljIj4KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9Ik9yIj4KICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVmFsaWRhdGUgVHJpZ2dlciBFdmVudCBGb3IgQmVuem9kaWF6ZXBpbmUiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJFeGlzdHMiPgogICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJBY3RpdmUgQW1idWxhdG9yeSBCZW56b2RpYXplcGluZSBSeCIgbGlicmFyeU5hbWU9IkNvbW1vbiIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICAgICA8ZGVmIG5hbWU9Ik9waW9pZCB3aXRoIEFtYnVsYXRvcnkgQ2FyZSBBYnVzZSBQb3RlbnRpYWwiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iT3IiPgogICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJWYWxpZGF0ZSBUcmlnZ2VyIEV2ZW50IEZvciBBbWJ1bGF0b3J5IENhcmUgQWJ1c2UgUG90ZW50aWFsIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iRXhpc3RzIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iQWN0aXZlIEFtYnVsYXRvcnkgT3Bpb2lkIFJ4IiBsaWJyYXJ5TmFtZT0iQ29tbW9uIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iSW5jbHVzaW9uIENyaXRlcmlhIiBjb250ZXh0PSJQYXRpZW50IiBhY2Nlc3NMZXZlbD0iUHVibGljIj4KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9IkFuZCI+CiAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJBbmQiPgogICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iQW5kIj4KICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9IkFuZCI+CiAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJHcmVhdGVyT3JFcXVhbCI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHByZWNpc2lvbj0iWWVhciIgeHNpOnR5cGU9IkNhbGN1bGF0ZUFnZSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHBhdGg9ImJpcnRoRGF0ZS52YWx1ZSIgeHNpOnR5cGU9IlByb3BlcnR5Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHNvdXJjZSBuYW1lPSJQYXRpZW50IiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgdmFsdWVUeXBlPSJ0OkludGVnZXIiIHZhbHVlPSIxOCIgeHNpOnR5cGU9IkxpdGVyYWwiLz4KICAgICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iT3IiPgogICAgICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJWYWxpZGF0ZSBUcmlnZ2VyIEV2ZW50IEZvciBCZW56b2RpYXplcGluZSIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVmFsaWRhdGUgVHJpZ2dlciBFdmVudCBGb3IgQW1idWxhdG9yeSBDYXJlIEFidXNlIFBvdGVudGlhbCIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJOb3QiPgogICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJFeGNsdXNpb24gQ3JpdGVyaWEiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJPbiBCZW56b2RpYXplcGluZSIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJPcGlvaWQgd2l0aCBBbWJ1bGF0b3J5IENhcmUgQWJ1c2UgUG90ZW50aWFsIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICAgICA8ZGVmIG5hbWU9IkdldCBJbmRpY2F0b3IiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iSWYiPgogICAgICAgICAgICA8Y29uZGl0aW9uIGFzVHlwZT0idDpCb29sZWFuIiB4c2k6dHlwZT0iQXMiPgogICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJJbmNsdXNpb24gQ3JpdGVyaWEiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgIDwvY29uZGl0aW9uPgogICAgICAgICAgICA8dGhlbiB2YWx1ZVR5cGU9InQ6U3RyaW5nIiB2YWx1ZT0id2FybmluZyIgeHNpOnR5cGU9IkxpdGVyYWwiLz4KICAgICAgICAgICAgPGVsc2UgYXNUeXBlPSJ0OlN0cmluZyIgeHNpOnR5cGU9IkFzIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9Ik51bGwiLz4KICAgICAgICAgICAgPC9lbHNlPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICAgICA8ZGVmIG5hbWU9IkdldCBTdW1tYXJ5IiBjb250ZXh0PSJQYXRpZW50IiBhY2Nlc3NMZXZlbD0iUHVibGljIj4KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9IklmIj4KICAgICAgICAgICAgPGNvbmRpdGlvbiBhc1R5cGU9InQ6Qm9vbGVhbiIgeHNpOnR5cGU9IkFzIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iSW5jbHVzaW9uIENyaXRlcmlhIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICA8L2NvbmRpdGlvbj4KICAgICAgICAgICAgPHRoZW4gdmFsdWVUeXBlPSJ0OlN0cmluZyIgdmFsdWU9IkF2b2lkIHByZXNjcmliaW5nIG9waW9pZCBwYWluIG1lZGljYXRpb24gYW5kIGJlbnpvZGlhemVwaW5lIGNvbmN1cnJlbnRseSB3aGVuZXZlciBwb3NzaWJsZS4iIHhzaTp0eXBlPSJMaXRlcmFsIi8+CiAgICAgICAgICAgIDxlbHNlIGFzVHlwZT0idDpTdHJpbmciIHhzaTp0eXBlPSJBcyI+CiAgICAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJOdWxsIi8+CiAgICAgICAgICAgIDwvZWxzZT4KICAgICAgICAgPC9leHByZXNzaW9uPgogICAgICA8L2RlZj4KICAgICAgPGRlZiBuYW1lPSJHZXQgRGV0YWlsIiBjb250ZXh0PSJQYXRpZW50IiBhY2Nlc3NMZXZlbD0iUHVibGljIj4KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9IklmIj4KICAgICAgICAgICAgPGNvbmRpdGlvbiBhc1R5cGU9InQ6Qm9vbGVhbiIgeHNpOnR5cGU9IkFzIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iSW5jbHVzaW9uIENyaXRlcmlhIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICA8L2NvbmRpdGlvbj4KICAgICAgICAgICAgPHRoZW4geHNpOnR5cGU9IklmIj4KICAgICAgICAgICAgICAgPGNvbmRpdGlvbiBhc1R5cGU9InQ6Qm9vbGVhbiIgeHNpOnR5cGU9IkFzIj4KICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVmFsaWRhdGUgVHJpZ2dlciBFdmVudCBGb3IgQmVuem9kaWF6ZXBpbmUiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgICAgIDwvY29uZGl0aW9uPgogICAgICAgICAgICAgICA8dGhlbiB2YWx1ZVR5cGU9InQ6U3RyaW5nIiB2YWx1ZT0iVGhlIGJlbnpvZGlhemVwaW5lIHByZXNjcmlwdGlvbiByZXF1ZXN0IGlzIGNvbmN1cnJlbnQgd2l0aCBhbiBhY3RpdmUgb3Bpb2lkIHByZXNjcmlwdGlvbiIgeHNpOnR5cGU9IkxpdGVyYWwiLz4KICAgICAgICAgICAgICAgPGVsc2UgdmFsdWVUeXBlPSJ0OlN0cmluZyIgdmFsdWU9IlRoZSBvcGlvaWQgcHJlc2NyaXB0aW9uIHJlcXVlc3QgaXMgY29uY3VycmVudCB3aXRoIGFuIGFjdGl2ZSBiZW56b2RpYXplcGluZSBwcmVzY3JpcHRpb24iIHhzaTp0eXBlPSJMaXRlcmFsIi8+CiAgICAgICAgICAgIDwvdGhlbj4KICAgICAgICAgICAgPGVsc2UgYXNUeXBlPSJ0OlN0cmluZyIgeHNpOnR5cGU9IkFzIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9Ik51bGwiLz4KICAgICAgICAgICAgPC9lbHNlPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICA8L3N0YXRlbWVudHM+CjwvbGlicmFyeT4K"
+    },
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBPcGlvaWRDRFNfUkVDXzExIHZlcnNpb24gJzAuMS4wJ3VzaW5nIEZISVIgdmVyc2lvbiAnNC4wLjAnaW5jbHVkZSBGSElSSGVscGVycyB2ZXJzaW9uICc0LjAuMCcgY2FsbGVkIEZISVJIZWxwZXJzaW5jbHVkZSBPcGlvaWRDRFNfQ29tbW9uIHZlcnNpb24gJzAuMS4wJyBjYWxsZWQgQ29tbW9uLyoqKioqICBSZWNvbW1lbmRhdGlvbiAjMTEqKiAgICBBdm9pZCBwcmVzY3JpYmluZyBvcGlvaWQgcGFpbiBtZWRpY2F0aW9uIGFuZCBiZW56b2RpYXplcGluZXMgY29uY3VycmVudGx5IHdoZW5ldmVyIHBvc3NpYmxlKioqLy8qICBUcmlnZ2VyIGNvbnRleHQ6ICAgIFByaW1hcnkgY2FyZS9hbWJ1bGF0b3J5IGNhcmUgIFRyaWdnZXIgZXZlbnQ6ICAgIFByZXNjcmlwdGlvbiBvZiBiZW56b2RpYXplcGluZSBvciBvcGlvaWQgd2l0aCBhbWJ1bGF0b3J5IGNhcmUgYWJ1c2UgcG90ZW50aWFsICBBc3N1bXB0aW9uczogICAgQ291bnQgb25seSBhbWJ1bGF0b3J5IHByZXNjcmlwdGlvbnMgIEluY2x1c2lvbiBjcml0ZXJpYTogICAgT24gYm90aCBvcGlvaWQgd2l0aCBhbWJ1bGF0b3J5IGNhcmUgYWJ1c2UgcG90ZW50aWFsIGFuZCBiZW56b2RpYXplcGluZSAgTm90aWZpY2F0aW9uOiAgICBBdm9pZCBwcmVzY3JpYmluZyBvcGlvaWQgcGFpbiBtZWRpYXRpb24gYW5kIGJlbnpvZGlhemVwaW5lIGNvbmN1cnJlbnRseSB3aGVuZXZlciBwb3NzaWJsZS4gICAgUmVmOiBDREMgUmVjb21tZW5kYXRpb24gIzExLiAgRUhSIGV4cGVjdGF0aW9uczogICAgSGF2ZSBhdmFpbGFiaWxpdHkgdG8gc25vb3plIGlmIGJlbmVmaXRzIG91dHdlaWdoIHJpc2tzICBQbGFuIERlZmluaXRpb246CWh0dHA6Ly9idWlsZC5maGlyLm9yZy9pZy9jcWZyYW1ld29yay9vcGlvaWQtY2RzLXI0L1BsYW5EZWZpbml0aW9uLW9waW9pZGNkcy0xMS5odG1sKi9wYXJhbWV0ZXIgQ29udGV4dFByZXNjcmlwdGlvbnMgTGlzdDxNZWRpY2F0aW9uUmVxdWVzdD5jb250ZXh0IFBhdGllbnRkZWZpbmUgIlZhbGlkYXRlIFRyaWdnZXIgRXZlbnQgRm9yIEJlbnpvZGlhemVwaW5lIjogIGV4aXN0cyggICAgQ29udGV4dFByZXNjcmlwdGlvbnMgdHJpZ2dlclNjcmlwdCAgICAgIHdoZXJlIHRyaWdnZXJTY3JpcHQubWVkaWNhdGlvbiBpbiBDb21tb24uIkJlbnpvZGlhemVwaW5lcyIgIClkZWZpbmUgIlZhbGlkYXRlIFRyaWdnZXIgRXZlbnQgRm9yIEFtYnVsYXRvcnkgQ2FyZSBBYnVzZSBQb3RlbnRpYWwiOiAgZXhpc3RzKCAgICBDb250ZXh0UHJlc2NyaXB0aW9ucyB0cmlnZ2VyU2NyaXB0ICAgICAgd2hlcmUgdHJpZ2dlclNjcmlwdC5tZWRpY2F0aW9uIGluIENvbW1vbi4iQW1idWxhdG9yeSBBYnVzZSBQb3RlbnRpYWwgT3Bpb2lkcyIgIClkZWZpbmUgIkluY2x1c2lvbiBDcml0ZXJpYSI6ICBBZ2VJblllYXJzKCkgPj0gMTggICAgYW5kICgiVmFsaWRhdGUgVHJpZ2dlciBFdmVudCBGb3IgQmVuem9kaWF6ZXBpbmUiICAgICAgb3IgIlZhbGlkYXRlIFRyaWdnZXIgRXZlbnQgRm9yIEFtYnVsYXRvcnkgQ2FyZSBBYnVzZSBQb3RlbnRpYWwiKSAgICBhbmQgbm90ICJFeGNsdXNpb24gQ3JpdGVyaWEiICAgIGFuZCAiT24gQmVuem9kaWF6ZXBpbmUiICAgIGFuZCAiT3Bpb2lkIHdpdGggQW1idWxhdG9yeSBDYXJlIEFidXNlIFBvdGVudGlhbCJkZWZpbmUgIkV4Y2x1c2lvbiBDcml0ZXJpYSI6ICBDb21tb24uIkVuZCBvZiBMaWZlIEFzc2Vzc21lbnQiICAgIG9yIENvbW1vbi4iSXMgQ29udGV4dCBQcmVzY3JpcHRpb24gRW5kIG9mIExpZmUgT3Bpb2lkPyIoQ29udGV4dFByZXNjcmlwdGlvbnMpZGVmaW5lICJPbiBCZW56b2RpYXplcGluZSI6ICAiVmFsaWRhdGUgVHJpZ2dlciBFdmVudCBGb3IgQmVuem9kaWF6ZXBpbmUiICBvciBleGlzdHMoIENvbW1vbi4iQWN0aXZlIEFtYnVsYXRvcnkgQmVuem9kaWF6ZXBpbmUgUngiIClkZWZpbmUgIk9waW9pZCB3aXRoIEFtYnVsYXRvcnkgQ2FyZSBBYnVzZSBQb3RlbnRpYWwiOiAgIlZhbGlkYXRlIFRyaWdnZXIgRXZlbnQgRm9yIEFtYnVsYXRvcnkgQ2FyZSBBYnVzZSBQb3RlbnRpYWwiICBvciBleGlzdHMoIENvbW1vbi4iQWN0aXZlIEFtYnVsYXRvcnkgT3Bpb2lkIFJ4IiApZGVmaW5lICJHZXQgSW5kaWNhdG9yIjogIGlmICJJbmNsdXNpb24gQ3JpdGVyaWEiICAgIHRoZW4gJ3dhcm5pbmcnICBlbHNlIG51bGxkZWZpbmUgIkdldCBTdW1tYXJ5IjogIGlmICJJbmNsdXNpb24gQ3JpdGVyaWEiICAgIHRoZW4gJ0F2b2lkIHByZXNjcmliaW5nIG9waW9pZCBwYWluIG1lZGljYXRpb24gYW5kIGJlbnpvZGlhemVwaW5lIGNvbmN1cnJlbnRseSB3aGVuZXZlciBwb3NzaWJsZS4nICBlbHNlIG51bGxkZWZpbmUgIkdldCBEZXRhaWwiOiAgaWYgIkluY2x1c2lvbiBDcml0ZXJpYSIgICAgdGhlbiAgICAgIGlmICJWYWxpZGF0ZSBUcmlnZ2VyIEV2ZW50IEZvciBCZW56b2RpYXplcGluZSIgICAgICAgIHRoZW4gJ1RoZSBiZW56b2RpYXplcGluZSBwcmVzY3JpcHRpb24gcmVxdWVzdCBpcyBjb25jdXJyZW50IHdpdGggYW4gYWN0aXZlIG9waW9pZCBwcmVzY3JpcHRpb24nICAgICAgZWxzZSAnVGhlIG9waW9pZCBwcmVzY3JpcHRpb24gcmVxdWVzdCBpcyBjb25jdXJyZW50IHdpdGggYW4gYWN0aXZlIGJlbnpvZGlhemVwaW5lIHByZXNjcmlwdGlvbicgIGVsc2UgbnVsbA=="
+    }
+  ]
+}

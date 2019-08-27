@@ -828,9 +828,9 @@
         <resource>
             <exampleBoolean value="true"/>
             <name value="Library - OMTK Data"/>
-            <description value="Opioid Management Terminology Knowledge Base v0.0.2 Data"/>
+            <description value="Opioid Management Terminology Knowledge Base Data"/>
             <reference>
-                <reference value="Library/library-omtk-data-0-0-2"/>
+                <reference value="Library/library-omtkdata"/>
             </reference>
         </resource>
         <resource>
@@ -846,7 +846,7 @@
             <name value="Library - Opioid CDS Recommendation #1"/>
             <description value="Opioid Management Decision Support Logic for recommendation #1"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-01"/>
+                <reference value="Library/opioidcds-rec-01"/>
             </reference>
         </resource>
         <resource>
@@ -854,7 +854,7 @@
             <name value="Library - Opioid CDS Recommendation #2"/>
             <description value="Opioid Management Decision Support Logic for recommendation #2"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-02"/>
+                <reference value="Library/opioidcds-rec-02"/>
             </reference>
         </resource>
         <resource>
@@ -862,7 +862,7 @@
             <name value="Library - Opioid CDS Recommendation #3"/>
             <description value="Opioid Management Decision Support Logic for recommendation #3"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-03"/>
+                <reference value="Library/opioidcds-rec-03"/>
             </reference>
         </resource>
         <resource>
@@ -870,7 +870,7 @@
             <name value="Library - Opioid CDS Recommendation #4"/>
             <description value="Opioid Management Decision Support Logic for recommendation #4"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-04"/>
+                <reference value="Library/opioidcds-rec-04"/>
             </reference>
         </resource>
         <resource>
@@ -878,7 +878,7 @@
             <name value="Library - Opioid CDS Recommendation #5"/>
             <description value="Opioid Management Decision Support Logic for recommendation #5"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-05"/>
+                <reference value="Library/opioidcds-rec-05"/>
             </reference>
         </resource>
         <resource>
@@ -886,7 +886,7 @@
             <name value="Library - Opioid CDS Recommendation #6"/>
             <description value="Opioid Management Decision Support Logic for recommendation #6"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-06"/>
+                <reference value="Library/opioidcds-rec-06"/>
             </reference>
         </resource>
         <resource>
@@ -894,7 +894,7 @@
             <name value="Library - Opioid CDS Recommendation #7"/>
             <description value="Opioid Management Decision Support Logic for recommendation #7"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-07"/>
+                <reference value="Library/opioidcds-rec-07"/>
             </reference>
         </resource>
         <resource>
@@ -902,7 +902,7 @@
             <name value="Library - Opioid CDS Recommendation #8"/>
             <description value="Opioid Management Decision Support Logic for recommendation #8"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-08"/>
+                <reference value="Library/opioidcds-rec-08"/>
             </reference>
         </resource>
         <resource>
@@ -910,7 +910,7 @@
             <name value="Library - Opioid CDS Recommendation #9"/>
             <description value="Opioid Management Decision Support Logic for recommendation #9"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-09"/>
+                <reference value="Library/opioidcds-rec-09"/>
             </reference>
         </resource>
         <resource>
@@ -918,7 +918,7 @@
             <name value="Library - Opioid CDS Recommendation #10"/>
             <description value="Opioid Management Decision Support Logic for recommendation #10"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-10"/>
+                <reference value="Library/opioidcds-rec-10"/>
             </reference>
         </resource>
         <!-- <resource>
@@ -934,7 +934,7 @@
             <name value="Library - Opioid CDS Recommendation #11"/>
             <description value="Opioid Management Decision Support Logic for recommendation #11"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-11"/>
+                <reference value="Library/opioidcds-rec-11"/>
             </reference>
         </resource>
         <!-- <resource>
@@ -950,7 +950,7 @@
             <name value="Library - Opioid CDS Recommendation #12"/>
             <description value="Opioid Management Decision Support Logic for recommendation #12"/>
             <reference>
-                <reference value="Library/opioidcds-recommendation-12"/>
+                <reference value="Library/opioidcds-rec-12"/>
             </reference>
         </resource>
         <resource>
