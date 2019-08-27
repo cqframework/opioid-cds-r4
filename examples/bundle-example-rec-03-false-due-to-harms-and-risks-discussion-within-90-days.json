@@ -88,8 +88,12 @@
                     "reference": "Patient/7bdbc7ea-f76d-476e-bf94-85c6e368df67-1"
                 },
                 "performedPeriod": {
-                    "start": "2018-01-01T00:00:00",
-                    "end": "2018-01-02T00:00:00"
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                      "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 89 days }, end: FHIR.dateTime { value: Today() - 88 days } }"
+                    }
+                  ]
                 }
             },
             "request": {
