@@ -1,4 +1,4 @@
-library OpioidCDS_R4_Common_Config version '0.1.0'
+library OpioidCDS_Common_Config version '0.1.0'
 
 // Opioid Review Useful
 define "Age Less than 18 Years Is Enabled":

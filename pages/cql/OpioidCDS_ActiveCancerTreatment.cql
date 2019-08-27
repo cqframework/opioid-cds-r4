@@ -1,10 +1,10 @@
-library OpioidCDS_R4_ActiveCancerTreatment version '0.1.0'
+library OpioidCDS_ActiveCancerTreatment version '0.1.0'
 
 using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDS_R4_Common version '0.1.0' called Common
-include OpioidCDS_R4_Common_Config version '0.1.0' called Config
+include OpioidCDS_Common version '0.1.0' called Common
+include OpioidCDS_Common_Config version '0.1.0' called Config
 
 /*
 **  Opioid Naive subroutine

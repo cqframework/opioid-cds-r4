@@ -1,11 +1,11 @@
-library OpioidCDS_R4_REC_01 version '0.1.0'
+library OpioidCDS_REC_01 version '0.1.0'
 
 using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDS_R4_Common version '0.1.0' called Common
-include OpioidCDS_R4_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
-include OpioidCDS_R4_OpioidNaive version '0.1.0' called OpioidNaive
+include OpioidCDS_Common version '0.1.0' called Common
+include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
+include OpioidCDS_OpioidNaive version '0.1.0' called OpioidNaive
 
 /*
 **

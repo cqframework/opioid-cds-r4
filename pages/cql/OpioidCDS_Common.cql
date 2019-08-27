@@ -1,4 +1,4 @@
-library OpioidCDS_R4_Common version '0.1.0'
+library OpioidCDS_Common version '0.1.0'
 
 using FHIR version '4.0.0'
 
