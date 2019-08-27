@@ -17,50 +17,13 @@
               "extension": [
                 {
                   "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                  "valueString": "Today() - 17 years"
+                  "valueString": "Today() - 20 years"
                 }
               ]
             },
             "request": {
                 "method": "PUT",
                 "url": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "MedicationStatement",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/profiles/MedicationStatement"
-                    ]
-                },
-                "id": "facb1929-f917-4a5c-afcd-fd9c02c5da84-4",
-                "status": "active",
-                "subject": {
-                    "reference": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
-                },
-                "effectiveDateTime":
-                {
-                  "extension": [
-                    {
-                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                      "valueString": "Today() - 95 days"
-                    }
-                  ]
-                },
-                "medicationCodeableConcept": {
-                    "coding": [
-                        {
-                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                            "code": "1010603",
-                            "display": "Ambulatory Abuse Potential Opioids"
-                        }
-                    ]
-                }
-            },
-            "request": {
-                "method": "PUT",
-                "url": "MedicationStatement/facb1929-f917-4a5c-afcd-fd9c02c5da84-4"
             }
         },
         {
