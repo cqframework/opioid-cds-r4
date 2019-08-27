@@ -1,0 +1,79 @@
+{
+    "hookInstance": "6bc883b2-b795-4dcb-b661-34884a31d472",
+    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "hook": "order-select",
+    "user": "Practitioner/example",
+    "applyCql": true,
+    "context": {
+        "patientId": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1",
+        "medications": [
+            {
+                "resourceType": "MedicationRequest",
+                "id": "05f8cb26-2eb6-4124-b65d-bb1f13e21c49",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                },
+                "authoredOn": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+                            "valueString": "Today()"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "prefetch": {
+        "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "MedicationStatement",
+                "id": "cabc72ea-c67d-4b87-be3b-e79bc39015eb",
+                "status": "active",
+                "subject": {
+                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                },
+                "effectiveDateTime": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                            "valueString": "Today() - 95 days"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

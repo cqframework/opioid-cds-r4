@@ -1,0 +1,76 @@
+{
+    "hookInstance": "6a7fbd0e-f48e-4936-a2b6-dfeefed8575d",
+    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "hook": "order-select",
+    "user": "Practitioner/example",
+    "applyCql": true,
+    "context": {
+      "patientId": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1",
+      "medications": [
+        {
+            "resourceType": "MedicationRequest",
+            "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-3",
+            "status": "active",
+            "intent": "order",
+            "subject": {
+                "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+            },
+            "category": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                        "code": "outpatient",
+                        "display": "Outpatient"
+                    }
+                ]
+            },
+            "medicationCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "1010603",
+                        "display": "Ambulatory Abuse Potential Opioids"
+                    }
+                ]
+            },
+          "authoredOn": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+                "valueString": "Today()"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "prefetch": {
+        "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "ea2465c9-5a50-4e24-83dd-7a6e7957c253",
+                "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "TODO",
+                            "code": "Not In VS",
+                            "display": "PDMP Data Review"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+                },
+                "performedPeriod": {
+                    "start": "2018-01-01T00:00:00",
+                    "end": "2018-01-02T00:00:00"
+                }
+            }
+        }
+    }
+  }
+  

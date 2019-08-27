@@ -1,0 +1,46 @@
+{
+    "hookInstance": "17ff4874-b68a-490c-abaa-b62b1a91b1bd",
+    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "hook": "order-select",
+    "user": "Practitioner/example",
+    "applyCql": true,
+    "context": {
+      "patientId": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
+    },
+    "prefetch": {
+        "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "6bf0522c-e143-43e2-af80-47536d52de0c",
+                "clinicalStatus": {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
+                                "code": "active",
+                                "display": "Active Condition"
+                            }
+                        ]
+                    }
+                },
+                "verificationStatus": "confirmed",
+                "subject": {
+                    "reference": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "TODO",
+                            "code": "TODO",
+                            "display": "Opioid Misuse Disorders"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+  }
+  

@@ -1,0 +1,84 @@
+{
+    "hookInstance": "2c7a36a1-1e82-4608-87be-fc13f730ec49",
+    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "hook": "order-select",
+    "user": "Practitioner/example",
+    "applyCql": true,
+    "context": {
+      "patientId": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1",
+      "medications": [
+        {
+            "resourceType": "MedicationRequest",
+            "id": "222b5b54-1efe-4733-bec9-313e97f16051",
+            "status": "active",
+            "intent": "order",
+            "subject": {
+                "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+            },
+            "category": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                        "code": "outpatient",
+                        "display": "Outpatient"
+                    }
+                ]
+            },
+            "medicationCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "1010603",
+                        "display": "Ambulatory Abuse Potential Opioids"
+                    }
+                ]
+            },
+          "authoredOn": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+                "valueString": "Today()"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "prefetch": {
+        "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "CarePlan",
+                "id": "1446d540-3b44-4af9-934b-3a694d8abffc",
+                "meta": {
+                    "lastUpdated": {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                          "valueString": "Today() - 89 days"
+                        }
+                      ]
+                    }
+                },
+                "status": "active",
+                "intent": "plan",
+                "subject": {
+                    "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                },
+                "created": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                      "valueString": "Today() - 120 days"
+                    }
+                  ]
+                },
+                "author": {
+                    "reference": "Practitioner/example"
+                }
+            }
+        }
+    }
+  }

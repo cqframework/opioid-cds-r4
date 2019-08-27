@@ -1,0 +1,47 @@
+{
+    "hookInstance": "8ef84771-16e2-487c-8042-b097009b7d64",
+    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "hook": "order-select",
+    "user": "Practitioner/example",
+    "applyCql": true,
+    "context": {
+      "patientId": "Patient/ae923976-6992-49d5-8ea0-97c752088770-1",
+      "medications": [
+        {
+            "resourceType": "MedicationRequest",
+            "id": "8280aeb5-db2e-4b2e-a80c-aaaa597762b3",
+            "authoredOn": "2018-08-01T00:00:00.0",
+            "status": "active",
+            "intent": "order",
+            "subject": {
+                "reference": "Patient/ae923976-6992-49d5-8ea0-97c752088770-1"
+            },
+            "category": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                        "code": "outpatient",
+                        "display": "Outpatient"
+                    }
+                ]
+            },
+            "medicationCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "1049502",
+                        "display": "oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
+                    }
+                ]
+            },
+            "dispenseRequest": {
+                "expectedSupplyDuration": {
+                    "value": "29",
+                    "unit": "days"
+                }
+            }
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,80 @@
+{
+    "hookInstance": "3efef233-82fa-461b-9436-c799313e9a90",
+    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "hook": "order-select",
+    "user": "Practitioner/example",
+    "applyCql": true,
+    "context": {
+      "patientId": "Patient/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-1",
+      "medications": [
+        {
+            "resourceType": "MedicationRequest",
+            "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3",
+            "status": "active",
+            "intent": "order",
+            "subject": {
+                "reference": "Patient/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-1"
+            },
+            "category": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                        "code": "outpatient",
+                        "display": "Outpatient"
+                    }
+                ]
+            },
+            "medicationCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "1010603",
+                        "display": "Ambulatory Abuse Potential Opioids"
+                    }
+                ]
+            },
+          "authoredOn": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+                "valueString": "Today()"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "prefetch": {
+        "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "d2e1e4f3-9117-46c3-a8ee-125c58674997",
+                "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "TODO",
+                            "code": "TODO",
+                            "display": "PDMP Data Review"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-1"
+                },
+                "performedPeriod": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                      "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 80 days }, end: FHIR.dateTime { value: Today() - 79 days } }"
+                    }
+                  ]
+                }
+            }
+        }
+    }
+  }
+  

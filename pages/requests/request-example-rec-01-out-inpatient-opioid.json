@@ -1,0 +1,47 @@
+{
+    "hookInstance": "32a89854-a395-4f0e-8fa7-a660c7c9dd3d",
+    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "hook": "order-select",
+    "user": "Practitioner/example",
+    "applyCql": true,
+    "context": {
+      "patientId": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1",
+      "medications": [
+        {
+            "resourceType": "MedicationRequest",
+            "id": "4d2b4402-022e-4f69-813e-ab16934286a6",
+            "status": "active",
+            "intent": "order",
+            "subject": {
+                "reference": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
+            },
+            "category": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                        "code": "inpatient",
+                        "display": "Inpatient"
+                    }
+                ]
+            },
+            "medicationCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "1010603",
+                        "display": "Ambulatory Abuse Potential Opioids"
+                    }
+                ]
+            },
+          "authoredOn": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+                "valueString": "Today()"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
