@@ -82,7 +82,7 @@
         <display value="MME Conversion Tables"/>
         <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
     </relatedArtifact>
-    <library value="Library/opioidcds-rec-08"/>
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-rec-08"/>
     <action>
         <!-- non-dynamic card summary -->
         <title value="Existing patient exhibits risk factors for opioid-related harms."/>
