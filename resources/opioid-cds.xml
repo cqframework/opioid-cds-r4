@@ -206,7 +206,7 @@
         </resource>
 
         <!-- Rec06 -->
-        <!-- <resource>
+        <resource>
             <exampleBoolean value="true"/>
             <reference>
                 <reference value="Bundle/example-rec-06-criteria-valid"/>
@@ -217,7 +217,7 @@
             <reference>
                 <reference value="Bundle/example-rec-06-with-extended-release-for-27-days"/>
             </reference>
-        </resource> -->
+        </resource>
 
         <!-- Rec07 -->
         <resource>
@@ -527,7 +527,7 @@
         </resource>
 
         <!-- Rec09 -->
-        <!-- <resource>
+        <resource>
             <exampleBoolean value="true"/>
             <reference>
                 <reference value="Bundle/example-rec-09-true-return-recommendations"/>
@@ -538,7 +538,7 @@
             <reference>
                 <reference value="Bundle/example-rec-09-false-due-to-PDMP-review-within-90-days"/>
             </reference>
-        </resource> -->
+        </resource>
 
         <!-- Rec10 -->
         <resource>
@@ -841,7 +841,7 @@
         </resource>
 
         <!-- Rec12 -->
-        <!-- <resource>
+        <resource>
             <exampleBoolean value="true"/>
             <reference>
                 <reference value="Bundle/example-rec-12-criteria-valid"/>
@@ -852,7 +852,7 @@
             <reference>
                 <reference value="Bundle/example-rec-12-criteria-invalid"/>
             </reference>
-        </resource> -->
+        </resource>
 
         <resource>
             <exampleBoolean value="true"/>
@@ -915,6 +915,14 @@
             <description value="Opioid Management Terminology Knowledge Base Data"/>
             <reference>
                 <reference value="Library/library-omtkdata"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <name value="Library - OMTK Logic"/>
+            <description value="Opioid Management Terminology Knowledge Base Logic"/>
+            <reference>
+                <reference value="Library/library-omtklogic"/>
             </reference>
         </resource>
         <resource>

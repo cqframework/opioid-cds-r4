@@ -54,15 +54,17 @@
                 "subject": {
                     "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
                 },
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                            "code": "outpatient",
-                            "display": "Outpatient"
-                        }
-                    ]
-                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "code": "outpatient",
+                                "display": "Outpatient"
+                            }
+                        ]
+                    }
+                ],
                 "medicationCodeableConcept": {
                     "coding": [
                         {

@@ -80,15 +80,19 @@
                 "subject": {
                     "reference": "Patient/example-rec-01-true-make-recommendations"
                 },
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                            "code": "outpatient",
-                            "display": "Outpatient"
-                        }
-                    ]
-                },
+                "category":
+                [
+
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "code": "outpatient",
+                                "display": "Outpatient"
+                            }
+                        ]
+                    }
+                ],
                 "medicationCodeableConcept": {
                     "coding": [
                         {

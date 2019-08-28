@@ -42,15 +42,17 @@
                 "subject": {
                     "reference": "Patient/example-rec-01-false-due-to-inpatient-opioid"
                 },
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                            "code": "inpatient",
-                            "display": "Inpatient"
-                        }
-                    ]
-                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "code": "inpatient",
+                                "display": "Inpatient"
+                            }
+                        ]
+                    }
+                ],
                 "medicationCodeableConcept": {
                     "coding": [
                         {

@@ -4,9 +4,10 @@
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-12-criteria-invalid",
             "resource": {
                 "resourceType": "Patient",
-                "id": "1a036bca-f293-46a6-b5cc-25b298894288-1",
+                "id": "example-rec-12-criteria-invalid",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
@@ -23,13 +24,14 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/1a036bca-f293-46a6-b5cc-25b298894288-1"
+                "url": "Patient/example-rec-12-criteria-invalid"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Conditions/example-rec-12-criteria-invalid",
             "resource": {
                 "resourceType": "Condition",
-                "id": "1a036bca-f293-46a6-b5cc-25b298894288-5",
+                "id": "example-rec-12-criteria-invalid",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Condition"
@@ -48,7 +50,7 @@
                 },
                 "verificationStatus": "confirmed",
                 "subject": {
-                    "reference": "Patient/1a036bca-f293-46a6-b5cc-25b298894288-1"
+                    "reference": "Patient/example-rec-12-criteria-invalid"
                 },
                 "code": {
                     "coding": [
@@ -62,7 +64,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Condition/1a036bca-f293-46a6-b5cc-25b298894288-5"
+                "url": "Condition/example-rec-12-criteria-invalid"
             }
         }
     ]

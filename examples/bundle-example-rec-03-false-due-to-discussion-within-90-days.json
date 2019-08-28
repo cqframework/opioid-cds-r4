@@ -43,15 +43,17 @@
                 "subject": {
                     "reference": "Patient/7bdbc7ea-f76d-476e-bf94-85c6e368df67-1"
                 },
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                            "code": "outpatient",
-                            "display": "Outpatient"
-                        }
-                    ]
-                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "code": "outpatient",
+                                "display": "Outpatient"
+                            }
+                        ]
+                    }
+                ],
                 "medicationCodeableConcept": {
                     "coding": [
                         {

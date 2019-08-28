@@ -1,12 +1,13 @@
 {
     "resourceType": "Bundle",
-    "id": "rec-09-false-due-to-PDMP-review-within-90-days",
+    "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-09-false-due-to-PDMP-review-within-90-days",
             "resource": {
                 "resourceType": "Patient",
-                "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-1",
+                "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
@@ -23,13 +24,14 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-1"
+                "url": "Patient/example-rec-09-false-due-to-PDMP-review-within-90-days"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Procedure/example-rec-09-false-due-to-PDMP-review-within-90-days",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-21",
+                "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
                 "meta": {
                     "profile": [
                         "https://hl7.org/fhir/profiles/Procedure"
@@ -46,7 +48,7 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-1"
+                    "reference": "Patient/example-rec-09-false-due-to-PDMP-review-within-90-days"
                 },
                 "performedPeriod": {
                   "extension": [
@@ -59,10 +61,11 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Procedure/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-21"
+                "url": "Procedure/example-rec-09-false-due-to-PDMP-review-within-90-days"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-09-false-due-to-PDMP-review-within-90-days",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -70,22 +73,24 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3",
+                "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
                 "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-1"
+                    "reference": "Patient/example-rec-09-false-due-to-PDMP-review-within-90-days"
                 },
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                            "code": "outpatient",
-                            "display": "Outpatient"
-                        }
-                    ]
-                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "code": "outpatient",
+                                "display": "Outpatient"
+                            }
+                        ]
+                    }
+                ],
                 "medicationCodeableConcept": {
                     "coding": [
                         {
@@ -98,7 +103,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3"
+                "url": "MedicationRequest/example-rec-09-false-due-to-PDMP-review-within-90-days"
             }
         }
     ]

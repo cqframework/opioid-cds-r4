@@ -4,9 +4,10 @@
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-09-true-return-recommendations",
             "resource": {
                 "resourceType": "Patient",
-                "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-1",
+                "id": "example-rec-09-true-return-recommendations",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
@@ -23,13 +24,14 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+                "url": "Patient/example-rec-09-true-return-recommendations"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Procedure/example-rec-09-true-return-recommendations",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-21",
+                "id": "example-rec-09-true-return-recommendations",
                 "meta": {
                     "profile": [
                         "https://hl7.org/fhir/profiles/Procedure"
@@ -46,7 +48,7 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+                    "reference": "Patient/example-rec-09-true-return-recommendations"
                 },
                 "performedPeriod": {
                     "start": "2018-01-01T00:00:00",
@@ -55,10 +57,11 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Procedure/60640bf6-3845-4dbd-bf15-b2616118e8c8-21"
+                "url": "Procedure/example-rec-09-true-return-recommendations"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-09-true-return-recommendations",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -66,22 +69,24 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-3",
+                "id": "example-rec-09-true-return-recommendations",
                 "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+                    "reference": "Patient/example-rec-09-true-return-recommendations"
                 },
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                            "code": "outpatient",
-                            "display": "Outpatient"
-                        }
-                    ]
-                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "code": "outpatient",
+                                "display": "Outpatient"
+                            }
+                        ]
+                    }
+                ],
                 "medicationCodeableConcept": {
                     "coding": [
                         {
@@ -94,7 +99,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/60640bf6-3845-4dbd-bf15-b2616118e8c8-3"
+                "url": "MedicationRequest/example-rec-09-true-return-recommendations"
             }
         }
     ]
