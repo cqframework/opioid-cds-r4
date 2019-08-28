@@ -57,5 +57,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Trigger Event Prescriptions"), ', ')
+    then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
   else null
