@@ -1,9 +1,10 @@
 {
     "resourceType": "Bundle",
-    "id": "MMI-d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143",
+    "id": "example-rec-06-with-extended-release-for-27-days",
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-06-with-extended-release-for-27-days",
             "resource": {
                 "resourceType": "Patient",
                 "id": "d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1",
@@ -27,6 +28,7 @@
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-06-with-extended-release-for-27-days",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {

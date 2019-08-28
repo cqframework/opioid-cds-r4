@@ -1,9 +1,10 @@
 {
     "resourceType": "Bundle",
-    "id": "MMI-ae923976-6992-49d5-8ea0-97c752088770",
+    "id": "example-rec-06-criteria-valid",
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-06-criteria-valid",
             "resource": {
                 "resourceType": "Patient",
                 "id": "ae923976-6992-49d5-8ea0-97c752088770-1",
@@ -27,6 +28,7 @@
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-06-criteria-valid",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {

@@ -1,12 +1,13 @@
 {
     "resourceType": "Bundle",
-    "id": "MMI-facb1929-f917-4a5c-afcd-fd9c02c5da84",
+    "id": "example-rec-01-false-due-to-inpatient-opioid",
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-01-false-due-to-inpatient-opioid",
             "resource": {
                 "resourceType": "Patient",
-                "id": "facb1929-f917-4a5c-afcd-fd9c02c5da84-1",
+                "id": "example-rec-01-false-due-to-inpatient-opioid",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
@@ -23,10 +24,11 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
+                "url": "Patient/example-rec-01-false-due-to-inpatient-opioid"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-01-false-due-to-inpatient-opioid",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -34,11 +36,11 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "facb1929-f917-4a5c-afcd-fd9c02c5da84-3",
+                "id": "example-rec-01-false-due-to-inpatient-opioid",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
+                    "reference": "Patient/example-rec-01-false-due-to-inpatient-opioid"
                 },
                 "category": {
                     "coding": [
@@ -61,7 +63,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/facb1929-f917-4a5c-afcd-fd9c02c5da84-3"
+                "url": "MedicationRequest/example-rec-01-false-due-to-inpatient-opioid"
             }
         }
     ]

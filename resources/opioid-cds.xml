@@ -11,6 +11,49 @@
     <date value="2017-02-06"/>
     <description value="Opioid Prescribing Support Implementation Guide"/>
     <definition>
+        <!-- Rec01 -->
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-01-true-make-recommendations"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-01-false-due-to-inpatient-opioid"/>
+            </reference>
+        </resource>
+
+        <!-- Rec02 -->
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-02-true-make-recommendations"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-02-false-due-to-careplan-within-90-days"/>
+            </reference>
+        </resource>
+
+        <!-- Rec03 -->
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-03-true-make-recommendations"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-03-false-due-to-discussion-within-90-days"/>
+            </reference>
+        </resource>
+
+        <!-- Rec04 -->
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -123,6 +166,7 @@
             </reference>
         </resource>
 
+        <!-- Rec05 -->
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -161,6 +205,21 @@
             </reference>
         </resource>
 
+        <!-- Rec06 -->
+        <!-- <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-06-criteria-valid"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-06-with-extended-release-for-27-days"/>
+            </reference>
+        </resource> -->
+
+        <!-- Rec07 -->
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -347,6 +406,7 @@
             </reference>
         </resource>
 
+        <!-- Rec08 -->
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -466,6 +526,21 @@
             </reference>
         </resource>
 
+        <!-- Rec09 -->
+        <!-- <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-09-true-return-recommendations"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-09-false-due-to-PDMP-review-within-90-days"/>
+            </reference>
+        </resource> -->
+
+        <!-- Rec10 -->
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -484,7 +559,6 @@
                 <reference value="Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
             </reference>
         </resource>
-
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -521,7 +595,6 @@
                 <reference value="Encounter/example-rec-10-illicit-drugs-prefetch"/>
             </reference>
         </resource>
-
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -558,7 +631,6 @@
                 <reference value="Encounter/example-rec-10-missing-prescribed-opioids-prefetch"/>
             </reference>
         </resource>
-
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -589,7 +661,6 @@
                 <reference value="Encounter/example-rec-10-no-screenings-prefetch"/>
             </reference>
         </resource>
-
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -670,6 +741,7 @@
             </reference>
         </resource>
 
+        <!-- Rec11 -->
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -719,7 +791,6 @@
                 <reference value="Encounter/example-rec-11-benzo-trigger-without-opioid-context"/>
             </reference>
         </resource>
-
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -750,7 +821,6 @@
                 <reference value="Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
             </reference>
         </resource>
-
         <resource>
             <exampleBoolean value="true"/>
             <reference>
@@ -769,6 +839,20 @@
                 <reference value="Encounter/example-rec-11-opioid-trigger-without-benzo-context"/>
             </reference>
         </resource>
+
+        <!-- Rec12 -->
+        <!-- <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-12-criteria-valid"/>
+            </reference>
+        </resource>
+        <resource>
+            <exampleBoolean value="true"/>
+            <reference>
+                <reference value="Bundle/example-rec-12-criteria-invalid"/>
+            </reference>
+        </resource> -->
 
         <resource>
             <exampleBoolean value="true"/>

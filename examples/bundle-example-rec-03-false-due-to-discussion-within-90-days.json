@@ -1,12 +1,13 @@
 {
     "resourceType": "Bundle",
-    "id": "MMI-d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded",
+    "id": "example-rec-03-false-due-to-discussion-within-90-days",
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "Patient",
-                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1",
+                "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-1",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
@@ -23,20 +24,11 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                "url": "Patient/7bdbc7ea-f76d-476e-bf94-85c6e368df67-1"
             }
         },
         {
-            "resource": {
-                "resourceType": "Practitioner",
-                "id": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
-            },
-            "request": {
-                "method": "PUT",
-                "url": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
-            }
-        },
-        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -44,12 +36,12 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-3",
+                "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-3",
                 "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                    "reference": "Patient/7bdbc7ea-f76d-476e-bf94-85c6e368df67-1"
                 },
                 "category": {
                     "coding": [
@@ -70,52 +62,46 @@
                     ]
                 }
             },
-            "recorder": {
-                "reference": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
-            },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-3"
+                "url": "MedicationRequest/7bdbc7ea-f76d-476e-bf94-85c6e368df67-3"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Procedure/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
-                "resourceType": "CarePlan",
-                "id": "d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded9",
+                "resourceType": "Procedure",
+                "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-21",
                 "meta": {
                     "profile": [
-                        "http://hl7.org/fhir/profiles/CarePlan"
-                    ],
-                    "lastUpdated": {
-                      "extension": [
+                        "https://hl7.org/fhir/profiles/Procedure"
+                    ]
+                },
+                "status": "completed",
+                "code": {
+                    "coding": [
                         {
-                          "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                          "valueString": "Today() - 89 days"
+                            "system": "TODO",
+                            "code": "TODO",
+                            "display": "Procedure For Counseling Regarding Potential Opioid Harms and Risks"
                         }
-                      ]
-                    },
+                    ]
                 },
-                "status": "active",
-                "intent": "plan",
                 "subject": {
-                    "reference": "Patient/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-1"
+                    "reference": "Patient/7bdbc7ea-f76d-476e-bf94-85c6e368df67-1"
                 },
-                "created": {
+                "performedPeriod": {
                   "extension": [
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                      "valueString": "Today() - 120 days"
+                      "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 89 days }, end: FHIR.dateTime { value: Today() - 88 days } }"
                     }
                   ]
-                },
-                "author": {
-                    "reference": "Practitioner/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-9"
                 }
             },
-            //TODO: Need guidance on how CarePlan will be determined to be an Opioid Treatment Plan
             "request": {
                 "method": "PUT",
-                "url": "CarePlan/d23b6cc4-29f1-4e8e-bb2d-7a8e97f44ded-5"
+                "url": "Procedure/7bdbc7ea-f76d-476e-bf94-85c6e368df67-21"
             }
         }
     ]

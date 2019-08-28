@@ -1,12 +1,13 @@
 {
     "resourceType": "Bundle",
-    "id": "MMI-8119002c-6322-4d16-988b-36bb6d9b3940",
+    "id": "example-rec-01-true-make-recommendations",
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-01-true-make-recommendations",
             "resource": {
                 "resourceType": "Patient",
-                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-1",
+                "id": "example-rec-01-true-make-recommendations",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
@@ -23,10 +24,11 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                "url": "Patient/example-rec-01-true-make-recommendations"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationStatement/example-rec-01-true-make-recommendations",
             "resource": {
                 "resourceType": "MedicationStatement",
                 "meta": {
@@ -34,10 +36,10 @@
                         "http://hl7.org/fhir/profiles/MedicationStatement"
                     ]
                 },
-                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-4",
+                "id": "example-rec-01-true-make-recommendations",
                 "status": "active",
                 "subject": {
-                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                    "reference": "Patient/example-rec-01-true-make-recommendations"
                 },
                 "effectiveDateTime":
                 {
@@ -60,10 +62,11 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationStatement/8119002c-6322-4d16-988b-36bb6d9b3940-4"
+                "url": "MedicationStatement/example-rec-01-true-make-recommendations"
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-01-true-make-recommendations",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -71,11 +74,11 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "8119002c-6322-4d16-988b-36bb6d9b3940-3",
+                "id": "example-rec-01-true-make-recommendations",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                    "reference": "Patient/example-rec-01-true-make-recommendations"
                 },
                 "category": {
                     "coding": [
@@ -98,7 +101,7 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/8119002c-6322-4d16-988b-36bb6d9b3940-3"
+                "url": "MedicationRequest/example-rec-01-true-make-recommendations"
             }
         }
     ]

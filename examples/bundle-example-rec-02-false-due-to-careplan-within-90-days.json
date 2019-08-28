@@ -1,13 +1,13 @@
 {
     "resourceType": "Bundle",
-    "id": "example-rec-02-true-make-recommendations",
+    "id": "example-rec-02-false-due-to-careplan-within-90-days",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-02-false-due-to-careplan-within-90-days",
             "resource": {
                 "resourceType": "Patient",
-                "id": "example-rec-02-true-make-recommendations",
+                "id": "example-rec-02-false-due-to-careplan-within-90-days",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
@@ -24,22 +24,22 @@
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/example-rec-02-true-make-recommendations"
+                "url": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
             }
         },
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Practitioner/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Practitioner/example-rec-02-false-due-to-careplan-within-90-days",
             "resource": {
                 "resourceType": "Practitioner",
-                "id": "example-rec-02-true-make-recommendations"
+                "id": "Practitioner/example-rec-02-false-due-to-careplan-within-90-days"
             },
             "request": {
                 "method": "PUT",
-                "url": "Practitioner/example-rec-02-true-make-recommendations"
+                "url": "Practitioner/example-rec-02-false-due-to-careplan-within-90-days"
             }
         },
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-02-false-due-to-careplan-within-90-days",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -47,12 +47,12 @@
                         "http://hl7.org/fhir/profiles/MedicationRequest"
                     ]
                 },
-                "id": "example-rec-02-true-make-recommendations",
-                "authoredOn": "2018-01-01T00:00:00.0",
+                "id": "example-rec-02-false-due-to-careplan-within-90-days",
+                "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/example-rec-02-true-make-recommendations"
+                    "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
                 },
                 "category": {
                     "coding": [
@@ -74,43 +74,51 @@
                 }
             },
             "recorder": {
-                "reference": "Practitioner/example-rec-02-true-make-recommendations"
+                "reference": "Practitioner/example-rec-02-false-due-to-careplan-within-90-days"
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/example-rec-02-true-make-recommendations"
+                "url": "MedicationRequest/example-rec-02-false-due-to-careplan-within-90-days"
             }
         },
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/CarePlan/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/CarePlan/example-rec-02-false-due-to-careplan-within-90-days",
             "resource": {
                 "resourceType": "CarePlan",
-                "id": "example-rec-02-true-make-recommendations",
+                "id": "example-rec-02-false-due-to-careplan-within-90-days",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/CarePlan"
-                    ]
+                    ],
+                    "lastUpdated": {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                          "valueString": "Today() - 89 days"
+                        }
+                      ]
+                    }
                 },
                 "status": "active",
                 "intent": "plan",
                 "subject": {
-                    "reference": "Patient/example-rec-02-true-make-recommendations"
+                    "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
                 },
                 "created": {
                   "extension": [
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                      "valueString": "Today() - 150 days"
+                      "valueString": "Today() - 120 days"
                     }
                   ]
                 },
                 "author": {
-                    "reference": "Practitioner/example-rec-02-true-make-recommendations"
+                    "reference": "Practitioner/example-rec-02-false-due-to-careplan-within-90-days"
                 }
             },
             "request": {
                 "method": "PUT",
-                "url": "CarePlan/example-rec-02-true-make-recommendations"
+                "url": "CarePlan/example-rec-02-false-due-to-careplan-within-90-days"
             }
         }
     ]
