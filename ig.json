@@ -40,6 +40,33 @@
     "valueset-profile-spreadsheet.xml"
   ],
   "resources": {
+      "Bundle/example-rec-01-true-make-recommendations": {
+        "source": "bundle-example-rec-01-true-make-recommendations.json",
+        "base": "Bundle-example-rec-01-true-make-recommendations.html"
+      },
+      "Bundle/example-rec-01-false-due-to-inpatient-opioid": {
+        "source": "bundle-example-rec-01-false-due-to-inpatient-opioid.json",
+        "base": "Bundle-example-rec-01-false-due-to-inpatient-opioid.html"
+      },
+
+      "Bundle/example-rec-02-true-make-recommendations": {
+        "source": "bundle-example-rec-02-true-make-recommendations.json",
+        "base": "Bundle-example-rec-02-true-make-recommendations.html"
+      },
+      "Bundle/example-rec-02-false-due-to-careplan-within-90-days": {
+        "source": "bundle-example-rec-02-false-due-to-careplan-revisited-within-past-90-days.json",
+        "base": "Bundle-example-rec-02-false-due-to-careplan-revisited-within-past-90-days.html"
+      },
+
+      "Bundle/example-rec-03-true-make-recommendations": {
+        "source": "bundle-example-rec-02-true-make-recommendations.json",
+        "base": "Bundle-example-rec-02-true-make-recommendations.html"
+      },
+      "Bundle/example-rec-03-false-due-to-discussion-within-90-days": {
+        "source": "bundle-example-rec-03-false-due-to-harms-and-risks-discussion-within-90-days.json",
+        "base": "Bundle-example-rec-03-false-due-to-harms-and-risks-discussion-within-90-days.html"
+      },
+
     "Bundle/example-rec-04-long-acting-opioid": {
       "source": "bundle-example-rec-04-long-acting-opioid.xml",
       "base": "Bundle-example-rec-04-long-acting-opioid.html"
@@ -140,6 +167,15 @@
     "Encounter/example-rec-05-mme-less-than-fifty-context": {
       "source": "encounter-example-rec-05-mme-less-than-fifty-context.xml",
       "base": "Encounter-example-rec-05-mme-less-than-fifty-context.html"
+    },
+
+    "Bundle/example-rec-06-criteria-valid": {
+      "source": "bundle-example-rec-06-criteria-valid.json",
+      "base": "Bundle-example-rec-06-criteria-valid.html"
+    },
+    "Bundle/example-rec-06-with-extended-release-for-27-days": {
+      "source": "bundle-example-rec-06-with-extended-release-for-27-days.json",
+      "base": "Bundle-example-rec-06-with-extended-release-for-27-days.html"
     },
 
     "Bundle/example-rec-07-end-of-life-exclusion": {
@@ -349,6 +385,15 @@
       "base": "Encounter-example-rec-08-substance-abuse-context.html"
     },
 
+    "Bundle/example-rec-09-true-return-recommendations": {
+      "source": "bundle-example-rec-09-true-return-recommendations.json",
+      "base": "Bundle-example-rec-09-true-return-recommendations.html"
+    },
+    "Bundle/example-rec-09-false-due-to-PDMP-review-within-90-days": {
+      "source": "bundle-example-rec-09-false-due-to-PDMP-review-within-90-days.json",
+      "base": "Bundle-example-rec-09-false-due-to-PDMP-review-within-90-days.html"
+    },
+
     "Bundle/example-rec-10-end-of-life-med-exclusion": {
       "source": "bundle-example-rec-10-end-of-life-med-exclusion.xml",
       "base": "Bundle-example-rec-10-end-of-life-med-exclusion.html"
@@ -553,6 +598,15 @@
     "Encounter/example-rec-11-opioid-trigger-without-benzo-context": {
       "source": "encounter-example-rec-11-opioid-trigger-without-benzo-context.xml",
       "base": "Encounter-example-rec-11-opioid-trigger-without-benzo-context.html"
+    },
+
+    "Bundle/example-rec-12-criteria-valid": {
+      "source": "bundle-example-rec-12-criteria-valid.json",
+      "base": "Bundle-example-rec-12-criteria-valid.html"
+    },
+    "Bundle/example-rec-12-criteria-invalid": {
+      "source": "bundle-example-rec-12-criteria-invalid.json",
+      "base": "Bundle-example-rec-12-criteria-invalid.html"
     },
 
     "ActivityDefinition/opioidcds-risk-assessment-request": {

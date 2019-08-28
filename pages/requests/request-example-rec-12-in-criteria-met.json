@@ -5,7 +5,7 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-      "patientId": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
+        "patientId": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
     },
     "prefetch": {
         "item1": {
@@ -42,5 +42,4 @@
             }
         }
     }
-  }
-  
+}

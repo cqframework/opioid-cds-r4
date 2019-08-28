@@ -5,12 +5,12 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-      "patientId": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1",
-      "medications": [
-        {
-            "resourceType": "MedicationRequest",
-            "id": "15fa9928-4f72-4ee3-ac61-1412d9fa446b",
-            "authoredOn": "2018-08-01T00:00:00.0",
+        "patientId": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1",
+        "medications": [
+            {
+                "resourceType": "MedicationRequest",
+                "id": "15fa9928-4f72-4ee3-ac61-1412d9fa446b",
+                "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
                 "subject": {
@@ -40,8 +40,7 @@
                         "unit": "days"
                     }
                 }
-        }
-      ]
+            }
+        ]
     }
-  }
-  
+}

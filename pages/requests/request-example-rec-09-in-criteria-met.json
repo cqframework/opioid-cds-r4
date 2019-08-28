@@ -5,44 +5,44 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-      "patientId": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1",
-      "medications": [
-        {
-            "resourceType": "MedicationRequest",
-            "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-3",
-            "status": "active",
-            "intent": "order",
-            "subject": {
-                "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
-            },
-            "category": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
-                        "code": "outpatient",
-                        "display": "Outpatient"
-                    }
-                ]
-            },
-            "medicationCodeableConcept": {
-                "coding": [
-                    {
-                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                        "code": "1010603",
-                        "display": "Ambulatory Abuse Potential Opioids"
-                    }
-                ]
-            },
-          "authoredOn": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-                "valueString": "Today()"
-              }
-            ]
-          }
-        }
-      ]
+        "patientId": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1",
+        "medications": [
+            {
+                "resourceType": "MedicationRequest",
+                "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-3",
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "code": "outpatient",
+                            "display": "Outpatient"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Ambulatory Abuse Potential Opioids"
+                        }
+                    ]
+                },
+                "authoredOn": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+                            "valueString": "Today()"
+                        }
+                    ]
+                }
+            }
+        ]
     },
     "prefetch": {
         "item1": {
@@ -72,5 +72,4 @@
             }
         }
     }
-  }
-  
+}
