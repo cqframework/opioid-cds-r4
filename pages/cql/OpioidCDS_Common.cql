@@ -75,14 +75,14 @@ define function "Is Active Ambulatory Medication Request?" (value List<Medicatio
     where Rx.status.value = 'active'
       and exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
       )
 
 define function "Is Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
     where exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) contains "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
       )
 
 define function "Is Context Prescription End of Life Opioid?" (ContextPrescriptions List<MedicationRequest>):
