@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-    <id value="opioid-cds"/>
-    <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/opioid-cds"/>
+    <id value="opioid-cds-r4"/>
+    <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/opioid-cds-r4"/>
     <version value="4.0.0"/>
     <name value="Opioid_CDC"/>
     <title value="Opioid Prescribing Support Implementation Guide"/>
@@ -10,7 +10,7 @@
     <date value="2017-02-06"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
     <description value="Opioid Prescribing Support Implementation Guide"/>
-    <packageId value="hl7.fhir.opioidcds"/>
+    <packageId value="fhir.cdc.opioid-cds-r4"/>
 	<fhirVersion value="4.0.0"/>
     <definition>
         <!-- Rec01 -->
@@ -857,10 +857,10 @@
         </resource>
 
         <resource>
-            <name value="ActivityDefinition - ProcedureRequest for risk assessment"/>
             <reference>
                 <reference value="ActivityDefinition/opioidcds-risk-assessment-request"/>
             </reference>
+            <name value="ActivityDefinition - ProcedureRequest for risk assessment"/>
             <exampleBoolean value="true"/>
         </resource>
         <resource>
@@ -913,7 +913,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="Library/library-omtkdata"/>
+                <reference value="Library/omtkdata"/>
             </reference>
             <name value="Library - OMTK Data"/>
             <description value="Opioid Management Terminology Knowledge Base Data"/>
@@ -921,7 +921,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="Library/library-omtklogic"/>
+                <reference value="Library/omtklogic"/>
             </reference>
             <name value="Library - OMTK Logic"/>
             <description value="Opioid Management Terminology Knowledge Base Logic"/>

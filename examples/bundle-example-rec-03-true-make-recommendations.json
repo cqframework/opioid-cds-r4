@@ -84,7 +84,10 @@
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 121 days }, end: FHIR.dateTime { value: Today() - 91 days } }"
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 121 days }, end: FHIR.dateTime { value: Today() - 91 days } }"
+                            }
                         }
                     ]
                 }
