@@ -16,7 +16,7 @@
             "birthDate": {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                   "valueString": "Today() - 20 years"
                 }
               ]
@@ -46,7 +46,7 @@
                         {
                             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                             "code": "1010603",
-                            "display": "Ambulatory Abuse Potential Opioids"
+                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
                         }
                     ]
                 }
@@ -79,7 +79,17 @@
                         }
                     }
                 ],
-                "verificationStatus": "confirmed",
+                "verificationStatus": {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                                "code": "confirmed",
+                                "display": "Confirmed"
+                            }
+                        ]
+                    }
+                },
                 "subject": {
                     "reference": "Patient/b88c8fdf-4b84-4a3a-a102-135792e7486a-1"
                 },

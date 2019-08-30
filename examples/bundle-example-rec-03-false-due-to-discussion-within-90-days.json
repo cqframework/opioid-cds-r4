@@ -8,19 +8,17 @@
             "resource": {
                 "resourceType": "Patient",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-1",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/profiles/Patient"
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
                     ]
                 }
-            },
-            "birthDate": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                  "valueString": "Today() - 20 years"
-                }
-              ]
             },
             "request": {
                 "method": "PUT",
@@ -31,13 +29,8 @@
             "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "MedicationRequest",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/profiles/MedicationRequest"
-                    ]
-                },
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-3",
-                "authoredOn": "2018-08-01T00:00:00.0",
+                "authoredOn": "2018-08-01T00:00:00.0Z",
                 "status": "active",
                 "intent": "order",
                 "subject": {
@@ -47,7 +40,7 @@
                     {
                         "coding": [
                             {
-                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "system": "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
                                 "code": "outpatient",
                                 "display": "Outpatient"
                             }
@@ -59,7 +52,7 @@
                         {
                             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                             "code": "1010603",
-                            "display": "Ambulatory Abuse Potential Opioids"
+                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
                         }
                     ]
                 }
@@ -74,11 +67,6 @@
             "resource": {
                 "resourceType": "Procedure",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-21",
-                "meta": {
-                    "profile": [
-                        "https://hl7.org/fhir/profiles/Procedure"
-                    ]
-                },
                 "status": "completed",
                 "code": {
                     "coding": [
@@ -93,12 +81,15 @@
                     "reference": "Patient/7bdbc7ea-f76d-476e-bf94-85c6e368df67-1"
                 },
                 "performedPeriod": {
-                  "extension": [
-                    {
-                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                      "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 89 days }, end: FHIR.dateTime { value: Today() - 88 days } }"
-                    }
-                  ]
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 89 days }, end: FHIR.dateTime { value: Today() - 88 days } }"
+                            }
+                        }
+                    ]
                 }
             },
             "request": {

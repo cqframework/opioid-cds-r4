@@ -16,7 +16,7 @@
             "birthDate": {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                   "valueString": "Today() - 20 years"
                 }
               ]

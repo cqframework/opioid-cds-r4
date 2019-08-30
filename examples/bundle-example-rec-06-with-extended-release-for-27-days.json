@@ -7,47 +7,40 @@
             "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-06-with-extended-release-for-27-days",
             "resource": {
                 "resourceType": "Patient",
-                "id": "d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/profiles/Patient"
+                "id": "example-rec-06-with-extended-release-for-27-days",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
                     ]
                 }
             },
-            "birthDate": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                  "valueString": "Today() - 20 years"
-                }
-              ]
-            },
             "request": {
                 "method": "PUT",
-                "url": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1"
+                "url": "Patient/example-rec-06-with-extended-release-for-27-days"
             }
         },
         {
             "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-06-with-extended-release-for-27-days",
             "resource": {
                 "resourceType": "MedicationRequest",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/profiles/MedicationRequest"
-                    ]
-                },
-                "id": "d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-3",
-                "authoredOn": "2018-08-01T00:00:00.0",
+                "id": "example-rec-06-with-extended-release-for-27-days",
+                "authoredOn": "2018-08-01T00:00:00.0Z",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1"
+                    "reference": "Patient/example-rec-06-with-extended-release-for-27-days"
                 },
                 "category": [
                     {
                         "coding": [
                             {
-                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "system": "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
                                 "code": "outpatient",
                                 "display": "Outpatient"
                             }
@@ -62,17 +55,17 @@
                             "display": "oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
                         }
                     ]
-                }
-            },
-            "dispenseRequest": {
-                "expectedSupplyDuration": {
-                    "value": "27",
-                    "unit": "days"
+                },
+                "dispenseRequest": {
+                    "expectedSupplyDuration": {
+                        "value": 27.0,
+                        "unit": "d"
+                    }
                 }
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-3"
+                "url": "MedicationRequest/example-rec-06-with-extended-release-for-27-days"
             }
         }
     ]

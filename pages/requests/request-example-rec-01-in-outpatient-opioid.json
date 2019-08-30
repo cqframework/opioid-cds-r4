@@ -18,7 +18,7 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                            "system": "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
                             "code": "outpatient",
                             "display": "Outpatient"
                         }
@@ -29,14 +29,14 @@
                         {
                             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                             "code": "1010603",
-                            "display": "Ambulatory Abuse Potential Opioids"
+                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
                         }
                     ]
                 },
                 "authoredOn": {
                     "extension": [
                         {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                             "valueString": "Today()"
                         }
                     ]
@@ -59,7 +59,7 @@
                 "effectiveDateTime": {
                     "extension": [
                         {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                             "valueString": "Today() - 95 days"
                         }
                     ]
@@ -69,7 +69,7 @@
                         {
                             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                             "code": "1010603",
-                            "display": "Ambulatory Abuse Potential Opioids"
+                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
                         }
                     ]
                 }

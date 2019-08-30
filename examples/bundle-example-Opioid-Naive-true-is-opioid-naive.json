@@ -34,7 +34,7 @@
                 "effectiveDateTime": {
                   "extension": [
                     {
-                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                       "valueString": "Today() - 6 months"
                     }
                   ]
@@ -44,7 +44,7 @@
                         {
                             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                             "code": "1010603",
-                            "display": "Ambulatory Abuse Potential Opioids"
+                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
                         }
                     ]
                 }

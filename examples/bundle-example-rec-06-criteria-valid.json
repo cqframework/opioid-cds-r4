@@ -7,47 +7,40 @@
             "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-06-criteria-valid",
             "resource": {
                 "resourceType": "Patient",
-                "id": "ae923976-6992-49d5-8ea0-97c752088770-1",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/profiles/Patient"
+                "id": "example-rec-06-criteria-valid",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
                     ]
                 }
             },
-            "birthDate": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression",
-                  "valueString": "Today() - 20 years"
-                }
-              ]
-            },
             "request": {
                 "method": "PUT",
-                "url": "Patient/ae923976-6992-49d5-8ea0-97c752088770-1"
+                "url": "Patient/example-rec-06-criteria-valid"
             }
         },
         {
             "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-06-criteria-valid",
             "resource": {
                 "resourceType": "MedicationRequest",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/profiles/MedicationRequest"
-                    ]
-                },
-                "id": "ae923976-6992-49d5-8ea0-97c752088770-3",
-                "authoredOn": "2018-08-01T00:00:00.0",
+                "id": "example-rec-06-criteria-valid",
+                "authoredOn": "2018-08-01T00:00:00.0Z",
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/ae923976-6992-49d5-8ea0-97c752088770-1"
+                    "reference": "Patient/example-rec-06-criteria-valid"
                 },
                 "category": [
                     {
                         "coding": [
                             {
-                                "system": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+                                "system": "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
                                 "code": "outpatient",
                                 "display": "Outpatient"
                             }
@@ -62,17 +55,17 @@
                             "display": "oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
                         }
                     ]
-                }
-            },
-            "dispenseRequest": {
-                "expectedSupplyDuration": {
-                    "value": "29",
-                    "unit": "days"
+                },
+                "dispenseRequest": {
+                    "expectedSupplyDuration": {
+                        "value": 29.0,
+                        "unit": "d"
+                    }
                 }
             },
             "request": {
                 "method": "PUT",
-                "url": "MedicationRequest/ae923976-6992-49d5-8ea0-97c752088770-3"
+                "url": "MedicationRequest/example-rec-06-criteria-valid"
             }
         }
     ]
