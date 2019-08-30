@@ -33,9 +33,9 @@
                 "clinicalStatus": {
                     "coding": [
                         {
-                            "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
                             "code": "active",
-                            "display": "Active Condition"
+                            "display": "Active"
                         }
                     ]
                 },
