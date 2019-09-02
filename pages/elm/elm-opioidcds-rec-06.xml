@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <identifier id="OpioidCDS_REC_06" version="0.1.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="4.0.0"/>
+      <def localIdentifier="Common" path="OpioidCDS_Common" version="0.1.0"/>
+      <def localIdentifier="Config" path="OpioidCDS_Common_Config" version="0.1.0"/>
+      <def localIdentifier="OpioidReviewUseful" path="OpioidCDS_OpioidReviewUseful" version="0.1.0"/>
+   </includes>
+   <parameters>
+      <def name="ContextPrescriptions" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="ListTypeSpecifier">
+            <elementType name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="Trigger Event Prescriptions" context="Patient" accessLevel="Public">
+         <expression name="Is Ambulatory Medication Request?" libraryName="Common" xsi:type="FunctionRef">
+            <operand name="ContextPrescriptions" xsi:type="ParameterRef"/>
+         </expression>
+      </def>
+      <def name="Order is to Treat Acute Pain" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand name="Order is to Treat Acute Pain Enabled" libraryName="Config" xsi:type="ExpressionRef"/>
+            <operand xsi:type="Exists">
+               <operand xsi:type="Query">
+                  <source alias="TriggerScripts">
+                     <expression name="Trigger Event Prescriptions" xsi:type="ExpressionRef"/>
+                  </source>
+                  <where xsi:type="Less">
+                     <operand name="GetDurationInDays" libraryName="Common" xsi:type="FunctionRef">
+                        <operand path="expectedSupplyDuration" xsi:type="Property">
+                           <source path="dispenseRequest" scope="TriggerScripts" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="ToDecimal">
+                        <operand valueType="t:Integer" value="28" xsi:type="Literal"/>
+                     </operand>
+                  </where>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def name="Order is for Long-Acting Opioid" context="Patient" accessLevel="Public">
+         <expression xsi:type="Exists">
+            <operand xsi:type="Query">
+               <source alias="TriggerScripts">
+                  <expression name="Trigger Event Prescriptions" xsi:type="ExpressionRef"/>
+               </source>
+               <where xsi:type="Or">
+                  <operand xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:CodeableConcept" xsi:type="As">
+                           <operand path="medication" scope="TriggerScripts" xsi:type="Property"/>
+                        </operand>
+                     </code>
+                     <valueset name="Extended Release Opioid with Ambulatory Abuse Potential" libraryName="Common"/>
+                  </operand>
+                  <operand xsi:type="Greater">
+                     <operand name="GetDurationInDays" libraryName="Common" xsi:type="FunctionRef">
+                        <operand path="expectedSupplyDuration" xsi:type="Property">
+                           <source path="dispenseRequest" scope="TriggerScripts" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="ToDecimal">
+                        <operand valueType="t:Integer" value="7" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+               </where>
+            </operand>
+         </expression>
+      </def>
+      <def name="Validate Trigger Event" context="Patient" accessLevel="Public">
+         <expression xsi:type="Exists">
+            <operand name="Trigger Event Prescriptions" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="Exclusion Criteria" context="Patient" accessLevel="Public">
+         <expression valueType="t:Boolean" value="false" xsi:type="Literal"/>
+      </def>
+      <def name="Inclusion Criteria" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="And">
+                     <operand name="Validate Trigger Event" xsi:type="ExpressionRef"/>
+                     <operand name="Opioid Review Would Be Useful" libraryName="OpioidReviewUseful" xsi:type="ExpressionRef"/>
+                  </operand>
+                  <operand name="Order is to Treat Acute Pain" xsi:type="ExpressionRef"/>
+               </operand>
+               <operand name="Order is for Long-Acting Opioid" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand xsi:type="Not">
+               <operand name="Exclusion Criteria" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Get Indicator" context="Patient" accessLevel="Public">
+         <expression xsi:type="If">
+            <condition asType="t:Boolean" xsi:type="As">
+               <operand name="Inclusion Criteria" xsi:type="ExpressionRef"/>
+            </condition>
+            <then valueType="t:String" value="warning" xsi:type="Literal"/>
+            <else asType="t:String" xsi:type="As">
+               <operand xsi:type="Null"/>
+            </else>
+         </expression>
+      </def>
+      <def name="Get Summary" context="Patient" accessLevel="Public">
+         <expression xsi:type="If">
+            <condition asType="t:Boolean" xsi:type="As">
+               <operand name="Inclusion Criteria" xsi:type="ExpressionRef"/>
+            </condition>
+            <then valueType="t:String" value="Recommend limit therapy to &lt;= 3 days to maximum of &lt;= 7 days and to limit to immediate release opioids" xsi:type="Literal"/>
+            <else asType="t:String" xsi:type="As">
+               <operand xsi:type="Null"/>
+            </else>
+         </expression>
+      </def>
+      <def name="Get Detail" context="Patient" accessLevel="Public">
+         <expression xsi:type="If">
+            <condition asType="t:Boolean" xsi:type="As">
+               <operand name="Inclusion Criteria" xsi:type="ExpressionRef"/>
+            </condition>
+            <then xsi:type="Concatenate">
+               <operand valueType="t:String" value="Medication requests(s): " xsi:type="Literal"/>
+               <operand xsi:type="Combine">
+                  <source xsi:type="Query">
+                     <source alias="X">
+                        <expression name="GetMedicationNames" libraryName="Common" xsi:type="FunctionRef">
+                           <operand name="Trigger Event Prescriptions" xsi:type="ExpressionRef"/>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression xsi:type="SingletonFrom">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </source>
+                  <separator valueType="t:String" value=", " xsi:type="Literal"/>
+               </operand>
+            </then>
+            <else asType="t:String" xsi:type="As">
+               <operand xsi:type="Null"/>
+            </else>
+         </expression>
+      </def>
+   </statements>
+</library>

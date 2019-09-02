@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="OpioidCDS_ActiveCancerTreatment" version="0.1.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="4.0.0"/>
+      <def localIdentifier="Common" path="OpioidCDS_Common" version="0.1.0"/>
+      <def localIdentifier="Config" path="OpioidCDS_Common_Config" version="0.1.0"/>
+   </includes>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="Encounter Period" context="Patient" accessLevel="Public">
+         <expression lowClosed="true" highClosed="false" xsi:type="Interval">
+            <low xsi:type="Subtract">
+               <operand xsi:type="Now"/>
+               <operand value="12" unit="months" xsi:type="Quantity"/>
+            </low>
+            <high xsi:type="Now"/>
+         </expression>
+      </def>
+      <def name="Active Cancer Diagnoses" context="Patient" accessLevel="Public">
+         <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+            <codes name="CDC Malignant Cancer Conditions" libraryName="Common" xsi:type="ValueSetRef"/>
+         </expression>
+      </def>
+      <def name="Oncologist Practitioner Roles" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="PractitionerRole">
+               <expression dataType="fhir:PractitionerRole" xsi:type="Retrieve"/>
+            </source>
+            <where xsi:type="Exists">
+               <operand xsi:type="Query">
+                  <source alias="Specialty">
+                     <expression path="specialty" scope="PractitionerRole" xsi:type="Property"/>
+                  </source>
+                  <where xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand name="Specialty" xsi:type="AliasRef"/>
+                     </code>
+                     <valueset name="Oncology specialty designations (NUCC)" libraryName="Common"/>
+                  </where>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Encounters with Cancer Diagnosis During Encounter Period" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="Encounter">
+               <expression dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                  <codes name="All Ambulatory Encounters" libraryName="Common" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand precision="Day" xsi:type="In">
+                     <operand xsi:type="ToDateTime">
+                        <operand xsi:type="DateFrom">
+                           <operand path="value" xsi:type="Property">
+                              <source path="start" xsi:type="Property">
+                                 <source path="period" scope="Encounter" xsi:type="Property"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand name="Encounter Period" xsi:type="ExpressionRef"/>
+                  </operand>
+                  <operand xsi:type="Exists">
+                     <operand xsi:type="Query">
+                        <source alias="EncounterDiagnosis">
+                           <expression path="diagnosis" scope="Encounter" xsi:type="Property"/>
+                        </source>
+                        <relationship alias="CancerDiagnosis" xsi:type="With">
+                           <expression name="Active Cancer Diagnoses" xsi:type="ExpressionRef"/>
+                           <suchThat xsi:type="EndsWith">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="reference" xsi:type="Property">
+                                    <source path="condition" scope="EncounterDiagnosis" xsi:type="Property"/>
+                                 </operand>
+                              </operand>
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="id" scope="CancerDiagnosis" xsi:type="Property"/>
+                              </operand>
+                           </suchThat>
+                        </relationship>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="EncounterParticipant">
+                        <expression path="participant" scope="Encounter" xsi:type="Property"/>
+                     </source>
+                     <where xsi:type="Or">
+                        <operand xsi:type="AnyInValueSet">
+                           <codes xsi:type="Query">
+                              <source alias="X">
+                                 <expression path="type" scope="EncounterParticipant" xsi:type="Property"/>
+                              </source>
+                              <return distinct="false">
+                                 <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="X" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </codes>
+                           <valueset name="Oncology specialty designations (NUCC)" libraryName="Common"/>
+                        </operand>
+                        <operand xsi:type="Exists">
+                           <operand xsi:type="Query">
+                              <source alias="PractitionerRole">
+                                 <expression name="Oncologist Practitioner Roles" xsi:type="ExpressionRef"/>
+                              </source>
+                              <where xsi:type="EndsWith">
+                                 <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand path="reference" xsi:type="Property">
+                                       <source path="individual" scope="EncounterParticipant" xsi:type="Property"/>
+                                    </operand>
+                                 </operand>
+                                 <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand path="id" scope="PractitionerRole" xsi:type="Property"/>
+                                 </operand>
+                              </where>
+                           </operand>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Number of Enounters with Cancer Diagnosis During Encounter Period" context="Patient" accessLevel="Public">
+         <expression xsi:type="Count">
+            <source name="Encounters with Cancer Diagnosis During Encounter Period" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="Has Two or More Encounters with Cancer Diagnosis During Encounter Period" context="Patient" accessLevel="Public">
+         <expression xsi:type="GreaterOrEqual">
+            <operand name="Number of Enounters with Cancer Diagnosis During Encounter Period" xsi:type="ExpressionRef"/>
+            <operand valueType="t:Integer" value="2" xsi:type="Literal"/>
+         </expression>
+      </def>
+      <def name="Active Cancer Treatment" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand name="Active Cancer Treatment Encounters Condition Is Enabled" libraryName="Config" xsi:type="ExpressionRef"/>
+            <operand name="Has Two or More Encounters with Cancer Diagnosis During Encounter Period" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+   </statements>
+</library>
