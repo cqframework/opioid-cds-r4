@@ -50,12 +50,12 @@ define "No Documented Discussions of Opioid Harms and Risks":
     )
 
 define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
-  [Procedure: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] P
+  [Procedure: Common."Documented discussion of opioid harms and risks"] P
     where FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
       and P.status ~ 'completed'
 
 define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
-  [ServiceRequest: Common."Procedure For Counseling Regarding Potential Opioid Harms and Risks"] SR
+  [ServiceRequest: Common."Documented discussion of opioid harms and risks"] SR
     where FHIRHelpers.ToDateTime(SR.occurrence as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
 
 define "Get Indicator":

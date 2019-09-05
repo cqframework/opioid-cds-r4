@@ -613,9 +613,9 @@
             "source": "library-omtk-modelinfo.xml",
             "base": "Library-omtk-modelinfo.html"
         },
-        "Library/opioidcds-common-0-1-0": {
-            "source": "library-opioidcds-common-0-1-0.xml",
-            "base": "Library-opioidcds-common-0-1-0.html"
+        "Library/opioidcds-common": {
+            "source": "library-opioidcds-common.json",
+            "base": "Library-opioidcds-common.html"
         },
         "Library/opioidcds-rec-01": {
             "source": "library-opioidcds-rec-01.json",
@@ -745,13 +745,13 @@
             "source": "requestgroup-example-opioidcds.xml",
             "base": "RequestGroup-example-opioidcds.html"
         },
-        "ValueSet/end-of-life-conditions": {
-            "source": "valueset-end-of-life-conditions.xml",
-            "base": "ValueSet-end-of-life-conditions.html"
+        "ValueSet/conditions-likely-terminal-for-opioid-prescribing": {
+            "source": "valueset-conditions-likely-terminal-for-opioid-prescribing.json",
+            "base": "ValueSet-conditions-likely-terminal-for-opioid-prescribing.html"
         },
-        "ValueSet/end-of-life-care": {
-            "source": "valueset-end-of-life-care.xml",
-            "base": "ValueSet-end-of-life-care.html"
+        "ValueSet/therapies-indicating-end-of-life-care": {
+            "source": "valueset-therapies-indicating-end-of-life-care.json",
+            "base": "ValueSet-therapies-indicating-end-of-life-care.html"
         },
         "ValueSet/discharge-to-hospice": {
             "source": "valueset-discharge-to-hospice.xml",
@@ -766,7 +766,7 @@
             "base": "ValueSet-hospice-procedure.html"
         },
         "ValueSet/limited-life-expectancy-conditions": {
-            "source": "valueset-limited-life-expectancy-conditions.xml",
+            "source": "valueset-limited-life-expectancy-conditions.json",
             "base": "ValueSet-limited-life-expectancy-conditions.html"
         },
         "ValueSet/metastatic-cancer": {
@@ -797,9 +797,9 @@
             "source": "valueset-benzodiazepines.xml",
             "base": "ValueSet-benzodiazepines.html"
         },
-        "ValueSet/long-acting-opioids": {
-            "source": "valueset-long-acting-opioids.xml",
-            "base": "ValueSet-long-acting-opioids.html"
+        "ValueSet/extended-release-opioid-with-ambulatory-abuse-potential": {
+            "source": "valueset-extended-release-opioid-with-ambulatory-abuse-potential.xml",
+            "base": "ValueSet-extended-release-opioid-with-ambulatory-abuse-potential.html"
         },
         "ValueSet/naloxone": {
             "source": "valueset-naloxone.xml",
@@ -813,17 +813,33 @@
             "source": "valueset-opioids-abused-in-ambulatory-care.xml",
             "base": "ValueSet-opioids-abused-in-ambulatory-care.html"
         },
-        "ValueSet/opioids-codeine-cough-meds": {
-            "source": "valueset-opioids-codeine-cough-meds.xml",
-            "base": "ValueSet-opioids-codeine-cough-meds.html"
-        },
-        "ValueSet/opioids-indicating-end-of-life": {
-            "source": "valueset-opioids-indicating-end-of-life.xml",
-            "base": "ValueSet-opioids-indicating-end-of-life.html"
-        },
         "ValueSet/short-acting-opioids": {
             "source": "valueset-short-acting-opioids.xml",
             "base": "ValueSet-short-acting-opioids.html"
+        },
+        "ValueSet/cdc-malignant-cancer-conditions": {
+            "source": "valueset-cdc-malignant-cancer-conditions.xml",
+            "base": "ValueSet-cdc-malignant-cancer-conditions.html"
+        },
+        "ValueSet/opioid-with-ambulatory-misuse-potential-exclusions": {
+            "source": "valueset-opioid-with-ambulatory-misuse-potential-excluding-antitussives-and-antispasmodics.xml",
+            "base": "ValueSet-opioid-with-ambulatory-misuse-potential-excluding-antitussives-and-antispasmodics.html"
+        },
+        "ValueSet/oncology-specialty-designations": {
+            "source": "valueset-oncology-specialty-designations.xml",
+            "base": "ValueSet-oncology-specialty-designations.html"
+        },
+        "ValueSet/buprenorphine-and-methadone-medications": {
+            "source": "valueset-buprenorphine-and-methadone-medications.xml",
+            "base": "ValueSet-buprenorphine-and-methadone-medications.html"
+        },
+        "ValueSet/opioid-misuse-disorders": {
+            "source": "valueset-opioid-misuse-disorders.xml",
+            "base": "ValueSet-opioid-misuse-disorders.html"
+        },
+        "ValueSet/substance-misuse-behavioral-counseling": {
+            "source": "valueset-substance-misuse-behavioral-counseling.xml",
+            "base": "ValueSet-substance-misuse-behavioral-counseling.html"
         },
         "StructureDefinition/cdc-careplan": {
             "defns": "cdc-careplan-definitions.html",

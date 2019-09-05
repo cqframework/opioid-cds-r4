@@ -64,7 +64,7 @@
                         <operand path="medication" scope="triggerScripts" xsi:type="Property"/>
                      </operand>
                   </code>
-                  <valueset name="Ambulatory Abuse Potential Opioids" libraryName="Common"/>
+                  <valueset name="All Opioid With Ambulatory Misuse Potential" libraryName="Common"/>
                </operand>
                <operand xsi:type="InValueSet">
                   <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
@@ -72,7 +72,7 @@
                         <operand path="medication" scope="triggerScripts" xsi:type="Property"/>
                      </operand>
                   </code>
-                  <valueset name="Long Acting Opioids" libraryName="Common"/>
+                  <valueset name="Extended Release Opioid with Ambulatory Abuse Potential" libraryName="Common"/>
                </operand>
             </where>
          </expression>

@@ -45,8 +45,8 @@ define "Encounter Period":
 
 define "Trigger Event Prescriptions":
   ContextPrescriptions triggerScripts
-      where triggerScripts.medication in Common."Ambulatory Abuse Potential Opioids"
-        and triggerScripts.medication in Common."Long Acting Opioids"
+      where triggerScripts.medication in Common."All Opioid With Ambulatory Misuse Potential"
+        and triggerScripts.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )

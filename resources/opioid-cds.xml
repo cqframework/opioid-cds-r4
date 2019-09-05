@@ -929,7 +929,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="Library/opioidcds-common-0-1-0"/>
+                <reference value="Library/opioidcds-common"/>
             </reference>
             <name value="Library - Opioid CDS Common"/>
             <description value="Opioid Management Decision Support Logic Common"/>
@@ -1193,7 +1193,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="ValueSet/end-of-life-conditions"/>
+                <reference value="ValueSet/conditions-likely-terminal-for-opioid-prescribing"/>
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines End Of Life Conditions"/>
             <description value="End of life condition codes"/>
@@ -1201,7 +1201,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="ValueSet/end-of-life-care"/>
+                <reference value="ValueSet/therapies-indicating-end-of-life-care"/>
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines End Of Life Care"/>
             <description value="End of life care procedure codes"/>
@@ -1326,23 +1326,7 @@
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioids Abused in Ambulatory Care Medication"/>
             <description value="Opioids abused in ambulatory care medication codes"/>
             <exampleBoolean value="true"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/opioids-codeine-cough-meds"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid Codeine Cough Medication"/>
-            <description value="Opioid codeine cough medication codes"/>
-            <exampleBoolean value="true"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/opioids-indicating-end-of-life"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioids Indicating End Of Life Medication"/>
-            <description value="Opioids indicating end of life medication codes"/>
-            <exampleBoolean value="true"/>
-        </resource>
+        </resource>      
         <resource>
             <reference>
                 <reference value="ValueSet/short-acting-opioids"/>

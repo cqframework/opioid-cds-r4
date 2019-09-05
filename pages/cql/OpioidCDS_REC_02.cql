@@ -60,7 +60,7 @@ define "Opioid Treatment Plan Creation or Update in Past 90 Days":
   [CarePlan] CP
     where exists (
         CP.category Category
-          where FHIRHelpers.ToConcept(Category) ~ Common."Pain Management Treatment Plan"
+          where FHIRHelpers.ToConcept(Category) ~ Common."Opioid treatment plan exists (a record artifact)"
       )
       and CP.status in { 'active', 'completed' }
       and (

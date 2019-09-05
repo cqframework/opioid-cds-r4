@@ -17,35 +17,31 @@
    </codeSystems>
    <valueSets>
       <def name="Benzodiazepines" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines" accessLevel="Public"/>
-      <def name="End of Life Conditions" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions" accessLevel="Public"/>
       <def name="Hospice Disposition" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition" accessLevel="Public"/>
       <def name="Hospice Finding Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding" accessLevel="Public"/>
       <def name="Hospice Procedure Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure" accessLevel="Public"/>
       <def name="Illicit Drug Screening" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/illicit-drug-urine-screening" accessLevel="Public"/>
-      <def name="Limited Life Expectancy Conditions" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions" accessLevel="Public"/>
-      <def name="Long Acting Opioids" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/long-acting-opioids" accessLevel="Public"/>
+      <def name="Limited Life Expectancy (findings)" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions" accessLevel="Public"/>
       <def name="Naloxone" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone" accessLevel="Public"/>
       <def name="Risk Assessment" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-abuse-assessment" accessLevel="Public"/>
       <def name="Opioid Drug Screening" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-screening" accessLevel="Public"/>
-      <def name="Ambulatory Abuse Potential Opioids" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care" accessLevel="Public"/>
-      <def name="End Of Life Opioids" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life" accessLevel="Public"/>
+      <def name="All Opioid With Ambulatory Misuse Potential" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care" accessLevel="Public"/>
       <def name="Substance Abuse" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse" accessLevel="Public"/>
       <def name="All Ambulatory Encounters" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001" accessLevel="Public"/>
-      <def name="Extended Release Opioid with Ambulatory Abuse Potential" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html" accessLevel="Public"/>
+      <def name="Extended Release Opioid with Ambulatory Abuse Potential" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-extended-release-opioid-with-ambulatory-abuse-potential" accessLevel="Public"/>
       <def name="CDC Malignant Cancer Conditions" id="http://todo.com/cdc-malignant-cancer-conditions" accessLevel="Public"/>
-      <def name="Therapies Indicating End of Life Care" id="http://todo.com/ValueSet/therapies-indicating-end-of-life" accessLevel="Public"/>
+      <def name="Therapies Indicating End of Life Care" id="http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care" accessLevel="Public"/>
       <def name="Active Condition" id="http://todo.com/ValueSet/active-conditions" accessLevel="Public"/>
       <def name="Oncology specialty designations (NUCC)" id="http://todo.com/ValueSet/oncology-specialty" accessLevel="Public"/>
-      <def name="Procedure For Counseling Regarding Potential Opioid Harms and Risks" id="http://todo.com/ValueSet/opioid-potential-harm-counseling" accessLevel="Public"/>
-      <def name="Buprenorphine/Methadone Medications" id="http://todo.com/ValueSet/buprenorphine-methadone-medications" accessLevel="Public"/>
-      <def name="Opioid Specific Behavioral Counseling" id="http://todo.com/ValueSet/opioid-specific-behavioral-counseling" accessLevel="Public"/>
+      <def name="Buprenorphine and Methadone medications" id="http://todo.com/ValueSet/buprenorphine-and-methadone-medications" accessLevel="Public"/>
+      <def name="Substance misuse Behavioral counseling" id="http://todo.com/ValueSet/substance-misuse-behavioral-counseling" accessLevel="Public"/>
       <def name="Opioid Misuse Disorders" id="http://todo.com/ValueSet/opioid-misuse-disorders" accessLevel="Public"/>
-      <def name="Review PDMP Data Procedure" id="http://todo.com/ValueSet/review-pdmp-data" accessLevel="Public"/>
-      <def name="PDMP Data Review Done Situation" id="http://todo.com/ValueSet/review-done-pdmp-data" accessLevel="Public"/>
+      <def name="Review PDMP data procedure" id="http://todo.com/ValueSet/review-pdmp-data" accessLevel="Public"/>
+      <def name="Conditions Likely Terminal for Opioid Prescribing" id="http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing" accessLevel="Public"/>
       <def name="Pain Management Treatment Plan Review" id="http://todo.com/pain-management-treatment-plan-review" accessLevel="Public"/>
    </valueSets>
    <codes>
-      <def name="Pain Management Treatment Plan" id="80764-4" accessLevel="Public">
+      <def name="Opioid treatment plan exists (a record artifact)" id="80764-4" accessLevel="Public">
          <codeSystem name="LOINC"/>
       </def>
       <def name="Referral to Hospice" id="306205009" accessLevel="Public">
@@ -97,7 +93,7 @@
       <def name="Active Ambulatory Opioid Rx" context="Patient" accessLevel="Public">
          <expression name="Is Active Ambulatory Medication Request?" xsi:type="FunctionRef">
             <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="Ambulatory Abuse Potential Opioids" xsi:type="ValueSetRef"/>
+               <codes name="All Opioid With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
             </operand>
          </expression>
       </def>
@@ -145,7 +141,7 @@
       <def name="Ambulatory Opioid Rx" context="Patient" accessLevel="Public">
          <expression name="Is Ambulatory Medication Request?" xsi:type="FunctionRef">
             <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="Ambulatory Abuse Potential Opioids" xsi:type="ValueSetRef"/>
+               <codes name="All Opioid With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
             </operand>
          </expression>
       </def>
@@ -155,14 +151,6 @@
                <source alias="Rx">
                   <expression name="ContextPrescriptions" xsi:type="OperandRef"/>
                </source>
-               <where xsi:type="InValueSet">
-                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                     <operand asType="fhir:CodeableConcept" xsi:type="As">
-                        <operand path="medication" scope="Rx" xsi:type="Property"/>
-                     </operand>
-                  </code>
-                  <valueset name="End Of Life Opioids"/>
-               </where>
             </operand>
          </expression>
          <operand name="ContextPrescriptions">
@@ -176,7 +164,7 @@
             <operand xsi:type="Query">
                <source alias="C">
                   <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
-                     <codes name="End of Life Conditions" xsi:type="ValueSetRef"/>
+                     <codes name="Conditions Likely Terminal for Opioid Prescribing" xsi:type="ValueSetRef"/>
                   </expression>
                </source>
                <where xsi:type="Exists">
@@ -198,7 +186,7 @@
             <operand xsi:type="Query">
                <source alias="C">
                   <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
-                     <codes name="Limited Life Expectancy Conditions" xsi:type="ValueSetRef"/>
+                     <codes name="Limited Life Expectancy (findings)" xsi:type="ValueSetRef"/>
                   </expression>
                </source>
                <where xsi:type="Exists">
@@ -385,148 +373,13 @@
             </operand>
          </expression>
       </def>
-      <def name="Medications Indicating End of Life" context="Patient" accessLevel="Public">
-         <expression xsi:type="Union">
-            <operand xsi:type="As">
-               <operand xsi:type="Union">
-                  <operand xsi:type="As">
-                     <operand xsi:type="Union">
-                        <operand xsi:type="As">
-                           <operand xsi:type="Query">
-                              <source alias="MA">
-                                 <expression dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
-                                    <codes name="End Of Life Opioids" xsi:type="ValueSetRef"/>
-                                 </expression>
-                              </source>
-                              <where xsi:type="In">
-                                 <operand path="value" xsi:type="Property">
-                                    <source path="status" scope="MA" xsi:type="Property"/>
-                                 </operand>
-                                 <operand xsi:type="List">
-                                    <element valueType="t:String" value="in-progress" xsi:type="Literal"/>
-                                    <element valueType="t:String" value="on-hold" xsi:type="Literal"/>
-                                    <element valueType="t:String" value="completed" xsi:type="Literal"/>
-                                 </operand>
-                              </where>
-                           </operand>
-                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
-                              <elementType xsi:type="ChoiceTypeSpecifier">
-                                 <choice name="fhir:MedicationDispense" xsi:type="NamedTypeSpecifier"/>
-                                 <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
-                              </elementType>
-                           </asTypeSpecifier>
-                        </operand>
-                        <operand xsi:type="As">
-                           <operand xsi:type="Query">
-                              <source alias="MD">
-                                 <expression dataType="fhir:MedicationDispense" codeProperty="medication" xsi:type="Retrieve">
-                                    <codes name="End Of Life Opioids" xsi:type="ValueSetRef"/>
-                                 </expression>
-                              </source>
-                              <where xsi:type="In">
-                                 <operand path="value" xsi:type="Property">
-                                    <source path="status" scope="MD" xsi:type="Property"/>
-                                 </operand>
-                                 <operand xsi:type="List">
-                                    <element valueType="t:String" value="preparation" xsi:type="Literal"/>
-                                    <element valueType="t:String" value="in-progress" xsi:type="Literal"/>
-                                    <element valueType="t:String" value="on-hold" xsi:type="Literal"/>
-                                    <element valueType="t:String" value="completed" xsi:type="Literal"/>
-                                 </operand>
-                              </where>
-                           </operand>
-                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
-                              <elementType xsi:type="ChoiceTypeSpecifier">
-                                 <choice name="fhir:MedicationDispense" xsi:type="NamedTypeSpecifier"/>
-                                 <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
-                              </elementType>
-                           </asTypeSpecifier>
-                        </operand>
-                     </operand>
-                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
-                        <elementType xsi:type="ChoiceTypeSpecifier">
-                           <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
-                           <choice name="fhir:MedicationDispense" xsi:type="NamedTypeSpecifier"/>
-                           <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
-                        </elementType>
-                     </asTypeSpecifier>
-                  </operand>
-                  <operand xsi:type="As">
-                     <operand xsi:type="Query">
-                        <source alias="MR">
-                           <expression dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-                              <codes name="End Of Life Opioids" xsi:type="ValueSetRef"/>
-                           </expression>
-                        </source>
-                        <where xsi:type="In">
-                           <operand path="value" xsi:type="Property">
-                              <source path="status" scope="MR" xsi:type="Property"/>
-                           </operand>
-                           <operand xsi:type="List">
-                              <element valueType="t:String" value="active" xsi:type="Literal"/>
-                              <element valueType="t:String" value="completed" xsi:type="Literal"/>
-                           </operand>
-                        </where>
-                     </operand>
-                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
-                        <elementType xsi:type="ChoiceTypeSpecifier">
-                           <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
-                           <choice name="fhir:MedicationDispense" xsi:type="NamedTypeSpecifier"/>
-                           <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
-                        </elementType>
-                     </asTypeSpecifier>
-                  </operand>
-               </operand>
-               <asTypeSpecifier xsi:type="ListTypeSpecifier">
-                  <elementType xsi:type="ChoiceTypeSpecifier">
-                     <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
-                     <choice name="fhir:MedicationDispense" xsi:type="NamedTypeSpecifier"/>
-                     <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
-                     <choice name="fhir:MedicationStatement" xsi:type="NamedTypeSpecifier"/>
-                  </elementType>
-               </asTypeSpecifier>
-            </operand>
-            <operand xsi:type="As">
-               <operand xsi:type="Query">
-                  <source alias="MS">
-                     <expression dataType="fhir:MedicationStatement" codeProperty="medication" xsi:type="Retrieve">
-                        <codes name="End Of Life Opioids" xsi:type="ValueSetRef"/>
-                     </expression>
-                  </source>
-                  <where xsi:type="In">
-                     <operand path="value" xsi:type="Property">
-                        <source path="status" scope="MS" xsi:type="Property"/>
-                     </operand>
-                     <operand xsi:type="List">
-                        <element valueType="t:String" value="active" xsi:type="Literal"/>
-                        <element valueType="t:String" value="completed" xsi:type="Literal"/>
-                        <element valueType="t:String" value="intended" xsi:type="Literal"/>
-                     </operand>
-                  </where>
-               </operand>
-               <asTypeSpecifier xsi:type="ListTypeSpecifier">
-                  <elementType xsi:type="ChoiceTypeSpecifier">
-                     <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
-                     <choice name="fhir:MedicationDispense" xsi:type="NamedTypeSpecifier"/>
-                     <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
-                     <choice name="fhir:MedicationStatement" xsi:type="NamedTypeSpecifier"/>
-                  </elementType>
-               </asTypeSpecifier>
-            </operand>
-         </expression>
-      </def>
       <def name="End of Life Assessment" context="Patient" accessLevel="Public">
          <expression xsi:type="Or">
-            <operand xsi:type="Or">
-               <operand xsi:type="Exists">
-                  <operand name="Conditions Indicating End of Life or With Limited Life Expectancy" xsi:type="ExpressionRef"/>
-               </operand>
-               <operand xsi:type="Exists">
-                  <operand name="Admitted/Referred/Discharged to Hospice Care" xsi:type="ExpressionRef"/>
-               </operand>
+            <operand xsi:type="Exists">
+               <operand name="Conditions Indicating End of Life or With Limited Life Expectancy" xsi:type="ExpressionRef"/>
             </operand>
             <operand xsi:type="Exists">
-               <operand name="Medications Indicating End of Life" xsi:type="ExpressionRef"/>
+               <operand name="Admitted/Referred/Discharged to Hospice Care" xsi:type="ExpressionRef"/>
             </operand>
          </expression>
       </def>

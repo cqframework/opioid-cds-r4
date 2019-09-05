@@ -46,7 +46,7 @@
                      <operand xsi:type="Query">
                         <source alias="P">
                            <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
-                              <codes name="Review PDMP Data Procedure" libraryName="Common" xsi:type="ValueSetRef"/>
+                              <codes name="Review PDMP data procedure" libraryName="Common" xsi:type="ValueSetRef"/>
                            </expression>
                         </source>
                         <where xsi:type="Equivalent">
@@ -54,24 +54,6 @@
                               <operand path="status" scope="P" xsi:type="Property"/>
                            </operand>
                            <operand valueType="t:String" value="completed" xsi:type="Literal"/>
-                        </where>
-                     </operand>
-                  </operand>
-                  <operand xsi:type="Exists">
-                     <operand xsi:type="Query">
-                        <source alias="O">
-                           <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
-                              <codes name="PDMP Data Review Done Situation" libraryName="Common" xsi:type="ValueSetRef"/>
-                           </expression>
-                        </source>
-                        <where xsi:type="In">
-                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                              <operand path="status" scope="O" xsi:type="Property"/>
-                           </operand>
-                           <operand xsi:type="List">
-                              <element valueType="t:String" value="final" xsi:type="Literal"/>
-                              <element valueType="t:String" value="amended" xsi:type="Literal"/>
-                           </operand>
                         </where>
                      </operand>
                   </operand>

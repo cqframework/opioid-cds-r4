@@ -7,52 +7,78 @@ include OMTKLogic version '0.0.2' called OMTKLogic
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
-codesystem "Medication Request Category Codes": 'http://hl7.org/fhir/medication-request-category'
+codesystem "Medication Request Category Codes": ' http://hl7.org/fhir/CodeSystem/medicationrequest-status'
+codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 
+/* Sync'd with Opioid Terminology Spreadsheet for ease of reconciliation */
+valueset "All Opioid With Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/opioids-abused-in-ambulatory-care'
+valueset "Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics": 'http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential-excluding-antitussives-and-antispasmodics'
+valueset "Limited Life Expectancy (findings)": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions'
+valueset "Therapies Indicating End of Life Care": 'http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care'
+valueset "Conditions Likely Terminal for Opioid Prescribing": 'http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing'
+valueset "CDC Malignant Cancer Conditions": 'http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/cdc-malignant-cancer-conditions'
+valueset "All Ambulatory Encounters": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
+valueset "Oncology specialty designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/oncology-specialty-designations'
+/* "Reason for opioid use" */
+/* Pain control care plan (LOINC) */
+valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential'
+/* Procedure for counseling regarding potential opioid harms and risks */
+/* Document reason for not counseling */
+valueset "Buprenorphine and Methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
+valueset "Opioid Misuse Disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders'
+valueset "Substance misuse Behavioral counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling'
+/* Substance Disorder Specialist */
+/* Reason for opioid use */
+
+/* Existing sets for first six recs */
 valueset "Benzodiazepines": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines'
-valueset "End of Life Conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/end-of-life-conditions'
 // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition'
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
 valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
 valueset "Illicit Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/illicit-drug-urine-screening'
-// Harvested from VSAC - OID: 2.16.840.1.113883.3.526.3.1259
-valueset "Limited Life Expectancy Conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions'
-valueset "Long Acting Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/long-acting-opioids'
 valueset "Naloxone": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone'
 valueset "Risk Assessment": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-abuse-assessment'
 valueset "Opioid Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-screening'
-valueset "Ambulatory Abuse Potential Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care'
-valueset "End Of Life Opioids": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-indicating-end-of-life'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
-valueset "All Ambulatory Encounters": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
-valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-long-acting-opioids.html'
-
-// TODO: need to define these valuesets
-valueset "CDC Malignant Cancer Conditions": 'http://todo.com/cdc-malignant-cancer-conditions'
-valueset "Therapies Indicating End of Life Care": 'http://todo.com/ValueSet/therapies-indicating-end-of-life'
-valueset "Active Condition": 'http://todo.com/ValueSet/active-conditions'
-valueset "Oncology specialty designations (NUCC)": 'http://todo.com/ValueSet/oncology-specialty'
-valueset "Procedure For Counseling Regarding Potential Opioid Harms and Risks": 'http://todo.com/ValueSet/opioid-potential-harm-counseling'
-valueset "Buprenorphine/Methadone Medications": 'http://todo.com/ValueSet/buprenorphine-methadone-medications'
-valueset "Opioid Specific Behavioral Counseling": 'http://todo.com/ValueSet/opioid-specific-behavioral-counseling'
-valueset "Opioid Misuse Disorders": 'http://todo.com/ValueSet/opioid-misuse-disorders'
-valueset "Review PDMP Data Procedure": 'http://todo.com/ValueSet/review-pdmp-data'
-valueset "PDMP Data Review Done Situation": 'http://todo.com/ValueSet/review-done-pdmp-data'
 
 // Recommendation #2
+// See the latest notes in the Definitions table for Rec 2 - needs to be specific Direct Reference Codes:
+//  Creation: Opioid treatment plan: LOINC 80764-4 Pain medicine plan of care note
+//  Edit/Review: Treatment Plan Edited or Reviewed: SNOMED Chronic pain control management (procedure) 408957008
+
 valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
-code "Pain Management Treatment Plan": '80764-4' from "LOINC" //Pain medicine Plan of care note
+
+/*
+Opioid treatment plan exists (a record artifact)	 #2      80764-4 Pain medicine Plan of care note
+Opioid treatment plan edited (a procedure)	         #2      Chronic pain control management (procedure) SCTID: 408957008
+Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)	#2 Chronic pain control management (procedure) SCTID: 408957008
+Documented discussion of opioid harms and risks	     #3      Counseling about opioid safety (procedure) 460831000124102
+Documented discussion of opioid harms and risks	     #3      Exclusion for rec #3 - Counseling about opioid safety not done (situation) SCTID: 460841000124107
+Review PDMP data procedure	#9   Review of prescription drug monitoring program record (procedure) SCTID: 461621000124108
+PDMP data review done Situation (the finding/situation is documented)	#9    Review of prescription drug monitoring program record done (situation) SCTID: 461651000124104
+*/
+code "Opioid treatment plan exists (a record artifact)": '80764-4' from "LOINC" //Pain medicine Plan of care note
+code "Opioid treatment plan edited (a procedure)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008
+code "Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008
+code "Documented discussion of opioid harms and risks": '460831000124102' from "SNOMED" //Counseling about opioid safety (procedure)
+code "Documented discussion of opioid harms and risks not done": '460841000124107' from "SNOMED" //Counseling about opioid safety not done (situation)
+code "Review PDMP data procedure": '461621000124108' from "SNOMED" //Review of prescription drug monitoring program record (procedure)
+code "PDMP data review done Situation (the finding/situation is documented)": '461651000124104' from "SNOMED" //Review of prescription drug monitoring program record done (situation)
+
 
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
+code "Active Condition": 'active' from "Condition Clinical Status Codes"
+
+// TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
 // TODO: Capture process decisions for long-term opioid use
 define IsForChronicPain: true
 
 define "Active Ambulatory Opioid Rx":
   "Is Active Ambulatory Medication Request?"(
-    [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
+    [MedicationRequest: "All Opioid With Ambulatory Misuse Potential"]
   )
 
 define "Active Ambulatory Benzodiazepine Rx":
@@ -67,7 +93,7 @@ define "Active Ambulatory Naloxone Rx":
 
 define "Ambulatory Opioid Rx":
   "Is Ambulatory Medication Request?"(
-    [MedicationRequest: "Ambulatory Abuse Potential Opioids"]
+    [MedicationRequest: "All Opioid With Ambulatory Misuse Potential"]
   )
 
 define function "Is Active Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
@@ -88,11 +114,11 @@ define function "Is Ambulatory Medication Request?" (value List<MedicationReques
 define function "Is Context Prescription End of Life Opioid?" (ContextPrescriptions List<MedicationRequest>):
   exists (
     ContextPrescriptions Rx
-      where Rx.medication in "End Of Life Opioids"
+      //where Rx.medication in "End Of Life Opioids"
   )
 
 define "End of Life Assessment":
-  // 1. Conditions indicating end of life or with limited life expectancy
+    // 1. Conditions indicating end of life or with limited life expectancy
     exists (
       "Conditions Indicating End of Life or With Limited Life Expectancy"
     )
@@ -101,21 +127,21 @@ define "End of Life Assessment":
       "Admitted/Referred/Discharged to Hospice Care"
     )
     // 3. Medications indicating end of life
-    or exists (
+    /* or exists (
       "Medications Indicating End of Life"
-    )
+    ) */
 
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
-    [Condition: "End of Life Conditions"] C
+    [Condition: "Conditions Likely Terminal for Opioid Prescribing"] C
       where exists (
         C.clinicalStatus.coding Coding
-          where Coding.code in "Active Condition"
+          where Coding.code ~ "Active Condition"
       )
   )
   union
   (
-    [Condition: code in "Limited Life Expectancy Conditions"] C
+    [Condition: code in "Limited Life Expectancy (findings)"] C
       where exists (
         C.clinicalStatus.coding Coding
           where Coding.code in "Active Condition"
@@ -150,7 +176,7 @@ define "Admitted/Referred/Discharged to Hospice Care":
         and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
   )
 
-define "Medications Indicating End of Life":
+/* define "Medications Indicating End of Life":
   (
     [MedicationAdministration: "End Of Life Opioids"] MA
       where MA.status.value in { 'in-progress', 'on-hold', 'completed' }
@@ -169,7 +195,7 @@ define "Medications Indicating End of Life":
   (
     [MedicationStatement: "End Of Life Opioids"] MS
       where MS.status.value in { 'active', 'completed', 'intended' }
-  )
+  ) */
 
 
 define function Prescriptions(Orders List<MedicationRequest>):

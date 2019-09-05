@@ -47,7 +47,7 @@ context Patient
 define "Validate Trigger Event":
   exists(
     ContextPrescriptions triggerScript
-      where triggerScript.medication in Common."Ambulatory Abuse Potential Opioids"
+      where triggerScript.medication in Common."All Opioid With Ambulatory Misuse Potential"
   )
 
 define "Inclusion Criteria":

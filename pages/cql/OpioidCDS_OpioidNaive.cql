@@ -37,7 +37,7 @@ define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
         and exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
 
 define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
-    [MedicationStatement: Common."Ambulatory Abuse Potential Opioids"] Statement
+    [MedicationStatement: Common."All Opioid With Ambulatory Misuse Potential"] Statement
         where Statement.status in {'active', 'completed'}
             and FHIRHelpers.ToDateTime(Statement.effective as dateTime) during day of "Report Inclusion Period"
 
@@ -46,7 +46,7 @@ define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Pa
         and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
 
 define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
-    [MedicationDispense: Common."Ambulatory Abuse Potential Opioids"] OpioidDispense
+    [MedicationDispense: Common."All Opioid With Ambulatory Misuse Potential"] OpioidDispense
         where FHIRHelpers.ToDateTime(OpioidDispense.whenHandedOver) during day of "Prescription/Dispense Inclusion Period"
             and OpioidDispense.status = 'completed'
 

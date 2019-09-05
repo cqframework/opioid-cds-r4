@@ -34,10 +34,10 @@ define "Patient Age Less Than 18":
 
 define "Conditions Indicating End Of Life Present":
   exists (
-    [Condition: Common."Limited Life Expectancy Conditions"] LLEC
+    [Condition: Common."Limited Life Expectancy (findings)"] LLEC
       where exists (
         LLEC.clinicalStatus.coding Coding
-          where Coding.code in Common."Active Condition"
+          where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
       )
   )
 
@@ -53,9 +53,9 @@ define "Order For Palliative Care In Past 90 Days":
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
   Config."End-Stage Disease Criteria Enabled"
     and exists (
-      [Condition: Common."End of Life Conditions"] EOLC
+      [Condition: Common."Conditions Likely Terminal for Opioid Prescribing"] EOLC
         where exists (
           EOLC.clinicalStatus.coding Coding
-            where Coding.code in Common."Active Condition"
+            where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
         )
     )

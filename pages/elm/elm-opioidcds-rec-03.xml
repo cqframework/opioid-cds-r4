@@ -62,7 +62,7 @@
          <expression xsi:type="Query">
             <source alias="P">
                <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
-                  <codes name="Procedure For Counseling Regarding Potential Opioid Harms and Risks" libraryName="Common" xsi:type="ValueSetRef"/>
+                  <codes name="Documented discussion of opioid harms and risks" libraryName="Common" xsi:type="ValueSetRef"/>
                </expression>
             </source>
             <where xsi:type="And">

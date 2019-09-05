@@ -78,7 +78,7 @@
                               <operand name="Category" xsi:type="AliasRef"/>
                            </operand>
                            <operand xsi:type="ToConcept">
-                              <operand name="Pain Management Treatment Plan" libraryName="Common" xsi:type="CodeRef"/>
+                              <operand name="Opioid treatment plan exists (a record artifact)" libraryName="Common" xsi:type="CodeRef"/>
                            </operand>
                         </where>
                      </operand>

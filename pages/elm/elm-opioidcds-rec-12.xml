@@ -47,7 +47,7 @@
                         <operand xsi:type="Query">
                            <source alias="MR">
                               <expression dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-                                 <codes name="Buprenorphine/Methadone Medications" libraryName="Common" xsi:type="ValueSetRef"/>
+                                 <codes name="Buprenorphine and Methadone medications" libraryName="Common" xsi:type="ValueSetRef"/>
                               </expression>
                            </source>
                            <where xsi:type="And">
@@ -73,7 +73,7 @@
                         <operand xsi:type="Query">
                            <source alias="P">
                               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
-                                 <codes name="Opioid Specific Behavioral Counseling" libraryName="Common" xsi:type="ValueSetRef"/>
+                                 <codes name="Substance misuse Behavioral counseling" libraryName="Common" xsi:type="ValueSetRef"/>
                               </expression>
                            </source>
                            <where xsi:type="And">

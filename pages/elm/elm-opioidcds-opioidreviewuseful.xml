@@ -46,7 +46,7 @@
             <operand xsi:type="Query">
                <source alias="LLEC">
                   <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
-                     <codes name="Limited Life Expectancy Conditions" libraryName="Common" xsi:type="ValueSetRef"/>
+                     <codes name="Limited Life Expectancy (findings)" libraryName="Common" xsi:type="ValueSetRef"/>
                   </expression>
                </source>
                <where xsi:type="Exists">
@@ -129,7 +129,7 @@
                <operand xsi:type="Query">
                   <source alias="EOLC">
                      <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
-                        <codes name="End of Life Conditions" libraryName="Common" xsi:type="ValueSetRef"/>
+                        <codes name="Conditions Likely Terminal for Opioid Prescribing" libraryName="Common" xsi:type="ValueSetRef"/>
                      </expression>
                   </source>
                   <where xsi:type="Exists">
