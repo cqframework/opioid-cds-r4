@@ -1,6 +1,6 @@
 {
   "resourceType": "ValueSet",
-  "id": "opioid-with-ambulatory-misuse-potential-excluding-antitussives-and-antispasmodics",
+  "id": "opioid-with-ambulatory-misuse-potential-exclusions",
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
@@ -35,7 +35,7 @@
       }
     }
   ],
-  "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-with-ambulatory-misuse-potential-excluding-antitussives-and-antispasmodics",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-with-ambulatory-misuse-potential-exclusions",
   "name": "opioid_with_ambulatory_misuse_potential_excluding_antitussives_and_antispasmodics",
   "title": "opioid with ambulatory misuse potential excluding antitussives and antispasmodics",
   "status": "active",
