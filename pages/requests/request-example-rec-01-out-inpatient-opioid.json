@@ -5,7 +5,7 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-        "patientId": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1",
+        "patientId": "Patient/example-rec-01-false-due-to-inpatient-opioid",
         "medications": [
             {
                 "resourceType": "MedicationRequest",
@@ -13,7 +13,7 @@
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/facb1929-f917-4a5c-afcd-fd9c02c5da84-1"
+                    "reference": "Patient/example-rec-01-false-due-to-inpatient-opioid"
                 },
                 "category": {
                     "coding": [
@@ -43,5 +43,27 @@
                 }
             }
         ]
+    },
+    "prefetch": {
+        "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "example-rec-01-false-due-to-inpatient-opioid",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
     }
 }

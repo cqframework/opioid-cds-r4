@@ -5,10 +5,30 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-        "patientId": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
+        "patientId": "Patient/example-rec-12-criteria-valid"
     },
     "prefetch": {
         "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "example-rec-12-criteria-valid",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "item2": {
             "response": {
                 "status": "200 OK"
             },
@@ -38,7 +58,7 @@
                     }
                 },
                 "subject": {
-                    "reference": "Patient/f961a3a5-f1fa-4053-ba17-032aa1836284-1"
+                    "reference": "Patient/example-rec-12-criteria-valid"
                 },
                 "code": {
                     "coding": [

@@ -5,7 +5,7 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-        "patientId": "Patient/5e6d9f47-52ac-4ded-b885-fa329160dd7e-1",
+        "patientId": "Patient/example-rec-03-true-make-recommendations",
         "medications": [
             {
                 "resourceType": "MedicationRequest",
@@ -13,7 +13,7 @@
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/5e6d9f47-52ac-4ded-b885-fa329160dd7e-1"
+                    "reference": "Patient/example-rec-03-true-make-recommendations"
                 },
                 "category": {
                     "coding": [
@@ -50,6 +50,26 @@
                 "status": "200 OK"
             },
             "resource": {
+                "resourceType": "Patient",
+                "id": "example-rec-03-true-make-recommendations",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "item2": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
                 "resourceType": "Procedure",
                 "id": "eb21d7c8-e260-409b-a753-d85909eff0ba",
                 "status": "completed",
@@ -63,7 +83,7 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/5e6d9f47-52ac-4ded-b885-fa329160dd7e-1"
+                    "reference": "Patient/example-rec-03-true-make-recommendations"
                 },
                 "performedPeriod": {
                     "extension": [

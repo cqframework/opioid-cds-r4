@@ -5,7 +5,7 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-        "patientId": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1",
+        "patientId": "Patient/example-rec-06-with-extended-release-for-27-days",
         "medications": [
             {
                 "resourceType": "MedicationRequest",
@@ -14,7 +14,7 @@
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/d9c6d2c1-3fe4-4176-b3bf-a4e414f0e143-1"
+                    "reference": "Patient/example-rec-06-with-extended-release-for-27-days"
                 },
                 "category": {
                     "coding": [
@@ -42,5 +42,27 @@
                 }
             }
         ]
+    },
+    "prefetch": {
+        "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "example-rec-06-with-extended-release-for-27-days",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
     }
 }

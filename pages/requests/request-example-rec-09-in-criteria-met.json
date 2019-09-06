@@ -5,7 +5,7 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-        "patientId": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1",
+        "patientId": "Patient/example-rec-09-true-return-recommendations",
         "medications": [
             {
                 "resourceType": "MedicationRequest",
@@ -13,7 +13,7 @@
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+                    "reference": "Patient/example-rec-09-true-return-recommendations"
                 },
                 "category": {
                     "coding": [
@@ -50,6 +50,26 @@
                 "status": "200 OK"
             },
             "resource": {
+                "resourceType": "Patient",
+                "id": "example-rec-09-true-return-recommendations",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "item2": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
                 "resourceType": "Procedure",
                 "id": "ea2465c9-5a50-4e24-83dd-7a6e7957c253",
                 "status": "completed",
@@ -63,7 +83,7 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/60640bf6-3845-4dbd-bf15-b2616118e8c8-1"
+                    "reference": "Patient/example-rec-09-true-return-recommendations"
                 },
                 "performedPeriod": {
                     "start": "2018-01-01T00:00:00",

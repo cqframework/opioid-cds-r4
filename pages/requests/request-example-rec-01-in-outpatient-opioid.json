@@ -5,7 +5,7 @@
     "user": "Practitioner/example",
     "applyCql": true,
     "context": {
-        "patientId": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1",
+        "patientId": "Patient/example-rec-01-true-make-recommendations",
         "medications": [
             {
                 "resourceType": "MedicationRequest",
@@ -13,7 +13,7 @@
                 "status": "active",
                 "intent": "order",
                 "subject": {
-                    "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
+                    "reference": "Patient/example-rec-01-true-make-recommendations"
                 },
                 "category": {
                     "coding": [
@@ -46,6 +46,26 @@
     },
     "prefetch": {
         "item1": {
+            "response": {
+                "status": "200 OK"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "example-rec-01-true-make-recommendations",
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "item2": {
             "response": {
                 "status": "200 OK"
             },
