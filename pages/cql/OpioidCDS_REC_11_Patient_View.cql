@@ -1,9 +1,9 @@
 library OpioidCDS_STU3_REC_11_Patient_View version '0.1.0'
 
-using FHIR version '3.0.0'
+using FHIR version '4.0.0'
 
-include FHIRHelpers version '3.0.0' called FHIRHelpers
-include OpioidCDS_STU3_Common version '0.1.0' called Common
+include FHIRHelpers version '4.0.0' called FHIRHelpers
+include OpioidCDS_Common version '0.1.0' called Common
 
 /*
 **
@@ -28,7 +28,7 @@ include OpioidCDS_STU3_Common version '0.1.0' called Common
     Have availability to snooze if benefits outweigh risks
 
   Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds/PlanDefinition-opioidcds-11.html
+	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-11.html
 */
 
 context Patient
@@ -67,10 +67,10 @@ define "Concurrent Benzodiazepine Prescription Issue":
   DetectedIssue {
     //identifier:,
     status: FHIR.ObservationStatus { value: 'preliminary' },
-    category: FHIR.CodeableConcept { text: FHIR.string { value: "Get Summary" } },
+    code: FHIR.CodeableConcept { text: FHIR.string { value: "Get Summary" } },
     severity: FHIR.DetectedIssueSeverity { value: 'moderate' },
     patient: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
-    date: FHIR.dateTime { value: Now() },
+    identified: FHIR.dateTime { value: Now() },
     // TODO: Device representation...
     // author:,
     implicated:
