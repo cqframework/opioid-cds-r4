@@ -116,11 +116,11 @@
                               <source path="clinicalStatus" scope="C" xsi:type="Property"/>
                            </expression>
                         </source>
-                        <where xsi:type="InValueSet">
-                           <code name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                              <operand path="code" scope="Coding" xsi:type="Property"/>
-                           </code>
-                           <valueset name="Active Condition" libraryName="Common"/>
+                        <where xsi:type="Equivalent">
+                           <operand name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand name="Coding" xsi:type="AliasRef"/>
+                           </operand>
+                           <operand name="Active Condition" libraryName="Common" xsi:type="CodeRef"/>
                         </where>
                      </operand>
                   </operand>

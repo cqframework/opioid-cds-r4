@@ -13,42 +13,63 @@
    <codeSystems>
       <def name="LOINC" id="http://loinc.org" accessLevel="Public"/>
       <def name="SNOMED" id="http://snomed.info/sct" accessLevel="Public"/>
-      <def name="Medication Request Category Codes" id="http://hl7.org/fhir/medication-request-category" accessLevel="Public"/>
+      <def name="Medication Request Category Codes" id=" http://hl7.org/fhir/CodeSystem/medicationrequest-status" accessLevel="Public"/>
+      <def name="Condition Clinical Status Codes" id="http://terminology.hl7.org/CodeSystem/condition-clinical" accessLevel="Public"/>
    </codeSystems>
    <valueSets>
+      <def name="All Opioid With Ambulatory Misuse Potential" id="http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/opioids-abused-in-ambulatory-care" accessLevel="Public"/>
+      <def name="Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics" id="http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential-exclusions" accessLevel="Public"/>
+      <def name="Limited Life Expectancy (findings)" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions" accessLevel="Public"/>
+      <def name="Therapies Indicating End of Life Care" id="http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care" accessLevel="Public"/>
+      <def name="Conditions Likely Terminal for Opioid Prescribing" id="http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing" accessLevel="Public"/>
+      <def name="CDC Malignant Cancer Conditions" id="http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/cdc-malignant-cancer-conditions" accessLevel="Public"/>
+      <def name="All Ambulatory Encounters" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001" accessLevel="Public"/>
+      <def name="Oncology specialty designations (NUCC)" id="http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/oncology-specialty-designations" accessLevel="Public"/>
+      <def name="Extended Release Opioid with Ambulatory Abuse Potential" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential" accessLevel="Public"/>
+      <def name="Buprenorphine and Methadone medications" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications" accessLevel="Public"/>
+      <def name="Opioid Misuse Disorders" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders" accessLevel="Public"/>
+      <def name="Substance misuse Behavioral counseling" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling" accessLevel="Public"/>
       <def name="Benzodiazepines" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines" accessLevel="Public"/>
       <def name="Hospice Disposition" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition" accessLevel="Public"/>
       <def name="Hospice Finding Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding" accessLevel="Public"/>
       <def name="Hospice Procedure Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure" accessLevel="Public"/>
       <def name="Illicit Drug Screening" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/illicit-drug-urine-screening" accessLevel="Public"/>
-      <def name="Limited Life Expectancy (findings)" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions" accessLevel="Public"/>
       <def name="Naloxone" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone" accessLevel="Public"/>
       <def name="Risk Assessment" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-abuse-assessment" accessLevel="Public"/>
       <def name="Opioid Drug Screening" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-screening" accessLevel="Public"/>
-      <def name="All Opioid With Ambulatory Misuse Potential" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioids-abused-in-ambulatory-care" accessLevel="Public"/>
       <def name="Substance Abuse" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse" accessLevel="Public"/>
-      <def name="All Ambulatory Encounters" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001" accessLevel="Public"/>
-      <def name="Extended Release Opioid with Ambulatory Abuse Potential" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-extended-release-opioid-with-ambulatory-abuse-potential" accessLevel="Public"/>
-      <def name="CDC Malignant Cancer Conditions" id="http://todo.com/cdc-malignant-cancer-conditions" accessLevel="Public"/>
-      <def name="Therapies Indicating End of Life Care" id="http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care" accessLevel="Public"/>
-      <def name="Active Condition" id="http://todo.com/ValueSet/active-conditions" accessLevel="Public"/>
-      <def name="Oncology specialty designations (NUCC)" id="http://todo.com/ValueSet/oncology-specialty" accessLevel="Public"/>
-      <def name="Buprenorphine and Methadone medications" id="http://todo.com/ValueSet/buprenorphine-and-methadone-medications" accessLevel="Public"/>
-      <def name="Substance misuse Behavioral counseling" id="http://todo.com/ValueSet/substance-misuse-behavioral-counseling" accessLevel="Public"/>
-      <def name="Opioid Misuse Disorders" id="http://todo.com/ValueSet/opioid-misuse-disorders" accessLevel="Public"/>
-      <def name="Review PDMP data procedure" id="http://todo.com/ValueSet/review-pdmp-data" accessLevel="Public"/>
-      <def name="Conditions Likely Terminal for Opioid Prescribing" id="http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing" accessLevel="Public"/>
       <def name="Pain Management Treatment Plan Review" id="http://todo.com/pain-management-treatment-plan-review" accessLevel="Public"/>
    </valueSets>
    <codes>
       <def name="Opioid treatment plan exists (a record artifact)" id="80764-4" accessLevel="Public">
          <codeSystem name="LOINC"/>
       </def>
+      <def name="Opioid treatment plan edited (a procedure)" id="408957008" accessLevel="Public">
+         <codeSystem name="SNOMED"/>
+      </def>
+      <def name="Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)" id="408957008" accessLevel="Public">
+         <codeSystem name="SNOMED"/>
+      </def>
+      <def name="Documented discussion of opioid harms and risks" id="460831000124102" accessLevel="Public">
+         <codeSystem name="SNOMED"/>
+      </def>
+      <def name="Documented discussion of opioid harms and risks not done" id="460841000124107" accessLevel="Public">
+         <codeSystem name="SNOMED"/>
+      </def>
+      <def name="Review PDMP data procedure" id="461621000124108" accessLevel="Public">
+         <codeSystem name="SNOMED"/>
+      </def>
+      <def name="PDMP data review done Situation (the finding/situation is documented)" id="461651000124104" accessLevel="Public">
+         <codeSystem name="SNOMED"/>
+      </def>
       <def name="Referral to Hospice" id="306205009" accessLevel="Public">
          <codeSystem name="SNOMED"/>
       </def>
       <def name="Outpatient" id="outpatient" accessLevel="Public">
          <codeSystem name="Medication Request Category Codes"/>
+      </def>
+      <def name="Active Condition" id="active" accessLevel="Public">
+         <codeSystem name="Condition Clinical Status Codes"/>
       </def>
    </codes>
    <statements>
@@ -174,11 +195,11 @@
                            <source path="clinicalStatus" scope="C" xsi:type="Property"/>
                         </expression>
                      </source>
-                     <where xsi:type="InValueSet">
-                        <code name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                           <operand path="code" scope="Coding" xsi:type="Property"/>
-                        </code>
-                        <valueset name="Active Condition"/>
+                     <where xsi:type="Equivalent">
+                        <operand name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="Coding" xsi:type="AliasRef"/>
+                        </operand>
+                        <operand name="Active Condition" xsi:type="CodeRef"/>
                      </where>
                   </operand>
                </where>
@@ -196,11 +217,11 @@
                            <source path="clinicalStatus" scope="C" xsi:type="Property"/>
                         </expression>
                      </source>
-                     <where xsi:type="InValueSet">
-                        <code name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                           <operand path="code" scope="Coding" xsi:type="Property"/>
-                        </code>
-                        <valueset name="Active Condition"/>
+                     <where xsi:type="Equivalent">
+                        <operand name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="Coding" xsi:type="AliasRef"/>
+                        </operand>
+                        <operand name="Active Condition" xsi:type="CodeRef"/>
                      </where>
                   </operand>
                </where>

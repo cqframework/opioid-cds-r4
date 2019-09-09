@@ -136,7 +136,7 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
     [Condition: "Conditions Likely Terminal for Opioid Prescribing"] C
       where exists (
         C.clinicalStatus.coding Coding
-          where Coding.code ~ "Active Condition"
+          where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
       )
   )
   union
@@ -144,7 +144,7 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
     [Condition: code in "Limited Life Expectancy (findings)"] C
       where exists (
         C.clinicalStatus.coding Coding
-          where Coding.code in "Active Condition"
+          where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
       )
   )
 
