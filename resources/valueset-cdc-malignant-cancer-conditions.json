@@ -1,6 +1,11 @@
 {
   "resourceType": "ValueSet",
   "id": "cdc-malignant-cancer-conditions",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+    ]
+  },
   "extension": [
     {
       "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -32,11 +37,12 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/cdc-malignant-cancer-conditions",
+  "version": "0.2.0",
   "name": "cdc_malignant_cancer_conditions",
   "title": "cdc malignant cancer conditions",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-03T13:28:56-06:00",
+  "date": "2019-09-08T13:28:56-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "All neoplastic and malignant conditions, including Neoplasm related pain.",
   "jurisdiction": [
@@ -105,7 +111,6 @@
       },
       {
         "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "version": "2020",
         "concept": [
           {
             "code": "D03.0",

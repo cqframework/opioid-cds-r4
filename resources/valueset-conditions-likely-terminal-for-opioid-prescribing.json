@@ -1,6 +1,11 @@
 {
   "resourceType": "ValueSet",
   "id": "conditions-likely-terminal-for-opioid-prescribing",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+    ]
+  },
   "extension": [
     {
       "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -32,11 +37,12 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/conditions-likely-terminal-for-opioid-prescribing",
+  "version": "0.2.0",
   "name": "conditions_likely_terminal_for_opioid_prescribing",
   "title": "conditions likely terminal for opioid prescribing",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-03T13:28:57-06:00",
+  "date": "2019-09-08T13:28:57-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Conditions that generally are thought to have terminal prognosis",
   "jurisdiction": [

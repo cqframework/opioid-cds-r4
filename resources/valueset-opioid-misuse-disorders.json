@@ -1,6 +1,11 @@
 {
   "resourceType": "ValueSet",
   "id": "opioid-misuse-disorders",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+    ]
+  },
   "extension": [
     {
       "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -32,11 +37,12 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-misuse-disorders",
+  "version": "0.2.0",
   "name": "opioid_misuse_disorders",
   "title": "opioid misuse disorders",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-03T13:28:57-06:00",
+  "date": "2019-09-08T13:28:57-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Conditions indicating opioid misuse",
   "jurisdiction": [
@@ -91,67 +97,67 @@
         "version": "http://snomed.info/sct/731000124108",
         "concept": [
           {
-            "code": "1.4784E7",
+            "code": "14784000",
             "display": "Opioid-induced organic mental disorder (disorder)"
           },
           {
-            "code": "1.9445006E7",
+            "code": "19445006",
             "display": "Opioid-induced psychotic disorder with hallucinations (disorder)"
           },
           {
-            "code": "2.0385005E7",
+            "code": "20385005",
             "display": "Opioid-induced psychotic disorder with delusions (disorder)"
           },
           {
-            "code": "2.30443E8",
+            "code": "230443000",
             "display": "Narcotic withdrawal epilepsy (disorder)"
           },
           {
-            "code": "2.88851000119106E14",
+            "code": "288851000119106",
             "display": "Opioid-induced mood disorder due to opioid abuse (disorder)"
           },
           {
-            "code": "2.88861000119108E14",
+            "code": "288861000119108",
             "display": "Opioid-induced mood disorder due to opioid dependence (disorder)"
           },
           {
-            "code": "2.9733004E7",
+            "code": "29733004",
             "display": "Opioid-induced mood disorder (disorder)"
           },
           {
-            "code": "5.2866005E7",
+            "code": "52866005",
             "display": "Opioid intoxication delirium (disorder)"
           },
           {
-            "code": "5602001.0",
+            "code": "5602001",
             "display": "Opioid abuse (disorder)"
           },
           {
-            "code": "7.1328E7",
+            "code": "71328000",
             "display": "Opioid-induced sexual dysfunction (disorder)"
           },
           {
-            "code": "7.24655005E8",
+            "code": "724655005",
             "display": "Psychotic disorder caused by opioid (disorder)"
           },
           {
-            "code": "7.62320004E8",
+            "code": "762320004",
             "display": "Mood disorder with manic symptoms caused by opioid (disorder)"
           },
           {
-            "code": "7.62321E8",
+            "code": "762321000",
             "display": "Mood disorder with depressive symptoms caused by opioid (disorder)"
           },
           {
-            "code": "7.62322007E8",
+            "code": "762322007",
             "display": "Mood disorder with mixed depressive and manic symptoms caused by opioid (disorder)"
           },
           {
-            "code": "7.7721001E7",
+            "code": "77721001",
             "display": "Opioid intoxication (disorder)"
           },
           {
-            "code": "8.7132004E7",
+            "code": "87132004",
             "display": "Opioid withdrawal (disorder)"
           }
         ]

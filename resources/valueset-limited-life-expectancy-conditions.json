@@ -1,6 +1,11 @@
 {
   "resourceType": "ValueSet",
   "id": "limited-life-expectancy-conditions",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+    ]
+  },
   "extension": [
     {
       "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -32,11 +37,17 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/limited-life-expectancy-conditions",
+  "identifier": [
+    {
+      "value": "2.16.840.1.113883.3.526.3.1259"
+    }
+  ],
+  "version": "0.2.0",
   "name": "limited_life_expectancy_conditions",
   "title": "limited life expectancy conditions",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-03T13:28:57-06:00",
+  "date": "2019-09-08T13:28:57-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "A finding that documents a terminal prognosis",
   "jurisdiction": [

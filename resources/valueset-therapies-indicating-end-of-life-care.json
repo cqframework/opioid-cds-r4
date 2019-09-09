@@ -1,6 +1,11 @@
 {
   "resourceType": "ValueSet",
   "id": "therapies-indicating-end-of-life-care",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+    ]
+  },
   "extension": [
     {
       "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -32,11 +37,12 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/therapies-indicating-end-of-life-care",
+  "version": "0.2.0",
   "name": "therapies_indicating_end_of_life_care",
   "title": "therapies indicating end of life care",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-03T13:28:57-06:00",
+  "date": "2019-09-08T13:28:57-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Therapeutic activities indicating end of life. Include procedures or therapies specific to a terminal patient, exclude procedures or therapies performed on a deceased patient",
   "jurisdiction": [

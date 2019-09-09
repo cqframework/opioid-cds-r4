@@ -811,9 +811,9 @@
             "source": "valueset-opioid-urine-screening.xml",
             "base": "ValueSet-opioid-urine-screening.html"
         },
-        "ValueSet/opioid-with-ambulatory-misuse-potential-exclusions": {
-            "source": "valueset-opioid-with-ambulatory-misuse-potential-exclusions.json",
-            "base": "ValueSet-opioid-with-ambulatory-misuse-potential-exclusions.html"
+        "ValueSet/opioid-with-ambulatory-misuse-potential": {
+            "source": "valueset-opioid-with-ambulatory-misuse-potential.json",
+            "base": "ValueSet-opioid-with-ambulatory-misuse-potential.html"
         },
         "ValueSet/opioidcds-indicator": {
             "source": "valueset-opioidcds-indicator.xml",

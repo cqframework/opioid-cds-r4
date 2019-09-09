@@ -18,7 +18,7 @@
    </codeSystems>
    <valueSets>
       <def name="All Opioid With Ambulatory Misuse Potential" id="http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/opioids-abused-in-ambulatory-care" accessLevel="Public"/>
-      <def name="Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics" id="http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential-exclusions" accessLevel="Public"/>
+      <def name="Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics" id="http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential" accessLevel="Public"/>
       <def name="Limited Life Expectancy (findings)" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions" accessLevel="Public"/>
       <def name="Therapies Indicating End of Life Care" id="http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care" accessLevel="Public"/>
       <def name="Conditions Likely Terminal for Opioid Prescribing" id="http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing" accessLevel="Public"/>

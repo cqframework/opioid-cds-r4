@@ -12,7 +12,7 @@ codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSy
 
 /* Sync'd with Opioid Terminology Spreadsheet for ease of reconciliation */
 valueset "All Opioid With Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/opioids-abused-in-ambulatory-care'
-valueset "Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics": 'http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential-exclusions'
+valueset "Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics": 'http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential'
 valueset "Limited Life Expectancy (findings)": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions'
 valueset "Therapies Indicating End of Life Care": 'http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care'
 valueset "Conditions Likely Terminal for Opioid Prescribing": 'http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing'
