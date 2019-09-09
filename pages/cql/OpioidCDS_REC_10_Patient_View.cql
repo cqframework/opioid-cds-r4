@@ -66,16 +66,15 @@ define "Inclusion Criteria":
         or "Has Evidence of Opioids"
         or "Has Evidence of Illicit Drugs")
 
-    define "Illicit Drug Urine Screenings in Last 12 Months":
-      [Observation: "combo-code" in Common."Illicit Drug Screening"] observation
-        where date from observation.effective.value in day of "Lookback Year"
-          sort by effective.value
+define "Illicit Drug Urine Screenings in Last 12 Months":
+  [Observation: "code" in Common."Illicit Drug Screening"] observation
+    where date from observation.effective.value in day of "Lookback Year"
+      sort by effective.value
 
-    define "Opioid Drug Urine Screenings in Last 12 Months":
-      [Observation: "combo-code" in Common."Opioid Drug Screening"] observation
-        where date from observation.effective.value in day of "Lookback Year"
-          sort by effective.value
-
+define "Opioid Drug Urine Screenings in Last 12 Months":
+  [Observation: "code" in Common."Opioid Drug Screening"] observation
+    where date from observation.effective.value in day of "Lookback Year"
+      sort by effective.value
 
 define "Most Recent Illicit Drug Urine Screenings in Last 12 Months":
   Last( "Illicit Drug Urine Screenings in Last 12 Months" )
@@ -93,9 +92,9 @@ define "Positive Illicit Drug Screening":
       exists (mostRecentScreening.interpretation interpretation where FHIRHelpers.ToConcept(interpretation) ~ "Positive")
       or exists
       (
-          mostRecentScreening.component C
-            where C.code in Common."Illicit Drug Screening"
-              and exists (C.interpretation i where FHIRHelpers.ToConcept(i) ~ "Positive")
+        mostRecentScreening.component C
+          where C.code in Common."Illicit Drug Screening"
+            and exists (C.interpretation i where FHIRHelpers.ToConcept(i) ~ "Positive")
       )
 
 define "Positive Illicit Drug Screening Qualifying Codes":
