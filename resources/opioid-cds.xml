@@ -1015,14 +1015,14 @@
             <description value="Opioid Management Decision Support Logic for recommendation #10"/>
             <exampleBoolean value="true"/>
         </resource>
-        <!-- <resource>
+        <resource>
             <reference>
-                <reference value="Library/library-opioidcds-stu3-rec-10-patient-view-0-1-0"/>
+                <reference value="Library/opioidcds-rec-10-patient-view"/>
             </reference>
             <name value="Library - Opioid CDS Recommendation #10 Patient View"/>
             <description value="Opioid Management Decision Support Logic for recommendation #10 Patient View"/>
             <exampleBoolean value="true"/>
-        </resource> -->
+        </resource>
         <resource>
             <reference>
                 <reference value="Library/opioidcds-rec-11"/>
@@ -1031,14 +1031,14 @@
             <description value="Opioid Management Decision Support Logic for recommendation #11"/>
             <exampleBoolean value="true"/>
         </resource>
-        <!-- <resource>
+        <resource>
             <reference>
-                <reference value="Library/library-opioidcds-stu3-rec-11-patient-view-0-1-0"/>
+                <reference value="Library/opioidcds-rec-11-patient-view"/>
             </reference>
             <name value="Library - Opioid CDS Recommendation #11 Patient View"/>
             <description value="Opioid Management Decision Support Logic for recommendation #11 Patient View"/>
             <exampleBoolean value="true"/>
-        </resource> -->
+        </resource>
         <resource>
             <reference>
                 <reference value="Library/opioidcds-rec-12"/>
@@ -1151,14 +1151,14 @@
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #10"/>
             <exampleBoolean value="true"/>
         </resource>
-        <!-- <resource>
+        <resource>
             <reference>
                 <reference value="PlanDefinition/opioidcds-10-patient-view"/>
             </reference>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 Patient View"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #10 Patient View"/>
             <exampleBoolean value="true"/>
-        </resource> -->
+        </resource>
         <resource>
             <reference>
                 <reference value="PlanDefinition/opioidcds-11"/>
@@ -1167,14 +1167,14 @@
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #11"/>
             <exampleBoolean value="true"/>
         </resource>
-        <!-- <resource>
+        <resource>
             <reference>
                 <reference value="PlanDefinition/opioidcds-11-patient-view"/>
             </reference>
             <name value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #11 Patient View"/>
             <description value="PlanDefinition implementing CDC Opioid Prescribing Support Guideline Recommendation #11 Patient View"/>
             <exampleBoolean value="true"/>
-        </resource> -->
+        </resource>
         <resource>
             <reference>
                 <reference value="PlanDefinition/opioidcds-12"/>

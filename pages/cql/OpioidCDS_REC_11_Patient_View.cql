@@ -1,4 +1,4 @@
-library OpioidCDS_STU3_REC_11_Patient_View version '0.1.0'
+library OpioidCDS_REC_11_Patient_View version '0.1.0'
 
 using FHIR version '4.0.0'
 
@@ -7,7 +7,7 @@ include OpioidCDS_Common version '0.1.0' called Common
 
 /*
 **
-**  Recommendation #11
+**  Recommendation #11 Patient_View
 **    Patient found to be prescribed opioid pain medication and benzodiazepines. Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible
 **
 */
