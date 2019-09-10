@@ -61,7 +61,7 @@
             }
         },
         {
-            "fullUrl": "http//motivemi.com/ras-CRN/Condition/6786477b-0719-4e6a-a27e-e72fa61a19b3-4",
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Condition/MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
             "resource": {
                 "resourceType": "Condition",
                 "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-4",
@@ -100,9 +100,9 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
-                            "code": "TODO",
-                            "display": "Limited Life Expectancy (findings)"
+                            "system": "http://snomed.info/sct",
+                            "code": "300936002",
+                            "display": "Terminal illness"
                         }
                     ]
                 }
