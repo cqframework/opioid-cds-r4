@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
-   <annotation startLine="75" startChar="3" endLine="75" endChar="64" message="Could not resolve code path combo-code for the type of the retrieve FHIR.Observation." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="75" startChar="3" endLine="75" endChar="64" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="80" startChar="3" endLine="80" endChar="63" message="Could not resolve code path combo-code for the type of the retrieve FHIR.Observation." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="80" startChar="3" endLine="80" endChar="63" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="131" startChar="51" endLine="131" endChar="64" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="138" startChar="41" endLine="138" endChar="54" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="96" startChar="53" endLine="96" endChar="66" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="103" startChar="43" endLine="103" endChar="56" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="112" startChar="55" endLine="112" endChar="68" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="114" startChar="16" endLine="114" endChar="17" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="120" startChar="65" endLine="120" endChar="78" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="147" startChar="53" endLine="147" endChar="66" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="149" startChar="14" endLine="149" endChar="15" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="155" startChar="63" endLine="155" endChar="76" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation startLine="203" startChar="46" endLine="203" endChar="94" message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
    <identifier id="OpioidCDS_REC_10" version="0.1.0"/>
    <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
    <usings>
@@ -89,7 +74,7 @@
       <def name="Illicit Drug Urine Screenings in Last 12 Months" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="observation">
-               <expression dataType="fhir:Observation" codeProperty="combo-code" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
                   <codes name="Illicit Drug Screening" libraryName="Common" xsi:type="ValueSetRef"/>
                </expression>
             </source>
@@ -118,7 +103,7 @@
       <def name="Opioid Drug Urine Screenings in Last 12 Months" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="observation">
-               <expression dataType="fhir:Observation" codeProperty="combo-code" xsi:type="Retrieve">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
                   <codes name="Opioid Drug Screening" libraryName="Common" xsi:type="ValueSetRef"/>
                </expression>
             </source>
@@ -160,61 +145,57 @@
                <expression name="Most Recent Opioid Drug Urine Screenings in Last 12 Months" xsi:type="ExpressionRef"/>
             </source>
             <where xsi:type="Or">
-               <operand xsi:type="Equivalent">
-                  <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                     <operand xsi:type="SingletonFrom">
-                        <operand path="interpretation" scope="mostRecentScreening" xsi:type="Property"/>
-                     </operand>
-                  </operand>
-                  <operand xsi:type="ToConcept">
-                     <operand name="Positive" xsi:type="CodeRef"/>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="interpretation">
+                        <expression path="interpretation" scope="mostRecentScreening" xsi:type="Property"/>
+                     </source>
+                     <where xsi:type="Equivalent">
+                        <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="interpretation" xsi:type="AliasRef"/>
+                        </operand>
+                        <operand xsi:type="ToConcept">
+                           <operand name="Positive" xsi:type="CodeRef"/>
+                        </operand>
+                     </where>
                   </operand>
                </operand>
-               <operand xsi:type="If">
-                  <condition asType="t:Boolean" xsi:type="As">
-                     <operand xsi:type="And">
-                        <operand xsi:type="Not">
-                           <operand xsi:type="IsNull">
-                              <operand path="component" scope="mostRecentScreening" xsi:type="Property"/>
-                           </operand>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="C">
+                        <expression path="component" scope="mostRecentScreening" xsi:type="Property"/>
+                     </source>
+                     <where xsi:type="And">
+                        <operand xsi:type="InValueSet">
+                           <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="C" xsi:type="Property"/>
+                           </code>
+                           <valueset name="Opioid Drug Screening" libraryName="Common"/>
                         </operand>
                         <operand xsi:type="Exists">
-                           <operand path="component" scope="mostRecentScreening" xsi:type="Property"/>
-                        </operand>
-                     </operand>
-                  </condition>
-                  <then xsi:type="Exists">
-                     <operand xsi:type="Query">
-                        <source alias="c">
-                           <expression path="component" scope="mostRecentScreening" xsi:type="Property"/>
-                        </source>
-                        <where xsi:type="And">
-                           <operand xsi:type="Not">
-                              <operand xsi:type="IsNull">
-                                 <operand path="interpretation" scope="c" xsi:type="Property"/>
-                              </operand>
-                           </operand>
-                           <operand xsi:type="Equivalent">
-                              <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                 <operand xsi:type="SingletonFrom">
-                                    <operand path="interpretation" scope="c" xsi:type="Property"/>
+                           <operand xsi:type="Query">
+                              <source alias="i">
+                                 <expression path="interpretation" scope="C" xsi:type="Property"/>
+                              </source>
+                              <where xsi:type="Equivalent">
+                                 <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="i" xsi:type="AliasRef"/>
                                  </operand>
-                              </operand>
-                              <operand xsi:type="ToConcept">
-                                 <operand name="Positive" xsi:type="CodeRef"/>
-                              </operand>
+                                 <operand xsi:type="ToConcept">
+                                    <operand name="Positive" xsi:type="CodeRef"/>
+                                 </operand>
+                              </where>
                            </operand>
-                        </where>
-                     </operand>
-                  </then>
-                  <else valueType="t:Boolean" value="false" xsi:type="Literal"/>
+                        </operand>
+                     </where>
+                  </operand>
                </operand>
             </where>
          </expression>
       </def>
       <def name="Has Evidence of Opioids" context="Patient" accessLevel="Public">
-         <expression xsi:type="Exists">
-            <operand xsi:type="ToList">
+         <expression xsi:type="Not">
+            <operand xsi:type="IsNull">
                <operand name="Positive Opioid Drug Screening" xsi:type="ExpressionRef"/>
             </operand>
          </expression>
@@ -225,61 +206,57 @@
                <expression name="Most Recent Illicit Drug Urine Screenings in Last 12 Months" xsi:type="ExpressionRef"/>
             </source>
             <where xsi:type="Or">
-               <operand xsi:type="Equivalent">
-                  <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                     <operand xsi:type="SingletonFrom">
-                        <operand path="interpretation" scope="mostRecentScreening" xsi:type="Property"/>
-                     </operand>
-                  </operand>
-                  <operand xsi:type="ToConcept">
-                     <operand name="Positive" xsi:type="CodeRef"/>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="interpretation">
+                        <expression path="interpretation" scope="mostRecentScreening" xsi:type="Property"/>
+                     </source>
+                     <where xsi:type="Equivalent">
+                        <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="interpretation" xsi:type="AliasRef"/>
+                        </operand>
+                        <operand xsi:type="ToConcept">
+                           <operand name="Positive" xsi:type="CodeRef"/>
+                        </operand>
+                     </where>
                   </operand>
                </operand>
-               <operand xsi:type="If">
-                  <condition asType="t:Boolean" xsi:type="As">
-                     <operand xsi:type="And">
-                        <operand xsi:type="Not">
-                           <operand xsi:type="IsNull">
-                              <operand path="component" scope="mostRecentScreening" xsi:type="Property"/>
-                           </operand>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="C">
+                        <expression path="component" scope="mostRecentScreening" xsi:type="Property"/>
+                     </source>
+                     <where xsi:type="And">
+                        <operand xsi:type="InValueSet">
+                           <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="C" xsi:type="Property"/>
+                           </code>
+                           <valueset name="Illicit Drug Screening" libraryName="Common"/>
                         </operand>
                         <operand xsi:type="Exists">
-                           <operand path="component" scope="mostRecentScreening" xsi:type="Property"/>
-                        </operand>
-                     </operand>
-                  </condition>
-                  <then xsi:type="Exists">
-                     <operand xsi:type="Query">
-                        <source alias="c">
-                           <expression path="component" scope="mostRecentScreening" xsi:type="Property"/>
-                        </source>
-                        <where xsi:type="And">
-                           <operand xsi:type="Not">
-                              <operand xsi:type="IsNull">
-                                 <operand path="interpretation" scope="c" xsi:type="Property"/>
-                              </operand>
-                           </operand>
-                           <operand xsi:type="Equivalent">
-                              <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                 <operand xsi:type="SingletonFrom">
-                                    <operand path="interpretation" scope="c" xsi:type="Property"/>
+                           <operand xsi:type="Query">
+                              <source alias="i">
+                                 <expression path="interpretation" scope="C" xsi:type="Property"/>
+                              </source>
+                              <where xsi:type="Equivalent">
+                                 <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="i" xsi:type="AliasRef"/>
                                  </operand>
-                              </operand>
-                              <operand xsi:type="ToConcept">
-                                 <operand name="Positive" xsi:type="CodeRef"/>
-                              </operand>
+                                 <operand xsi:type="ToConcept">
+                                    <operand name="Positive" xsi:type="CodeRef"/>
+                                 </operand>
+                              </where>
                            </operand>
-                        </where>
-                     </operand>
-                  </then>
-                  <else valueType="t:Boolean" value="false" xsi:type="Literal"/>
+                        </operand>
+                     </where>
+                  </operand>
                </operand>
             </where>
          </expression>
       </def>
       <def name="Has Evidence of Illicit Drugs" context="Patient" accessLevel="Public">
-         <expression xsi:type="Exists">
-            <operand xsi:type="ToList">
+         <expression xsi:type="Not">
+            <operand xsi:type="IsNull">
                <operand name="Positive Illicit Drug Screening" xsi:type="ExpressionRef"/>
             </operand>
          </expression>
@@ -327,97 +304,58 @@
             </source>
             <return>
                <expression xsi:type="Union">
-                  <operand xsi:type="ToList">
-                     <operand xsi:type="If">
-                        <condition asType="t:Boolean" xsi:type="As">
-                           <operand xsi:type="Equivalent">
-                              <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                 <operand xsi:type="SingletonFrom">
-                                    <operand path="interpretation" scope="positiveScreening" xsi:type="Property"/>
-                                 </operand>
-                              </operand>
-                              <operand xsi:type="ToConcept">
-                                 <operand name="Positive" xsi:type="CodeRef"/>
-                              </operand>
-                           </operand>
-                        </condition>
-                        <then path="code" scope="positiveScreening" xsi:type="Property"/>
-                        <else asType="fhir:CodeableConcept" xsi:type="As">
-                           <operand xsi:type="SingletonFrom">
-                              <operand xsi:type="List"/>
-                           </operand>
-                        </else>
-                     </operand>
-                  </operand>
-                  <operand xsi:type="Query">
-                     <source alias="X">
-                        <expression xsi:type="If">
-                           <condition asType="t:Boolean" xsi:type="As">
-                              <operand xsi:type="And">
-                                 <operand xsi:type="And">
-                                    <operand xsi:type="Not">
-                                       <operand xsi:type="IsNull">
-                                          <operand path="component" scope="positiveScreening" xsi:type="Property"/>
-                                       </operand>
-                                    </operand>
-                                    <operand xsi:type="Exists">
-                                       <operand path="component" scope="positiveScreening" xsi:type="Property"/>
-                                    </operand>
-                                 </operand>
-                                 <operand xsi:type="Equivalent">
-                                    <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                       <operand xsi:type="SingletonFrom">
-                                          <operand xsi:type="Flatten">
-                                             <operand xsi:type="Query">
-                                                <source alias="$this">
-                                                   <expression path="component" scope="positiveScreening" xsi:type="Property"/>
-                                                </source>
-                                                <where xsi:type="Not">
-                                                   <operand xsi:type="IsNull">
-                                                      <operand path="interpretation" xsi:type="Property">
-                                                         <source name="$this" xsi:type="AliasRef"/>
-                                                      </operand>
-                                                   </operand>
-                                                </where>
-                                                <return>
-                                                   <expression path="interpretation" xsi:type="Property">
-                                                      <source name="$this" xsi:type="AliasRef"/>
-                                                   </expression>
-                                                </return>
-                                             </operand>
-                                          </operand>
-                                       </operand>
-                                    </operand>
-                                    <operand xsi:type="ToConcept">
-                                       <operand name="Positive" xsi:type="CodeRef"/>
-                                    </operand>
-                                 </operand>
-                              </operand>
-                           </condition>
-                           <then xsi:type="Query">
-                              <source alias="$this">
-                                 <expression path="component" scope="positiveScreening" xsi:type="Property"/>
+                  <operand xsi:type="If">
+                     <condition asType="t:Boolean" xsi:type="As">
+                        <operand xsi:type="Exists">
+                           <operand xsi:type="Query">
+                              <source alias="interpretation">
+                                 <expression path="interpretation" scope="positiveScreening" xsi:type="Property"/>
                               </source>
-                              <where xsi:type="Not">
-                                 <operand xsi:type="IsNull">
-                                    <operand path="code" xsi:type="Property">
-                                       <source name="$this" xsi:type="AliasRef"/>
-                                    </operand>
+                              <where xsi:type="Equivalent">
+                                 <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="interpretation" xsi:type="AliasRef"/>
+                                 </operand>
+                                 <operand xsi:type="ToConcept">
+                                    <operand name="Positive" xsi:type="CodeRef"/>
                                  </operand>
                               </where>
-                              <return>
-                                 <expression path="code" xsi:type="Property">
-                                    <source name="$this" xsi:type="AliasRef"/>
-                                 </expression>
-                              </return>
-                           </then>
-                           <else xsi:type="List"/>
-                        </expression>
+                           </operand>
+                        </operand>
+                     </condition>
+                     <then xsi:type="List">
+                        <element path="code" scope="positiveScreening" xsi:type="Property"/>
+                     </then>
+                     <else xsi:type="List"/>
+                  </operand>
+                  <operand xsi:type="Query">
+                     <source alias="C">
+                        <expression path="component" scope="positiveScreening" xsi:type="Property"/>
                      </source>
-                     <return distinct="false">
-                        <expression asType="fhir:CodeableConcept" xsi:type="As">
-                           <operand name="X" xsi:type="AliasRef"/>
-                        </expression>
+                     <where xsi:type="And">
+                        <operand xsi:type="InValueSet">
+                           <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="C" xsi:type="Property"/>
+                           </code>
+                           <valueset name="Illicit Drug Screening" libraryName="Common"/>
+                        </operand>
+                        <operand xsi:type="Exists">
+                           <operand xsi:type="Query">
+                              <source alias="interpretation">
+                                 <expression path="interpretation" scope="positiveScreening" xsi:type="Property"/>
+                              </source>
+                              <where xsi:type="Equivalent">
+                                 <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="interpretation" xsi:type="AliasRef"/>
+                                 </operand>
+                                 <operand xsi:type="ToConcept">
+                                    <operand name="Positive" xsi:type="CodeRef"/>
+                                 </operand>
+                              </where>
+                           </operand>
+                        </operand>
+                     </where>
+                     <return>
+                        <expression path="code" scope="C" xsi:type="Property"/>
                      </return>
                   </operand>
                </expression>
@@ -431,97 +369,58 @@
             </source>
             <return>
                <expression xsi:type="Union">
-                  <operand xsi:type="ToList">
-                     <operand xsi:type="If">
-                        <condition asType="t:Boolean" xsi:type="As">
-                           <operand xsi:type="Equivalent">
-                              <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                 <operand xsi:type="SingletonFrom">
-                                    <operand path="interpretation" scope="positiveScreening" xsi:type="Property"/>
-                                 </operand>
-                              </operand>
-                              <operand xsi:type="ToConcept">
-                                 <operand name="Positive" xsi:type="CodeRef"/>
-                              </operand>
-                           </operand>
-                        </condition>
-                        <then path="code" scope="positiveScreening" xsi:type="Property"/>
-                        <else asType="fhir:CodeableConcept" xsi:type="As">
-                           <operand xsi:type="SingletonFrom">
-                              <operand xsi:type="List"/>
-                           </operand>
-                        </else>
-                     </operand>
-                  </operand>
-                  <operand xsi:type="Query">
-                     <source alias="X">
-                        <expression xsi:type="If">
-                           <condition asType="t:Boolean" xsi:type="As">
-                              <operand xsi:type="And">
-                                 <operand xsi:type="And">
-                                    <operand xsi:type="Not">
-                                       <operand xsi:type="IsNull">
-                                          <operand path="component" scope="positiveScreening" xsi:type="Property"/>
-                                       </operand>
-                                    </operand>
-                                    <operand xsi:type="Exists">
-                                       <operand path="component" scope="positiveScreening" xsi:type="Property"/>
-                                    </operand>
-                                 </operand>
-                                 <operand xsi:type="Equivalent">
-                                    <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
-                                       <operand xsi:type="SingletonFrom">
-                                          <operand xsi:type="Flatten">
-                                             <operand xsi:type="Query">
-                                                <source alias="$this">
-                                                   <expression path="component" scope="positiveScreening" xsi:type="Property"/>
-                                                </source>
-                                                <where xsi:type="Not">
-                                                   <operand xsi:type="IsNull">
-                                                      <operand path="interpretation" xsi:type="Property">
-                                                         <source name="$this" xsi:type="AliasRef"/>
-                                                      </operand>
-                                                   </operand>
-                                                </where>
-                                                <return>
-                                                   <expression path="interpretation" xsi:type="Property">
-                                                      <source name="$this" xsi:type="AliasRef"/>
-                                                   </expression>
-                                                </return>
-                                             </operand>
-                                          </operand>
-                                       </operand>
-                                    </operand>
-                                    <operand xsi:type="ToConcept">
-                                       <operand name="Positive" xsi:type="CodeRef"/>
-                                    </operand>
-                                 </operand>
-                              </operand>
-                           </condition>
-                           <then xsi:type="Query">
-                              <source alias="$this">
-                                 <expression path="component" scope="positiveScreening" xsi:type="Property"/>
+                  <operand xsi:type="If">
+                     <condition asType="t:Boolean" xsi:type="As">
+                        <operand xsi:type="Exists">
+                           <operand xsi:type="Query">
+                              <source alias="interpretation">
+                                 <expression path="interpretation" scope="positiveScreening" xsi:type="Property"/>
                               </source>
-                              <where xsi:type="Not">
-                                 <operand xsi:type="IsNull">
-                                    <operand path="code" xsi:type="Property">
-                                       <source name="$this" xsi:type="AliasRef"/>
-                                    </operand>
+                              <where xsi:type="Equivalent">
+                                 <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="interpretation" xsi:type="AliasRef"/>
+                                 </operand>
+                                 <operand xsi:type="ToConcept">
+                                    <operand name="Positive" xsi:type="CodeRef"/>
                                  </operand>
                               </where>
-                              <return>
-                                 <expression path="code" xsi:type="Property">
-                                    <source name="$this" xsi:type="AliasRef"/>
-                                 </expression>
-                              </return>
-                           </then>
-                           <else xsi:type="List"/>
-                        </expression>
+                           </operand>
+                        </operand>
+                     </condition>
+                     <then xsi:type="List">
+                        <element path="code" scope="positiveScreening" xsi:type="Property"/>
+                     </then>
+                     <else xsi:type="List"/>
+                  </operand>
+                  <operand xsi:type="Query">
+                     <source alias="C">
+                        <expression path="component" scope="positiveScreening" xsi:type="Property"/>
                      </source>
-                     <return distinct="false">
-                        <expression asType="fhir:CodeableConcept" xsi:type="As">
-                           <operand name="X" xsi:type="AliasRef"/>
-                        </expression>
+                     <where xsi:type="And">
+                        <operand xsi:type="InValueSet">
+                           <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="C" xsi:type="Property"/>
+                           </code>
+                           <valueset name="Opioid Drug Screening" libraryName="Common"/>
+                        </operand>
+                        <operand xsi:type="Exists">
+                           <operand xsi:type="Query">
+                              <source alias="interpretation">
+                                 <expression path="interpretation" scope="positiveScreening" xsi:type="Property"/>
+                              </source>
+                              <where xsi:type="Equivalent">
+                                 <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="interpretation" xsi:type="AliasRef"/>
+                                 </operand>
+                                 <operand xsi:type="ToConcept">
+                                    <operand name="Positive" xsi:type="CodeRef"/>
+                                 </operand>
+                              </where>
+                           </operand>
+                        </operand>
+                     </where>
+                     <return>
+                        <expression path="code" scope="C" xsi:type="Property"/>
                      </return>
                   </operand>
                </expression>
@@ -628,11 +527,16 @@
             <then xsi:type="Concatenate">
                <operand valueType="t:String" value="Found the following opioid(s): " xsi:type="Literal"/>
                <operand xsi:type="Combine">
-                  <source xsi:type="ToList">
-                     <operand name="CodeableConceptToString" libraryName="Common" xsi:type="FunctionRef">
-                        <operand xsi:type="SingletonFrom">
-                           <operand name="Positive Opioid Drug Screening Qualifying Codes" xsi:type="ExpressionRef"/>
-                        </operand>
+                  <source name="CodeableConceptsToString" libraryName="Common" xsi:type="FunctionRef">
+                     <operand xsi:type="Query">
+                        <source alias="X">
+                           <expression name="Positive Opioid Drug Screening Qualifying Codes" xsi:type="ExpressionRef"/>
+                        </source>
+                        <return distinct="false">
+                           <expression asType="fhir:CodeableConcept" xsi:type="As">
+                              <operand name="X" xsi:type="AliasRef"/>
+                           </expression>
+                        </return>
                      </operand>
                   </source>
                   <separator valueType="t:String" value=", " xsi:type="Literal"/>
@@ -659,9 +563,12 @@
                   <then xsi:type="Concatenate">
                      <operand valueType="t:String" value="Found the following illicit drug(s) in urine drug screen: " xsi:type="Literal"/>
                      <operand xsi:type="Combine">
-                        <source xsi:type="ToList">
-                           <operand name="CodeableConceptToString" libraryName="Common" xsi:type="FunctionRef">
+                        <source name="CodeableConceptsToString" libraryName="Common" xsi:type="FunctionRef">
+                           <operand xsi:type="As">
                               <operand name="positiveScreening" xsi:type="AliasRef"/>
+                              <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                                 <elementType name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                              </asTypeSpecifier>
                            </operand>
                         </source>
                         <separator valueType="t:String" value=", " xsi:type="Literal"/>
