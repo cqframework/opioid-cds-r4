@@ -4,6 +4,7 @@
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-765a7e93-629b-4fc3-a5e5-9210e088fc58",
             "resource": {
                 "resourceType": "Patient",
                 "id": "765a7e93-629b-4fc3-a5e5-9210e088fc58-1",
@@ -11,15 +12,18 @@
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
+                },
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "Today() - 20 years"
+              }
+                        }
+                    ]
                 }
-            },
-            "birthDate": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                  "valueString": "Today() - 20 years"
-                }
-              ]
             },
             "request": {
                 "method": "PUT",
@@ -27,6 +31,7 @@
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/MMI-765a7e93-629b-4fc3-a5e5-9210e088fc58",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -35,7 +40,7 @@
                     ]
                 },
                 "id": "765a7e93-629b-4fc3-a5e5-9210e088fc58-11",
-                "authoredOn": "2019-08-01T00:00:00.0",
+                "authoredOn": "2019-08-01T00:00:00.0Z",
                 "status": "active",
                 "intent": "order",
                 "subject": {

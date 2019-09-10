@@ -37,7 +37,7 @@
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueString": "Today()"
+                            "expression": "Today()"
                         }
                     ]
                 }
@@ -58,7 +58,10 @@
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                             "valueExpression": {
                                 "language": "text/cql",
-                                "expression": "Today() - 20 years"
+                                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "Today() - 20 years"
+              }
                             }
                         }
                     ]
@@ -89,7 +92,7 @@
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 80 days }, end: FHIR.dateTime { value: Today() - 79 days } }"
+                            "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 80 days }, end: FHIR.dateTime { value: Today() - 79 days } }"
                         }
                     ]
                 }

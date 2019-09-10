@@ -4,6 +4,7 @@
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
             "resource": {
                 "resourceType": "Patient",
                 "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-1",
@@ -11,15 +12,18 @@
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
+                },
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "Today() - 20 years"
+              }
+                        }
+                    ]
                 }
-            },
-            "birthDate": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                  "valueString": "Today() - 20 years"
-                }
-              ]
             },
             "request": {
                 "method": "PUT",
@@ -27,7 +31,7 @@
             }
         },
         {
-            "fullUrl": "http//motivemi.com/ras-CRN/MedicationDispense/6786477b-0719-4e6a-a27e-e72fa61a19b3-10",
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationDispense/MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
             "resource": {
                 "resourceType": "MedicationDispense",
                 "meta": {
@@ -68,7 +72,7 @@
                 },
                 "clinicalStatus": [
                     {
-                    "code": {
+                        "code": {
                             "coding": [
                                 {
                                     "system": "http://www.hl7.org/Special/committees/dss/index.cfm",

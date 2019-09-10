@@ -4,6 +4,7 @@
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-36ce4c36-3f6f-4ba0-8e2d-d55225aae0d6",
             "resource": {
                 "resourceType": "Patient",
                 "id": "36ce4c36-3f6f-4ba0-8e2d-d55225aae0d6-1",
@@ -11,15 +12,18 @@
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
+                },
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "Today() - 20 years"
+              }
+                        }
+                    ]
                 }
-            },
-            "birthDate": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                  "valueString": "Today() - 20 years"
-                }
-              ]
             },
             "request": {
                 "method": "PUT",
@@ -27,8 +31,9 @@
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/ServiceRequest/MMI-36ce4c36-3f6f-4ba0-8e2d-d55225aae0d6",
             "resource": {
-                "resourceType": "ServiceReqeust",
+                "resourceType": "ServiceRequest",
                 "id": "36ce4c36-3f6f-4ba0-8e2d-d55225aae0d6-6",
                 "meta": {
                     "profile": [
@@ -40,7 +45,7 @@
                 "subject": {
                     "reference": "Patient/36ce4c36-3f6f-4ba0-8e2d-d55225aae0d6-1"
                 },
-                "authoredOn": "2018-08-01T00:00:00.0",
+                "authoredOn": "2018-08-01T00:00:00.0Z",
                 "code": {
                     "coding": [
                         {

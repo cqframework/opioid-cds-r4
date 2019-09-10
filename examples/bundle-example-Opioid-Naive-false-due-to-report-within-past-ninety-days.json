@@ -4,6 +4,7 @@
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-3448a694-f7ff-4ae5-b04b-9085e979c6d1",
             "resource": {
                 "resourceType": "Patient",
                 "id": "3448a694-f7ff-4ae5-b04b-9085e979c6d1-1",
@@ -19,6 +20,7 @@
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationStatement/MMI-3448a694-f7ff-4ae5-b04b-9085e979c6d1",
             "resource": {
                 "resourceType": "MedicationStatement",
                 "meta": {

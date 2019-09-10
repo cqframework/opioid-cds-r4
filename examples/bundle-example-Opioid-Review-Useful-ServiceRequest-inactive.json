@@ -4,6 +4,7 @@
     "type": "transaction",
     "entry": [
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-69809346-0c30-4acb-841c-812f52c870e0",
             "resource": {
                 "resourceType": "Patient",
                 "id": "69809346-0c30-4acb-841c-812f52c870e0-1",
@@ -11,15 +12,18 @@
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
+                },
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                  "language": "text/cql",
+                                  "expression": "Today() - 20 years"
+                              }
+                        }
+                    ]
                 }
-            },
-            "birthDate": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                  "valueString": "Today() - 20 years"
-                }
-              ]
             },
             "request": {
                 "method": "PUT",
@@ -27,8 +31,9 @@
             }
         },
         {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/ServiceRequest/MMI-69809346-0c30-4acb-841c-812f52c870e0",
             "resource": {
-                "resourceType": "ServiceReqeust",
+                "resourceType": "ServiceRequest",
                 "id": "69809346-0c30-4acb-841c-812f52c870e0-6",
                 "meta": {
                     "profile": [
