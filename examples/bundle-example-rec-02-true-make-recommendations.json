@@ -96,6 +96,15 @@
                 },
                 "status": "active",
                 "intent": "plan",
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "103735009",
+                            "display": "Palliative care"
+                        }
+                    ]
+                },
                 "subject": {
                     "reference": "Patient/example-rec-02-true-make-recommendations"
                 },
