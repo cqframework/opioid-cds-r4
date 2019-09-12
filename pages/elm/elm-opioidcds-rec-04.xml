@@ -64,7 +64,7 @@
                         <operand path="medication" scope="triggerScripts" xsi:type="Property"/>
                      </operand>
                   </code>
-                  <valueset name="All Opioid With Ambulatory Misuse Potential" libraryName="Common"/>
+                  <valueset name="Opioids With Ambulatory Misuse Potential" libraryName="Common"/>
                </operand>
                <operand xsi:type="InValueSet">
                   <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">

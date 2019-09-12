@@ -45,7 +45,7 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
                 and FHIRHelpers.ToDateTime(MR.authoredOn) during day of "Opioid Use Disorder Lookback Period"
           )
           or exists (
-            [Procedure: Common."Substance misuse Behavioral counseling"] P
+            [Procedure: Common."Substance Misuse Behavioral Counseling"] P
               where P.status ~ 'completed'
                 and FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Use Disorder Lookback Period"
           )

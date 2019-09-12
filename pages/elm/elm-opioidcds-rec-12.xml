@@ -73,7 +73,7 @@
                         <operand xsi:type="Query">
                            <source alias="P">
                               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
-                                 <codes name="Substance misuse Behavioral counseling" libraryName="Common" xsi:type="ValueSetRef"/>
+                                 <codes name="Substance Misuse Behavioral Counseling" libraryName="Common" xsi:type="ValueSetRef"/>
                               </expression>
                            </source>
                            <where xsi:type="And">

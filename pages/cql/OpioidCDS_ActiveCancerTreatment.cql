@@ -30,7 +30,7 @@ define "Oncologist Practitioner Roles":
   [PractitionerRole] PractitionerRole
     where exists (
       PractitionerRole.specialty Specialty
-        where Specialty in Common."Oncology specialty designations (NUCC)"
+        where Specialty in Common."Oncology Specialty Designations (NUCC)"
     )
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
@@ -43,7 +43,7 @@ define "Encounters with Cancer Diagnosis During Encounter Period":
       )
       and exists (
         Encounter.participant EncounterParticipant
-          where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
+          where EncounterParticipant.type in Common."Oncology Specialty Designations (NUCC)"
             or exists (
               "Oncologist Practitioner Roles" PractitionerRole
                 where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)

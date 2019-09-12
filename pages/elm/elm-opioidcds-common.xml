@@ -17,27 +17,26 @@
       <def name="Condition Clinical Status Codes" id="http://terminology.hl7.org/CodeSystem/condition-clinical" accessLevel="Public"/>
    </codeSystems>
    <valueSets>
-      <def name="All Opioid With Ambulatory Misuse Potential" id="http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/opioids-abused-in-ambulatory-care" accessLevel="Public"/>
-      <def name="Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics" id="http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential" accessLevel="Public"/>
-      <def name="Limited Life Expectancy (findings)" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions" accessLevel="Public"/>
-      <def name="Therapies Indicating End of Life Care" id="http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care" accessLevel="Public"/>
-      <def name="Conditions Likely Terminal for Opioid Prescribing" id="http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing" accessLevel="Public"/>
-      <def name="CDC Malignant Cancer Conditions" id="http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/cdc-malignant-cancer-conditions" accessLevel="Public"/>
-      <def name="All Ambulatory Encounters" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001" accessLevel="Public"/>
-      <def name="Oncology specialty designations (NUCC)" id="http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/oncology-specialty-designations" accessLevel="Public"/>
-      <def name="Extended Release Opioid with Ambulatory Abuse Potential" id="http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential" accessLevel="Public"/>
+      <def name="Opioids With Ambulatory Misuse Potential" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential" accessLevel="Public"/>
+      <def name="Extended Release Opioid with Ambulatory Abuse Potential" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential" accessLevel="Public"/>
       <def name="Buprenorphine and Methadone medications" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications" accessLevel="Public"/>
-      <def name="Opioid Misuse Disorders" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders" accessLevel="Public"/>
-      <def name="Substance misuse Behavioral counseling" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling" accessLevel="Public"/>
+      <def name="Limited Life Expectancy (findings)" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum" accessLevel="Public"/>
+      <def name="Therapies Indicating End of Life Care" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care-enum" accessLevel="Public"/>
+      <def name="Conditions Likely Terminal for Opioid Prescribing" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum" accessLevel="Public"/>
+      <def name="CDC Malignant Cancer Conditions" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions-enum" accessLevel="Public"/>
+      <def name="Oncology Specialty Designations (NUCC)" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations-enum" accessLevel="Public"/>
+      <def name="Opioid Misuse Disorders" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders-enum" accessLevel="Public"/>
+      <def name="Substance Misuse Behavioral Counseling" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling-enum" accessLevel="Public"/>
+      <def name="All Ambulatory Encounters" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-ambulatory-encounters" accessLevel="Public"/>
       <def name="Benzodiazepines" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines" accessLevel="Public"/>
-      <def name="Hospice Disposition" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition" accessLevel="Public"/>
-      <def name="Hospice Finding Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding" accessLevel="Public"/>
-      <def name="Hospice Procedure Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure" accessLevel="Public"/>
       <def name="Illicit Drug Screening" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/illicit-drug-urine-screening" accessLevel="Public"/>
       <def name="Naloxone" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone" accessLevel="Public"/>
       <def name="Risk Assessment" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-abuse-assessment" accessLevel="Public"/>
       <def name="Opioid Drug Screening" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-screening" accessLevel="Public"/>
       <def name="Substance Abuse" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse" accessLevel="Public"/>
+      <def name="Hospice Disposition" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition" accessLevel="Public"/>
+      <def name="Hospice Finding Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding" accessLevel="Public"/>
+      <def name="Hospice Procedure Codes" id="http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure" accessLevel="Public"/>
       <def name="Pain Management Treatment Plan Review" id="http://todo.com/pain-management-treatment-plan-review" accessLevel="Public"/>
    </valueSets>
    <codes>
@@ -114,7 +113,7 @@
       <def name="Active Ambulatory Opioid Rx" context="Patient" accessLevel="Public">
          <expression name="Is Active Ambulatory Medication Request?" xsi:type="FunctionRef">
             <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="All Opioid With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
+               <codes name="Opioids With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
             </operand>
          </expression>
       </def>
@@ -162,7 +161,7 @@
       <def name="Ambulatory Opioid Rx" context="Patient" accessLevel="Public">
          <expression name="Is Ambulatory Medication Request?" xsi:type="FunctionRef">
             <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="All Opioid With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
+               <codes name="Opioids With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
             </operand>
          </expression>
       </def>

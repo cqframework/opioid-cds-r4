@@ -10,43 +10,38 @@ codesystem "SNOMED": 'http://snomed.info/sct'
 codesystem "Medication Request Category Codes": ' http://hl7.org/fhir/CodeSystem/medicationrequest-status'
 codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 
-/* Sync'd with Opioid Terminology Spreadsheet for ease of reconciliation */
-valueset "All Opioid With Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/opioids-abused-in-ambulatory-care'
-valueset "Opioids With Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics": 'http://build.fhir.org/ig/cqframework/opioid-cds-r4/ValueSet/opioid-with-ambulatory-misuse-potential'
-valueset "Limited Life Expectancy (findings)": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet-limited-life-expectancy-conditions'
-valueset "Therapies Indicating End of Life Care": 'http://build.fhir.org/ig/cqframework/opioid-cds/therapies-indicating-end-of-life-care'
-valueset "Conditions Likely Terminal for Opioid Prescribing": 'http://todo.com/ValueSet/conditions-likely-terminal-for-opioid-prescribing'
-valueset "CDC Malignant Cancer Conditions": 'http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/cdc-malignant-cancer-conditions'
-valueset "All Ambulatory Encounters": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
-valueset "Oncology specialty designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds-r4/ValueSet/oncology-specialty-designations'
-/* "Reason for opioid use" */
-/* Pain control care plan (LOINC) */
-valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://build.fhir.org/ig/cqframework/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential'
-/* Procedure for counseling regarding potential opioid harms and risks */
-/* Document reason for not counseling */
+// Expression-based
+valueset "Opioids With Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential'
+valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential'
 valueset "Buprenorphine and Methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
-valueset "Opioid Misuse Disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders'
-valueset "Substance misuse Behavioral counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling'
-/* Substance Disorder Specialist */
-/* Reason for opioid use */
+
+// Enumerated-compose
+valueset "Limited Life Expectancy (findings)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum'
+valueset "Therapies Indicating End of Life Care": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care-enum'
+valueset "Conditions Likely Terminal for Opioid Prescribing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum'
+valueset "CDC Malignant Cancer Conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions-enum'
+valueset "Oncology Specialty Designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations-enum'
+valueset "Opioid Misuse Disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders-enum'
+valueset "Substance Misuse Behavioral Counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling-enum'
+// Harvested from VSAV - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
+valueset "All Ambulatory Encounters": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-ambulatory-encounters'
 
 /* Existing sets for first six recs */
 valueset "Benzodiazepines": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines'
-// Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
-valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition'
-valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
-valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
 valueset "Illicit Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/illicit-drug-urine-screening'
 valueset "Naloxone": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone'
 valueset "Risk Assessment": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-abuse-assessment'
 valueset "Opioid Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-screening'
 valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
+// Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
+valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition'
+valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
+valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
 
 // Recommendation #2
 // See the latest notes in the Definitions table for Rec 2 - needs to be specific Direct Reference Codes:
 //  Creation: Opioid treatment plan: LOINC 80764-4 Pain medicine plan of care note
 //  Edit/Review: Treatment Plan Edited or Reviewed: SNOMED Chronic pain control management (procedure) 408957008
-
 valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
 
 /*
@@ -78,7 +73,7 @@ define IsForChronicPain: true
 
 define "Active Ambulatory Opioid Rx":
   "Is Active Ambulatory Medication Request?"(
-    [MedicationRequest: "All Opioid With Ambulatory Misuse Potential"]
+    [MedicationRequest: "Opioids With Ambulatory Misuse Potential"]
   )
 
 define "Active Ambulatory Benzodiazepine Rx":
@@ -93,7 +88,7 @@ define "Active Ambulatory Naloxone Rx":
 
 define "Ambulatory Opioid Rx":
   "Is Ambulatory Medication Request?"(
-    [MedicationRequest: "All Opioid With Ambulatory Misuse Potential"]
+    [MedicationRequest: "Opioids With Ambulatory Misuse Potential"]
   )
 
 define function "Is Active Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:

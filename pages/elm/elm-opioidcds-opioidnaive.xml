@@ -60,7 +60,7 @@
          <expression xsi:type="Query">
             <source alias="Statement">
                <expression dataType="fhir:MedicationStatement" codeProperty="medication" xsi:type="Retrieve">
-                  <codes name="All Opioid With Ambulatory Misuse Potential" libraryName="Common" xsi:type="ValueSetRef"/>
+                  <codes name="Opioids With Ambulatory Misuse Potential" libraryName="Common" xsi:type="ValueSetRef"/>
                </expression>
             </source>
             <where xsi:type="And">
@@ -97,7 +97,7 @@
          <expression xsi:type="Query">
             <source alias="OpioidDispense">
                <expression dataType="fhir:MedicationDispense" codeProperty="medication" xsi:type="Retrieve">
-                  <codes name="All Opioid With Ambulatory Misuse Potential" libraryName="Common" xsi:type="ValueSetRef"/>
+                  <codes name="Opioids With Ambulatory Misuse Potential" libraryName="Common" xsi:type="ValueSetRef"/>
                </expression>
             </source>
             <where xsi:type="And">

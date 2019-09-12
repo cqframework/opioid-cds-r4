@@ -58,7 +58,7 @@
                         <operand path="medication" scope="triggerScript" xsi:type="Property"/>
                      </operand>
                   </code>
-                  <valueset name="All Opioid With Ambulatory Misuse Potential" libraryName="Common"/>
+                  <valueset name="Opioids With Ambulatory Misuse Potential" libraryName="Common"/>
                </where>
             </operand>
          </expression>

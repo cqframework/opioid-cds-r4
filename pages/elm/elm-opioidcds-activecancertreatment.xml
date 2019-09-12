@@ -45,7 +45,7 @@
                      <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
                         <operand name="Specialty" xsi:type="AliasRef"/>
                      </code>
-                     <valueset name="Oncology specialty designations (NUCC)" libraryName="Common"/>
+                     <valueset name="Oncology Specialty Designations (NUCC)" libraryName="Common"/>
                   </where>
                </operand>
             </where>
@@ -110,7 +110,7 @@
                                  </expression>
                               </return>
                            </codes>
-                           <valueset name="Oncology specialty designations (NUCC)" libraryName="Common"/>
+                           <valueset name="Oncology Specialty Designations (NUCC)" libraryName="Common"/>
                         </operand>
                         <operand xsi:type="Exists">
                            <operand xsi:type="Query">
