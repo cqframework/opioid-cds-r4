@@ -123,7 +123,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/buprenorphine-and-methadone-medications",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications",
         "version": "0.2.0",
         "name": "buprenorphine_and_methadone_medications",
         "title": "buprenorphine and methadone medications",
@@ -558,7 +558,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/cdc-malignant-cancer-conditions",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions",
         "version": "0.2.0",
         "name": "cdc_malignant_cancer_conditions",
         "title": "cdc malignant cancer conditions",
@@ -702,7 +702,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/cdc-malignant-cancer-conditions-enum",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions-enum",
         "version": "0.2.0",
         "name": "cdc_malignant_cancer_conditions",
         "title": "cdc malignant cancer conditions",
@@ -1489,7 +1489,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/conditions-likely-terminal-for-opioid-prescribing",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing",
         "version": "0.2.0",
         "name": "conditions_likely_terminal_for_opioid_prescribing",
         "title": "conditions likely terminal for opioid prescribing",
@@ -1644,7 +1644,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/conditions-likely-terminal-for-opioid-prescribing-enum",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum",
         "version": "0.2.0",
         "name": "conditions_likely_terminal_for_opioid_prescribing",
         "title": "conditions likely terminal for opioid prescribing",
@@ -5581,7 +5581,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/extended-release-opioid-with-ambulatory-abuse-potential",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential",
         "version": "0.2.0",
         "name": "extended_release_opioid_with_ambulatory_abuse_potential",
         "title": "extended release opioid with ambulatory abuse potential",
@@ -6573,7 +6573,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/limited-life-expectancy-conditions",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
         "identifier": [
           {
             "value": "2.16.840.1.113883.3.526.3.1259"
@@ -6678,7 +6678,7 @@
           },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource",
-            "valueUri": "http://fhir.org/guides/cdc/opioid-cds/limited-life-expectancy-conditions"
+            "valueUri": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
           },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
@@ -6802,7 +6802,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/oncology-specialty-designations",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations",
         "version": "0.2.0",
         "name": "oncology_specialty_designations",
         "title": "oncology specialty designations",
@@ -6894,7 +6894,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/oncology-specialty-designations-enum",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations-enum",
         "version": "0.2.0",
         "name": "oncology_specialty_designations",
         "title": "oncology specialty designations",
@@ -7029,7 +7029,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-misuse-disorders",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders",
         "version": "0.2.0",
         "name": "opioid_misuse_disorders",
         "title": "opioid misuse disorders",
@@ -7144,7 +7144,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-misuse-disorders-enum",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders-enum",
         "version": "0.2.0",
         "name": "opioid_misuse_disorders",
         "title": "opioid misuse disorders",
@@ -7296,7 +7296,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-with-ambulatory-misuse-potential",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential",
         "version": "0.2.0",
         "name": "opioid_with_ambulatory_misuse_potential_excluding_antitussives_and_antispasmodics",
         "title": "opioid with ambulatory misuse potential excluding antitussives and antispasmodics",
@@ -9895,7 +9895,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/substance-misuse-behavioral-counseling",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling",
         "version": "0.2.0",
         "name": "substance_misuse_behavioral_counseling",
         "title": "substance misuse behavioral counseling",
@@ -10010,7 +10010,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/substance-misuse-behavioral-counseling-enum",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling-enum",
         "version": "0.2.0",
         "name": "substance_misuse_behavioral_counseling",
         "title": "substance misuse behavioral counseling",
@@ -10102,7 +10102,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/therapies-indicating-end-of-life-care",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care",
         "version": "0.2.0",
         "name": "therapies_indicating_end_of_life_care",
         "title": "therapies indicating end of life care",
@@ -10228,7 +10228,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/therapies-indicating-end-of-life-care-enum",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care-enum",
         "version": "0.2.0",
         "name": "therapies_indicating_end_of_life_care",
         "title": "therapies indicating end of life care",
