@@ -1,12 +1,20 @@
 {
   "resourceType": "ValueSet",
-  "id": "limited-life-expectancy-conditions",
+  "id": "limited-life-expectancy-conditions-enum",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-enumerated-compose"
     ]
   },
   "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
+      "valueString": "This value set is created solely to support early FHIR HAPI server requirements to have all members of a value set in the compose. Because of this, the member list is a point in time snapshot of the content. The value set resource with the compose element to be used in up-to-date systems is identified in the athoritativeSource extension."
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource",
+      "valueUri": "http://fhir.org/guides/cdc/opioid-cds/limited-life-expectancy-conditions"
+    },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
       "valueContactDetail": {
@@ -20,7 +28,7 @@
       }
     }
   ],
-  "url": "http://fhir.org/guides/cdc/opioid-cds/limited-life-expectancy-conditions",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/limited-life-expectancy-conditions-enum",
   "identifier": [
     {
       "value": "2.16.840.1.113883.3.526.3.1259"
@@ -71,33 +79,30 @@
       {
         "system": "http://snomed.info/sct",
         "version": "http://snomed.info/sct/731000124108",
-        "filter": [
+        "concept": [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "300936002"
-          }
-        ]
-      },
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108",
-        "filter": [
+            "code": "111947009",
+            "display": "Functional disorder present, condition terminal"
+          },
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "170969009"
-          }
-        ]
-      },
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108",
-        "filter": [
+            "code": "27143004",
+            "display": "Patient status determination, pre-terminal"
+          },
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "27143004"
+            "code": "170969009",
+            "display": "Prognosis bad"
+          },
+          {
+            "code": "300936002",
+            "display": "Terminal illness"
+          },
+          {
+            "code": "162607003",
+            "display": "Terminal illness - early stage"
+          },
+          {
+            "code": "162608008",
+            "display": "Terminal illness - late stage"
           }
         ]
       }

@@ -12,20 +12,8 @@
       "valueString": "https://mor.nlm.nih.gov/RxMix/ Script:\nStep 1 \nCreate Batch text input file (b-m.txt) with following ids for Buprenorphine and Methadone ingredients: \n6813\n1819\n352364\n\nStep2\nSubmit batch job using the above b-m.txt file to following workflow by uploading file (Ingredient-wf.config) with the following in the file: <WFE><filteredOutputs>RXCUI|name|term_type</filteredOutputs><input>NOINPUT</input><FS><service>NOINPUT</service><function>getRelatedByType</function><level>0</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>SBD,SCD,GPCK,BPCK</param></FS></WFE> "
     },
     {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
-      "valueString": "All prescribable Buprenorphine and Methadone medications"
-    },
-    {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
-      "valueString": "Medication"
-    },
-    {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
-      "valueString": "All prescribable Buprenorphine and Methadone medications"
-    },
-    {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
-      "valueString": "None"
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
+      "valueString": "This value set is defined using an intensional definition that can only be processed by either a human (if rulesText is present) or a system that understands the expression-based definition (if valuesetExpression is present). The compose element contains the enumerated set of individual concepts obtained as the result of the computed expansion of the expression or rulesText as of the time of publication. As new versions of the value set are created, and/or as new versions of the code systems used by the value set are created, the value set compose content will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set contents SHOULD be updated."
     },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
@@ -46,7 +34,7 @@
   "title": "buprenorphine and methadone medications",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-08T13:28:57-06:00",
+  "date": "2019-09-11T13:28:57-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "All prescribable Buprenorphine and Methadone medications",
   "jurisdiction": [
@@ -60,6 +48,26 @@
     }
   ],
   "purpose": "Buprenorphine and Methadone medications for opioid management",
+  "_purpose": {
+    "extension": [
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+        "valueString": "All prescribable Buprenorphine and Methadone medications"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+        "valueString": "Medication"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+        "valueString": "All prescribable Buprenorphine and Methadone medications"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+        "valueString": "None"
+      }
+    ]
+  },
   "copyright": "© CDC 2016+.",
   "compose": {
     "include": [

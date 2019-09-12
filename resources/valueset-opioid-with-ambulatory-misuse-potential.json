@@ -12,20 +12,8 @@
       "valueString": "https://mor.nlm.nih.gov/RxMix/ Script:\nStep 1a \nCreate Batch text input file (ATC-Opioids.txt) with following two ATC1-4 class name inputs in the file: \nDrugs used in opioid dependence\nOPIOIDS \n\nStep 1b\nSubmit batch job using the above ATC-Opioids.txt file to following workflow by uploading file (ATC-Opioid-wf.config) with the following in the file: <WFE><filteredOutputs>RXCUI|name|term_type</filteredOutputs><input>NOINPUT</input><FS><service>NOINPUT</service><function>findClassByName</function><level>0</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>ATC1-4</param></FS><FS><service>NOINPUT</service><function>getClassMembers</function><level>1</level><paramSize>5</paramSize><param order ='0'>?</param><param order ='1'>ATC</param><param order ='2'>N/A</param><param order ='3'>0</param><param order ='4'>IN,MIN,PIN</param></FS><FS><service>NOINPUT</service><function>getRelatedByType</function><level>2</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>SBD,SCD,GPCK,BPCK</param></FS></WFE> \n\nStep 2a \nTo obtain the codeine concepts, create Batch text input file (codeines.txt) with following ids for codeine and hydrocodone: \n2670\n5489 \n\nStep2b\nSubmit batch job using the above codeines.txt file to following workflow by uploading file (Ingredient-wf.config) with the following in the file: <WFE><filteredOutputs>RXCUI|name|term_type</filteredOutputs><input>NOINPUT</input><FS><service>NOINPUT</service><function>getRelatedByType</function><level>0</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>SBD,SCD,GPCK,BPCK</param></FS></WFE> \n\nStep 3 \nUnion the output of step 1 and 2\n\nStep 4\nTo remove all cough and bowel transit formulation codes and to remove the injectable codes filter out all codes with the following strings:\nIngredient strings: \nGuaifenesin, Chlorpheniramine, Pseudoephedrine, Brompheniramine, Phenylephrine, Phenylpropanolamine, Promethazine, Bromodiphenhydramine, guaiacolsulfonate, homatropine\nForm strings:\ninject, cartridge, syringe"
     },
     {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
-      "valueString": "All opioid clinical drugs except cough medications, antisapasmodics, or those restricted to surgical use only."
-    },
-    {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
-      "valueString": "Medication"
-    },
-    {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
-      "valueString": "All opioid-class medications"
-    },
-    {
-      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
-      "valueString": "All Injection formulation medications. All medications intended to treat cough or act as an antispasmodic."
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
+      "valueString": "This value set is defined using an intensional definition that can only be processed by either a human (if rulesText is present) or a system that understands the expression-based definition (if valuesetExpression is present). The compose element contains the enumerated set of individual concepts obtained as the result of the computed expansion of the expression or rulesText as of the time of publication. As new versions of the value set are created, and/or as new versions of the code systems used by the value set are created, the value set compose content will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set contents SHOULD be updated."
     },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
@@ -46,7 +34,7 @@
   "title": "opioid with ambulatory misuse potential excluding antitussives and antispasmodics",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-08T13:28:57-06:00",
+  "date": "2019-09-11T13:28:57-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "All opioid clinical drugs except cough medications, antisapasmodics, or those restricted to surgical use only.",
   "jurisdiction": [
@@ -60,6 +48,26 @@
     }
   ],
   "purpose": "Opioid medications that should have opioid management CDS",
+  "_purpose": {
+    "extension": [
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+        "valueString": "All opioid clinical drugs except cough medications, antisapasmodics, or those restricted to surgical use only."
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+        "valueString": "Medication"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+        "valueString": "All opioid-class medications"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+        "valueString": "All Injection formulation medications. All medications intended to treat cough or act as an antispasmodic."
+      }
+    ]
+  },
   "copyright": "© CDC 2016+.",
   "compose": {
     "include": [

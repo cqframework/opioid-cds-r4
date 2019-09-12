@@ -1,12 +1,20 @@
 {
   "resourceType": "ValueSet",
-  "id": "substance-misuse-behavioral-counseling",
+  "id": "substance-misuse-behavioral-counseling-enum",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-enumerated-compose"
     ]
   },
   "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
+      "valueString": "This value set is created solely to support early FHIR HAPI server requirements to have all members of a value set in the compose. Because of this, the member list is a point in time snapshot of the content. The value set resource with the compose element to be used in up-to-date systems is identified in the athoritativeSource extension."
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource",
+      "valueUri": "http://fhir.org/guides/cdc/opioid-cds/substance-misuse-behavioral-counseling"
+    },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
       "valueContactDetail": {
@@ -20,7 +28,7 @@
       }
     }
   ],
-  "url": "http://fhir.org/guides/cdc/opioid-cds/substance-misuse-behavioral-counseling",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/substance-misuse-behavioral-counseling-enum",
   "version": "0.2.0",
   "name": "substance_misuse_behavioral_counseling",
   "title": "substance misuse behavioral counseling",
@@ -66,33 +74,18 @@
       {
         "system": "http://snomed.info/sct",
         "version": "http://snomed.info/sct/731000124108",
-        "filter": [
+        "concept": [
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "313071005"
-          }
-        ]
-      },
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108",
-        "filter": [
+            "code": "313071005",
+            "display": "Counseling for substance abuse (procedure)"
+          },
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "60112009"
-          }
-        ]
-      },
-      {
-        "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108",
-        "filter": [
+            "code": "424407005",
+            "display": "Substance use cessation education, guidance, and counseling (procedure)"
+          },
           {
-            "property": "concept",
-            "op": "is-a",
-            "value": "424407005"
+            "code": "60112009",
+            "display": "Drug addiction counseling (procedure)"
           }
         ]
       }
