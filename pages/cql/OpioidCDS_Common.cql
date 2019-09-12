@@ -7,7 +7,7 @@ include OMTKLogic version '0.0.2' called OMTKLogic
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
-codesystem "Medication Request Category Codes": ' http://hl7.org/fhir/CodeSystem/medicationrequest-status'
+codesystem "Medication Request Category Codes": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 
 // Expression-based
@@ -105,12 +105,6 @@ define function "Is Ambulatory Medication Request?" (value List<MedicationReques
         Rx.category RxCategory
           where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
       )
-
-define function "Is Context Prescription End of Life Opioid?" (ContextPrescriptions List<MedicationRequest>):
-  exists (
-    ContextPrescriptions Rx
-      //where Rx.medication in "End Of Life Opioids"
-  )
 
 define "End of Life Assessment":
     // 1. Conditions indicating end of life or with limited life expectancy

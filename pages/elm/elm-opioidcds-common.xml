@@ -13,7 +13,7 @@
    <codeSystems>
       <def name="LOINC" id="http://loinc.org" accessLevel="Public"/>
       <def name="SNOMED" id="http://snomed.info/sct" accessLevel="Public"/>
-      <def name="Medication Request Category Codes" id=" http://hl7.org/fhir/CodeSystem/medicationrequest-status" accessLevel="Public"/>
+      <def name="Medication Request Category Codes" id="http://terminology.hl7.org/CodeSystem/medicationrequest-category" accessLevel="Public"/>
       <def name="Condition Clinical Status Codes" id="http://terminology.hl7.org/CodeSystem/condition-clinical" accessLevel="Public"/>
    </codeSystems>
    <valueSets>
@@ -164,20 +164,6 @@
                <codes name="Opioids With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
             </operand>
          </expression>
-      </def>
-      <def name="Is Context Prescription End of Life Opioid?" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
-         <expression xsi:type="Exists">
-            <operand xsi:type="Query">
-               <source alias="Rx">
-                  <expression name="ContextPrescriptions" xsi:type="OperandRef"/>
-               </source>
-            </operand>
-         </expression>
-         <operand name="ContextPrescriptions">
-            <operandTypeSpecifier xsi:type="ListTypeSpecifier">
-               <elementType name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
-            </operandTypeSpecifier>
-         </operand>
       </def>
       <def name="Conditions Indicating End of Life or With Limited Life Expectancy" context="Patient" accessLevel="Public">
          <expression xsi:type="Union">
