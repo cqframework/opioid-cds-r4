@@ -12,7 +12,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-07-seven-of-past-ten-days"/>
+         <url value="Patient/example-rec-07-seven-of-past-ten-days"/>
       </request>
    </entry>
    <entry>
@@ -41,7 +41,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-07-seven-of-past-ten-days-context"/>
+         <url value="Encounter/example-rec-07-seven-of-past-ten-days-context"/>
       </request>
    </entry>
 </Bundle>

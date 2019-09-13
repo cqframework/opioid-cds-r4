@@ -12,7 +12,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-10-no-screenings"/>
+         <url value="Patient/example-rec-10-no-screenings"/>
       </request>
    </entry>
    <entry>
@@ -41,7 +41,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-no-screenings-context"/>
+         <url value="Encounter/example-rec-10-no-screenings-context"/>
       </request>
    </entry>
    <entry>
@@ -70,7 +70,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-no-screenings-prefetch"/>
+         <url value="Encounter/example-rec-10-no-screenings-prefetch"/>
       </request>
    </entry>
    <entry>
@@ -141,7 +141,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-10-no-screenings-prefetch"/>
+         <url value="MedicationRequest/example-rec-10-no-screenings-prefetch"/>
       </request>
    </entry>
 </Bundle>

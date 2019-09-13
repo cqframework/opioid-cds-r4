@@ -12,7 +12,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-11-opioid-trigger-with-benzo"/>
+         <url value="Patient/example-rec-11-opioid-trigger-with-benzo"/>
       </request>
    </entry>
    <entry>
@@ -41,7 +41,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-11-opioid-trigger-with-benzo-context"/>
+         <url value="Encounter/example-rec-11-opioid-trigger-with-benzo-context"/>
       </request>
    </entry>
    <entry>
@@ -112,7 +112,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
+         <url value="MedicationRequest/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
       </request>
    </entry>
 </Bundle>

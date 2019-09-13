@@ -12,7 +12,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-10-end-of-life-med-exclusion"/>
+         <url value="Patient/example-rec-10-end-of-life-med-exclusion"/>
       </request>
    </entry>
    <entry>
@@ -41,7 +41,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
+         <url value="Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
       </request>
    </entry>
 </Bundle>

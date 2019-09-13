@@ -12,7 +12,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-04-new-patient"/>
+         <url value="Patient/example-rec-04-new-patient"/>
       </request>
    </entry>
    <entry>
@@ -41,7 +41,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-04-new-patient-context"/>
+         <url value="Encounter/example-rec-04-new-patient-context"/>
       </request>
    </entry>
 </Bundle>

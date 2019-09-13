@@ -12,7 +12,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-10-not-missing-prescribed-opioids"/>
+         <url value="Patient/example-rec-10-not-missing-prescribed-opioids"/>
       </request>
    </entry>
    <entry>
@@ -41,7 +41,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-not-missing-prescribed-opioids-context"/>
+         <url value="Encounter/example-rec-10-not-missing-prescribed-opioids-context"/>
       </request>
    </entry>
    <entry>
@@ -70,7 +70,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
+         <url value="Encounter/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
       </request>
    </entry>
    <entry>
@@ -141,7 +141,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
+         <url value="MedicationRequest/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
       </request>
    </entry>
    <entry>
@@ -177,7 +177,7 @@
       </resource>
       <request>
          <method value="PUT"/>
-         <url value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Observation/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
+         <url value="Observation/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
       </request>
    </entry>
 </Bundle>
