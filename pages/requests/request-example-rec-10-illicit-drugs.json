@@ -40,8 +40,11 @@
         "_authoredOn": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-              "valueString": "Today()"
+              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today()"
+              }
             }
           ]
         },
@@ -69,8 +72,11 @@
           "_validityPeriod": {
             "extension": [
               {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
@@ -114,8 +120,11 @@
         "_period": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-              "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() - 90 days } }"
+              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() - 90 days } }"
+              }
             }
           ]
         }
@@ -144,8 +153,11 @@
         "_effectiveDateTime": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-              "valueString": "Today() - 28 days"
+              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 28 days"
+              }
             }
           ]
         },
@@ -197,8 +209,11 @@
         "_authoredOn": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-              "valueString": "Today() - 90 days"
+              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 90 days"
+              }
             }
           ]
         },
@@ -226,8 +241,11 @@
           "_validityPeriod": {
             "extension": [
               {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() } }"
+                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() } }"
+                }
               }
             ]
           },
