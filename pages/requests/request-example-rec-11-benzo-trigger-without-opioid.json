@@ -1,13 +1,14 @@
 {
   "hookInstance": "259cf767-4b52-4e14-a741-04da147a430f",
-  "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+  "fhirServer": "http://localhost:8080/cqf-ruler/baseR4",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-11-benzo-trigger-without-opioid",
     "encounterId": "Encounter/example-rec-11-benzo-trigger-without-opioid-context",
-    "medications": [
+    "selections": [ "MedicationRequest/example-rec-11-benzo-trigger-without-opioid-context" ],
+    "draftOrders": [
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-11-benzo-trigger-without-opioid-context",
@@ -33,14 +34,17 @@
         "subject": {
           "reference": "Patient/example-rec-11-benzo-trigger-without-opioid"
         },
-        "context": {
+        "encounter": {
           "reference": "Encounter/example-rec-11-benzo-trigger-without-opioid-context"
         },
         "_authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "expression": "Today()"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today()"
+              }
             }
           ]
         },
@@ -54,18 +58,23 @@
               }
             },
             "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1.0,
-              "unit": "capsule"
+            "doseAndRate": {
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "capsule"
+              }
             }
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
@@ -79,9 +88,7 @@
     ]
   },
   "prefetch": {
-    "item1": null,
-    "item2": null,
-    "item3": {
+    "item1": {
       "response": {
         "status": "200 OK"
       },
@@ -92,16 +99,13 @@
         "birthDate": "1982-01-07"
       }
     },
+    "item2": null,
+    "item3": null,
     "item4": null,
     "item5": null,
     "item6": null,
     "item7": null,
     "item8": null,
-    "item9": null,
-    "item10": null,
-    "item11": null,
-    "item12": null,
-    "item13": null,
-    "item14": null
+    "item9": null
   }
 }
