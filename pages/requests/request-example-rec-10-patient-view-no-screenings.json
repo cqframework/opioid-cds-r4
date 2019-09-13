@@ -37,7 +37,7 @@
               "category": {
                 "coding": [
                   {
-                    "system": "http://hl7.org/fhir/medication-request-category",
+                    "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
                     "code": "outpatient"
                   }
                 ]
@@ -54,14 +54,17 @@
               "subject": {
                 "reference": "Patient/example-rec-10-no-screenings"
               },
-              "context": {
+              "encounter": {
                 "reference": "Encounter/example-rec-10-no-screenings-context"
               },
               "_authoredOn": {
                 "extension": [
                   {
                     "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "expression": "Today()"
+                    "valueExpression": {
+                      "language": "text/cql",
+                      "expression": "Today()"
+                    }
                   }
                 ]
               },
@@ -75,18 +78,23 @@
                     }
                   },
                   "asNeededBoolean": false,
-                  "doseQuantity": {
-                    "value": 1.0,
-                    "unit": "patch"
+                  "doseAndRate": {
+                    "doseQuantity": {
+                      "value": 1.0,
+                      "unit": "patch"
+                    }
                   }
                 }
               ],
               "dispenseRequest": {
-                "validityPeriod": {
+                "_validityPeriod": {
                   "extension": [
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                      "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                      "valueExpression": {
+                        "language": "text/cql",
+                        "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                      }
                     }
                   ]
                 },
@@ -107,7 +115,7 @@
               "category": {
                 "coding": [
                   {
-                    "system": "http://hl7.org/fhir/medication-request-category",
+                    "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
                     "code": "outpatient"
                   }
                 ]
@@ -124,14 +132,17 @@
               "subject": {
                 "reference": "Patient/example-rec-10-no-screenings"
               },
-              "context": {
+              "encounter": {
                 "reference": "Encounter/example-rec-10-no-screenings-prefetch"
               },
               "_authoredOn": {
                 "extension": [
                   {
                     "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "expression": "Today() - 90 days"
+                    "valueExpression": {
+                      "language": "text/cql",
+                      "expression": "Today() - 90 days"
+                    }
                   }
                 ]
               },
@@ -145,18 +156,23 @@
                     }
                   },
                   "asNeededBoolean": false,
-                  "doseQuantity": {
-                    "value": 1.0,
-                    "unit": "tablet"
+                  "doseAndRate": {
+                    "doseQuantity": {
+                      "value": 1.0,
+                      "unit": "tablet"
+                    }
                   }
                 }
               ],
               "dispenseRequest": {
-                "validityPeriod": {
+                "_validityPeriod": {
                   "extension": [
                     {
                       "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                      "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() } }"
+                      "valueExpression": {
+                        "language": "text/cql",
+                        "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() } }"
+                      }
                     }
                   ]
                 },
@@ -172,8 +188,6 @@
       }
     },
     "item3": null,
-    "item4": null,
-    "item5": null,
-    "item6": null
+    "item4": null
   }
 }
