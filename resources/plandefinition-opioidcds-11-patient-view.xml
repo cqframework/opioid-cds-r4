@@ -72,7 +72,7 @@
     <author>
         <name value="Robert McClure, MD, MPH"/>
     </author>
-    <library value="Library/library-opioidcds-stu3-rec-11-patient-view-0-1-0" />
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-rec-11-patient-view" />
     <action>
         <!-- non-dynamic card summary -->
         <title value="Existing patient has concurrent opioid and benzodiazepine prescriptions."/>

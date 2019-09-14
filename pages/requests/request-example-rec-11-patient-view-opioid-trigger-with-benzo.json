@@ -32,7 +32,7 @@
         "category": {
           "coding": [
             {
-              "system": "http://hl7.org/fhir/medication-request-category",
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
               "code": "outpatient"
             }
           ]
@@ -49,14 +49,17 @@
         "subject": {
           "reference": "Patient/example-rec-11-opioid-trigger-with-benzo"
         },
-        "context": {
+        "encounter": {
           "reference": "Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"
         },
         "_authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "expression": "Today() - 28 days"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 28 days"
+              }
             }
           ]
         },
@@ -70,18 +73,23 @@
               }
             },
             "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1.0,
-              "unit": "capsule"
+            "doseAndRate": {
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "capsule"
+              }
             }
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 28 days }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 28 days }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
@@ -105,7 +113,7 @@
         "category": {
           "coding": [
             {
-              "system": "http://hl7.org/fhir/medication-request-category",
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
               "code": "outpatient"
             }
           ]
@@ -122,14 +130,17 @@
         "subject": {
           "reference": "example-rec-11-opioid-trigger-with-benzo-context"
         },
-        "context": {
+        "encounter": {
           "reference": "Encounter/example-rec-11-opioid-trigger-with-benzo-context"
         },
         "_authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "expression": "Today()"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today()"
+              }
             }
           ]
         },
@@ -143,18 +154,23 @@
               }
             },
             "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1.0,
-              "unit": "tablet"
+            "doseAndRate": {
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "tablet"
+              }
             }
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
