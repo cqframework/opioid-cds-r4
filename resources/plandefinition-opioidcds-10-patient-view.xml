@@ -72,7 +72,7 @@
     <author>
         <name value="Robert McClure, MD, MPH"/>
     </author>
-    <library value="Library/opioidcds-rec-10-patient-view" />
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-rec-10-patient-view" />
     <action>
         <trigger>
             <type value="named-event"/>
