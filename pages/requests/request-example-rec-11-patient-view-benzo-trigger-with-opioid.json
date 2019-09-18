@@ -29,14 +29,16 @@
         "id": "example-rec-11-benzo-trigger-with-opioid-context",
         "status": "active",
         "intent": "order",
-        "category": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-              "code": "outpatient"
-            }
-          ]
-        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "outpatient"
+              }
+            ]
+          }
+        ],
         "medicationCodeableConcept": {
           "coding": [
             {
@@ -73,12 +75,14 @@
               }
             },
             "asNeededBoolean": false,
-            "doseAndRate": {
-              "doseQuantity": {
-                "value": 1.0,
-                "unit": "capsule"
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "capsule"
+                }
               }
-            }
+            ]
           }
         ],
         "dispenseRequest": {
@@ -110,14 +114,16 @@
         "id": "example-rec-11-benzo-trigger-with-opioid-prefetch",
         "status": "active",
         "intent": "order",
-        "category": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-              "code": "outpatient"
-            }
-          ]
-        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "outpatient"
+              }
+            ]
+          }
+        ],
         "medicationCodeableConcept": {
           "coding": [
             {
@@ -154,12 +160,14 @@
               }
             },
             "asNeededBoolean": false,
-            "doseAndRate": {
-              "doseQuantity": {
-                "value": 1.0,
-                "unit": "tablet"
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "tablet"
+                }
               }
-            }
+            ]
           }
         ],
         "dispenseRequest": {
