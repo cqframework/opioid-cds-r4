@@ -24,23 +24,65 @@
                         }
                     ]
                 },
-                "medicationCodeableConcept": {
-                    "coding": [
-                        {
-                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                            "code": "1010603",
-                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
-                        }
-                    ]
+                "context": {
+                    "reference": "Encounter/example-rec-02-out-careplan-not-revisited-context"
                 },
-                "authoredOn": {
+                "_authoredOn": {
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "expression": "Today()"
+                            "valueString": "Today()"
                         }
                     ]
+                },
+                "dosageInstruction": [
+                    {
+                        "timing": {
+                            "repeat": {
+                                "frequency": 1,
+                                "period": 1.0,
+                                "periodUnit": "d"
+                            }
+                        },
+                        "asNeededBoolean": false,
+                        "doseQuantity": {
+                            "value": 1.0,
+                            "unit": "film"
+                        }
+                    }
+                ],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                            }
+                        ]
+                    },
+                    "numberOfRepeatsAllowed": 1,
+                    "expectedSupplyDuration": {
+                        "value": 30.0,
+                        "unit": "d"
+                    }
                 }
+            },
+            {
+                "coding": [
+                    {
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "1010603",
+                        "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
+                    }
+                ]
+            },
+            {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                        "valueString": "Today()"
+                    }
+                ]
             }
         ]
     },
@@ -58,10 +100,7 @@
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                             "valueExpression": {
                                 "language": "text/cql",
-                                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "Today() - 20 years"
-              }
+                                "expression": "Today() - 20 years"
                             }
                         }
                     ]
@@ -80,22 +119,13 @@
                         "extension": [
                             {
                                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                                "expression": "Today() - 120 days"
+                                "valueString": "Today() - 120 days"
                             }
                         ]
                     }
                 },
                 "status": "active",
                 "intent": "plan",
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://snomed.info/sct",
-                            "code": "103735009",
-                            "display": "Palliative care"
-                        }
-                    ]
-                },
                 "subject": {
                     "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
                 },
@@ -103,7 +133,7 @@
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "expression": "Today() - 150 days"
+                            "valueString": "Today() - 150 days"
                         }
                     ]
                 },

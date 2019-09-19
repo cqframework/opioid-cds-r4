@@ -34,12 +34,56 @@
                         }
                     ]
                 },
+                "context": {
+                    "reference": "Encounter/example-rec-06-in-criteria-met-context"
+                },
+                "_authoredOn": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueString": "Today()"
+                        }
+                    ]
+                },
+                "dosageInstruction": [
+                    {
+                        "timing": {
+                            "repeat": {
+                                "frequency": 1,
+                                "period": 1.0,
+                                "periodUnit": "d"
+                            }
+                        },
+                        "asNeededBoolean": false,
+                        "doseQuantity": {
+                            "value": 1.0,
+                            "unit": "tablet"
+                        }
+                    }
+                ],
                 "dispenseRequest": {
+                    "validityPeriod": {
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                            }
+                        ]
+                    },
+                    "numberOfRepeatsAllowed": 1,
                     "expectedSupplyDuration": {
-                        "value": 29.0,
+                        "value": 30.0,
                         "unit": "d"
                     }
                 }
+            },
+            {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                        "valueString": "Today()"
+                    }
+                ]
             }
         ]
     },
@@ -57,10 +101,7 @@
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                             "valueExpression": {
                                 "language": "text/cql",
-                                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "Today() - 20 years"
-              }
+                                "expression": "Today() - 20 years"
                             }
                         }
                     ]
