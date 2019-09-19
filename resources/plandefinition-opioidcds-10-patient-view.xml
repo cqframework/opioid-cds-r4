@@ -9,44 +9,44 @@
     <name value="PlanDefinition_Recommendation_10_Patient_View"/>
     <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)"/>
     <type>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
-			<code value="eca-rule"/>
-			<display value="ECA Rule"/>
-		</coding>
-	</type>
+  		<coding>
+  			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+  			<code value="eca-rule"/>
+  			<display value="ECA Rule"/>
+  		</coding>
+  	</type>
     <status value="draft"/>
     <date value="2019-01-12"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
     <description value="When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs."/>
     <useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="182888003"/>
-				<display value="Medication requested (situation)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
+  		<code>
+  			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+  			<code value="focus"/>
+  			<display value="Clinical Focus"/>
+  		</code>
+  		<valueCodeableConcept>
+  			<coding>
+  				<system value="http://snomed.info/sct"/>
+  				<code value="182888003"/>
+  				<display value="Medication requested (situation)"/>
+  			</coding>
+  		</valueCodeableConcept>
+  	</useContext>
     <useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="82423001"/>
-				<display value="Chronic pain (finding)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
+  		<code>
+  			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+  			<code value="focus"/>
+  			<display value="Clinical Focus"/>
+  		</code>
+  		<valueCodeableConcept>
+  			<coding>
+  				<system value="http://snomed.info/sct"/>
+  				<code value="82423001"/>
+  				<display value="Chronic pain (finding)"/>
+  			</coding>
+  		</valueCodeableConcept>
+  	</useContext>
     <jurisdiction>
         <coding>
             <system value="urn:iso:std:iso:3166"/>

@@ -6,6 +6,10 @@
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
             <id value="example-rec-11-benzo-trigger-without-opioid"/>
+            <name>
+                <family value="example-rec-10"/>
+                <given value="benzo-trigger-without-opioid"/>
+            </name>
             <gender value="female"/>
             <birthDate value="1982-01-07"/>
          </Patient>
@@ -14,5 +18,5 @@
          <method value="PUT"/>
          <url value="Patient/example-rec-11-benzo-trigger-without-opioid"/>
       </request>
-   </entry>   
+   </entry>
 </Bundle>

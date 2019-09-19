@@ -61,7 +61,6 @@ code "Documented discussion of opioid harms and risks not done": '46084100012410
 code "Review PDMP data procedure": '461621000124108' from "SNOMED" //Review of prescription drug monitoring program record (procedure)
 code "PDMP data review done Situation (the finding/situation is documented)": '461651000124104' from "SNOMED" //Review of prescription drug monitoring program record done (situation)
 
-
 code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 code "Active Condition": 'active' from "Condition Clinical Status Codes"
