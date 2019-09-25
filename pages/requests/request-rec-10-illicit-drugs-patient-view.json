@@ -2,7 +2,7 @@
   "hookInstance": "c05d526f-bf09-4460-acb1-618d1d8d77c2",
   "fhirServer": "http://localhost:8080/cqf-ruler/baseDstu2",
   "hook": "patient-view",
-  "user": "Practitioner/example",
+  "userId": "Practitioner/example",
   "context": {
     "patientId": "patient-rec-10-illicit-drugs-patient-view",
     "encounterId": "encounter-context-rec-10-illicit-drugs-patient-view"

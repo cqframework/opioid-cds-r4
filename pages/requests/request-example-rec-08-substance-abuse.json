@@ -1,13 +1,14 @@
 {
   "hookInstance": "b32cab7a-75ea-4cd1-9514-20ebf473cac9",
-  "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-substance-abuse",
     "encounterId": "Encounter/example-rec-08-substance-abuse-context",
-    "medications": [
+    "selections": [ "MedicationRequest/example-rec-08-substance-abuse-context" ],
+    "draftOrders": [
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-08-substance-abuse-context",

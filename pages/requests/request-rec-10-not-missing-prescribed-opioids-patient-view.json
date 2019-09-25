@@ -2,7 +2,7 @@
   "hookInstance": "b3f03e4c-4270-4bb3-8a44-77d5ce3ba06d",
   "fhirServer": "http://localhost:8080/cqf-ruler/baseDstu2",
   "hook": "patient-view",
-  "user": "Practitioner/example",
+  "userId": "Practitioner/example",
   "context": {
     "patientId": "patient-rec-10-not-missing-prescribed-opioids-patient-view",
     "encounterId": "encounter-fentanyl-rec-10-not-missing-prescribed-opioids-patient-view"

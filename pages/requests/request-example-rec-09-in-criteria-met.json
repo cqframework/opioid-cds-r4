@@ -1,12 +1,13 @@
 {
     "hookInstance": "6a7fbd0e-f48e-4936-a2b6-dfeefed8575d",
-    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
     "hook": "order-select",
-    "user": "Practitioner/example",
     "applyCql": true,
     "context": {
+      "userId": "Practitioner/example",
         "patientId": "Patient/example-rec-09-true-return-recommendations",
-        "medications": [
+        "selections": [ "MedicationRequest/60640bf6-3845-4dbd-bf15-b2616118e8c8-3" ],
+        "draftOrders": [
             {
                 "resourceType": "MedicationRequest",
                 "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-3",
@@ -72,14 +73,6 @@
                         "unit": "d"
                     }
                 }
-            },
-            {
-                "extension": [
-                    {
-                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                        "valueString": "Today()"
-                    }
-                ]
             }
         ]
     },

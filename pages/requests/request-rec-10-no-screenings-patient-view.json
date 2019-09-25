@@ -2,7 +2,7 @@
   "hookInstance": "dcc6ca5f-e6bf-4168-bfbd-021a7f35d710",
   "fhirServer": "http://localhost:8080/cqf-ruler/baseDstu2",
   "hook": "patient-view",
-  "user": "Practitioner/example",
+  "userId": "Practitioner/example",
   "context": {
     "patientId": "patient-rec-10-no-screenings-patient-view",
     "encounterId": "encounter-fentanyl-rec-10-no-screenings-patient-view"

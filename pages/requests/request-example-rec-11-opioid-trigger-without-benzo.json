@@ -2,9 +2,9 @@
   "hookInstance": "49192bd1-f7f3-4bdd-bc5f-997dd59a950a",
   "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-11-opioid-trigger-without-benzo",
     "encounterId": "Encounter/example-rec-11-opioid-trigger-without-benzo-context",
     "selections": [ "MedicationRequest/example-rec-11-opioid-trigger-without-benzo-context" ],

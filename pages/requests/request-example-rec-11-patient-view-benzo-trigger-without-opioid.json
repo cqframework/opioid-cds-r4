@@ -4,7 +4,7 @@
   "hook": "patient-view",
   "applyCql": true,
   "context": {
-    "user": "Practitioner/example",
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-11-benzo-trigger-without-opioid",
     "encounterId": "Encounter/example-rec-11-benzo-trigger-without-opioid-context"
   },

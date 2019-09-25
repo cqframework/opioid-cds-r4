@@ -1,13 +1,14 @@
 {
   "hookInstance": "f4a85598-bc39-4c4f-a944-c876eb0e984e",
-  "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-07-risk-assessment",
     "encounterId": "Encounter/example-rec-07-risk-assessment-context",
-    "medications": [
+    "selections": [ "MedicationRequest/example-rec-07-risk-assessment-context" ],
+    "draftOrders": [
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-07-risk-assessment-context",

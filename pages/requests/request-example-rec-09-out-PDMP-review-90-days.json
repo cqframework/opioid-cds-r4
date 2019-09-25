@@ -1,12 +1,13 @@
 {
     "hookInstance": "3efef233-82fa-461b-9436-c799313e9a90",
-    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
     "hook": "order-select",
-    "user": "Practitioner/example",
     "applyCql": true,
     "context": {
+      "userId": "Practitioner/example",
         "patientId": "Patient/example-rec-09-false-due-to-PDMP-review-within-90-days",
-        "medications": [
+        "selections": [ "MedicationRequest/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3" ],
+        "draftOrders": [
             {
                 "resourceType": "MedicationRequest",
                 "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3",
@@ -72,14 +73,6 @@
                         "unit": "d"
                     }
                 }
-            },
-            {
-                "extension": [
-                    {
-                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                        "valueString": "Today()"
-                    }
-                ]
             }
         ]
     },

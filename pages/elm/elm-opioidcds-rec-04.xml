@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
-   <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
-   <annotation message="List-valued expression was demoted to a singleton." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
    <identifier id="OpioidCDS_REC_04" version="0.1.0"/>
    <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
    <usings>
@@ -171,17 +169,10 @@
             <then xsi:type="Concatenate">
                <operand valueType="t:String" value="The following medication requests(s) release rates should be re-evaluated: " xsi:type="Literal"/>
                <operand xsi:type="Combine">
-                  <source xsi:type="Query">
-                     <source alias="X">
-                        <expression name="GetMedicationNames" libraryName="Common" xsi:type="FunctionRef">
-                           <operand name="Trigger Event Prescriptions" xsi:type="ExpressionRef"/>
-                        </expression>
-                     </source>
-                     <return distinct="false">
-                        <expression xsi:type="SingletonFrom">
-                           <operand name="X" xsi:type="AliasRef"/>
-                        </expression>
-                     </return>
+                  <source xsi:type="Flatten">
+                     <operand name="GetMedicationNames" libraryName="Common" xsi:type="FunctionRef">
+                        <operand name="Trigger Event Prescriptions" xsi:type="ExpressionRef"/>
+                     </operand>
                   </source>
                   <separator valueType="t:String" value=", " xsi:type="Literal"/>
                </operand>

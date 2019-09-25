@@ -1,13 +1,14 @@
 {
   "hookInstance": "becfdcbd-0f8c-4f01-831c-a20ff695c5b3",
-  "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-on-naloxone",
     "encounterId": "Encounter/example-rec-08-on-naloxone-context",
-    "medications": [
+    "selections": [ "MedicationRequest/example-rec-08-on-naloxone-context" ],
+    "draftOrders": [
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-08-on-naloxone-context",

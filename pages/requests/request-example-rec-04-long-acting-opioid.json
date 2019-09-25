@@ -1,13 +1,14 @@
 {
   "hookInstance": "9d02e4d7-2d5b-492f-8f77-d76edb47168b",
-  "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-04-long-acting-opioid",
     "encounterId": "Encounter/example-rec-04-long-acting-opioid-context",
-    "medications": [
+    "selections": [ "MedicationRequest/example-rec-04-long-acting-opioid-context" ],
+    "draftOrders": [
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-04-long-acting-opioid-context",

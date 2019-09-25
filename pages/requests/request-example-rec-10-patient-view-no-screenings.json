@@ -4,7 +4,7 @@
   "hook": "patient-view",
   "applyCql": true,
   "context": {
-    "user": "Practitioner/example",
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-no-screenings",
     "encounterId": "Encounter/example-rec-10-no-screenings-context"
   },

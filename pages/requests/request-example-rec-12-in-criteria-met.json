@@ -1,10 +1,10 @@
 {
     "hookInstance": "17ff4874-b68a-490c-abaa-b62b1a91b1bd",
-    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
     "hook": "order-select",
-    "user": "Practitioner/example",
     "applyCql": true,
     "context": {
+      "userId": "Practitioner/example",
         "patientId": "Patient/example-rec-12-criteria-valid"
     },
     "prefetch": {

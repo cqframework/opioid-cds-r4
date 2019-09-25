@@ -1,13 +1,14 @@
 {
   "hookInstance": "e0493f61-6b3e-4eab-a6f9-45cd54ef5558",
-  "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-07-sixtytwo-of-past-ninety-days",
     "encounterId": "Encounter/example-rec-07-sixtytwo-of-past-ninety-days-context",
-    "medications": [
+    "selections": [ "MedicationRequest/example-rec-07-sixtytwo-of-past-ninety-days-context" ],
+    "draftOrders": [
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-07-sixtytwo-of-past-ninety-days-context",

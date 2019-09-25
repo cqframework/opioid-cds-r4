@@ -1,13 +1,14 @@
 {
   "hookInstance": "a3f05376-ec08-4102-a8ba-2c88c0af2f8f",
-  "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
-  "user": "Practitioner/example",
   "applyCql": true,
   "context": {
+    "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-on-benzodiazepine",
     "encounterId": "Encounter/example-rec-08-on-benzodiazepine-context",
-    "medications": [
+    "selections": [ "MedicationRequest/example-rec-08-on-benzodiazepine-context" ],
+    "draftOrders": [
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-08-on-benzodiazepine-context",

@@ -1,12 +1,13 @@
 {
     "hookInstance": "a1836eaf-5987-4144-ac00-ca3b63c9a98e",
-    "fhirServer": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3",
+    "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
     "hook": "order-select",
-    "user": "Practitioner/example",
     "applyCql": true,
     "context": {
+      "userId": "Practitioner/example",
         "patientId": "Patient/example-rec-03-false-due-to-discussion-within-90-days",
-        "medications": [
+        "selections": [ "MedicationRequest/e9e50568-5737-427d-8b1b-7a48f3ea9986" ],
+        "draftOrders": [
             {
                 "resourceType": "MedicationRequest",
                 "id": "e9e50568-5737-427d-8b1b-7a48f3ea9986",
@@ -75,14 +76,6 @@
                         "unit": "d"
                     }
                 }
-            },
-            {
-                "extension": [
-                    {
-                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                        "valueString": "Today()"
-                    }
-                ]
             }
         ]
     },
