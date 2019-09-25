@@ -60,17 +60,19 @@
       <tr><td><a href="opioidcds-recommendation-01-cql.html">CDC Opioid Prescribing Guideline Recommendation #1</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #1</td></tr>
     </tbody>
 </table>
+
+<p></p>
+
 <!-- Example Data/Requests -->
-<table class="list">
-  <thread>
-<h4> Example Data/Requests </h4>
-  </thread>
+  <a name="exampledatarequests"> </a>
+  <h3><span class="sectioncount">8.6.3</span> Example Data/Requests <a href="recommendation-01.html#exampledatarequests" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
   <table class="grid">
     <thead>
     <tr>
-        <th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+        <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
     </tr>
     </thead>
+<<<<<<< HEAD
   <tbody>
     <tr>
             <td><a href="Bundle-example-rec-01-true-make-recommendations.html">Test Bundle example-rec-01-true-make-recommendations</a></td>
@@ -85,6 +87,28 @@
       </tbody>
   </table>
 </table>
+<p></p>
+
+    <tbody>
+      <tr>
+          <td>Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored “Today” as well as a Medication Statement 95 days prior to today which will result in recommendation inclusion in addition to Opioid Naive & Opioid Review Useful inclusion. Patients “Dosage Instructions” are 1 Film per day for 30 days. This should result in a summary message: “Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative.”</td>
+          <p></p>
+          <td><a href="Bundle-example-rec-01-true-make-recommendations.html">Test Bundle example-rec-01-true-make-recommendations</a></td>
+          <td><a href="requests/request-example-rec-01-in-outpatient-opioid.json">Request JSON example-rec-01-in-outpatient-opioid</a></td>
+          <td><a href="responses/response-example-rec-01-in-outpatient-opioid.json">Response JSON example-rec-01-in-outpatient-opioid</a></td>
+      </tr>
+      <p></p>
+      <tr>
+          <td>Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored “Today”. Patients “Dosage Instructions” are 1 Film per day for 30 days. This will result in an empty set of cards due to the Medication Request being inpatient. </td>
+          <p></p>
+          <td><a href="Bundle-example-rec-01-false-due-to-inpatient-opioid.html">Test Bundle example-rec-01-false-due-to-inpatient-opioid</a></td>
+          <td><a href="requests/request-example-rec-01-out-inpatient-opioid.json">Request JSON example-rec-01-out-inpatient-opioid</a></td>
+          <td><a href="responses/response-example-rec-01-out-inpatient-opioid.json">Response JSON example-rec-01-out-inpatient-opioid</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p></p>
+>>>>>>> b4fa6af78f533d19d8b6350e7b6f81599ef5a89c
 <!-- ==============END CONTENT END CONTENT=================== -->
 
 {% include container-end.html %}

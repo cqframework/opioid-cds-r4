@@ -120,6 +120,42 @@
       </tbody>
   </table>
 </table>
+<p></p>
+    <tbody>
+      <tr>
+          <td>Patient 18 or older. Patient is being prescribed Carbinoxamine maleate 0.4 MG/ML / Hydrocodone Bitartrate 1 MG/ML / Pseudoephedrine Hydrochloride 6 MG/ML Oral Solution (RxNorm code 1012727), once every 12 days for 30 days. or to indicate that it is not applicable, log a comment and snooze for 3 months.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-10-end-of-life-med-exclusion.html">Test Bundle example-rec-10-end-of-life-med-exclusion</a></td>
+            <td><a href="requests/request-example-rec-10-end-of-life-med-exclusion.json">Request JSON example-rec-10-end-of-life-med-exclusion</a></td>
+            <td><a href="responses/response-example-rec-10-end-of-life-med-exclusion.json">Response JSON example-rec-10-end-of-life-med-exclusion</a></td>
+      </tr>
+      <p></p>
+      <tr>
+          <td>Patient 18 or older. Patient is being prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RxNorm code 1049502), 3 times daily for 30 days. Patient has a lab result for Tetrahydrocannabinol [Presence] in Urine (LOINC code 3426-4) and so triggers the message that Illicit Drugs were found in the Urine Screening.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-10-illicit-drugs.html">Test Bundle example-rec-10-illicit-drugs</a></td>
+            <td><a href="requests/request-example-rec-10-illicit-drugs.json">Request JSON example-rec-10-illicit-drugs</a></td>
+            <td><a href="responses/response-example-rec-10-illicit-drugs.json">Response JSON example-rec-10-illicit-drugs</a></td>
+      <p></p>
+          <td>Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696), once every 12 days for 30 days. This triggers the message that urine drug screening is recommended with the following three feedback options:
+i.  Perform the screening
+ii. Indicate that the prescription is not for chronic pain management and snooze for 3 months 
+iii.    Indicate that it is not applicable, log a comment and snooze for 3 months. </td>
+          <p></p>
+            <td><a href="Bundle-example-rec-10-no-screenings.html">Test Bundle example-rec-10-no-screenings</a></td>
+            <td><a href="requests/request-example-rec-10-no-screenings.json">Request JSON example-rec-10-no-screenings</a></td>
+            <td><a href="responses/response-example-rec-10-no-screenings.json">Response JSON example-rec-10-no-screenings</a></td>
+      </tr>
+      <p></p>
+          <td>Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696), once every 12 days for 30 days. Patient is also being prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RxNorm code 1049502), 3 times daily for 30 days. Patient has a lab result for Codeine [Presence] in Urine (LOINC code 3507-1). Patient also has a lab result for Oxycodone [Presence] in Urine (LOINC code 10998-3) and so triggers the message that Opioids were found in urine screening.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-10-unprescribed-opioids.html">Test Bundle example-rec-10-unprescribed-opioids</a></td>
+            <td><a href="requests/request-example-rec-10-unprescribed-opioids.json">Request JSON example-rec-10-unprescribed-opioids</a></td>
+            <td><a href="responses/response-example-rec-10-unprescribed-opioids.json">Response JSON example-rec-10-unprescribed-opioids</a></td>     
+      </tr>
+    </tbody>
+  </table>
+  <p></p>
 <!-- ==============END CONTENT END CONTENT=================== -->
 
 {% include container-end.html %}

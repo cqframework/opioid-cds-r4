@@ -123,6 +123,48 @@
       </tbody>
     </table>
 </table>
+<p></p>
+    <tbody>
+      <tr>
+          <td>Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 10 days for 30 days. This will trigger the message “Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present”Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (54.000000 'mg/d') >= 50 mg/day.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-08-mme-greater-than-fifty.html">Test Bundle example-rec-08-mme-greater-than-fifty</a></td>
+            <td><a href="requests/request-example-rec-08-mme-greater-than-fifty.json">Request JSON example-rec-08-mme-greater-than-fifty</a></td>
+            <td><a href="responses/response-example-rec-08-mme-greater-than-fifty.json">Response JSON example-rec-08-mme-greater-than-fifty</a></td>
+      </tr>
+      <p></p>
+      <tr>
+          <td>Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-08-mme-less-than-fifty.html">Test Bundle example-rec-08-mme-less-than-fifty</a></td>
+            <td><a href="requests/request-example-rec-08-mme-less-than-fifty.json">Request JSON example-rec-08-mme-less-than-fifty</a></td>
+            <td><a href="responses/response-example-rec-08-mme-less-than-fifty.json">Response JSON example-rec-08-mme-less-than-fifty</a></td>
+      <p></p>
+          <td>Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. Patient has also been prescribed Temazepam 20 MG Oral Tablet (RXNorm 104693) 1 tablet per 1 day for 30 days. This will trigger the message “Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present. Consider offering naloxone given following risk factor(s) for opioid overdose: concurrent use of benzodiazepine.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-08-on-benzodiazepine.html">Test Bundle example-rec-08-on-benzodiazepine</a></td>
+            <td><a href="requests/request-example-rec-08-on-benzodiazepine.json">Request JSON example-rec-08-on-benzodiazepine</a></td>
+            <td><a href="responses/response-example-rec-08-on-benzodiazepine.json">Response JSON example-rec-08-on-benzodiazepine</a></td>
+      </tr>
+      <p></p>
+          <td>Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. Patient has also been prescribed Naloxone Hydrochloride 0.02 MG/ML Injectable Solution (RXNorm 1191212) 1ml per 1 day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-08-on-naloxone.html">Test Bundle example-rec-08-on-naloxone</a></td>
+            <td><a href="requests/request-example-rec-08-on-naloxone.json">Request JSON example-rec-08-on-naloxone</a></td>
+            <td><a href="responses/response-example-rec-08-on-naloxone.json">Response JSON example-rec-08-on-naloxone</a></td>
+      </tr>
+      <p></p>
+          <td>Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. This will trigger the message "Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present" Consider offering naloxone given following risk factor(s) for opioid overdose: history of alcohol or drug abuse.</td>
+          <p></p>
+            <td><a href="Bundle-example-rec-08-substance-abuse.html">Test Bundle example-rec-08-substance-abuse</a></td>
+            <td><a href="requests/request-example-rec-08-substance-abuse.json">Request JSON example-rec-08-substance-abuse</a></td>
+            <td><a href="responses/response-example-rec-08-substance-abuse.json">Response JSON example-rec-08-substance-abuse</a></td>
+      </tr>
+      <p></p>      
+      </tr>
+    </tbody>
+  </table>
+  <p></p>
 <!-- ==============END CONTENT END CONTENT=================== -->
 
 {% include container-end.html %}

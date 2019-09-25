@@ -110,6 +110,42 @@
       </tbody>
     </table>
 </table>
+<p></p>
+    <tbody>
+      <tr>
+          <td>Patient is 18 years or older and has a Medication Request authored “Today” for 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet which is an “Extended Release Opioid with Ambulatory Abuse Potential.” Additionally, the patient has a previous encounter within the past 12 months. This will result in a recommendation message: “Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids.”</td>
+          <p></p>
+          <td><a href="Bundle-example-rec-04-long-acting-opioid.html">Test Bundle example-rec-04-long-acting-opioid</a></td>
+          <td><a href="requests/request-example-rec-04-long-acting-opioid.json">Request JSON example-rec-04-long-acting-opioid</a></td>
+          <td><a href="responses/response-example-rec-04-long-acting-opioid.json">Response JSON example-rec-04-long-acting-opioid</a></td>
+      </tr>
+      <p></p>
+      <tr>
+          <td>Patient is 18 years or older and has a Medication Request authored “Today” for 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet which is an “Extended Release Opioid with Ambulatory Abuse Potential. The patient does not have a previous encounter within the past 12 months and will not result in any recommendation messages.</td>
+          <p></p>
+          <td><a href="Bundle-example-rec-04-new-patient.html">Test Bundle example-rec-04-new-patient</a></td>
+          <td><a href="requests/request-example-rec-04-new-patient.json">Request JSON example-rec-04-new-patient</a></td>
+          <td><a href="responses/response-example-rec-04-new-patient.json">Response JSON example-rec-04-new-patient</a></td>
+      </tr>
+      <p></p>
+      <tr>
+          <td>*Patient is 18 years or older and has a Medication Request authored 4 months prior to today  for 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet which is an “Extended Release Opioid with Ambulatory Abuse Potential. Additionally, the patient has a Medication Request authored “Today” for Buprenorphine 2 MG / Naloxone 0.5 MG Oral Strip which is not an “Extended Release Opioid…” This will not result in any recommendation messages.</td>
+          <p></p>
+          <td><a href="Bundle-example-rec-04-not-long-acting-opioid.html">Test Bundle example-rec-04-not-long-acting-opioid</a></td>
+          <td><a href="requests/request-example-rec-04-not-long-acting-opioid.json">Request JSON example-rec-04-not-long-acting-opioid</a></td>
+          <td><a href="responses/response-example-rec-04-not-long-acting-opioid.json">Response JSON example-rec-04-not-long-acting-opioid</a></td>
+      </tr>
+      <p></p>
+      <tr>
+          <td>Patient is 18 years or older and has a Medication Request authored “Today” for 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet which is an “Extended Release Opioid with Ambulatory Abuse Potential. The patient does not have a previous encounter within the past 12 months and will not result in any recommendation messages.</td>
+          <p></p>
+          <td><a href="Bundle-example-rec-04-opioid-with-abuse-potential.html">Test Bundle example-rec-04-opioid-with-abuse-potential</a></td>
+          <td><a href="requests/request-example-rec-04-opioid-with-abuse-potential.json">Request JSON example-rec-04-opioid-with-abuse-potential</a></td>
+          <td><a href="responses/response-example-rec-04-opioid-with-abuse-potential.json">Response JSON example-rec-04-opioid-with-abuse-potential</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p></p>
 <!-- ==============END CONTENT END CONTENT=================== -->
 
 {% include container-end.html %}
