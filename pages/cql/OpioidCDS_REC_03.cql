@@ -28,7 +28,7 @@ parameter ContextPrescriptions List<MedicationRequest>
 context Patient
 
 define "Opioid Harms & Risks Counseling Lookback Period":
-  Interval[Now() - 89 days, Now()]
+  Interval[Now() - 90 days, Now() - 1 days]
 
 define "Trigger Event Prescriptions":
   (Common."Is Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript

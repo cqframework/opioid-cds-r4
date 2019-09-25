@@ -31,9 +31,12 @@
          <expression lowClosed="true" highClosed="true" xsi:type="Interval">
             <low xsi:type="Subtract">
                <operand xsi:type="Now"/>
-               <operand value="89" unit="days" xsi:type="Quantity"/>
+               <operand value="90" unit="days" xsi:type="Quantity"/>
             </low>
-            <high xsi:type="Now"/>
+            <high xsi:type="Subtract">
+               <operand xsi:type="Now"/>
+               <operand value="1" unit="days" xsi:type="Quantity"/>
+            </high>
          </expression>
       </def>
       <def name="Trigger Event Prescriptions" context="Patient" accessLevel="Public">
