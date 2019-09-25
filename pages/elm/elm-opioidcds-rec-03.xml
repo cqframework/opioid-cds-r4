@@ -61,7 +61,7 @@
             <operand name="Trigger Event Prescriptions" xsi:type="ExpressionRef"/>
          </expression>
       </def>
-      <def name="Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today" context="Patient" accessLevel="Public">
+      <def name="Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="P">
                <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
@@ -89,7 +89,7 @@
             </where>
          </expression>
       </def>
-      <def name="Ordered Discussions of Opioid Harms and Risks in Past 90 Days Including Today" context="Patient" accessLevel="Public">
+      <def name="Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" context="Patient" accessLevel="Public">
          <expression xsi:type="Query">
             <source alias="SR">
                <expression dataType="fhir:ServiceRequest" codeProperty="code" xsi:type="Retrieve">
@@ -115,10 +115,10 @@
             <operand xsi:type="Not">
                <operand xsi:type="Or">
                   <operand xsi:type="Exists">
-                     <operand name="Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today" xsi:type="ExpressionRef"/>
+                     <operand name="Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" xsi:type="ExpressionRef"/>
                   </operand>
                   <operand xsi:type="Exists">
-                     <operand name="Ordered Discussions of Opioid Harms and Risks in Past 90 Days Including Today" xsi:type="ExpressionRef"/>
+                     <operand name="Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" xsi:type="ExpressionRef"/>
                   </operand>
                </operand>
             </operand>

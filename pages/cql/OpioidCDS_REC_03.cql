@@ -45,16 +45,16 @@ define "Inclusion Criteria":
 define "No Documented Discussions of Opioid Harms and Risks":
   Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
     and not (
-      exists ("Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today")
-        or exists ("Ordered Discussions of Opioid Harms and Risks in Past 90 Days Including Today")
+      exists ("Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
+        or exists ("Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
     )
 
-define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
+define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
   [Procedure: Common."Documented discussion of opioid harms and risks"] P
     where FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
       and P.status ~ 'completed'
 
-define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Including Today":
+define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
   [ServiceRequest: Common."Documented discussion of opioid harms and risks"] SR
     where FHIRHelpers.ToDateTime(SR.occurrence as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
 
