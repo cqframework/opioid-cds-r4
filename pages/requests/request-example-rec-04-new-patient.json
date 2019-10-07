@@ -34,14 +34,17 @@
         "subject": {
           "reference": "Patient/example-rec-04-new-patient"
         },
-        "context": {
+        "encounter": {
           "reference": "Encounter/example-rec-04-new-patient-context"
         },
         "_authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "expression": "Today()"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today()"
+              }
             }
           ]
         },
@@ -62,7 +65,7 @@
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",

@@ -13,9 +13,6 @@
         "id": "05f8cb26-2eb6-4124-b65d-bb1f13e21c49",
         "status": "active",
         "intent": "order",
-        "subject": {
-          "reference": "Patient/example-rec-01-true-make-recommendations"
-        },
         "category": {
           "coding": [
             {
@@ -34,7 +31,10 @@
             }
           ]
         },
-        "context": {
+        "subject": {
+          "reference": "Patient/example-rec-01-true-make-recommendations"
+        },
+        "encounter": {
           "reference": "Encounter/example-rec-01-in-outpatient-opioid-context"
         },
         "_authoredOn": {
@@ -53,19 +53,19 @@
             "timing": {
               "repeat": {
                 "frequency": 1,
-                "period": 1,
+                "period": 1.0,
                 "periodUnit": "d"
               }
             },
             "asNeededBoolean": false,
             "doseQuantity": {
-              "value": 1,
+              "value": 1.0,
               "unit": "film"
             }
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
@@ -78,7 +78,7 @@
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
-            "value": 30,
+            "value": 30.0,
             "unit": "d"
           }
         }
@@ -118,10 +118,19 @@
         "resourceType": "MedicationStatement",
         "id": "cabc72ea-c67d-4b87-be3b-e79bc39015eb",
         "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1010603",
+              "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
+            }
+          ]
+        },
         "subject": {
           "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
         },
-        "effectiveDateTime": {
+        "_effectiveDateTime": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
@@ -129,15 +138,6 @@
                 "language": "text/cql",
                 "expression": "Today() - 95 days"
               }
-            }
-          ]
-        },
-        "medicationCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "1010603",
-              "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
             }
           ]
         }

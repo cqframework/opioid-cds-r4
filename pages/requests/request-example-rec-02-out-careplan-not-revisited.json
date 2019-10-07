@@ -13,9 +13,6 @@
         "id": "a6590d30-c320-4016-861f-678f9f87bca5",
         "status": "active",
         "intent": "order",
-        "subject": {
-          "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
-        },
         "category": {
           "coding": [
             {
@@ -34,14 +31,20 @@
             }
           ]
         },
-        "context": {
-          "reference": "Encounter/example-rec-02-in-careplan-revisited-context"
+        "subject": {
+          "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
+        },
+        "encounter": {
+          "reference": "Encounter/example-rec-02-out-careplan-not-revisited-context"
         },
         "_authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueString": "Today()"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today()"
+              }
             }
           ]
         },
@@ -50,29 +53,32 @@
             "timing": {
               "repeat": {
                 "frequency": 1,
-                "period": 1,
+                "period": 1.0,
                 "periodUnit": "d"
               }
             },
             "asNeededBoolean": false,
             "doseQuantity": {
-              "value": 1,
+              "value": 1.0,
               "unit": "film"
             }
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
-            "value": 30,
+            "value": 30.0,
             "unit": "d"
           }
         }
@@ -108,11 +114,14 @@
         "resourceType": "CarePlan",
         "id": "f4a02a0e-ce41-457f-92aa-c46a6402d450",
         "meta": {
-          "lastUpdated": {
+          "_lastUpdated": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueString": "Today() - 89 days"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "Today() - 89 days"
+                }
               }
             ]
           }
@@ -122,11 +131,14 @@
         "subject": {
           "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
         },
-        "created": {
+        "_created": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueString": "Today() - 120 days"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 120 days"
+              }
             }
           ]
         },
@@ -134,6 +146,14 @@
           "reference": "Practitioner/example"
         }
       }
-    }
+    },
+    "item3": null,
+    "item4": null,
+    "item5": null,
+    "item6": null,
+    "item7": null,
+    "item8": null,
+    "item9": null,
+    "item10": null
   }
 }

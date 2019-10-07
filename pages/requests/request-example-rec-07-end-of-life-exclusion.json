@@ -34,7 +34,7 @@
         "subject": {
           "reference": "Patient/example-rec-07-end-of-life-exclusion"
         },
-        "context": {
+        "encounter": {
           "reference": "Encounter/example-rec-07-end-of-life-exclusion-context"
         },
         "_authoredOn": {
@@ -62,7 +62,7 @@
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
@@ -137,7 +137,7 @@
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",

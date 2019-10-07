@@ -34,14 +34,17 @@
         "subject": {
           "reference": "Patient/example-rec-04-long-acting-opioid"
         },
-        "context": {
+        "encounter": {
           "reference": "Encounter/example-rec-04-long-acting-opioid-context"
         },
         "_authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "expression": "Today()"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today()"
+              }
             }
           ]
         },
@@ -62,11 +65,14 @@
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
@@ -137,7 +143,7 @@
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",

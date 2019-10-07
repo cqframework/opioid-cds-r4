@@ -14,9 +14,6 @@
                 "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
-                "subject": {
-                    "reference": "Patient/example-rec-06-with-extended-release-for-27-days"
-                },
                 "category": {
                     "coding": [
                         {
@@ -35,16 +32,22 @@
                         }
                     ]
                 },
-                "context": {
+                "subject": {
+                    "reference": "Patient/example-rec-06-with-extended-release-for-27-days"
+                },
+                "encounter": {
                     "reference": "Encounter/example-rec-06-out-extended-release-27-day-context"
                 },
                 "_authoredOn": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueString": "Today()"
-                        }
-                    ]
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                      "valueExpression": {
+                        "language": "text/cql",
+                        "expression": "Today()"
+                      }
+                    }
+                  ]
                 },
                 "dosageInstruction": [
                     {
@@ -63,13 +66,16 @@
                     }
                 ],
                 "dispenseRequest": {
-                    "validityPeriod": {
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                            }
-                        ]
+                    "_validityPeriod": {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                          "valueExpression": {
+                            "language": "text/cql",
+                            "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                          }
+                        }
+                      ]
                     },
                     "numberOfRepeatsAllowed": 1,
                     "expectedSupplyDuration": {

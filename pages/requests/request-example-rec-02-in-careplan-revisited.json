@@ -13,9 +13,6 @@
         "id": "222b5b54-1efe-4733-bec9-313e97f16051",
         "status": "active",
         "intent": "order",
-        "subject": {
-          "reference": "Patient/example-rec-02-true-make-recommendations"
-        },
         "category": {
           "coding": [
             {
@@ -25,14 +22,29 @@
             }
           ]
         },
-        "context": {
-          "reference": "Encounter/example-rec-02-out-careplan-not-revisited-context"
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1010603",
+              "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-rec-02-true-make-recommendations"
+        },
+        "encounter": {
+          "reference": "Encounter/example-rec-02-in-careplan-revisited-context"
         },
         "_authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueString": "Today()"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today()"
+              }
             }
           ]
         },
@@ -41,49 +53,35 @@
             "timing": {
               "repeat": {
                 "frequency": 1,
-                "period": 1,
+                "period": 1.0,
                 "periodUnit": "d"
               }
             },
             "asNeededBoolean": false,
             "doseQuantity": {
-              "value": 1,
+              "value": 1.0,
               "unit": "film"
             }
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
-            "value": 30,
+            "value": 30.0,
             "unit": "d"
           }
         }
-      },
-      {
-        "coding": [
-          {
-            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "1010603",
-            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
-          }
-        ]
-      },
-      {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueString": "Today()"
-          }
-        ]
       }
     ]
   },
@@ -116,11 +114,14 @@
         "resourceType": "CarePlan",
         "id": "1446d540-3b44-4af9-934b-3a694d8abffc",
         "meta": {
-          "lastUpdated": {
+          "_lastUpdated": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueString": "Today() - 120 days"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "Today() - 120 days"
+                }
               }
             ]
           }
@@ -130,11 +131,14 @@
         "subject": {
           "reference": "Patient/example-rec-02-true-make-recommendations"
         },
-        "created": {
+        "_created": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueString": "Today() - 150 days"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 150 days"
+              }
             }
           ]
         },
@@ -142,6 +146,14 @@
           "reference": "Practitioner/example"
         }
       }
-    }
+    },
+    "item3": null,
+    "item4": null,
+    "item5": null,
+    "item6": null,
+    "item7": null,
+    "item8": null,
+    "item9": null,
+    "item10": null
   }
 }

@@ -34,7 +34,7 @@
         "subject": {
           "reference": "Patient/example-rec-08-mme-less-than-fifty"
         },
-        "context": {
+        "encounter": {
           "reference": "Encounter/example-rec-08-mme-less-than-fifty-context"
         },
         "_authoredOn": {
@@ -62,7 +62,7 @@
           }
         ],
         "dispenseRequest": {
-          "validityPeriod": {
+          "_validityPeriod": {
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",

@@ -13,9 +13,6 @@
                 "id": "60640bf6-3845-4dbd-bf15-b2616118e8c8-3",
                 "status": "active",
                 "intent": "order",
-                "subject": {
-                    "reference": "Patient/example-rec-09-true-return-recommendations"
-                },
                 "category": {
                     "coding": [
                         {
@@ -34,13 +31,19 @@
                         }
                     ]
                 },
+                "subject": {
+                    "reference": "Patient/example-rec-09-true-return-recommendations"
+                },
                 "_authoredOn": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueString": "Today()"
-                        }
-                    ]
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                      "valueExpression": {
+                        "language": "text/cql",
+                        "expression": "Today()"
+                      }
+                    }
+                  ]
                 },
                 "dosageInstruction": [
                     {
@@ -59,13 +62,16 @@
                     }
                 ],
                 "dispenseRequest": {
-                    "validityPeriod": {
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                                "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                            }
-                        ]
+                    "_validityPeriod": {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                          "valueExpression": {
+                            "language": "text/cql",
+                            "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                          }
+                        }
+                      ]
                     },
                     "numberOfRepeatsAllowed": 1,
                     "expectedSupplyDuration": {
