@@ -75,7 +75,7 @@
       <def name="IsForChronicPain" context="Patient" accessLevel="Public">
          <expression valueType="t:Boolean" value="true" xsi:type="Literal"/>
       </def>
-      <def name="Is Active Ambulatory Medication Request?" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+      <def name="Get Active Ambulatory Medication Requests" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
          <expression xsi:type="Query">
             <source alias="Rx">
                <expression name="value" xsi:type="OperandRef"/>
@@ -111,23 +111,466 @@
          </operand>
       </def>
       <def name="Active Ambulatory Opioid Rx" context="Patient" accessLevel="Public">
-         <expression name="Is Active Ambulatory Medication Request?" xsi:type="FunctionRef">
-            <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="Opioids With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
+         <expression xsi:type="Union">
+            <operand name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+               <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                  <codes name="Opioids With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="Rx">
+                  <expression name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+                     <operand dataType="fhir:MedicationRequest" xsi:type="Retrieve"/>
+                  </expression>
+               </source>
+               <let identifier="Med">
+                  <expression dataType="fhir:Medication" codeProperty="id" xsi:type="Retrieve">
+                     <codes xsi:type="ToList">
+                        <operand xsi:type="Last">
+                           <source xsi:type="Split">
+                              <stringToSplit name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="reference" xsi:type="Property">
+                                    <source path="medication" scope="Rx" xsi:type="Property"/>
+                                 </operand>
+                              </stringToSplit>
+                              <separator valueType="t:String" value="/" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </codes>
+                  </expression>
+               </let>
+               <where xsi:type="AnyInValueSet">
+                  <codes xsi:type="Query">
+                     <source alias="X">
+                        <expression xsi:type="Query">
+                           <source alias="$this">
+                              <expression name="Med" xsi:type="QueryLetRef"/>
+                           </source>
+                           <where xsi:type="Not">
+                              <operand xsi:type="IsNull">
+                                 <operand path="code" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </operand>
+                              </operand>
+                           </where>
+                           <return>
+                              <expression path="code" xsi:type="Property">
+                                 <source name="$this" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </codes>
+                  <valueset name="Opioids With Ambulatory Misuse Potential"/>
+               </where>
+               <return>
+                  <expression classType="fhir:MedicationRequest" xsi:type="Instance">
+                     <element name="id">
+                        <value path="id" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="status">
+                        <value path="status" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="intent">
+                        <value path="intent" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="category">
+                        <value path="category" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="medication">
+                        <value xsi:type="As">
+                           <operand xsi:type="First">
+                              <source xsi:type="Query">
+                                 <source alias="$this">
+                                    <expression name="Med" xsi:type="QueryLetRef"/>
+                                 </source>
+                                 <where xsi:type="Not">
+                                    <operand xsi:type="IsNull">
+                                       <operand path="code" xsi:type="Property">
+                                          <source name="$this" xsi:type="AliasRef"/>
+                                       </operand>
+                                    </operand>
+                                 </where>
+                                 <return>
+                                    <expression path="code" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </expression>
+                                 </return>
+                              </source>
+                           </operand>
+                           <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:Reference" xsi:type="NamedTypeSpecifier"/>
+                           </asTypeSpecifier>
+                        </value>
+                     </element>
+                     <element name="subject">
+                        <value path="subject" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="recorder">
+                        <value path="recorder" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dosageInstruction">
+                        <value path="dosageInstruction" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dispenseRequest">
+                        <value path="dispenseRequest" scope="Rx" xsi:type="Property"/>
+                     </element>
+                  </expression>
+               </return>
             </operand>
          </expression>
       </def>
       <def name="Active Ambulatory Benzodiazepine Rx" context="Patient" accessLevel="Public">
-         <expression name="Is Active Ambulatory Medication Request?" xsi:type="FunctionRef">
-            <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="Benzodiazepines" xsi:type="ValueSetRef"/>
+         <expression xsi:type="Union">
+            <operand name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+               <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                  <codes name="Benzodiazepines" xsi:type="ValueSetRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="Rx">
+                  <expression name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+                     <operand dataType="fhir:MedicationRequest" xsi:type="Retrieve"/>
+                  </expression>
+               </source>
+               <let identifier="Med">
+                  <expression dataType="fhir:Medication" codeProperty="id" xsi:type="Retrieve">
+                     <codes xsi:type="ToList">
+                        <operand xsi:type="Last">
+                           <source xsi:type="Split">
+                              <stringToSplit name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="reference" xsi:type="Property">
+                                    <source path="medication" scope="Rx" xsi:type="Property"/>
+                                 </operand>
+                              </stringToSplit>
+                              <separator valueType="t:String" value="/" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </codes>
+                  </expression>
+               </let>
+               <where xsi:type="AnyInValueSet">
+                  <codes xsi:type="Query">
+                     <source alias="X">
+                        <expression xsi:type="Query">
+                           <source alias="$this">
+                              <expression name="Med" xsi:type="QueryLetRef"/>
+                           </source>
+                           <where xsi:type="Not">
+                              <operand xsi:type="IsNull">
+                                 <operand path="code" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </operand>
+                              </operand>
+                           </where>
+                           <return>
+                              <expression path="code" xsi:type="Property">
+                                 <source name="$this" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </codes>
+                  <valueset name="Benzodiazepines"/>
+               </where>
+               <return>
+                  <expression classType="fhir:MedicationRequest" xsi:type="Instance">
+                     <element name="id">
+                        <value path="id" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="status">
+                        <value path="status" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="intent">
+                        <value path="intent" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="category">
+                        <value path="category" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="medication">
+                        <value xsi:type="As">
+                           <operand xsi:type="First">
+                              <source xsi:type="Query">
+                                 <source alias="$this">
+                                    <expression name="Med" xsi:type="QueryLetRef"/>
+                                 </source>
+                                 <where xsi:type="Not">
+                                    <operand xsi:type="IsNull">
+                                       <operand path="code" xsi:type="Property">
+                                          <source name="$this" xsi:type="AliasRef"/>
+                                       </operand>
+                                    </operand>
+                                 </where>
+                                 <return>
+                                    <expression path="code" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </expression>
+                                 </return>
+                              </source>
+                           </operand>
+                           <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:Reference" xsi:type="NamedTypeSpecifier"/>
+                           </asTypeSpecifier>
+                        </value>
+                     </element>
+                     <element name="subject">
+                        <value path="subject" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="recorder">
+                        <value path="recorder" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dosageInstruction">
+                        <value path="dosageInstruction" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dispenseRequest">
+                        <value path="dispenseRequest" scope="Rx" xsi:type="Property"/>
+                     </element>
+                  </expression>
+               </return>
             </operand>
          </expression>
       </def>
       <def name="Active Ambulatory Naloxone Rx" context="Patient" accessLevel="Public">
-         <expression name="Is Active Ambulatory Medication Request?" xsi:type="FunctionRef">
-            <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="Naloxone" xsi:type="ValueSetRef"/>
+         <expression xsi:type="Union">
+            <operand name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+               <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                  <codes name="Naloxone" xsi:type="ValueSetRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="Rx">
+                  <expression name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+                     <operand dataType="fhir:MedicationRequest" xsi:type="Retrieve"/>
+                  </expression>
+               </source>
+               <let identifier="Med">
+                  <expression dataType="fhir:Medication" codeProperty="id" xsi:type="Retrieve">
+                     <codes xsi:type="ToList">
+                        <operand xsi:type="Last">
+                           <source xsi:type="Split">
+                              <stringToSplit name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="reference" xsi:type="Property">
+                                    <source path="medication" scope="Rx" xsi:type="Property"/>
+                                 </operand>
+                              </stringToSplit>
+                              <separator valueType="t:String" value="/" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </codes>
+                  </expression>
+               </let>
+               <where xsi:type="AnyInValueSet">
+                  <codes xsi:type="Query">
+                     <source alias="X">
+                        <expression xsi:type="Query">
+                           <source alias="$this">
+                              <expression name="Med" xsi:type="QueryLetRef"/>
+                           </source>
+                           <where xsi:type="Not">
+                              <operand xsi:type="IsNull">
+                                 <operand path="code" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </operand>
+                              </operand>
+                           </where>
+                           <return>
+                              <expression path="code" xsi:type="Property">
+                                 <source name="$this" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </codes>
+                  <valueset name="Naloxone"/>
+               </where>
+               <return>
+                  <expression classType="fhir:MedicationRequest" xsi:type="Instance">
+                     <element name="id">
+                        <value path="id" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="status">
+                        <value path="status" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="intent">
+                        <value path="intent" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="category">
+                        <value path="category" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="medication">
+                        <value xsi:type="As">
+                           <operand xsi:type="First">
+                              <source xsi:type="Query">
+                                 <source alias="$this">
+                                    <expression name="Med" xsi:type="QueryLetRef"/>
+                                 </source>
+                                 <where xsi:type="Not">
+                                    <operand xsi:type="IsNull">
+                                       <operand path="code" xsi:type="Property">
+                                          <source name="$this" xsi:type="AliasRef"/>
+                                       </operand>
+                                    </operand>
+                                 </where>
+                                 <return>
+                                    <expression path="code" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </expression>
+                                 </return>
+                              </source>
+                           </operand>
+                           <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:Reference" xsi:type="NamedTypeSpecifier"/>
+                           </asTypeSpecifier>
+                        </value>
+                     </element>
+                     <element name="subject">
+                        <value path="subject" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="recorder">
+                        <value path="recorder" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dosageInstruction">
+                        <value path="dosageInstruction" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dispenseRequest">
+                        <value path="dispenseRequest" scope="Rx" xsi:type="Property"/>
+                     </element>
+                  </expression>
+               </return>
+            </operand>
+         </expression>
+      </def>
+      <def name="Ambulatory Opioid Rx" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+               <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                  <codes name="Opioids With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="Rx">
+                  <expression name="Get Active Ambulatory Medication Requests" xsi:type="FunctionRef">
+                     <operand dataType="fhir:MedicationRequest" xsi:type="Retrieve"/>
+                  </expression>
+               </source>
+               <let identifier="Med">
+                  <expression dataType="fhir:Medication" codeProperty="id" xsi:type="Retrieve">
+                     <codes xsi:type="ToList">
+                        <operand xsi:type="Last">
+                           <source xsi:type="Split">
+                              <stringToSplit name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="reference" xsi:type="Property">
+                                    <source path="medication" scope="Rx" xsi:type="Property"/>
+                                 </operand>
+                              </stringToSplit>
+                              <separator valueType="t:String" value="/" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </codes>
+                  </expression>
+               </let>
+               <where xsi:type="AnyInValueSet">
+                  <codes xsi:type="Query">
+                     <source alias="X">
+                        <expression xsi:type="Query">
+                           <source alias="$this">
+                              <expression name="Med" xsi:type="QueryLetRef"/>
+                           </source>
+                           <where xsi:type="Not">
+                              <operand xsi:type="IsNull">
+                                 <operand path="code" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </operand>
+                              </operand>
+                           </where>
+                           <return>
+                              <expression path="code" xsi:type="Property">
+                                 <source name="$this" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </codes>
+                  <valueset name="Opioids With Ambulatory Misuse Potential"/>
+               </where>
+               <return>
+                  <expression classType="fhir:MedicationRequest" xsi:type="Instance">
+                     <element name="id">
+                        <value path="id" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="status">
+                        <value path="status" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="intent">
+                        <value path="intent" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="category">
+                        <value path="category" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="medication">
+                        <value xsi:type="As">
+                           <operand xsi:type="First">
+                              <source xsi:type="Query">
+                                 <source alias="$this">
+                                    <expression name="Med" xsi:type="QueryLetRef"/>
+                                 </source>
+                                 <where xsi:type="Not">
+                                    <operand xsi:type="IsNull">
+                                       <operand path="code" xsi:type="Property">
+                                          <source name="$this" xsi:type="AliasRef"/>
+                                       </operand>
+                                    </operand>
+                                 </where>
+                                 <return>
+                                    <expression path="code" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </expression>
+                                 </return>
+                              </source>
+                           </operand>
+                           <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:Reference" xsi:type="NamedTypeSpecifier"/>
+                           </asTypeSpecifier>
+                        </value>
+                     </element>
+                     <element name="subject">
+                        <value path="subject" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="recorder">
+                        <value path="recorder" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dosageInstruction">
+                        <value path="dosageInstruction" scope="Rx" xsi:type="Property"/>
+                     </element>
+                     <element name="dispenseRequest">
+                        <value path="dispenseRequest" scope="Rx" xsi:type="Property"/>
+                     </element>
+                  </expression>
+               </return>
             </operand>
          </expression>
       </def>
@@ -157,13 +600,6 @@
                <elementType name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
             </operandTypeSpecifier>
          </operand>
-      </def>
-      <def name="Ambulatory Opioid Rx" context="Patient" accessLevel="Public">
-         <expression name="Is Ambulatory Medication Request?" xsi:type="FunctionRef">
-            <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
-               <codes name="Opioids With Ambulatory Misuse Potential" xsi:type="ValueSetRef"/>
-            </operand>
-         </expression>
       </def>
       <def name="Conditions Indicating End of Life or With Limited Life Expectancy" context="Patient" accessLevel="Public">
          <expression xsi:type="Union">

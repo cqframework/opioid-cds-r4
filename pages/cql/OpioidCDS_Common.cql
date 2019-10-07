@@ -71,26 +71,99 @@ code "Active Condition": 'active' from "Condition Clinical Status Codes"
 define IsForChronicPain: true
 
 define "Active Ambulatory Opioid Rx":
-  "Is Active Ambulatory Medication Request?"(
-    [MedicationRequest: "Opioids With Ambulatory Misuse Potential"]
+  (
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Opioids With Ambulatory Misuse Potential"])
   )
+    union
+    (
+        ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
+          let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
+          where Med.code in "Opioids With Ambulatory Misuse Potential"
+          return
+            MedicationRequest {
+              id: Rx.id,
+              status: Rx.status,
+              intent: Rx.intent,
+              category: Rx.category,
+              medication: First(Med.code),
+              subject: Rx.subject,
+              recorder: Rx.recorder,
+              dosageInstruction: Rx.dosageInstruction,
+              dispenseRequest: Rx.dispenseRequest
+            }
+    )
+
 
 define "Active Ambulatory Benzodiazepine Rx":
-  "Is Active Ambulatory Medication Request?"(
-    [MedicationRequest: "Benzodiazepines"]
+  (
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Benzodiazepines"])
   )
+    union
+    (
+        ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
+          let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
+          where Med.code in "Benzodiazepines"
+          return
+            MedicationRequest {
+              id: Rx.id,
+              status: Rx.status,
+              intent: Rx.intent,
+              category: Rx.category,
+              medication: First(Med.code),
+              subject: Rx.subject,
+              recorder: Rx.recorder,
+              dosageInstruction: Rx.dosageInstruction,
+              dispenseRequest: Rx.dispenseRequest
+            }
+    )
 
 define "Active Ambulatory Naloxone Rx":
-  "Is Active Ambulatory Medication Request?"(
-    [MedicationRequest: "Naloxone"]
+  (
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Naloxone"])
   )
+    union
+    (
+        ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
+          let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
+          where Med.code in "Naloxone"
+          return
+            MedicationRequest {
+              id: Rx.id,
+              status: Rx.status,
+              intent: Rx.intent,
+              category: Rx.category,
+              medication: First(Med.code),
+              subject: Rx.subject,
+              recorder: Rx.recorder,
+              dosageInstruction: Rx.dosageInstruction,
+              dispenseRequest: Rx.dispenseRequest
+            }
+    )
 
 define "Ambulatory Opioid Rx":
-  "Is Ambulatory Medication Request?"(
-    [MedicationRequest: "Opioids With Ambulatory Misuse Potential"]
+  (
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Opioids With Ambulatory Misuse Potential"])
   )
+    union
+    (
+        ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
+          let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
+          where Med.code in "Opioids With Ambulatory Misuse Potential"
+          return
+            MedicationRequest {
+              id: Rx.id,
+              status: Rx.status,
+              intent: Rx.intent,
+              category: Rx.category,
+              medication: First(Med.code),
+              subject: Rx.subject,
+              recorder: Rx.recorder,
+              dosageInstruction: Rx.dosageInstruction,
+              dispenseRequest: Rx.dispenseRequest
+            }
+    )
 
-define function "Is Active Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
+define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
     where Rx.status.value = 'active'
       and exists (
