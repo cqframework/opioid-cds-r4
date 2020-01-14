@@ -115,16 +115,7 @@
     },
     {
       "type": "Encounter"
-    },
-    {
-      "type": "MedicationStatement",
-      "codeFilter": [
-        {
-          "path": "medication",
-          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
-        }
-      ]
-    },
+    },    
     {
       "type": "MedicationDispense",
       "codeFilter": [
