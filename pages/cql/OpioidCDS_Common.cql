@@ -3,7 +3,7 @@ library OpioidCDS_Common version '0.1.0'
 using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OMTKLogic version '0.0.2' called OMTKLogic
+include OMTKLogic version '0.0.3' called OMTKLogic
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
