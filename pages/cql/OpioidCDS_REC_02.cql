@@ -67,7 +67,9 @@ define "Opioid Treatment Plan Creation or Update in Past 90 Days":
         FHIRHelpers.ToDateTime(CP.created) during day of "Treatment Plan Lookback Period" or
           FHIRHelpers.ToDateTime(CP.meta.lastUpdated) during day of "Treatment Plan Lookback Period"
       )
-      and CP.author ~ "Trigger Event Prescriptions".recorder //TODO: Verify that this is correct implementation
+      and exists(
+         "Trigger Event Prescriptions".recorder R
+          where R ~ CP.author) //TODO: Verify that this is correct implementation
 
 define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
   exists ([Observation: Common."Pain Management Treatment Plan Review"] O
