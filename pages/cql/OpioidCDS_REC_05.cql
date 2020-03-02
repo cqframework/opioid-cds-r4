@@ -3,6 +3,7 @@ library OpioidCDS_REC_05 version '0.1.0'
 using FHIR version '4.0.0'
 
 include OpioidCDS_Common version '0.1.0' called Common
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -28,7 +29,10 @@ define "Exclusion Criteria":
   Common."End of Life Assessment"
 
 define "Total MME":
-  Common.TotalMME(ContextPrescriptions union Common."Active Ambulatory Opioid Rx")
+  Common.TotalMME(
+    (ContextPrescriptions union Common."Active Ambulatory Opioid Rx") TriggerScript
+      where ChronicPain."Chronic Pain Prescription"( TriggerScript )
+  )
 
 define "Taper Now": "Total MME".value >= 90
 

@@ -7,6 +7,7 @@ include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_Common_Config version '0.1.0' called Config
 include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
 include OpioidCDS_OpioidNaive version '0.1.0' called OpioidNaive
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -37,8 +38,8 @@ define "Treatment Plan Lookback Period":
   Interval[Now() - 89 days, Now()]
 
 define "Trigger Event Prescriptions":
-(Common."Is Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript
-    where Common.GetDurationInDays(TriggerScript.dispenseRequest.expectedSupplyDuration) >= 28
+  ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) Trigger
+    where ChronicPain."Chronic Pain Prescription"( Trigger )
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
@@ -52,7 +53,7 @@ define "Inclusion Criteria":
 define "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
   Config."Opioid Treatment Plan Verification Enabled"
     and not (
-      exists ("Opioid Treatment Plan Creation or Update in Past 90 Days")
+      exists ( "Opioid Treatment Plan Creation or Update in Past 90 Days" )
         or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
     )
 
@@ -60,22 +61,24 @@ define "Opioid Treatment Plan Creation or Update in Past 90 Days":
   [CarePlan] CP
     where exists (
         CP.category Category
-          where FHIRHelpers.ToConcept(Category) ~ Common."Opioid treatment plan exists (a record artifact)"
+          where FHIRHelpers.ToConcept( Category ) ~ Common."Opioid treatment plan exists (a record artifact)"
       )
       and CP.status in { 'active', 'completed' }
       and (
-        FHIRHelpers.ToDateTime(CP.created) during day of "Treatment Plan Lookback Period" or
-          FHIRHelpers.ToDateTime(CP.meta.lastUpdated) during day of "Treatment Plan Lookback Period"
+        FHIRHelpers.ToDateTime( CP.created ) during day of "Treatment Plan Lookback Period" or
+          FHIRHelpers.ToDateTime( CP.meta.lastUpdated ) during day of "Treatment Plan Lookback Period"
       )
       and exists(
-         "Trigger Event Prescriptions".recorder R
-          where R ~ CP.author) //TODO: Verify that this is correct implementation
+        "Trigger Event Prescriptions".recorder R
+          where R ~ CP.author
+      ) //TODO: Verify that this is correct implementation
 
 define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
-  exists ([Observation: Common."Pain Management Treatment Plan Review"] O
+  exists (
+    [Observation: Common."Pain Management Treatment Plan Review"] O
       where (
-        FHIRHelpers.ToDateTime(O.issued) during day of "Treatment Plan Lookback Period"
-          or FHIRHelpers.ToDateTime(O.effective as dateTime) during day of "Treatment Plan Lookback Period"
+        FHIRHelpers.ToDateTime( O.issued ) during day of "Treatment Plan Lookback Period"
+          or FHIRHelpers.ToDateTime( O.effective as dateTime ) during day of "Treatment Plan Lookback Period"
       )
         and O.performer ~ "Trigger Event Prescriptions".recorder //TODO: Verify that this is correct implementation
   )
@@ -92,5 +95,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
+    then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Trigger Event Prescriptions" ) ), ', ' )
   else null

@@ -6,6 +6,7 @@ include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
 include OpioidCDS_OpioidNaive version '0.1.0' called OpioidNaive
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -31,14 +32,15 @@ parameter ContextPrescriptions List<FHIR.MedicationRequest>
 context Patient
 
 define "Trigger Event Prescriptions":
-  Common."Is Ambulatory Medication Request?"(ContextPrescriptions)
+  ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) Trigger
+    where ChronicPain."Chronic Pain Prescription"( Trigger )
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
 define "Inclusion Criteria":
   "Validate Trigger Event"
-    and not ("Exclusion Criteria")
+    and not ( "Exclusion Criteria" )
     and OpioidReviewUseful."Opioid Review Would Be Useful"
     and OpioidNaive."Is Opioid Naive"
 
@@ -57,5 +59,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
+    then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Trigger Event Prescriptions" ) ), ', ' )
   else null

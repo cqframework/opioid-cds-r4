@@ -4,6 +4,7 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -54,9 +55,9 @@ define "Encounter Interval":
   Interval[Today() - 12 months - 1 days, Today() - 1 day]
 
 define "Validate Trigger Event":
-  exists(
-    ContextPrescriptions triggerScript
-      where triggerScript.medication in Common."Opioids With Ambulatory Misuse Potential"
+  exists (
+    ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
+      where ChronicPain."Chronic Pain Prescription"( TriggerScript )
   )
 
 define "Inclusion Criteria":
@@ -74,14 +75,14 @@ define "Opioid Risk Assessment in Past 90 Days":
     where date from riskAssessment.performed."start".value in day of "Risk Assessment Interval"
 
 define "Rx Active 7 of Past 10 Days With Encounter":
-  AnyTrue(Common.ProbableDaysInRange(Common."Active Ambulatory Opioid Rx", 10, 7))
+  AnyTrue( Common.ProbableDaysInRange( Common."Active Ambulatory Opioid Rx", 10, 7 ) )
     and exists(
       [Encounter] E
         where date from E.period."start".value in day of "Encounter Interval"
     )
 
 define "Rx Active 63 of Past 90 Days":
-  AnyTrue(Common.ProbableDaysInRange(Common."Active Ambulatory Opioid Rx", 90, 63))
+  AnyTrue( Common.ProbableDaysInRange( Common."Active Ambulatory Opioid Rx", 90, 63 ) )
 
 define "Get Indicator":
   if "Inclusion Criteria"

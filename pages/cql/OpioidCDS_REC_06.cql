@@ -6,6 +6,7 @@ include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_Common_Config version '0.1.0' called Config
 include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -31,31 +32,31 @@ parameter ContextPrescriptions List<MedicationRequest>
 context Patient
 
 define "Trigger Event Prescriptions":
-  Common."Is Ambulatory Medication Request?"(ContextPrescriptions)
+  Common."Is Ambulatory Medication Request?"( ContextPrescriptions )
 
 define "Order is to Treat Acute Pain":
   Config."Order is to Treat Acute Pain Enabled"
     and exists (
-      "Trigger Event Prescriptions" TriggerScripts
-        where Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) < 28
+      "Trigger Event Prescriptions" TriggerScript
+        where ChronicPain."Acute Pain Prescription"( TriggerScript )
     )
 
 define "Order is for Long-Acting Opioid":
   exists (
     "Trigger Event Prescriptions" TriggerScripts
       where TriggerScripts.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
-        or Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) > 7
+        or Common.GetDurationInDays( TriggerScripts.dispenseRequest.expectedSupplyDuration ) > 7
   )
 
 define "Validate Trigger Event":
-  exists ("Trigger Event Prescriptions")
+  exists ( "Trigger Event Prescriptions" )
 
 define "Inclusion Criteria":
   "Validate Trigger Event"
     and OpioidReviewUseful."Opioid Review Would Be Useful"
     and "Order is to Treat Acute Pain"
     and "Order is for Long-Acting Opioid"
-    and not ("Exclusion Criteria")
+    and not ( "Exclusion Criteria" )
 
 define "Exclusion Criteria":
   false
@@ -72,5 +73,5 @@ define "Get Summary":
 
   define "Get Detail":
     if "Inclusion Criteria"
-      then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
+      then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Trigger Event Prescriptions" ) ), ', ' )
     else null

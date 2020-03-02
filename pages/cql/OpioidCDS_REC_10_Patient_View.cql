@@ -4,6 +4,7 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 codesystem "V2 Interpretation Codes": 'http://hl7.org/fhir/v2/0078'
 
@@ -55,6 +56,7 @@ define "Lookback Year":
 define "Patient on Opioids with Abuse Potential":
   exists (
     Common."Active Ambulatory Opioid Rx" ActiveOpioidScript
+      where ChronicPain."Chronic Pain Prescription"( ActiveOpioidScript )
   )
 
 define "Inclusion Criteria":

@@ -4,6 +4,7 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -45,6 +46,7 @@ define "Benzo Scripts":
 
 define "Opioid with Abuse Potential Scripts":
   Common."Active Ambulatory Opioid Rx" OpioidScript
+    where ChronicPain."Chronic Pain Prescription"( OpioidScript )
 
 define "Get Indicator":
   if "Inclusion Criteria"

@@ -4,6 +4,7 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -44,9 +45,10 @@ define "Encounter Period":
   Interval[Today() - 12 months - 1 days, Today() - 1 days]
 
 define "Trigger Event Prescriptions":
-  ContextPrescriptions triggerScripts
-      where triggerScripts.medication in Common."Opioids With Ambulatory Misuse Potential"
-        and triggerScripts.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
+  ContextPrescriptions TriggerScript
+      where TriggerScript.medication in Common."Opioids With Ambulatory Misuse Potential"
+        and TriggerScript.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
+        and ChronicPain."Chronic Pain Prescription"( TriggerScript )
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
@@ -79,7 +81,7 @@ define "Get Summary":
 
 define "Get Detail":
   if "Inclusion Criteria"
-    then 'The following medication requests(s) release rates should be re-evaluated: ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
+    then 'The following medication requests(s) release rates should be re-evaluated: ' + Combine( flatten( Common.GetMedicationNames( "Trigger Event Prescriptions" ) ), ', ' )
   else null
 
 // TODO - I would like to be able to offer the medication's immediate release form as a suggestions

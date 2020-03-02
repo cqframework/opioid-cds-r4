@@ -6,6 +6,7 @@ include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_Common_Config version '0.1.0' called Config
 include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -34,7 +35,8 @@ context Patient
 
 /*TODO: Are We Not Looking for 'active' status here?*/
 define "Trigger Event Prescriptions":
-  Common."Is Ambulatory Medication Request?"(ContextPrescriptions)
+  ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
+    where ChronicPain."Chronic Pain Prescription"( TriggerScript )
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )

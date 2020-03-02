@@ -4,6 +4,7 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 codesystem "V2 Interpretation Codes": 'http://hl7.org/fhir/v2/0078'
 
@@ -53,8 +54,8 @@ define "Lookback Year":
 
 define "Validate Trigger Event":
   exists (
-    ContextPrescriptions triggerScript
-      where triggerScript.medication in Common."Opioids With Ambulatory Misuse Potential"
+    ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
+      where ChronicPain."Chronic Pain Prescription"( TriggerScript )
   )
 
 define "Inclusion Criteria":

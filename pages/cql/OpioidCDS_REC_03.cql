@@ -6,6 +6,7 @@ include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_Common_Config version '0.1.0' called Config
 include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
+include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 
 /*
 **
@@ -31,8 +32,9 @@ define "Opioid Harms & Risks Counseling Lookback Period":
   Interval[Now() - 90 days, Now() - 1 days]
 
 define "Trigger Event Prescriptions":
-  (Common."Is Ambulatory Medication Request?"(ContextPrescriptions)) TriggerScript
+  ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
     where TriggerScript.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
+      and ChronicPain."Chronic Pain Prescription"( TriggerScript )
 
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
