@@ -54,6 +54,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Inclusion Criteria"
+    // NOTE: Wordsmithing here
     then 'Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative'
   else null
 

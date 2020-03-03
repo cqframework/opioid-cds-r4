@@ -22,6 +22,9 @@ include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 **
 */
 
+// NOTE: Include functional description in comments here
+// NOTE: May need to include the chronic pain subroutine here
+
 /*
 
   Plan Definition:
@@ -41,6 +44,7 @@ define "Trigger Event Prescriptions":
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
+// NOTE: Timing component isn't present here...
 define "PDMP Data Not Reviewed in Past 90 Days":
   Config."PDMP Data Not Reviewed in Past 90 Days Criteria Enabled"
     and not (

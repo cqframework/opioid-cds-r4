@@ -53,6 +53,8 @@ define "Trigger Event Prescriptions":
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
+// NOTE: Should use the same criteria as Recommendation #02 for Chronic Pain Determination (prescription over 28 days)
+// NOTE: Remove the immediate release opioid value set
 define "Inclusion Criteria":
   AgeInYears() >= 18
     and "Validate Trigger Event"

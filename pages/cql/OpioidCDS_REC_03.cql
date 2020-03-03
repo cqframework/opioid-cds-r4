@@ -31,6 +31,7 @@ context Patient
 define "Opioid Harms & Risks Counseling Lookback Period":
   Interval[Now() - 90 days, Now() - 1 days]
 
+// NOTE: This should be "treating chronic pain", not "extended release opioid" (same logic as 2 for inclusion, not 4)
 define "Trigger Event Prescriptions":
   ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
     where TriggerScript.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"

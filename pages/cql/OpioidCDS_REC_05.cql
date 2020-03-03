@@ -8,7 +8,9 @@ include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 /*
 **
 ** Recommendation #5
-**
+** NOTE: Add recommendation text here
+** NOTE: Update functional description, it discusses chronic pain and opioid 80 for 90, should not do that (update based on latest process docs)
+** NOTE: Update to use Opioid Review Useful, per latest process docs
 */
 
 /*

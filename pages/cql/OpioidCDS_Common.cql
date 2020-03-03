@@ -23,7 +23,8 @@ valueset "CDC Malignant Cancer Conditions": 'http://fhir.org/guides/cdc/opioid-c
 valueset "Oncology Specialty Designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations-enum'
 valueset "Opioid Misuse Disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders-enum'
 valueset "Substance Misuse Behavioral Counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling-enum'
-// Harvested from VSAV - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
+// Harvested from VSAC - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
+// Reviewed with Terminology, 2020-02-05 - Value set name in VSAC is "Office Visit", need to verify suitability
 valueset "All Ambulatory Encounters": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-ambulatory-encounters'
 
 /* Existing sets for first six recs */
@@ -53,6 +54,9 @@ Documented discussion of opioid harms and risks	     #3      Exclusion for rec #
 Review PDMP data procedure	#9   Review of prescription drug monitoring program record (procedure) SCTID: 461621000124108
 PDMP data review done Situation (the finding/situation is documented)	#9    Review of prescription drug monitoring program record done (situation) SCTID: 461651000124104
 */
+// NOTE: Direct-reference code identifiers have to be the name of the code in the code system, we can't rename codes
+// NOTE: Need tooling to support enforcing this fact
+// NOTE: These direct reference codes will all be turned in to value sets based on implementation feedback that direct-reference codes are more difficult to map
 code "Opioid treatment plan exists (a record artifact)": '80764-4' from "LOINC" //Pain medicine Plan of care note
 code "Opioid treatment plan edited (a procedure)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008
 code "Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008

@@ -36,6 +36,7 @@ define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
     Config."Opioid Naive Prescription Condition Is Enabled"
         and exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
 
+// NOTE: 2020-02-05: Review direction of MedicationStatement resource (US-Core focusing on MedicationRequest i/o Statement)
 define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
     [MedicationStatement: Common."Opioids With Ambulatory Misuse Potential"] Statement
         where Statement.status in {'active', 'completed'}

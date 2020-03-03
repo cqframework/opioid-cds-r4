@@ -60,6 +60,8 @@ define "Validate Trigger Event":
       where ChronicPain."Chronic Pain Prescription"( TriggerScript )
   )
 
+// NOTE: Active 7 of Past 10 Days with Encounter or Active 63 of Past 90 Days seems to be a Chronic Pain determination, need a subroutine with consistent handling for this across recommendations
+// NOTE: Active 63 of Past 90 Days is not quite the same as Active 21 of 30 days for each of the past 3 months, need to correct this
 define "Inclusion Criteria":
   AgeInYears() >= 18
     and "Validate Trigger Event"

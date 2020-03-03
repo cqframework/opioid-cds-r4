@@ -73,6 +73,8 @@ define "Opioid Treatment Plan Creation or Update in Past 90 Days":
           where R ~ CP.author
       ) //TODO: Verify that this is correct implementation
 
+// NOTE: This should be a Procedure, not an Observation
+// NOTE: Should use Chronic pain control management (procedure) SCTID: 408957008
 define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
   exists (
     [Observation: Common."Pain Management Treatment Plan Review"] O
