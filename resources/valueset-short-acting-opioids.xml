@@ -2,7 +2,7 @@
     <id value="short-acting-opioids"/>
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-        <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"/>
     </meta>
     <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion">
         <valueString value="Opioid medication formulations (ingredient, OR ingredient+strength+form : RXNORM TTY=IN or SCD OR SBD) that are abuseable in ambulatory setting and have a form other than extended release dose form."/>
