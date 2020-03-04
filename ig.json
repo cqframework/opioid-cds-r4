@@ -18,6 +18,14 @@
         "qa": "qa",
         "specification": "http://hl7.org/fhir/R4/"
     },
+    "dependencyList": [
+  		{
+  			"name": "cpg",
+  			"package": "hl7.fhir.uv.cpg",
+  			"location": "http://hl7.org/fhir/uv/cpg",
+  			"version": "current"
+  		}
+  	],
     "defaults": {
         "Any": {
             "template-format": "instance-template-format.html",
@@ -44,9 +52,7 @@
         "careplan-profile-spreadsheet.xml",
         "medicationrequest-profile-spreadsheet.xml",
         "observation-profile-spreadsheet.xml",
-        "plandefinition-profile-spreadsheet.xml",
-        "requestgroup-profile-spreadsheet.xml",
-        "valueset-profile-spreadsheet.xml"
+        "requestgroup-profile-spreadsheet.xml"
     ],
     "resources": {
         "Bundle/example-rec-01-true-make-recommendations": {
@@ -855,17 +861,9 @@
             "defns": "cdc-observation-definitions.html",
             "base": "cdc-observation.html"
         },
-        "StructureDefinition/cdc-plandefinition": {
-            "defns": "cdc-plandefinition-definitions.html",
-            "base": "cdc-plandefinition.html"
-        },
         "StructureDefinition/cdc-requestgroup": {
             "defns": "cdc-requestgroup-definitions.html",
             "base": "cdc-requestgroup.html"
-        },
-        "StructureDefinition/cdc-valueset": {
-            "defns": "cdc-valueset-definitions.html",
-            "base": "cdc-valueset.html"
         },
         "StructureDefinition/cdc-requestgroup-action-indicator": {
             "defns": "cdc-requestgroup-action-indicator-definitions.html",

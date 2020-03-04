@@ -2,7 +2,7 @@
     <id value="opioids-abused-in-ambulatory-care"/>
     <meta>
         <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-        <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"/>
     </meta>
     <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion">
         <valueString value="Opioid drugs not restricted to surgical use, that can be used in ambulatory setting."/>
