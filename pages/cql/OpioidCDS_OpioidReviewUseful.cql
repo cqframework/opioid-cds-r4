@@ -34,7 +34,7 @@ define "Patient Age Less Than 18":
 
 define "Conditions Indicating End Of Life Present":
   exists (
-    [Condition: Common."Limited Life Expectancy (findings)"] LLEC
+    [Condition: Common."Limited life expectancy conditions"] LLEC
       where exists (
         LLEC.clinicalStatus.coding Coding
           where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
@@ -43,7 +43,7 @@ define "Conditions Indicating End Of Life Present":
 
 define "Order For Palliative Care In Past 90 Days":
   exists (
-    [ServiceRequest: Common."Therapies Indicating End of Life Care"] SR
+    [ServiceRequest: Common."Therapies indicating end of life care"] SR
       where SR.status in { 'active', 'completed'}
         and SR.intent != null
         and FHIRHelpers.ToDateTime(SR.authoredOn) during day of "Palliative Care Lookback Period"
@@ -53,7 +53,7 @@ define "Order For Palliative Care In Past 90 Days":
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
   Config."End-Stage Disease Criteria Enabled"
     and exists (
-      [Condition: Common."Conditions Likely Terminal for Opioid Prescribing"] EOLC
+      [Condition: Common."Conditions likely terminal for opioid prescribing"] EOLC
         where exists (
           EOLC.clinicalStatus.coding Coding
             where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"

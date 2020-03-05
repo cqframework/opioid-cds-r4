@@ -34,7 +34,7 @@ define "Oncologist Practitioner Roles":
     )
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
-  [Encounter: Common."All Ambulatory Encounters"] Encounter
+  [Encounter: Common."Office Visit"] Encounter
     where date from Encounter.period."start".value in day of "Encounter Period"
       and exists (
         Encounter.diagnosis EncounterDiagnosis

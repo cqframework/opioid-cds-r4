@@ -73,7 +73,7 @@ define "Exclusion Criteria":
   Common."End of Life Assessment"
 
 define "Opioid Risk Assessment in Past 90 Days":
-  [Procedure: Common."Risk Assessment"] riskAssessment
+  [Procedure: Common."Opioid misuse assessment procedure"] riskAssessment
     where date from riskAssessment.performed."start".value in day of "Risk Assessment Interval"
 
 define "Rx Active 7 of Past 10 Days With Encounter":

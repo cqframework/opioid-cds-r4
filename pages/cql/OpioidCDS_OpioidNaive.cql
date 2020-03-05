@@ -38,7 +38,7 @@ define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
 
 // NOTE: 2020-02-05: Review direction of MedicationStatement resource (US-Core focusing on MedicationRequest i/o Statement)
 define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
-    [MedicationStatement: Common."Opioids With Ambulatory Misuse Potential"] Statement
+    [MedicationStatement: Common."Opioid analgesics with ambulatory misuse potential"] Statement
         where Statement.status in {'active', 'completed'}
             and FHIRHelpers.ToDateTime(Statement.effective as dateTime) during day of "Report Inclusion Period"
 
@@ -47,7 +47,7 @@ define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Pa
         and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
 
 define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
-    [MedicationDispense: Common."Opioids With Ambulatory Misuse Potential"] OpioidDispense
+    [MedicationDispense: Common."Opioid analgesics with ambulatory misuse potential"] OpioidDispense
         where FHIRHelpers.ToDateTime(OpioidDispense.whenHandedOver) during day of "Prescription/Dispense Inclusion Period"
             and OpioidDispense.status = 'completed'
 

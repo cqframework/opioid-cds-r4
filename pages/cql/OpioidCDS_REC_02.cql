@@ -77,7 +77,7 @@ define "Opioid Treatment Plan Creation or Update in Past 90 Days":
 // NOTE: Should use Chronic pain control management (procedure) SCTID: 408957008
 define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
   exists (
-    [Observation: Common."Pain Management Treatment Plan Review"] O
+    [Observation: Common."Pain management procedure"] O
       where (
         FHIRHelpers.ToDateTime( O.issued ) during day of "Treatment Plan Lookback Period"
           or FHIRHelpers.ToDateTime( O.effective as dateTime ) during day of "Treatment Plan Lookback Period"

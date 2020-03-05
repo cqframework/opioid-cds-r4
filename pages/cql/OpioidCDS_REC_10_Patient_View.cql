@@ -69,12 +69,12 @@ define "Inclusion Criteria":
         or "Has Evidence of Illicit Drugs")
 
 define "Illicit Drug Urine Screenings in Last 12 Months":
-  [Observation: "code" in Common."Illicit Drug Screening"] observation
+  [Observation: "code" in Common."Non-opioid illicit drug urine screening"] observation
     where date from observation.effective.value in day of "Lookback Year"
       sort by effective.value
 
 define "Opioid Drug Urine Screenings in Last 12 Months":
-  [Observation: "code" in Common."Opioid Drug Screening"] observation
+  [Observation: "code" in Common."Opioid drug urine screening"] observation
     where date from observation.effective.value in day of "Lookback Year"
       sort by effective.value
 
@@ -95,7 +95,7 @@ define "Positive Illicit Drug Screening":
       or exists
       (
         mostRecentScreening.component C
-          where C.code in Common."Illicit Drug Screening"
+          where C.code in Common."Non-opioid illicit drug urine screening"
             and exists (C.interpretation i where FHIRHelpers.ToConcept(i) ~ "Positive")
       )
 
@@ -111,7 +111,7 @@ define "Positive Illicit Drug Screening Qualifying Codes":
       union
       (
         positiveScreening.component C
-          where C.code in Common."Illicit Drug Screening"
+          where C.code in Common."Non-opioid illicit drug urine screening"
             and exists (positiveScreening.interpretation interpretation where FHIRHelpers.ToConcept(interpretation) ~ "Positive")
           return C.code
       )
@@ -127,7 +127,7 @@ define "Positive Opioid Drug Screening":
     or exists
     (
         mostRecentScreening.component C
-          where C.code in Common."Opioid Drug Screening"
+          where C.code in Common."Opioid drug urine screening"
             and exists (C.interpretation i where FHIRHelpers.ToConcept(i) ~ "Positive")
     )
 
@@ -143,7 +143,7 @@ define "Positive Opioid Drug Screening Qualifying Codes":
     union
     (
       positiveScreening.component C
-        where C.code in Common."Opioid Drug Screening"
+        where C.code in Common."Opioid drug urine screening"
           and exists (positiveScreening.interpretation interpretation where FHIRHelpers.ToConcept(interpretation) ~ "Positive")
         return C.code
     )

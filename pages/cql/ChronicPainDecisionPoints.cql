@@ -32,7 +32,7 @@ define "Chronically on Opioids":
 
 define "Prescribed Opioids for 7 of Past 10 Days with an Encounter":
   exists (
-    [Encounter: Common."All Ambulatory Encounters"] AmbulatoryEncounter
+    [Encounter: Common."Office Visit"] AmbulatoryEncounter
       where AmbulatoryEncounter.period during "Previous 10 Days Interval"
         and "Days on Opioids during Period"( "Previous 10 Days Interval" ) >= 7
   )
@@ -57,7 +57,7 @@ define function "Days on Opioids during Period"(period Interval<Date>):
   Sum(
     (
       collapse (
-        [MedicationRequest: Common."Opioids With Ambulatory Misuse Potential"] OpioidPrescription
+        [MedicationRequest: Common."Opioid analgesics with ambulatory misuse potential"] OpioidPrescription
         return "Prescription Relevant Period"( OpioidPrescription ) intersect period
       )
     ) OpioidUseInterval

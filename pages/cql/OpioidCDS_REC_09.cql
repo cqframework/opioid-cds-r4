@@ -49,11 +49,11 @@ define "PDMP Data Not Reviewed in Past 90 Days":
   Config."PDMP Data Not Reviewed in Past 90 Days Criteria Enabled"
     and not (
       exists (
-        [Procedure: Common."Review PDMP data procedure"] P
+        [Procedure: Common."PDMP review procedure"] P
           where P.status ~ 'completed'
       )
       or exists (
-        [Observation: Common."PDMP data review done Situation (the finding/situation is documented)"] O
+        [Observation: Common."PDMP data reviewed finding"] O
           where O.status in { 'final', 'amended' }
       )
     )

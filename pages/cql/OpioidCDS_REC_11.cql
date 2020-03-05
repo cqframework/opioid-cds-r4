@@ -39,7 +39,7 @@ context Patient
 define "Validate Trigger Event For Benzodiazepine":
   exists(
     ContextPrescriptions triggerScript
-      where triggerScript.medication in Common."Benzodiazepines"
+      where triggerScript.medication in Common."Benzodiazepine medications"
   )
 
 define "Validate Trigger Event For Ambulatory Care Abuse Potential":

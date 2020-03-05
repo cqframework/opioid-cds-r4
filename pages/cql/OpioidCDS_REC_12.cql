@@ -40,12 +40,12 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
       AgeInYears() >=18
         and (
           exists (
-            [MedicationRequest: Common."Buprenorphine and Methadone medications"] MR
+            [MedicationRequest: Common."Buprenorphine and methadone medications"] MR
               where MR.status in { 'active', 'completed' }
                 and FHIRHelpers.ToDateTime(MR.authoredOn) during day of "Opioid Use Disorder Lookback Period"
           )
           or exists (
-            [Procedure: Common."Substance Misuse Behavioral Counseling"] P
+            [Procedure: Common."Substance misuse behavioral counseling"] P
               where P.status ~ 'completed'
                 and FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Use Disorder Lookback Period"
           )
@@ -54,7 +54,7 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
 
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
-    [Condition: Common."Opioid Misuse Disorders"] C
+    [Condition: Common."Opioid misuse disorders"] C
       where exists (
         C.clinicalStatus.coding Coding
           where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
