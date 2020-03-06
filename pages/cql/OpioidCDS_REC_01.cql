@@ -18,6 +18,7 @@ include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 **    therapy and nonopioid pharmacologic therapy, as appropriate
 **    (recommendation category: A, evidence type: 3).
 **
+** TODO: Include functional description
 */
 
 /*
@@ -38,27 +39,36 @@ define "Trigger Event Prescriptions":
 define "Validate Trigger Event":
   exists( "Trigger Event Prescriptions" )
 
+define "Is Recommendation Applicable":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
+
 define "Inclusion Criteria":
+  // TODO: Rename to "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
   "Validate Trigger Event"
+  // TODO: Don't reference Exclusion Criteria in Inclusion Criteria
     and not ( "Exclusion Criteria" )
+    // TODO: Put all common logic in a common library so this can be:
+    // Routines."Opioid Review Useful"
     and OpioidReviewUseful."Opioid Review Would Be Useful"
+    // Routines."Is Opioid Naive"
     and OpioidNaive."Is Opioid Naive"
 
 define "Exclusion Criteria":
   false // none
 
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable"
     // NOTE: Wordsmithing here
     then 'Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative'
   else null
 
 define "Get Detail":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable"
     then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Trigger Event Prescriptions" ) ), ', ' )
   else null

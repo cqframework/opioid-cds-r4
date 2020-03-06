@@ -22,11 +22,7 @@ include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 **
 */
 
-/*
-
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-02.html
-*/
+//* PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-02
 
 // Trigger Event Rx
 parameter ContextPrescriptions List<MedicationRequest>
