@@ -79,218 +79,80 @@
 	</relatedArtifact>
 	<library value="http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-rec-10"/>
 	<action>
-		<trigger>
-			<type value="named-event"/>
-			<name value="order-select"/>
-		</trigger>
-		<condition>
-			<kind value="applicability"/>
-			<expression>
-				<language value="text/cql"/>
-				<expression value="Inclusion Criteria"/>
-			</expression>
-		</condition>
-		<action>
 			<title value="Annual Urine Screening Check"/>
 			<description value="Patient has not had a urine screening in the past 12 months"/>
 			<documentation>
-				<type value="documentation"/>
-				<display value="CDC guideline for prescribing opioids for chronic pain"/>
-				<url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
+					<type value="documentation"/>
+					<display value="CDC guideline for prescribing opioids for chronic pain"/>
+					<url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
 			</documentation>
 			<documentation>
-				<type value="documentation"/>
-				<document>
-					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-								<code value="weak"/>
-								<display value="Weak"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-								<code value="very-low"/>
-								<display value="Very Low quality"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-				</document>
+					<type value="documentation"/>
+					<document>
+							<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
+							<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+									<valueCodeableConcept>
+											<coding>
+													<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+													<code value="weak"/>
+													<display value="Weak"/>
+											</coding>
+									</valueCodeableConcept>
+							</extension>
+							<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+									<valueCodeableConcept>
+											<coding>
+													<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+													<code value="very-low"/>
+													<display value="Very Low quality"/>
+											</coding>
+									</valueCodeableConcept>
+							</extension>
+					</document>
 			</documentation>
+			<trigger>
+					<type value="named-event"/>
+					<name value="patient-view"/>
+			</trigger>
 			<condition>
-				<kind value="applicability"/>
-				<expression>
-					<description value="Patient has not had a urine screening in the past 12 months"/>
-					<language value="text/cql"/>
-					<expression value="No Urine Screening In Last 12 Months"/>
-				</expression>
+					<kind value="applicability"/>
+					<expression>
+							<description value="Patient has not had a urine screening in the past 12 months"/>
+							<language value="text/cql.name"/>
+							<expression value="Is Recommendation Applicable?"/>
+					</expression>
 			</condition>
 			<!-- dynamic card elements -->
 			<dynamicValue>
-				<path value="action.description"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="No Screening In Last 12 Months Detail"/>
-				</expression>
+					<path value="action.description"/>
+					<expression>
+							<language value="text/cql.name"/>
+							<expression value="No Screening In Last 12 Months Detail"/>
+					</expression>
 			</dynamicValue>
 			<dynamicValue>
-				<path value="action.title"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="No Screening In Last 12 Months Summary"/>
-				</expression>
+					<path value="action.title"/>
+					<expression>
+							<language value="text/cql.name"/>
+							<expression value="No Screening In Last 12 Months Summary"/>
+					</expression>
 			</dynamicValue>
 			<dynamicValue>
-				<path value="action.extension"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="No Screening In Last 12 Months Indicator"/>
-				</expression>
+					<path value="action.extension"/>
+					<expression>
+							<language value="text/cql.name"/>
+							<expression value="No Screening In Last 12 Months Indicator"/>
+					</expression>
 			</dynamicValue>
 			<action>
-				<description value="Will perform urine screening"/>
-				<!-- Open Order Set, where available -->
+					<description value="Will perform urine screening"/>
+					<!-- Open Order Set, where available -->
 			</action>
 			<action>
-				<description value="Not for chronic pain management. Snooze 3 months"/>
+					<description value="Not for chronic pain management. Snooze 3 months"/>
 			</action>
-		</action>
-		<action>
-			<title value="Opioids Found In Urine Screening"/>
-			<description value="Patient has a positive urine screening in the past 12 months for opioid(s)"/>
-			<documentation>
-				<type value="documentation"/>
-				<display value="CDC guideline for prescribing opioids for chronic pain"/>
-				<url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
-			</documentation>
-			<documentation>
-				<type value="documentation"/>
-				<document>
-					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-								<code value="strong"/>
-								<display value="Strong"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-								<code value="low"/>
-								<display value="Low quality"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-				</document>
-			</documentation>
-			<condition>
-				<kind value="applicability"/>
-				<expression>
-					<description value="Patient has a positive urine screening in the past 12 months for opioid(s)"/>
-					<language value="text/cql"/>
-					<expression value="Has Evidence of Opioids"/>
-				</expression>
-			</condition>
-			<!-- dynamic card elements -->
-			<dynamicValue>
-				<path value="action.description"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="Evidence of Opioids Detail"/>
-				</expression>
-			</dynamicValue>
-			<dynamicValue>
-				<path value="action.title"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="Evidence of Opioids Summary"/>
-				</expression>
-			</dynamicValue>
-			<dynamicValue>
-				<path value="action.extension"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="Evidence of Opioids Indicator"/>
-				</expression>
-			</dynamicValue>
 			<action>
-				<description value="Not for chronic pain management. Snooze 3 months"/>
+					<description value="N/A - see comment, snooze 3 months"/>
 			</action>
-		</action>
-		<action>
-			<title value="Illicit Drugs Found In Urine Screening"/>
-			<description value="Patient has a positive urine screening in the past 12 months for illicit drugs"/>
-			<documentation>
-				<type value="documentation"/>
-				<display value="CDC guideline for prescribing opioids for chronic pain"/>
-				<url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
-			</documentation>
-			<documentation>
-				<type value="documentation"/>
-				<document>
-					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-								<code value="strong"/>
-								<display value="Strong"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-								<code value="low"/>
-								<display value="Low quality"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-				</document>
-			</documentation>
-			<condition>
-				<kind value="applicability"/>
-				<expression>
-					<description value="Patient has a positive urine screening in the past 12 months for illicit drugs"/>
-					<language value="text/cql"/>
-					<expression value="Has Evidence of Illicit Drugs"/>
-				</expression>
-			</condition>
-			<!-- dynamic card elements -->
-			<dynamicValue>
-				<path value="action.description"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="Evidence of Illicit Drugs Detail"/>
-				</expression>
-			</dynamicValue>
-			<dynamicValue>
-				<path value="action.title"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="Evidence of Illicit Drugs Summary"/>
-				</expression>
-			</dynamicValue>
-			<dynamicValue>
-				<path value="action.extension"/>
-				<expression>
-					<language value="text/cql"/>
-					<expression value="Evidence of Illicit Drugs Indicator"/>
-				</expression>
-			</dynamicValue>
-			<action>
-				<description value="Not for chronic pain management. Snooze 3 months"/>
-			</action>
-		</action>
 	</action>
 </PlanDefinition>

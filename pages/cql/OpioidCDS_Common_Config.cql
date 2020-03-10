@@ -39,6 +39,10 @@ define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
 define "Order is to Treat Acute Pain Enabled":
   true
 
+// Recommendation 8
+define "Evidence of Naloxone Enabled":
+  true
+
 // Recommendation 9
 define "PDMP Data Not Reviewed in Past 90 Days Criteria Enabled":
   true

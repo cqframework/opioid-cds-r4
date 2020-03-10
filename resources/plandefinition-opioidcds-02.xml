@@ -114,31 +114,30 @@
             <kind value="applicability"/>
             <expression>
                 <description value="Check whether the current Order is for Opioid With Ambulatory Misuse Potential."/>
-                <language value="text/cql"/>
-                <expression value="Inclusion Criteria"/>
+                <language value="text/cql.name"/>
+                <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
-        <!-- dynamic card elements -->
         <dynamicValue>
             <path value="action.title"/>
             <expression>
-                <language value="text/cql"/>
+                <language value="text/cql.name"/>
                 <expression value="Get Summary"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.description"/>
             <expression>
-                <language value="text/cql"/>
+                <language value="text/cql.name"/>
                 <expression value="Get Detail"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="activity.extension"/>
             <expression>
-                <language value="text/cql"/>
+                <language value="text/cql.name"/>
                 <expression value="Get Indicator"/>
             </expression>
         </dynamicValue>
@@ -146,13 +145,13 @@
             <description value="Create treatment plan with goals for opioid use"/>
         </action>
         <action>
-            <description value="Update (edit) opioid treatment plan"/>
+            <description value="Update patient's opioid treatment plan"/>
         </action>
         <action>
-            <description value="Review opioid treatment plan"/>
+            <description value="Review patient's opioid treatment plan"/>
         </action>
         <action>
-            <description value="N/A-see comment; snooze 3 months"/>
+            <description value="N/A - see comment; snooze 3 months"/>
         </action>
         <action>
             <description value="Taper / Discontinue opioid"/>

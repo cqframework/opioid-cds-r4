@@ -53,16 +53,17 @@
     <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
     </thead>
     <tbody>
-      <tr><td><a href="PlanDefinition-opioidcds-11.html">CDC Opioid Prescribing Guideline Recommendation #11</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #11</td></tr>
-      <tr><td><a href="Library-opioidcds-rec-11.html">Recommendation #11 - concurrent opioid pain medication and benzodiazepines prescriptions</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #11</td></tr>
-      <tr><td><a href="opioidcds-recommendation-11-cql.html">CDC Opioid Prescribing Guideline Recommendation #11</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #11</td></tr>
+      <tr><td><a href="PlanDefinition-opioidcds-11-patient-view.html">CDC Opioid Prescribing Guideline Recommendation #11 Patient View</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #11 Patient View</td></tr>
+      <tr><td><a href="Library-opioidcds-rec-11-patient-view.html">Recommendation #11 Patient View - concurrent opioid pain medication and benzodiazepines prescriptions</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #11 Patient View</td></tr>
+      <tr><td><a href="opioidcds-recommendation-11-patient-view-cql.html">CDC Opioid Prescribing Guideline Recommendation #11 Patient View</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #11 Patient View</td></tr>
     </tbody>
 </table>
 
 <p></p>
 
+<!-- TODO -->
 <!-- Example Data/Requests -->
-  <a name="exampledatarequests"> </a>
+  <!-- <a name="exampledatarequests"> </a>
   <h3><span class="sectioncount">8.16.3</span> Example Data/Requests <a href="#exampledatarequests" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
   <table class="grid">
     <thead>
@@ -76,33 +77,33 @@
 i.	Revise
 ii.	Indicate that the benefits outweigh the risks and snooze for 3 months
 iii.	Indicate that it is not applicable, log a comment and snooze for 3 months </td>
-          <td><a href="Bundle-example-rec-11-benzo-trigger-with-opioid.html">Test Bundle</a></td>
-          <td><a href="requests/request-example-rec-11-benzo-trigger-with-opioid.json">Request JSON</a></td>
-          <td><a href="responses/response-example-rec-11-benzo-trigger-with-opioid.json">Response JSON</a></td>
+          <td><a href="Bundle-example-rec-11-patient-view-benzo-trigger-with-opioid.html">Test Bundle</a></td>
+          <td><a href="requests/request-example-rec-11-patient-view-benzo-trigger-with-opioid.json">Request JSON</a></td>
+          <td><a href="responses/response-example-rec-11-patient-view-benzo-trigger-with-opioid.json">Response JSON</a></td>
       </tr>
       <tr>
           <td class="col-7">Patient is 18 or older. Patient is being prescribed Flurazepam Hydrochloride 15 MG Oral Capsule (RxNorm code 1298088), once per day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
-          <td><a href="Bundle-example-rec-11-benzo-trigger-without-opioid.html">Test Bundle</a></td>
-          <td><a href="requests/request-example-rec-11-benzo-trigger-without-opioid.json">Request JSON</a></td>
-          <td><a href="responses/response-example-rec-11-benzo-trigger-without-opioid.json">Response JSON</a></td>
+          <td><a href="Bundle-example-rec-11-patient-view-benzo-trigger-without-opioid.html">Test Bundle</a></td>
+          <td><a href="requests/request-example-rec-11-patient-view-benzo-trigger-without-opioid.json">Request JSON</a></td>
+          <td><a href="responses/response-example-rec-11-patient-view-benzo-trigger-without-opioid.json">Response JSON</a></td>
       </tr>
       <tr>
           <td class="col-7">Patient is 18 or older. Patient is being prescribed Flurazepam Hydrochloride 15 MG Oral Capsule (RxNorm code 1298088), once per day for 30 days. Patient is also being prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RxNorm code 1049502), once per day for 30 days. This triggers a message with the recommendation to avoid prescribing opioid pain medication and benzodiazepine concurrently with following three feedback options:
 i.	Revise
 ii.	Indicate that the benefits outweigh the risks and snooze for 3 months
 iii.	Indicate that it is not applicable, log a comment and snooze for 3 months </td>
-          <td><a href="Bundle-example-rec-11-opioid-trigger-with-benzo.html">Test Bundle</a></td>
-          <td><a href="requests/request-example-rec-11-opioid-trigger-with-benzo.json">Request JSON</a></td>
-          <td><a href="responses/response-example-rec-11-opioid-trigger-with-benzo.json">Response JSON</a></td>
+          <td><a href="Bundle-example-rec-11-patient-view-opioid-trigger-with-benzo.html">Test Bundle</a></td>
+          <td><a href="requests/request-example-rec-11-patient-view-opioid-trigger-with-benzo.json">Request JSON</a></td>
+          <td><a href="responses/response-example-rec-11-patient-view-opioid-trigger-with-benzo.json">Response JSON</a></td>
       </tr>
       <tr>
           <td class="col-7">Patient is 18 or older. Patient is being prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RxNorm code 1049502), once per day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
-          <td><a href="Bundle-example-rec-11-opioid-trigger-without-benzo.html">Test Bundle</a></td>
-          <td><a href="requests/request-example-rec-11-opioid-trigger-without-benzo.json">Request JSON</a></td>
-          <td><a href="responses/response-example-rec-11-opioid-trigger-without-benzo.json">Response JSON</a></td>
+          <td><a href="Bundle-example-rec-11-patient-view-opioid-trigger-without-benzo.html">Test Bundle</a></td>
+          <td><a href="requests/request-example-rec-11-patient-view-opioid-trigger-without-benzo.json">Request JSON</a></td>
+          <td><a href="responses/response-example-rec-11-patient-view-opioid-trigger-without-benzo.json">Response JSON</a></td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 <!-- ==============END CONTENT END CONTENT=================== -->
 
 {% include container-end.html %}

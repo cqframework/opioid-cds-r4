@@ -4,62 +4,62 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
-include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
-**  Recommendation #11 Patient_View
-**    Patient found to be prescribed opioid pain medication and benzodiazepines. Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible
+**  Recommendation #11
+**    Clinicians should avoid prescribing opioid pain medication and benzodiazepines
+**    concurrently whenever possible (recommendation category: A, evidence type: 3)
+**
+**  When
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Provider is prescribing a benzodiazepine medication
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    Patient prescribed opioid analgesic with ambulatory misuse potential and benzodiazepine medication concurrently
+**  Then
+**    Recommend to avoid prescribing opioid pain medication and benzodiazepine concurrently
+**      Will revise
+**      Benefits outweigh risks, snooze 3 months
+**      N/A - see comment, snooze 3 months
 **
 */
 
-/*
-  Trigger context:
-    Primary care/ambulatory care
-  Trigger event:
-    Patient chart is opened
-  Assumptions:
-    Count only ambulatory prescriptions
-  Inclusion criteria:
-    On both opioid with ambulatory care abuse potential and benzodiazepine
-  Notification:
-    Avoid prescribing opioid pain mediation and benzodiazepine concurrently whenever possible.
-    Ref: CDC Recommendation #11.
-  EHR expectations:
-    Have availability to snooze if benefits outweigh risks
-
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-11.html
-*/
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-11-patient-view
 
 context Patient
 
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
+
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and (
-      exists "Benzo Scripts"
-        and exists "Opioid with Abuse Potential Scripts"
-    )
+  (
+    exists (Common."Active Ambulatory Benzodiazepine Rx")
+      and exists (Common."Active Ambulatory Opioid Rx")
+  )
+    and Routines."Is Opioid Review Useful?"
 
-define "Benzo Scripts":
-  Common."Active Ambulatory Benzodiazepine Rx" BenzoScript
-
-define "Opioid with Abuse Potential Scripts":
-  Common."Active Ambulatory Opioid Rx" OpioidScript
-    where ChronicPain."Chronic Pain Prescription"( OpioidScript )
+define "Exclusion Criteria":
+  Common."End of Life Assessment"
 
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Patient has active prescriptions for opioid pain medication and benzodiazepines'
   else null
 
 define "Get Detail":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible'
   else null
 
@@ -76,7 +76,7 @@ define "Concurrent Benzodiazepine Prescription Issue":
     // TODO: Device representation...
     // author:,
     implicated:
-      ("Benzo Scripts" union "Opioid with Abuse Potential Scripts") M
+      (Common."Active Ambulatory Benzodiazepine Rx" union Common."Active Ambulatory Opioid Rx") M
         return FHIR.Reference { reference: FHIR.string { value: 'MedicationRequest/' + M.id } },
     detail: FHIR.string { value: "Get Detail" },
     reference: FHIR.uri { value: 'http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-11-patient-view'}

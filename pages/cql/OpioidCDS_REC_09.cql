@@ -5,8 +5,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_Common_Config version '0.1.0' called Config
-include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
-include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
@@ -20,64 +19,84 @@ include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 **    every prescription to every 3 months
 **    (recommendation category: A, evidence type: 4).
 **
+**  When
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating chronic pain.
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    PDMP data has not been reviewed in the past 90 days
+**  Then
+**    Recommend offering naloxone medications
+**      Recommend launch of SMART-APP to search PDMP data for this patient
+**      Document PDMP data reviewed; snooze 3 months
+**      N/A - see comment, snooze 3 months
+**
 */
 
-// NOTE: Include functional description in comments here
-// NOTE: May need to include the chronic pain subroutine here
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-09
 
-/*
-
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-09.html
-*/
-
-// Trigger Event Rx
 parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
-/*TODO: Are We Not Looking for 'active' status here?*/
-define "Trigger Event Prescriptions":
-  ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
-    where ChronicPain."Chronic Pain Prescription"( TriggerScript )
+define "Look Back 90 Days":
+  Interval[Today() - 90 days, Today()]
 
-define "Validate Trigger Event":
-  exists( "Trigger Event Prescriptions" )
+define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
-// NOTE: Timing component isn't present here...
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and "PDMP Data Not Reviewed in Past 90 Days"
+
+define "Exclusion Criteria":
+  false
+
 define "PDMP Data Not Reviewed in Past 90 Days":
   Config."PDMP Data Not Reviewed in Past 90 Days Criteria Enabled"
     and not (
       exists (
         [Procedure: Common."PDMP review procedure"] P
           where P.status ~ 'completed'
+            and P.performed during "Look Back 90 Days"
       )
       or exists (
         [Observation: Common."PDMP data reviewed finding"] O
           where O.status in { 'final', 'amended' }
+            and (
+              if O.effective is FHIR.Period
+                then (O.effective as FHIR.Period) during day of "Look Back 90 Days"
+                else if O.effective is FHIR.dateTime
+                  then date from O.effective in day of "Look Back 90 Days"
+                  else false
+          )
       )
     )
 
-define "Inclusion Criteria":
-  "Validate Trigger Event"
-    and OpioidReviewUseful."Opioid Review Would Be Useful"
-    and "PDMP Data Not Reviewed in Past 90 Days"
-    /* and not "Exclusion Criteria" */
-
-define "Exclusion Criteria":
-  false
-
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Notify: PDMP data for this patient has not been reviewed in the past 90 days.'
   else null
 
 define "Get Detail":
-  if "Inclusion Criteria"
-    then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
+  if "Is Recommendation Applicable?"
+    then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
   else null

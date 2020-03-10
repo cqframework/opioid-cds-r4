@@ -26,6 +26,7 @@ valueset "Substance misuse behavioral counseling": 'http://fhir.org/guides/cdc/o
 // Harvested from VSAC - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
 // Reviewed with Terminology, 2020-02-05 - Value set name in VSAC is "Office Visit", need to verify suitability
 valueset "Office Visit": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit'
+valueset "Opioid counseling procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure'
 
 /* Existing sets for first six recs */
 valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
@@ -33,7 +34,6 @@ valueset "Non-opioid illicit drug urine screening": 'http://fhir.org/guides/cdc/
 valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
 valueset "Opioid misuse assessment procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
 valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
-valueset "Substance misuse behavioral counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling'
 valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
 valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
@@ -43,33 +43,6 @@ valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/Val
 valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
 valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
 
-// Recommendation #2
-// See the latest notes in the Definitions table for Rec 2 - needs to be specific Direct Reference Codes:
-//  Creation: Opioid treatment plan: LOINC 80764-4 Pain medicine plan of care note
-//  Edit/Review: Treatment Plan Edited or Reviewed: SNOMED Chronic pain control management (procedure) 408957008
-valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
-
-/*
-Opioid treatment plan exists (a record artifact)	 #2      80764-4 Pain medicine Plan of care note
-Opioid treatment plan edited (a procedure)	         #2      Chronic pain control management (procedure) SCTID: 408957008
-Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)	#2 Chronic pain control management (procedure) SCTID: 408957008
-Documented discussion of opioid harms and risks	     #3      Counseling about opioid safety (procedure) 460831000124102
-Documented discussion of opioid harms and risks	     #3      Exclusion for rec #3 - Counseling about opioid safety not done (situation) SCTID: 460841000124107
-Review PDMP data procedure	#9   Review of prescription drug monitoring program record (procedure) SCTID: 461621000124108
-PDMP data review done Situation (the finding/situation is documented)	#9    Review of prescription drug monitoring program record done (situation) SCTID: 461651000124104
-*/
-// NOTE: Direct-reference code identifiers have to be the name of the code in the code system, we can't rename codes
-// NOTE: Need tooling to support enforcing this fact
-// NOTE: These direct reference codes will all be turned in to value sets based on implementation feedback that direct-reference codes are more difficult to map
-code "Opioid treatment plan exists (a record artifact)": '80764-4' from "LOINC" //Pain medicine Plan of care note
-code "Opioid treatment plan edited (a procedure)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008
-code "Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008
-code "Documented discussion of opioid harms and risks": '460831000124102' from "SNOMED" //Counseling about opioid safety (procedure)
-code "Documented discussion of opioid harms and risks not done": '460841000124107' from "SNOMED" //Counseling about opioid safety not done (situation)
-code "Review PDMP data procedure": '461621000124108' from "SNOMED" //Review of prescription drug monitoring program record (procedure)
-code "PDMP data review done Situation (the finding/situation is documented)": '461651000124104' from "SNOMED" //Review of prescription drug monitoring program record done (situation)
-
-code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 code "Active Condition": 'active' from "Condition Clinical Status Codes"
 
@@ -185,6 +158,52 @@ define function "Is Ambulatory Medication Request?" (value List<MedicationReques
         Rx.category RxCategory
           where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
       )
+
+define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
+  value Rx
+    let MedRef: if (Rx.medication is FHIR.Reference) then Rx.medication.reference else null,
+      Med: if MedRef is null then Rx.medication.coding else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code.coding)
+    where Med.code in "Opioid analgesics with ambulatory misuse potential"
+      and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+      )
+    return
+          MedicationRequest {
+            id: Rx.id,
+            status: Rx.status,
+            intent: Rx.intent,
+            category: Rx.category,
+            medication: FHIR.CodeableConcept{ coding: Med },
+            subject: Rx.subject,
+            authoredOn: Rx.authoredOn,
+            recorder: Rx.recorder,
+            dosageInstruction: Rx.dosageInstruction,
+            dispenseRequest: Rx.dispenseRequest
+          }
+
+define function "Is Benzodiazepine?"(value List<MedicationRequest>):
+  value Rx
+    let MedRef: if (Rx.medication is FHIR.Reference) then Rx.medication.reference else null,
+      Med: if MedRef is null then Rx.medication.coding else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code.coding)
+    where Med.code in "Benzodiazepine medications"
+      and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+      )
+    return
+          MedicationRequest {
+            id: Rx.id,
+            status: Rx.status,
+            intent: Rx.intent,
+            category: Rx.category,
+            medication: FHIR.CodeableConcept{ coding: Med },
+            subject: Rx.subject,
+            authoredOn: Rx.authoredOn,
+            recorder: Rx.recorder,
+            dosageInstruction: Rx.dosageInstruction,
+            dispenseRequest: Rx.dispenseRequest
+          }
 
 define "End of Life Assessment":
     // 1. Conditions indicating end of life or with limited life expectancy

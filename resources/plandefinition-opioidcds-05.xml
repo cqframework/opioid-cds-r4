@@ -118,8 +118,8 @@
 			<kind value="applicability"/>
 			<expression>
 				<description value="Is total MME >= 50?"/>
-				<language value="text/cql"/>
-				<expression value="Inclusion Criteria"/>
+				<language value="text/cql.name"/>
+				<expression value="Is Recommendation Applicable?"/>
 			</expression>
 		</condition>
 		<groupingBehavior value="visual-group"/>
@@ -127,42 +127,38 @@
 		<dynamicValue>
 			<path value="action.title"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Summary"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="action.description"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Detail"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="activity.extension"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Indicator"/>
 			</expression>
 		</dynamicValue>
-		<!-- Will reduce dosage -->
 		<action>
 			<description value="Will reduce dosage"/>
 			<!-- Open Order Set, where available -->
 		</action>
-		<!-- Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo -->
 		<action>
-			<description value="Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo"/>
+			<description value="Benefits outweigh risks, snooze 3 months"/>
 		</action>
-		<!-- Acute pain; snooze 1 mo -->
 		<action>
-			<description value="Acute pain; snooze 1 mo"/>
+			<description value="Active pain, snooze 1 month"/>
 		</action>
-		<!-- N/A - see comment (will be reviewed by medical director); snooze 3 mo -->
 		<action>
 			<!-- TODO: How do we indicate through the response that a comment must be captured? -->
 			<!-- TODO: How do we communicate the response back to the CDS service for persistence? -->
-			<description value="N/A - see comment (will be reviewed by medical director); snooze 3 mo"/>
+			<description value="N/A - see comment, snooze 3 months"/>
 		</action>
 	</action>
 </PlanDefinition>

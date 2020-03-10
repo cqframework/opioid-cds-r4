@@ -119,43 +119,42 @@
             <kind value="applicability"/>
             <expression>
                 <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
-                <language value="text/cql"/>
-                <expression value="Inclusion Criteria"/>
+                <language value="text/cql.name"/>
+                <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
-        <!-- dynamic card elements -->
         <dynamicValue>
 			<path value="action.title"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Summary"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="action.description"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Detail"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="activity.extension"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Indicator"/>
 			</expression>
 		</dynamicValue>
         <action>
-            <description value="Will offer Naloxone instead"/>
+            <description value="Will offer Naloxone medications"/>
             <!-- Open Order Set, where available -->
         </action>
         <action>
-            <description value="Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo"/>
+            <description value="Benefits outweigh risks, snooze 3 months"/>
         </action>
         <action>
-            <description value="N/A - see comment; snooze 3 mo"/>
+            <description value="N/A - see comment, snooze 3 months"/>
         </action>
     </action>
 </PlanDefinition>

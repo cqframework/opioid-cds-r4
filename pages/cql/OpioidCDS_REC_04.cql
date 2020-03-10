@@ -4,36 +4,34 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
-include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
 **  Recommendation #4
 **    Prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids
 **
+**  When
+**    Provider is prescribing an extended release opioid with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating chronic pain.
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    Patient is opioid naive:
+**      No indication of opioid use in the past 90 days from a prescription, self report, or a dispensing event
+**  Then
+**    Recommend use of immediate release opioids:
+**      Will prescribe immediate release opioid analgesic with ambulatory misuse potential
+**      Benefits outweigh risks, snooze 3 months
+**      N/A - see comment, snooze 3 months
+**
 */
 
-/*
-  Trigger context:
-    Primary care/ambulatory care
-  Trigger event:
-    Prescription of extended release/long acting opioid with ambulatory care abuse potential
-  Assumptions:
-    Count only ambulatory prescriptions
-  Inclusion criteria:
-    No opioid with ambulatory care abuse potential prescribed for previous 90 days (excluding today) (so yesterday through 89 days before yesterday, covering 90 days total)
-    At least 1 encounter in past 12 months [excluding today] (to make sure this is not just a new patient into the system)
-  Notification:
-    Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids.
-    Ref: CDC Recommendation #4.
-  EHR expectations:
-    Have availability to snooze if benefits outweigh risks or if not applicable
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-04
 
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-04.html
-*/
-
-// Trigger Event Rx
 parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
@@ -44,46 +42,37 @@ define "Inclusion Period":
 define "Encounter Period":
   Interval[Today() - 12 months - 1 days, Today() - 1 days]
 
-define "Trigger Event Prescriptions":
-  ContextPrescriptions TriggerScript
-      where TriggerScript.medication in Common."Opioids With Ambulatory Misuse Potential"
-        and TriggerScript.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
-        and ChronicPain."Chronic Pain Prescription"( TriggerScript )
+define "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+      and AmbulatoryOpioidPrescription.medication in Common."Extended release opioid analgesics with ambulatory misuse potential"
 
-define "Validate Trigger Event":
-  exists( "Trigger Event Prescriptions" )
+define "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-// NOTE: Should use the same criteria as Recommendation #02 for Chronic Pain Determination (prescription over 28 days)
-// NOTE: Remove the immediate release opioid value set
-define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
     and not "Exclusion Criteria"
-    and not exists(
-      Common."Ambulatory Opioid Rx" orders
-        where date from orders.authoredOn.value in day of "Inclusion Period"
-    )
-    and exists(
-      [Encounter] encounters
-        where date from encounters.period."start".value in day of "Encounter Period"
-    )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and Routines."Is Opioid Naive?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
 
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids.'
   else null
 
 define "Get Detail":
-  if "Inclusion Criteria"
-    then 'The following medication requests(s) release rates should be re-evaluated: ' + Combine( flatten( Common.GetMedicationNames( "Trigger Event Prescriptions" ) ), ', ' )
+  if "Is Recommendation Applicable?"
+    then 'The following medication requests(s) release rates should be re-evaluated: ' + Combine( flatten( Common.GetMedicationNames( "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
   else null
-
-// TODO - I would like to be able to offer the medication's immediate release form as a suggestions

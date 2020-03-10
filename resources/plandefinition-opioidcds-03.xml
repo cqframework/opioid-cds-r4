@@ -114,31 +114,30 @@
             <kind value="applicability"/>
             <expression>
                 <description value="Check whether the current Order is for Extended release opioid with ambulatory abuse potential."/>
-                <language value="text/cql"/>
-                <expression value="Inclusion Criteria"/>
+                <language value="text/cql.name"/>
+                <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
-        <!-- dynamic card elements -->
         <dynamicValue>
             <path value="action.title"/>
             <expression>
-                <language value="text/cql"/>
+                <language value="text/cql.name"/>
                 <expression value="Get Summary"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.description"/>
             <expression>
-                <language value="text/cql"/>
+                <language value="text/cql.name"/>
                 <expression value="Get Detail"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="activity.extension"/>
             <expression>
-                <language value="text/cql"/>
+                <language value="text/cql.name"/>
                 <expression value="Get Indicator"/>
             </expression>
         </dynamicValue>
@@ -146,13 +145,13 @@
             <description value="Order counseling"/>
         </action>
         <action>
-            <description value="Document counseling provided"/>
+            <description value="Document that counseling provided"/>
         </action>
         <action>
-            <description value="Document reason for not counseling; snooze 3 months"/>
+            <description value="Document the reason for not counseling; snooze 3 months"/>
         </action>
         <action>
-            <description value="N/A-see comment; snooze 3 months"/>
+            <description value="N/A - see comment; snooze 3 months"/>
         </action>
     </action>
 </PlanDefinition>

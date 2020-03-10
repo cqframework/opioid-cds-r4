@@ -4,9 +4,7 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
-include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
-include OpioidCDS_OpioidNaive version '0.1.0' called OpioidNaive
-include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
@@ -18,57 +16,64 @@ include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 **    therapy and nonopioid pharmacologic therapy, as appropriate
 **    (recommendation category: A, evidence type: 3).
 **
-** TODO: Include functional description
+**  When
+**    Prescription is for treating chronic pain
+**    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    Patient is opioid naive:
+**      No indication of opioid use in the past 90 days from a prescription, self report, or a dispensing event
+**  Then
+**    Recommend the use of nonpharmacologic therapy and nonopioid pharmacologic therapy as an alternative. Potential actions include:
+**      Document reason for opioid use
+**      Document that alternative therapy was attempted, snooze 3 months
+**      N/A - see comment, snooze 3 months
+**      Select from order set for alternative therapies
+**      Remove triggering medication
+**
 */
 
-/*
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-01
 
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-01.html
-*/
-
-// Trigger Event Rx
 parameter ContextPrescriptions List<FHIR.MedicationRequest>
 
 context Patient
 
-define "Trigger Event Prescriptions":
-  ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) Trigger
-    where ChronicPain."Chronic Pain Prescription"( Trigger )
+define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
-define "Validate Trigger Event":
-  exists( "Trigger Event Prescriptions" )
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable":
+define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
 define "Inclusion Criteria":
-  // TODO: Rename to "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-  "Validate Trigger Event"
-  // TODO: Don't reference Exclusion Criteria in Inclusion Criteria
-    and not ( "Exclusion Criteria" )
-    // TODO: Put all common logic in a common library so this can be:
-    // Routines."Opioid Review Useful"
-    and OpioidReviewUseful."Opioid Review Would Be Useful"
-    // Routines."Is Opioid Naive"
-    and OpioidNaive."Is Opioid Naive"
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and Routines."Is Opioid Naive?"
 
 define "Exclusion Criteria":
-  false // none
+  false
 
 define "Get Indicator":
-  if "Is Recommendation Applicable"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Is Recommendation Applicable"
+  if "Is Recommendation Applicable?"
     // NOTE: Wordsmithing here
     then 'Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative'
   else null
 
 define "Get Detail":
-  if "Is Recommendation Applicable"
-    then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Trigger Event Prescriptions" ) ), ', ' )
+  if "Is Recommendation Applicable?"
+    then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
   else null

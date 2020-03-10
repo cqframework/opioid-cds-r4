@@ -5,8 +5,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_Common_Config version '0.1.0' called Config
-include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
-include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
@@ -16,62 +15,76 @@ include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
 **    and patient and clinician responsibilities for managing therapy
 **    (recommendation category: A, evidence type: 3).
 **
+**  When
+**    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating chronic pain.
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    Patient does not have documented discussion of opioid harms and risks in the past 90 days, including today
+**  Then
+**    Recommend counseling regarding potential opioid harms and risks. Potential actions include:
+**      Order counseling
+**      Document that counseling was provided
+**      Document the reason for not counseling; snooze 3 months
+**      N/A - see comment; snooze 3 months
+**
 */
 
-/*
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-03.html
-*/
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-03
 
-// Trigger Event Rx
 parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
 define "Opioid Harms & Risks Counseling Lookback Period":
-  Interval[Now() - 90 days, Now() - 1 days]
+  Interval[Today() - 90 days, Today() - 1 days]
 
-// NOTE: This should be "treating chronic pain", not "extended release opioid" (same logic as 2 for inclusion, not 4)
-define "Trigger Event Prescriptions":
-  ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
-    where TriggerScript.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
-      and ChronicPain."Chronic Pain Prescription"( TriggerScript )
+define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
-define "Validate Trigger Event":
-  exists( "Trigger Event Prescriptions" )
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
 
 define "Inclusion Criteria":
-  "Validate Trigger Event"
-    and OpioidReviewUseful."Opioid Review Would Be Useful"
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
     and "No Documented Discussions of Opioid Harms and Risks"
 
 define "No Documented Discussions of Opioid Harms and Risks":
   Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
     and not (
-      exists ("Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
-        or exists ("Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today")
+      exists ( "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" )
+        or exists ( "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" )
     )
 
 define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
-  [Procedure: Common."Documented discussion of opioid harms and risks"] P
-    where FHIRHelpers.ToDateTime(P.performed as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
+  [Procedure: Common."Opioid counseling procedure"] P
+    where P.performed during day of "Opioid Harms & Risks Counseling Lookback Period"
       and P.status ~ 'completed'
 
 define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
-  [ServiceRequest: Common."Documented discussion of opioid harms and risks"] SR
-    where FHIRHelpers.ToDateTime(SR.occurrence as dateTime) during day of "Opioid Harms & Risks Counseling Lookback Period"
+  [ServiceRequest: Common."Opioid counseling procedure"] SR
+    where SR.occurrence during day of "Opioid Harms & Risks Counseling Lookback Period"
 
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Recommend counseling regarding potential opioid harms and risks'
   else null
 
 define "Get Detail":
-  if "Inclusion Criteria"
-    then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
+  if "Is Recommendation Applicable?"
+    then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
   else null

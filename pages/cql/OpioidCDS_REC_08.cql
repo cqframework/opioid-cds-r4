@@ -4,57 +4,61 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
-include ChronicPainDecisionPoints version '0.1.0' called ChronicPain
+include OpioidCDS_Common_Config version '0.1.0' called Config
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
 **  Recommendation #8
-**    Incorporate into the management plan strategies to mitigate risk;
-**    including considering offering naloxone when factors that increase risk for opioid overdose are present
+**    Before starting and periodically during continuation of opioid therapy,
+**    clinicians should evaluate risk factors for opioid-related harms. Clinicians
+**    should incorporate into the management plan strategies to mitigate risk,
+**    including considering offering naloxone when factors that increase risk for
+**    opioid overdose, such as history of overdose, history of substance use disorder,
+**    higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are
+**    present (recommendation category: A, evidence type: 4)
+**
+**  When
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating chronic pain.
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    Patient is not currently prescribed naloxone medications
+**    Factors that increase risk for opioid overdose are present:
+**      Concurrent benzodiazepine use
+**      High opioid dosages (MME/day >= 50)
+**      History of substance abuse
+**  Then
+**    Recommend offering naloxone medications
+**      Will offer naloxone medications
+**      Benefits outweigh risks, snooze 3 months
+**      N/A - see comment, snooze 3 months
 **
 */
 
-/*
-  Trigger context:
-  	Primary care/ambulatory care
-  Trigger event:
-    Prescription of opioid with ambulatory care abuse potential
-  Assumptions:
-    Count only ambulatory prescriptions
-  Inclusion criteria (OR):
-    Average MME >= 50
-    On benzodiazepine
-    History of alcohol abuse or drug abuse (in FHIR Condition, which means problem list at this point for many EHRs.  Univ. of Utah has created separate interfaces for pulling in past medical history and encounter diagnosis, but this will not be widely available)
-  Exclusion criterion:
-    On naloxone
-  Notification:
-    Consider offering naloxone given following risk factor(s) for opioid overdose: (average MME >= 50/day), (concurrent use of benzodiazepine), (history of alcohol or drug abuse).
-    Ref: CDC Recommendation #8.
-  Value sets:
-    Custom value set for relevant substance abuse (Rob will create)
-      This needs to include ICD9 and/or 10
-      For now, defining value sets as descendants of:
-        ICD10: F10-F19, Mental and behavioral disorders due to psychoactive substance use
-        ICD9: 304, Drug dependence and 303, Alcohol dependence syndrome
-
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-08.html
-*/
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-08
 
 parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
-define "Validate Trigger Event":
-  exists (
-    ( Common."Is Ambulatory Medication Request?"( ContextPrescriptions ) ) TriggerScript
-      where ChronicPain."Chronic Pain Prescription"( TriggerScript )
-  )
+define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
-    and not "Exclusion Criteria"
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
     and (
       "Total MME" >= 50 'mg/d'
         or "On Benzodiazepine"
@@ -62,11 +66,17 @@ define "Inclusion Criteria":
     )
 
 define "Exclusion Criteria":
-  "On Naloxone"
+  (
+    Config."Evidence of Naloxone Enabled"
+      and "On Naloxone"
+  )
     or Common."End of Life Assessment"
 
 define "Total MME":
-  Common.TotalMME(Common."Active Ambulatory Opioid Rx" union ContextPrescriptions)
+  Common.TotalMME(
+    "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
+      union Common."Active Ambulatory Opioid Rx"
+  )
 
 define "On Naloxone":
   exists( Common."Active Ambulatory Naloxone Rx" )
@@ -78,12 +88,12 @@ define "Has Substance Abuse History":
   exists ( [Condition: Common."Substance misuse behavioral counseling"] )
 
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present'
   else null
 
@@ -98,7 +108,7 @@ define "Detail List":
 	Combine("Detail Descriptions" dd where dd.hasCondition return dd.text, ', ')
 
 define "Get Detail":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then
       'Consider offering naloxone given following risk factor(s) for opioid overdose: '
         + if "Detail List" is not null and "Detail List" != ''
