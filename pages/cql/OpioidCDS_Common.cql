@@ -294,7 +294,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
   Orders O
     let
       // NOTE: Assuming medication is specified as a CodeableConcept with a single RxNorm code
-      rxNormCode: ToCode(O.medication.coding[0]),
+      rxNormCode: FHIRHelpers.ToCode(O.medication.coding[0]),
       medicationName: OMTKLogic.GetMedicationName(rxNormCode),
       // NOTE: Assuming a single dosage instruction element
       dosageInstruction: O.dosageInstruction[0],
@@ -307,10 +307,10 @@ define function Prescriptions(Orders List<MedicationRequest>):
         Coalesce(
           // There should be a conversion from FHIR.SimpleQuantity to System.Quantity
           if doseAndRate.dose is FHIR.Range
-            then ToString(ToQuantity(doseAndRate.dose.low))
-                          + '-' + ToString(ToQuantity(doseAndRate.dose.high))
-                          + doseAndRate.dose.high.unit.value
-            else ToString(ToQuantity(doseAndRate.dose)),
+            then ToString(FHIRHelpers.ToQuantity(doseAndRate.dose.low))
+                + '-' + ToString(FHIRHelpers.ToQuantity(doseAndRate.dose.high))
+                + doseAndRate.dose.high.unit.value
+            else ToString(FHIRHelpers.ToQuantity(doseAndRate.dose)),
             ''
         ),
       frequencyDescription:
@@ -330,10 +330,9 @@ define function Prescriptions(Orders List<MedicationRequest>):
         else
           // TODO: Shouldn't need the .value here on asNeededBoolean
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded.value then ' PRN' else ''),
-      // TODO: Shouldn't need the ToQuantity here...
       dose: if doseAndRate.dose is FHIR.Range
-            then ToQuantity(doseAndRate.dose.high)
-            else ToQuantity(doseAndRate.dose),
+            then doseAndRate.dose.high
+            else FHIRHelpers.ToQuantity(doseAndRate.dose),
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), 1.0)
     }
 
@@ -440,21 +439,10 @@ define function CodeableConceptToString(concept FHIR.CodeableConcept):
       & ']'
     & '}'
 
-define function ToCode(coding FHIR.Coding):
-  System.Code {
-    code: coding.code.value,
-    system: coding.system.value,
-    version: coding.version.value,
-    display: coding.display.value
-  }
-
 define function ToCodes(coding List<FHIR.Coding>):
-  coding c return ToCode(c)
+  coding c return FHIRHelpers.ToCode(c)
 
 define function ToRxNormCode(coding List<FHIR.Coding>):
   singleton from (
     coding C where C.system = 'http://www.nlm.nih.gov/research/umls/rxnorm'
   )
-
-define function ToQuantity(quantity FHIR.Quantity):
-  System.Quantity { value: quantity.value.value, unit: quantity.unit.value }
