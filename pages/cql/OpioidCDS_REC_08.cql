@@ -59,6 +59,7 @@ define "Is Recommendation Applicable?":
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
     and (
       "Total MME" >= 50 'mg/d'
         or "On Benzodiazepine"
