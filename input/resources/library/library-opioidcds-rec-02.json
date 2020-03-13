@@ -1,0 +1,459 @@
+{
+  "resourceType": "Library",
+  "id": "opioidcds-rec-02",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">opioidcds-rec-02</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://terminology.hl7.org/CodeSystem/library-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">0.1.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr>  <!-- <th:block th:each=\"cont, iter : ${resource.contributor}\"> -->  <!-- <tr style=\"vertical-align: top;\"> -->  <!-- <th th:if=\"${iter.index == 0}\" th:rowspan=\"${iter.size}\"  scope=\"row\"><b>Contributor: </b></th> -->  <!-- <td style=\"padding-left: 25px; padding-right: 25px;\"> -->  <!-- <b><span th:narrative=\"${cont.type.toCode()}\"></span>: </b><span th:narrative=\"${cont.name}\"></span> -->  <!-- </td> -->  <!-- </tr> -->  <!-- </th:block> --><tr style=\"vertical-align: top;\"><th rowspan=\"5\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/fhirhelpers</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/opioidcds-common</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/opioidcds-common-config</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/opioidcds-opioidreviewuseful</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/opioidcds-opioidnaive</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"50\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Procedure</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>ServiceRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Procedure</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>ServiceRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Procedure</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>ServiceRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-ambulatory-encounters</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>PractitionerRole</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>ServiceRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Condition</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Procedure</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>ServiceRequest</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationStatement</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationDispense</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>medication</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>CarePlan</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://todo.com/pain-management-treatment-plan-review</span></span></p></div></td></tr>  <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library OpioidCDS_REC_02 version '0.1.0'\n\nusing FHIR version '4.0.0'\n\ninclude FHIRHelpers version '4.0.0' called FHIRHelpers\ninclude OpioidCDS_Common version '0.1.0' called Common\ninclude OpioidCDS_Common_Config version '0.1.0' called Config\ninclude OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful\ninclude OpioidCDS_OpioidNaive version '0.1.0' called OpioidNaive\n\n/*\n**\n**  Recommendation #2\n**    Before starting opioid therapy for chronic pain, clinicians should establish\n**    treatment goals with all patients, including realistic goals for pain and\n**    function, and should consider how opioid therapy will be discontinued if\n**    benefits do not outweigh risks. Clinicians should continue opioid therapy\n**    only if there is clinically meaningful improvement in pain and function\n**    that outweighs risks to patient safety\n**    (recommendation category: A, evidence type: 4).\n**\n*/\n\n/*\n\n  Plan Definition:\n\thttp://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-02.html\n*/\n\n// Trigger Event Rx\nparameter ContextPrescriptions List&lt;MedicationRequest&gt;\n\ncontext Patient\n\n// within the past 90 days (including the day of the visit)\ndefine \"Treatment Plan Lookback Period\":\n  Interval[Now() - 89 days, Now()]\n\ndefine \"Trigger Event Prescriptions\":\n(Common.\"Is Ambulatory Medication Request?\"(ContextPrescriptions)) TriggerScript\n    where Common.GetDurationInDays(TriggerScript.dispenseRequest.expectedSupplyDuration) &gt;= 28\n\ndefine \"Validate Trigger Event\":\n  exists( \"Trigger Event Prescriptions\" )\n\ndefine \"Inclusion Criteria\":\n    \"Validate Trigger Event\"\n      and OpioidNaive.\"Is Opioid Naive\"\n      and OpioidReviewUseful.\"Opioid Review Would Be Useful\"\n      and \"No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?\"\n\ndefine \"No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?\":\n  Config.\"Opioid Treatment Plan Verification Enabled\"\n    and not (\n      exists (\"Opioid Treatment Plan Creation or Update in Past 90 Days\")\n        or \"Had Opioid Treatment Plan Reviewed in Past 90 Days\"\n    )\n\ndefine \"Opioid Treatment Plan Creation or Update in Past 90 Days\":\n  [CarePlan] CP\n    where exists (\n        CP.category Category\n          where FHIRHelpers.ToConcept(Category) ~ Common.\"Opioid treatment plan exists (a record artifact)\"\n      )\n      and CP.status in { 'active', 'completed' }\n      and (\n        FHIRHelpers.ToDateTime(CP.created) during day of \"Treatment Plan Lookback Period\" or\n          FHIRHelpers.ToDateTime(CP.meta.lastUpdated) during day of \"Treatment Plan Lookback Period\"\n      )\n      //and CP.author ~ \"Trigger Event Prescriptions\".recorder\n\ndefine \"Had Opioid Treatment Plan Reviewed in Past 90 Days\":\n  exists ([Observation: Common.\"Pain Management Treatment Plan Review\"] O\n      where (\n        FHIRHelpers.ToDateTime(O.issued) during day of \"Treatment Plan Lookback Period\"\n          or FHIRHelpers.ToDateTime(O.effective as dateTime) during day of \"Treatment Plan Lookback Period\"\n      )\n        //and O.performer ~ \"Trigger Event Prescriptions\".recorder\n  )\n\ndefine \"Get Indicator\":\n  if \"Inclusion Criteria\"\n    then 'warning'\n  else null\n\ndefine \"Get Summary\":\n  if \"Inclusion Criteria\"\n    then 'Recommend creation, review or update of opioid treatment plan'\n  else null\n\ndefine \"Get Detail\":\n  if \"Inclusion Criteria\"\n    then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames(\"Trigger Event Prescriptions\")), ', ')\n  else null\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
+  },
+  "version": "0.1.0",
+  "name": "OpioidCDS_REC_02",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": "Library/fhirhelpers"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/opioidcds-common"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/opioidcds-common-config"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/opioidcds-opioidreviewuseful"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/opioidcds-opioidnaive"
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum"
+        }
+      ]
+    },
+    {
+      "type": "Procedure",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "Observation",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding"
+        }
+      ]
+    },
+    {
+      "type": "Encounter"
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum"
+        }
+      ]
+    },
+    {
+      "type": "Procedure",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "Observation",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding"
+        }
+      ]
+    },
+    {
+      "type": "Encounter"
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum"
+        }
+      ]
+    },
+    {
+      "type": "Procedure",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "Observation",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding"
+        }
+      ]
+    },
+    {
+      "type": "Encounter"
+    },
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "type",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-ambulatory-encounters"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions-enum"
+        }
+      ]
+    },
+    {
+      "type": "PractitionerRole"
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care-enum"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum"
+        }
+      ]
+    },
+    {
+      "type": "Procedure",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+        }
+      ]
+    },
+    {
+      "type": "Observation",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding"
+        }
+      ]
+    },
+    {
+      "type": "Encounter"
+    },    
+    {
+      "type": "MedicationDispense",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "CarePlan"
+    },
+    {
+      "type": "Observation",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://todo.com/pain-management-treatment-plan-review"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "contentType": "application/elm+xml",
+      "data": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGxpYnJhcnkgeG1sbnM9InVybjpobDctb3JnOmVsbTpyMSIgeG1sbnM6dD0idXJuOmhsNy1vcmc6ZWxtLXR5cGVzOnIxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczp4c2Q9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiB4bWxuczpmaGlyPSJodHRwOi8vaGw3Lm9yZy9maGlyIiB4bWxuczpxZG00Mz0idXJuOmhlYWx0aGl0LWdvdjpxZG06djRfMyIgeG1sbnM6cWRtNTM9InVybjpoZWFsdGhpdC1nb3Y6cWRtOnY1XzMiIHhtbG5zOmE9InVybjpobDctb3JnOmNxbC1hbm5vdGF0aW9uczpyMSI+CiAgIDxpZGVudGlmaWVyIGlkPSJPcGlvaWRDRFNfUkVDXzAyIiB2ZXJzaW9uPSIwLjEuMCIvPgogICA8c2NoZW1hSWRlbnRpZmllciBpZD0idXJuOmhsNy1vcmc6ZWxtIiB2ZXJzaW9uPSJyMSIvPgogICA8dXNpbmdzPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iU3lzdGVtIiB1cmk9InVybjpobDctb3JnOmVsbS10eXBlczpyMSIvPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iRkhJUiIgdXJpPSJodHRwOi8vaGw3Lm9yZy9maGlyIiB2ZXJzaW9uPSI0LjAuMCIvPgogICA8L3VzaW5ncz4KICAgPGluY2x1ZGVzPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iRkhJUkhlbHBlcnMiIHBhdGg9IkZISVJIZWxwZXJzIiB2ZXJzaW9uPSI0LjAuMCIvPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iQ29tbW9uIiBwYXRoPSJPcGlvaWRDRFNfQ29tbW9uIiB2ZXJzaW9uPSIwLjEuMCIvPgogICAgICA8ZGVmIGxvY2FsSWRlbnRpZmllcj0iQ29uZmlnIiBwYXRoPSJPcGlvaWRDRFNfQ29tbW9uX0NvbmZpZyIgdmVyc2lvbj0iMC4xLjAiLz4KICAgICAgPGRlZiBsb2NhbElkZW50aWZpZXI9Ik9waW9pZFJldmlld1VzZWZ1bCIgcGF0aD0iT3Bpb2lkQ0RTX09waW9pZFJldmlld1VzZWZ1bCIgdmVyc2lvbj0iMC4xLjAiLz4KICAgICAgPGRlZiBsb2NhbElkZW50aWZpZXI9Ik9waW9pZE5haXZlIiBwYXRoPSJPcGlvaWRDRFNfT3Bpb2lkTmFpdmUiIHZlcnNpb249IjAuMS4wIi8+CiAgIDwvaW5jbHVkZXM+CiAgIDxwYXJhbWV0ZXJzPgogICAgICA8ZGVmIG5hbWU9IkNvbnRleHRQcmVzY3JpcHRpb25zIiBhY2Nlc3NMZXZlbD0iUHVibGljIj4KICAgICAgICAgPHBhcmFtZXRlclR5cGVTcGVjaWZpZXIgeHNpOnR5cGU9Ikxpc3RUeXBlU3BlY2lmaWVyIj4KICAgICAgICAgICAgPGVsZW1lbnRUeXBlIG5hbWU9ImZoaXI6TWVkaWNhdGlvblJlcXVlc3QiIHhzaTp0eXBlPSJOYW1lZFR5cGVTcGVjaWZpZXIiLz4KICAgICAgICAgPC9wYXJhbWV0ZXJUeXBlU3BlY2lmaWVyPgogICAgICA8L2RlZj4KICAgPC9wYXJhbWV0ZXJzPgogICA8c3RhdGVtZW50cz4KICAgICAgPGRlZiBuYW1lPSJQYXRpZW50IiBjb250ZXh0PSJQYXRpZW50Ij4KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9IlNpbmdsZXRvbkZyb20iPgogICAgICAgICAgICA8b3BlcmFuZCBkYXRhVHlwZT0iZmhpcjpQYXRpZW50IiB4c2k6dHlwZT0iUmV0cmlldmUiLz4KICAgICAgICAgPC9leHByZXNzaW9uPgogICAgICA8L2RlZj4KICAgICAgPGRlZiBuYW1lPSJUcmVhdG1lbnQgUGxhbiBMb29rYmFjayBQZXJpb2QiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8ZXhwcmVzc2lvbiBsb3dDbG9zZWQ9InRydWUiIGhpZ2hDbG9zZWQ9InRydWUiIHhzaTp0eXBlPSJJbnRlcnZhbCI+CiAgICAgICAgICAgIDxsb3cgeHNpOnR5cGU9IlN1YnRyYWN0Ij4KICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9Ik5vdyIvPgogICAgICAgICAgICAgICA8b3BlcmFuZCB2YWx1ZT0iODkiIHVuaXQ9ImRheXMiIHhzaTp0eXBlPSJRdWFudGl0eSIvPgogICAgICAgICAgICA8L2xvdz4KICAgICAgICAgICAgPGhpZ2ggeHNpOnR5cGU9Ik5vdyIvPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICAgICA8ZGVmIG5hbWU9IlRyaWdnZXIgRXZlbnQgUHJlc2NyaXB0aW9ucyIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJRdWVyeSI+CiAgICAgICAgICAgIDxzb3VyY2UgYWxpYXM9IlRyaWdnZXJTY3JpcHQiPgogICAgICAgICAgICAgICA8ZXhwcmVzc2lvbiBuYW1lPSJJcyBBbWJ1bGF0b3J5IE1lZGljYXRpb24gUmVxdWVzdD8iIGxpYnJhcnlOYW1lPSJDb21tb24iIHhzaTp0eXBlPSJGdW5jdGlvblJlZiI+CiAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IkNvbnRleHRQcmVzY3JpcHRpb25zIiB4c2k6dHlwZT0iUGFyYW1ldGVyUmVmIi8+CiAgICAgICAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgICAgICAgPC9zb3VyY2U+CiAgICAgICAgICAgIDx3aGVyZSB4c2k6dHlwZT0iR3JlYXRlck9yRXF1YWwiPgogICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJHZXREdXJhdGlvbkluRGF5cyIgbGlicmFyeU5hbWU9IkNvbW1vbiIgeHNpOnR5cGU9IkZ1bmN0aW9uUmVmIj4KICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgcGF0aD0iZXhwZWN0ZWRTdXBwbHlEdXJhdGlvbiIgeHNpOnR5cGU9IlByb3BlcnR5Ij4KICAgICAgICAgICAgICAgICAgICAgPHNvdXJjZSBwYXRoPSJkaXNwZW5zZVJlcXVlc3QiIHNjb3BlPSJUcmlnZ2VyU2NyaXB0IiB4c2k6dHlwZT0iUHJvcGVydHkiLz4KICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJUb0RlY2ltYWwiPgogICAgICAgICAgICAgICAgICA8b3BlcmFuZCB2YWx1ZVR5cGU9InQ6SW50ZWdlciIgdmFsdWU9IjI4IiB4c2k6dHlwZT0iTGl0ZXJhbCIvPgogICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgIDwvd2hlcmU+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iVmFsaWRhdGUgVHJpZ2dlciBFdmVudCIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJFeGlzdHMiPgogICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJUcmlnZ2VyIEV2ZW50IFByZXNjcmlwdGlvbnMiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iT3Bpb2lkIFRyZWF0bWVudCBQbGFuIENyZWF0aW9uIG9yIFVwZGF0ZSBpbiBQYXN0IDkwIERheXMiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iUXVlcnkiPgogICAgICAgICAgICA8c291cmNlIGFsaWFzPSJDUCI+CiAgICAgICAgICAgICAgIDxleHByZXNzaW9uIGRhdGFUeXBlPSJmaGlyOkNhcmVQbGFuIiB4c2k6dHlwZT0iUmV0cmlldmUiLz4KICAgICAgICAgICAgPC9zb3VyY2U+CiAgICAgICAgICAgIDx3aGVyZSB4c2k6dHlwZT0iQW5kIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9IkFuZCI+CiAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJFeGlzdHMiPgogICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iUXVlcnkiPgogICAgICAgICAgICAgICAgICAgICAgICA8c291cmNlIGFsaWFzPSJDYXRlZ29yeSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgIDxleHByZXNzaW9uIHBhdGg9ImNhdGVnb3J5IiBzY29wZT0iQ1AiIHhzaTp0eXBlPSJQcm9wZXJ0eSIvPgogICAgICAgICAgICAgICAgICAgICAgICA8L3NvdXJjZT4KICAgICAgICAgICAgICAgICAgICAgICAgPHdoZXJlIHhzaTp0eXBlPSJFcXVpdmFsZW50Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVG9Db25jZXB0IiBsaWJyYXJ5TmFtZT0iRkhJUkhlbHBlcnMiIHhzaTp0eXBlPSJGdW5jdGlvblJlZiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IkNhdGVnb3J5IiB4c2k6dHlwZT0iQWxpYXNSZWYiLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iVG9Db25jZXB0Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iT3Bpb2lkIHRyZWF0bWVudCBwbGFuIGV4aXN0cyAoYSByZWNvcmQgYXJ0aWZhY3QpIiBsaWJyYXJ5TmFtZT0iQ29tbW9uIiB4c2k6dHlwZT0iQ29kZVJlZiIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvd2hlcmU+CiAgICAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iSW4iPgogICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJUb1N0cmluZyIgbGlicmFyeU5hbWU9IkZISVJIZWxwZXJzIiB4c2k6dHlwZT0iRnVuY3Rpb25SZWYiPgogICAgICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBwYXRoPSJzdGF0dXMiIHNjb3BlPSJDUCIgeHNpOnR5cGU9IlByb3BlcnR5Ii8+CiAgICAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9Ikxpc3QiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZWxlbWVudCB2YWx1ZVR5cGU9InQ6U3RyaW5nIiB2YWx1ZT0iYWN0aXZlIiB4c2k6dHlwZT0iTGl0ZXJhbCIvPgogICAgICAgICAgICAgICAgICAgICAgICA8ZWxlbWVudCB2YWx1ZVR5cGU9InQ6U3RyaW5nIiB2YWx1ZT0iY29tcGxldGVkIiB4c2k6dHlwZT0iTGl0ZXJhbCIvPgogICAgICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iT3IiPgogICAgICAgICAgICAgICAgICA8b3BlcmFuZCBwcmVjaXNpb249IkRheSIgeHNpOnR5cGU9IkluIj4KICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVG9EYXRlVGltZSIgbGlicmFyeU5hbWU9IkZISVJIZWxwZXJzIiB4c2k6dHlwZT0iRnVuY3Rpb25SZWYiPgogICAgICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBwYXRoPSJjcmVhdGVkIiBzY29wZT0iQ1AiIHhzaTp0eXBlPSJQcm9wZXJ0eSIvPgogICAgICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IlRyZWF0bWVudCBQbGFuIExvb2tiYWNrIFBlcmlvZCIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICAgICA8b3BlcmFuZCBwcmVjaXNpb249IkRheSIgeHNpOnR5cGU9IkluIj4KICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVG9EYXRlVGltZSIgbGlicmFyeU5hbWU9IkZISVJIZWxwZXJzIiB4c2k6dHlwZT0iRnVuY3Rpb25SZWYiPgogICAgICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBwYXRoPSJsYXN0VXBkYXRlZCIgeHNpOnR5cGU9IlByb3BlcnR5Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgPHNvdXJjZSBwYXRoPSJtZXRhIiBzY29wZT0iQ1AiIHhzaTp0eXBlPSJQcm9wZXJ0eSIvPgogICAgICAgICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVHJlYXRtZW50IFBsYW4gTG9va2JhY2sgUGVyaW9kIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgPC93aGVyZT4KICAgICAgICAgPC9leHByZXNzaW9uPgogICAgICA8L2RlZj4KICAgICAgPGRlZiBuYW1lPSJIYWQgT3Bpb2lkIFRyZWF0bWVudCBQbGFuIFJldmlld2VkIGluIFBhc3QgOTAgRGF5cyIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJFeGlzdHMiPgogICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iUXVlcnkiPgogICAgICAgICAgICAgICA8c291cmNlIGFsaWFzPSJPIj4KICAgICAgICAgICAgICAgICAgPGV4cHJlc3Npb24gZGF0YVR5cGU9ImZoaXI6T2JzZXJ2YXRpb24iIGNvZGVQcm9wZXJ0eT0iY29kZSIgeHNpOnR5cGU9IlJldHJpZXZlIj4KICAgICAgICAgICAgICAgICAgICAgPGNvZGVzIG5hbWU9IlBhaW4gTWFuYWdlbWVudCBUcmVhdG1lbnQgUGxhbiBSZXZpZXciIGxpYnJhcnlOYW1lPSJDb21tb24iIHhzaTp0eXBlPSJWYWx1ZVNldFJlZiIvPgogICAgICAgICAgICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgICAgICAgICAgIDwvc291cmNlPgogICAgICAgICAgICAgICA8d2hlcmUgeHNpOnR5cGU9Ik9yIj4KICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgcHJlY2lzaW9uPSJEYXkiIHhzaTp0eXBlPSJJbiI+CiAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IlRvRGF0ZVRpbWUiIGxpYnJhcnlOYW1lPSJGSElSSGVscGVycyIgeHNpOnR5cGU9IkZ1bmN0aW9uUmVmIj4KICAgICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgcGF0aD0iaXNzdWVkIiBzY29wZT0iTyIgeHNpOnR5cGU9IlByb3BlcnR5Ii8+CiAgICAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iVHJlYXRtZW50IFBsYW4gTG9va2JhY2sgUGVyaW9kIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHByZWNpc2lvbj0iRGF5IiB4c2k6dHlwZT0iSW4iPgogICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJUb0RhdGVUaW1lIiBsaWJyYXJ5TmFtZT0iRkhJUkhlbHBlcnMiIHhzaTp0eXBlPSJGdW5jdGlvblJlZiI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHN0cmljdD0iZmFsc2UiIHhzaTp0eXBlPSJBcyI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIHBhdGg9ImVmZmVjdGl2ZSIgc2NvcGU9Ik8iIHhzaTp0eXBlPSJQcm9wZXJ0eSIvPgogICAgICAgICAgICAgICAgICAgICAgICAgICA8YXNUeXBlU3BlY2lmaWVyIG5hbWU9ImZoaXI6ZGF0ZVRpbWUiIHhzaTp0eXBlPSJOYW1lZFR5cGVTcGVjaWZpZXIiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IlRyZWF0bWVudCBQbGFuIExvb2tiYWNrIFBlcmlvZCIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICA8L3doZXJlPgogICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iTm8gT3Bpb2lkIFRyZWF0bWVudCBQbGFuIENyZWF0ZWQsIHdhcyBFZGl0ZWQgb3IgUmV2aWV3ZWQgaW4gUGFzdCA5MCBEYXlzPyIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJBbmQiPgogICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJPcGlvaWQgVHJlYXRtZW50IFBsYW4gVmVyaWZpY2F0aW9uIEVuYWJsZWQiIGxpYnJhcnlOYW1lPSJDb25maWciIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgIDxvcGVyYW5kIHhzaTp0eXBlPSJOb3QiPgogICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iT3IiPgogICAgICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iRXhpc3RzIj4KICAgICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iT3Bpb2lkIFRyZWF0bWVudCBQbGFuIENyZWF0aW9uIG9yIFVwZGF0ZSBpbiBQYXN0IDkwIERheXMiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgbmFtZT0iSGFkIE9waW9pZCBUcmVhdG1lbnQgUGxhbiBSZXZpZXdlZCBpbiBQYXN0IDkwIERheXMiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICAgICA8ZGVmIG5hbWU9IkluY2x1c2lvbiBDcml0ZXJpYSIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJBbmQiPgogICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iQW5kIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9IkFuZCI+CiAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IlZhbGlkYXRlIFRyaWdnZXIgRXZlbnQiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IklzIE9waW9pZCBOYWl2ZSIgbGlicmFyeU5hbWU9Ik9waW9pZE5haXZlIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9Ik9waW9pZCBSZXZpZXcgV291bGQgQmUgVXNlZnVsIiBsaWJyYXJ5TmFtZT0iT3Bpb2lkUmV2aWV3VXNlZnVsIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPgogICAgICAgICAgICA8L29wZXJhbmQ+CiAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9Ik5vIE9waW9pZCBUcmVhdG1lbnQgUGxhbiBDcmVhdGVkLCB3YXMgRWRpdGVkIG9yIFJldmlld2VkIGluIFBhc3QgOTAgRGF5cz8iIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iR2V0IEluZGljYXRvciIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+CiAgICAgICAgIDxleHByZXNzaW9uIHhzaTp0eXBlPSJJZiI+CiAgICAgICAgICAgIDxjb25kaXRpb24gYXNUeXBlPSJ0OkJvb2xlYW4iIHhzaTp0eXBlPSJBcyI+CiAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IkluY2x1c2lvbiBDcml0ZXJpYSIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgPC9jb25kaXRpb24+CiAgICAgICAgICAgIDx0aGVuIHZhbHVlVHlwZT0idDpTdHJpbmciIHZhbHVlPSJ3YXJuaW5nIiB4c2k6dHlwZT0iTGl0ZXJhbCIvPgogICAgICAgICAgICA8ZWxzZSBhc1R5cGU9InQ6U3RyaW5nIiB4c2k6dHlwZT0iQXMiPgogICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iTnVsbCIvPgogICAgICAgICAgICA8L2Vsc2U+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgICAgIDxkZWYgbmFtZT0iR2V0IFN1bW1hcnkiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iSWYiPgogICAgICAgICAgICA8Y29uZGl0aW9uIGFzVHlwZT0idDpCb29sZWFuIiB4c2k6dHlwZT0iQXMiPgogICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJJbmNsdXNpb24gQ3JpdGVyaWEiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgIDwvY29uZGl0aW9uPgogICAgICAgICAgICA8dGhlbiB2YWx1ZVR5cGU9InQ6U3RyaW5nIiB2YWx1ZT0iUmVjb21tZW5kIGNyZWF0aW9uLCByZXZpZXcgb3IgdXBkYXRlIG9mIG9waW9pZCB0cmVhdG1lbnQgcGxhbiIgeHNpOnR5cGU9IkxpdGVyYWwiLz4KICAgICAgICAgICAgPGVsc2UgYXNUeXBlPSJ0OlN0cmluZyIgeHNpOnR5cGU9IkFzIj4KICAgICAgICAgICAgICAgPG9wZXJhbmQgeHNpOnR5cGU9Ik51bGwiLz4KICAgICAgICAgICAgPC9lbHNlPgogICAgICAgICA8L2V4cHJlc3Npb24+CiAgICAgIDwvZGVmPgogICAgICA8ZGVmIG5hbWU9IkdldCBEZXRhaWwiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPgogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iSWYiPgogICAgICAgICAgICA8Y29uZGl0aW9uIGFzVHlwZT0idDpCb29sZWFuIiB4c2k6dHlwZT0iQXMiPgogICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJJbmNsdXNpb24gQ3JpdGVyaWEiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+CiAgICAgICAgICAgIDwvY29uZGl0aW9uPgogICAgICAgICAgICA8dGhlbiB4c2k6dHlwZT0iQ29uY2F0ZW5hdGUiPgogICAgICAgICAgICAgICA8b3BlcmFuZCB2YWx1ZVR5cGU9InQ6U3RyaW5nIiB2YWx1ZT0iTWVkaWNhdGlvbiByZXF1ZXN0cyhzKTogIiB4c2k6dHlwZT0iTGl0ZXJhbCIvPgogICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iQ29tYmluZSI+CiAgICAgICAgICAgICAgICAgIDxzb3VyY2UgeHNpOnR5cGU9IkZsYXR0ZW4iPgogICAgICAgICAgICAgICAgICAgICA8b3BlcmFuZCBuYW1lPSJHZXRNZWRpY2F0aW9uTmFtZXMiIGxpYnJhcnlOYW1lPSJDb21tb24iIHhzaTp0eXBlPSJGdW5jdGlvblJlZiI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxvcGVyYW5kIG5hbWU9IlRyaWdnZXIgRXZlbnQgUHJlc2NyaXB0aW9ucyIgeHNpOnR5cGU9IkV4cHJlc3Npb25SZWYiLz4KICAgICAgICAgICAgICAgICAgICAgPC9vcGVyYW5kPgogICAgICAgICAgICAgICAgICA8L3NvdXJjZT4KICAgICAgICAgICAgICAgICAgPHNlcGFyYXRvciB2YWx1ZVR5cGU9InQ6U3RyaW5nIiB2YWx1ZT0iLCAiIHhzaTp0eXBlPSJMaXRlcmFsIi8+CiAgICAgICAgICAgICAgIDwvb3BlcmFuZD4KICAgICAgICAgICAgPC90aGVuPgogICAgICAgICAgICA8ZWxzZSBhc1R5cGU9InQ6U3RyaW5nIiB4c2k6dHlwZT0iQXMiPgogICAgICAgICAgICAgICA8b3BlcmFuZCB4c2k6dHlwZT0iTnVsbCIvPgogICAgICAgICAgICA8L2Vsc2U+CiAgICAgICAgIDwvZXhwcmVzc2lvbj4KICAgICAgPC9kZWY+CiAgIDwvc3RhdGVtZW50cz4KPC9saWJyYXJ5Pgo="
+    },
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBPcGlvaWRDRFNfUkVDXzAyIHZlcnNpb24gJzAuMS4wJwoKdXNpbmcgRkhJUiB2ZXJzaW9uICc0LjAuMCcKCmluY2x1ZGUgRkhJUkhlbHBlcnMgdmVyc2lvbiAnNC4wLjAnIGNhbGxlZCBGSElSSGVscGVycwppbmNsdWRlIE9waW9pZENEU19Db21tb24gdmVyc2lvbiAnMC4xLjAnIGNhbGxlZCBDb21tb24KaW5jbHVkZSBPcGlvaWRDRFNfQ29tbW9uX0NvbmZpZyB2ZXJzaW9uICcwLjEuMCcgY2FsbGVkIENvbmZpZwppbmNsdWRlIE9waW9pZENEU19PcGlvaWRSZXZpZXdVc2VmdWwgdmVyc2lvbiAnMC4xLjAnIGNhbGxlZCBPcGlvaWRSZXZpZXdVc2VmdWwKaW5jbHVkZSBPcGlvaWRDRFNfT3Bpb2lkTmFpdmUgdmVyc2lvbiAnMC4xLjAnIGNhbGxlZCBPcGlvaWROYWl2ZQoKLyoKKioKKiogIFJlY29tbWVuZGF0aW9uICMyCioqICAgIEJlZm9yZSBzdGFydGluZyBvcGlvaWQgdGhlcmFweSBmb3IgY2hyb25pYyBwYWluLCBjbGluaWNpYW5zIHNob3VsZCBlc3RhYmxpc2gKKiogICAgdHJlYXRtZW50IGdvYWxzIHdpdGggYWxsIHBhdGllbnRzLCBpbmNsdWRpbmcgcmVhbGlzdGljIGdvYWxzIGZvciBwYWluIGFuZAoqKiAgICBmdW5jdGlvbiwgYW5kIHNob3VsZCBjb25zaWRlciBob3cgb3Bpb2lkIHRoZXJhcHkgd2lsbCBiZSBkaXNjb250aW51ZWQgaWYKKiogICAgYmVuZWZpdHMgZG8gbm90IG91dHdlaWdoIHJpc2tzLiBDbGluaWNpYW5zIHNob3VsZCBjb250aW51ZSBvcGlvaWQgdGhlcmFweQoqKiAgICBvbmx5IGlmIHRoZXJlIGlzIGNsaW5pY2FsbHkgbWVhbmluZ2Z1bCBpbXByb3ZlbWVudCBpbiBwYWluIGFuZCBmdW5jdGlvbgoqKiAgICB0aGF0IG91dHdlaWdocyByaXNrcyB0byBwYXRpZW50IHNhZmV0eQoqKiAgICAocmVjb21tZW5kYXRpb24gY2F0ZWdvcnk6IEEsIGV2aWRlbmNlIHR5cGU6IDQpLgoqKgoqLwoKLyoKCiAgUGxhbiBEZWZpbml0aW9uOgoJaHR0cDovL2J1aWxkLmZoaXIub3JnL2lnL2NxZnJhbWV3b3JrL29waW9pZC1jZHMtcjQvUGxhbkRlZmluaXRpb24tb3Bpb2lkY2RzLTAyLmh0bWwKKi8KCi8vIFRyaWdnZXIgRXZlbnQgUngKcGFyYW1ldGVyIENvbnRleHRQcmVzY3JpcHRpb25zIExpc3Q8TWVkaWNhdGlvblJlcXVlc3Q+Cgpjb250ZXh0IFBhdGllbnQKCi8vIHdpdGhpbiB0aGUgcGFzdCA5MCBkYXlzIChpbmNsdWRpbmcgdGhlIGRheSBvZiB0aGUgdmlzaXQpCmRlZmluZSAiVHJlYXRtZW50IFBsYW4gTG9va2JhY2sgUGVyaW9kIjoKICBJbnRlcnZhbFtOb3coKSAtIDg5IGRheXMsIE5vdygpXQoKZGVmaW5lICJUcmlnZ2VyIEV2ZW50IFByZXNjcmlwdGlvbnMiOgooQ29tbW9uLiJJcyBBbWJ1bGF0b3J5IE1lZGljYXRpb24gUmVxdWVzdD8iKENvbnRleHRQcmVzY3JpcHRpb25zKSkgVHJpZ2dlclNjcmlwdAogICAgd2hlcmUgQ29tbW9uLkdldER1cmF0aW9uSW5EYXlzKFRyaWdnZXJTY3JpcHQuZGlzcGVuc2VSZXF1ZXN0LmV4cGVjdGVkU3VwcGx5RHVyYXRpb24pID49IDI4CgpkZWZpbmUgIlZhbGlkYXRlIFRyaWdnZXIgRXZlbnQiOgogIGV4aXN0cyggIlRyaWdnZXIgRXZlbnQgUHJlc2NyaXB0aW9ucyIgKQoKZGVmaW5lICJJbmNsdXNpb24gQ3JpdGVyaWEiOgogICAgIlZhbGlkYXRlIFRyaWdnZXIgRXZlbnQiCiAgICAgIGFuZCBPcGlvaWROYWl2ZS4iSXMgT3Bpb2lkIE5haXZlIgogICAgICBhbmQgT3Bpb2lkUmV2aWV3VXNlZnVsLiJPcGlvaWQgUmV2aWV3IFdvdWxkIEJlIFVzZWZ1bCIKICAgICAgYW5kICJObyBPcGlvaWQgVHJlYXRtZW50IFBsYW4gQ3JlYXRlZCwgd2FzIEVkaXRlZCBvciBSZXZpZXdlZCBpbiBQYXN0IDkwIERheXM/IgoKZGVmaW5lICJObyBPcGlvaWQgVHJlYXRtZW50IFBsYW4gQ3JlYXRlZCwgd2FzIEVkaXRlZCBvciBSZXZpZXdlZCBpbiBQYXN0IDkwIERheXM/IjoKICBDb25maWcuIk9waW9pZCBUcmVhdG1lbnQgUGxhbiBWZXJpZmljYXRpb24gRW5hYmxlZCIKICAgIGFuZCBub3QgKAogICAgICBleGlzdHMgKCJPcGlvaWQgVHJlYXRtZW50IFBsYW4gQ3JlYXRpb24gb3IgVXBkYXRlIGluIFBhc3QgOTAgRGF5cyIpCiAgICAgICAgb3IgIkhhZCBPcGlvaWQgVHJlYXRtZW50IFBsYW4gUmV2aWV3ZWQgaW4gUGFzdCA5MCBEYXlzIgogICAgKQoKZGVmaW5lICJPcGlvaWQgVHJlYXRtZW50IFBsYW4gQ3JlYXRpb24gb3IgVXBkYXRlIGluIFBhc3QgOTAgRGF5cyI6CiAgW0NhcmVQbGFuXSBDUAogICAgd2hlcmUgZXhpc3RzICgKICAgICAgICBDUC5jYXRlZ29yeSBDYXRlZ29yeQogICAgICAgICAgd2hlcmUgRkhJUkhlbHBlcnMuVG9Db25jZXB0KENhdGVnb3J5KSB+IENvbW1vbi4iT3Bpb2lkIHRyZWF0bWVudCBwbGFuIGV4aXN0cyAoYSByZWNvcmQgYXJ0aWZhY3QpIgogICAgICApCiAgICAgIGFuZCBDUC5zdGF0dXMgaW4geyAnYWN0aXZlJywgJ2NvbXBsZXRlZCcgfQogICAgICBhbmQgKAogICAgICAgIEZISVJIZWxwZXJzLlRvRGF0ZVRpbWUoQ1AuY3JlYXRlZCkgZHVyaW5nIGRheSBvZiAiVHJlYXRtZW50IFBsYW4gTG9va2JhY2sgUGVyaW9kIiBvcgogICAgICAgICAgRkhJUkhlbHBlcnMuVG9EYXRlVGltZShDUC5tZXRhLmxhc3RVcGRhdGVkKSBkdXJpbmcgZGF5IG9mICJUcmVhdG1lbnQgUGxhbiBMb29rYmFjayBQZXJpb2QiCiAgICAgICkKICAgICAgLy9hbmQgQ1AuYXV0aG9yIH4gIlRyaWdnZXIgRXZlbnQgUHJlc2NyaXB0aW9ucyIucmVjb3JkZXIKCmRlZmluZSAiSGFkIE9waW9pZCBUcmVhdG1lbnQgUGxhbiBSZXZpZXdlZCBpbiBQYXN0IDkwIERheXMiOgogIGV4aXN0cyAoW09ic2VydmF0aW9uOiBDb21tb24uIlBhaW4gTWFuYWdlbWVudCBUcmVhdG1lbnQgUGxhbiBSZXZpZXciXSBPCiAgICAgIHdoZXJlICgKICAgICAgICBGSElSSGVscGVycy5Ub0RhdGVUaW1lKE8uaXNzdWVkKSBkdXJpbmcgZGF5IG9mICJUcmVhdG1lbnQgUGxhbiBMb29rYmFjayBQZXJpb2QiCiAgICAgICAgICBvciBGSElSSGVscGVycy5Ub0RhdGVUaW1lKE8uZWZmZWN0aXZlIGFzIGRhdGVUaW1lKSBkdXJpbmcgZGF5IG9mICJUcmVhdG1lbnQgUGxhbiBMb29rYmFjayBQZXJpb2QiCiAgICAgICkKICAgICAgICAvL2FuZCBPLnBlcmZvcm1lciB+ICJUcmlnZ2VyIEV2ZW50IFByZXNjcmlwdGlvbnMiLnJlY29yZGVyCiAgKQoKZGVmaW5lICJHZXQgSW5kaWNhdG9yIjoKICBpZiAiSW5jbHVzaW9uIENyaXRlcmlhIgogICAgdGhlbiAnd2FybmluZycKICBlbHNlIG51bGwKCmRlZmluZSAiR2V0IFN1bW1hcnkiOgogIGlmICJJbmNsdXNpb24gQ3JpdGVyaWEiCiAgICB0aGVuICdSZWNvbW1lbmQgY3JlYXRpb24sIHJldmlldyBvciB1cGRhdGUgb2Ygb3Bpb2lkIHRyZWF0bWVudCBwbGFuJwogIGVsc2UgbnVsbAoKZGVmaW5lICJHZXQgRGV0YWlsIjoKICBpZiAiSW5jbHVzaW9uIENyaXRlcmlhIgogICAgdGhlbiAnTWVkaWNhdGlvbiByZXF1ZXN0cyhzKTogJyArIENvbWJpbmUoZmxhdHRlbihDb21tb24uR2V0TWVkaWNhdGlvbk5hbWVzKCJUcmlnZ2VyIEV2ZW50IFByZXNjcmlwdGlvbnMiKSksICcsICcpCiAgZWxzZSBudWxsCg=="
+    }
+  ]
+}

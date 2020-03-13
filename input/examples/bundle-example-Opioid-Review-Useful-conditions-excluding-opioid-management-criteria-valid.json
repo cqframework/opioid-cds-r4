@@ -1,0 +1,74 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-09e36d34-fb22-4837-affa-85b60793ec94",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-09e36d34-fb22-4837-affa-85b60793ec94",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "09e36d34-fb22-4837-affa-85b60793ec94-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                },
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                                "language": "text/cql",
+                                "expression": "Today() - 20 years"
+                            }
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/09e36d34-fb22-4837-affa-85b60793ec94-1"
+            }
+        },
+        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Condition/MMI-09e36d34-fb22-4837-affa-85b60793ec94",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "09e36d34-fb22-4837-affa-85b60793ec94-5",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Condition"
+                    ]
+                },
+                "clinicalStatus": "active",
+                "verificationStatus": {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                                "code": "confirmed",
+                                "display": "Confirmed"
+                            }
+                        ]
+                    }
+                },
+                "subject": {
+                    "reference": "Patient/09e36d34-fb22-4837-affa-85b60793ec94-1"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                            "code": "C7B.00",
+                            "display": "Conditions Likely Terminal for Opioid Prescribing"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Condition/09e36d34-fb22-4837-affa-85b60793ec94-5"
+            }
+        }
+    ]
+}

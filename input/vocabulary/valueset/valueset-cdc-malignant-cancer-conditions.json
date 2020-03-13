@@ -1,0 +1,130 @@
+{
+  "resourceType": "ValueSet",
+  "id": "cdc-malignant-cancer-conditions",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail": {
+        "name": "MD Partners, Inc.",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "info@mdpartners.com"
+          }
+        ]
+      }
+    }
+  ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions",
+  "version": "0.2.0",
+  "name": "cdc_malignant_cancer_conditions",
+  "title": "CDC malignant cancer conditions",
+  "status": "active",
+  "experimental": true,
+  "date": "2019-09-11T13:28:56-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "description": "All neoplastic and malignant conditions, including Neoplasm related pain.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "Cancer conditions to be used as an exclusion for opioid management review",
+  "_purpose": {
+    "extension": [
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+        "valueString": "All neoplastic and malignant conditions, including Neoplasm related pain"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+        "valueString": "Condition"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+        "valueString": "All C and D codes and G893 Neoplasm related pain (acute) (chronic)"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+        "valueString": "All D50-D89 codes, D3A-D3A and descendants."
+      }
+    ]
+  },
+  "copyright": "© CDC 2016+.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "C00-C96"
+          }
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "D03"
+          }
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "D37-D48"
+          }
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "D49-D49"
+          }
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "G89.3"
+          }
+        ]
+      }
+    ],
+    "exclude": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "D3A-D3A"
+          }
+        ]
+      }
+    ]
+  }
+}

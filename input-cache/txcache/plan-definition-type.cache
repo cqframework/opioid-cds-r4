@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/plan-definition-type",
+  "code" : "order-set"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://hl7.org/fhir/plan-definition-type\" is not known (encountered paired with code = \"order-set\"); The code provided (http://hl7.org/fhir/plan-definition-type#order-set) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

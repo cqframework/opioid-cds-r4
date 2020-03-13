@@ -1,0 +1,94 @@
+{
+  "resourceType": "ValueSet",
+  "id": "substance-misuse-behavioral-counseling-enum",
+  "meta": {
+    "profile": [
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-enumerated-compose"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
+      "valueString": "This value set is created solely to support early FHIR HAPI server requirements to have all members of a value set in the compose. Because of this, the member list is a point in time snapshot of the content. The value set resource with the compose element to be used in up-to-date systems is identified in the athoritativeSource extension."
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource",
+      "valueUri": "http://fhir.org/guides/cdc/opioid-cds/substance-misuse-behavioral-counseling"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail": {
+        "name": "MD Partners, Inc.",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "info@mdpartners.com"
+          }
+        ]
+      }
+    }
+  ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling-enum",
+  "version": "0.2.0",
+  "name": "substance_misuse_behavioral_counseling",
+  "title": "substance misuse behavioral counseling",
+  "status": "active",
+  "experimental": true,
+  "date": "2019-09-11T13:28:57-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "description": "Counseling procedures for substance misuse",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "Counseling procedures for substance misuse that may be used for opioid management",
+  "_purpose": {
+    "extension": [
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+        "valueString": "Counseling procedures for substance misuse"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+        "valueString": "Procedure"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+        "valueString": "Counseling procedures for substance misuse"
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+        "valueString": "none"
+      }
+    ]
+  },
+  "copyright": "© CDC 2016+.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108",
+        "concept": [
+          {
+            "code": "313071005",
+            "display": "Counseling for substance abuse (procedure)"
+          },
+          {
+            "code": "424407005",
+            "display": "Substance use cessation education, guidance, and counseling (procedure)"
+          },
+          {
+            "code": "60112009",
+            "display": "Drug addiction counseling (procedure)"
+          }
+        ]
+      }
+    ]
+  }
+}
