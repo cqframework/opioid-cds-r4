@@ -1,0 +1,64 @@
+{
+  "resourceType": "ValueSet",
+  "id": "pdmp-data-reviewed-finding",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail": {
+        "name": "MD Partners, Inc.",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "info@mdpartners.com"
+          }
+        ]
+      }
+    }
+  ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding",
+  "version": "0.2.0",
+  "name": "pdmp_data_reviewed_finding",
+  "title": "PDMP data reviewed finding",
+  "status": "active",
+  "experimental": true,
+  "date": "2019-09-11T13:28:57-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "description": "",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "",
+  "_purpose": {
+    "extension": [
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+        "valueString": ""
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+        "valueString": ""
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+        "valueString": ""
+      },
+      {
+        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+        "valueString": ""
+      }
+    ]
+  },
+  "copyright": "© CDC 2016+."
+}

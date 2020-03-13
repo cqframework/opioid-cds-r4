@@ -122,45 +122,44 @@
             <kind value="applicability"/>
             <expression>
                 <description value="Check whether the existing patient, without an end of life condition or risk assessment in the past 90 days, has taken an opioid-with-abuse-potential for 7 of the past 10 days or 63 of the past 90 days."/>
-                <language value="text/cql"/>
-                <expression value="Inclusion Criteria"/>
+                <language value="text/cql.name"/>
+                <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
         <!-- reference to risk assessment activity definition -->
             <definitionCanonical value="ActivityDefinition/opioidcds-risk-assessment-request"/>
-        <!-- dynamic card elements -->
         <dynamicValue>
 			<path value="action.title"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Summary"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="action.description"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Detail"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="activity.extension"/>
 			<expression>
-                <language value="text/cql"/>
+        <language value="text/cql.name"/>
 				<expression value="Get Indicator"/>
 			</expression>
 		</dynamicValue>
         <action>
-            <description value="Will schedule assessment of risk for opioid use for the patient"/>
+            <description value="Will schedule opioid misuse assessment"/>
             <!-- Open Order Set, where available -->
         </action>
         <action>
-            <description value="Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo"/>
+            <description value="Benefits outweigh risks, snooze 3 months"/>
         </action>
         <action>
-            <description value="N/A - see comment; snooze 3 mo"/>
+            <description value="N/A - see comment, snooze 3 months"/>
         </action>
     </action>
 </PlanDefinition>

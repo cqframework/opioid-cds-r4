@@ -4,44 +4,38 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
 **  Recommendation #7
-**    Evaluate benefits and harms with patients within 1 to 4 weeks of starting opioid therapy...
-**    evaluate benefits and harms of continued therapy with patients every 3 months or more frequently
+**    Clinicians should evaluate benefits and harms with patients within 1 to 4
+**    weeks of starting opioid therapy for chronic pain or of dose escalation.
+**    Clinicians should evaluate benefits and harms of continued therapy with
+**    patients every 3 months or more frequently. If benefits do not outweigh
+**    harms of continued opioid therapy, clinicians should optimize other
+**    therapies and work with patients to taper opioids to lower dosages or to
+**    taper and discontinue opioids (recommendation category: A, evidence type: 4)
+**
+**  When
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating chronic pain.
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    Patient has not undergone an opioid misuse assessment procedure in the last 90 days
+**  Then
+**    Recommend performing opioid misuse assessment
+**      Will schedule opioid misuse assessment
+**      Benefits outweigh risks, snooze 3 months
+**      N/A - see comment, snooze 3 months
 **
 */
 
-/*
-  Trigger context:
-    Primary care/ambulatory care
-  Trigger event:
-    Prescription of opioid with ambulatory care abuse potential
-  Assumptions:
-    Count only ambulatory prescriptions
-  Inclusion criteria:
-    (Opioid Rx for at least 7 of the past 10 days AND at least 1 encounter in past 12 months [excluding today])
-      OR (Opioid Rx for at least 21 of 30 days for each of the past 3 months)
-    No assessment of risk for opioid use (see below) within past 90 days (noted as Procedure)
-  Exclusion criteria (optional):
-    Meds indicating end of life
-    Conditions indicating end of life
-  Notification:
-    Patients on opioid therapy should be evaluated for benefits and harms
-    within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently.
-    Ref: CDC Recommendation #7.
-  Value sets:
-    Assessment of risk for opioid abuse:
-      Assessment of risk for opioid abuse (procedure) SCTID: 454281000124100
-      High risk drug monitoring (regime/therapy): SCTID: 268525008
-  EHR expectations:
-    If not able to document/retrieve above procedure,
-    then use EHR snoozing functionality to allow "Have assessed/will assess. Snooze 3 months."
-
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-07.html
-*/
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-07
 
 parameter ContextPrescriptions List<MedicationRequest>
 
@@ -50,53 +44,60 @@ context Patient
 define "Risk Assessment Interval":
   Interval[Today() - 91 days, Today() - 1 day]
 
+define "Previous 10 Days Interval":
+  Interval[Today() - 10 days, Today()]
+
 define "Encounter Interval":
   Interval[Today() - 12 months - 1 days, Today() - 1 day]
 
-define "Validate Trigger Event":
-  exists(
-    ContextPrescriptions triggerScript
-      where triggerScript.medication in Common."Opioids With Ambulatory Misuse Potential"
-  )
+define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Inclusion Criteria":
-  AgeInYears() >= 18
-    and "Validate Trigger Event"
-    and not "Exclusion Criteria"
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
     and not exists ( "Opioid Risk Assessment in Past 90 Days" )
-    and ( "Rx Active 7 of Past 10 Days With Encounter" or "Rx Active 63 of Past 90 Days" )
+    and (
+      "Prescribed Opioids for 7 of Past 10 Days with an Encounter"
+        or Routines."Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
+    )
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
 
 define "Opioid Risk Assessment in Past 90 Days":
-  [Procedure: Common."Risk Assessment"] riskAssessment
-    where date from riskAssessment.performed."start".value in day of "Risk Assessment Interval"
+  [Procedure: Common."Opioid misuse assessment procedure"] riskAssessment
+    where start of (riskAssessment.performed as FHIR.Period) in day of "Risk Assessment Interval"
 
-define "Rx Active 7 of Past 10 Days With Encounter":
-  AnyTrue(Common.ProbableDaysInRange(Common."Active Ambulatory Opioid Rx", 10, 7))
-    and exists(
-      [Encounter] E
-        where date from E.period."start".value in day of "Encounter Interval"
+define "Prescribed Opioids for 7 of Past 10 Days with an Encounter":
+  Routines."Days on Opioids during Period"( "Previous 10 Days Interval" ) >= 7
+    and exists (
+      [Encounter: Common."Office Visit"] AmbulatoryEncounter
+        where AmbulatoryEncounter.period during "Encounter Interval"
     )
 
-define "Rx Active 63 of Past 90 Days":
-  AnyTrue(Common.ProbableDaysInRange(Common."Active Ambulatory Opioid Rx", 90, 63))
-
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently.'
   else null
 
 define "Get Detail":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then
-      if "Rx Active 63 of Past 90 Days"
+      if Routines."Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
         then 'No evaluation for benefits and harms associated with opioid therapy has been performed for the patient in the past 3 months'
       else 'No evaluation for benefits and harms has been performed for the patient starting opioid therapy'
   else null

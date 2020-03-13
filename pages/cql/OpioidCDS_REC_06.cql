@@ -5,7 +5,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OpioidCDS_Common version '0.1.0' called Common
 include OpioidCDS_Common_Config version '0.1.0' called Config
-include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
+include OpioidCDS_Routines version '0.1.0' called Routines
 
 /*
 **
@@ -17,60 +17,67 @@ include OpioidCDS_OpioidReviewUseful version '0.1.0' called OpioidReviewUseful
 **    opioids. Three days or less will often be sufficient; more than seven days
 **    will rarely be needed (recommendation category: A, evidence type: 4).
 **
+**  When
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**    Prescription is for treating acute pain.
+**    Prescription is for more than 7 days or for an extended release opioid
+**  Then
+**    Recommend limiting therapy to no more than 3 days with an absolute maximum of 7 days and limit to immediate release opioids. Potential actions include:
+**      Change order to ≤ 7 days
+**      Document reason for not limiting therapy; snooze 3 months
+**      N/A - see comment; snooze 3 months
+**
 */
 
-/*
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-06
 
-  Plan Definition:
-	http://build.fhir.org/ig/cqframework/opioid-cds-r4/PlanDefinition-opioidcds-06.html
-*/
-
-// Trigger Event Rx
 parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
-define "Trigger Event Prescriptions":
-  Common."Is Ambulatory Medication Request?"(ContextPrescriptions)
+define "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+    where Routines."Is Acute Pain Prescription?"( AmbulatoryOpioidPrescription )
 
-define "Order is to Treat Acute Pain":
-  Config."Order is to Treat Acute Pain Enabled"
-    and exists (
-      "Trigger Event Prescriptions" TriggerScripts
-        where Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) < 28
-    )
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain":
+  exists( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Order is for Long-Acting Opioid":
-  exists (
-    "Trigger Event Prescriptions" TriggerScripts
-      where TriggerScripts.medication in Common."Extended Release Opioid with Ambulatory Abuse Potential"
-        or Common.GetDurationInDays(TriggerScripts.dispenseRequest.expectedSupplyDuration) > 7
-  )
-
-define "Validate Trigger Event":
-  exists ("Trigger Event Prescriptions")
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Inclusion Criteria":
-  "Validate Trigger Event"
-    and OpioidReviewUseful."Opioid Review Would Be Useful"
-    and "Order is to Treat Acute Pain"
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain"
+    and Routines."Is Opioid Review Useful?"
     and "Order is for Long-Acting Opioid"
-    and not ("Exclusion Criteria")
 
 define "Exclusion Criteria":
   false
 
+define "Order is for Long-Acting Opioid":
+  exists (
+    "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" AmbulatoryOpioidPrescription
+      where AmbulatoryOpioidPrescription.medication in Common."Extended release opioid analgesics with ambulatory misuse potential"
+        or Common.GetDurationInDays( AmbulatoryOpioidPrescription.dispenseRequest.expectedSupplyDuration ) > 7
+  )
+
 define "Get Indicator":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'warning'
   else null
 
 define "Get Summary":
-  if "Inclusion Criteria"
+  if "Is Recommendation Applicable?"
     then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids'
   else null
 
   define "Get Detail":
-    if "Inclusion Criteria"
-      then 'Medication requests(s): ' + Combine(flatten(Common.GetMedicationNames("Trigger Event Prescriptions")), ', ')
+    if "Is Recommendation Applicable?"
+      then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
     else null

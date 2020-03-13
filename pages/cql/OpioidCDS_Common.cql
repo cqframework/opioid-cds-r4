@@ -11,57 +11,38 @@ codesystem "Medication Request Category Codes": 'http://terminology.hl7.org/Code
 codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 
 // Expression-based
-valueset "Opioids With Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-with-ambulatory-misuse-potential'
-valueset "Extended Release Opioid with Ambulatory Abuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential'
-valueset "Buprenorphine and Methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
+valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
+valueset "Extended release opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioids-with-ambulatory-misuse-potential'
+valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
 
 // Enumerated-compose
-valueset "Limited Life Expectancy (findings)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum'
-valueset "Therapies Indicating End of Life Care": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care-enum'
-valueset "Conditions Likely Terminal for Opioid Prescribing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum'
-valueset "CDC Malignant Cancer Conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions-enum'
-valueset "Oncology Specialty Designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations-enum'
-valueset "Opioid Misuse Disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders-enum'
-valueset "Substance Misuse Behavioral Counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling-enum'
-// Harvested from VSAV - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
-valueset "All Ambulatory Encounters": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-ambulatory-encounters'
+valueset "Limited life expectancy conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions-enum'
+valueset "Therapies indicating end of life care": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care-enum'
+valueset "Conditions likely terminal for opioid prescribing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing-enum'
+valueset "CDC malignant cancer conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions-enum'
+valueset "Oncology specialty designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations-enum'
+valueset "Opioid misuse disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders-enum'
+valueset "Substance misuse behavioral counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling-enum'
+// Harvested from VSAC - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
+// Reviewed with Terminology, 2020-02-05 - Value set name in VSAC is "Office Visit", need to verify suitability
+valueset "Office Visit": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit'
+valueset "Opioid counseling procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure'
 
 /* Existing sets for first six recs */
-valueset "Benzodiazepines": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepines'
-valueset "Illicit Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/illicit-drug-urine-screening'
-valueset "Naloxone": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone'
-valueset "Risk Assessment": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-abuse-assessment'
-valueset "Opioid Drug Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-screening'
-valueset "Substance Abuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-abuse'
-// Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
-valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition'
+valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
+valueset "Non-opioid illicit drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-illicit-drug-urine-screening'
+valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
+valueset "Opioid misuse assessment procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
+valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
+valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
 valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
 
-// Recommendation #2
-// See the latest notes in the Definitions table for Rec 2 - needs to be specific Direct Reference Codes:
-//  Creation: Opioid treatment plan: LOINC 80764-4 Pain medicine plan of care note
-//  Edit/Review: Treatment Plan Edited or Reviewed: SNOMED Chronic pain control management (procedure) 408957008
-valueset "Pain Management Treatment Plan Review": 'http://todo.com/pain-management-treatment-plan-review'
+valueset "Pain treatment plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan'
+valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure'
+valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
+valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
 
-/*
-Opioid treatment plan exists (a record artifact)	 #2      80764-4 Pain medicine Plan of care note
-Opioid treatment plan edited (a procedure)	         #2      Chronic pain control management (procedure) SCTID: 408957008
-Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)	#2 Chronic pain control management (procedure) SCTID: 408957008
-Documented discussion of opioid harms and risks	     #3      Counseling about opioid safety (procedure) 460831000124102
-Documented discussion of opioid harms and risks	     #3      Exclusion for rec #3 - Counseling about opioid safety not done (situation) SCTID: 460841000124107
-Review PDMP data procedure	#9   Review of prescription drug monitoring program record (procedure) SCTID: 461621000124108
-PDMP data review done Situation (the finding/situation is documented)	#9    Review of prescription drug monitoring program record done (situation) SCTID: 461651000124104
-*/
-code "Opioid treatment plan exists (a record artifact)": '80764-4' from "LOINC" //Pain medicine Plan of care note
-code "Opioid treatment plan edited (a procedure)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008
-code "Opioid treatment plan reviewed (a procedure if to be an order, a finding if identifying it has occurred)": '408957008' from "SNOMED" //Chronic pain control management (procedure) SCTID: 408957008
-code "Documented discussion of opioid harms and risks": '460831000124102' from "SNOMED" //Counseling about opioid safety (procedure)
-code "Documented discussion of opioid harms and risks not done": '460841000124107' from "SNOMED" //Counseling about opioid safety not done (situation)
-code "Review PDMP data procedure": '461621000124108' from "SNOMED" //Review of prescription drug monitoring program record (procedure)
-code "PDMP data review done Situation (the finding/situation is documented)": '461651000124104' from "SNOMED" //Review of prescription drug monitoring program record done (situation)
-
-code "Referral to Hospice": '306205009' from "SNOMED"
 code "Outpatient": 'outpatient' from "Medication Request Category Codes"
 code "Active Condition": 'active' from "Condition Clinical Status Codes"
 
@@ -72,13 +53,13 @@ define IsForChronicPain: true
 
 define "Active Ambulatory Opioid Rx":
   (
-    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Opioids With Ambulatory Misuse Potential"])
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Opioid analgesics with ambulatory misuse potential"])
   )
     union
     (
         ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
           let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
-          where Med.code in "Opioids With Ambulatory Misuse Potential"
+          where Med.code in "Opioid analgesics with ambulatory misuse potential"
           return
             MedicationRequest {
               id: Rx.id,
@@ -96,13 +77,13 @@ define "Active Ambulatory Opioid Rx":
 
 define "Active Ambulatory Benzodiazepine Rx":
   (
-    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Benzodiazepines"])
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Benzodiazepine medications"])
   )
     union
     (
         ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
           let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
-          where Med.code in "Benzodiazepines"
+          where Med.code in "Benzodiazepine medications"
           return
             MedicationRequest {
               id: Rx.id,
@@ -119,13 +100,13 @@ define "Active Ambulatory Benzodiazepine Rx":
 
 define "Active Ambulatory Naloxone Rx":
   (
-    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Naloxone"])
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Naloxone medications"])
   )
     union
     (
         ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
           let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
-          where Med.code in "Naloxone"
+          where Med.code in "Naloxone medications"
           return
             MedicationRequest {
               id: Rx.id,
@@ -142,13 +123,13 @@ define "Active Ambulatory Naloxone Rx":
 
 define "Ambulatory Opioid Rx":
   (
-    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Opioids With Ambulatory Misuse Potential"])
+    "Get Active Ambulatory Medication Requests"([MedicationRequest: "Opioid analgesics with ambulatory misuse potential"])
   )
     union
     (
         ("Get Active Ambulatory Medication Requests"([MedicationRequest])) Rx
           let Med: [Medication: id in (Last(Split(Rx.medication.reference, '/')))]
-          where Med.code in "Opioids With Ambulatory Misuse Potential"
+          where Med.code in "Opioid analgesics with ambulatory misuse potential"
           return
             MedicationRequest {
               id: Rx.id,
@@ -178,6 +159,52 @@ define function "Is Ambulatory Medication Request?" (value List<MedicationReques
           where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
       )
 
+define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
+  value Rx
+    let MedRef: if (Rx.medication is FHIR.Reference) then Rx.medication.reference else null,
+      Med: if MedRef is null then Rx.medication.coding else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code.coding)
+    where Med.code in "Opioid analgesics with ambulatory misuse potential"
+      and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+      )
+    return
+          MedicationRequest {
+            id: Rx.id,
+            status: Rx.status,
+            intent: Rx.intent,
+            category: Rx.category,
+            medication: FHIR.CodeableConcept{ coding: Med },
+            subject: Rx.subject,
+            authoredOn: Rx.authoredOn,
+            recorder: Rx.recorder,
+            dosageInstruction: Rx.dosageInstruction,
+            dispenseRequest: Rx.dispenseRequest
+          }
+
+define function "Is Benzodiazepine?"(value List<MedicationRequest>):
+  value Rx
+    let MedRef: if (Rx.medication is FHIR.Reference) then Rx.medication.reference else null,
+      Med: if MedRef is null then Rx.medication.coding else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code.coding)
+    where Med.code in "Benzodiazepine medications"
+      and exists (
+        Rx.category RxCategory
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+      )
+    return
+          MedicationRequest {
+            id: Rx.id,
+            status: Rx.status,
+            intent: Rx.intent,
+            category: Rx.category,
+            medication: FHIR.CodeableConcept{ coding: Med },
+            subject: Rx.subject,
+            authoredOn: Rx.authoredOn,
+            recorder: Rx.recorder,
+            dosageInstruction: Rx.dosageInstruction,
+            dispenseRequest: Rx.dispenseRequest
+          }
+
 define "End of Life Assessment":
     // 1. Conditions indicating end of life or with limited life expectancy
     exists (
@@ -194,7 +221,7 @@ define "End of Life Assessment":
 
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
-    [Condition: "Conditions Likely Terminal for Opioid Prescribing"] C
+    [Condition: "Conditions likely terminal for opioid prescribing"] C
       where exists (
         C.clinicalStatus.coding Coding
           where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
@@ -202,7 +229,7 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
   )
   union
   (
-    [Condition: code in "Limited Life Expectancy (findings)"] C
+    [Condition: code in "Limited life expectancy conditions"] C
       where exists (
         C.clinicalStatus.coding Coding
           where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
@@ -237,7 +264,9 @@ define "Admitted/Referred/Discharged to Hospice Care":
         and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
   )
 
-/* define "Medications Indicating End of Life":
+/*
+
+define "Medications Indicating End of Life":
   (
     [MedicationAdministration: "End Of Life Opioids"] MA
       where MA.status.value in { 'in-progress', 'on-hold', 'completed' }
@@ -256,7 +285,9 @@ define "Admitted/Referred/Discharged to Hospice Care":
   (
     [MedicationStatement: "End Of Life Opioids"] MS
       where MS.status.value in { 'active', 'completed', 'intended' }
-  ) */
+  )
+
+*/
 
 
 define function Prescriptions(Orders List<MedicationRequest>):

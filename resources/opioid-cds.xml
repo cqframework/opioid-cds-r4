@@ -1198,7 +1198,7 @@
 
         <resource>
             <reference>
-                <reference value="ValueSet/benzodiazepines"/>
+                <reference value="ValueSet/benzodiazepine-medications"/>
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Benzodiazepine Medication"/>
             <description value="Benzodiazepine medication codes"/>
@@ -1238,9 +1238,9 @@
         </resource>
         <resource>
             <reference>
-                <reference value="ValueSet/extended-release-opioid-with-ambulatory-abuse-potential"/>
+                <reference value="ValueSet/extended-release-opioids-with-ambulatory-misuse-potential"/>
             </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Extended Release Opioid with Ambulatory Abuse Potential"/>
+            <name value="ValueSet - CDC Opioid Prescribing Guidelines Extended Release Opioid with Ambulatory Misuse Potential"/>
             <description value="Extended Release Opioid with Ambulatory Abuse Potential codes"/>
             <exampleBoolean value="true"/>
         </resource>
@@ -1262,7 +1262,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="ValueSet/illicit-drug-urine-screening"/>
+                <reference value="ValueSet/non-opioid-illicit-drug-urine-screening"/>
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Illicit Drugs Urine Screening"/>
             <description value="Urine analysis for illicit drugs"/>
@@ -1276,25 +1276,9 @@
             <description value="Limited life expectancy condition codes"/>
             <exampleBoolean value="true"/>
         </resource>
-        <!-- <resource>
-            <reference>
-                <reference value="ValueSet/long-acting-opioids"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Long Acting Opioid Medication"/>
-            <description value="Long acting opioid medication codes"/>
-            <exampleBoolean value="true"/>
-        </resource> -->
         <resource>
             <reference>
-                <reference value="ValueSet/metastatic-cancer"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Metastatic Cancer"/>
-            <description value="Metastatic cancer codes"/>
-            <exampleBoolean value="true"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/naloxone"/>
+                <reference value="ValueSet/naloxone-medications"/>
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Naloxone Medication"/>
             <description value="Naloxone medication codes"/>
@@ -1310,7 +1294,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="ValueSet/opioid-abuse-assessment"/>
+                <reference value="ValueSet/opioid-misuse-assessment-procedure"/>
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid Abuse Assessment"/>
             <description value="Opiate therapy risk assessment codes"/>
@@ -1334,7 +1318,7 @@
         </resource>
         <resource>
             <reference>
-                <reference value="ValueSet/opioid-with-ambulatory-misuse-potential"/>
+                <reference value="ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"/>
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid with Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics"/>
             <description value="Opioid with Ambulatory Misuse Potential Excluding Antitussives and Antispasmodics codes"/>
@@ -1346,38 +1330,6 @@
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Indicator"/>
             <description value="Indicates urgency/importance of the action"/>
-            <exampleBoolean value="true"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/opioids-abused-in-ambulatory-care"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioids Abused in Ambulatory Care Medication"/>
-            <description value="Opioids abused in ambulatory care medication codes"/>
-            <exampleBoolean value="true"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/opioids"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Opioid Medication"/>
-            <description value="Opioid medication codes"/>
-            <exampleBoolean value="true"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/short-acting-opioids"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Short Acting Opioids Medication"/>
-            <description value="Short acting opioids medication codes"/>
-            <exampleBoolean value="true"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ValueSet/substance-abuse"/>
-            </reference>
-            <name value="ValueSet - CDC Opioid Prescribing Guidelines Substance Abuse"/>
-            <description value="Substance abuse codes"/>
             <exampleBoolean value="true"/>
         </resource>
         <resource>
@@ -1394,6 +1346,48 @@
             </reference>
             <name value="ValueSet - CDC Opioid Prescribing Guidelines Therapies Indicating End Of Life Care"/>
             <description value="Therapies Indicating End of Life Care codes"/>
+            <exampleBoolean value="true"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/conditions-documenting-substance-misuse"/>
+            </reference>
+            <exampleBoolean value="true"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/office-visit"/>
+            </reference>
+            <exampleBoolean value="true"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/opioid-counseling-procedure"/>
+            </reference>
+            <exampleBoolean value="true"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/pain-treatment-plan"/>
+            </reference>
+            <exampleBoolean value="true"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/pain-management-procedure"/>
+            </reference>
+            <exampleBoolean value="true"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/pdmp-review-procedure"/>
+            </reference>
+            <exampleBoolean value="true"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ValueSet/pdmp-data-reviewed-finding"/>
+            </reference>
             <exampleBoolean value="true"/>
         </resource>
 

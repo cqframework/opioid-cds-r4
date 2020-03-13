@@ -1,5 +1,8 @@
 library OpioidCDS_Common_Config version '0.1.0'
 
+define "Chronically on Opioids Enabled":
+  true
+
 // Opioid Review Useful
 define "Age Less than 18 Years Is Enabled":
   true
@@ -34,6 +37,10 @@ define "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled":
 
 // Recommendation 6
 define "Order is to Treat Acute Pain Enabled":
+  true
+
+// Recommendation 8
+define "Evidence of Naloxone Enabled":
   true
 
 // Recommendation 9

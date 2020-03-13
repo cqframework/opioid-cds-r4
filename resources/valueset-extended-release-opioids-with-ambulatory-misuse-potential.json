@@ -1,6 +1,6 @@
 {
   "resourceType": "ValueSet",
-  "id": "extended-release-opioid-with-ambulatory-abuse-potential",
+  "id": "extended-release-opioids-with-ambulatory-misuse-potential",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-expressionbasedvalueset"
@@ -28,10 +28,10 @@
       }
     }
   ],
-  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-abuse-potential",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioids-with-ambulatory-misuse-potential",
   "version": "0.2.0",
-  "name": "extended_release_opioid_with_ambulatory_abuse_potential",
-  "title": "extended release opioid with ambulatory abuse potential",
+  "name": "extended_release_opioid_with_ambulatory_misuse_potential",
+  "title": "extended release opioid with ambulatory misuse potential",
   "status": "active",
   "experimental": true,
   "date": "2019-09-11T13:28:57-06:00",
