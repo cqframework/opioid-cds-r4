@@ -1,0 +1,103 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec07"> </a>
+  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#7_Clinicians_should_evaluate_benefits" target="_blank">Recommendation #7:</a></p>
+  <p>
+      <strong>Clinicians should evaluate benefits and harms with patients within 1 to 4 weeks of
+      starting opioid therapy for chronic pain or of dose escalation. Clinicians should
+      evaluate benefits and harms of continued therapy with patients every 3 months or
+      more frequently. If benefits do not outweigh harms of continued opioid therapy,
+      clinicians should optimize other therapies and work with patients to taper opioids
+      to lower dosages or to taper and discontinue opioids <em>(recommendation category: A, evidence type: 4)</em>.</strong>
+  </p>
+
+  <a name="funcdesc"> </a>
+  <h3>Functional Description</h3>
+
+  {% include recommendation07-functional-description.html %}
+
+  <p></p>
+
+  <img src="assets/images/Recommendation07-flow.png" style="max-width: 100%;" />
+  <p></p>
+  <img src="assets/images/Recommendation07-Definitions.png" style="max-width: 100%;" />
+
+  {% include for-chronic-pain-definitions.html %}
+
+  {% include opioid-review-useful-definitions.html %}
+
+  {% include opioid-review-useful-definitions.html %}
+
+  <p></p>
+  <p></p>
+
+  <a name="content"> </a>
+  <h3>Content</h3>
+
+  <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+
+  <a name="commonlibraries"> </a>
+  <h4><a href="common.html#common" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
+
+  <p></p>
+
+  <table class="list">
+      <thead>
+      <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="PlanDefinition-opioidcds-07.html">CDC Opioid Prescribing Guideline Recommendation #7</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #7</td></tr>
+        <tr><td><a href="Library-opioidcds-rec-07.html">Recommendation #7 - benefits and harms of starting and/or continuing opioid therapy for chronic pain</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #7</td></tr>
+        <tr><td><a href="opioidcds-recommendation-07-cql.html">CDC Opioid Prescribing Guideline Recommendation #7</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #7</td></tr>
+      </tbody>
+  </table>
+
+  <p></p>
+
+  <!-- Example Data/Requests -->
+  <a name="exampledatarequests"> </a>
+  <h3>Example Data/Requests</h3>
+    <table class="grid">
+      <thead>
+      <tr>
+          <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td class="col-7">Patient is 18 or older. Patient has been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm 1049502).one tablet per day for 30 days. Patient is also being prescribed maCarbinoxamineleate 0.4 MG/ML / Hydrocodone Bitartrate 1 MG/ML / Pseudoephedrine Hydrochloride 6 MG/ML Oral Solution (RXNorm 1012727) 3 tablets per day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
+            <td><a href="Bundle-example-rec-07-end-of-life-exclusion.html">Test Bundle</a></td>
+            <td><a href="requests/request-example-rec-07-end-of-life-exclusion.json">Request JSON</a></td>
+            <td><a href="responses/response-example-rec-07-end-of-life-exclusion.json">Response JSON</a></td>
+        </tr>
+        <tr>
+            <td class="col-7">Patient is 18 or older. Patient has been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm 1049502) 1 tablet per day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
+            <td><a href="Bundle-example-rec-07-risk-assessment.html">Test Bundle</a></td>
+            <td><a href="requests/request-example-rec-07-risk-assessment.json">Request JSON</a></td>
+            <td><a href="responses/response-example-rec-07-risk-assessment.json">Response JSON</a></td>
+        </tr>
+        <tr>
+            <td class="col-7">Patient is 18 or older. Patient has been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm 1049502) one tablet per 1 day for 7 days. Patient has also been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm one tablet per 1 day for 7 days. "Assessment of risk for opioid use procedure." Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently. Assessment of risk for opioid abuse (procedure)</td>
+            <td><a href="Bundle-example-rec-07-seven-of-past-ten-days.html">Test Bundle</a></td>
+            <td><a href="requests/request-example-rec-07-seven-of-past-ten-days.json">Request JSON</a></td>
+            <td><a href="responses/response-example-rec-07-seven-of-past-ten-days.json">Response JSON</a></td>
+        </tr>
+        <tr>
+            <td class="col-7">Patient is 18 or older. Patient has been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet. (RXNorm 1049502) one tablet per 1 day for 6 days. Patient has also been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (Rxnorm 0149502) one tablet per 1 day for 6 days.The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
+            <td><a href="Bundle-example-rec-07-six-of-past-ten-days.html">Test Bundle</a></td>
+            <td><a href="requests/request-example-rec-07-six-of-past-ten-days.json">Request JSON</a></td>
+            <td><a href="responses/response-example-rec-07-six-of-past-ten-days.json">Response JSON</a></td>
+        </tr>
+        <tr>
+            <td class="col-7">Patient is 18 or older. Patient has been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm 1049502) one tablet per 1 day for 30 days. Patient has also been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm 1049502) one tablet per 1 day for 63 days. This will trigger the message "No evaluation for benefits and harms associated with opioid therapy has been performed for the patient in the past 3 months" Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently.</td>
+            <td><a href="Bundle-example-rec-07-sixtythree-of-past-ninety-days.html">Test Bundle</a></td>
+            <td><a href="requests/request-example-rec-07-sixtythree-of-past-ninety-days.json">Request JSON</a></td>
+            <td><a href="responses/response-example-rec-07-sixtythree-of-past-ninety-days.json">Response JSON</a></td>
+        </tr>
+        <tr>
+            <td class="col-7">Patient is 18 or older. Patient has been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm 1049502) 1 tablet per 1 day for 30 days. Patient has also been prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RXNorm 1049502) 1 tablet per 1 day for 62 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
+            <td><a href="Bundle-example-rec-07-sixtytwo-of-past-ninety-days.html">Test Bundle</a></td>
+            <td><a href="requests/request-example-rec-07-sixtytwo-of-past-ninety-days.json">Request JSON</a></td>
+            <td><a href="responses/response-example-rec-07-sixtytwo-of-past-ninety-days.json">Response JSON</a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
