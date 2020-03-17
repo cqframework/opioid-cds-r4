@@ -37,26 +37,6 @@
             <generation value="html" />
           </page>
           <page>
-            <nameUrl value="profiles.html" />
-            <title value="CDC Opioid Prescribing Guidelines - Profiles" />
-            <generation value="markdown" />
-          </page>
-          <page>
-            <nameUrl value="terminology.html" />
-            <title value="CDC Opioid Prescribing Guidelines - Terminology" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="examples.html" />
-            <title value="CDC Opioid Prescribing Guidelines - Examples" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="test.html" />
-            <title value="CDC Opioid Prescribing Guidelines - Test data" />
-            <generation value="html" />
-          </page>
-          <page>
             <nameUrl value="documentation.html" />
             <title value="CDC Opioid Prescribing Guidelines - Documentation" />
             <generation value="html" />
@@ -80,6 +60,46 @@
               <title value="CDC Opioid Prescribing Guideline - Service Documentation" />
               <generation value="html" />
             </page>
+          </page>
+          <page>
+            <nameUrl value="profiles.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Profiles" />
+            <generation value="markdown" />
+          </page>
+          <page>
+            <nameUrl value="extensions.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Extensions" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="operations.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Operations" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="registry.html" />
+            <title value="Conformance Resource Registry" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="services.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Services" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="terminology.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Terminology" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="examples.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Examples" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="test.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Test data" />
+            <generation value="html" />
           </page>
           <page>
             <nameUrl value="downloads.html" />
@@ -250,6 +270,11 @@
               <title value="OpioidCDS Recommendation 12 - CQL Source" />
               <generation value="html" />
             </page>
+          </page>
+          <page>
+            <nameUrl value="license.html" />
+            <title value="License and Legal Terms" />
+            <generation value="html" />
           </page>
         </page>
         <!-- copyright year is a mandatory parameter -->
