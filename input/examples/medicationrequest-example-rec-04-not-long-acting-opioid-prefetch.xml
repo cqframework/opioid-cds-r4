@@ -1,0 +1,57 @@
+<MedicationRequest xmlns="http://hl7.org/fhir">
+   <id value="example-rec-04-not-long-acting-opioid-prefetch"/>
+   <status value="active"/>
+   <intent value="order"/>
+   <medicationCodeableConcept>
+      <coding>
+         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+         <code value="1049502"/>
+         <display value="oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"/>
+      </coding>
+   </medicationCodeableConcept>
+   <subject>
+      <reference value="Patient/example-rec-04-not-long-acting-opioid"/>
+   </subject>
+   <encounter>
+      <reference value="Encounter/example-rec-04-not-long-acting-opioid-prefetch"/>
+   </encounter>
+   <authoredOn>
+      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+         <valueExpression>
+            <language value="text/cql"/>
+            <expression value="Today() - 4 months"/>
+         </valueExpression>
+      </extension>      
+   </authoredOn>
+   <dosageInstruction>
+      <timing>
+         <repeat>
+            <frequency value="1"/>
+            <period value="3.0"/>
+            <periodUnit value="d"/>
+         </repeat>
+      </timing>
+      <asNeededBoolean value="false"/>
+      <doseAndRate>
+          <doseQuantity>
+             <value value="1.0"/>
+             <unit value="patch"/>
+          </doseQuantity>
+      </doseAndRate>
+   </dosageInstruction>
+   <dispenseRequest>
+      <validityPeriod>
+         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+            <valueExpression>
+               <language value="text/cql"/>
+               <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 4 months }, end: FHIR.dateTime { value: Today() + 3 months } }"/>
+            </valueExpression>
+         </extension>         
+      </validityPeriod>
+      <numberOfRepeatsAllowed value="3"/>
+      <expectedSupplyDuration>
+         <value value="30.0"/>
+         <unit value="d"/>
+      </expectedSupplyDuration>
+   </dispenseRequest>
+</MedicationRequest>

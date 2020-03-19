@@ -1,0 +1,9 @@
+<Patient xmlns="http://hl7.org/fhir">
+   <id value="example-rec-10-end-of-life-med-exclusion"/>
+   <name>
+       <family value="example-rec-10"/>
+       <given value="end-of-life-med-exclusion"/>
+   </name>
+   <gender value="female"/>
+   <birthDate value="1982-01-07"/>
+</Patient>

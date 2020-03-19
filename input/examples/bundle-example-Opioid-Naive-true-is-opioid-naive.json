@@ -1,0 +1,60 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-c846e1fb-b178-4c70-8f6c-64cd51717f10",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-c846e1fb-b178-4c70-8f6c-64cd51717f10",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "c846e1fb-b178-4c70-8f6c-64cd51717f10-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/c846e1fb-b178-4c70-8f6c-64cd51717f10-1"
+            }
+        },
+        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationStatement/MMI-c846e1fb-b178-4c70-8f6c-64cd51717f10",
+            "resource": {
+                "resourceType": "MedicationStatement",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationStatement"
+                    ]
+                },
+                "id": "c846e1fb-b178-4c70-8f6c-64cd51717f10-4",
+                "status": "active",
+                "subject": {
+                    "reference": "Patient/c846e1fb-b178-4c70-8f6c-64cd51717f10-1"
+                },
+                "effectiveDateTime": {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                      "expression": "Today() - 6 months"
+                    }
+                  ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010603",
+                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationStatement/c846e1fb-b178-4c70-8f6c-64cd51717f10-4"
+            }
+        }
+    ]
+}

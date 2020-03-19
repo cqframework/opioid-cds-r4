@@ -1,0 +1,41 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
+
+  <p style="background-color: gold; border:1px solid maroon; padding: 5px; max-width: 790px;">Note that the terminologies included in this implementation guide will need to be updated, because the ideal mechanism for distribution (as an expression) is not currently supported by the content logical definition constructs available in the FHIR ValueSet resource and all known implementations of it. Before use in a production environment, ensure you have the latest value sets based on the definitions for each value set (as defined in the inclusion/exclusion criteria for each one).</p>
+
+  <p>The following terminology artifacts have been defined for the CDC Opioid Prescribing Guidelines implementation guide:</p>
+
+  <a name="codesystems"> </a>
+  <h3>CodeSystems</h3>
+  {% include list-simple-codesystems.xhtml %}
+
+  <a name="valuesets"> </a>
+  <h3>ValueSets</h3>
+  <li><a href="ValueSet-opioid-analgesics-with-ambulatory-misuse-potential.html">Opioid analgesics with ambulatory misuse potential</a></li>
+  <li><a href="ValueSet-limited-life-expectancy-conditions.html">Limited life expectancy conditions</a></li>
+  <li><a href="ValueSet-therapies-indicating-end-of-life-care.html">Therapies indicating end of life care</a></li>
+  <li><a href="ValueSet-conditions-likely-terminal-for-opioid-prescribing.html">Conditions likely terminal for opioid prescribing</a></li>
+  <li><a href="ValueSet-cdc-malignant-cancer-conditions.html">CDC malignant cancer conditions</a></li>
+  <li><a href="ValueSet-office-visit.html">Office visit</a></li>
+  <li><a href="ValueSet-oncology-specialty-designations.html">Oncology specialty designations (NUCC)</a></li>
+  <li><a href="ValueSet-extended-release-opioids-with-ambulatory-misuse-potential.html">Extended release opioid analgesics with ambulatory misuse potential</a></li>
+  <li><a href="ValueSet-opioid-counseling-procedure.html">Opioid counseling procedure</a></li>
+  <li><a href="ValueSet-buprenorphine-and-methadone-medications.html">Buprenorphine and methadone medications</a></li>
+  <li><a href="ValueSet-opioid-misuse-disorders.html">Opioid misuse disorders</a></li>
+  <li><a href="ValueSet-substance-misuse-behavioral-counseling.html">Substance misuse behavioral counseling</a></li>
+  <li><a href="ValueSet-opioid-misuse-assessment-procedure.html">Opioid misuse assessment procedure</a></li>
+  <li><a href="ValueSet-naloxone-medications.html">Naloxone medications</a></li>
+  <li><a href="ValueSet-benzodiazepine-medications.html">Benzodiazepine medications</a></li>
+  <li><a href="ValueSet-conditions-documenting-substance-misuse.html">Conditions documenting substance misuse</a></li>
+  <li><a href="ValueSet-opioid-urine-screening.html">Opioid drug urine screening</a></li>
+  <li><a href="ValueSet-non-opioid-illicit-drug-urine-screening.html">Non-opioid illicit drug urine screening</a></li>
+  <li><a href="ValueSet-pain-treatment-plan.html">Pain treatment plan</a></li>
+  <li><a href="ValueSet-pain-management-procedure.html">Pain management procedure</a></li>
+  <li><a href="ValueSet-pdmp-review-procedure.html">PDMP review procedure</a></li>
+  <li><a href="ValueSet-pdmp-data-reviewed-finding.html">PDMP data reviewed finding</a></li>
+
+  <!-- Not addressed in Rob McClure's spreadsheet -->
+  <li><a href="ValueSet-opioidcds-indicator.html">Action Indicators</a></li>
+  <li><a href="ValueSet-discharge-to-hospice.html">Discharge to Hospice</a></li>
+  <li><a href="ValueSet-hospice-finding.html">Hospice Observation Finding</a></li>
+  <li><a href="ValueSet-hospice-procedure.html">Hospice Procedure/Request</a></li>
+</div>

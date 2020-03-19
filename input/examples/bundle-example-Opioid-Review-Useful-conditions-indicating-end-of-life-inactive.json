@@ -1,0 +1,116 @@
+{
+    "resourceType": "Bundle",
+    "id": "MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                },
+                "_birthDate": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                            "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "Today() - 20 years"
+              }
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/6786477b-0719-4e6a-a27e-e72fa61a19b3-1"
+            }
+        },
+        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationDispense/MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
+            "resource": {
+                "resourceType": "MedicationDispense",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/MedicationDispense"
+                    ]
+                },
+                "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-10",
+                "whenHandedOver": "2018-08-01",
+                "status": "completed",
+                "subject": {
+                    "reference": "Patient/6786477b-0719-4e6a-a27e-e72fa61a19b3-1"
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1010600",
+                            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationDispense/6786477b-0719-4e6a-a27e-e72fa61a19b3-10"
+            }
+        },
+        {
+            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Condition/MMI-6786477b-0719-4e6a-a27e-e72fa61a19b3",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "6786477b-0719-4e6a-a27e-e72fa61a19b3-4",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Condition"
+                    ]
+                },
+                "clinicalStatus": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
+                                    "code": "NOT ACTIVE",
+                                    "display": "Active Condition"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "verificationStatus": {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                                "code": "confirmed",
+                                "display": "Confirmed"
+                            }
+                        ]
+                    }
+                },
+                "subject": {
+                    "reference": "Patient/6786477b-0719-4e6a-a27e-e72fa61a19b3-1"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "300936002",
+                            "display": "Terminal illness"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Condition/6786477b-0719-4e6a-a27e-e72fa61a19b3-4"
+            }
+        }
+    ]
+}

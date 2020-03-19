@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+    <id value="fhir.cdc.opioid-cds-r4"/>
+    <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/fhir.cdc.opioid-cds-r4"/>
+    <version value="4.0.0"/>
+    <name value="Opioid_CDC"/>
+    <title value="Opioid Prescribing Support Implementation Guide"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2017-02-06"/>
+    <publisher value="Centers for Disease Control and Prevention (CDC)"/>
+    <contact>
+      <telecom>
+        <system value="url"/>
+        <value value="https://www.cdc.gov"/>
+      </telecom>
+    </contact>
+    <description value="Opioid Prescribing Support Implementation Guide"/>
+    <packageId value="fhir.cdc.opioid-cds-r4"/>
+	  <fhirVersion value="4.0.1"/>
+    <dependsOn>
+      <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"/>
+      <version value="0.1.0"/>
+    </dependsOn>
+    <definition>
+        <page>
+          <nameUrl value="toc.html" />
+          <title value="Table of Contents" />
+          <generation value="html" />
+          <page>
+            <nameUrl value="index.html" />
+            <title value="Home" />
+            <generation value="markdown" />
+          </page>
+          <!-- <page>
+            <nameUrl value="artifacts.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Artifacts" />
+            <generation value="html" />
+          </page> -->
+          <page>
+            <nameUrl value="quick-start.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Quick Start" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="documentation.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Documentation" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="implementation-documentation.html" />
+              <title value="CDC Opioid Prescribing Guideline - Implementation Documentation" />
+              <generation value="html" />
+            </page>
+            <page>
+              <nameUrl value="integration-documentation.html" />
+              <title value="CDC Opioid Prescribing Guideline - Integration Documentation" />
+              <generation value="html" />
+            </page>
+            <page>
+              <nameUrl value="process-documentation.html" />
+              <title value="CDC Opioid Prescribing Guideline - Process Documentation" />
+              <generation value="html" />
+            </page>
+            <page>
+              <nameUrl value="service-documentation.html" />
+              <title value="CDC Opioid Prescribing Guideline - Service Documentation" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="profiles.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Profiles" />
+            <generation value="markdown" />
+          </page>
+          <page>
+            <nameUrl value="extensions.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Extensions" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="operations.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Operations" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="registry.html" />
+            <title value="Conformance Resource Registry" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="services.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Services" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="terminology.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Terminology" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="examples.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Examples" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="test.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Test data" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="downloads.html" />
+            <title value="CDC Opioid Prescribing Guidelines - Downloads" />
+            <generation value="html" />
+          </page>
+          <page>
+            <nameUrl value="common.html" />
+            <title value="Common Libraries" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-common-cql.html" />
+              <title value="OpioidCDS Common - CQL Source" />
+              <generation value="html" />
+            </page>
+            <page>
+              <nameUrl value="opioidcds-omtk-data-0-0-2-cql.html" />
+              <title value="OpioidCDS OMTK Data (v0.0.2) - CQL Source" />
+              <generation value="html" />
+            </page>
+            <page>
+              <nameUrl value="opioidcds-omtk-logic-0-0-2-cql.html" />
+              <title value="OpioidCDS OMTK Logic (v0.0.2) - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="chronic-pain.html" />
+            <title value="Chronic Pain Decision Documentation" />
+            <generation value="markdown" />
+          </page>
+          <page>
+            <nameUrl value="recommendation-01.html" />
+            <title value="Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-01-cql.html" />
+              <title value="OpioidCDS Recommendation 01 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-02.html" />
+            <title value="Recommendation #2 - Opioid Therapy Goals Discussion" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-02-cql.html" />
+              <title value="OpioidCDS Recommendation 02 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-03.html" />
+            <title value="Recommendation #3 - Opioid Therapy Risk/Benefit Discussion" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-03-cql.html" />
+              <title value="OpioidCDS Recommendation 03 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-04.html" />
+            <title value="Recommendation #4 - Opioid Release Rate When Starting Opioid Therapy" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-04-cql.html" />
+              <title value="OpioidCDS Recommendation 04 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-05.html" />
+            <title value="Recommendation #5 - Lowest Effective Dose" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-05-cql.html" />
+              <title value="OpioidCDS Recommendation 05 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-06.html" />
+            <title value="Recommendation #6 - Prescribe Lowest Effective Dose and Duration" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-06-cql.html" />
+              <title value="OpioidCDS Recommendation 06 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-07.html" />
+            <title value="Recommendation #7 - Opioid Therapy Risk Assessment" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-07-cql.html" />
+              <title value="OpioidCDS Recommendation 07 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-08.html" />
+            <title value="Recommendation #8 - Naloxone Consideration" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-08-cql.html" />
+              <title value="OpioidCDS Recommendation 08 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-09.html" />
+            <title value="Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-09-cql.html" />
+              <title value="OpioidCDS Recommendation 09 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-10.html" />
+            <title value="Recommendation #10 - Urine Drug Testing" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-10-cql.html" />
+              <title value="OpioidCDS Recommendation 10 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-10-patient-view.html" />
+            <title value="Recommendation #10 (patient-view) - Urine Drug Testing" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
+              <title value="OpioidCDS Recommendation 10 (patient-view) - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-11.html" />
+            <title value="Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-11-cql.html" />
+              <title value="OpioidCDS Recommendation 11 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-11-patient-view.html" />
+            <title value="Recommendation #11 (patient-view) - Concurrent Use of Opioids and Benzodiazepines" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-11-patient-view-cql.html" />
+              <title value="OpioidCDS Recommendation 11 (patient-view) - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-12.html" />
+            <title value="Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-12-cql.html" />
+              <title value="OpioidCDS Recommendation 12 - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="license.html" />
+            <title value="License and Legal Terms" />
+            <generation value="html" />
+          </page>
+        </page>
+        <!-- copyright year is a mandatory parameter -->
+        <parameter>
+          <code value="copyrightyear" />
+          <value value="2019+" />
+        </parameter>
+        <!-- releaselabel should be the ballot status for HL7-published IGs. -->
+        <parameter>
+          <code value="releaselabel" />
+          <value value="CI Build" />
+        </parameter>
+        <parameter>
+          <code value="find-other-resources" />
+          <value value="true" />
+        </parameter>
+        <parameter>
+          <code value="path-pages" />
+          <value value="input/pagecontent"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/resources/activitydefinition"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/resources/capabilitystatement"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/resources/library"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/resources/measure"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/resources/plandefinition"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/resources/questionnaire"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/vocabulary/codesystem"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/vocabulary/valueset"/>
+        </parameter>
+        <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings
+         <parameter>
+           <code value="excludexml"/>
+           <value value="true"/>
+         </parameter>
+         <parameter>
+           <code value="excludejson"/>
+           <value value="true"/>
+         </parameter>
+         <parameter>
+           <code value="excludettl"/>
+           <value value="true"/>
+         </parameter>
+         <parameter>
+           <code value="excludemap"/>
+           <value value="true"/>
+         </parameter>-->
+    </definition>
+</ImplementationGuide>
