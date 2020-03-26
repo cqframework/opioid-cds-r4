@@ -1,11 +1,6 @@
 {
   "resourceType": "ValueSet",
   "id": "opioid-counseling-procedure",
-  "meta": {
-    "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
-    ]
-  },
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
@@ -21,14 +16,13 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure",
-  "version": "0.2.0",
-  "name": "opioid_counseling_procedure",
-  "title": "Opioid counseling procedure",
+  "name": "Opioid_Counseling_Procedure",
+  "title": "Opioid Counseling Procedure",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-11T13:28:57-06:00",
+  "date": "2020-03-26T16:16:25-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "",
+  "description": "Procedure for couseling on opioid use",
   "jurisdiction": [
     {
       "coding": [
@@ -39,26 +33,30 @@
       ]
     }
   ],
-  "purpose": "",
-  "_purpose": {
-    "extension": [
+  "purpose": "Identify a procedure for opioid use couseling to the patient",
+  "copyright": "© CDC 2016+.",
+  "compose": {
+    "include": [
       {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
-        "valueString": ""
-      },
-      {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
-        "valueString": ""
-      },
-      {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
-        "valueString": ""
-      },
-      {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
-        "valueString": ""
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108",
+        "concept": [
+          {
+            "code": "460831000124102"
+          }
+        ]
       }
     ]
   },
-  "copyright": "© CDC 2016+."
+  "expansion": {
+    "timestamp": "2020-03-26T16:16:25-06:00",
+    "contains": [
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20200301",
+        "code": "460831000124102",
+        "display": "Counseling about opioid safety (procedure)"
+      }
+    ]
+  }
 }

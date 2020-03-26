@@ -1,6 +1,6 @@
 {
   "resourceType": "ValueSet",
-  "id": "pdmp-review-procedure",
+  "id": "opioid-misuse-assessment-procedure",
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
@@ -15,14 +15,14 @@
       }
     }
   ],
-  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure",
-  "name": "Pdmp_Review_Procedure",
-  "title": "Pdmp Review Procedure",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure",
+  "name": "Opioid_Misuse_Assessment_Procedure",
+  "title": "Opioid Misuse Assessment Procedure",
   "status": "active",
   "experimental": true,
   "date": "2020-03-26T16:16:25-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Procedure for Prescription Drug Monitoring Program (PDMP) review",
+  "description": "Procedure to assess the risk of opioid abuse occurring by a patient",
   "jurisdiction": [
     {
       "coding": [
@@ -33,7 +33,7 @@
       ]
     }
   ],
-  "purpose": "A procedure to review the prescription drug monitoring program data",
+  "purpose": "Risk assessment to occur when considering opioid therapy",
   "copyright": "© CDC 2016+.",
   "compose": {
     "include": [
@@ -42,7 +42,7 @@
         "version": "http://snomed.info/sct/731000124108",
         "concept": [
           {
-            "code": "461621000124108"
+            "code": "454281000124100"
           }
         ]
       }
@@ -54,8 +54,8 @@
       {
         "system": "http://snomed.info/sct",
         "version": "http://snomed.info/sct/731000124108/version/20200301",
-        "code": "461621000124108",
-        "display": "Review of prescription drug monitoring program record (procedure)"
+        "code": "454281000124100",
+        "display": "Assessment of risk for opioid abuse (procedure)"
       }
     ]
   }

@@ -63,7 +63,7 @@ define "Exclusion Criteria":
 define "Order is for Long-Acting Opioid":
   exists (
     "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" AmbulatoryOpioidPrescription
-      where AmbulatoryOpioidPrescription.medication in Common."Extended release opioid analgesics with ambulatory misuse potential"
+      where AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
         or Common.GetDurationInDays( AmbulatoryOpioidPrescription.dispenseRequest.expectedSupplyDuration ) > 7
   )
 
