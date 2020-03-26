@@ -1,6 +1,12 @@
 {
   "resourceType": "ValueSet",
   "id": "opioid-analgesics-with-ambulatory-misuse-potential",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-distributablevalueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablevalueset"
+    ]
+  },
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
@@ -40,7 +46,7 @@
   "title": "Opioid Analgesics With Ambulatory Misuse Potential",
   "status": "active",
   "experimental": true,
-  "date": "2020-03-26T16:16:24-06:00",
+  "date": "2020-03-26T17:39:09-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "All opioid clinical drugs except cough medications, antisapasmodics, or those restricted to surgical use only as identified by those using an injectable form.",
   "jurisdiction": [
@@ -56,7 +62,7 @@
   "purpose": "Opioid medications that should have opioid management CDS",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "timestamp": "2020-03-26T16:16:24-06:00",
+    "timestamp": "2020-03-26T17:39:09-06:00",
     "contains": [
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",

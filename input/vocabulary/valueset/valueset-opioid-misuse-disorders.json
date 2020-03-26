@@ -1,6 +1,12 @@
 {
   "resourceType": "ValueSet",
   "id": "opioid-misuse-disorders",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-distributablevalueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablevalueset"
+    ]
+  },
   "extension": [
     {
       "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -36,7 +42,7 @@
   "title": "Opioid Misuse Disorders",
   "status": "active",
   "experimental": true,
-  "date": "2020-03-26T16:16:24-06:00",
+  "date": "2020-03-26T17:39:09-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Conditions indicating opioid misuse",
   "jurisdiction": [
@@ -132,7 +138,7 @@
     ]
   },
   "expansion": {
-    "timestamp": "2020-03-26T16:16:24-06:00",
+    "timestamp": "2020-03-26T17:39:09-06:00",
     "contains": [
       {
         "system": "http://snomed.info/sct",
