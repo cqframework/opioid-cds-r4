@@ -3,10 +3,27 @@
   "id": "limited-life-expectancy-conditions",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-valueset"
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-distributablevalueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablevalueset"
     ]
   },
   "extension": [
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+      "valueString": "A finding that documents a terminal prognosis"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+      "valueString": "Condition"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+      "valueString": "Specific terminal condition findings that do not indicate the clinical disease at cause."
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+      "valueString": "Actual disease-specific conditions"
+    },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
       "valueContactDetail": {
@@ -21,17 +38,11 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
-  "identifier": [
-    {
-      "value": "2.16.840.1.113883.3.526.3.1259"
-    }
-  ],
-  "version": "0.2.0",
-  "name": "limited_life_expectancy_conditions",
-  "title": "limited life expectancy conditions",
+  "name": "Limited_Life_Expectancy_Conditions",
+  "title": "Limited Life Expectancy Conditions",
   "status": "active",
   "experimental": true,
-  "date": "2019-09-11T13:28:57-06:00",
+  "date": "2020-03-26T17:39:10-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "A finding that documents a terminal prognosis",
   "jurisdiction": [
@@ -45,26 +56,6 @@
     }
   ],
   "purpose": "Provide terminology for conditions to be used as exclusions for opioid use recommendations",
-  "_purpose": {
-    "extension": [
-      {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
-        "valueString": "A finding that documents a terminal prognosis"
-      },
-      {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
-        "valueString": "Condition"
-      },
-      {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
-        "valueString": "Specific terminal condition findings that do not indicate the clinical disease at cause."
-      },
-      {
-        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
-        "valueString": "Actual disease-specific conditions"
-      }
-    ]
-  },
   "copyright": "© CDC 2016+.",
   "compose": {
     "include": [
@@ -100,6 +91,47 @@
             "value": "27143004"
           }
         ]
+      }
+    ]
+  },
+  "expansion": {
+    "timestamp": "2020-03-26T17:39:10-06:00",
+    "contains": [
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20200301",
+        "code": "111947009",
+        "display": "Functional disorder present, condition terminal"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20200301",
+        "code": "27143004",
+        "display": "Patient status determination, pre-terminal"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20200301",
+        "code": "170969009",
+        "display": "Prognosis bad"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20200301",
+        "code": "300936002",
+        "display": "Terminal illness"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20200301",
+        "code": "162607003",
+        "display": "Terminal illness - early stage"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "version": "http://snomed.info/sct/731000124108/version/20200301",
+        "code": "162608008",
+        "display": "Terminal illness - late stage"
       }
     ]
   }
