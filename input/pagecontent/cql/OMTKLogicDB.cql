@@ -1,8 +1,8 @@
-library OMTKLogic version '0.1.0'
+library OMTKLogicDB version '2.0.0'
 
 using OMTK version '0.1.0'
 
-include OMTKData version '0.0.2'
+include OMTKData2019 version '2.0.0'
 
 codesystem RxNorm: 'http://www.nlm.nih.gov/research/umls/rxnorm'
 

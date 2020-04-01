@@ -1,9 +1,9 @@
-library OpioidCDS_REC_05 version '0.1.0'
+library OpioidCDS_REC_05 version '2.0.0'
 
 using FHIR version '4.0.0'
 
-include OpioidCDS_Common version '0.1.0' called Common
-include OpioidCDS_Routines version '0.1.0' called Routines
+include OpioidCDS_Common version '2.0.0' called Common
+include OpioidCDS_Routines version '2.0.0' called Routines
 
 /*
 **

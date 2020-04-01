@@ -1,4 +1,4 @@
-library OMTKLogic version '0.0.3'
+library OMTKLogic2020 version '2.0.0'
 
 /*
 This version of the OMTKLogic library uses the FHIR MedicationKnowledge Resource
@@ -8,7 +8,7 @@ OMTK data source.
 
 using FHIR version '4.0.0'
 
-include OMTKData version '0.0.3'
+include OMTKData2020 version '2.0.0'
 
 codesystem RxNorm: 'http://www.nlm.nih.gov/research/umls/rxnorm'
 
