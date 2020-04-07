@@ -122,13 +122,23 @@
               <generation value="html" />
             </page>
             <page>
-              <nameUrl value="opioidcds-omtk-data-0-0-2-cql.html" />
-              <title value="OpioidCDS OMTK Data (v0.0.2) - CQL Source" />
+              <nameUrl value="opioidcds-omtk-data-2019-cql.html" />
+              <title value="OpioidCDS OMTK Data (2019) - CQL Source" />
               <generation value="html" />
             </page>
             <page>
-              <nameUrl value="opioidcds-omtk-logic-0-0-2-cql.html" />
-              <title value="OpioidCDS OMTK Logic (v0.0.2) - CQL Source" />
+              <nameUrl value="opioidcds-omtk-data-2020-cql.html" />
+              <title value="OpioidCDS OMTK Data (2020) - CQL Source" />
+              <generation value="html" />
+            </page>
+            <page>
+              <nameUrl value="opioidcds-omtk-logic-2019-cql.html" />
+              <title value="OpioidCDS OMTK Logic (2019) - CQL Source" />
+              <generation value="html" />
+            </page>
+            <page>
+              <nameUrl value="opioidcds-omtk-logic-2020-cql.html" />
+              <title value="OpioidCDS OMTK Logic (2020) - CQL Source" />
               <generation value="html" />
             </page>
           </page>
@@ -305,25 +315,17 @@
           <code value="path-resource" />
           <value value="input/resources/activitydefinition"/>
         </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/resources/capabilitystatement"/>
-        </parameter>
+        <!--<parameter>-->
+          <!--<code value="path-resource" />-->
+          <!--<value value="input/resources/capabilitystatement"/>-->
+        <!--</parameter>-->
         <parameter>
           <code value="path-resource" />
           <value value="input/resources/library"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="input/resources/measure"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
           <value value="input/resources/plandefinition"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/resources/questionnaire"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
