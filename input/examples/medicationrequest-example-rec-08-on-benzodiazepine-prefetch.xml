@@ -4,6 +4,7 @@
    <intent value="order"/>
    <category>
       <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
          <code value="outpatient"/>
       </coding>
    </category>

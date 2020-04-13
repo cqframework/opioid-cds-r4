@@ -4,7 +4,7 @@
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-09-true-return-recommendations",
+            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-09-true-return-recommendations",
             "resource": {
                 "resourceType": "Patient",
                 "id": "example-rec-09-true-return-recommendations",
@@ -26,7 +26,7 @@
             }
         },
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Procedure/example-rec-09-true-return-recommendations",
+            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Procedure/example-rec-09-true-return-recommendations",
             "resource": {
                 "resourceType": "Procedure",
                 "id": "example-rec-09-true-return-recommendations",
@@ -36,7 +36,7 @@
                         {
                             "system": "http://snomed.info/sct",
                             "code": "408957008",
-                            "display": "Opioid treatment plan edited (a procedure)"
+                            "display": "Chronic pain control management (procedure)"
                         }
                     ]
                 },
@@ -54,7 +54,7 @@
             }
         },
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-09-true-return-recommendations",
+            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-09-true-return-recommendations",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "id": "example-rec-09-true-return-recommendations",

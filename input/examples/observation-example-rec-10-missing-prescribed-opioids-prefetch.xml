@@ -21,7 +21,8 @@
    </effectiveDateTime>
    <interpretation>
       <coding>
-         <code value="POS"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+          <code value="POS"/>
       </coding>
    </interpretation>
 </Observation>

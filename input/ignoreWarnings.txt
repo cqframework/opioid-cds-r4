@@ -1,1 +1,7 @@
+== Suppressed Messages ==
+
+# The code: 454281000124100 does exist in the http://snomed.info/sct CodeSystem
 ERROR: ActivityDefinition/opioidcds-risk-assessment-request: ActivityDefinition.code.coding: unable to find code 454281000124100 in http://snomed.info/sct
+
+# This is a contained resource reference
+ERROR: /Users/christopherschuler/Documents/workspace/dcg/repos/SRS/opioid-cds-r4/output/PlanDefinition-example-cardiology-os.html#/html/body/div/div/div/div/div/div/p/a at Line 151, column 2671: The link '#cardiology-chestPain-logic' for "#cardiology-chestPain-logic" cannot be resolved (valid targets: [ig-status, segment-header, publish-box, root, stripe, segment-footer, segment-post-footer, hl7-nav, segment-navbar, segment-content, segment-breadcrumb])

@@ -2,7 +2,7 @@
    <id value="example-rec-10-no-screenings"/>
    <type value="transaction"/>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-10-no-screenings"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-no-screenings"/>
       <resource>
           <Patient xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-no-screenings"/>
@@ -20,7 +20,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-no-screenings-prefetch"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-no-screenings-prefetch"/>
       <resource>
           <Encounter xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-no-screenings-prefetch"/>
@@ -49,7 +49,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-10-no-screenings-prefetch"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-10-no-screenings-prefetch"/>
       <resource>
           <MedicationRequest xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-no-screenings-prefetch"/>
@@ -57,6 +57,7 @@
              <intent value="order"/>
              <category>
                 <coding>
+                   <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
                    <code value="outpatient"/>
                 </coding>
              </category>
