@@ -118,7 +118,7 @@
             <kind value="applicability"/>
             <expression>
                 <description value="Check whether the current Order is for Extended release opioid with ambulatory abuse potential."/>
-                <language value="text/cql.name"/>
+                <language value="text/cql.identifier"/>
                 <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
@@ -127,21 +127,21 @@
         <dynamicValue>
             <path value="action.title"/>
             <expression>
-                <language value="text/cql.name"/>
+                <language value="text/cql.identifier"/>
                 <expression value="Get Summary"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.description"/>
             <expression>
-                <language value="text/cql.name"/>
+                <language value="text/cql.identifier"/>
                 <expression value="Get Detail"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="activity.extension"/>
             <expression>
-                <language value="text/cql.name"/>
+                <language value="text/cql.identifier"/>
                 <expression value="Get Indicator"/>
             </expression>
         </dynamicValue>

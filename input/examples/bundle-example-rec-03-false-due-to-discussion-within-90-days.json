@@ -4,7 +4,7 @@
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-03-false-due-to-discussion-within-90-days",
+            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "Patient",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-1",
@@ -26,7 +26,7 @@
             }
         },
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-03-false-due-to-discussion-within-90-days",
+            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-3",
@@ -63,7 +63,7 @@
             }
         },
         {
-            "fullUrl": "http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Procedure/example-rec-03-false-due-to-discussion-within-90-days",
+            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Procedure/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "Procedure",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-21",

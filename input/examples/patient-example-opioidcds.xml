@@ -1,9 +1,5 @@
 <Patient xmlns="http://hl7.org/fhir">
     <id value="example-opioidcds"/>
-    <meta>
-        <versionId value="1"/>
-        <lastUpdated value="2017-11-25T17:26:27.040-07:00"/>
-    </meta>
     <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
@@ -39,7 +35,7 @@
         <use value="official"/>
         <type>
             <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/identifier-type"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
                 <code value="SB"/>
                 <display value="Social Beneficiary Identifier"/>
             </coding>

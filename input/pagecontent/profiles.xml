@@ -1,0 +1,5 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
+  <p>The following profiles set the minimum expectations to communicate medication and condition information used by Opioid Decision Support logic:</p>
+
+  {%  include list-simple-profiles.xhtml %}
+</div>

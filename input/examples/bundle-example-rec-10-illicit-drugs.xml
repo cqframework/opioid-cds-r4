@@ -6,12 +6,12 @@
       <resource>
           <Patient xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-illicit-drugs"/>
-             <gender value="female"/>
              <name>
                  <family value="Smith"/>
                  <given value="John"/>
                  <given value="A."/>
              </name>
+             <gender value="female"/>
              <birthDate value="1982-01-07"/>
           </Patient>
       </resource>
@@ -58,6 +58,7 @@
              <intent value="order"/>
              <category>
                 <coding>
+                   <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
                    <code value="outpatient"/>
                 </coding>
              </category>
@@ -146,6 +147,7 @@
              </effectiveDateTime>
              <interpretation>
                 <coding>
+                   <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
                    <code value="POS"/>
                 </coding>
              </interpretation>

@@ -123,32 +123,32 @@
             <kind value="applicability"/>
             <expression>
                 <description value="Check whether the existing patient, without an end of life condition or risk assessment in the past 90 days, has taken an opioid-with-abuse-potential for 7 of the past 10 days or 63 of the past 90 days."/>
-                <language value="text/cql.name"/>
+                <language value="text/cql.identifier"/>
                 <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
         <!-- reference to risk assessment activity definition -->
-            <definitionCanonical value="ActivityDefinition/opioidcds-risk-assessment-request"/>
+        <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-risk-assessment-request"/>
         <dynamicValue>
 			<path value="action.title"/>
 			<expression>
-        <language value="text/cql.name"/>
+        <language value="text/cql.identifier"/>
 				<expression value="Get Summary"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="action.description"/>
 			<expression>
-        <language value="text/cql.name"/>
+        <language value="text/cql.identifier"/>
 				<expression value="Get Detail"/>
 			</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="activity.extension"/>
 			<expression>
-        <language value="text/cql.name"/>
+        <language value="text/cql.identifier"/>
 				<expression value="Get Indicator"/>
 			</expression>
 		</dynamicValue>

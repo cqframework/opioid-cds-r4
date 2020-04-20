@@ -3,6 +3,7 @@
   "id": "benzodiazepine-medications",
   "meta": {
     "profile": [
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset",
       "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-distributablevalueset",
       "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablevalueset"
     ]

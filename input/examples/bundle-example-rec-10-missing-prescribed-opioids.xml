@@ -2,7 +2,7 @@
    <id value="example-rec-10-missing-prescribed-opioids"/>
    <type value="transaction"/>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-10-missing-prescribed-opioids"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-missing-prescribed-opioids"/>
       <resource>
           <Patient xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-missing-prescribed-opioids"/>
@@ -21,7 +21,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-missing-prescribed-opioids-prefetch"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-missing-prescribed-opioids-prefetch"/>
       <resource>
           <Encounter xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-missing-prescribed-opioids-prefetch"/>
@@ -50,7 +50,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/MedicationRequest/example-rec-10-missing-prescribed-opioids-prefetch"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-10-missing-prescribed-opioids-prefetch"/>
       <resource>
           <MedicationRequest xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-missing-prescribed-opioids-prefetch"/>
@@ -58,6 +58,7 @@
              <intent value="order"/>
              <category>
                 <coding>
+                   <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
                    <code value="outpatient"/>
                 </coding>
              </category>
@@ -121,7 +122,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Observation/example-rec-10-missing-prescribed-opioids-prefetch"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-missing-prescribed-opioids-prefetch"/>
       <resource>
           <Observation xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-missing-prescribed-opioids-prefetch"/>
@@ -146,6 +147,7 @@
              </effectiveDateTime>
              <interpretation>
                 <coding>
+                   <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
                    <code value="POS"/>
                 </coding>
              </interpretation>

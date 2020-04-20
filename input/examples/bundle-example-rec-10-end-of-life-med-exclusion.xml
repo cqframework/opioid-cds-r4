@@ -2,7 +2,7 @@
    <id value="example-rec-10-end-of-life-med-exclusion"/>
    <type value="transaction"/>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Patient/example-rec-10-end-of-life-med-exclusion"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-end-of-life-med-exclusion"/>
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
             <id value="example-rec-10-end-of-life-med-exclusion"/>
@@ -20,7 +20,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://measure.eval.kanvix.com/cqf-ruler/baseDstu3/Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <id value="example-rec-10-end-of-life-med-exclusion-context"/>

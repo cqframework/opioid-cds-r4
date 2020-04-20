@@ -35,7 +35,7 @@
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
   <a name="commonlibraries"> </a>
-  <h4><a href="common.html#common" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
+  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
 
   <p></p>
 
@@ -45,7 +45,7 @@
       </thead>
       <tbody>
         <tr><td><a href="PlanDefinition-opioidcds-07.html">CDC Opioid Prescribing Guideline Recommendation #7</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #7</td></tr>
-        <tr><td><a href="Library-opioidcds-rec-07.html">Recommendation #7 - benefits and harms of starting and/or continuing opioid therapy for chronic pain</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #7</td></tr>
+        <tr><td><a href="Library-library-OpioidCDSREC07.html">Recommendation #7 - benefits and harms of starting and/or continuing opioid therapy for chronic pain</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #7</td></tr>
         <tr><td><a href="opioidcds-recommendation-07-cql.html">CDC Opioid Prescribing Guideline Recommendation #7</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #7</td></tr>
       </tbody>
   </table>
