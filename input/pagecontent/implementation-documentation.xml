@@ -495,7 +495,7 @@
 
   <p>
     As shown in the flowchart, the $apply operation begins by parsing the input parameters.
-    Then the <a href="Library-library-OpioidCDSREC05.json.html">CDC Opioid Guidelines
+    Then the <a href="Library-library-OpioidCDSREC05-2.0.0.json.html">CDC Opioid Guidelines
       library</a> is serialized into a library object. The next step is to resolve data
     providers for FHIR STU3 and OMTK. OMTK, or Opioid Management Terminology Knowledge,
     is a library that provides MME conversion factors and terminology information for the

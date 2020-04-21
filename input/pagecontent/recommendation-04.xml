@@ -22,10 +22,6 @@
 
   {% include opioid-naive-definitions.html %}
 
-  {% include opioid-review-useful-definitions.html %}
-
-  {% include opioid-naive-definitions.html %}
-
   <p></p>
   <p></p>
 
@@ -45,7 +41,7 @@
       </thead>
       <tbody>
         <tr><td><a href="PlanDefinition-opioidcds-04.html">CDC Opioid Prescribing Guideline Recommendation #4</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #4</td></tr>
-        <tr><td><a href="Library-library-OpioidCDSREC04.html">Recommendation #4 - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #4</td></tr>
+        <tr><td><a href="Library-library-OpioidCDSREC04-2.0.0.html">Recommendation #4 - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #4</td></tr>
         <tr><td><a href="opioidcds-recommendation-04-cql.html">CDC Opioid Prescribing Guideline Recommendation #4</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #4</td></tr>
       </tbody>
   </table>

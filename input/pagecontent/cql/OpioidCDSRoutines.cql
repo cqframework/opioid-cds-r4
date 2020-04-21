@@ -115,9 +115,10 @@ define "Prescription/Dispense Inclusion Period":
 define "Report Inclusion Period":
     Interval[Now() - 90 days, Now())
 
+// NOTE: MedicationStatement-dependent logic comment out due to bug in Publisher not supporting MedicationStatement in AllTypes.
 define "Is Opioid Naive?":
     not ("Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
-    and not ("Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
+    /* and not ("Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days") */
     and not ("Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
 
 define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
@@ -129,14 +130,15 @@ define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
         and exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
 
 // NOTE: 2020-02-05: Review direction of MedicationStatement resource (US-Core focusing on MedicationRequest i/o Statement)
-define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
+// NOTE: 2020-04-21: MedicationStatement a) Shouldn't be use since guidance/direction from USCore is targeting MedicationUse in R5, and b) Breaks in the publisher
+/* define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
     [MedicationStatement: Common."Opioid analgesics with ambulatory misuse potential"] Statement
         where Statement.status in {'active', 'completed'}
-            and Statement.effective during day of "Report Inclusion Period"
+            and Statement.effective during day of "Report Inclusion Period" */
 
-define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
+/* define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
     Config."Opioid Naive Report Condition Is Enabled"
-        and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
+        and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days") */
 
 define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
     [MedicationDispense: Common."Opioid analgesics with ambulatory misuse potential"] OpioidDispense

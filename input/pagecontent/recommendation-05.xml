@@ -47,7 +47,7 @@
       </thead>
       <tbody>
         <tr><td><a href="PlanDefinition-opioidcds-05.html">CDC Opioid Prescribing Guideline Recommendation #5</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #5</td></tr>
-        <tr><td><a href="Library-library-OpioidCDSREC05.html">Recommendation #5 - lowest effective dosage</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides logic for evaluating whether a prescription exceeds the MME of 50 mg/day</td></tr>
+        <tr><td><a href="Library-library-OpioidCDSREC05-2.0.0.html">Recommendation #5 - lowest effective dosage</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>CQL Library that provides logic for evaluating whether a prescription exceeds the MME of 50 mg/day</td></tr>
         <tr><td><a href="opioidcds-recommendation-01-cql.html">CDC Opioid Prescribing Guideline Recommendation #5</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #5</td></tr>
       </tbody>
   </table>

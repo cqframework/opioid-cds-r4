@@ -23,6 +23,7 @@ This implementation guide includes support for the following guideline recommend
 * [Recommendation #2 - Opioid Therapy Goals Discussion](recommendation-02.html)
 * [Recommendation #3 - Opioid Therapy Risk/Benefit Discussion](recommendation-03.html)
 * [Recommendation #4 - Opioid Release Rate When Starting Opioid Therapy](recommendation-04.html)
+* [Recommendation #4 Patient View - Opioid Release Rate When Starting Opioid Therapy](recommendation-04-patient-view.html)
 * [Recommendation #5 - Lowest Effective Dose](recommendation-05.html)
 * [Recommendation #6 - Prescribe Lowest Effective Dose and Duration](recommendation-06.html)
 * [Recommendation #7 - Opioid Therapy Risk Assessment](recommendation-07.html)
