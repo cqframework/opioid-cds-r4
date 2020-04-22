@@ -1,56 +1,56 @@
 <PlanDefinition xmlns="http://hl7.org/fhir">
-    <id value="opioidcds-09"/>
+    <id value="opioidcds-10-patient-view"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-plandefinition"/>
     </meta>
-    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-09"/>
+    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-patient-view"/>
     <identifier>
         <use value="official"/>
         <value value="cdc-opioid-guidance"/>
     </identifier>
     <version value="0.1.0"/>
-    <name value="CDC_opioid_09"/>
-    <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #9"/>
+    <name value="PlanDefinition_Recommendation_10_Patient_View"/>
+    <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)"/>
     <type>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
-            <code value="eca-rule"/>
-            <display value="ECA Rule"/>
-        </coding>
-    </type>
+  		<coding>
+  			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+  			<code value="eca-rule"/>
+  			<display value="ECA Rule"/>
+  		</coding>
+  	</type>
     <status value="draft"/>
     <experimental value="true"/>
-    <date value="2019-08-01"/>
+    <date value="2019-01-12"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
-    <description value="Clinicians should review PDMP data when starting opioid therapy for chronic pain and periodically during opioid therapy for chronic pain."/>
+    <description value="When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs."/>
     <useContext>
-        <code>
-            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-            <code value="focus"/>
-            <display value="Clinical Focus"/>
-        </code>
-        <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="182888003"/>
-                <display value="Medication requested (situation)"/>
-            </coding>
-        </valueCodeableConcept>
-    </useContext>
+  		<code>
+  			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+  			<code value="focus"/>
+  			<display value="Clinical Focus"/>
+  		</code>
+  		<valueCodeableConcept>
+  			<coding>
+  				<system value="http://snomed.info/sct"/>
+  				<code value="182888003"/>
+  				<display value="Medication requested (situation)"/>
+  			</coding>
+  		</valueCodeableConcept>
+  	</useContext>
     <useContext>
-        <code>
-            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-            <code value="focus"/>
-            <display value="Clinical Focus"/>
-        </code>
-        <valueCodeableConcept>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="82423001"/>
-                <display value="Chronic pain (finding)"/>
-            </coding>
-        </valueCodeableConcept>
-    </useContext>
+  		<code>
+  			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+  			<code value="focus"/>
+  			<display value="Clinical Focus"/>
+  		</code>
+  		<valueCodeableConcept>
+  			<coding>
+  				<system value="http://snomed.info/sct"/>
+  				<code value="82423001"/>
+  				<display value="Chronic pain (finding)"/>
+  			</coding>
+  		</valueCodeableConcept>
+  	</useContext>
     <jurisdiction>
         <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -59,7 +59,7 @@
         </coding>
     </jurisdiction>
     <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
-    <usage value="Clinicians should review PDMP data when starting opioid therapy for chronic pain and periodically during opioid therapy for chronic pain."/>
+    <usage value="Providers should be aware if patients are taking other prescription drugs or illicit drugs that might increase their risk of an overdose."/>
     <copyright value="© CDC 2016+."/>
     <topic>
         <text value="Opioid Prescribing"/>
@@ -76,26 +76,25 @@
     <author>
         <name value="Robert McClure, MD, MPH"/>
     </author>
-    <relatedArtifact>
-        <type value="documentation"/>
-        <display value="CDC guideline for prescribing opioids for chronic pain"/>
-        <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
-    </relatedArtifact>
-    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-rec-09"/>
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/library-OpioidCDSREC10PatientView" />
     <action>
-        <!-- non-dynamic card summary -->
-        <title value="Current Order is for Opioid With Ambulatory Misuse Potential."/>
-        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #9 workflow."/>
+        <title value="Annual Urine Screening Check"/>
+        <description value="Patient has not had a urine screening in the past 12 months"/>
+        <documentation>
+            <type value="documentation"/>
+            <display value="CDC guideline for prescribing opioids for chronic pain"/>
+            <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
+        </documentation>
         <documentation>
             <type value="documentation"/>
             <document>
-                <!-- We can use the example code systems from the FHIR Clinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
+                <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
                     <valueCodeableConcept>
                         <coding>
                             <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-                            <code value="strong"/>
-                            <display value="Strong"/>
+                            <code value="weak"/>
+                            <display value="Weak"/>
                         </coding>
                     </valueCodeableConcept>
                 </extension>
@@ -103,8 +102,8 @@
                     <valueCodeableConcept>
                         <coding>
                             <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-                            <code value="low"/>
-                            <display value="Low quality"/>
+                            <code value="very-low"/>
+                            <display value="Very Low quality"/>
                         </coding>
                     </valueCodeableConcept>
                 </extension>
@@ -112,45 +111,44 @@
         </documentation>
         <trigger>
             <type value="named-event"/>
-            <name value="order-select"/>
+            <name value="patient-view"/>
         </trigger>
         <condition>
             <kind value="applicability"/>
             <expression>
-                <description value="Check whether the current Order is for Opioid With Ambulatory Misuse Potential."/>
+                <description value="Patient has not had a urine screening in the past 12 months"/>
                 <language value="text/cql.identifier"/>
                 <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
-        <groupingBehavior value="visual-group"/>
-        <selectionBehavior value="exactly-one"/>
         <!-- dynamic card elements -->
-        <dynamicValue>
-            <path value="action.title"/>
-            <expression>
-                <language value="text/cql.identifier"/>
-                <expression value="Get Summary"/>
-            </expression>
-        </dynamicValue>
         <dynamicValue>
             <path value="action.description"/>
             <expression>
                 <language value="text/cql.identifier"/>
-                <expression value="Get Detail"/>
+                <expression value="No Screening In Last 12 Months Detail"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
-            <path value="activity.extension"/>
+            <path value="action.title"/>
             <expression>
                 <language value="text/cql.identifier"/>
-                <expression value="Get Indicator"/>
+                <expression value="No Screening In Last 12 Months Summary"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="action.extension"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="No Screening In Last 12 Months Indicator"/>
             </expression>
         </dynamicValue>
         <action>
-            <description value="Recommend launch of SMART-APP to search PDMP data for this patient"/>
+            <description value="Will perform urine screening"/>
+            <!-- Open Order Set, where available -->
         </action>
         <action>
-            <description value="Document PDMP data reviewed; snooze 3 months"/>
+            <description value="Not for chronic pain management. Snooze 3 months"/>
         </action>
         <action>
             <description value="N/A - see comment, snooze 3 months"/>

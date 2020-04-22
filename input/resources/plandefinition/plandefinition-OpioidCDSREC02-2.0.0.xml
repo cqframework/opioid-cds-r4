@@ -1,16 +1,16 @@
 <PlanDefinition xmlns="http://hl7.org/fhir">
-    <id value="opioidcds-01"/>
+    <id value="opioidcds-02"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-plandefinition"/>
     </meta>
-    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-01"/>
+    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-02"/>
     <identifier>
         <use value="official"/>
         <value value="cdc-opioid-guidance"/>
     </identifier>
     <version value="0.1.0"/>
-    <name value="CDC_opioid_01"/>
-    <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #1"/>
+    <name value="CDC_opioid_02"/>
+    <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #2"/>
     <type>
         <coding>
             <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
@@ -59,7 +59,7 @@
         </coding>
     </jurisdiction>
     <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
-    <usage value="Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient."/>
+    <usage value="Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function that outweighs risks to patient safety."/>
     <copyright value="© CDC 2016+."/>
     <topic>
         <text value="Opioid Prescribing"/>
@@ -81,11 +81,11 @@
         <display value="CDC guideline for prescribing opioids for chronic pain"/>
         <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
     </relatedArtifact>
-    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-rec-01"/>
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/library-OpioidCDSREC02"/>
     <action>
         <!-- non-dynamic card summary -->
         <title value="Current Order is for Opioid With Ambulatory Misuse Potential."/>
-        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #1 workflow."/>
+        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #2 workflow."/>
         <documentation>
             <type value="documentation"/>
             <document>
@@ -103,8 +103,8 @@
                     <valueCodeableConcept>
                         <coding>
                             <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-                            <code value="low"/>
-                            <display value="Low quality"/>
+                            <code value="very-low"/>
+                            <display value="Very low quality"/>
                         </coding>
                     </valueCodeableConcept>
                 </extension>
@@ -146,19 +146,19 @@
             </expression>
         </dynamicValue>
         <action>
-            <description value="Document reason for opioid use"/>
+            <description value="Create treatment plan with goals for opioid use"/>
         </action>
         <action>
-            <description value="Attempted alternate therapy; snooze 3 months"/>
+            <description value="Update patient's opioid treatment plan"/>
+        </action>
+        <action>
+            <description value="Review patient's opioid treatment plan"/>
         </action>
         <action>
             <description value="N/A - see comment; snooze 3 months"/>
         </action>
         <action>
-            <description value="Select from order set for alternative therapies"/>
-        </action>
-        <action>
-            <description value="Remove triggering medication"/>
+            <description value="Taper / Discontinue opioid"/>
         </action>
     </action>
 </PlanDefinition>
