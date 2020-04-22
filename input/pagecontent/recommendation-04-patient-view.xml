@@ -40,7 +40,7 @@
       <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="PlanDefinition-opioidcds-04-patient-view.html">CDC Opioid Prescribing Guideline Recommendation #4 Patient View</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #4 Patient View</td></tr>
+        <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC04PatientView-2.0.0.html">CDC Opioid Prescribing Guideline Recommendation #4 Patient View</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #4 Patient View</td></tr>
         <tr><td><a href="Library-library-OpioidCDSREC04PatientView-2.0.0.html">Recommendation #4 Patient View - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #4 Patient View</td></tr>
         <tr><td><a href="opioidcds-recommendation-04-patient-view-cql.html">CDC Opioid Prescribing Guideline Recommendation #4 Patient View</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #4 Patient View</td></tr>
       </tbody>
