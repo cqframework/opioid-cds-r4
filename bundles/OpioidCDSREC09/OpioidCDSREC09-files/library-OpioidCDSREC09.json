@@ -70,11 +70,47 @@
   ],
   "dataRequirement": [
     {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+        }
+      ]
+    },
+    {
       "type": "Procedure",
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "PDMP review procedure"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure"
         }
       ]
     },
@@ -83,7 +119,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "PDMP data reviewed finding"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding"
         }
       ]
     }

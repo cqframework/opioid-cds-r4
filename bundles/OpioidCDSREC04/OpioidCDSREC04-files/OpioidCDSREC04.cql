@@ -7,7 +7,6 @@ include OpioidCDSCommon version '2.0.0' called Common
 include OpioidCDSRoutines version '2.0.0' called Routines
 
 /*
-**
 **  Recommendation #4
 **    Prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids
 **

@@ -77,9 +77,6 @@
             ]
           },
           {
-            "type": "MedicationRequest"
-          },
-          {
             "type": "Medication",
             "codeFilter": [
               {
@@ -97,69 +94,11 @@
             ]
           },
           {
-            "type": "MedicationRequest"
-          },
-          {
-            "type": "Medication",
-            "codeFilter": [
-              {
-                "path": "id"
-              }
-            ]
-          },
-          {
             "type": "MedicationRequest",
             "codeFilter": [
               {
                 "path": "medication",
                 "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications"
-              }
-            ]
-          },
-          {
-            "type": "MedicationRequest"
-          },
-          {
-            "type": "Medication",
-            "codeFilter": [
-              {
-                "path": "id"
-              }
-            ]
-          },
-          {
-            "type": "MedicationRequest",
-            "codeFilter": [
-              {
-                "path": "medication",
-                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
-              }
-            ]
-          },
-          {
-            "type": "MedicationRequest"
-          },
-          {
-            "type": "Medication",
-            "codeFilter": [
-              {
-                "path": "id"
-              }
-            ]
-          },
-          {
-            "type": "Medication",
-            "codeFilter": [
-              {
-                "path": "id"
-              }
-            ]
-          },
-          {
-            "type": "Medication",
-            "codeFilter": [
-              {
-                "path": "id"
               }
             ]
           },
@@ -297,11 +236,29 @@
         ],
         "dataRequirement": [
           {
+            "type": "MedicationRequest",
+            "codeFilter": [
+              {
+                "path": "medication",
+                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+              }
+            ]
+          },
+          {
             "type": "Condition",
             "codeFilter": [
               {
                 "path": "code",
-                "valueSet": "Limited life expectancy conditions"
+                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+              }
+            ]
+          },
+          {
+            "type": "Condition",
+            "codeFilter": [
+              {
+                "path": "code",
+                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
               }
             ]
           },
@@ -310,7 +267,7 @@
             "codeFilter": [
               {
                 "path": "code",
-                "valueSet": "Therapies indicating end of life care"
+                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
               }
             ]
           },
@@ -319,7 +276,7 @@
             "codeFilter": [
               {
                 "path": "type",
-                "valueSet": "Office Visit"
+                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
               }
             ]
           },
@@ -328,7 +285,7 @@
             "codeFilter": [
               {
                 "path": "code",
-                "valueSet": "CDC malignant cancer conditions"
+                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions"
               }
             ]
           },
@@ -340,25 +297,7 @@
             "codeFilter": [
               {
                 "path": "code",
-                "valueSet": "Conditions likely terminal for opioid prescribing"
-              }
-            ]
-          },
-          {
-            "type": "MedicationDispense",
-            "codeFilter": [
-              {
-                "path": "medication",
-                "valueSet": "Opioid analgesics with ambulatory misuse potential"
-              }
-            ]
-          },
-          {
-            "type": "MedicationRequest",
-            "codeFilter": [
-              {
-                "path": "medication",
-                "valueSet": "Opioid analgesics with ambulatory misuse potential"
+                "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
               }
             ]
           }
