@@ -41,8 +41,8 @@ define "Encounter Period":
   Interval[Today() - 12 months - 1 days, Today() - 1 days]
 
 define "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
-  Common."Active Ambulatory Opioid Rx" AmbulatoryOpioidPrescription //MedicationRequest
-    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription ) //MedicationRequest
+  Common."Active Ambulatory Opioid Rx" AmbulatoryOpioidPrescription
+    where Routines."Is Chronic Pain Prescription?"(AmbulatoryOpioidPrescription)
       and AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
 
 define "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential":

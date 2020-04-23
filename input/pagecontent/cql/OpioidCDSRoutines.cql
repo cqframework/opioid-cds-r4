@@ -241,7 +241,7 @@ define function "Is Chronic Pain Prescription?"(prescription FHIR.MedicationRequ
   (
     prescription.dispenseRequest is not null
       and prescription.dispenseRequest.expectedSupplyDuration is not null
-      and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) >= 28
+      and Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28
   )
   or "Is Chronically on Opioids?"
 
@@ -313,9 +313,9 @@ define "Is Chronically on Opioids?":
     and "Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
 
 define "Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months":
-  "Days on Opioids during Period"( "First Month" ) >= 21
-    and "Days on Opioids during Period"( "Second Month" ) >= 21
-    and "Days on Opioids during Period"( "Third Month" ) >= 21
+  "Days on Opioids during Period"("First Month") >= 21
+    and "Days on Opioids during Period"("Second Month") >= 21
+    and "Days on Opioids during Period"("Third Month") >= 21
 
 define function "Prescription Relevant Period"(prescription FHIR.MedicationRequest):
   if (
