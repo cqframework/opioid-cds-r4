@@ -29,14 +29,14 @@
         "id": "example-rec-04-not-long-acting-opioid-prefetch",
         "status": "active",
         "intent": "order",
-        "category": {
+        "category": [{
           "coding": [
             {
-              "system": "http://hl7.org/fhir/medication-request-category",
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
               "code": "outpatient"
             }
           ]
-        },
+        }],
         "medicationCodeableConcept": {
           "coding": [
             {
@@ -73,10 +73,12 @@
               }
             },
             "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1.0,
-              "unit": "patch"
-            }
+            "doseAndRate": [{
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "patch"
+              }
+            }]
           }
         ],
         "dispenseRequest": {
@@ -93,8 +95,10 @@
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
-            "value": 30.0,
-            "unit": "d"
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
           }
         }
       }

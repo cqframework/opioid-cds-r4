@@ -159,36 +159,12 @@
               "system": "http://snomed.info/sct",
               "concept": [
                 {
-                  "code": "306205009",
-                  "_code": {
-                    "fhir_comments": [
-                      "<display value=\"Referral to hospice (procedure)\"/>"
-                    ]
-                  }
+                  "code": "385763009",
+                  "display": "Hospice care (regime/therapy)"
                 },
                 {
-                  "code": "305336008",
-                  "_code": {
-                    "fhir_comments": [
-                      "<display value=\"Admission to hospice (procedure)\"/>"
-                    ]
-                  }
-                },
-                {
-                  "code": "183919006",
-                  "_code": {
-                    "fhir_comments": [
-                      "<display value=\"Urgent admission to hospice (procedure)\"/>"
-                    ]
-                  }
-                },
-                {
-                  "code": "428371000124100",
-                  "_code": {
-                    "fhir_comments": [
-                      "<display value=\"Discharge to healthcare facility for hospice care (procedure)\"/>"
-                    ]
-                  }
+                  "code": "385765002",
+                  "display": "Hospice care management (procedure)"
                 }
               ]
             }

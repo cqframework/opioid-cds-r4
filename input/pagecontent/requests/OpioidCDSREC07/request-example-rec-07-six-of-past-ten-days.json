@@ -17,7 +17,7 @@
         "category": {
           "coding": [
             {
-              "system": "http://hl7.org/fhir/medication-request-category",
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
               "code": "outpatient"
             }
           ]
@@ -79,7 +79,9 @@
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
             "value": 6.0,
-            "unit": "d"
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
           }
         }
       }
@@ -98,7 +100,7 @@
         "category": {
           "coding": [
             {
-              "system": "http://hl7.org/fhir/medication-request-category",
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
               "code": "outpatient"
             }
           ]
@@ -160,7 +162,9 @@
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
             "value": 6.0,
-            "unit": "d"
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
           }
         }
       }

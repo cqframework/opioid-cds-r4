@@ -17,7 +17,7 @@
         "category": {
           "coding": [
             {
-              "system": "http://hl7.org/fhir/medication-request-category",
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
               "code": "outpatient"
             }
           ]

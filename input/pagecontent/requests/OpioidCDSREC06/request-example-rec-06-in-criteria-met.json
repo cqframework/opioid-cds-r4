@@ -79,8 +79,10 @@
                     },
                     "numberOfRepeatsAllowed": 1,
                     "expectedSupplyDuration": {
-                        "value": 29.0,
-                        "unit": "d"
+                      "value": 29.0,
+                      "unit": "days",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "d"
                     }
                 }
             }

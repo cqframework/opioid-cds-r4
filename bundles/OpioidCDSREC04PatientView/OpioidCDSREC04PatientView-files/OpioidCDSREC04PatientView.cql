@@ -54,8 +54,8 @@ define "Is Recommendation Applicable?":
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
-    and Routines."Is Opioid Review Useful?"
-    and Routines."Is Opioid Naive?"
+    /* and Routines."Is Opioid Review Useful?"
+    and Routines."Is Opioid Naive?" */
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
@@ -72,5 +72,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
-    then 'The following medication requests(s) release rates should be re-evaluated: ' + Combine( flatten( Common.GetMedicationNames( "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
+    then 'The following medication requests(s) release rates should be re-evaluated: ' + Combine(flatten(Common.GetMedicationNames("Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions")), ', ')
   else null
