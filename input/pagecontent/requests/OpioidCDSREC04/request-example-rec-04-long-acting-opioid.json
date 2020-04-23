@@ -122,7 +122,10 @@
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "expression": "Today() - 4 months"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 4 months"
+              }
             }
           ]
         },
@@ -147,7 +150,10 @@
             "extension": [
               {
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 4 months }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                "valueExpression": {
+                  "language": "text/cql",
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 4 months }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                }
               }
             ]
           },
@@ -170,11 +176,14 @@
         "subject": {
           "reference": "Patient/example-rec-04-long-acting-opioid"
         },
-        "period": {
+        "_period": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 4 months }, end: FHIR.dateTime { value: Today() - 4 months } }"
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 4 months }, end: FHIR.dateTime { value: Today() - 4 months } }"
+              }
             }
           ]
         }
