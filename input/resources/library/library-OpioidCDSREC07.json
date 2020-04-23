@@ -66,11 +66,47 @@
   ],
   "dataRequirement": [
     {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+        }
+      ]
+    },
+    {
       "type": "Procedure",
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "Opioid misuse assessment procedure"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure"
         }
       ]
     },
@@ -79,7 +115,7 @@
       "codeFilter": [
         {
           "path": "type",
-          "valueSet": "Office Visit"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
         }
       ]
     }

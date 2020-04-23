@@ -71,9 +71,6 @@
       ]
     },
     {
-      "type": "MedicationRequest"
-    },
-    {
       "type": "Medication",
       "codeFilter": [
         {
@@ -91,69 +88,11 @@
       ]
     },
     {
-      "type": "MedicationRequest"
-    },
-    {
-      "type": "Medication",
-      "codeFilter": [
-        {
-          "path": "id"
-        }
-      ]
-    },
-    {
       "type": "MedicationRequest",
       "codeFilter": [
         {
           "path": "medication",
           "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications"
-        }
-      ]
-    },
-    {
-      "type": "MedicationRequest"
-    },
-    {
-      "type": "Medication",
-      "codeFilter": [
-        {
-          "path": "id"
-        }
-      ]
-    },
-    {
-      "type": "MedicationRequest",
-      "codeFilter": [
-        {
-          "path": "medication",
-          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
-        }
-      ]
-    },
-    {
-      "type": "MedicationRequest"
-    },
-    {
-      "type": "Medication",
-      "codeFilter": [
-        {
-          "path": "id"
-        }
-      ]
-    },
-    {
-      "type": "Medication",
-      "codeFilter": [
-        {
-          "path": "id"
-        }
-      ]
-    },
-    {
-      "type": "Medication",
-      "codeFilter": [
-        {
-          "path": "id"
         }
       ]
     },
