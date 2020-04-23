@@ -324,7 +324,7 @@ define function "Prescription Relevant Period"(prescription FHIR.MedicationReque
   )
   then Interval[
     date from prescription.authoredOn,
-    date from prescription.authoredOn + System.Quantity{ value: Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ), unit: 'd' }
+    date from prescription.authoredOn + System.Quantity{ value: Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration), unit: 'days' }
   ]
   else null
 
