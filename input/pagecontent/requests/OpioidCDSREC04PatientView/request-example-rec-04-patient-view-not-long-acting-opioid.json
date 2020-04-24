@@ -26,31 +26,31 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
-        "id": "example-rec-04-not-long-acting-opioid-prefetch",
+        "id": "example-rec-04-not-long-acting-opioid-context",
         "status": "active",
         "intent": "order",
-        "category": [{
+        "category": {
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
               "code": "outpatient"
             }
           ]
-        }],
+        },
         "medicationCodeableConcept": {
           "coding": [
             {
               "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "1049502",
-              "display": "12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"
+              "code": "1010600",
+              "display": "Buprenorphine 2 MG / Naloxone 0.5 MG Oral Strip"
             }
           ]
         },
         "subject": {
           "reference": "Patient/example-rec-04-not-long-acting-opioid"
         },
-        "context": {
-          "reference": "Encounter/example-rec-04-not-long-acting-opioid-prefetch"
+        "encounter": {
+          "reference": "Encounter/example-rec-04-not-long-acting-opioid-context"
         },
         "_authoredOn": {
           "extension": [
@@ -58,7 +58,7 @@
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
               "valueExpression": {
                 "language": "text/cql",
-                "expression": "Today() - 4 months"
+                "expression": "Today()"
               }
             }
           ]
@@ -88,7 +88,7 @@
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                 "valueExpression": {
                   "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 4 months }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
                 }
               }
             ]
