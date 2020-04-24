@@ -31,7 +31,7 @@
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
   <a name="commonlibraries"> </a>
-  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
+  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
 
   <p></p>
 
@@ -40,7 +40,7 @@
       <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="PlanDefinition-opioidcds-11.html">CDC Opioid Prescribing Guideline Recommendation #11</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #11</td></tr>
+        <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC11.html">CDC Opioid Prescribing Guideline Recommendation #11</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #11</td></tr>
         <tr><td><a href="Library-library-OpioidCDSREC11.html">Recommendation #11 - concurrent opioid pain medication and benzodiazepines prescriptions</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #11</td></tr>
         <tr><td><a href="opioidcds-recommendation-11-cql.html">CDC Opioid Prescribing Guideline Recommendation #11</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #11</td></tr>
       </tbody>
@@ -64,14 +64,14 @@
   ii.	Indicate that the benefits outweigh the risks and snooze for 3 months
   iii.	Indicate that it is not applicable, log a comment and snooze for 3 months </td>
             <td><a href="Bundle-example-rec-11-benzo-trigger-with-opioid.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-11-benzo-trigger-with-opioid.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-11-benzo-trigger-with-opioid.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-with-opioid.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC11/response-example-rec-11-benzo-trigger-with-opioid.json">Response JSON</a></td>
         </tr>
         <tr>
             <td class="col-7">Patient is 18 or older. Patient is being prescribed Flurazepam Hydrochloride 15 MG Oral Capsule (RxNorm code 1298088), once per day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
             <td><a href="Bundle-example-rec-11-benzo-trigger-without-opioid.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-11-benzo-trigger-without-opioid.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-11-benzo-trigger-without-opioid.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-without-opioid.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC11/response-example-rec-11-benzo-trigger-without-opioid.json">Response JSON</a></td>
         </tr>
         <tr>
             <td class="col-7">Patient is 18 or older. Patient is being prescribed Flurazepam Hydrochloride 15 MG Oral Capsule (RxNorm code 1298088), once per day for 30 days. Patient is also being prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RxNorm code 1049502), once per day for 30 days. This triggers a message with the recommendation to avoid prescribing opioid pain medication and benzodiazepine concurrently with following three feedback options:
@@ -79,14 +79,14 @@
   ii.	Indicate that the benefits outweigh the risks and snooze for 3 months
   iii.	Indicate that it is not applicable, log a comment and snooze for 3 months </td>
             <td><a href="Bundle-example-rec-11-opioid-trigger-with-benzo.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-11-opioid-trigger-with-benzo.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-11-opioid-trigger-with-benzo.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-with-benzo.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC11/response-example-rec-11-opioid-trigger-with-benzo.json">Response JSON</a></td>
         </tr>
         <tr>
             <td class="col-7">Patient is 18 or older. Patient is being prescribed 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet (RxNorm code 1049502), once per day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
             <td><a href="Bundle-example-rec-11-opioid-trigger-without-benzo.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-11-opioid-trigger-without-benzo.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-11-opioid-trigger-without-benzo.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-without-benzo.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC11/response-example-rec-11-opioid-trigger-without-benzo.json">Response JSON</a></td>
         </tr>
       </tbody>
     </table>

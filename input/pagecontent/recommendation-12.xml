@@ -82,7 +82,7 @@
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
   <a name="commonlibraries"> </a>
-  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
+  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
 
   <p></p>
 
@@ -91,7 +91,7 @@
       <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="PlanDefinition-opioidcds-12.html">CDC Opioid Prescribing Guideline Recommendation #12</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #12</td></tr>
+        <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC12.html">CDC Opioid Prescribing Guideline Recommendation #12</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #12</td></tr>
         <tr><td><a href="Library-library-OpioidCDSREC12.html">Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #12</td></tr>
         <tr><td><a href="opioidcds-recommendation-12-cql.html">CDC Opioid Prescribing Guideline Recommendation #12</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #12</td></tr>
       </tbody>
@@ -112,14 +112,14 @@
         <tr>
             <td class="col-7">Patient is 18 or older. Patient has a diagnosis of opioid misuse disorder in past 90 days. This will trigger the message “Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine and/or behavioral therapy”.</td>
             <td><a href="Bundle-example-rec-12-criteria-valid.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-12-in-criteria-met.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-12-in-criteria-met.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC12/request-example-rec-12-in-criteria-met.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC12/response-example-rec-12-in-criteria-met.json">Response JSON</a></td>
         </tr>
         <tr>
             <td class="col-7">Patient is 18 or older. Patient has not been diagnosed with opioid misuse disorder in the past 90 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
             <td><a href="Bundle-example-rec-12-criteria-invalid.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-12-out-opioid-misuse.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-12-out-opioid-misuse.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC12/request-example-rec-12-out-opioid-misuse.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC12/response-example-rec-12-out-opioid-misuse.json">Response JSON</a></td>
         </tr>
       </tbody>
     </table>

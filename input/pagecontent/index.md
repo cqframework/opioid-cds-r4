@@ -34,6 +34,7 @@ This implementation guide includes support for the following guideline recommend
 * [Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11.html)
 * [Recommendation #11 Patient View - Concurrent Use of Opioids and Benzodiazepines](recommendation-11-patient-view.html)
 * [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)
+* [Recommendation #12 Patient View - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12-patient-view.html)
 
 ### Getting Started
 

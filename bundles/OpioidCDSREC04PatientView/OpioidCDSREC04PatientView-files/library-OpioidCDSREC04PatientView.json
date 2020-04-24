@@ -90,7 +90,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "Limited life expectancy conditions"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
         }
       ]
     },
@@ -99,7 +99,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "Therapies indicating end of life care"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
         }
       ]
     },
@@ -108,7 +108,7 @@
       "codeFilter": [
         {
           "path": "type",
-          "valueSet": "Office Visit"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
         }
       ]
     },
@@ -117,7 +117,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSet": "Conditions likely terminal for opioid prescribing"
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
         }
       ]
     }
