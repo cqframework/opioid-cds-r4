@@ -1,4 +1,4 @@
-library OpioidCDSREC12 version '2.0.0'
+library OpioidCDSREC12PatientView version '2.0.0'
 
 using FHIR version '4.0.0'
 
