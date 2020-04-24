@@ -17,16 +17,13 @@
                 "id": "example-rec-12-criteria-invalid",
                 "_birthDate": {
                     "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueExpression": {
-                                "language": "text/cql",
-                                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "Today() - 20 years"
-              }
-                            }
+                      {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+                        "valueExpression": {
+                          "language": "text/cql",
+                          "expression": "Today() - 20 years"
                         }
+                      }
                     ]
                 }
             }
@@ -39,15 +36,13 @@
                 "resourceType": "Condition",
                 "id": "64615597-1124-44bf-b0a5-ae5e45b45ea8",
                 "clinicalStatus": {
-                    "code": {
-                        "coding": [
-                            {
-                                "system": "http://www.hl7.org/Special/committees/dss/index.cfm",
-                                "code": "active",
-                                "display": "Active Condition"
-                            }
-                        ]
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                      "code": "active",
+                      "display": "Active Condition"
                     }
+                  ]
                 },
                 "verificationStatus": {
                     "code": {

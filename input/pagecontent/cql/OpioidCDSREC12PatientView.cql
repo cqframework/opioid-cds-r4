@@ -70,7 +70,8 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
     [Condition: Common."Opioid misuse disorders"] C
-      where exists (
+       where
+       exists (
         C.clinicalStatus.coding Coding
           where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
       )
