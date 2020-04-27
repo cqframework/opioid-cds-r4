@@ -15,17 +15,20 @@ include OpioidCDSCommonConfig version '2.0.0' called Config
 **    (recommendation category: A, evidence type: 2)
 **
 **  When
-**    Patient is 18 years and older and not receiving evidence-based treatment for opioid use disorder, which may include medication treatment with buprenorphine or methadone, or opioid-specific behavioral counseling
+**    Patient is 18 years and older and not receiving evidence-based treatment for
+**      opioid use disorder, which may include medication treatment with buprenorphine
+**      or methadone, or opioid-specific behavioral counseling
 **    Patient has a diagnosis of opioid use disorder in the past 90 days
 **  Then
-**    Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy, buprenorphine therapy, and/or behavioral therapy. Potential actions include:
+**    Recommend opioid agonist or partial agonist treatment with methadone maintenance
+**    therapy, buprenorphine therapy, and/or behavioral therapy. Potential actions include:
 **      Order methadone or buprenorphine
 **      Refer to qualified treatment provider (i.e. substance disorder specialist)
 **      N/A - see comment; snooze 3 months
 **
 */
 
-// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-12
+// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/plandefinitino-OpioidCDSRec12
 
 context Patient
 
@@ -63,7 +66,7 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
             and P.performed during day of "Opioid Use Disorder Lookback Period"
       )
     )
-      
+
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
     [Condition: Common."Opioid misuse disorders"] C

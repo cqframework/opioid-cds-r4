@@ -15,8 +15,8 @@ include OpioidCDSCommonConfig version '2.0.0' called Config
 **    (recommendation category: A, evidence type: 2)
 **
 **  When
-**    Patient is 18 years and older and not receiving evidence-based treatment
-**      for opioid use disorder, which may include medication treatment with buprenorphine
+**    Patient is 18 years and older and not receiving evidence-based treatment for
+**      opioid use disorder, which may include medication treatment with buprenorphine
 **      or methadone, or opioid-specific behavioral counseling
 **    Patient has a diagnosis of opioid use disorder in the past 90 days
 **  Then
@@ -28,7 +28,7 @@ include OpioidCDSCommonConfig version '2.0.0' called Config
 **
 */
 
-// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-12
+// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/plandefinition-OpioidCDSREC12PatientView
 
 context Patient
 
