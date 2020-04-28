@@ -1,8 +1,5 @@
 library OpioidCDSCommonConfig version '2.0.0'
 
-define "Chronically on Opioids Enabled":
-  true
-
 // Opioid Review Useful
 define "Age Less than 18 Years Is Enabled":
   true

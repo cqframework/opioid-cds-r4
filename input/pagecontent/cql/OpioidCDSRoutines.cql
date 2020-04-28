@@ -232,8 +232,6 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
 **  with expected supply        |                     | misuse potential with a supply duration of >=  | ambulatory misuse potential
 **  duration >= 28 days         |                     | 28 days                                        |
 **  -----------------------------------------------------------------------------------------------------------------------------------
-**  Chronically on opioids      | Yes                 | Sub-routine 6 (optional)                       |
-**  -----------------------------------------------------------------------------------------------------------------------------------
 **
 */
 
@@ -243,7 +241,6 @@ define function "Is Chronic Pain Prescription?"(prescription FHIR.MedicationRequ
       and prescription.dispenseRequest.expectedSupplyDuration is not null
       and Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28
   )
-  or "Is Chronically on Opioids?"
 
 // End of For Chronic Pain Routine
 
@@ -268,77 +265,4 @@ define function "Is Acute Pain Prescription?"(prescription FHIR.MedicationReques
 
 // End of For Acute Pain Routine
 
-/*
-**  Routine #6
-**  Chronically on Opioids Routine
-**
-**  Definition                         | Answer to Proceed   | Details                                               | Data (Terminology) Requirement
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  Order for opioid analgesics with   | Yes                 | Order for opioid analgesics with ambulatory           | Opioid analgesics with
-**  ambulatory misuse potential        |                     | misuse potential covering 21 of 30 days for           | ambulatory misuse potential
-**  covering 21 of 30 days for each    |                     | each of the past 3 months                             |
-**  of the past 3 months               |                     |                                                       |
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  Dispensed opioid analgesics with   | Yes                 | Look for evidence of a dispensing event(s) for opioid | Opioid analgesics with
-**  ambulatory misuse potential        |                     | analgesics with ambulatory abuse potential covering   | ambulatory misuse potential
-**  covering 21 of 30 days for each    |                     | 21 of 30 days for each of the past 3 months           |
-**  of the past 3 months*              |                     |                                                       |
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  Patient-reported opioid analgesics | Yes                 | Look for evidence of patient-reported opioid          | Opioid analgesics with
-**  with ambulatory misuse potential   |                     | analgesics with ambulatory abuse potential on         | ambulatory misuse potential
-**  covering 21 of 30 days for each of |                     | the medication list covering 21 of 30 days for        |
-**  the past 3 months*                 |                     | each of the past 3 months                             |
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  *Future consideration: Current algorithm addresses only orders (prescriptions).
-**
-**  Note – orders use RxNorm, but medication lists and dispensed medication will
-**  require an NDC value set and/or local mapping of NDC to RxNorm to enable this element
-**
-*/
-
-define "Previous 10 Days Interval":
-Interval[Today() - 10 days, Today()]
-
-define "First Month":
-Interval[Today() - 3 months, Today() - 2 months]
-
-define "Second Month":
-Interval[Today() - 2 months, Today() - 1 months]
-
-define "Third Month":
-Interval[Today() - 1 months, Today()]
-
-define "Is Chronically on Opioids?":
-  Config."Chronically on Opioids Enabled"
-    and "Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
-
-define "Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months":
-  "Days on Opioids during Period"("First Month") >= 21
-    and "Days on Opioids during Period"("Second Month") >= 21
-    and "Days on Opioids during Period"("Third Month") >= 21
-
-define function "Prescription Relevant Period"(prescription FHIR.MedicationRequest):
-  if (
-    prescription.authoredOn is not null and prescription.dispenseRequest is not null
-      and prescription.dispenseRequest.expectedSupplyDuration is not null
-  )
-  then Interval[
-    date from prescription.authoredOn,
-    date from prescription.authoredOn + System.Quantity{ value: Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration), unit: 'days' }
-  ]
-  else null
-
-define function "Days on Opioids during Period"(period Interval<Date>):
-  Sum(
-    (
-      collapse (
-        [MedicationRequest: Common."Opioid analgesics with ambulatory misuse potential"] OpioidPrescription
-        return "Prescription Relevant Period"( OpioidPrescription ) intersect period
-      )
-    ) OpioidUseInterval
-      return days between start of OpioidUseInterval and end of OpioidUseInterval
-  )
-
 // TODO: Include logic for dispensing and patient-reported events
-
-// End of Chronically on Opioids Routine
