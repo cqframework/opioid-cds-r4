@@ -289,6 +289,44 @@ define "Medications Indicating End of Life":
 
 */
 
+define "Previous 10 Days Interval":
+Interval[Today() - 10 days, Today()]
+
+define "First Month":
+Interval[Today() - 3 months, Today() - 2 months]
+
+define "Second Month":
+Interval[Today() - 2 months, Today() - 1 months]
+
+define "Third Month":
+Interval[Today() - 1 months, Today()]
+
+define "Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months":
+  "Days on Opioids during Period"("First Month") >= 21
+    and "Days on Opioids during Period"("Second Month") >= 21
+    and "Days on Opioids during Period"("Third Month") >= 21
+
+define function "Prescription Relevant Period"(prescription FHIR.MedicationRequest):
+  if (
+    prescription.authoredOn is not null and prescription.dispenseRequest is not null
+      and prescription.dispenseRequest.expectedSupplyDuration is not null
+  )
+  then Interval[
+    date from prescription.authoredOn,
+    date from prescription.authoredOn + System.Quantity{ value: GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration), unit: 'days' }
+  ]
+  else null
+
+define function "Days on Opioids during Period"(period Interval<Date>):
+  Sum(
+    (
+      collapse (
+        [MedicationRequest: "Opioid analgesics with ambulatory misuse potential"] OpioidPrescription
+        return "Prescription Relevant Period"( OpioidPrescription ) intersect period
+      )
+    ) OpioidUseInterval
+      return days between start of OpioidUseInterval and end of OpioidUseInterval
+  )
 
 define function Prescriptions(Orders List<MedicationRequest>):
   Orders O
