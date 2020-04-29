@@ -105,8 +105,8 @@
       <tr><td><a href="Library-library-OpioidCDSCommon.html">OpioidCDS_Common</a></td><td>Library</td><td>Opioid Common Library</td></tr>
       <tr><td><a href="Library-library-OpioidCDSREC10PatientView.html">OpioidCDS_REC_10_Patient_View</a></td><td>Library</td><td>Opioid Recommendation #10 (Patient View Version) Library</td></tr>
       <tr><td><a href="Library-library-OpioidCDSREC11PatientView.html">OpioidCDS_REC_11_Patient_View</a></td><td>Library</td><td>Opioid Recommendation #11 (Patient View Version) Library</td></tr>
-      <tr><td><a href="PlanDefinition-opioidcds-10-patient-view.html">PlanDefinition_Recommendation_10_Patient_View (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #10 (Patient View Version) PlanDefinition</td></tr>
-      <tr><td><a href="PlanDefinition-opioidcds-11-patient-view.html">PlanDefinition_Recommendation_11_Patient_view (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #11 (Patient View Version) PlanDefinition</td></tr>
+      <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC10PatientView.html">PlanDefinition_Recommendation_10_Patient_View (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #10 (Patient View Version) PlanDefinition</td></tr>
+      <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC11PatientView.html">PlanDefinition_Recommendation_11_Patient_view (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #11 (Patient View Version) PlanDefinition</td></tr>
       <tr><td><a href="terminology.html">Terminologies</a></td><td>ValueSet</td><td>Value sets referenced by the CQL in the Opioid Logic recommendations</td></tr>
     </tbody>
   </table>
@@ -117,7 +117,7 @@
 
   <div class="example">
     <pre class="http">
-  PUT http://localhost:8080/cqf-ruler-r4/fhir/Library/omtkdata
+  PUT http://localhost:8080/cqf-ruler-r4/fhir/Library/library-OMTKData2019
     </pre>
   </div>
 
@@ -177,7 +177,7 @@
     </pre>
   </div>
 
-  <a href="requests/request-example-rec-10-patient-view-illicit-drugs.json">request-example-rec-10-patient-view-illicit-drugs.json</a>
+  <a href="requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-illicit-drugs.json">request-example-rec-10-patient-view-illicit-drugs.json</a>
 
   <div class="example">
     <pre class="json">

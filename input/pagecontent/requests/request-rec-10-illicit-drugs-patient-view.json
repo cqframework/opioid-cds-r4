@@ -56,7 +56,9 @@
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
             "value": 30.0,
-            "unit": "d"
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
           }
         }
       }
@@ -189,7 +191,9 @@
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
             "value": 30.0,
-            "unit": "d"
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
           }
         }
       }

@@ -30,7 +30,7 @@
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
   <a name="commonlibraries"> </a>
-  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
+  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
 
   <p></p>
 
@@ -39,17 +39,20 @@
       <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="PlanDefinition-opioidcds-10.html">CDC Opioid Prescribing Guideline Recommendation #10</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #10</td></tr>
+        <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC10.html">CDC Opioid Prescribing Guideline Recommendation #10</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #10</td></tr>
         <tr><td><a href="Library-library-OpioidCDSREC10.html">Recommendation #10 - urine drug testing when prescribing opioids for chronic pain</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #10</td></tr>
         <tr><td><a href="opioidcds-recommendation-10-cql.html">CDC Opioid Prescribing Guideline Recommendation #10</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #10</td></tr>
+        <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC10PatientView.html">CDC Opioid Prescribing Guideline Recommendation #10 Patient View</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #10 Patient View</td></tr>
+        <tr><td><a href="Library-library-OpioidCDSREC10PatientView.html">Recommendation #10 Patient View - urine drug testing when prescribing opioids for chronic pain</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #10 Patient View</td></tr>
+        <tr><td><a href="opioidcds-recommendation-10-patient-view-cql.html">CDC Opioid Prescribing Guideline Recommendation #10 Patient View</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #10 Patient View</td></tr>
       </tbody>
   </table>
 
   <p></p>
 
   <!-- Example Data/Requests -->
-    <a name="exampledatarequests"> </a>
-    <h3>Example Data/Requests</h3>
+    <a name="exampledatarequests-order-select"> </a>
+    <h3>Example Data/Requests - order-select hook</h3>
     <table class="grid">
       <thead>
       <tr>
@@ -63,8 +66,28 @@
   ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
   iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. </td>
             <td><a href="Bundle-example-rec-10-no-screenings.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-10-no-screenings.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-10-no-screenings.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC10/request-example-rec-10-no-screenings.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC10/response-example-rec-10-no-screenings.json">Response JSON</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a name="exampledatarequests-patient-view"> </a>
+    <h3>Example Data/Requests - patient-view hook</h3>
+    <table class="grid">
+      <thead>
+      <tr>
+          <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td class="col-7">Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696), once every 12 days for 30 days. This triggers the message that urine drug screening is recommended with the following three feedback options:
+  i.	Perform the screening
+  ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
+  iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. </td>
+            <td><a href="Bundle-example-rec-10-no-screenings.html">Test Bundle</a></td>
+            <td><a href="requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC10PatientView/response-example-rec-10-patient-view-no-screenings.json">Response JSON</a></td>
         </tr>
       </tbody>
     </table>
