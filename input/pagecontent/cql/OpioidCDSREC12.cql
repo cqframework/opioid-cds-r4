@@ -28,7 +28,7 @@ include OpioidCDSCommonConfig version '2.0.0' called Config
 **
 */
 
-// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/plandefinitino-OpioidCDSRec12
+// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/plandefinition-OpioidCDSRec12
 
 context Patient
 
