@@ -45,7 +45,7 @@ valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/Val
 valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
 valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
 
-code "Outpatient": 'outpatient' from "Medication Request Category Codes"
+code "Community": 'community' from "Medication Request Category Codes"
 code "Active Condition": 'active' from "Condition Clinical Status Codes"
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
@@ -151,14 +151,14 @@ define function "Get Active Ambulatory Medication Requests" (value List<Medicati
     where Rx.status.value = 'active'
       and exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
 
 define function "Is Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
     where exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
 
 define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
@@ -168,7 +168,7 @@ define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value Li
     where Med in "Opioid analgesics with ambulatory misuse potential"
       and exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
     return
           MedicationRequest {
@@ -191,7 +191,7 @@ define function "Is Benzodiazepine?"(value List<MedicationRequest>):
     where Med in "Benzodiazepine medications"
       and exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
     return
           MedicationRequest {
