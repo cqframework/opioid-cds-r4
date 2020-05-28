@@ -5,4 +5,5 @@
 /template
 .DS_Store
 .idea/
-/input-cache
+input-cache/*
+!/input-cache/txcache

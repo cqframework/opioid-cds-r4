@@ -39,7 +39,7 @@
                   "coding": [
                     {
                       "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-                      "code": "outpatient"
+                      "code": "community"
                     }
                   ]
                 }
@@ -123,7 +123,7 @@
                   "coding": [
                     {
                       "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-                      "code": "outpatient"
+                      "code": "community"
                     }
                   ]
                 }

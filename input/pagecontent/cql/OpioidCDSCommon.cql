@@ -15,6 +15,7 @@ valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/
 valueset "Extended release opioid with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
 valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
 
+// Enumerated-compose
 valueset "Limited life expectancy conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions'
 valueset "Therapies indicating end of life care": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care'
 valueset "Conditions likely terminal for opioid prescribing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing'
@@ -22,6 +23,7 @@ valueset "CDC malignant cancer conditions": 'http://fhir.org/guides/cdc/opioid-c
 valueset "Oncology specialty designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations'
 valueset "Opioid misuse disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders'
 valueset "Substance misuse behavioral counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling'
+
 valueset "Conditions documenting substance misuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-substance-misuse'
 // Harvested from VSAC - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
 // Reviewed with Terminology, 2020-02-05 - Value set name in VSAC is "Office Visit", need to verify suitability
@@ -43,10 +45,12 @@ valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/Val
 valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
 valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
 
-code "Outpatient": 'outpatient' from "Medication Request Category Codes"
+code "Community": 'community' from "Medication Request Category Codes"
 code "Active Condition": 'active' from "Condition Clinical Status Codes"
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
+
+context Patient
 
 // TODO: Capture process decisions for long-term opioid use
 define IsForChronicPain: true
@@ -149,24 +153,24 @@ define function "Get Active Ambulatory Medication Requests" (value List<Medicati
     where Rx.status.value = 'active'
       and exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
 
 define function "Is Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
     where exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
 
 define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
   value Rx
     let MedRef: if (Rx.medication is FHIR.Reference) then (Rx.medication as FHIR.Reference).reference else null,
-      Med: if MedRef is null then (Rx.medication as FHIR.CodeableConcept).coding else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code.coding)
-    where Med.code in "Opioid analgesics with ambulatory misuse potential"
+      Med: if MedRef is null then (Rx.medication as FHIR.CodeableConcept) else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code)
+    where Med in "Opioid analgesics with ambulatory misuse potential"
       and exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
     return
           MedicationRequest {
@@ -174,7 +178,7 @@ define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value Li
             status: Rx.status,
             intent: Rx.intent,
             category: Rx.category,
-            medication: FHIR.CodeableConcept{ coding: Med },
+            medication: FHIR.CodeableConcept{ coding: Med.coding },
             subject: Rx.subject,
             authoredOn: Rx.authoredOn,
             recorder: Rx.recorder,
@@ -185,11 +189,11 @@ define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value Li
 define function "Is Benzodiazepine?"(value List<MedicationRequest>):
   value Rx
     let MedRef: if (Rx.medication is FHIR.Reference) then (Rx.medication as FHIR.Reference).reference else null,
-      Med: if MedRef is null then (Rx.medication as FHIR.CodeableConcept).coding else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code.coding)
-    where Med.code in "Benzodiazepine medications"
+      Med: if MedRef is null then (Rx.medication as FHIR.CodeableConcept) else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code)
+    where Med in "Benzodiazepine medications"
       and exists (
         Rx.category RxCategory
-          where FHIRHelpers.ToConcept(RxCategory) ~ "Outpatient"
+          where FHIRHelpers.ToConcept(RxCategory) ~ "Community"
       )
     return
           MedicationRequest {
@@ -197,7 +201,7 @@ define function "Is Benzodiazepine?"(value List<MedicationRequest>):
             status: Rx.status,
             intent: Rx.intent,
             category: Rx.category,
-            medication: FHIR.CodeableConcept{ coding: Med },
+            medication: FHIR.CodeableConcept{ coding: Med.coding },
             subject: Rx.subject,
             authoredOn: Rx.authoredOn,
             recorder: Rx.recorder,
