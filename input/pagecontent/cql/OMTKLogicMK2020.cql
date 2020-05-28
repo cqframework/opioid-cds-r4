@@ -12,6 +12,8 @@ include OMTKData2020 version '2.0.0' called OMTKData
 
 codesystem RxNorm: 'http://www.nlm.nih.gov/research/umls/rxnorm'
 
+context Patient
+
 /*
   Normalizes the input units to UCUM units
 

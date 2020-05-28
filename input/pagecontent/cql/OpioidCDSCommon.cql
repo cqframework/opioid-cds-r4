@@ -50,6 +50,8 @@ code "Active Condition": 'active' from "Condition Clinical Status Codes"
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
+context Patient
+
 // TODO: Capture process decisions for long-term opioid use
 define IsForChronicPain: true
 
