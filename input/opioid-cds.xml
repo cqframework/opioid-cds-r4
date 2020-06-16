@@ -316,6 +316,10 @@
         <!--</parameter>-->
         <parameter>
           <code value="path-resource" />
+          <value value="input/resources/device"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
           <value value="input/resources/library"/>
         </parameter>
         <parameter>
