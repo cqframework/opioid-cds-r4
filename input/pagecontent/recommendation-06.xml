@@ -27,7 +27,7 @@
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
   <a name="commonlibraries"> </a>
-  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries <img src="target.png" width="20" class="self-link" height="20"/></a></h4>
+  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
 
   <p></p>
 
@@ -36,7 +36,7 @@
       <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td><a href="PlanDefinition-opioidcds-06.html">CDC Opioid Prescribing Guideline Recommendation #6</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #6</td></tr>
+        <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC06.html">CDC Opioid Prescribing Guideline Recommendation #6</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #6</td></tr>
         <tr><td><a href="Library-library-OpioidCDSREC06.html">Recommendation #6 - Prescribe Lowest Effective Dose and Duration</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #6</td></tr>
         <tr><td><a href="opioidcds-recommendation-06-cql.html">CDC Opioid Prescribing Guideline Recommendation #6</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #6</td></tr>
       </tbody>
@@ -57,14 +57,14 @@
         <tr>
             <td class="col-7">Patient is 18 or older. Patient has been prescribed oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet (RXNorm 1049502). Patients “Dosage Instructions” are 1 Tablet per day for 29 days.  The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
             <td><a href="Bundle-example-rec-06-criteria-valid.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-06-in-criteria-met.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-06-in-criteria-met.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC06/request-example-rec-06-in-criteria-met.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC06/response-example-rec-06-in-criteria-met.json">Response JSON</a></td>
         </tr>
         <tr>
             <td class="col-7">Patient is 18 or older. Patient has been prescribed oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet (RXNorm 1049502).Patients “Dosage Instructions” are 1 Tablet per day for 27 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned. </td>
             <td><a href="Bundle-example-rec-06-with-extended-release-for-27-days.html">Test Bundle</a></td>
-            <td><a href="requests/request-example-rec-06-out-extended-release-27-days.json">Request JSON</a></td>
-            <td><a href="responses/response-example-rec-06-out-extended-release-27-days.json">Response JSON</a></td>
+            <td><a href="requests/OpioidCDSREC06/request-example-rec-06-out-extended-release-27-days.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC06/response-example-rec-06-out-extended-release-27-days.json">Response JSON</a></td>
         </tr>
       </tbody>
     </table>
