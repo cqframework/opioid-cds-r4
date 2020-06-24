@@ -56,21 +56,21 @@ details[open] summary::before {
   <p></p>
   <img src="assets/images/Recommendation04-Definitions.png" style="max-width: 100%;" />
 </details>
-
+<p></p>
 <details>
 <summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
 </details>
+<p></p>
 <details>
 <summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
 </details>
+<p></p>
 <details>
 <summary><h3 class="title">Opioid Naive</h3></summary>
   {% include opioid-naive-definitions.html %}
 </details>
-
-  <p></p>
   <p></p>
 <details>
 <summary><h3 class="title">Content</h3></summary>

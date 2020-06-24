@@ -55,16 +55,16 @@ details[open] summary::before {
   <p></p>
   <img src="assets/images/Recommendation11-Definitions.png" style="max-width: 100%;" />
 </details>
+<p></p>
 <details>
 <summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
 </details>
+<p></p>
 <details>
 <summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
 </details>
-  
-  <p></p>
   <p></p>
 
   <details>
@@ -141,6 +141,7 @@ details[open] summary::before {
       </tbody>
     </table>
   </details>
+  <p></p>
   <details>
   <summary><h3 class="title">Example Data/Requests - patient-view hook</h3></summary>
     <a name="exampledatarequests-order-select"> </a>
