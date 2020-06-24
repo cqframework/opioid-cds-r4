@@ -3,10 +3,50 @@
   <p>
       <strong>Clinicians should offer or arrange evidence-based treatment (usually medication-assisted treatment with buprenorphine or methadone in combination with behavioral therapies) for patients with opioid use disorder (recommendation category: A, evidence type: 2).</strong>
   </p>
+ <html>
+<style>
+* {
+  box-sizing: border-box
+}
+details-wrapper {
+   width: 75vw;
+   <!-- margin: 0 auto; -->
+   box-shadow:0 0 1px 2px #BFBFBF;
+   
+}
+details {
+   padding: .5rem;
+   font: 1rem/1.2 sans-serif;
+}
+summary {
+  font-size: 22px;
+  background-color: #f5f7f6;
+  list-style: none;
+  height:20%;
+}
+.title {
+  display:flex;
+  margin-left: 2%;
+  color: black;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+summary::before {
+   padding-right: .25rem;
+   content: '+ '; /* Instead of Triangle closed */
+}
+details[open] summary::before {
+   padding-right: .25rem;
+   font-style: italic;
+   content: '- '; /* Instead of Triangle open */
+}
+</style>
+<body>
+<details>
+<summary><h3 class="title">Functional Description</h3></summary>
 
   <a name="funcdesc"> </a>
-  <h3>Functional Description</h3>
-
   {% include recommendation12-functional-description.html %}
 
   <p></p>
@@ -72,12 +112,15 @@
       </tr>
     </tbody>
   </table>
+</details>
 
   <p></p>
   <p></p>
+  
+  <details>
+  <summary><h3 class="title">Content</h3></summary>
 
   <a name="content"> </a>
-  <h3>Content</h3>
 
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
@@ -96,12 +139,15 @@
         <tr><td><a href="opioidcds-recommendation-12-patient-view-cql.html">CDC Opioid Prescribing Guideline Recommendation #12 (patient-view)</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #12</td></tr>
       </tbody>
   </table>
+  </details>
 
   <p></p>
 
   <!-- Example Data/Requests -->
+
+  <details>
+  <summary><h3 class="title">Example Data/Requests - patient-view hook</h3></summary>
     <a name="exampledatarequests-patient-view"> </a>
-    <h3>Example Data/Requests - patient-view hook</h3>
     <table class="grid">
       <thead>
         <tr>
@@ -123,4 +169,7 @@
         </tr>
       </tbody>
     </table>
+    </details>
+    </body>
+    </html>
 </div>

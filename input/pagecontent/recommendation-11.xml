@@ -4,10 +4,49 @@
       <strong>Clinicians should avoid prescribing opioid pain medication and benzodiazepines concurrently
       whenever possible <em>(recommendation category: A, evidence type: 3)</em>.</strong>
   </p>
-
+   <html>
+<style>
+* {
+  box-sizing: border-box
+}
+details-wrapper {
+   width: 75vw;
+   <!-- margin: 0 auto; -->
+   box-shadow:0 0 1px 2px #BFBFBF;
+   
+}
+details {
+   padding: .5rem;
+   font: 1rem/1.2 sans-serif;
+}
+summary {
+  font-size: 22px;
+  background-color: #f5f7f6;
+  list-style: none;
+  height:20%;
+}
+.title {
+  display:flex;
+  margin-left: 2%;
+  color: black;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+summary::before {
+   padding-right: .25rem;
+   content: '+ '; /* Instead of Triangle closed */
+}
+details[open] summary::before {
+   padding-right: .25rem;
+   font-style: italic;
+   content: '- '; /* Instead of Triangle open */
+}
+</style>
+<body>
+<details>
+<summary><h3 class="title">Functional Description</h3></summary>
   <a name="funcdesc"> </a>
-  <h3>Functional Description</h3>
-
   {% include recommendation11-functional-description.html %}
 
   <p></p>
@@ -15,16 +54,22 @@
   <img src="assets/images/Recommendation11-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation11-Definitions.png" style="max-width: 100%;" />
-
+</details>
+<details>
+<summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
-
+</details>
+<details>
+<summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
+</details>
   
   <p></p>
   <p></p>
 
+  <details>
+  <summary><h3 class="title">Content</h3></summary>
   <a name="content"> </a>
-  <h3>Content</h3>
 
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
@@ -46,12 +91,16 @@
         <tr><td><a href="opioidcds-recommendation-11-patient-view-cql.html">CDC Opioid Prescribing Guideline Recommendation #11 Patient View</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #11 Patient View</td></tr>
       </tbody>
   </table>
+  </details>
+
 
   <p></p>
 
   <!-- Example Data/Requests -->
+
+  <details>
+  <summary><h3 class="title">Example Data/Requests - order-select hook</h3></summary>
     <a name="exampledatarequests-order-select"> </a>
-    <h3>Example Data/Requests - order-select hook</h3>
     <table class="grid">
       <thead>
       <tr>
@@ -91,9 +140,10 @@
         </tr>
       </tbody>
     </table>
-
+  </details>
+  <details>
+  <summary><h3 class="title">Example Data/Requests - patient-view hook</h3></summary>
     <a name="exampledatarequests-order-select"> </a>
-    <h3>Example Data/Requests - patient-view hook</h3>
     <table class="grid">
       <thead>
       <tr>
@@ -133,4 +183,7 @@
         </tr>
       </tbody>
     </table>
+  </details>
+    </body>
+    </html>
 </div>

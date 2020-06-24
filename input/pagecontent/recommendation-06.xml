@@ -3,9 +3,49 @@
   <p>
       <strong>Long-term opioid use often begins with treatment of acute pain. When opioids are used for acute pain, clinicians should prescribe the lowest effective dose of immediate-release opioids and should prescribe no greater quantity than needed for the expected duration of pain severe enough to require opioids. Three days or less will often be sufficient; more than seven days will rarely be needed (recommendation category: A, evidence type: 4).</strong>
   </p>
-
+  <html>
+<style>
+* {
+  box-sizing: border-box
+}
+details-wrapper {
+   width: 75vw;
+   <!-- margin: 0 auto; -->
+   box-shadow:0 0 1px 2px #BFBFBF;
+   
+}
+details {
+   padding: .5rem;
+   font: 1rem/1.2 sans-serif;
+}
+summary {
+  font-size: 22px;
+  background-color: #f5f7f6;
+  list-style: none;
+  height:20%;
+}
+.title {
+  display:flex;
+  margin-left: 2%;
+  color: black;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+summary::before {
+   padding-right: .25rem;
+   content: '+ '; /* Instead of Triangle closed */
+}
+details[open] summary::before {
+   padding-right: .25rem;
+   font-style: italic;
+   content: '- '; /* Instead of Triangle open */
+}
+</style>
+<body>
+<details>
+<summary><h3 class="title">Functional Description</h3></summary>
   <a name="funcdesc"> </a>
-  <h3>Functional Description</h3>
 
   {% include recommendation06-functional-description.html %}
 
@@ -13,17 +53,22 @@
   <img src="assets/images/Recommendation06-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation06-Definitions.png" style="max-width: 100%;" />
+</details>
 
+<details>
+<summary><h3 class="title">For Acute Pain</h3></summary>
   {% include for-acute-pain-definitions.html %}
-
+</details>
+<details>
+<summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
+</details>
 
   <p></p>
   <p></p>
-
+<details>
+<summary><h3 class="title">Content</h3></summary>
   <a name="content"> </a>
-  <h3>Content</h3>
-
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
   <a name="commonlibraries"> </a>
@@ -41,12 +86,14 @@
         <tr><td><a href="opioidcds-recommendation-06-cql.html">CDC Opioid Prescribing Guideline Recommendation #6</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #6</td></tr>
       </tbody>
   </table>
+</details>
 
   <p></p>
 
   <!-- Example Data/Requests -->
+  <details>
+  <summary><h3 class="title">Example Data/Requests</h3></summary>
     <a name="exampledatarequests"> </a>
-    <h3>Example Data/Requests</h3>
     <table class="grid">
       <thead>
       <tr>
@@ -68,4 +115,7 @@
         </tr>
       </tbody>
     </table>
+  </details>
+    </body>
+    </html>
 </div>
