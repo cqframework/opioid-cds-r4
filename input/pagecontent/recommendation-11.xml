@@ -13,7 +13,7 @@ details-wrapper {
    width: 75vw;
    <!-- margin: 0 auto; -->
    box-shadow:0 0 1px 2px #BFBFBF;
-   
+
 }
 details {
    padding: .5rem;
@@ -45,8 +45,9 @@ details[open] summary::before {
 </style>
 <body>
 
-<h3 class="title">Functional Description</h3>
+  <h3 class="title">Functional Description</h3>
   <a name="funcdesc"> </a>
+
   {% include recommendation11-functional-description.html %}
 
   <p></p>
@@ -55,14 +56,14 @@ details[open] summary::before {
   <p></p>
   <img src="assets/images/Recommendation11-Definitions.png" style="max-width: 100%;" />
 
-<p></p>
+  <p></p>
 <details>
-<summary><h3 class="title">For Chronic Pain</h3></summary>
+  <summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
 </details>
 <p></p>
 <details>
-<summary><h3 class="title">Opioid Review Useful</h3></summary>
+  <summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
 </details>
   <p></p>
