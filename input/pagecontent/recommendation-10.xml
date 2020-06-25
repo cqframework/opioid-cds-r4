@@ -46,8 +46,8 @@ details[open] summary::before {
 }
 </style>
 <body>
-  <details>
-  <summary><h3 class="title">Functional Description</h3></summary>
+
+  <h3 class="title">Functional Description</h3>
   <a name="funcdesc"> </a>
   
   {% include recommendation10-functional-description.html %}
@@ -56,7 +56,7 @@ details[open] summary::before {
   <img src="assets/images/Recommendation10-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation10-Definitions.png" style="max-width: 100%;" />
-  </details>
+
   <p></p>
 <details>
 <summary><h3 class="title">For Chronic Pain</h3></summary>

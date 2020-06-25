@@ -43,8 +43,8 @@ details[open] summary::before {
 }
 </style>
 <body>
-<details>
-<summary><h3 class="title">Functional Description</h3></summary>
+
+<h3 class="title">Functional Description</h3>
 
   <a name="funcdesc"> </a>
   {% include recommendation12-functional-description.html %}
@@ -112,7 +112,7 @@ details[open] summary::before {
       </tr>
     </tbody>
   </table>
-</details>
+
   <p></p>
   
   <details>
