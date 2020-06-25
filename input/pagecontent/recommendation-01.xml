@@ -41,17 +41,16 @@ details[open] summary::before {
 }
 </style>
 <body>
-
+<details>
   <a name="funcdesc"> </a>
-  <h3 class="title">Functional Description</h3>
-
+  <summary><h3 class="title">Functional Description</h3></summary>
   {% include recommendation01-functional-description.html %}
   <p></p>
   <img src="assets/images/Recommendation01-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation01-Definitions.png" style="max-width: 100%;" />
-  
-
+  <p></p>
+  </details>
   <p></p>
 <details>
 <summary><h3 class="title">Chronic Pain</h3></summary>
