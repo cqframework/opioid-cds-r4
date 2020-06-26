@@ -8,45 +8,7 @@
       clinicians should optimize other therapies and work with patients to taper opioids
       to lower dosages or to taper and discontinue opioids <em>(recommendation category: A, evidence type: 4)</em>.</strong>
   </p>
-  <html>
-<style>
-* {
-  box-sizing: border-box
-}
-details-wrapper {
-   width: 75vw;
-   <!-- margin: 0 auto; -->
-   box-shadow:0 0 1px 2px #BFBFBF;
-   
-}
-details {
-   padding: .5rem;
-   font: 1rem/1.2 sans-serif;
-}
-summary {
-  font-size: 22px;
-  background-color: #f5f7f6;
-  list-style: none;
-  height:20%;
-}
-.title {
-  display:flex;
-  margin-left: 2%;
-  color: black;
-}
-summary::-webkit-details-marker {
-    display: none;
-}
-summary::before {
-   padding-right: .25rem;
-   content: '+ '; /* Instead of Triangle closed */
-}
-details[open] summary::before {
-   padding-right: .25rem;
-   font-style: italic;
-   content: '- '; /* Instead of Triangle open */
-}
-</style>
+<html>
 <body>
 <details open="true">
 <summary><h3 class="title">Functional Description</h3></summary>

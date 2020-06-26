@@ -2,44 +2,6 @@
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#1_Nonpharmacologic_therapy" target="_blank">Recommendation #1:</a></p>
   <p><strong>Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient. If opioids are used, they should be combined with nonpharmacologic therapy and nonopioid pharmacologic therapy, as appropriate (recommendation category: A, evidence type: 3).</strong></p>
 <html>
-<style>
-* {
-  box-sizing: border-box
-}
-details-wrapper {
-   width: 75vw;
-   <!-- margin: 0 auto; -->
-   box-shadow:0 0 1px 2px #BFBFBF;
-
-}
-details {
-   padding: .5rem;
-   font: 1rem/1.2 sans-serif;
-}
-summary {
-  font-size: 22px;
-  background-color: #f5f7f6;
-  list-style: none;
-  height:20%;
-}
-.title {
-  display:flex;
-  margin-left: 2%;
-  color: black;
-}
-summary::-webkit-details-marker {
-    display: none;
-}
-summary::before {
-   padding-right: .25rem;
-   content: '+ '; /* Instead of Triangle closed */
-}
-details[open] summary::before {
-   padding-right: .25rem;
-   font-style: italic;
-   content: '- '; /* Instead of Triangle open */
-}
-</style>
 <body>
 <details open="true">
   <summary><h3 class="title">Functional Description</h3></summary>
