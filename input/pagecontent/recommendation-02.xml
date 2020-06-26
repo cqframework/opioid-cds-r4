@@ -6,8 +6,8 @@
 <html>
 <body> 
 <details open="true">
-  <a name="funcdesc"> </a>
  <summary><h3 class="title">Functional Description</h3></summary>
+  <a name="funcdesc"> </a>
   {% include recommendation02-functional-description.html %}
   <p></p>
   <img src="assets/images/Recommendation02-flow.png" style="max-width: 100%;" />
