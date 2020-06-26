@@ -15,7 +15,7 @@ details-wrapper {
    width: 75vw;
    <!-- margin: 0 auto; -->
    box-shadow:0 0 1px 2px #BFBFBF;
-   
+
 }
 details {
    padding: .5rem;
@@ -49,25 +49,26 @@ details[open] summary::before {
 <details open="true">
   <summary><h3 class="title">Functional Description</h3></summary>
   <a name="funcdesc"> </a>
-  
+
   {% include recommendation10-functional-description.html %}
 
   <p></p>
+
   <img src="assets/images/Recommendation10-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation10-Definitions.png" style="max-width: 100%;" />
 </details>
   <p></p>
 <details>
-<summary><h3 class="title">For Chronic Pain</h3></summary>
+  <summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
 </details>
 <p></p>
 <details>
-<summary><h3 class="title">Opioid Review Useful</h3></summary>
+  <summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
 </details>
-  <p></p>
+<p></p>
 <details>
 <summary><h3 class="title">Content</h3></summary>
   <a name="content"> </a>
