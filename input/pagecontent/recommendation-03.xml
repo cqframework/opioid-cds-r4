@@ -3,9 +3,11 @@
   <p>
       <strong>Before starting and periodically during opioid therapy, clinicians should discuss with patients known risks and realistic benefits of opioid therapy and patient and clinician responsibilities for managing therapy (recommendation category: A, evidence type: 3).</strong>
   </p>
-
+<html>
+<body>
+<details open="true">
+  <summary><h3 class="title">Functional Description</h3></summary>
   <a name="funcdesc"> </a>
-  <h3>Functional Description</h3>
 
   {% include recommendation03-functional-description.html %}
 
@@ -13,16 +15,22 @@
   <img src="assets/images/Recommendation03-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation03-Definitions.png" style="max-width: 100%;" />
-
+</details>
+<p></p>
+<details>
+<summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
-
+</details>
+<p></p>
+<details>
+<summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
-
+</details>
   <p></p>
-  <p></p>
-
+<details>
+<summary><h3 class="title">Content</h3></summary>
   <a name="content"> </a>
-  <h3>Content</h3>
+  
 
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
@@ -41,12 +49,14 @@
         <tr><td><a href="opioidcds-recommendation-03-cql.html">CDC Opioid Prescribing Guideline Recommendation #3</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #3</td></tr>
       </tbody>
   </table>
-
+</details>
   <p></p>
 
   <!-- Example Data/Requests -->
+  <details>
+  <summary><h3 class="title">Example Data/Requests</h3></summary>
     <a name="exampledatarequests"> </a>
-    <h3>Example Data/Requests</h3>
+    
     <table class="grid">
       <thead>
       <tr>
@@ -68,4 +78,7 @@
         </tr>
       </tbody>
     </table>
+    </details>
+    </body>
+    </html>
 </div>

@@ -1,28 +1,39 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#1_Nonpharmacologic_therapy" target="_blank">Recommendation #1:</a></p>
   <p><strong>Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient. If opioids are used, they should be combined with nonpharmacologic therapy and nonopioid pharmacologic therapy, as appropriate (recommendation category: A, evidence type: 3).</strong></p>
-
+<html>
+<body>
+<details open="true">
+  <summary><h3 class="title">Functional Description</h3></summary>
   <a name="funcdesc"> </a>
-  <h3>Functional Description</h3>
-
   {% include recommendation01-functional-description.html %}
 
   <p></p>
+
   <img src="assets/images/Recommendation01-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation01-Definitions.png" style="max-width: 100%;" />
-
+  <p></p>
+</details>
+  <p></p>
+<details>
+  <summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
-
+</details>
+<p></p>
+<details>
+  <summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
-
+</details>
+<p></p>
+<details>
+  <summary><h3 class="title">Opioid Naive</h3></summary>
   {% include opioid-naive-definitions.html %}
-
-  <p></p>
-  <p></p>
-
+</details>
+<p></p>
+<details>
+<summary><h3 class="title">Content</h3></summary>
   <a name="content"> </a>
-  <h3>Content</h3>
 
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
@@ -41,12 +52,13 @@
         <tr><td><a href="opioidcds-recommendation-01-cql.html">CDC Opioid Prescribing Guideline Recommendation #1</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #1</td></tr>
       </tbody>
   </table>
-
+</details>
   <p></p>
 
   <!-- Example Data/Requests -->
+  <details>
+  <summary><h3 class="title">Example Data/ Requests</h3></summary>
   <a name="exampledatarequests"> </a>
-  <h3>Example Data/Requests</h3>
   <table class="grid">
     <thead>
     <tr>
@@ -68,4 +80,7 @@
       </tr>
     </tbody>
   </table>
+  </details>
+  </body>
+</html>
 </div>

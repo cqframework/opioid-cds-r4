@@ -6,26 +6,34 @@
       prescribed medications as well as other controlled prescription drugs and illicit drugs
       <em>(recommendation category: B, evidence type: 4)</em>.</strong>
   </p>
-
+   <html>
+<body>
+<details open="true">
+  <summary><h3 class="title">Functional Description</h3></summary>
   <a name="funcdesc"> </a>
-  <h3>Functional Description</h3>
 
   {% include recommendation10-functional-description.html %}
 
   <p></p>
+
   <img src="assets/images/Recommendation10-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation10-Definitions.png" style="max-width: 100%;" />
-
+</details>
+  <p></p>
+<details>
+  <summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
-
+</details>
+<p></p>
+<details>
+  <summary><h3 class="title">Opioid Review Useful</h3></summary>
   {% include opioid-review-useful-definitions.html %}
-
-  <p></p>
-  <p></p>
-
+</details>
+<p></p>
+<details>
+<summary><h3 class="title">Content</h3></summary>
   <a name="content"> </a>
-  <h3>Content</h3>
 
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
@@ -47,12 +55,15 @@
         <tr><td><a href="opioidcds-recommendation-10-patient-view-cql.html">CDC Opioid Prescribing Guideline Recommendation #10 Patient View</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #10 Patient View</td></tr>
       </tbody>
   </table>
+</details>
 
   <p></p>
 
   <!-- Example Data/Requests -->
+
+  <details>
+  <summary><h3 class="title">Example Data/Requests - order-select hook</h3></summary>
     <a name="exampledatarequests-order-select"> </a>
-    <h3>Example Data/Requests - order-select hook</h3>
     <table class="grid">
       <thead>
       <tr>
@@ -71,8 +82,11 @@
         </tr>
       </tbody>
     </table>
+  </details>
+  <p></p>
+  <details>
+  <summary><h3 class="title">Example Data/Requests - patient-view hook</h3></summary>
     <a name="exampledatarequests-patient-view"> </a>
-    <h3>Example Data/Requests - patient-view hook</h3>
     <table class="grid">
       <thead>
       <tr>
@@ -91,4 +105,7 @@
         </tr>
       </tbody>
     </table>
+  </details>
+    </body>
+    </html>
 </div>
