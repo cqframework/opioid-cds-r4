@@ -303,6 +303,10 @@
           <value value="true" />
         </parameter>
         <parameter>
+          <code value="path-liquid" />
+          <value value="templates/liquid"/>
+        </parameter>
+        <parameter>
           <code value="path-pages" />
           <value value="input/pagecontent"/>
         </parameter>
