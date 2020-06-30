@@ -3,28 +3,36 @@
   <p>
       <strong>Before starting opioid therapy for chronic pain, clinicians should establish treatment goals with all patients, including realistic goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks. Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function that outweighs risks to patient safety (recommendation category: A, evidence type: 4).</strong>
   </p>
-
+<html>
+<body> 
+<details open="true">
+ <summary><h3 class="title">Functional Description</h3></summary>
   <a name="funcdesc"> </a>
-  <h3>Functional Description</h3>
-
   {% include recommendation02-functional-description.html %}
-
   <p></p>
   <img src="assets/images/Recommendation02-flow.png" style="max-width: 100%;" />
   <p></p>
   <img src="assets/images/Recommendation02-Definitions.png" style="max-width: 100%;" />
-
+  </details>
+  <p></p>
+<details>
+<summary><h3 class="title">For Chronic Pain</h3></summary>
   {% include for-chronic-pain-definitions.html %}
-
+</details>
+<p></p>
+<details>
+<summary><h3 class="title">Opioid Review Useful Definitions</h3></summary>
   {% include opioid-review-useful-definitions.html %}
-
+</details>
+<p></p>
+<details>
+<summary><h3 class="title">Opioid Naive Definitions</h3></summary>
   {% include opioid-naive-definitions.html %}
-
+</details>
   <p></p>
-  <p></p>
-
+<details>
   <a name="content"> </a>
-  <h3>Content</h3>
+  <summary><h3 class="title">Content</h3></summary>
 
   <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
@@ -43,12 +51,14 @@
         <tr><td><a href="opioidcds-recommendation-02-cql.html">CDC Opioid Prescribing Guideline Recommendation #2</a></td><td>CQL Source</td><td>For reference, the complete CQL content for Recommendation #2</td></tr>
       </tbody>
   </table>
-
+</details>
   <p></p>
 
   <!-- Example Data/Requests -->
+  <details>
+  <summary><h3 class="title">Example Data/Requests</h3></summary>
   <a name="exampledatarequests"> </a>
-  <h3>Example Data/Requests</h3>
+  
   <table class="grid">
     <thead>
       <tr>
@@ -70,4 +80,7 @@
       </tr>
     </tbody>
   </table>
+  </details>
+  </body>
+  </html>
 </div>
