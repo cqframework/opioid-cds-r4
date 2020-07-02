@@ -1,10 +1,10 @@
-library OpioidCDSREC12PatientView version '2.0.0'
+library OpioidCDSREC12PatientView version '2.0.1'
 
 using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDSCommon version '2.0.0' called Common
-include OpioidCDSCommonConfig version '2.0.0' called Config
+include OpioidCDSCommon version '2.0.1' called Common
+include OpioidCDSCommonConfig version '2.0.1' called Config
 
 /*
 **
@@ -15,8 +15,8 @@ include OpioidCDSCommonConfig version '2.0.0' called Config
 **    (recommendation category: A, evidence type: 2)
 **
 **  When
-**    Patient is 18 years and older and not receiving evidence-based treatment
-**      for opioid use disorder, which may include medication treatment with buprenorphine
+**    Patient is 18 years and older and not receiving evidence-based treatment for
+**      opioid use disorder, which may include medication treatment with buprenorphine
 **      or methadone, or opioid-specific behavioral counseling
 **    Patient has a diagnosis of opioid use disorder in the past 90 days
 **  Then
@@ -28,7 +28,7 @@ include OpioidCDSCommonConfig version '2.0.0' called Config
 **
 */
 
-// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-12
+// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/plandefinition-OpioidCDSREC12PatientView
 
 context Patient
 
@@ -70,13 +70,11 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
     [Condition: Common."Opioid misuse disorders"] C
-       where
-       /* exists (
+      where exists (
         C.clinicalStatus.coding Coding
           where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-      ) */
-          //and
-          date from C.recordedDate during day of "Opioid Use Disorder Lookback Period"
+      )
+          and date from C.recordedDate during day of "Opioid Use Disorder Lookback Period"
     )
 
 define "Positive Result from Opioid Use Disorder Evaluation Tool":

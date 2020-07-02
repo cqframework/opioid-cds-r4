@@ -20,8 +20,7 @@
       to interact with an HTTP API. One popular client is Postman, available
       <a href="https://www.getpostman.com" target="_blank">here</a>.
       Postman is an application that provides a user-friendly GUI for constructing and submitting HTTP
-      requests to APIs and viewing responses in an easy-to-read format. A postman collection of requests required to complete this Quick Start can be downloaded
-      <a href="quick-start-bundles/opioid-cds-postman-collection.json" target="_blank" download="opioid-cds-postman-collection">here</a> and imported into Postman.
+      requests to APIs and viewing responses in an easy-to-read format.
   </p>
 
   <a name="service"> </a>
@@ -100,13 +99,13 @@
       <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
     </thead>
     <tbody>
-      <tr><td><a href="Library-library-OMTKData2019.html">OMTKData</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Data Library</td></tr>
-      <tr><td><a href="Library-library-OMTKLogicMK2019.html">OMTKLogic</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Logic Library</td></tr>
-      <tr><td><a href="Library-library-OpioidCDSCommon.html">OpioidCDS_Common</a></td><td>Library</td><td>Opioid Common Library</td></tr>
-      <tr><td><a href="Library-library-OpioidCDSREC10PatientView.html">OpioidCDS_REC_10_Patient_View</a></td><td>Library</td><td>Opioid Recommendation #10 (Patient View Version) Library</td></tr>
-      <tr><td><a href="Library-library-OpioidCDSREC11PatientView.html">OpioidCDS_REC_11_Patient_View</a></td><td>Library</td><td>Opioid Recommendation #11 (Patient View Version) Library</td></tr>
-      <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC10PatientView.html">PlanDefinition_Recommendation_10_Patient_View (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #10 (Patient View Version) PlanDefinition</td></tr>
-      <tr><td><a href="PlanDefinition-plandefinition-OpioidCDSREC11PatientView.html">PlanDefinition_Recommendation_11_Patient_view (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #11 (Patient View Version) PlanDefinition</td></tr>
+      <tr><td><a href="Library-OMTKData2019.html">OMTKData</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Data Library</td></tr>
+      <tr><td><a href="Library-OMTKLogicMK2019.html">OMTKLogic</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Logic Library</td></tr>
+      <tr><td><a href="Library-OpioidCDSCommon.html">OpioidCDS_Common</a></td><td>Library</td><td>Opioid Common Library</td></tr>
+      <tr><td><a href="Library-OpioidCDSREC10PatientView.html">OpioidCDS_REC_10_Patient_View</a></td><td>Library</td><td>Opioid Recommendation #10 (Patient View Version) Library</td></tr>
+      <tr><td><a href="Library-OpioidCDSREC11PatientView.html">OpioidCDS_REC_11_Patient_View</a></td><td>Library</td><td>Opioid Recommendation #11 (Patient View Version) Library</td></tr>
+      <tr><td><a href="PlanDefinition-OpioidCDSREC10PatientView.html">PlanDefinition_Recommendation_10_Patient_View (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #10 (Patient View Version) PlanDefinition</td></tr>
+      <tr><td><a href="PlanDefinition-OpioidCDSREC11PatientView.html">PlanDefinition_Recommendation_11_Patient_view (v0.1.0)</a></td><td>PlanDefinition</td><td>Opioid Recommendation #11 (Patient View Version) PlanDefinition</td></tr>
       <tr><td><a href="terminology.html">Terminologies</a></td><td>ValueSet</td><td>Value sets referenced by the CQL in the Opioid Logic recommendations</td></tr>
     </tbody>
   </table>
@@ -117,7 +116,7 @@
 
   <div class="example">
     <pre class="http">
-  PUT http://localhost:8080/cqf-ruler-r4/fhir/Library/library-OMTKData2019
+  PUT http://localhost:8080/cqf-ruler-r4/fhir/Library/OMTKData2019
     </pre>
   </div>
 
