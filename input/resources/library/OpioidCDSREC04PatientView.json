@@ -38,7 +38,7 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC04PatientView",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "name": "OpioidCDSREC04PatientView",
   "title": "Library - Recommendation #4 Patient View - Opioid Immediate Release Form When Starting Opioid Therapy",
   "status": "active",
@@ -66,63 +66,63 @@
     }
   ],
   "dataRequirement": [
-   {
-     "type": "MedicationRequest",
-     "codeFilter": [
-       {
-         "path": "medication",
-         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
-       }
-     ]
-   },
-   {
-     "type": "MedicationRequest"
-   },
-   {
-     "type": "Medication",
-     "codeFilter": [
-       {
-         "path": "id"
-       }
-     ]
-   },
-   {
-     "type": "Condition",
-     "codeFilter": [
-       {
-         "path": "code",
-         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
-       }
-     ]
-   },
-   {
-     "type": "ServiceRequest",
-     "codeFilter": [
-       {
-         "path": "code",
-         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-       }
-     ]
-   },
-   {
-     "type": "Encounter",
-     "codeFilter": [
-       {
-         "path": "type",
-         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
-       }
-     ]
-   },
-   {
-     "type": "Condition",
-     "codeFilter": [
-       {
-         "path": "code",
-         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
-       }
-     ]
-   }
- ],
+    {
+      "type": "MedicationRequest",
+      "codeFilter": [
+        {
+          "path": "medication",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+        }
+      ]
+    },
+    {
+      "type": "MedicationRequest"
+    },
+    {
+      "type": "Medication",
+      "codeFilter": [
+        {
+          "path": "id"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+        }
+      ]
+    },
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+        }
+      ]
+    },
+    {
+      "type": "Encounter",
+      "codeFilter": [
+        {
+          "path": "type",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
+        }
+      ]
+    }
+  ],
   "content": [
     {
       "contentType": "application/elm+xml",
