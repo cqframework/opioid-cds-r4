@@ -86,7 +86,7 @@
     <display value="MME Conversion Tables"/>
     <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
   </relatedArtifact>
-  <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC11"/>
+  <library value="http://fhir.org/guides/cdc/opioid-cds/Library/library-OpioidCDSREC11"/>
   <action>
     <title value="Existing patient has concurrent opioid and benzodiazepine prescriptions."/>
     <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #11 workflow."/>
