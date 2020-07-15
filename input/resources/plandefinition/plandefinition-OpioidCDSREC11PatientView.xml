@@ -76,7 +76,7 @@
     <author>
       <name value="Robert McClure, MD, MPH"/>
     </author>
-    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/library-OpioidCDSREC11PatientView" />
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC11PatientView" />
     <action>
       <title value="Existing patient has concurrent opioid and benzodiazepine prescriptions."/>
       <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #11 workflow."/>
