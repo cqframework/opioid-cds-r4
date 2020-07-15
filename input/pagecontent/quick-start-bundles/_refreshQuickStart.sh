@@ -5,13 +5,13 @@ rm bundlegen/sourcefiles/*
 cp input/resources/plandefinition/plandefinition-OpioidCDSREC10PatientView.xml bundlegen/sourcefiles/
 cp input/resources/plandefinition/plandefinition-OpioidCDSREC11PatientView.xml bundlegen/sourcefiles/
 cp input/resources/library/FHIRHelpers.json bundlegen/sourcefiles/
-cp input/resources/library/library-OMTKData2020.json bundlegen/sourcefiles/
-cp input/resources/library/library-OMTKLogicMK2020.json bundlegen/sourcefiles/
-cp input/resources/library/library-OpioidCDSCommon.json bundlegen/sourcefiles/
-cp input/resources/library/library-OpioidCDSCommonConfig.json bundlegen/sourcefiles/
-cp input/resources/library/library-OpioidCDSRoutines.json bundlegen/sourcefiles/
-cp input/resources/library/library-OpioidCDSREC10PatientView.json bundlegen/sourcefiles/
-cp input/resources/library/library-OpioidCDSREC11PatientView.json bundlegen/sourcefiles/
+cp input/resources/library/OMTKData2020.json bundlegen/sourcefiles/
+cp input/resources/library/OMTKLogicMK2020.json bundlegen/sourcefiles/
+cp input/resources/library/OpioidCDSCommon.json bundlegen/sourcefiles/
+cp input/resources/Library/OpioidCDSCommonConfig.json bundlegen/sourcefiles/
+cp input/resources/Library/OpioidCDSRoutines.json bundlegen/sourcefiles/
+cp input/resources/Library/OpioidCDSREC10PatientView.json bundlegen/sourcefiles/
+cp input/resources/Library/OpioidCDSREC11PatientView.json bundlegen/sourcefiles/
 
 #cd /bundlegen
 for entry in "bundlegen/sourcefiles"/*
@@ -62,6 +62,7 @@ cp input/vocabulary/valueset/valueset-pdmp-data-reviewed-finding.json bundlegen/
 cp input/vocabulary/valueset/valueset-pdmp-review-procedure.json bundlegen/sourcefiles/valueset-pdmp-review-procedure.json
 cp input/vocabulary/valueset/valueset-substance-misuse-behavioral-counseling.json bundlegen/sourcefiles/valueset-substance-misuse-behavioral-counseling.json
 cp input/vocabulary/valueset/valueset-therapies-indicating-end-of-life-care.json bundlegen/sourcefiles/valueset-therapies-indicating-end-of-life-care.json
+cp input/vocabulary/valueset/external/valueset-us-core-condition-category.json bundlegen/sourcefiles/valueset-us-core-condition-category.json
 
 
 #cd /bundlegen
