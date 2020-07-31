@@ -4,6 +4,7 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OMTKLogicMK2020 version '2.0.1' called OMTKLogic
+include OpioidCDSCommonConfig version '2.0.1' called Config
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
@@ -231,8 +232,11 @@ define "Admitted/Referred/Discharged to Hospice Care":
   )
   union
   (
-    [Observation: code in "Hospice Finding Codes"] O
-      where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+    if (Config."Hospice Findings Exclusion Enabled") then
+      [Observation: code in "Hospice Finding Codes"] O
+        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+    else
+      {}
   )
   union
   (
