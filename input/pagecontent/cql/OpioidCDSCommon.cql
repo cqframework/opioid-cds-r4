@@ -4,12 +4,15 @@ using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
 include OMTKLogicMK2020 version '2.0.1' called OMTKLogic
+include OpioidCDSCommonConfig version '2.0.1' called Config
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
 codesystem "Medication Request Category Codes": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 codesystem "Medication Request Status Codes": 'http://hl7.org/fhir/medication-request-status'
 codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+
+valueset "US Core Condition Category Codes": 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category'
 
 // Expression-based
 valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
@@ -200,19 +203,21 @@ define "End of Life Assessment":
 
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
-    [Condition: "Conditions likely terminal for opioid prescribing"] C
-      where exists (
-        C.clinicalStatus.coding Coding
-          where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
-      )
+    [Condition: category in "US Core Condition Category Codes"] C
+      where C.code in "Conditions likely terminal for opioid prescribing"
+        and exists (
+          C.clinicalStatus.coding Coding
+            where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
+        )
   )
   union
   (
-    [Condition: code in "Limited life expectancy conditions"] C
-      where exists (
-        C.clinicalStatus.coding Coding
-          where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
-      )
+    [Condition: category in "US Core Condition Category Codes"] C
+      where C.code in "Limited life expectancy conditions"
+        and exists (
+          C.clinicalStatus.coding Coding
+            where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
+        )
   )
 
 define "Admitted/Referred/Discharged to Hospice Care":
@@ -227,8 +232,11 @@ define "Admitted/Referred/Discharged to Hospice Care":
   )
   union
   (
-    [Observation: code in "Hospice Finding Codes"] O
-      where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+    if (Config."Hospice Findings Exclusion Enabled") then
+      [Observation: code in "Hospice Finding Codes"] O
+        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+    else
+      {}
   )
   union
   (

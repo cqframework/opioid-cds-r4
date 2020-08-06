@@ -24,6 +24,10 @@ define "Opioid Naive Report Condition Is Enabled":
 define "Opioid Naive Dispense Condition Is Enabled":
   true
 
+// OpioidCDSCommon
+define "Hospice Findings Exclusion Enabled":
+  false
+
 // Recommendation 2
 define "Opioid Treatment Plan Verification Enabled":
   true
