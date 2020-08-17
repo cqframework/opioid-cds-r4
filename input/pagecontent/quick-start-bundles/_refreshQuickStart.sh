@@ -62,8 +62,6 @@ cp input/vocabulary/valueset/valueset-pdmp-data-reviewed-finding.json bundlegen/
 cp input/vocabulary/valueset/valueset-pdmp-review-procedure.json bundlegen/sourcefiles/valueset-pdmp-review-procedure.json
 cp input/vocabulary/valueset/valueset-substance-misuse-behavioral-counseling.json bundlegen/sourcefiles/valueset-substance-misuse-behavioral-counseling.json
 cp input/vocabulary/valueset/valueset-therapies-indicating-end-of-life-care.json bundlegen/sourcefiles/valueset-therapies-indicating-end-of-life-care.json
-cp input/vocabulary/valueset/external/valueset-us-core-condition-category.json bundlegen/sourcefiles/valueset-us-core-condition-category.json
-
 
 #cd /bundlegen
 for entry in "bundlegen/sourcefiles"/*
