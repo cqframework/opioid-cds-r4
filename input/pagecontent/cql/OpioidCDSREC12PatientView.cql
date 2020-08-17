@@ -78,7 +78,7 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
 
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
-    [Condition: category in Common."US Core Condition Category Codes"] C
+    Common."US Core-Categorized Conditions" C
       where C.code in Common."Opioid misuse disorders"
         and exists (
           C.clinicalStatus.coding Coding

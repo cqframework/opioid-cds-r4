@@ -11,8 +11,8 @@ codesystem "SNOMED": 'http://snomed.info/sct'
 codesystem "Medication Request Category Codes": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 codesystem "Medication Request Status Codes": 'http://hl7.org/fhir/medication-request-status'
 codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
-
-valueset "US Core Condition Category Codes": 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category'
+codesystem "FHIR Condition Category Codes": 'http://hl7.org/fhir/condition-category'
+codesystem "US Core Condition Category Codes": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 
 // Expression-based
 valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
@@ -52,6 +52,10 @@ valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/Va
 code "Community": 'community' from "Medication Request Category Codes"
 code "Active Condition": 'active' from "Condition Clinical Status Codes"
 code "Active MedicationRequest": 'active' from "Medication Request Status Codes"
+
+code "Encounter Diagnosis": 'encounter-diagnosis' from "FHIR Condition Category Codes" display 'Encounter Diagnosis'
+code "Problem List Item": 'problem-list-item' from "FHIR Condition Category Codes" display 'Problem List Item'
+code "Health Concern": 'health-concern' from "US Core Condition Category Codes" display 'Health Concern'
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
@@ -201,9 +205,16 @@ define "End of Life Assessment":
       "Medications Indicating End of Life"
     ) */
 
+define "US Core-Categorized Conditions":
+  [Condition: category in "Encounter Diagnosis"]
+  union
+  [Condition: category in "Problem List Item"]
+  union
+  [Condition: category in "Health Concern"]
+
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
-    [Condition: category in "US Core Condition Category Codes"] C
+    "US Core-Categorized Conditions" C
       where C.code in "Conditions likely terminal for opioid prescribing"
         and exists (
           C.clinicalStatus.coding Coding
@@ -212,7 +223,7 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
   )
   union
   (
-    [Condition: category in "US Core Condition Category Codes"] C
+    "US Core-Categorized Conditions" C
       where C.code in "Limited life expectancy conditions"
         and exists (
           C.clinicalStatus.coding Coding
@@ -241,8 +252,8 @@ define "Admitted/Referred/Discharged to Hospice Care":
   union
   (
     [Encounter] E
-      where
-        (
+      where date from E.period.start 1 year or less on or before Today()
+        and (
           if E.hospitalization.dischargeDisposition.coding is null
               or not exists (E.hospitalization.dischargeDisposition.coding)
             then false
