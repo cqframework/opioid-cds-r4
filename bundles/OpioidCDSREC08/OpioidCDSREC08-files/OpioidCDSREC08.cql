@@ -89,7 +89,7 @@ define "Has Substance Abuse History":
   exists (
     [Procedure: Common."Substance misuse behavioral counseling"]
     union
-    [Condition: category in Common."US Core Condition Category Codes"] C
+    Common."US Core-Categorized Conditions" C
       where C.code in Common."Conditions documenting substance misuse"
   )
 
