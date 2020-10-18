@@ -79,12 +79,14 @@
   <relatedArtifact>
     <type value="documentation"/>
     <display value="CDC guideline for prescribing opioids for chronic pain"/>
-    <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
+    <citation value="Dowell D, Haegerich TM, Chou R. CDC Guideline for Prescribing Opioids for Chronic Pain — United States, 2016. MMWR Recomm Rep 2016;65(No. RR-1):1–49. DOI: http://dx.doi.org/10.15585/mmwr.rr6501e1"/>
+    <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm"/>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="documentation"/>
-    <display value="MME Conversion Tables"/>
-    <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
+    <type value="citation"/>
+    <label value="212"/>
+    <citation value="Park TW, Saitz R, Ganoczy D, Ilgen MA, Bohnert AS. Benzodiazepine prescribing patterns and deaths from drug overdose among US veterans receiving opioid analgesics: case-cohort study. BMJ 2015;350:h2698."/>
+    <url value="http://www.ncbi.nlm.nih.gov/pubmed/26063215"/>
   </relatedArtifact>
   <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC11"/>
   <action>
@@ -118,6 +120,11 @@
           </valueCodeableConcept>
         </extension>
       </document>
+    </documentation>
+    <documentation>
+      <type value="justification"/>
+      <display value="Risk increase in overdose death rate with current benzodiazepine prescription in VHA opioid users 2004-2009"/>
+      <resource value="https://gps.health/coka/resources/Evidence/117"/>
     </documentation>
     <trigger>
       <type value="named-event"/>
