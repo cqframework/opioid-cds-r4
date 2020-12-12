@@ -26,9 +26,9 @@ done
 # Bundle all resources from bundlegen/sourcefiles
 sh bundlegen/_bundle.sh
 
-rm bundles/recs-04pv-10pv-11pv-12-content-bundle.json
-cp bundlegen/bundlegen-bundle.json bundles/recs-04pv-10pv-11pv-12-content-bundle.json
-echo 'Copied generated bundle to bundles/recs-04pv-10pv-11pv-12-content-bundle.json'
+rm input/pagecontent/pilotdeliverables/recs-04pv-10pv-11pv-12-content-bundle.json
+cp bundlegen/bundlegen-bundle.json input/pagecontent/pilotdeliverables/recs-04pv-10pv-11pv-12-content-bundle.json
+echo 'Copied generated bundle to input/pagecontent/pilotdeliverables/recs-04pv-10pv-11pv-12-content-bundle.json'
 
 echo 'Cleaning up bundlegen/sourcefiles...'
 rm bundlegen/bundlegen-bundle.json
