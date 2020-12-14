@@ -78,6 +78,7 @@
     </author>
     <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10PatientView" />
     <action>
+        <prefix value="Rec10 PlanDefinition.action.prefix. Urine Screening Recommended"/>
         <title value="Annual Urine Screening Check"/>
         <description value="Patient has not had a urine screening in the past 12 months"/>
         <documentation>
@@ -121,6 +122,15 @@
                 <expression value="Is Recommendation Applicable?"/>
             </expression>
         </condition>
+        <type>
+          <coding>
+    				<system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+    				<code value="create"/>
+    				<display value="Create"/>
+    			</coding>
+        </type>
+        <!-- reference to risk assessment activity definition -->
+        <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
         <!-- dynamic card elements -->
         <dynamicValue>
             <path value="action.description"/>
