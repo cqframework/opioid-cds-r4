@@ -129,7 +129,7 @@
     				<display value="Create"/>
     			</coding>
         </type>
-        <!-- reference to risk assessment activity definition -->
+        <!-- reference to urine screening activity definition -->
         <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
         <!-- dynamic card elements -->
         <dynamicValue>
