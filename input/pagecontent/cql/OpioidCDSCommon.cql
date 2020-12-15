@@ -1,8 +1,8 @@
 library OpioidCDSCommon version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OMTKLogicMK2020 version '2.0.1' called OMTKLogic
 include OpioidCDSCommonConfig version '2.0.1' called Config
 
@@ -346,7 +346,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
             then ToString((doseAndRate.dose as FHIR.Range).low)
                 + '-' + ToString((doseAndRate.dose as FHIR.Range).high)
                 + (doseAndRate.dose as FHIR.Range).high.unit.value
-            else ToString(FHIRHelpers.ToQuantity(doseAndRate.dose)),
+            else ToString(FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity)),
             ''
         ),
       frequencyDescription:
@@ -368,7 +368,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded then ' PRN' else ''),
       dose: if doseAndRate.dose is FHIR.Range
             then (doseAndRate.dose as FHIR.Range).high
-            else FHIRHelpers.ToQuantity(doseAndRate.dose),
+            else FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity),
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), 1.0)
     }
 
