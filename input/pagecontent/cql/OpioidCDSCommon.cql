@@ -71,7 +71,7 @@ define "Active Ambulatory Opioid Rx":
       where date from MR.authoredOn 2 years or less on or before Today()
         and MR.medication is Reference or MR.medication in "Opioid analgesics with ambulatory misuse potential"
   ) Rx
-    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+    let Med: if Rx.medication is Reference then [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] else null
     where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
       return
         MedicationRequest {
@@ -93,7 +93,7 @@ define "Active Ambulatory Benzodiazepine Rx":
     where date from MR.authoredOn 2 years or less on or before Today()
       and MR.medication is Reference or MR.medication in "Benzodiazepine medications"
 ) Rx
-  let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+  let Med: if Rx.medication is Reference then [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] else null
   where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
     return
       MedicationRequest {
@@ -115,7 +115,7 @@ define "Active Ambulatory Naloxone Rx":
     where date from MR.authoredOn 2 years or less on or before Today()
       and MR.medication is Reference or MR.medication in "Naloxone medications"
 ) Rx
-  let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+  let Med: if Rx.medication is Reference then [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] else null
   where not(Rx.medication is Reference) or Med.code in "Naloxone medications"
     return
       MedicationRequest {
