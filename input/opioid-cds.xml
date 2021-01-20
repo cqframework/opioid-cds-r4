@@ -41,6 +41,36 @@
         <!-- Artifact Package Bundles -->
         <resource>
             <reference>
+                <reference value="Bundle/OpioidCDSREC01-bundle"/>
+                <display value="Recommendation 1 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC01Bundle"/>
+            <description value="A Bundle containing Recommendation 1 (order-select) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Bundle/OpioidCDSREC02-bundle"/>
+                <display value="Recommendation 2 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC02Bundle"/>
+            <description value="A Bundle containing Recommendation 2 (order-select) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Bundle/OpioidCDSREC03-bundle"/>
+                <display value="Recommendation 3 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC03Bundle"/>
+            <description value="A Bundle containing Recommendation 3 (order-select) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="Bundle/OpioidCDSREC04-bundle"/>
                 <display value="Recommendation 4 (order-select) Artifact Package"/>
             </reference>
@@ -56,6 +86,56 @@
             </reference>
             <name value="OpioidCDSREC04PatientViewBundle"/>
             <description value="A Bundle containing Recommendation 4 (patient-view) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Bundle/OpioidCDSREC05-bundle"/>
+                <display value="Recommendation 5 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC05Bundle"/>
+            <description value="A Bundle containing Recommendation 5 (order-select) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Bundle/OpioidCDSREC06-bundle"/>
+                <display value="Recommendation 6 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC06Bundle"/>
+            <description value="A Bundle containing Recommendation 6 (order-select) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Bundle/OpioidCDSREC07-bundle"/>
+                <display value="Recommendation 7 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC07Bundle"/>
+            <description value="A Bundle containing Recommendation 7 (order-select) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Bundle/OpioidCDSREC08-bundle"/>
+                <display value="Recommendation 8 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC08Bundle"/>
+            <description value="A Bundle containing Recommendation 8 (order-select) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Bundle/OpioidCDSREC09-bundle"/>
+                <display value="Recommendation 9 (order-select) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC09Bundle"/>
+            <description value="A Bundle containing Recommendation 9 (order-select) knowledge artifacts"/>
             <exampleBoolean value="false"/>
             <groupingId value="recommendation-artifact-packages"/>
         </resource>
@@ -113,6 +193,16 @@
         <!-- Common Libraries-->
         <resource>
             <reference>
+                <reference value="Library/OpioidCDSRoutines"/>
+                <display value="Common Routines Library"/>
+            </reference>
+            <name value="OpioidCDSRoutines"/>
+            <description value="Common Routines Library"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="common-libraries"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="Library/OpioidCDSCommon"/>
                 <display value="Common Library"/>
             </reference>
@@ -133,15 +223,75 @@
         </resource>
         <resource>
             <reference>
-                <reference value="Library/OpioidCDSRoutines"/>
-                <display value="Common Routines Library"/>
+                <reference value="Library/OMTKLogicMK2020"/>
+                <display value="OMTK Logic MK (2020) Library"/>
             </reference>
-            <name value="OpioidCDSRoutines"/>
-            <description value="Common Routines Library"/>
+            <name value="OpioidLogicMK2020"/>
+            <description value="OMTK Logic MK (2020) Library"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="common-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OMTKData2020"/>
+                <display value="OMTK Data (2020) Library"/>
+            </reference>
+            <name value="OpioidData2020"/>
+            <description value="OMTK Data (2020) Library"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="common-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/FHIRHelpers"/>
+                <display value="FHIR Helpers Library"/>
+            </reference>
+            <name value="FHIRHelpers"/>
+            <description value="FHIR Helpers Library"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="common-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/FHIR-ModelInfo"/>
+                <display value="FHIR ModelInfo Library"/>
+            </reference>
+            <name value="FHIRModelInfo"/>
+            <description value="FHIR ModelInfo Library"/>
             <exampleBoolean value="false"/>
             <groupingId value="common-libraries"/>
         </resource>
         <!-- Rec Libraries-->
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC01"/>
+                <display value="Recommendation 1 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC01Library"/>
+            <description value="Logic Library for Recommendation #1 (order-select) - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC02"/>
+                <display value="Recommendation 2 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC01Library"/>
+            <description value="Logic Library for Recommendation #2 (order-select) - Opioid Therapy Goals Discussion"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC03"/>
+                <display value="Recommendation 3 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC03Library"/>
+            <description value="Logic Library for Recommendation #3 (order-select) - Opioid Therapy Risk/Benefit Discussion"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
         <resource>
             <reference>
                 <reference value="Library/OpioidCDSREC04"/>
@@ -159,6 +309,56 @@
             </reference>
             <name value="OpioidCDSREC04PatientViewLibrary"/>
             <description value="Logic Library for Recommendation #4 (patient-view) - Opioid Immediate Release Form When Starting Opioid Therapy"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC05"/>
+                <display value="Recommendation 5 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC05Library"/>
+            <description value="Logic Library for Recommendation #5 (order-select) - Lowest Effective Dose"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC06"/>
+                <display value="Recommendation 6 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC06Library"/>
+            <description value="Logic Library for Recommendation #6 (order-select) - Prescribe Lowest Effective Dose and Duration"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC07"/>
+                <display value="Recommendation 7 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC07Library"/>
+            <description value="Logic Library for Recommendation #7 (order-select) - Opioid Therapy Risk Assessment"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC08"/>
+                <display value="Recommendation 8 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC08Library"/>
+            <description value="Logic Library for Recommendation #8 (order-select) - Naloxone Consideration"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC09"/>
+                <display value="Recommendation 9 (order-select) Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC09Library"/>
+            <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient’s History of Controlled Substance Prescriptions"/>
             <exampleBoolean value="false"/>
             <groupingId value="recommendation-libraries"/>
         </resource>
@@ -223,7 +423,47 @@
             <exampleBoolean value="false"/>
             <groupingId value="activitydefinition"/>
         </resource>
+        <resource>
+            <reference>
+                <reference value="ActivityDefinition/opioidcds-urine-screening-request"/>
+                <display value="Urine Screening ActivityDefinition"/>
+            </reference>
+            <name value="OpioidUrineScreeningActivityDefinition"/>
+            <description value="An ActivityDefinition for recommendation of urine screening"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="activitydefinition"/>
+        </resource>
         <!-- PlanDefinition -->
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-01"/>
+                <display value="Recommendation #1 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC01PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #1 (order-select)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-02"/>
+                <display value="Recommendation #2 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC02PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #2 (order-select)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-03"/>
+                <display value="Recommendation #3 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC03PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #3 (order-select)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
         <resource>
             <reference>
                 <reference value="PlanDefinition/opioidcds-04"/>
@@ -241,6 +481,56 @@
             </reference>
             <name value="OpioidCDSREC04PatientViewPlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #4 (patient-view)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-05"/>
+                <display value="Recommendation #5 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC05PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #5 (order-select)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-06"/>
+                <display value="Recommendation #6 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC06PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #6 (order-select)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-07"/>
+                <display value="Recommendation #7 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC07PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #7 (order-select)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-08"/>
+                <display value="Recommendation #8 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC08PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #8 (order-select)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="PlanDefinition/opioidcds-09"/>
+                <display value="Recommendation #9 (order-select) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC09PlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #9 (order-select)"/>
             <exampleBoolean value="false"/>
             <groupingId value="plandefinition"/>
         </resource>
@@ -584,31 +874,63 @@
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/OpioidCDSREC04"/>
+          <value value="bundles/plandefinition/OpioidCDSREC01"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/OpioidCDSREC04PatientView"/>
+          <value value="bundles/plandefinition/OpioidCDSREC02"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/OpioidCDSREC10"/>
+          <value value="bundles/plandefinition/OpioidCDSREC03"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/OpioidCDSREC10PatientView"/>
+          <value value="bundles/plandefinition/OpioidCDSREC04"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/OpioidCDSREC11"/>
+          <value value="bundles/plandefinition/OpioidCDSREC04PatientView"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/OpioidCDSREC11PatientView"/>
+          <value value="bundles/plandefinition/OpioidCDSREC05"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/OpioidCDSREC12PatientView"/>
+          <value value="bundles/plandefinition/OpioidCDSREC06"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC07"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC08"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC09"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC10"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC10PatientView"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC11"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC11PatientView"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC12PatientView"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
