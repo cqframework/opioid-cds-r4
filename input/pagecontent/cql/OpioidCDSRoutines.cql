@@ -1,8 +1,8 @@
 library OpioidCDSRoutines version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OpioidCDSCommon version '2.0.1' called Common
 include OpioidCDSCommonConfig version '2.0.1' called Config
 
@@ -47,18 +47,20 @@ define "Is Opioid Review Useful?":
     and not "Is Active Cancer Treatment?"
     and not "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
 
-
 define "Patient Age Less Than 18":
-  Config."Age Less than 18 Years Is Enabled"
-    and AgeInYearsAt(Today()) < 18
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false
 
 define "Conditions Indicating End Of Life Present":
   exists (
-    [Condition: Common."Limited life expectancy conditions"] LLEC
-      where exists (
-        LLEC.clinicalStatus.coding Coding
-          where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-      )
+    Common."US Core-Categorized Conditions" LLEC
+      where LLEC.code in Common."Limited life expectancy conditions"
+        and exists (
+          LLEC.clinicalStatus.coding Coding
+            where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
+        )
   )
 
 define "Order For Palliative Care In Past 90 Days":
@@ -70,14 +72,17 @@ define "Order For Palliative Care In Past 90 Days":
   )
 
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
-  Config."End-Stage Disease Criteria Enabled"
-    and exists (
-      [Condition: Common."Conditions likely terminal for opioid prescribing"] EOLC
-        where exists (
-          EOLC.clinicalStatus.coding Coding
-            where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-        )
+  if (Config."End-Stage Disease Criteria Enabled") then
+    exists (
+      Common."US Core-Categorized Conditions" EOLC
+        where EOLC.code in Common."Conditions likely terminal for opioid prescribing"
+          and exists (
+            EOLC.clinicalStatus.coding Coding
+              where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
+          )
     )
+  else
+    false
 
 // End of Opioid Review Useful Routine
 
@@ -90,17 +95,19 @@ define "Conditions Including Cancer To Exclude Opioid Management Indicating End-
 **  Opioid analgesics with        | No                  | Look for an existing prescription (order) for     | Opioid analgesics with
 **  ambulatory misuse potential   |                     | opioid that is in the value set for opioid with   | ambulatory misuse potential
 **  prescription in past 90 days  |                     | ambulatory abuse potential authored               |
-**  including today               |                     | within the past 90 days (including today)         |
+**  excluding the previous 24     |                     | within the past 90 days (excluding previous 24    |
+**  hours                         |                     | hours)                                            |
 **  ----------------------------------------------------------------------------------------------------------------------------------------
 **  Opioid analgesics with        | No                  | Look for evidence of active medication on         | Opioid analgesics with
 **  ambulatory misuse potential   |                     | the medication list that is in the value set      | ambulatory misuse potential
 **  reported in past 90 days      |                     | for opioid with ambulatory care abuse             |
-**  including today*              |                     | potential                                         |
+**  excluding previous 24 hours*  |                     | potential                                         |
 **  ----------------------------------------------------------------------------------------------------------------------------------------
 **  Opioid analgesics with        | No                  | Look for evidence of a dispensing event for       | Opioid analgesics with
 **  ambulatory misuse potential   |                     | medication that is in the value set for opioid    | ambulatory misuse potential
 **  dispensing event in past 90   |                     | with ambulatory use potential occurring           |
-**  days including today*         |                     | within the past 90 days (including today)         |
+**  days excluding previous 24    |                     | within the past 90 days (excluding previous 24    |
+**  hours                         |                     | hours)                                            |
 **  ----------------------------------------------------------------------------------------------------------------------------------------
 **  *Future consideration: Current algorithm addresses only orders (prescriptions).
 **
@@ -110,10 +117,10 @@ define "Conditions Including Cancer To Exclude Opioid Management Indicating End-
 */
 
 define "Prescription/Dispense Inclusion Period":
-    Interval[Now() - 89 days, Now()]
+  Interval[Now() - 90 days, Now() - 24 hours]
 
 define "Report Inclusion Period":
-    Interval[Now() - 90 days, Now())
+  Interval[Now() - 90 days, Now() - 24 hours)
 
 // NOTE: MedicationStatement-dependent logic comment out due to bug in Publisher not supporting MedicationStatement in AllTypes.
 define "Is Opioid Naive?":
@@ -126,8 +133,10 @@ define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
       where Rx.authoredOn during day of "Prescription/Dispense Inclusion Period"
 
 define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
-    Config."Opioid Naive Prescription Condition Is Enabled"
-        and exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+    if (Config."Opioid Naive Prescription Condition Is Enabled") then
+      exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+    else
+      false
 
 // NOTE: 2020-02-05: Review direction of MedicationStatement resource (US-Core focusing on MedicationRequest i/o Statement)
 // NOTE: 2020-04-21: MedicationStatement a) Shouldn't be use since guidance/direction from USCore is targeting MedicationUse in R5, and b) Breaks in the publisher
@@ -146,8 +155,10 @@ define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
             and OpioidDispense.status = 'completed'
 
 define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
-    Config."Opioid Naive Dispense Condition Is Enabled"
-        and exists ("Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
+  if (Config."Opioid Naive Prescription Condition Is Enabled") then
+    exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+  else
+    false
 
 // End of Opioid Naive Routine
 
@@ -184,18 +195,17 @@ define "Encounter Period":
   Interval[Now() - 12 months, Now())
 
 define "Is Active Cancer Treatment?":
-  Config."Active Cancer Treatment Encounters Condition Is Enabled"
-    and "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
+  if (Config."Active Cancer Treatment Encounters Condition Is Enabled") then
+      "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
+    else
+      false
 
 define "Active Cancer Diagnoses":
-  [Condition: Common."CDC malignant cancer conditions"]
+  Common."US Core-Categorized Conditions" C
+    where C.code in Common."CDC malignant cancer conditions"
 
 define "Oncologist Practitioner Roles":
-  [PractitionerRole] PractitionerRole
-    where exists (
-      PractitionerRole.specialty Specialty
-        where Specialty in Common."Oncology specialty designations (NUCC)"
-    )
+  [PractitionerRole: specialty in Common."Oncology specialty designations (NUCC)"] PractitionerRole
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
   [Encounter: Common."Office Visit"] Encounter
@@ -208,11 +218,18 @@ define "Encounters with Cancer Diagnosis During Encounter Period":
       and exists (
         Encounter.participant EncounterParticipant
           where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
-            or exists (
-              "Oncologist Practitioner Roles" PractitionerRole
-                where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
+            or (
+              if (Config."Active Cancer Treatment PractitionerRole Specialty Is Enabled") then
+                exists (
+                  "Oncologist Practitioner Roles" PractitionerRole
+                    where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
+                )
+              else
+                false
             )
       )
+
+
 
 define "Number of Enounters with Cancer Diagnosis During Encounter Period":
   Count ("Encounters with Cancer Diagnosis During Encounter Period")

@@ -1,8 +1,8 @@
 library OpioidCDSREC10PatientView version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OpioidCDSCommon version '2.0.1' called Common
 include OpioidCDSRoutines version '2.0.1' called Routines
 
@@ -105,9 +105,9 @@ define "Urine Drug Screening Request":
     ServiceRequest {
       //identifier:,
       instantiatesCanonical: { FHIR.canonical { value: 'http://fhir.org/guides/cdc/activitydefinition/urine-screening-request' } },
-      status: FHIR.RequestStatus { value: 'draft' },
-      intent: FHIR.RequestIntent { value: 'proposal' },
-      priority: FHIR.RequestPriority { value: 'routine' },
+      status: FHIR.ServiceRequestStatus { value: 'draft' },
+      intent: FHIR.ServiceRequestIntent { value: 'proposal' },
+      priority: FHIR.ServiceRequestPriority { value: 'routine' },
       code: FHIR.CodeableConcept { coding: { ToCoding("Urine Drug Screening") } },
       subject: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
       occurrence: FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 7 days } },

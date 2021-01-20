@@ -1,6 +1,6 @@
 library OpioidCDSREC05 version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include OpioidCDSCommon version '2.0.1' called Common
 include OpioidCDSRoutines version '2.0.1' called Routines

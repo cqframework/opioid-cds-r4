@@ -1,8 +1,8 @@
 library OpioidCDSREC12PatientView version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OpioidCDSCommon version '2.0.1' called Common
 include OpioidCDSCommonConfig version '2.0.1' called Config
 
@@ -63,18 +63,28 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
       or exists (
         [Procedure: Common."Substance misuse behavioral counseling"] P
           where P.status ~ 'completed'
-            and P.performed during day of "Opioid Use Disorder Lookback Period"
+            and (
+              case
+                when P.performed is FHIR.dateTime then
+                  Interval[FHIRHelpers.ToDateTime(P.performed as FHIR.dateTime), FHIRHelpers.ToDateTime(P.performed as FHIR.dateTime)]
+                when P.performed is FHIR.Period then
+                  FHIRHelpers.ToInterval(P.performed as FHIR.Period)
+                else
+                  null as Interval<DateTime>
+                end
+            ) during day of "Opioid Use Disorder Lookback Period"
       )
     )
 
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
-    [Condition: Common."Opioid misuse disorders"] C
-      where exists (
-        C.clinicalStatus.coding Coding
-          where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-      )
-          and date from C.recordedDate during day of "Opioid Use Disorder Lookback Period"
+    Common."US Core-Categorized Conditions" C
+      where C.code in Common."Opioid misuse disorders"
+        and exists (
+          C.clinicalStatus.coding Coding
+            where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
+        )
+        and date from C.recordedDate during day of "Opioid Use Disorder Lookback Period"
     )
 
 define "Positive Result from Opioid Use Disorder Evaluation Tool":

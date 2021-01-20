@@ -1,8 +1,8 @@
 library OpioidCDSREC02 version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OpioidCDSCommon version '2.0.1' called Common
 include OpioidCDSCommonConfig version '2.0.1' called Config
 include OpioidCDSRoutines version '2.0.1' called Routines
@@ -107,5 +107,5 @@ define "Get Summary":
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
-    then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
+    then 'Medication requests(s): ' + Combine(Common.GetMedicationNames("Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"), ', ')
   else null

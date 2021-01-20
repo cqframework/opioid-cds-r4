@@ -1,15 +1,18 @@
 library OpioidCDSCommon version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OMTKLogicMK2020 version '2.0.1' called OMTKLogic
+include OpioidCDSCommonConfig version '2.0.1' called Config
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
 codesystem "Medication Request Category Codes": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 codesystem "Medication Request Status Codes": 'http://hl7.org/fhir/medication-request-status'
 codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+codesystem "FHIR Condition Category Codes": 'http://hl7.org/fhir/condition-category'
+codesystem "US Core Condition Category Codes": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 
 // Expression-based
 valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
@@ -50,6 +53,10 @@ code "Community": 'community' from "Medication Request Category Codes"
 code "Active Condition": 'active' from "Condition Clinical Status Codes"
 code "Active MedicationRequest": 'active' from "Medication Request Status Codes"
 
+code "Encounter Diagnosis": 'encounter-diagnosis' from "FHIR Condition Category Codes" display 'Encounter Diagnosis'
+code "Problem List Item": 'problem-list-item' from "FHIR Condition Category Codes" display 'Problem List Item'
+code "Health Concern": 'health-concern' from "US Core Condition Category Codes" display 'Health Concern'
+
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
 context Patient
@@ -64,7 +71,7 @@ define "Active Ambulatory Opioid Rx":
       where date from MR.authoredOn 2 years or less on or before Today()
         and MR.medication is Reference or MR.medication in "Opioid analgesics with ambulatory misuse potential"
   ) Rx
-    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+    let Med: if Rx.medication is Reference then [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] else null
     where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
       return
         MedicationRequest {
@@ -86,7 +93,7 @@ define "Active Ambulatory Benzodiazepine Rx":
     where date from MR.authoredOn 2 years or less on or before Today()
       and MR.medication is Reference or MR.medication in "Benzodiazepine medications"
 ) Rx
-  let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+  let Med: if Rx.medication is Reference then [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] else null
   where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
     return
       MedicationRequest {
@@ -108,7 +115,7 @@ define "Active Ambulatory Naloxone Rx":
     where date from MR.authoredOn 2 years or less on or before Today()
       and MR.medication is Reference or MR.medication in "Naloxone medications"
 ) Rx
-  let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+  let Med: if Rx.medication is Reference then [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] else null
   where not(Rx.medication is Reference) or Med.code in "Naloxone medications"
     return
       MedicationRequest {
@@ -198,21 +205,30 @@ define "End of Life Assessment":
       "Medications Indicating End of Life"
     ) */
 
+define "US Core-Categorized Conditions":
+  [Condition: category in "Encounter Diagnosis"]
+  union
+  [Condition: category in "Problem List Item"]
+  union
+  [Condition: category in "Health Concern"]
+
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
-    [Condition: "Conditions likely terminal for opioid prescribing"] C
-      where exists (
-        C.clinicalStatus.coding Coding
-          where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
-      )
+    "US Core-Categorized Conditions" C
+      where C.code in "Conditions likely terminal for opioid prescribing"
+        and exists (
+          C.clinicalStatus.coding Coding
+            where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
+        )
   )
   union
   (
-    [Condition: code in "Limited life expectancy conditions"] C
-      where exists (
-        C.clinicalStatus.coding Coding
-          where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
-      )
+    "US Core-Categorized Conditions" C
+      where C.code in "Limited life expectancy conditions"
+        and exists (
+          C.clinicalStatus.coding Coding
+            where FHIRHelpers.ToCode(Coding) ~ "Active Condition"
+        )
   )
 
 define "Admitted/Referred/Discharged to Hospice Care":
@@ -227,14 +243,17 @@ define "Admitted/Referred/Discharged to Hospice Care":
   )
   union
   (
-    [Observation: code in "Hospice Finding Codes"] O
-      where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+    if (Config."Hospice Findings Exclusion Enabled") then
+      [Observation: code in "Hospice Finding Codes"] O
+        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+    else
+      {}
   )
   union
   (
     [Encounter] E
-      where
-        (
+      where date from E.period.start 1 year or less on or before Today()
+        and (
           if E.hospitalization.dischargeDisposition.coding is null
               or not exists (E.hospitalization.dischargeDisposition.coding)
             then false
@@ -327,7 +346,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
             then ToString((doseAndRate.dose as FHIR.Range).low)
                 + '-' + ToString((doseAndRate.dose as FHIR.Range).high)
                 + (doseAndRate.dose as FHIR.Range).high.unit.value
-            else ToString(FHIRHelpers.ToQuantity(doseAndRate.dose)),
+            else ToString(FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity)),
             ''
         ),
       frequencyDescription:
@@ -349,7 +368,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded then ' PRN' else ''),
       dose: if doseAndRate.dose is FHIR.Range
             then (doseAndRate.dose as FHIR.Range).high
-            else FHIRHelpers.ToQuantity(doseAndRate.dose),
+            else FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity),
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), 1.0)
     }
 
@@ -396,7 +415,7 @@ define function GetIngredients(rxNormCodes List<Code>):
 
 define function GetMedicationNames(medications List<MedicationRequest>):
   medications M
-    return OMTKLogic.GetIngredients(ToRxNormCode((M.medication as FHIR.CodeableConcept).coding)).rxNormCode.display
+    return OMTKLogic.GetMedicationConceptName(M.medication as FHIR.CodeableConcept)
 
 /*
 *  Conversion Functions
