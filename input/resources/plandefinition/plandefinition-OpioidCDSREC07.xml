@@ -132,26 +132,26 @@
         <!-- reference to risk assessment activity definition -->
         <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-risk-assessment-request"/>
         <dynamicValue>
-			<path value="action.title"/>
-			<expression>
-        <language value="text/cql.identifier"/>
-				<expression value="Get Summary"/>
-			</expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="action.description"/>
-			<expression>
-        <language value="text/cql.identifier"/>
-				<expression value="Get Detail"/>
-			</expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="activity.extension"/>
-			<expression>
-        <language value="text/cql.identifier"/>
-				<expression value="Get Indicator"/>
-			</expression>
-		</dynamicValue>
+    			<path value="action.title"/>
+    			<expression>
+            <language value="text/cql.identifier"/>
+    				<expression value="Get Summary"/>
+    			</expression>
+    		</dynamicValue>
+    		<dynamicValue>
+    			<path value="action.description"/>
+    			<expression>
+            <language value="text/cql.identifier"/>
+    				<expression value="Get Detail"/>
+    			</expression>
+    		</dynamicValue>
+    		<dynamicValue>
+    			<path value="activity.extension"/>
+    			<expression>
+            <language value="text/cql.identifier"/>
+    				<expression value="Get Indicator"/>
+    			</expression>
+    		</dynamicValue>
         <action>
             <description value="Will schedule opioid misuse assessment"/>
             <!-- Open Order Set, where available -->

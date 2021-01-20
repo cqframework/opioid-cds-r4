@@ -1,50 +1,6 @@
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "225314003",
-  "display" : "Risk management (procedure)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Risk management",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "454281000124100",
-  "display" : "Assessment of risk for opioid abuse (procedure)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 454281000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200309); The code \"454281000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#454281000124100) is not  valid in the value set All codes known to the system"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "182888003",
-  "display" : "Medication requested (situation)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Medication requested",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "82423001",
-  "display" : "Chronic pain (finding)"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Chronic pain",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
   "code" : "185463005"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
@@ -120,7 +76,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to find code 428371000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200309); The code \"428371000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428371000124100) is not  valid in the value set All codes known to the system"
+  "error" : "Unable to find code 428371000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"428371000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428371000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -130,7 +86,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to find code 428361000124107 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200309); The code \"428361000124107\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428361000124107) is not  valid in the value set All codes known to the system"
+  "error" : "Unable to find code 428361000124107 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"428361000124107\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428361000124107) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -170,7 +126,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to find code 448451000124101 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200309); The code \"448451000124101\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#448451000124101) is not  valid in the value set All codes known to the system"
+  "error" : "Unable to find code 448451000124101 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"448451000124101\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#448451000124101) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -190,7 +146,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to find code 1951000124104 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200309); The code \"1951000124104\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#1951000124104) is not  valid in the value set All codes known to the system"
+  "error" : "Unable to find code 1951000124104 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"1951000124104\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#1951000124104) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -219,6 +175,193 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Urgent admission to hospice",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108",
+  "code" : "460831000124102"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Counseling about opioid safety (procedure)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "2018-03",
+  "code" : "185463005"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03 (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "2018-03",
+  "code" : "185464004"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03 (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "2018-03",
+  "code" : "185465003"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03 (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "2018-03",
+  "code" : "30346009"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03 (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "2018-03",
+  "code" : "3391000175108"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03 (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "2018-03",
+  "code" : "37894004"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03 (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "2018-03",
+  "code" : "439740005"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03 (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108",
+  "code" : "454281000124100"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Assessment of risk for opioid abuse (procedure)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108",
+  "code" : "461621000124108"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Review of prescription drug monitoring program record",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108",
+  "code" : "408957008"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Chronic pain control management (procedure)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108",
+  "code" : "461651000124104"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Review of prescription drug monitoring program record done (situation)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "310627008",
+  "display" : "Urine drug screening (procedure)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Urine drug screening",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "225314003",
+  "display" : "Risk management (procedure)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Risk management",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "454281000124100",
+  "display" : "Assessment of risk for opioid abuse (procedure)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 454281000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"454281000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#454281000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "182888003",
+  "display" : "Medication requested (situation)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Medication requested",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "82423001",
+  "display" : "Chronic pain (finding)"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Chronic pain",
   "severity" : null,
   "error" : ""
 }
@@ -275,7 +418,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to find code 461621000124108 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200309); The code \"461621000124108\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461621000124108) is not  valid in the value set All codes known to the system"
+  "error" : "Unable to find code 461621000124108 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"461621000124108\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461621000124108) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -311,378 +454,14 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "428371000124100",
-        "display" : "Discharge to healthcare facility for hospice care (procedure)"
-      },
-      {
-        "code" : "428361000124107",
-        "display" : "Discharge to home for hospice care (procedure)"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:6f84f4a8-d9ab-40a2-b7da-7cb221d12b3c",
-    "timestamp" : "2020-06-25T19:18:47.380Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "385763009",
-        "display" : "Hospice care (regime/therapy)"
-      },
-      {
-        "code" : "385765002",
-        "display" : "Hospice care management (procedure)"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 2 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on SNOMED CT International edition 09-Mar 2020</p><p>All codes from system <a href=\"http://hl7.org/fhir/R4/codesystem-snomedct.html\"><code>http://snomed.info/sct</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-385763009\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=385763009\">385763009</a></td><td>Hospice care (regime/therapy)</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-385765002\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=385765002\">385765002</a></td><td>Hospice care management (procedure)</td><td/></tr></table></div>"
-  },
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:503c4abc-bdca-4aaf-9b7d-680f88ba6a7d",
-    "timestamp" : "2020-06-25T19:18:47.771Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200309"
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "code" : "385763009",
-      "display" : "Hospice care (regime/therapy)"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "385765002",
-      "display" : "Hospice care management (procedure)"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "170935008"
-      },
-      {
-        "code" : "448451000124101"
-      },
-      {
-        "code" : "1891000124102"
-      },
-      {
-        "code" : "1951000124104"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 2 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on SNOMED CT International edition 09-Mar 2020</p><p>All codes from system <a href=\"http://hl7.org/fhir/R4/codesystem-snomedct.html\"><code>http://snomed.info/sct</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-170935008\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=170935008\">170935008</a></td><td>Full care by hospice</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-1891000124102\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=1891000124102\">1891000124102</a></td><td>Transition from acute care to hospice</td><td/></tr></table></div>"
-  },
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:4da0e833-cf43-413f-a751-efa595544799",
-    "timestamp" : "2020-06-25T19:18:48.661Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200309"
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "code" : "170935008",
-      "display" : "Full care by hospice"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "1891000124102",
-      "display" : "Transition from acute care to hospice"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "306205009"
-      },
-      {
-        "code" : "305336008"
-      },
-      {
-        "code" : "183919006"
-      },
-      {
-        "code" : "428371000124100"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 3 concepts</p><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion based on SNOMED CT International edition 09-Mar 2020</p><p>All codes from system <a href=\"http://hl7.org/fhir/R4/codesystem-snomedct.html\"><code>http://snomed.info/sct</code></a></p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-306205009\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=306205009\">306205009</a></td><td>Referral to hospice</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-305336008\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=305336008\">305336008</a></td><td>Admission to hospice</td><td/></tr><tr><td style=\"white-space:nowrap\"><a name=\"http---snomed.info-sct-183919006\"> </a><a href=\"http://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=183919006\">183919006</a></td><td>Urgent admission to hospice</td><td/></tr></table></div>"
-  },
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:f359351b-cb48-4d21-8b9b-ee6ae4b49dc8",
-    "timestamp" : "2020-06-25T19:18:49.271Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200309"
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "code" : "306205009",
-      "display" : "Referral to hospice"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "305336008",
-      "display" : "Admission to hospice"
-    },
-    {
-      "system" : "http://snomed.info/sct",
-      "code" : "183919006",
-      "display" : "Urgent admission to hospice"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "429559004"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Typical angina (disorder)",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : true, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "429559004",
-        "display" : "typical angina"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:6c77ca0e-1a86-490d-83a0-a0b9e915f7b5",
-    "timestamp" : "2020-06-16T16:55:12.692Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200309"
-    }],
-    "contains" : [{
-      "system" : "http://snomed.info/sct",
-      "code" : "429559004",
-      "display" : "typical angina"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108",
   "code" : "460831000124102"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
-  "display" : "Counseling about opioid safety (procedure)",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "2018-03",
-  "code" : "185463005"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "2018-03",
-  "code" : "185464004"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "2018-03",
-  "code" : "185465003"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "2018-03",
-  "code" : "30346009"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "2018-03",
-  "code" : "3391000175108"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "2018-03",
-  "code" : "37894004"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "2018-03",
-  "code" : "439740005"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://snomed.info/sct version 2018-03"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108",
-  "code" : "454281000124100"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Assessment of risk for opioid abuse (procedure)",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108",
-  "code" : "461621000124108"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Review of prescription drug monitoring program record",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108",
-  "code" : "408957008"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Chronic pain control management (procedure)",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108",
-  "code" : "461651000124104"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Review of prescription drug monitoring program record done (situation)",
-  "severity" : null,
-  "error" : ""
+  "error" : "Unable to find code 460831000124102 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"460831000124102\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#460831000124102) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -733,6 +512,47 @@ v: {
   "display" : "Drug relapse prevention program (regime/therapy)",
   "severity" : null,
   "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "2018-03",
+      "concept" : [{
+        "code" : "185463005",
+        "display" : "Visit out of hours (procedure)"
+      },
+      {
+        "code" : "185464004",
+        "display" : "Out of hours visit - not night visit (procedure)"
+      },
+      {
+        "code" : "185465003",
+        "display" : "Weekend visit (procedure)"
+      },
+      {
+        "code" : "30346009",
+        "display" : "Evaluation and management of established outpatient in office or other outpatient facility (procedure)"
+      },
+      {
+        "code" : "3391000175108",
+        "display" : "Office visit for pediatric care and assessment (procedure)"
+      },
+      {
+        "code" : "37894004",
+        "display" : "Evaluation and management of new outpatient in office or other outpatient facility (procedure)"
+      },
+      {
+        "code" : "439740005",
+        "display" : "Postoperative follow-up visit (procedure)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://snomed.info/sct version 2018-03"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -792,6 +612,94 @@ v: {
 v: {
   "display" : "Narcotic drug user",
   "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "454281000124100"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 454281000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"454281000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#454281000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "428371000124100",
+        "display" : "Discharge to healthcare facility for hospice care (procedure)"
+      },
+      {
+        "code" : "428361000124107",
+        "display" : "Discharge to home for hospice care (procedure)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:46ea65cb-c378-4058-a261-12c775a55db1",
+    "timestamp" : "2021-01-20T05:25:15.900Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "385763009",
+        "display" : "Hospice care (regime/therapy)"
+      },
+      {
+        "code" : "385765002",
+        "display" : "Hospice care management (procedure)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:5fb75b3b-30df-4066-8dae-0e6ec3304736",
+    "timestamp" : "2021-01-20T05:25:16.150Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200731"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "385763009",
+      "display" : "Hospice care (regime/therapy)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "385765002",
+      "display" : "Hospice care management (procedure)"
+    }]
+  }
+},
   "error" : ""
 }
 -------------------------------------------------------------------------------------
@@ -1047,6 +955,16 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
+  "code" : "461621000124108"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 461621000124108 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"461621000124108\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461621000124108) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
   "code" : "300936002"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
@@ -1072,6 +990,121 @@ v: {
 v: {
   "display" : "Patient status determination, pre-terminal",
   "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "408957008"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Chronic pain control management (procedure)",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "170935008"
+      },
+      {
+        "code" : "448451000124101"
+      },
+      {
+        "code" : "1891000124102"
+      },
+      {
+        "code" : "1951000124104"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:9f621821-2e92-4895-8433-0f5a1505fb72",
+    "timestamp" : "2021-01-20T05:25:26.634Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200731"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "170935008",
+      "display" : "Full care by hospice"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "1891000124102",
+      "display" : "Transition from acute care to hospice"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "306205009"
+      },
+      {
+        "code" : "305336008"
+      },
+      {
+        "code" : "183919006"
+      },
+      {
+        "code" : "428371000124100"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:aacfa2ec-0f27-4296-acec-96f0779ab4c6",
+    "timestamp" : "2021-01-20T05:25:26.900Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20200731"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "306205009",
+      "display" : "Referral to hospice"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "305336008",
+      "display" : "Admission to hospice"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "183919006",
+      "display" : "Urgent admission to hospice"
+    }]
+  }
+},
   "error" : ""
 }
 -------------------------------------------------------------------------------------
@@ -1141,46 +1174,6 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
 v: {
   "display" : "Postmortem care",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "460831000124102"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 460831000124102 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"460831000124102\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#460831000124102) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "454281000124100"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 454281000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"454281000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#454281000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "461621000124108"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 461621000124108 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"461621000124108\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461621000124108) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "408957008"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Chronic pain control management (procedure)",
   "severity" : null,
   "error" : ""
 }
