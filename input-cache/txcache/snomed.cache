@@ -1188,3 +1188,233 @@ v: {
   "error" : "Unable to find code 461651000124104 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20200731); The code \"461651000124104\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461651000124104) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108",
+      "concept" : [{
+        "code" : "460831000124102"
+      },
+      {
+        "code" : "460831000124102",
+        "display" : "Counseling about opioid safety (procedure)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:cae52910-13e0-4bf3-95c3-f2e217c7df52",
+    "timestamp" : "2021-01-26T17:47:56.747Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20200901"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "460831000124102",
+      "display" : "Counseling about opioid safety"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "460831000124102",
+      "display" : "Counseling about opioid safety (procedure)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108",
+      "concept" : [{
+        "code" : "454281000124100"
+      },
+      {
+        "code" : "454281000124100",
+        "display" : "Assessment of risk for opioid abuse (procedure)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:0eedd2fc-ca96-4237-80c4-e0d9da06b605",
+    "timestamp" : "2021-01-26T17:48:00.028Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20200901"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "454281000124100",
+      "display" : "Assessment of risk for opioid abuse"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "454281000124100",
+      "display" : "Assessment of risk for opioid abuse (procedure)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108",
+      "concept" : [{
+        "code" : "461621000124108"
+      },
+      {
+        "code" : "461621000124108",
+        "display" : "Review of prescription drug monitoring program record (procedure)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:c798a0a1-6068-49d7-a07f-116e592facab",
+    "timestamp" : "2021-01-26T17:48:01.950Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20200901"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "461621000124108",
+      "display" : "Review of prescription drug monitoring program record"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "461621000124108",
+      "display" : "Review of prescription drug monitoring program record (procedure)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108",
+      "concept" : [{
+        "code" : "408957008"
+      },
+      {
+        "code" : "408957008",
+        "display" : "Chronic pain control management (procedure)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:bf042124-d47f-44e4-bd0f-2df1c1b4823b",
+    "timestamp" : "2021-01-26T17:48:03.731Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20200901"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "408957008",
+      "display" : "Chronic pain control management"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "408957008",
+      "display" : "Chronic pain control management (procedure)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "version" : "http://snomed.info/sct/731000124108",
+      "concept" : [{
+        "code" : "461651000124104"
+      },
+      {
+        "code" : "461651000124104",
+        "display" : "Review of prescription drug monitoring program record done (situation)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:2247bdef-c2e2-45c3-9323-1e81fe69df44",
+    "timestamp" : "2021-01-26T17:48:04.528Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20200901"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "461651000124104",
+      "display" : "Review of prescription drug monitoring program record done"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "461651000124104",
+      "display" : "Review of prescription drug monitoring program record done (situation)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
