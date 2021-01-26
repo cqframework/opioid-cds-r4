@@ -1,8 +1,8 @@
 library OpioidCDSREC11PatientView version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
+include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OpioidCDSCommon version '2.0.1' called Common
 include OpioidCDSRoutines version '2.0.1' called Routines
 
@@ -68,7 +68,7 @@ define "Get Detail":
 define "Concurrent Benzodiazepine Prescription Issue":
   DetectedIssue {
     //identifier:,
-    status: FHIR.ObservationStatus { value: 'preliminary' },
+    status: FHIR.DetectedIssueStatus { value: 'preliminary' },
     code: FHIR.CodeableConcept { text: FHIR.string { value: "Get Summary" } },
     severity: FHIR.DetectedIssueSeverity { value: 'moderate' },
     patient: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },

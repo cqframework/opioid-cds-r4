@@ -2,6 +2,7 @@
 rm bundlegen/bundlegen-bundle.json
 rm bundlegen/sourcefiles/*
 
+cp input/resources/activitydefinition/activitydefinition-opioidcds-urine-screening-request.xml bundlegen/sourcefiles/
 cp input/resources/plandefinition/plandefinition-OpioidCDSREC10PatientView.xml bundlegen/sourcefiles/
 cp input/resources/plandefinition/plandefinition-OpioidCDSREC11PatientView.xml bundlegen/sourcefiles/
 cp input/resources/library/FHIRHelpers.json bundlegen/sourcefiles/

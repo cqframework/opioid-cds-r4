@@ -2,8 +2,8 @@
 
 SETLOCAL
 
-SET dlurl=https://storage.googleapis.com/ig-build/org.hl7.fhir.publisher.jar
-SET publisher_jar=org.hl7.fhir.publisher.jar
+SET dlurl=https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar
+SET publisher_jar=publisher.jar
 SET input_cache_path=%CD%\input-cache\
 SET skipPrompts=false
 
@@ -14,12 +14,12 @@ set gencont_sh_url=https://raw.githubusercontent.com/FHIR/sample-ig/master/_genc
 set gen_sh_url=https://raw.githubusercontent.com/FHIR/sample-ig/master/_genonce.sh
 set update_sh_url=https://raw.githubusercontent.com/FHIR/sample-ig/master/_updatePublisher.sh
 
-IF "%~1"=="/f" SET skipPrompts=true
+IF "%~1"=="/f" SET skipPrompts=y
 
 
 ECHO.
 ECHO Checking internet connection...
-PING tx.fhir.org -n 1 -w 1000 | FINDSTR TTL && GOTO isonline
+PING tx.fhir.org -4 -n 1 -w 1000 | FINDSTR TTL && GOTO isonline
 ECHO We're offline, nothing to do...
 GOTO end
 
@@ -65,21 +65,21 @@ IF DEFINED FORCE (
 	GOTO download
 )
 
-IF "%skipPrompts%"=="true" (
-	SET create="Y"
+IF "%skipPrompts%"=="y" (
+	SET create=Y
 ) ELSE (
 	SET /p create="Ok? (Y/N) "
 )
 IF /I "%create%"=="Y" (
-    ECHO Will place publisher jar here: %input_cache_path%%publisher_jar%
+	ECHO Will place publisher jar here: %input_cache_path%%publisher_jar%
 	MKDIR "%input_cache_path%" 2> NUL
 	GOTO download
 )
 GOTO done
 
 :upgrade
-IF "%skipPrompts%"=="true" (
-	SET overwrite="Y"
+IF "%skipPrompts%"=="y" (
+	SET overwrite=Y
 ) ELSE (
 	SET /p overwrite="Overwrite %jarlocation%? (Y/N) "
 )
@@ -132,8 +132,8 @@ GOTO done
 
 ECHO.
 ECHO Updating scripts
-IF "%skipPrompts%"=="true" (
-	SET updateScripts="Y"
+IF "%skipPrompts%"=="y" (
+	SET updateScripts=Y
 ) ELSE (
 	SET /p updateScripts="Update scripts? (Y/N) "
 )

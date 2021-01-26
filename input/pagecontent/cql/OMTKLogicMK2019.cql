@@ -6,7 +6,7 @@ as the source for drug ingredient and strength information, rather than the
 OMTK data source.
 */
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include OMTKData2019 version '2.0.1' called OMTKData
 
