@@ -46,7 +46,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-counseling-procedure",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure",
         "name": "opioid_counseling_procedure",
         "title": "Opioid counseling procedure",
         "status": "active",
@@ -139,7 +139,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-drug-urine-screening",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening",
         "name": "opioid_drug_urine_screening",
         "title": "Opioid drug urine screening",
         "status": "active",
@@ -2599,7 +2599,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/substance-misuse-behavioral-counseling",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling",
         "name": "substance_misuse_behavioral_counseling",
         "title": "Substance misuse behavioral counseling",
         "status": "active",
@@ -2763,7 +2763,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/urine-drug-screening-tests",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/urine-drug-screening-tests",
         "name": "urine_drug_screening_tests",
         "title": "Urine drug screening tests",
         "status": "active",
@@ -12308,7 +12308,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/pain-treatment-plan",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan",
         "name": "pain_treatment_plan",
         "title": "Pain treatment plan",
         "status": "active",
@@ -12400,7 +12400,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-misuse-disorders",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders",
         "name": "opioid_misuse_disorders",
         "title": "Opioid misuse disorders",
         "status": "active",
@@ -12970,7 +12970,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-misuse-assessment-procedure",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure",
         "name": "opioid_misuse_assessment_procedure",
         "title": "Opioid misuse assessment procedure",
         "status": "active",
@@ -13063,7 +13063,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/naloxone-medications",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications",
         "name": "naloxone_medications",
         "title": "naloxone medications",
         "status": "active",
@@ -13587,7 +13587,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/oncology-specialty-designations",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations",
         "name": "oncology_specialty_designations",
         "title": "Oncology specialty designations (NUCC)",
         "status": "active",
@@ -13746,7 +13746,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/conditions-documenting-substance-misuse",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-substance-misuse",
         "name": "conditions_documenting_substance_misuse",
         "title": "Conditions documenting substance misuse",
         "status": "active",
@@ -18918,7 +18918,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/opioid-analgesics-with-ambulatory-misuse-potential",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential",
         "name": "opioid_analgesics_with_ambulatory_misuse_potential",
         "title": "Opioid analgesics with ambulatory misuse potential",
         "status": "active",
@@ -24878,7 +24878,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/pdmp-review-procedure",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure",
         "name": "pdmp_review_procedure",
         "title": "PDMP review procedure",
         "status": "active",
@@ -24971,7 +24971,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/cdc-malignant-cancer-conditions",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions",
         "name": "cdc_malignant_cancer_conditions",
         "title": "CDC malignant cancer conditions",
         "status": "active",
@@ -33452,7 +33452,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/limited-life-expectancy-conditions",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
         "name": "limited_life_expectancy_conditions",
         "title": "Limited life expectancy conditions",
         "status": "active",
@@ -33589,7 +33589,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/benzodiazepine-medications",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications",
         "name": "benzodiazepine_medications",
         "title": "benzodiazepine medications",
         "status": "active",
@@ -34569,7 +34569,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/buprenorphine-and-methadone-medications",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications",
         "name": "buprenorphine_and_methadone_medications",
         "title": "Buprenorphine and Methadone medications",
         "status": "active",
@@ -35503,7 +35503,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/pain-management-procedure",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure",
         "name": "pain_management_procedure",
         "title": "Pain management procedure",
         "status": "active",
@@ -35596,7 +35596,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/conditions-likely-terminal-for-opioid-prescribing",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing",
         "name": "conditions_likely_terminal_for_opioid_prescribing",
         "title": "Conditions likely terminal for opioid prescribing",
         "status": "active",
@@ -40633,7 +40633,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/therapies-indicating-end-of-life-care",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care",
         "name": "therapies_indicating_end_of_life_care",
         "title": "Therapies indicating end of life care",
         "status": "active",
@@ -40803,7 +40803,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/pdmp-data-reviewed-finding",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding",
         "name": "pdmp_data_reviewed_finding",
         "title": "PDMP data reviewed finding",
         "status": "active",
@@ -40896,7 +40896,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/non-opioid-drug-urine-screening",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening",
         "name": "non_opioid_drug_urine_screening",
         "title": "Non-opioid drug urine screening",
         "status": "active",
@@ -48307,7 +48307,7 @@
             }
           }
         ],
-        "url": "http://fhir.org/guides/cdc/opioid-cds/extended-release-opioid-with-ambulatory-misuse-potential",
+        "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential",
         "name": "extended_release_opioid_with_ambulatory_misuse_potential",
         "title": "Extended release opioid with ambulatory misuse potential",
         "status": "active",
