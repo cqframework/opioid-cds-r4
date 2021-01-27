@@ -40,9 +40,9 @@ valueset "Non-opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-c
 valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
 valueset "Opioid misuse assessment procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
 valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
-/* valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
+valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
-valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure' */
+valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
 
 valueset "Pain treatment plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan'
 valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure'
@@ -197,12 +197,9 @@ define "End of Life Assessment":
       "Conditions Indicating End of Life or With Limited Life Expectancy"
     )
     // 2. Admitted/referred/discharged to hospice care
-    // NOTE: Hospice references were commented as part of a terminology refresh on 1/26/2021 because the Hospice ValueSets were not
-    // present in the Terminology spreadsheet and therefore weren't generated/updated. Next Steps: Raise the issue of the definition
-    // of End of Life Assessement with the team. Where is the spec/definition for it?
-    /* or exists (
+    or exists (
       "Admitted/Referred/Discharged to Hospice Care"
-    ) */
+    )
     // 3. Medications indicating end of life
     /* or exists (
       "Medications Indicating End of Life"
@@ -234,7 +231,7 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
         )
   )
 
-/* define "Admitted/Referred/Discharged to Hospice Care":
+define "Admitted/Referred/Discharged to Hospice Care":
   (
     [Procedure: code in "Hospice Procedure Codes"] P
       where P.status.value in { 'in-progress', 'completed' }
@@ -263,7 +260,7 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
           else E.hospitalization.dischargeDisposition in "Hospice Disposition"
         )
         and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
-  ) */
+  )
 
 /*
 
