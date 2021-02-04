@@ -3,7 +3,6 @@
 tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
 input_cache_path=$PWD/input-cache
 resources_path=$PWD/input/resources
-#ig_resource_path=./input/opioid-cds.xml
 ig_ini_path=$PWD/ig.ini
 
 set -e
