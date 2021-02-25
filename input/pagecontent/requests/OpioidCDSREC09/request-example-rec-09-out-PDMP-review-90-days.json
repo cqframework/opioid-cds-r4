@@ -7,7 +7,7 @@
       "userId": "Practitioner/example",
         "patientId": "Patient/example-rec-09-false-due-to-PDMP-review-within-90-days",
         "selections": [ "MedicationRequest/f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3" ],
-        "draftOrders": [
+        "draftOrders":
             {
                 "resourceType": "MedicationRequest",
                 "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3",
@@ -82,7 +82,6 @@
                     }
                 }
             }
-        ]
     },
     "prefetch": {
         "item1": {

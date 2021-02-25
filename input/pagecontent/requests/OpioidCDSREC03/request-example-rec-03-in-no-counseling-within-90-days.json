@@ -9,7 +9,7 @@
     "selections": [
       "MedicationRequest/54cd4101-f1b8-408e-ac61-8862d5399bcd"
     ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "54cd4101-f1b8-408e-ac61-8862d5399bcd",
@@ -87,7 +87,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

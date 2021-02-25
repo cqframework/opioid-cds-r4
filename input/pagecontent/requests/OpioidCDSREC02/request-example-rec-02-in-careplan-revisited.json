@@ -7,7 +7,7 @@
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-02-true-make-recommendations",
     "selections": [ "MedicationRequest/222b5b54-1efe-4733-bec9-313e97f16051" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "222b5b54-1efe-4733-bec9-313e97f16051",
@@ -85,7 +85,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

@@ -7,7 +7,7 @@
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-02-false-due-to-careplan-within-90-days",
     "selections": [ "MedicationRequest/a6590d30-c320-4016-861f-678f9f87bca5" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "a6590d30-c320-4016-861f-678f9f87bca5",
@@ -85,7 +85,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

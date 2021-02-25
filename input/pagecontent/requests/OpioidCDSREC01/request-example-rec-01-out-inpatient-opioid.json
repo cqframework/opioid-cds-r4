@@ -7,7 +7,7 @@
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-01-false-due-to-inpatient-opioid",
     "selections": [ "MedicationRequest/4d2b4402-022e-4f69-813e-ab16934286a6" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "4d2b4402-022e-4f69-813e-ab16934286a6",
@@ -85,7 +85,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

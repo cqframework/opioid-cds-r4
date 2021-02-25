@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-11-opioid-trigger-without-benzo",
     "encounterId": "Encounter/example-rec-11-opioid-trigger-without-benzo-context",
     "selections": [ "MedicationRequest/example-rec-11-opioid-trigger-without-benzo-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-11-opioid-trigger-without-benzo-context",
@@ -91,7 +91,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

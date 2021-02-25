@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-07-risk-assessment",
     "encounterId": "Encounter/example-rec-07-risk-assessment-context",
     "selections": [ "MedicationRequest/example-rec-07-risk-assessment-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-07-risk-assessment-context",
@@ -85,7 +85,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": null,

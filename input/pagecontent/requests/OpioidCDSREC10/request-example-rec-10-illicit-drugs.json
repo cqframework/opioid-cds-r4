@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-10-illicit-drugs",
     "encounterId": "Encounter/example-rec-10-illicit-drugs-context",
     "selections": [ "MedicationRequest/example-rec-10-illicit-drugs-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-illicit-drugs-context",
@@ -89,7 +89,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

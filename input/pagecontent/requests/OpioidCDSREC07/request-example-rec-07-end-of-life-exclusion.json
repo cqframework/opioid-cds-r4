@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-07-end-of-life-exclusion",
     "encounterId": "Encounter/example-rec-07-end-of-life-exclusion-context",
     "selections": [ "MedicationRequest/example-rec-07-end-of-life-exclusion-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-07-end-of-life-exclusion-context",
@@ -85,7 +85,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

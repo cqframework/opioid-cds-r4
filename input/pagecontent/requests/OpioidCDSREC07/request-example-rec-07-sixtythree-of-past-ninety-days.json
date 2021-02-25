@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-07-sixtythree-of-past-ninety-days",
     "encounterId": "Encounter/example-rec-07-sixtythree-of-past-ninety-days-context",
     "selections": [ "MedicationRequest/example-rec-07-sixtythree-of-past-ninety-days-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-07-sixtythree-of-past-ninety-days-context",
@@ -85,7 +85,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

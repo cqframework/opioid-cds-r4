@@ -9,7 +9,7 @@
     "selections": [
       "MedicationRequest/e9e50568-5737-427d-8b1b-7a48f3ea9986"
     ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "e9e50568-5737-427d-8b1b-7a48f3ea9986",
@@ -87,7 +87,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

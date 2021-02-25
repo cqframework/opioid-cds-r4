@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-10-no-screenings",
     "encounterId": "Encounter/example-rec-10-no-screenings-context",
     "selections": [ "MedicationRequest/example-rec-10-no-screenings-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-no-screenings-context",
@@ -87,7 +87,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {

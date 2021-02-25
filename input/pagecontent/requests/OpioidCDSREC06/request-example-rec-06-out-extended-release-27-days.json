@@ -7,7 +7,7 @@
       "userId": "Practitioner/example",
         "patientId": "Patient/example-rec-06-with-extended-release-for-27-days",
         "selections": [ "MedicationRequest/15fa9928-4f72-4ee3-ac61-1412d9fa446b" ],
-        "draftOrders": [
+        "draftOrders":
             {
                 "resourceType": "MedicationRequest",
                 "id": "15fa9928-4f72-4ee3-ac61-1412d9fa446b",
@@ -86,7 +86,6 @@
                     }
                 }
             }
-        ]
     },
     "prefetch": {
         "item1": {
