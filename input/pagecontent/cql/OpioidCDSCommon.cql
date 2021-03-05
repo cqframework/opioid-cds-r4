@@ -9,9 +9,9 @@ include OpioidCDSCommonConfig version '2.0.1' called Config
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
 codesystem "Medication Request Category Codes": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
-codesystem "Medication Request Status Codes": 'http://hl7.org/fhir/medication-request-status'
+codesystem "Medication Request Status Codes": 'http://hl7.org/fhir/CodeSystem/medicationrequest-status'
 codesystem "Condition Clinical Status Codes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
-codesystem "FHIR Condition Category Codes": 'http://hl7.org/fhir/condition-category'
+codesystem "FHIR Condition Category Codes": 'http://terminology.hl7.org/CodeSystem/condition-category'
 codesystem "US Core Condition Category Codes": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 
 // Expression-based

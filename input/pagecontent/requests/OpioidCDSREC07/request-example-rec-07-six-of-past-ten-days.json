@@ -78,7 +78,7 @@
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
-            "value": 6.0,
+            "value": 28.0,
             "unit": "days",
             "system": "http://unitsofmeasure.org",
             "code": "d"
@@ -179,6 +179,18 @@
         "subject": {
           "reference": "Patient/example-rec-07-six-of-past-ten-days"
         },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "version": "2020-09",
+                "code": "185465003",
+                "display": "Weekend visit (procedure)"
+              }
+            ]
+          }
+        ],
         "period": {
           "extension": [
             {
