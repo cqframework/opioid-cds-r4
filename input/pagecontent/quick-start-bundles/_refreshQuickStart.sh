@@ -41,7 +41,6 @@ cp input/vocabulary/valueset/valueset-buprenorphine-and-methadone-medications.js
 cp input/vocabulary/valueset/valueset-cdc-malignant-cancer-conditions.json bundlegen/sourcefiles/valueset-cdc-malignant-cancer-conditions.json
 cp input/vocabulary/valueset/valueset-conditions-documenting-substance-misuse.json bundlegen/sourcefiles/valueset-conditions-documenting-substance-misuse.json
 cp input/vocabulary/valueset/valueset-conditions-likely-terminal-for-opioid-prescribing.json bundlegen/sourcefiles/valueset-conditions-likely-terminal-for-opioid-prescribing.json
-cp input/vocabulary/valueset/valueset-discharge-to-hospice.xml bundlegen/sourcefiles/valueset-discharge-to-hospice.xml
 cp input/vocabulary/valueset/valueset-extended-release-opioid-with-ambulatory-misuse-potential.json bundlegen/sourcefiles/valueset-extended-release-opioid-with-ambulatory-misuse-potential.json
 cp input/vocabulary/valueset/valueset-hospice-disposition.xml bundlegen/sourcefiles/valueset-hospice-disposition.xml
 cp input/vocabulary/valueset/valueset-hospice-finding.xml bundlegen/sourcefiles/valueset-hospice-finding.xml
@@ -63,6 +62,7 @@ cp input/vocabulary/valueset/valueset-pdmp-data-reviewed-finding.json bundlegen/
 cp input/vocabulary/valueset/valueset-pdmp-review-procedure.json bundlegen/sourcefiles/valueset-pdmp-review-procedure.json
 cp input/vocabulary/valueset/valueset-substance-misuse-behavioral-counseling.json bundlegen/sourcefiles/valueset-substance-misuse-behavioral-counseling.json
 cp input/vocabulary/valueset/valueset-therapies-indicating-end-of-life-care.json bundlegen/sourcefiles/valueset-therapies-indicating-end-of-life-care.json
+cp input/vocabulary/valueset/valueset-urine-drug-screening-tests.json bundlegen/sourcefiles/valueset-urine-drug-screening-tests.json
 
 #cd /bundlegen
 for entry in "bundlegen/sourcefiles"/*

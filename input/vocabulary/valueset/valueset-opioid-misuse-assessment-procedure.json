@@ -3,11 +3,31 @@
   "id": "opioid-misuse-assessment-procedure",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-distributablevalueset",
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablevalueset"
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executableablevalueset"
     ]
   },
   "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueString": "computable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+      "valueString": "structured"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueString": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+      "valueString": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+      "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+    },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
       "valueContactDetail": {
@@ -22,11 +42,11 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure",
-  "name": "Opioid_Misuse_Assessment_Procedure",
-  "title": "ValueSet - Opioid Misuse Assessment Procedure",
+  "name": "opioid_misuse_assessment_procedure",
+  "title": "Opioid misuse assessment procedure",
   "status": "active",
   "experimental": true,
-  "date": "2020-03-26T17:39:09-06:00",
+  "date": "2021-01-26T12:01:40-07:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Procedure to assess the risk of opioid abuse occurring by a patient",
   "jurisdiction": [
@@ -55,11 +75,10 @@
     ]
   },
   "expansion": {
-    "timestamp": "2020-03-26T17:39:09-06:00",
+    "timestamp": "2021-01-26T12:01:40-07:00",
     "contains": [
       {
         "system": "http://snomed.info/sct",
-        "version": "http://snomed.info/sct/731000124108/version/20200301",
         "code": "454281000124100",
         "display": "Assessment of risk for opioid abuse (procedure)"
       }
