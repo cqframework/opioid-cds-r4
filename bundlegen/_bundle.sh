@@ -22,11 +22,13 @@ echo "$fsoption"
 
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
+	echo "Running: JAVA -jar "$tooling "-BundleResources -ptd="$bundlegen_path" op="$bundlegen_path" -v=r4 -e=json"
 	JAVA -jar $tooling -BundleResources -ptd=$bundlegen_path op=$bundlegen_path -v=r4 -e=json
 else
 	tooling=../$tooling_jar
 	echo $tooling
 	if test -f "$tooling"; then
+		echo "Running: JAVA -jar "$tooling "-BundleResources -ptd="$bundlegen_path" op="$bundlegen_path" -v=r4 -e=json"
 		JAVA -jar $tooling -BundleResources -ptd=$bundlegen_path op=$bundlegen_path -v=r4 -e=json
 	else
 		echo IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...
