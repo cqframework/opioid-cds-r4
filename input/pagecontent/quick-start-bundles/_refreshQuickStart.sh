@@ -42,7 +42,7 @@ cp input/vocabulary/valueset/valueset-cdc-malignant-cancer-conditions.json bundl
 cp input/vocabulary/valueset/valueset-conditions-documenting-substance-misuse.json bundlegen/sourcefiles/valueset-conditions-documenting-substance-misuse.json
 cp input/vocabulary/valueset/valueset-conditions-likely-terminal-for-opioid-prescribing.json bundlegen/sourcefiles/valueset-conditions-likely-terminal-for-opioid-prescribing.json
 cp input/vocabulary/valueset/valueset-extended-release-opioid-with-ambulatory-misuse-potential.json bundlegen/sourcefiles/valueset-extended-release-opioid-with-ambulatory-misuse-potential.json
-cp input/vocabulary/valueset/valueset-hospice-disposition.xml bundlegen/sourcefiles/valueset-hospice-disposition.xml
+cp input/vocabulary/valueset/valueset-hospice-disposition.json bundlegen/sourcefiles/valueset-hospice-disposition.json
 cp input/vocabulary/valueset/valueset-hospice-finding.xml bundlegen/sourcefiles/valueset-hospice-finding.xml
 cp input/vocabulary/valueset/valueset-hospice-procedure.xml bundlegen/sourcefiles/valueset-hospice-procedure.xml
 cp input/vocabulary/valueset/valueset-limited-life-expectancy-conditions.json bundlegen/sourcefiles/valueset-limited-life-expectancy-conditions.json
