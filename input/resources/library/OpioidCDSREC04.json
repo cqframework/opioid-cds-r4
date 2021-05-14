@@ -96,6 +96,14 @@
     "min": 0,
     "max": "1",
     "type": "string"
+  } ],  
+  "dataRequirement": [ {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+    } ]
   } ],
   "content": [ {
     "contentType": "text/cql",
