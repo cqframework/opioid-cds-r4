@@ -732,8 +732,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:b065da87-fbf5-4f27-9348-fe69afb229f7",
-    "timestamp" : "2021-04-15T18:13:38.116Z",
+    "identifier" : "urn:uuid:2e515d3c-e4f6-453c-8bc1-d7a8f5a4ecb6",
+    "timestamp" : "2021-05-11T20:45:21.215Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -782,8 +782,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:c45987fa-1aa5-476e-8535-07ae61e907c0",
-    "timestamp" : "2021-04-15T18:13:38.444Z",
+    "identifier" : "urn:uuid:3d2eadd8-10e0-485f-af6c-b7182af83434",
+    "timestamp" : "2021-05-11T20:45:21.574Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -890,27 +890,5 @@ v: {
   "display" : "",
   "severity" : "error",
   "error" : "Unable to find code 461651000124104 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210131); The code \"461651000124104\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461651000124104) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "17401000",
-  "display" : "Heart valve structure"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Cardiac valve",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "17401001",
-  "display" : "Heart valve structure2"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 17401001 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210131); The code \"17401001\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#17401001) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------

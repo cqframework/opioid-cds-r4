@@ -1,85 +1,82 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#1_Nonpharmacologic_therapy" target="_blank">Recommendation #1:</a></p>
-  <p><strong>Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient. If opioids are used, they should be combined with nonpharmacologic therapy and nonopioid pharmacologic therapy, as appropriate (recommendation category: A, evidence type: 3).</strong></p>
-<html>
-<body>
-<details open="true">
-  <summary><h3 class="title">Functional Description</h3></summary>
-  <a name="funcdesc"> </a>
-  {% include recommendation01-functional-description.html %}
+  <p><strong>Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient.
+      If opioids are used, they should be combined with nonpharmacologic therapy and nonopioid pharmacologic therapy, as appropriate (recommendation category: A, evidence type: 3).</strong></p>
+  <html>
 
-  <p></p>
+  <body>
+    <details open="true">
+      <summary>
+        <h3 class="title">Functional Description</h3>
+      </summary>
+      <a name="funcdesc"> </a>
+      {% include recommendation01-functional-description.html %}
 
-  <img src="assets/images/Recommendation01-flow.png" style="max-width: 100%;" />
-  <p></p>
-  <img src="assets/images/Recommendation01-Definitions.png" style="max-width: 100%;" />
-  <p></p>
-</details>
-  <p></p>
-<details>
-  <summary><h3 class="title">For Chronic Pain</h3></summary>
-  {% include for-chronic-pain-definitions.html %}
-</details>
-<p></p>
-<details>
-  <summary><h3 class="title">Opioid Review Useful</h3></summary>
-  {% include opioid-review-useful-definitions.html %}
-</details>
-<p></p>
-<details>
-  <summary><h3 class="title">Opioid Naive</h3></summary>
-  {% include opioid-naive-definitions.html %}
-</details>
-<p></p>
-<details>
-<summary><h3 class="title">Content</h3></summary>
-  <a name="content"> </a>
+      <p></p>
 
-  <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+      <img src="assets/images/Recommendation01-flow.png" style="max-width: 100%;" />
+      <p></p>
+      <img src="assets/images/Recommendation01-Definitions.png" style="max-width: 100%;" />
+      <p></p>
+    </details>
+    <p></p>
+    <details>
+      <summary>
+        <h3 class="title">For Chronic Pain</h3>
+      </summary>
+      {% include for-chronic-pain-definitions.html %}
+    </details>
+    <p></p>
+    <details>
+      <summary>
+        <h3 class="title">Opioid Review Useful</h3>
+      </summary>
+      {% include opioid-review-useful-definitions.html %}
+    </details>
+    <p></p>
+    <details>
+      <summary>
+        <h3 class="title">Opioid Naive</h3>
+      </summary>
+      {% include opioid-naive-definitions.html %}
+    </details>
+    <p></p>
+    <details>
+      <summary>
+        <h3 class="title">Content</h3>
+      </summary>
+      <a name="content"> </a>
 
-  <a name="commonlibraries"> </a>
-  <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
+      <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
-  <p></p>
+      <a name="commonlibraries"> </a>
+      <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
 
-  <table class="list">
-      <thead>
-      <tr><th>Resource</th><th>Type</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><a href="PlanDefinition-opioidcds-01.html">CDC Opioid Prescribing Guideline Recommendation #1</a></td><td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td><td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #1</td></tr>
-        <tr><td><a href="Library-library-OpioidCDSREC01.html">Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration</a></td><td><a href="{{site.data.fhir.path}}library.html">Library</a></td><td>Defines the data requirements to support evaluation of recommendation #1</td></tr>
-      </tbody>
-  </table>
-</details>
-  <p></p>
+      <p></p>
 
-  <!-- Example Data/Requests -->
-  <details>
-  <summary><h3 class="title">Example Data/ Requests</h3></summary>
-  <a name="exampledatarequests"> </a>
-  <table class="grid">
-    <thead>
-    <tr>
-        <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-          <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored “Today” as well as a Medication Statement 95 days prior to today which will result in recommendation inclusion in addition to Opioid Naive &amp; Opioid Review Useful inclusion. Patients "Dosage Instructions" are 1 Film per day for 30 days. This should result in a summary message: "Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative."</td>
-          <td><a href="Bundle-example-rec-01-true-make-recommendations.html">Test Bundle</a></td>
-          <td><a href="requests/OpioidCDSREC01/request-example-rec-01-in-outpatient-opioid.json">Request JSON</a></td>
-          <td><a href="responses/OpioidCDSREC01/response-example-rec-01-in-outpatient-opioid.json">Response JSON</a></td>
-      </tr>
-      <tr>
-          <td class="col-7">Patient is 18 years or older and has an inpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603). Patients “Dosage Instructions” are 1 Film per day for 30 days. This will result in an empty set of cards due to the Medication Request being inpatient.</td>
-          <td><a href="Bundle-example-rec-01-false-due-to-inpatient-opioid.html">Test Bundle</a></td>
-          <td><a href="requests/OpioidCDSREC01/request-example-rec-01-out-inpatient-opioid.json">Request JSON</a></td>
-          <td><a href="responses/OpioidCDSREC01/response-example-rec-01-out-inpatient-opioid.json">Response JSON</a></td>
-      </tr>
-    </tbody>
-  </table>
-  </details>
+      <table class="list">
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="PlanDefinition-opioidcds-01.html">CDC Opioid Prescribing Guideline Recommendation #1</a></td>
+            <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
+            <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #1</td>
+          </tr>
+          <tr>
+            <td><a href="Library-library-OpioidCDSREC01.html">Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration</a></td>
+            <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
+            <td>Defines the data requirements to support evaluation of recommendation #1</td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
   </body>
-</html>
+
+  </html>
 </div>
