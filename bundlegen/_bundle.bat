@@ -23,9 +23,9 @@ SET fsoption=
 
 IF EXIST "%input_cache_path%\%tooling_jar%" (
 	ECHO running: JAVA -jar "%input_cache_path%\%tooling_jar%" -BundleResources -ptd="%sourcefiles_path%" -op="%bundlegen_path%" -v=stu3 -e=json -bundleid=%1
-	JAVA -jar "%input_cache_path%\%tooling_jar%" -BundleResources -ptd="%sourcefiles_path%" -op="%bundlegen_path%" -v=stu3 -e=json -bundleid=%1
+	JAVA -jar "%input_cache_path%\%tooling_jar%" -BundleResources -ptd="%sourcefiles_path%" -op="%bundlegen_path%" -v=r4 -e=json -bundleid=%1
 ) ELSE If exist "..\%tooling_jar%" (
-	ECHO running: JAVA -jar "..\%tooling_jar%" -BundleResources -ptd="%sourcefiles_path%" -op="%bundlegen_path%" -v=stu3 -e=json -bundleid=%1
+	ECHO running: JAVA -jar "..\%tooling_jar%" -BundleResources -ptd="%sourcefiles_path%" -op="%bundlegen_path%" -v=r4 -e=json -bundleid=%1
 	JAVA -jar "..\%tooling_jar%" -BundleResources -ptd="%sourcefiles_path%" -op="%bundlegen_path%" -v=stu3 -e=json -bundleid=%1
 ) ELSE (
 	ECHO Bundle Resources NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...

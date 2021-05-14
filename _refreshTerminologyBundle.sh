@@ -8,8 +8,8 @@ mkdir -p bundlegen/sourcefiles
 echo refreshing terminology bundle...
 cp input/vocabulary/codesystem/codesystem-condition-category.json bundlegen/sourcefiles/codesystem-condition-category.json
 cp input/vocabulary/codesystem/codesystem-condition-clinical.json bundlegen/sourcefiles/codesystem-condition-clinical.json
-cp input/vocabulary/codesystem/codesystem-medication-request-category.json bundlegen/sourcefiles/codesystem-medicationrequest-category.json
-cp input/vocabulary/codesystem/codesystem-medication-request-status.json bundlegen/sourcefiles/codesystem-medicationrequest-status.json
+cp input/vocabulary/codesystem/codesystem-medicationrequest-category.json bundlegen/sourcefiles/codesystem-medicationrequest-category.json
+cp input/vocabulary/codesystem/codesystem-medicationrequest-status.json bundlegen/sourcefiles/codesystem-medicationrequest-status.json
 cp input/vocabulary/codesystem/codesystem-uscore-condition-category.json bundlegen/sourcefiles/codesystem-uscore-condition-category.json
 cp input/vocabulary/codesystem/codesystem-opioidcds-indicator.xml bundlegen/sourcefiles/codesystem-opioidcds-indicator.xml
 
@@ -20,8 +20,8 @@ cp input/vocabulary/valueset/valueset-conditions-documenting-substance-misuse.js
 cp input/vocabulary/valueset/valueset-conditions-likely-terminal-for-opioid-prescribing.json bundlegen/sourcefiles/valueset-conditions-likely-terminal-for-opioid-prescribing.json
 cp input/vocabulary/valueset/valueSet-extended-release-opioid-with-ambulatory-misuse-potential.json bundlegen/sourcefiles/valueSet-extended-release-opioid-with-ambulatory-misuse-potential.json
 cp input/vocabulary/valueset/valueSet-hospice-disposition.json bundlegen/sourcefiles/valueSet-hospice-disposition.json
-cp input/vocabulary/valueset/valueset-hospice-finding.json bundlegen/sourcefiles/valueset-hospice-findinge.json
-cp input/vocabulary/valueset/valueset-hospice-procedure.json bundlegen/sourcefiles/valueset-hospice-procedure.json
+cp input/vocabulary/valueset/valueset-hospice-finding.xml bundlegen/sourcefiles/valueset-hospice-findinge.xml
+cp input/vocabulary/valueset/valueset-hospice-procedure.xml bundlegen/sourcefiles/valueset-hospice-procedure.xml
 cp input/vocabulary/valueset/valueset-limited-life-expectancy-conditions.json bundlegen/sourcefiles/valueset-limited-life-expectancy-conditions.json
 cp input/vocabulary/valueset/valueset-naloxone-medications.json bundlegen/sourcefiles/valueset-naloxone-medications.json
 cp input/vocabulary/valueset/valueset-non-opioid-drug-urine-screening.json bundlegen/sourcefiles/valueset-non-opioid-drug-urine-screening.json

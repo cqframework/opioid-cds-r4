@@ -10176,6 +10176,71 @@
     }
   }, {
     "resource": {
+      "resourceType": "CodeSystem",
+      "id": "medicationrequest-category",
+      "meta": {
+        "lastUpdated": "2019-11-01T09:29:23.356+11:00",
+        "profile": [ "http://hl7.org/fhir/StructureDefinition/shareablecodesystem" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Medication request  category  codes</h2><div><p>MedicationRequest Category Codes</p>\n</div><p>This code system http://terminology.hl7.org/CodeSystem/medicationrequest-category defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">inpatient<a name=\"medicationrequest-category-inpatient\"> </a></td><td>Inpatient</td><td>Includes requests for medications to be administered or consumed in an inpatient or acute care setting</td></tr><tr><td style=\"white-space:nowrap\">outpatient<a name=\"medicationrequest-category-outpatient\"> </a></td><td>Outpatient</td><td>Includes requests for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)</td></tr><tr><td style=\"white-space:nowrap\">community<a name=\"medicationrequest-category-community\"> </a></td><td>Community</td><td>Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)</td></tr><tr><td style=\"white-space:nowrap\">discharge<a name=\"medicationrequest-category-discharge\"> </a></td><td>Discharge</td><td>Includes requests for medications created when the patient is being released from a facility</td></tr></table></div>"
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode": "phx"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode": "draft"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger": 1
+      } ],
+      "url": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+      "identifier": [ {
+        "system": "urn:ietf:rfc:3986",
+        "value": "urn:oid:2.16.840.1.113883.4.642.4.1323"
+      } ],
+      "version": "4.0.1",
+      "name": "medicationRequest Category Codes",
+      "title": "Medication request  category  codes",
+      "status": "draft",
+      "experimental": false,
+      "publisher": "FHIR Project team",
+      "contact": [ {
+        "telecom": [ {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        } ]
+      } ],
+      "description": "MedicationRequest Category Codes",
+      "caseSensitive": true,
+      "valueSet": "http://hl7.org/fhir/ValueSet/medicationrequest-category",
+      "content": "complete",
+      "concept": [ {
+        "code": "inpatient",
+        "display": "Inpatient",
+        "definition": "Includes requests for medications to be administered or consumed in an inpatient or acute care setting"
+      }, {
+        "code": "outpatient",
+        "display": "Outpatient",
+        "definition": "Includes requests for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)"
+      }, {
+        "code": "community",
+        "display": "Community",
+        "definition": "Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)"
+      }, {
+        "code": "discharge",
+        "display": "Discharge",
+        "definition": "Includes requests for medications created when the patient is being released from a facility"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "CodeSystem/medicationrequest-category"
+    }
+  }, {
+    "resource": {
       "resourceType": "ValueSet",
       "id": "pain-treatment-plan",
       "meta": {
@@ -10242,6 +10307,87 @@
     "request": {
       "method": "PUT",
       "url": "ValueSet/pain-treatment-plan"
+    }
+  }, {
+    "resource": {
+      "resourceType": "CodeSystem",
+      "id": "medicationrequest-status",
+      "meta": {
+        "lastUpdated": "2019-11-01T09:29:23.356+11:00",
+        "profile": [ "http://hl7.org/fhir/StructureDefinition/shareablecodesystem" ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Medicationrequest  status</h2><div><p>MedicationRequest Status Codes</p>\n</div><p>This code system http://hl7.org/fhir/CodeSystem/medicationrequest-status defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">active<a name=\"medicationrequest-status-active\"> </a></td><td>Active</td><td>The prescription is 'actionable', but not all actions that are implied by it have occurred yet.</td></tr><tr><td style=\"white-space:nowrap\">on-hold<a name=\"medicationrequest-status-on-hold\"> </a></td><td>On Hold</td><td>Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called 'suspended'.</td></tr><tr><td style=\"white-space:nowrap\">cancelled<a name=\"medicationrequest-status-cancelled\"> </a></td><td>Cancelled</td><td>The prescription has been withdrawn before any administrations have occurred</td></tr><tr><td style=\"white-space:nowrap\">completed<a name=\"medicationrequest-status-completed\"> </a></td><td>Completed</td><td>All actions that are implied by the prescription have occurred.</td></tr><tr><td style=\"white-space:nowrap\">entered-in-error<a name=\"medicationrequest-status-entered-in-error\"> </a></td><td>Entered in Error</td><td>Some of the actions that are implied by the medication request may have occurred.  For example, the medication may have been dispensed and the patient may have taken some of the medication.  Clinical decision support systems should take this status into account</td></tr><tr><td style=\"white-space:nowrap\">stopped<a name=\"medicationrequest-status-stopped\"> </a></td><td>Stopped</td><td>Actions implied by the prescription are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error</td></tr><tr><td style=\"white-space:nowrap\">draft<a name=\"medicationrequest-status-draft\"> </a></td><td>Draft</td><td>The prescription is not yet 'actionable', e.g. it is a work in progress, requires sign-off, verificationÂ orÂ needs to be run through decision support process.</td></tr><tr><td style=\"white-space:nowrap\">unknown<a name=\"medicationrequest-status-unknown\"> </a></td><td>Unknown</td><td>The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, but the authoring/source system does not know which.</td></tr></table></div>"
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+        "valueCode": "phx"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+        "valueCode": "trial-use"
+      }, {
+        "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+        "valueInteger": 3
+      } ],
+      "url": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+      "identifier": [ {
+        "system": "urn:ietf:rfc:3986",
+        "value": "urn:oid:2.16.840.1.113883.4.642.4.1377"
+      } ],
+      "version": "4.0.1",
+      "name": "medicationrequest Status",
+      "title": "Medicationrequest  status",
+      "status": "draft",
+      "experimental": false,
+      "publisher": "FHIR Project team",
+      "contact": [ {
+        "telecom": [ {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        } ]
+      } ],
+      "description": "MedicationRequest Status Codes",
+      "caseSensitive": true,
+      "valueSet": "http://hl7.org/fhir/ValueSet/medicationrequest-status",
+      "content": "complete",
+      "concept": [ {
+        "code": "active",
+        "display": "Active",
+        "definition": "The prescription is 'actionable', but not all actions that are implied by it have occurred yet."
+      }, {
+        "code": "on-hold",
+        "display": "On Hold",
+        "definition": "Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called 'suspended'."
+      }, {
+        "code": "cancelled",
+        "display": "Cancelled",
+        "definition": "The prescription has been withdrawn before any administrations have occurred"
+      }, {
+        "code": "completed",
+        "display": "Completed",
+        "definition": "All actions that are implied by the prescription have occurred."
+      }, {
+        "code": "entered-in-error",
+        "display": "Entered in Error",
+        "definition": "Some of the actions that are implied by the medication request may have occurred.  For example, the medication may have been dispensed and the patient may have taken some of the medication.  Clinical decision support systems should take this status into account"
+      }, {
+        "code": "stopped",
+        "display": "Stopped",
+        "definition": "Actions implied by the prescription are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error"
+      }, {
+        "code": "draft",
+        "display": "Draft",
+        "definition": "The prescription is not yet 'actionable', e.g. it is a work in progress, requires sign-off, verificationÂ orÂ needs to be run through decision support process."
+      }, {
+        "code": "unknown",
+        "display": "Unknown",
+        "definition": "The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "CodeSystem/medicationrequest-status"
     }
   }, {
     "resource": {
@@ -11397,10 +11543,10 @@
         "valueInteger": 3
       } ],
       "url": "http://terminology.hl7.org/CodeSystem/condition-category",
-      "identifier": {
+      "identifier": [ {
         "system": "urn:ietf:rfc:3986",
         "value": "urn:oid:2.16.840.1.113883.4.642.4.1073"
-      },
+      } ],
       "version": "4.0.1",
       "name": "ConditionCategoryCodes",
       "title": "Condition Category Codes",
@@ -28898,6 +29044,49 @@
   }, {
     "resource": {
       "resourceType": "ValueSet",
+      "id": "hospice-finding",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
+        "valueMarkdown": "Note that the terminologies included in this implementation guide will need to be updated, because the ideal mechanism for distribution (as an expression) is not currently supported by the content logical definition constructs available in the FHIR ValueSet resource and all known implementations of it. Before use in a production environment, ensure you have the latest value sets based on the definitions for each value set (as defined in the inclusion/exclusion criteria for each one)."
+      } ],
+      "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding",
+      "name": "Valueset_hospice_finding",
+      "title": "ValueSet - Hospice Finding",
+      "status": "active",
+      "compose": {
+        "include": [ {
+          "system": "http://snomed.info/sct",
+          "concept": [ {
+            "code": "170935008",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Full care by hospice (finding)\"/>" ]
+            }
+          }, {
+            "code": "448451000124101",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Transition from self-care to hospice (finding)\"/>" ]
+            }
+          }, {
+            "code": "1891000124102",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Transition from acute care to hospice (finding)\"/>" ]
+            }
+          }, {
+            "code": "1951000124104",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Transition from long-term care to hospice (finding)\"/>" ]
+            }
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/hospice-finding"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
       "id": "pain-management-procedure",
       "meta": {
         "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executableablevalueset" ]
@@ -28964,6 +29153,49 @@
     "request": {
       "method": "PUT",
       "url": "ValueSet/pain-management-procedure"
+    }
+  }, {
+    "resource": {
+      "resourceType": "ValueSet",
+      "id": "hospice-procedure",
+      "extension": [ {
+        "url": "http://hl7.org/fhir/StructureDefinition/valueset-warning",
+        "valueMarkdown": "Note that the terminologies included in this implementation guide will need to be updated, because the ideal mechanism for distribution (as an expression) is not currently supported by the content logical definition constructs available in the FHIR ValueSet resource and all known implementations of it. Before use in a production environment, ensure you have the latest value sets based on the definitions for each value set (as defined in the inclusion/exclusion criteria for each one)."
+      } ],
+      "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure",
+      "name": "Valueset_hospice_procedure",
+      "title": "ValueSet - Hospice Procedure",
+      "status": "active",
+      "compose": {
+        "include": [ {
+          "system": "http://snomed.info/sct",
+          "concept": [ {
+            "code": "306205009",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Referral to hospice (procedure)\"/>" ]
+            }
+          }, {
+            "code": "305336008",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Admission to hospice (procedure)\"/>" ]
+            }
+          }, {
+            "code": "183919006",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Urgent admission to hospice (procedure)\"/>" ]
+            }
+          }, {
+            "code": "428371000124100",
+            "_code": {
+              "fhir_comments": [ "<display value=\"Discharge to healthcare facility for hospice care (procedure)\"/>" ]
+            }
+          } ]
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "ValueSet/hospice-procedure"
     }
   }, {
     "resource": {
@@ -33108,10 +33340,10 @@
         "valueInteger": 3
       } ],
       "url": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-      "identifier": {
+      "identifier": [ {
         "system": "urn:ietf:rfc:3986",
         "value": "urn:oid:2.16.840.1.113883.4.642.4.1074"
-      },
+      } ],
       "version": "4.0.1",
       "name": "ConditionClinicalStatusCodes",
       "title": "Condition Clinical Status Codes",
