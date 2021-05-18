@@ -57,10 +57,7 @@ define "Conditions Indicating End Of Life Present":
   exists (
     Common."US Core-Categorized Conditions" LLEC
       where LLEC.code in Common."Limited life expectancy conditions"
-        and exists (
-          LLEC.clinicalStatus.coding Coding
-            where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-        )
+        and LLEC.clinicalStatus in Common."Active Condition"
   )
 
 define "Order For Palliative Care In Past 90 Days":
@@ -76,10 +73,7 @@ define "Conditions Including Cancer To Exclude Opioid Management Indicating End-
     exists (
       Common."US Core-Categorized Conditions" EOLC
         where EOLC.code in Common."Conditions likely terminal for opioid prescribing"
-          and exists (
-            EOLC.clinicalStatus.coding Coding
-              where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-          )
+          and EOLC.clinicalStatus in Common."Active Condition"
     )
   else
     false
