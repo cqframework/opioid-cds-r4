@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-04-new-patient",
     "encounterId": "Encounter/example-rec-04-new-patient-context",
     "selections": [ "MedicationRequest/example-rec-04-new-patient-context" ],
-    "draftOrders": [
+    "draftOrders": 
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-04-new-patient-context",
@@ -87,7 +87,7 @@
           }
         }
       }
-    ]
+
   },
   "prefetch": {
     "item1": null,

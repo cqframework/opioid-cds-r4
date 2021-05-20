@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-04-long-acting-opioid",
     "encounterId": "Encounter/example-rec-04-long-acting-opioid-context",
     "selections": [ "MedicationRequest/example-rec-04-long-acting-opioid-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-04-long-acting-opioid-context",
@@ -88,7 +88,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {
