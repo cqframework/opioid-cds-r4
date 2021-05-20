@@ -41,6 +41,15 @@
         <!-- Artifact Package Bundles -->
         <resource>
             <reference>
+                <reference value="Bundle/opioid-cds-terminology"/>
+                <display value="OpioidCDS Terminology Bundle"/>
+            </reference>
+            <name value="OpioidCDSTerminologyBundle"/>
+            <description value="A Bundle containing terminology for all recommendations"/>
+            <exampleBoolean value="false"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="Bundle/OpioidCDSREC01-bundle"/>
                 <display value="Recommendation 1 (order-select) Artifact Package"/>
             </reference>
@@ -433,6 +442,17 @@
             <exampleBoolean value="false"/>
             <groupingId value="activitydefinition"/>
         </resource>
+        <!-- Device -->
+        <resource>
+            <reference>
+                <reference value="Device/cqf-tooling"/>
+                <display value="CQF Tooling Device"/>
+            </reference>
+            <name value="CQFToolingDevice"/>
+            <description value="A Device that represents a CQF Tooling version."/>
+            <exampleBoolean value="false"/>
+        </resource>
+
         <!-- PlanDefinition -->
         <resource>
             <reference>
@@ -871,6 +891,10 @@
         <parameter>
           <code value="path-pages" />
           <value value="input/pagecontent"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles"/>
         </parameter>
         <parameter>
           <code value="path-resource" />

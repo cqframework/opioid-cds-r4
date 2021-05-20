@@ -131,6 +131,13 @@
         <selectionBehavior value="exactly-one"/>
         <!-- reference to risk assessment activity definition -->
         <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-risk-assessment-request"/>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/action-type" />
+            <code value="create" />
+            <display value="Create" />
+          </coding>
+        </type>
         <dynamicValue>
     			<path value="action.title"/>
     			<expression>

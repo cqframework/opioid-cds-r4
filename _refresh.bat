@@ -28,4 +28,6 @@ IF EXIST "%input_cache_path%\%tooling_jar%" (
 	ECHO IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...
 )
 
+_refreshTerminologyBundle.bat
+
 PAUSE

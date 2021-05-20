@@ -30,6 +30,15 @@
             "resource": {
                 "resourceType": "Condition",
                 "id": "example-rec-12-criteria-valid",
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                            "code": "encounter-diagnosis",
+                            "display": "Encounter Diagnosis"
+                        }
+                    ]
+                },
                 "clinicalStatus": {
                     "coding": [
                         {
