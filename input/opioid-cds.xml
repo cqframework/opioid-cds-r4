@@ -232,6 +232,16 @@
         </resource>
         <resource>
             <reference>
+                <reference value="Library/OpioidCDSCommonMME"/>
+                <display value="Common MME Library"/>
+            </reference>
+            <name value="OpioidCDSCommonMME"/>
+            <description value="Common MME Logic Library"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="common-libraries"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="Library/OMTKLogicMK2020"/>
                 <display value="OMTK Logic MK (2020) Library"/>
             </reference>
