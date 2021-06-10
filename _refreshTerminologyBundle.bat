@@ -1,7 +1,7 @@
 @ECHO OFF
 
-DEL \F \Q bundlegen\opioid-cds-terminology-bundle.json
-DEL \F \Q bundlegen\sourcefiles\*
+DEL /F /Q bundlegen\opioid-cds-terminology-bundle.json
+DEL /F /Q bundlegen\sourcefiles\*
 
 if not exist bundlegen\sourcefiles mkdir bundlegen\sourcefiles
 
