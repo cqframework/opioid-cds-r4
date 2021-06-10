@@ -27,7 +27,6 @@ valueset "Conditions documenting substance misuse": 'http://fhir.org/guides/cdc/
 // Reviewed with Terminology, 2020-02-05 - Value set name in VSAC is "Office Visit", need to verify suitability
 valueset "Office Visit": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit'
 valueset "Opioid counseling procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure'
-
 /* Existing sets for first six recs */
 valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
 valueset "Non-opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening'
@@ -37,22 +36,26 @@ valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/V
 valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
 valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
-
+valueset "Observation Category Laboratory": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory'
+valueset "Observation Category Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-procedure'
 valueset "Pain treatment plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan'
 valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure'
 valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
 valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
+
 valueset "Community": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community'
 valueset "Active Condition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active'
 valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active'
-valueset "US Core Condition Categories": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-categories'
+/* valueset "US Core Condition Categories": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-categories' */
+valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/encounter-diagnosis-condition-category'
+valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/problem-list-condition-category'
+valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/us-core-health-concern-condition-category'
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
 context Patient
 
 // TODO: Capture process decisions for long-term opioid use
-define IsForChronicPain: true
 
 define "Active Ambulatory Opioid Rx":
   /* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
@@ -61,8 +64,7 @@ define "Active Ambulatory Opioid Rx":
       where date from MR.authoredOn 2 years or less on or before Today()
         and MR.medication is Reference or MR.medication in "Opioid analgesics with ambulatory misuse potential"
   ) Rx
-  // NOTE: changed to singleton
-    let Med: if Rx.medication is Reference then singleton from ([Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]) else null
+    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
     where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
       return
         MedicationRequest {
@@ -70,7 +72,7 @@ define "Active Ambulatory Opioid Rx":
           status: Rx.status,
           intent: Rx.intent,
           category: Rx.category,
-          medication: if Rx.medication is Reference then Med.code else Rx.medication as CodeableConcept,
+          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
           subject: Rx.subject,
           recorder: Rx.recorder,
           dosageInstruction: Rx.dosageInstruction,
@@ -78,97 +80,91 @@ define "Active Ambulatory Opioid Rx":
         }
 
 define "Active Ambulatory Benzodiazepine Rx":
-/* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
-(
-  ("Get Active Ambulatory Medication Requests"([MedicationRequest])) MR
-    where date from MR.authoredOn 2 years or less on or before Today()
-      and MR.medication is Reference or MR.medication in "Benzodiazepine medications"
-) Rx
-  let Med: if Rx.medication is Reference then singleton from ([Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]) else null
-  where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
-    return
-      MedicationRequest {
-        id: Rx.id,
-        status: Rx.status,
-        intent: Rx.intent,
-        category: Rx.category,
-        medication: if Rx.medication is Reference then Med.code else Rx.medication as CodeableConcept,
-        subject: Rx.subject,
-        recorder: Rx.recorder,
-        dosageInstruction: Rx.dosageInstruction,
-        dispenseRequest: Rx.dispenseRequest
-      }
+  /* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
+  (
+    ("Get Active Ambulatory Medication Requests"([MedicationRequest])) MR
+      where date from MR.authoredOn 2 years or less on or before Today()
+        and MR.medication is Reference or MR.medication in "Benzodiazepine medications"
+  ) Rx
+    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+    where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
+      return
+        MedicationRequest {
+          id: Rx.id,
+          status: Rx.status,
+          intent: Rx.intent,
+          category: Rx.category,
+          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
+          subject: Rx.subject,
+          recorder: Rx.recorder,
+          dosageInstruction: Rx.dosageInstruction,
+          dispenseRequest: Rx.dispenseRequest
+        }
 
 define "Active Ambulatory Naloxone Rx":
-/* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
-(
-  ("Get Active Ambulatory Medication Requests"([MedicationRequest])) MR
-    where date from MR.authoredOn 2 years or less on or before Today()
-      and MR.medication is Reference or MR.medication in "Naloxone medications"
-) Rx
-  let Med: if Rx.medication is Reference then singleton from ([Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]) else null
-  where not(Rx.medication is Reference) or Med.code in "Naloxone medications"
-    return
-      MedicationRequest {
-        id: Rx.id,
-        status: Rx.status,
-        intent: Rx.intent,
-        category: Rx.category,
-        medication: if Rx.medication is Reference then Med.code else Rx.medication as CodeableConcept,
-        subject: Rx.subject,
-        recorder: Rx.recorder,
-        dosageInstruction: Rx.dosageInstruction,
-        dispenseRequest: Rx.dispenseRequest
-      }
+  /* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
+  (
+    ("Get Active Ambulatory Medication Requests"([MedicationRequest])) MR
+      where date from MR.authoredOn 2 years or less on or before Today()
+        and MR.medication is Reference or MR.medication in "Naloxone medications"
+  ) Rx
+    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+    where not(Rx.medication is Reference) or Med.code in "Naloxone medications"
+      return
+        MedicationRequest {
+          id: Rx.id,
+          status: Rx.status,
+          intent: Rx.intent,
+          category: Rx.category,
+          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
+          subject: Rx.subject,
+          recorder: Rx.recorder,
+          dosageInstruction: Rx.dosageInstruction,
+          dispenseRequest: Rx.dispenseRequest
+        }
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
     where Rx.status.value = 'active'
       and Rx.category in "Community"
 
-define function "Is Ambulatory Medication Request?" (value List<MedicationRequest>) returns List<MedicationRequest>:
-  value Rx
-    where Rx.category in "Community"
-
 define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
   value Rx
-    let MedRef: if (Rx.medication is FHIR.Reference) then (Rx.medication as FHIR.Reference).reference else null,
-      Med: if MedRef is null then (Rx.medication as FHIR.CodeableConcept) else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code)
-    where Med in "Opioid analgesics with ambulatory misuse potential"
+    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+    where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
       and Rx.category in "Community"
     return
-          MedicationRequest {
-            id: Rx.id,
-            status: Rx.status,
-            intent: Rx.intent,
-            category: Rx.category,
-            medication: FHIR.CodeableConcept{ coding: Med.coding },
-            subject: Rx.subject,
-            authoredOn: Rx.authoredOn,
-            recorder: Rx.recorder,
-            dosageInstruction: Rx.dosageInstruction,
-            dispenseRequest: Rx.dispenseRequest
-          }
+      MedicationRequest {
+        id: Rx.id,
+        status: Rx.status,
+        intent: Rx.intent,
+        category: Rx.category,
+        medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
+        subject: Rx.subject,
+        authoredOn: Rx.authoredOn,
+        recorder: Rx.recorder,
+        dosageInstruction: Rx.dosageInstruction,
+        dispenseRequest: Rx.dispenseRequest
+      }
 
-define function "Is Benzodiazepine?"(value List<MedicationRequest>):
-  value Rx
-    let MedRef: if (Rx.medication is FHIR.Reference) then (Rx.medication as FHIR.Reference).reference else null,
-      Med: if MedRef is null then (Rx.medication as FHIR.CodeableConcept) else SingletonFrom([Medication: id in (Last(Split(MedRef, '/')))] Med return Med.code)
-    where Med in "Benzodiazepine medications"
-      and Rx.category in "Community"
-    return
-          MedicationRequest {
-            id: Rx.id,
-            status: Rx.status,
-            intent: Rx.intent,
-            category: Rx.category,
-            medication: FHIR.CodeableConcept{ coding: Med.coding },
-            subject: Rx.subject,
-            authoredOn: Rx.authoredOn,
-            recorder: Rx.recorder,
-            dosageInstruction: Rx.dosageInstruction,
-            dispenseRequest: Rx.dispenseRequest
-          }
+    define function "Is Benzodiazepine?"(value List<MedicationRequest>):
+      value Rx
+        let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+        where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
+          and Rx.category in "Community"
+        return
+              MedicationRequest {
+                id: Rx.id,
+                status: Rx.status,
+                intent: Rx.intent,
+                category: Rx.category,
+                medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
+                subject: Rx.subject,
+                authoredOn: Rx.authoredOn,
+                recorder: Rx.recorder,
+                dosageInstruction: Rx.dosageInstruction,
+                dispenseRequest: Rx.dispenseRequest
+              }
 
 define "End of Life Assessment":
     // 1. Conditions indicating end of life or with limited life expectancy
@@ -185,7 +181,9 @@ define "End of Life Assessment":
     ) */
 
 define "US Core-Categorized Conditions":
-  [Condition: category in "US Core Condition Categories"]
+  [Condition: category in "Encounter Diagnosis Condition Category"]
+    union [Condition: category in "Problem List Condition Category"]
+    union [Condition: category in "US Core Health Concern Condition Category"]
 
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
@@ -295,70 +293,7 @@ define function "Days on Opioids during Period"(period Interval<Date>):
       return days between start of OpioidUseInterval and end of OpioidUseInterval
   )
 
-define function Prescriptions(Orders List<MedicationRequest>):
-  Orders O
-    let
-      // NOTE: Assuming medication is specified as a CodeableConcept with a single RxNorm code
-      rxNormCode: FHIRHelpers.ToCode((O.medication as FHIR.CodeableConcept).coding[0]),
-      medicationName: OMTKLogic.GetMedicationName(rxNormCode),
-      // NOTE: Assuming a single dosage instruction element
-      dosageInstruction: O.dosageInstruction[0],
-      // NOTE: Assuming a single dose and rate element
-      doseAndRate: dosageInstruction.doseAndRate[0],
-      repeat: dosageInstruction.timing.repeat,
-      frequency: Coalesce(repeat.frequencyMax.value, repeat.frequency.value),
-      period: System.Quantity { value: repeat.period.value, unit: repeat.periodUnit.value },
-      doseDescription:
-        Coalesce(
-          // There should be a conversion from FHIR.SimpleQuantity to System.Quantity
-          if doseAndRate.dose is FHIR.Range
-            then ToString((doseAndRate.dose as FHIR.Range).low)
-                + '-' + ToString((doseAndRate.dose as FHIR.Range).high)
-                + (doseAndRate.dose as FHIR.Range).high.unit.value
-            else ToString(FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity)),
-            ''
-        ),
-      frequencyDescription:
-        ToString(dosageInstruction.timing.repeat.frequency.value) +
-          Coalesce(
-            '-' + ToString(dosageInstruction.timing.repeat.frequencyMax.value),
-            ''
-          )
-    return {
-      rxNormCode: rxNormCode,
-      isDraft: O.status.value = 'draft',
-      // NOTE: Assuming asNeeded is expressed as a boolean
-      isPRN: dosageInstruction.asNeeded,
-      prescription:
-        if dosageInstruction.text is not null then
-          medicationName + ' ' + dosageInstruction.text.value
-        else
-          // TODO: Shouldn't need the .value here on asNeededBoolean
-          medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded then ' PRN' else ''),
-      dose: if doseAndRate.dose is FHIR.Range
-            then (doseAndRate.dose as FHIR.Range).high
-            else FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity),
-      dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), 1.0)
-    }
 
-define function MME(prescriptions List<MedicationRequest>):
-  (Prescriptions(prescriptions)) P
-    let mme: SingletonFrom(OMTKLogic.CalculateMMEs({ { rxNormCode: P.rxNormCode, doseQuantity: P.dose, dosesPerDay: P.dosesPerDay } }))
-    return {
-      rxNormCode: P.rxNormCode,
-      isDraft: P.isDraft,
-      isPRN: P.isPRN,
-      prescription: P.prescription,
-      dailyDose: mme.dailyDoseDescription,
-      conversionFactor: mme.conversionFactor,
-      mme: mme.mme
-    }
-
-define function TotalMME(prescriptions List<MedicationRequest>):
-  System.Quantity {
-    value: Sum((MME(prescriptions)) M return M.mme.value),
-    unit: 'mg/d'
-  }
 
 define function GetDurationInDays(value FHIR.Duration):
   if value is null then null
@@ -375,16 +310,6 @@ define function GetDurationInDays(value FHIR.Duration):
       when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')
       else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)
     end
-
-define function GetIngredient(rxNormCode Code):
-  OMTKLogic.GetIngredients(rxNormCode).ingredientName
-
-define function GetIngredients(rxNormCodes List<Code>):
-  rxNormCodes rnc return GetIngredient(rnc)
-
-define function GetMedicationNames(medications List<MedicationRequest>):
-  medications M
-    return OMTKLogic.GetMedicationConceptName(M.medication as FHIR.CodeableConcept)
 
 /*
 *  Conversion Functions

@@ -4,6 +4,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include OpioidCDSCommon version '2.0.1' called Common
+include OpioidCDSCommonMME version '2.0.1' called CommonMME
 include OpioidCDSCommonConfig version '2.0.1' called Config
 include OpioidCDSRoutines version '2.0.1' called Routines
 
@@ -57,8 +58,15 @@ define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
+define "Patient Age Less Than 18":
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false
+
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (
       "Total MME" >= 50 'mg/d'
@@ -74,7 +82,7 @@ define "Exclusion Criteria":
     or Common."End of Life Assessment"
 
 define "Total MME":
-  Common.TotalMME(
+  CommonMME.TotalMME(
     "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
       union Common."Active Ambulatory Opioid Rx"
   )
