@@ -576,6 +576,16 @@
         </resource>
         <resource>
             <reference>
+                <reference value="PlanDefinition/opioidcds-10-order-sign"/>
+                <display value="Recommendation #10 (order-sign) PlanDefinition"/>
+            </reference>
+            <name value="OpioidCDSREC10OrderSignPlanDefinition"/>
+            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #10 (order-sign)"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="plandefinition"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="PlanDefinition/opioidcds-10-patient-view"/>
                 <display value="Recommendation #10 (patient-view) PlanDefinition"/>
             </reference>
