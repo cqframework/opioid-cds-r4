@@ -69,6 +69,10 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
   }, {
     "type": "depends-on",
+    "display": "Value set Active MedicationRequest",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
+  }, {
+    "type": "depends-on",
     "display": "Value set Encounter Diagnosis Condition Category",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/encounter-diagnosis-condition-category"
   }, {

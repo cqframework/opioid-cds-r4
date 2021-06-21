@@ -58,11 +58,11 @@ context Patient
 // TODO: Capture process decisions for long-term opioid use
 
 define "Active Ambulatory Opioid Rx":
-  /* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
   (
-    ("Get Active Ambulatory Medication Requests"([MedicationRequest])) MR
+    ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) MR
       where date from MR.authoredOn 2 years or less on or before Today()
         and MR.medication is Reference or MR.medication in "Opioid analgesics with ambulatory misuse potential"
+        and MR.category in "Community"
   ) Rx
     let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
     where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
@@ -80,11 +80,11 @@ define "Active Ambulatory Opioid Rx":
         }
 
 define "Active Ambulatory Benzodiazepine Rx":
-  /* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
   (
-    ("Get Active Ambulatory Medication Requests"([MedicationRequest])) MR
+    ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) MR
       where date from MR.authoredOn 2 years or less on or before Today()
         and MR.medication is Reference or MR.medication in "Benzodiazepine medications"
+        and MR.category in "Community"
   ) Rx
     let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
     where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
@@ -102,11 +102,11 @@ define "Active Ambulatory Benzodiazepine Rx":
         }
 
 define "Active Ambulatory Naloxone Rx":
-  /* ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) Rx */
   (
-    ("Get Active Ambulatory Medication Requests"([MedicationRequest])) MR
+    ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) MR
       where date from MR.authoredOn 2 years or less on or before Today()
         and MR.medication is Reference or MR.medication in "Naloxone medications"
+        and MR.category in "Community"
   ) Rx
     let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
     where not(Rx.medication is Reference) or Med.code in "Naloxone medications"

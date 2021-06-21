@@ -49,6 +49,10 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
   }, {
     "type": "depends-on",
+    "display": "Value set Active MedicationRequest",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
+  }, {
+    "type": "depends-on",
     "display": "Value set Benzodiazepine medications",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications"
   }, {
