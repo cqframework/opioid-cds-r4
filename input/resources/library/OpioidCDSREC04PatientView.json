@@ -49,6 +49,10 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
   }, {
     "type": "depends-on",
+    "display": "Value set Active MedicationRequest",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
+  }, {
+    "type": "depends-on",
     "display": "Value set Opioid analgesics with ambulatory misuse potential",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
   }, {
