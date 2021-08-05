@@ -125,7 +125,7 @@
 					<expression>
 							<description value="Patient has not had a urine screening in the past 12 months"/>
 							<language value="text/cql.identifier"/>
-							<expression value="Is Recommendation Applicable?"/>
+							<expression value="Applicable Not Because of Positive Cocaine or PCP"/>
 					</expression>
 			</condition>
 			<definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
