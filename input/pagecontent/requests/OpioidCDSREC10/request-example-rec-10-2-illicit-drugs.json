@@ -1,18 +1,18 @@
 {
   "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/cqf-ruler-dstu3/fhir",
   "hook": "order-select",
   "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
-    "patientId": "Patient/example-rec-10-illicit-drugs",
-    "encounterId": "Encounter/example-rec-10-illicit-drugs-context",
+    "patientId": "Patient/example-rec-10-2-illicit-drugs",
+    "encounterId": "Encounter/example-rec-10-2-illicit-drugs-context",
     "selections": [
-      "MedicationRequest/example-rec-10-illicit-drugs-context"
+      "MedicationRequest/example-rec-10-2-illicit-drugs-context"
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
-      "id": "example-rec-10-illicit-drugs-context",
+      "id": "example-rec-10-2-illicit-drugs-context",
       "status": "active",
       "intent": "order",
       "category": {
@@ -33,19 +33,16 @@
         ]
       },
       "subject": {
-        "reference": "Patient/example-rec-10-illicit-drugs"
+        "reference": "Patient/example-rec-10-2-illicit-drugs"
       },
       "encounter": {
-        "reference": "Encounter/example-rec-10-illicit-drugs-context"
+        "reference": "Encounter/example-rec-10-2-illicit-drugs-context"
       },
       "_authoredOn": {
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql",
-              "expression": "Today()"
-            }
+            "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+            "valueString": "Today()"
           }
         ]
       },
@@ -98,7 +95,7 @@
       },
       "resource": {
         "resourceType": "Patient",
-        "id": "example-rec-10-illicit-drugs",
+        "id": "example-rec-10-2-illicit-drugs",
         "gender": "female",
         "birthDate": "1982-01-07"
       }
@@ -114,10 +111,10 @@
       },
       "resource": {
         "resourceType": "Encounter",
-        "id": "example-rec-10-illicit-drugs-prefetch",
+        "id": "example-rec-10-2-illicit-drugs-prefetch",
         "status": "finished",
         "subject": {
-          "reference": "Patient/example-rec-10-illicit-drugs"
+          "reference": "Patient/example-rec-10-2-illicit-drugs"
         },
         "_period": {
           "extension": [
@@ -137,40 +134,124 @@
         "status": "200 OK"
       },
       "resource": {
-        "resourceType": "Observation",
-        "id": "example-rec-10-illicit-drugs-prefetch",
-        "status": "final",
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "3426-4",
-              "display": "Tetrahydrocannabinol [Presence] in Urine"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/example-rec-10-illicit-drugs"
-        },
-        "_effectiveDateTime": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today() - 28 days"
-              }
-            }
-          ]
-        },
-        "interpretation": [
+        "resourceType": "Bundle",
+        "entry": [
           {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/v2/0078",
-                "code": "POS"
-              }
-            ]
+            "resource": {
+              "resourceType": "Observation",
+              "id": "example-rec-10-2-illicit-drugs-prefetch",
+              "status": "final",
+              "category": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/observation-category",
+                    "code": "laboratory"
+                  }
+                ]
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "70146-6",
+                    "display": "Benzoylecgonine [Mass/volume] in Urine by Screen method"
+                  }
+                ]
+              },
+              "subject": {
+                "reference": "Patient/example-rec-10-2-illicit-drugs"
+              },
+              "effectiveDateTime": "2021-01-22",
+              "valueString": "POS",
+              "interpretation": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/v2/0078",
+                      "code": "POS"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "example-rec-10-2-illicit-drugs-prefetch",
+              "status": "final",
+              "category": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/observation-category",
+                    "code": "laboratory"
+                  }
+                ]
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "8237-0",
+                    "display": "Phencyclidine [Presence] in Urine by SAMHSA confirm method"
+                  }
+                ]
+              },
+              "subject": {
+                "reference": "Patient/example-rec-10-2-illicit-drugs"
+              },
+              "effectiveDateTime": "2021-03-01",
+              "valueString": "NEG",
+              "interpretation": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/v2/0078",
+                      "code": "NEG"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "example-rec-10-2-illicit-drugs-prefetch",
+              "status": "final",
+              "category": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/observation-category",
+                    "code": "laboratory"
+                  }
+                ]
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "8237-0",
+                    "display": "Phencyclidine [Presence] in Urine by SAMHSA confirm method"
+                  }
+                ]
+              },
+              "subject": {
+                "reference": "Patient/example-rec-10-2-illicit-drugs"
+              },
+              "effectiveDateTime": "2021-02-23",
+              "valueString": "POS",
+              "interpretation": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/v2/0078",
+                      "code": "POS"
+                    }
+                  ]
+                }
+              ]
+            }
           }
         ]
       }
@@ -182,7 +263,7 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
-        "id": "example-rec-10-illicit-drugs-prefetch",
+        "id": "example-rec-10-2-illicit-drugs-prefetch",
         "status": "active",
         "intent": "order",
         "category": {
@@ -203,19 +284,16 @@
           ]
         },
         "subject": {
-          "reference": "Patient/example-rec-10-illicit-drugs"
+          "reference": "Patient/example-rec-10-2-illicit-drugs"
         },
         "encounter": {
-          "reference": "Encounter/example-rec-10-illicit-drugs-prefetch"
+          "reference": "Encounter/example-rec-10-2-illicit-drugs-prefetch"
         },
         "_authoredOn": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today() - 90 days"
-              }
+              "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+              "valueString": "Today() - 90 days"
             }
           ]
         },
