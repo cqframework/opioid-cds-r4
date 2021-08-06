@@ -1,18 +1,18 @@
 {
   "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
-  "fhirServer": "http://localhost:8080/cqf-ruler-dstu3/fhir",
+  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
   "hook": "order-select",
   "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
-    "patientId": "Patient/example-rec-10-2-illicit-POS-PCP-drugs",
-    "encounterId": "Encounter/example-rec-10-2-illicit-POS-PCP-drugs-context",
+    "patientId": "Patient/example-rec-10-illicit-drugs-POS-PCP",
+    "encounterId": "Encounter/example-rec-10-illicit-drugs-POS-PCP-context",
     "selections": [
-      "MedicationRequest/example-rec-10-2-illicit-POS-PCP-drugs-context"
+      "MedicationRequest/example-rec-10-illicit-drugs-POS-PCP-context"
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
-      "id": "example-rec-10-2-illicit-POS-PCP-drugs-context",
+      "id": "example-rec-10-illicit-drugs-POS-PCP-context",
       "status": "active",
       "intent": "order",
       "category": {
@@ -33,16 +33,19 @@
         ]
       },
       "subject": {
-        "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
+        "reference": "Patient/example-rec-10-illicit-drugs-POS-PCP"
       },
       "encounter": {
-        "reference": "Encounter/example-rec-10-2-illicit-POS-PCP-drugs-context"
+        "reference": "Encounter/example-rec-10-illicit-drugs-POS-PCP-context"
       },
       "_authoredOn": {
         "extension": [
           {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-            "valueString": "Today()"
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql",
+              "expression": "Today()"
+            }
           }
         ]
       },
@@ -95,7 +98,7 @@
       },
       "resource": {
         "resourceType": "Patient",
-        "id": "example-rec-10-2-illicit-POS-PCP-drugs",
+        "id": "example-rec-10-illicit-drugs-POS-PCP",
         "gender": "female",
         "birthDate": "1982-01-07"
       }
@@ -111,10 +114,10 @@
       },
       "resource": {
         "resourceType": "Encounter",
-        "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch",
+        "id": "example-rec-10-illicit-drugs-POS-PCP-prefetch",
         "status": "finished",
         "subject": {
-          "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
+          "reference": "Patient/example-rec-10-illicit-drugs-POS-PCP"
         },
         "_period": {
           "extension": [
@@ -139,7 +142,7 @@
           {
             "resource": {
               "resourceType": "Observation",
-              "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-obs1",
+              "id": "example-rec-10-illicit-drugs-POS-PCP-prefetch-obs1",
               "status": "final",
               "category": {
                 "coding": [
@@ -159,7 +162,7 @@
                 ]
               },
               "subject": {
-                "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
+                "reference": "Patient/example-rec-10-illicit-drugs-POS-PCP"
               },
               "effectiveDateTime": "2021-01-22",
               "valueString": "POS",
@@ -178,7 +181,7 @@
           {
             "resource": {
               "resourceType": "Observation",
-              "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-obs2",
+              "id": "example-rec-10-illicit-drugs-POS-PCP-prefetch-obs2",
               "status": "final",
               "category": {
                 "coding": [
@@ -198,7 +201,7 @@
                 ]
               },
               "subject": {
-                "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
+                "reference": "Patient/example-rec-10-illicit-drugs-POS-PCP"
               },
               "effectiveDateTime": "2021-03-01",
               "valueString": "NEG",
@@ -217,7 +220,7 @@
           {
             "resource": {
               "resourceType": "Observation",
-              "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-obs3",
+              "id": "example-rec-10-illicit-drugs-POS-PCP-prefetch-obs3",
               "status": "final",
               "category": {
                 "coding": [
@@ -237,7 +240,7 @@
                 ]
               },
               "subject": {
-                "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
+                "reference": "Patient/example-rec-10-illicit-drugs-POS-PCP"
               },
               "effectiveDateTime": "2021-02-23",
               "valueString": "POS",
@@ -263,7 +266,7 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
-        "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-3",
+        "id": "example-rec-10-illicit-drugs-POS-PCP-prefetch-3",
         "status": "active",
         "intent": "order",
         "category": {
@@ -284,16 +287,19 @@
           ]
         },
         "subject": {
-          "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
+          "reference": "Patient/example-rec-10-illicit-drugs-POS-PCP"
         },
         "encounter": {
-          "reference": "Encounter/example-rec-10-2-illicit-POS-PCP-drugs-prefetch"
+          "reference": "Encounter/example-rec-10-illicit-drugs-POS-PCP-prefetch"
         },
         "_authoredOn": {
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
-              "valueString": "Today() - 90 days"
+              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 90 days"
+              }
             }
           ]
         },
