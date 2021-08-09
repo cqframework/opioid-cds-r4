@@ -237,7 +237,7 @@ define "Urine Drug Screening Request":
       subject: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
       occurrence: FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 7 days } },
       authoredOn: FHIR.dateTime { value: Now() },
-      reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: "No Screening In Last 12 Months Detail" } } }
+      reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: "Detail" } } }
       // doesn't really work, need a relatedArtifact here...
       //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids' } } }
     }
