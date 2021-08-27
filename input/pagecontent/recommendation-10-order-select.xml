@@ -1,0 +1,79 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec10"> </a>
+  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids" target="_blank">Recommendation #10 Order Select: - Urine Drug Testing</a></p>
+  <p>
+    <strong>When prescribing opioids for chronic pain, providers should use urine drug testing before
+      starting opioid therapy and consider urine drug testing at least annually to assess for
+      prescribed medications as well as other controlled prescription drugs and illicit drugs
+      <em>(recommendation category: B, evidence type: 4)</em>.</strong>
+  </p>
+  <html>
+    <body>
+      <details open="true">
+        <summary>
+          <h3 class="title">Functional Description</h3>
+        </summary>
+        <a name="funcdesc"> </a>
+
+        {% include recommendation10-functional-description.html %}
+
+        <p></p>
+
+        <img src="assets/images/Recommendation10-flow-cocaine-pcp.png" style="max-width: 100%;" />
+        <p></p>
+        <img src="assets/images/Recommendation10-Definitions-cocaine-pcp.png" style="max-width: 100%;" />
+      </details>
+      <p></p>
+      <details>
+        <summary>
+          <h3 class="title">For Chronic Pain</h3>
+        </summary>
+        {% include for-chronic-pain-definitions.html %}
+      </details>
+      <p></p>
+      <details>
+        <summary>
+          <h3 class="title">Opioid Review Useful</h3>
+        </summary>
+        {% include opioid-review-useful-definitions.html %}
+      </details>
+      <p></p>
+      <details>
+        <summary>
+          <h3 class="title">Content</h3>
+        </summary>
+        <a name="content"> </a>
+
+        <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+
+        <h4>Artifact Package</h4>
+        <p>The <a href="Bundle-OpioidCDSREC10-bundle.html" title="link to here" class="self-link">Recommendation 10 Order Select Artifact Package</a> is a FHIR Bundle resource containing the following artifacts that formalize the description of the logic and behavior defined by this recommendation:</p>
+
+        <p></p>
+
+        <table class="list">
+          <thead>
+            <tr>
+              <th>Resource</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="PlanDefinition-opioidcds-10.html">CDC Opioid Prescribing Guideline Recommendation #10</a></td>
+              <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
+              <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #10</td>
+            </tr>
+            <tr>
+              <td><a href="Library-OpioidCDSREC10.html">Recommendation #10 - urine drug testing when prescribing opioids for chronic pain</a></td>
+              <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
+              <td>Defines the data requirements to support evaluation of recommendation #10</td>
+            </tr>
+          </tbody>
+          {% include common-libraries.html %}
+          {% include routines-library-table-row.html %}
+        </table>
+      </details>
+    </body>
+  </html>
+</div>

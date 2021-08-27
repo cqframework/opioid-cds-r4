@@ -58,8 +58,8 @@
         <a name="content"> </a>
         <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
-        <a name="commonlibraries"> </a>
-        <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
+        <h4>Artifact Package</h4>
+        <p>The <a href="Bundle-OpioidCDSREC05-bundle.html" title="link to here" class="self-link">Recommendation 05 Artifact Package</a> is a FHIR Bundle resource containing the following artifacts that formalize the description of the logic and behavior defined by this recommendation:</p>
 
         <p></p>
 
@@ -83,6 +83,8 @@
               <td>CQL Library that provides logic for evaluating whether a prescription exceeds the MME of 50 mg/day</td>
             </tr>
           </tbody>
+          {% include common-libraries.html %}
+          {% include routines-library-table-row.html %}
         </table>
       </details>
     </body>
