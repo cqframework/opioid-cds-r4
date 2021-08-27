@@ -160,6 +160,16 @@
         </resource>
         <resource>
             <reference>
+                <reference value="Bundle/OpioidCDSREC10OrderSign-bundle"/>
+                <display value="Recommendation 10 (order-sign) Artifact Package"/>
+            </reference>
+            <name value="OpioidCDSREC10OrderSignBundle"/>
+            <description value="A Bundle containing Recommendation 10 (order-sign) knowledge artifacts"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-artifact-packages"/>
+        </resource>
+        <resource>
+            <reference>
                 <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
                 <display value="Recommendation 10 (Patient View) Artifact Package"/>
             </reference>
@@ -448,6 +458,16 @@
                 <display value="Urine Screening ActivityDefinition"/>
             </reference>
             <name value="OpioidUrineScreeningActivityDefinition"/>
+            <description value="An ActivityDefinition for recommendation of urine screening"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="activitydefinition"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="ActivityDefinition/opioidcds-urine-screening-request-order-select"/>
+                <display value="Urine Screening ActivityDefinition Order Select"/>
+            </reference>
+            <name value="OpioidUrineScreeningActivityDefinitionOrderSelect"/>
             <description value="An ActivityDefinition for recommendation of urine screening"/>
             <exampleBoolean value="false"/>
             <groupingId value="activitydefinition"/>
@@ -845,20 +865,35 @@
             </page>
           </page>
           <page>
-            <nameUrl value="recommendation-10.html" />
-            <title value="Recommendation #10 - Urine Drug Testing" />
+            <nameUrl value="recommendation-10-order-select.html" />
+            <title value="Recommendation #10 Order Select- Urine Drug Testing" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-10-cql.html" />
-              <title value="OpioidCDS Recommendation 10 - CQL Source" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 10 (patient-view) - CQL Source" />
+              <title value="OpioidCDS Recommendation 10 Order Select - CQL Source" />
               <generation value="html" />
             </page>
           </page>
+            <page>
+                <nameUrl value="recommendation-10-order-sign.html" />
+                <title value="Recommendation #10 Order Sign - Urine Drug Testing" />
+                <generation value="html" />
+                <page>
+                    <nameUrl value="opioidcds-recommendation-10-order-sign-cql.html" />
+                    <title value="OpioidCDS Recommendation 10 Order Sign - CQL Source" />
+                    <generation value="html" />
+                </page>
+            </page>
+            <page>
+                <nameUrl value="recommendation-10-patient-view.html" />
+                <title value="Recommendation #10 Patient View - Urine Drug Testing" />
+                <generation value="html" />
+                <page>
+                    <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
+                    <title value="OpioidCDS Recommendation 10 (patient-view) - CQL Source" />
+                    <generation value="html" />
+                </page>
+            </page>
           <page>
             <nameUrl value="recommendation-11.html" />
             <title value="Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines" />
@@ -959,6 +994,10 @@
         <parameter>
           <code value="path-resource" />
           <value value="bundles/plandefinition/OpioidCDSREC10"/>
+        </parameter>
+        <parameter>
+            <code value="path-resource" />
+            <value value="bundles/plandefinition/OpioidCDSREC10OrderSign"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
