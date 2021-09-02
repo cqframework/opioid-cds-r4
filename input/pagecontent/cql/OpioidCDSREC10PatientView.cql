@@ -1,10 +1,11 @@
-library OpioidCDSREC10PatientView version '2.0.0'
+library OpioidCDSREC10PatientView version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDSCommon version '2.0.0' called Common
-include OpioidCDSRoutines version '2.0.0' called Routines
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include OpioidCDSCommon version '2.0.1' called Common
+include OpioidCDSCommonConfig version '2.0.1' called Config
+include OpioidCDSRoutines version '2.0.1' called Routines
 
 code "Urine Drug Screening": '310627008' from Common.SNOMED display 'Urine drug screening (procedure)'
 
@@ -50,8 +51,15 @@ define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
+define "Patient Age Less Than 18":
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false
+
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and not "Patient had Urine Screening in Last 12 Months"
 
@@ -63,13 +71,17 @@ define "Patient had Urine Screening in Last 12 Months":
 
 define "Urine Screenings during the Last 12 Months":
   (
-    [Observation: "code" in Common."Non-opioid drug urine screening"] IllicitDrugScreen
-      where date from IllicitDrugScreen.effective in day of "Lookback Year"
+    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
+      where date from LabObservations.effective in day of "Lookback Year"
+        and (LabObservations.code in Common."Non-opioid drug urine screening")
+        and not (LabObservations.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
   )
   union
   (
-    [Observation: "code" in Common."Opioid drug urine screening"] OpioidDrugScreen
-      where date from OpioidDrugScreen.effective in day of "Lookback Year"
+    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
+      where date from LabObservations.effective in day of "Lookback Year"
+        and (LabObservations.code in Common."Opioid drug urine screening")
+        and not (LabObservations.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
   )
 
 define "No Screening In Last 12 Months Indicator":
@@ -103,9 +115,9 @@ define "Urine Drug Screening Request":
     ServiceRequest {
       //identifier:,
       instantiatesCanonical: { FHIR.canonical { value: 'http://fhir.org/guides/cdc/activitydefinition/urine-screening-request' } },
-      status: FHIR.RequestStatus { value: 'draft' },
-      intent: FHIR.RequestIntent { value: 'proposal' },
-      priority: FHIR.RequestPriority { value: 'routine' },
+      status: FHIR.ServiceRequestStatus { value: 'draft' },
+      intent: FHIR.ServiceRequestIntent { value: 'proposal' },
+      priority: FHIR.ServiceRequestPriority { value: 'routine' },
       code: FHIR.CodeableConcept { coding: { ToCoding("Urine Drug Screening") } },
       subject: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
       occurrence: FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 7 days } },

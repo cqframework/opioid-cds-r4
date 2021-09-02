@@ -1,11 +1,11 @@
-library OpioidCDSREC06 version '2.0.0'
+library OpioidCDSREC06 version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDSCommon version '2.0.0' called Common
-include OpioidCDSCommonConfig version '2.0.0' called Config
-include OpioidCDSRoutines version '2.0.0' called Routines
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include OpioidCDSCommon version '2.0.1' called Common
+include OpioidCDSCommonConfig version '2.0.1' called Config
+include OpioidCDSRoutines version '2.0.1' called Routines
 
 /*
 **
@@ -52,8 +52,15 @@ define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
+define "Patient Age Less Than 18":
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false
+
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain"
+    and not "Patient Age Less Than 18"  
     and Routines."Is Opioid Review Useful?"
     and "Order is for Long-Acting Opioid"
 
@@ -79,5 +86,7 @@ define "Get Summary":
 
   define "Get Detail":
     if "Is Recommendation Applicable?"
-      then 'Medication requests(s): ' + Combine( flatten( Common.GetMedicationNames( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" ) ), ', ' )
+      then 'Medication requests(s): '
+        + Combine(("Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
+             return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
     else null

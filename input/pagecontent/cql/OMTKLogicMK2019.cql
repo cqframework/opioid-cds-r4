@@ -1,4 +1,4 @@
-library OMTKLogicMK2019 version '2.0.0'
+library OMTKLogicMK2019 version '2.0.1'
 
 /*
 This version of the OMTKLogic library uses the FHIR MedicationKnowledge Resource
@@ -6,11 +6,13 @@ as the source for drug ingredient and strength information, rather than the
 OMTK data source.
 */
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include OMTKData2019 version '2.0.0' called OMTKData
+include OMTKData2019 version '2.0.1' called OMTKData
 
 codesystem RxNorm: 'http://www.nlm.nih.gov/research/umls/rxnorm'
+
+context Patient
 
 /*
   Normalizes the input units to UCUM units
@@ -263,6 +265,16 @@ define function GetDailyDose(ingredientCode System.Code, strength System.Quantit
         unit: Substring(strength.unit, 0, PositionOf('/', strength.unit))
       }
   end
+
+define function GetMedicationConceptName(concept Concept):
+  if concept.display is null then
+    First(
+      (concept.codes) C
+        where C.system = 'http://www.nlm.nih.gov/research/umls/rxnorm'
+        return GetMedicationName(C)
+    )
+  else
+    concept.display
 
 define function GetMedicationName(rxNormCode System.Code):
   if rxNormCode.display is null then

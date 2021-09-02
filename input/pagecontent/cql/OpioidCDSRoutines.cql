@@ -1,10 +1,10 @@
-library OpioidCDSRoutines version '2.0.0'
+library OpioidCDSRoutines version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDSCommon version '2.0.0' called Common
-include OpioidCDSCommonConfig version '2.0.0' called Config
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include OpioidCDSCommon version '2.0.1' called Common
+include OpioidCDSCommonConfig version '2.0.1' called Config
 
 context Patient
 
@@ -41,24 +41,23 @@ define "Palliative Care Lookback Period":
   Interval[Today() - 90 days, Today()]
 
 define "Is Opioid Review Useful?":
-  not "Patient Age Less Than 18"
-    and not "Conditions Indicating End Of Life Present"
+  /* not "Patient Age Less Than 18" */
+    not "Conditions Indicating End Of Life Present"
     and not "Order For Palliative Care In Past 90 Days"
     and not "Is Active Cancer Treatment?"
     and not "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
 
-
-define "Patient Age Less Than 18":
-  Config."Age Less than 18 Years Is Enabled"
-    and AgeInYearsAt(Today()) < 18
+/* define "Patient Age Less Than 18":
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false */
 
 define "Conditions Indicating End Of Life Present":
   exists (
-    [Condition: Common."Limited life expectancy conditions"] LLEC
-      where exists (
-        LLEC.clinicalStatus.coding Coding
-          where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-      )
+    Common."US Core-Categorized Conditions" LLEC
+      where LLEC.code in Common."Limited life expectancy conditions"
+        and LLEC.clinicalStatus in Common."Active Condition"
   )
 
 define "Order For Palliative Care In Past 90 Days":
@@ -70,14 +69,14 @@ define "Order For Palliative Care In Past 90 Days":
   )
 
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
-  Config."End-Stage Disease Criteria Enabled"
-    and exists (
-      [Condition: Common."Conditions likely terminal for opioid prescribing"] EOLC
-        where exists (
-          EOLC.clinicalStatus.coding Coding
-            where FHIRHelpers.ToCode(Coding) ~ Common."Active Condition"
-        )
+  if (Config."End-Stage Disease Criteria Enabled") then
+    exists (
+      Common."US Core-Categorized Conditions" EOLC
+        where EOLC.code in Common."Conditions likely terminal for opioid prescribing"
+          and EOLC.clinicalStatus in Common."Active Condition"
     )
+  else
+    false
 
 // End of Opioid Review Useful Routine
 
@@ -90,17 +89,19 @@ define "Conditions Including Cancer To Exclude Opioid Management Indicating End-
 **  Opioid analgesics with        | No                  | Look for an existing prescription (order) for     | Opioid analgesics with
 **  ambulatory misuse potential   |                     | opioid that is in the value set for opioid with   | ambulatory misuse potential
 **  prescription in past 90 days  |                     | ambulatory abuse potential authored               |
-**  including today               |                     | within the past 90 days (including today)         |
+**  excluding the previous 24     |                     | within the past 90 days (excluding previous 24    |
+**  hours                         |                     | hours)                                            |
 **  ----------------------------------------------------------------------------------------------------------------------------------------
 **  Opioid analgesics with        | No                  | Look for evidence of active medication on         | Opioid analgesics with
 **  ambulatory misuse potential   |                     | the medication list that is in the value set      | ambulatory misuse potential
 **  reported in past 90 days      |                     | for opioid with ambulatory care abuse             |
-**  including today*              |                     | potential                                         |
+**  excluding previous 24 hours*  |                     | potential                                         |
 **  ----------------------------------------------------------------------------------------------------------------------------------------
 **  Opioid analgesics with        | No                  | Look for evidence of a dispensing event for       | Opioid analgesics with
 **  ambulatory misuse potential   |                     | medication that is in the value set for opioid    | ambulatory misuse potential
 **  dispensing event in past 90   |                     | with ambulatory use potential occurring           |
-**  days including today*         |                     | within the past 90 days (including today)         |
+**  days excluding previous 24    |                     | within the past 90 days (excluding previous 24    |
+**  hours                         |                     | hours)                                            |
 **  ----------------------------------------------------------------------------------------------------------------------------------------
 **  *Future consideration: Current algorithm addresses only orders (prescriptions).
 **
@@ -110,14 +111,15 @@ define "Conditions Including Cancer To Exclude Opioid Management Indicating End-
 */
 
 define "Prescription/Dispense Inclusion Period":
-    Interval[Now() - 89 days, Now()]
+  Interval[Now() - 90 days, Now() - 24 hours]
 
 define "Report Inclusion Period":
-    Interval[Now() - 90 days, Now())
+  Interval[Now() - 90 days, Now() - 24 hours)
 
+// NOTE: MedicationStatement-dependent logic comment out due to bug in Publisher not supporting MedicationStatement in AllTypes.
 define "Is Opioid Naive?":
     not ("Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
-    and not ("Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
+    /* and not ("Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days") */
     and not ("Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
 
 define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
@@ -125,18 +127,21 @@ define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
       where Rx.authoredOn during day of "Prescription/Dispense Inclusion Period"
 
 define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
-    Config."Opioid Naive Prescription Condition Is Enabled"
-        and exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+    if (Config."Opioid Naive Prescription Condition Is Enabled") then
+      exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+    else
+      false
 
 // NOTE: 2020-02-05: Review direction of MedicationStatement resource (US-Core focusing on MedicationRequest i/o Statement)
-define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
+// NOTE: 2020-04-21: MedicationStatement a) Shouldn't be use since guidance/direction from USCore is targeting MedicationUse in R5, and b) Breaks in the publisher
+/* define "Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
     [MedicationStatement: Common."Opioid analgesics with ambulatory misuse potential"] Statement
         where Statement.status in {'active', 'completed'}
-            and Statement.effective during day of "Report Inclusion Period"
+            and Statement.effective during day of "Report Inclusion Period" */
 
-define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
+/* define "Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days":
     Config."Opioid Naive Report Condition Is Enabled"
-        and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days")
+        and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days") */
 
 define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
     [MedicationDispense: Common."Opioid analgesics with ambulatory misuse potential"] OpioidDispense
@@ -144,8 +149,10 @@ define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
             and OpioidDispense.status = 'completed'
 
 define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
-    Config."Opioid Naive Dispense Condition Is Enabled"
-        and exists ("Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
+  if (Config."Opioid Naive Prescription Condition Is Enabled") then
+    exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+  else
+    false
 
 // End of Opioid Naive Routine
 
@@ -182,18 +189,17 @@ define "Encounter Period":
   Interval[Now() - 12 months, Now())
 
 define "Is Active Cancer Treatment?":
-  Config."Active Cancer Treatment Encounters Condition Is Enabled"
-    and not "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
+  if (Config."Active Cancer Treatment Encounters Condition Is Enabled") then
+      "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
+    else
+      false
 
 define "Active Cancer Diagnoses":
-  [Condition: Common."CDC malignant cancer conditions"]
+  Common."US Core-Categorized Conditions" C
+    where C.code in Common."CDC malignant cancer conditions"
 
 define "Oncologist Practitioner Roles":
-  [PractitionerRole] PractitionerRole
-    where exists (
-      PractitionerRole.specialty Specialty
-        where Specialty in Common."Oncology specialty designations (NUCC)"
-    )
+  [PractitionerRole: specialty in Common."Oncology specialty designations (NUCC)"] PractitionerRole
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
   [Encounter: Common."Office Visit"] Encounter
@@ -206,11 +212,18 @@ define "Encounters with Cancer Diagnosis During Encounter Period":
       and exists (
         Encounter.participant EncounterParticipant
           where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
-            or exists (
-              "Oncologist Practitioner Roles" PractitionerRole
-                where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
+            or (
+              if (Config."Active Cancer Treatment PractitionerRole Specialty Is Enabled") then
+                exists (
+                  "Oncologist Practitioner Roles" PractitionerRole
+                    where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
+                )
+              else
+                false
             )
       )
+
+
 
 define "Number of Enounters with Cancer Diagnosis During Encounter Period":
   Count ("Encounters with Cancer Diagnosis During Encounter Period")
@@ -230,8 +243,6 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
 **  with expected supply        |                     | misuse potential with a supply duration of >=  | ambulatory misuse potential
 **  duration >= 28 days         |                     | 28 days                                        |
 **  -----------------------------------------------------------------------------------------------------------------------------------
-**  Chronically on opioids      | Yes                 | Sub-routine 6 (optional)                       |
-**  -----------------------------------------------------------------------------------------------------------------------------------
 **
 */
 
@@ -239,9 +250,8 @@ define function "Is Chronic Pain Prescription?"(prescription FHIR.MedicationRequ
   (
     prescription.dispenseRequest is not null
       and prescription.dispenseRequest.expectedSupplyDuration is not null
-      and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) >= 28
+      and Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28
   )
-  or "Is Chronically on Opioids?"
 
 // End of For Chronic Pain Routine
 
@@ -266,77 +276,4 @@ define function "Is Acute Pain Prescription?"(prescription FHIR.MedicationReques
 
 // End of For Acute Pain Routine
 
-/*
-**  Routine #6
-**  Chronically on Opioids Routine
-**
-**  Definition                         | Answer to Proceed   | Details                                               | Data (Terminology) Requirement
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  Order for opioid analgesics with   | Yes                 | Order for opioid analgesics with ambulatory           | Opioid analgesics with
-**  ambulatory misuse potential        |                     | misuse potential covering 21 of 30 days for           | ambulatory misuse potential
-**  covering 21 of 30 days for each    |                     | each of the past 3 months                             |
-**  of the past 3 months               |                     |                                                       |
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  Dispensed opioid analgesics with   | Yes                 | Look for evidence of a dispensing event(s) for opioid | Opioid analgesics with
-**  ambulatory misuse potential        |                     | analgesics with ambulatory abuse potential covering   | ambulatory misuse potential
-**  covering 21 of 30 days for each    |                     | 21 of 30 days for each of the past 3 months           |
-**  of the past 3 months*              |                     |                                                       |
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  Patient-reported opioid analgesics | Yes                 | Look for evidence of patient-reported opioid          | Opioid analgesics with
-**  with ambulatory misuse potential   |                     | analgesics with ambulatory abuse potential on         | ambulatory misuse potential
-**  covering 21 of 30 days for each of |                     | the medication list covering 21 of 30 days for        |
-**  the past 3 months*                 |                     | each of the past 3 months                             |
-**  ------------------------------------------------------------------------------------------------------------------------------------------------
-**  *Future consideration: Current algorithm addresses only orders (prescriptions).
-**
-**  Note – orders use RxNorm, but medication lists and dispensed medication will
-**  require an NDC value set and/or local mapping of NDC to RxNorm to enable this element
-**
-*/
-
-define "Previous 10 Days Interval":
-Interval[Today() - 10 days, Today()]
-
-define "First Month":
-Interval[Today() - 3 months, Today() - 2 months]
-
-define "Second Month":
-Interval[Today() - 2 months, Today() - 1 months]
-
-define "Third Month":
-Interval[Today() - 1 months, Today()]
-
-define "Is Chronically on Opioids?":
-  Config."Chronically on Opioids Enabled"
-    and "Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
-
-define "Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months":
-  "Days on Opioids during Period"( "First Month" ) >= 21
-    and "Days on Opioids during Period"( "Second Month" ) >= 21
-    and "Days on Opioids during Period"( "Third Month" ) >= 21
-
-define function "Prescription Relevant Period"(prescription FHIR.MedicationRequest):
-  if (
-    prescription.authoredOn is not null and prescription.dispenseRequest is not null
-      and prescription.dispenseRequest.expectedSupplyDuration is not null
-  )
-  then Interval[
-    date from prescription.authoredOn,
-    date from prescription.authoredOn + System.Quantity{ value: Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ), unit: 'd' }
-  ]
-  else null
-
-define function "Days on Opioids during Period"(period Interval<Date>):
-  Sum(
-    (
-      collapse (
-        [MedicationRequest: Common."Opioid analgesics with ambulatory misuse potential"] OpioidPrescription
-        return "Prescription Relevant Period"( OpioidPrescription ) intersect period
-      )
-    ) OpioidUseInterval
-      return days between start of OpioidUseInterval and end of OpioidUseInterval
-  )
-
 // TODO: Include logic for dispensing and patient-reported events
-
-// End of Chronically on Opioids Routine

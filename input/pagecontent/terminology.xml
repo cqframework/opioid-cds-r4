@@ -11,32 +11,42 @@
   <a name="valuesets"> </a>
   <h3>ValueSets</h3>
   <ul>
-    <li><a href="ValueSet-limited-life-expectancy-conditions.html">Limited life expectancy conditions</a></li>
-    <li><a href="ValueSet-therapies-indicating-end-of-life-care.html">Therapies indicating end of life care</a></li>
-    <li><a href="ValueSet-conditions-likely-terminal-for-opioid-prescribing.html">Conditions likely terminal for opioid prescribing</a></li>
-    <li><a href="ValueSet-opioid-analgesics-with-ambulatory-misuse-potential.html">Opioid analgesics with ambulatory misuse potential</a></li>
-    <li><a href="ValueSet-cdc-malignant-cancer-conditions.html">CDC malignant cancer conditions</a></li>
-    <li><a href="ValueSet-buprenorphine-and-methadone-medications.html">Buprenorphine and methadone medications</a></li>
-    <li><a href="ValueSet-opioid-misuse-disorders.html">Opioid misuse disorders</a></li>
-    <li><a href="ValueSet-substance-misuse-behavioral-counseling.html">Substance misuse behavioral counseling</a></li>
-    <li><a href="ValueSet-oncology-specialty-designations.html">Oncology specialty designations (NUCC)</a></li>
-    <li><a href="ValueSet-extended-release-opioid-with-ambulatory-misuse-potential.html">Extended release opioid analgesics with ambulatory misuse potential</a></li>
     <li><a href="ValueSet-benzodiazepine-medications.html">Benzodiazepine medications</a></li>
-    <li><a href="ValueSet-opioid-drug-urine-screening.html">Opioid drug urine screening</a></li>
-    <li><a href="ValueSet-non-opioid-drug-urine-screening.html">Non-opioid drug urine screening</a></li>
-    <li><a href="ValueSet-pain-treatment-plan.html">Pain treatment plan</a></li>
-    <li><a href="ValueSet-pain-management-procedure.html">Pain management procedure</a></li>
-    <li><a href="ValueSet-pdmp-review-procedure.html">PDMP review procedure</a></li>
-    <li><a href="ValueSet-pdmp-data-reviewed-finding.html">PDMP data reviewed finding</a></li>
-    <li><a href="ValueSet-opioid-counseling-procedure.html">Opioid counseling procedure</a></li>
-    <li><a href="ValueSet-naloxone-medications.html">Naloxone medications</a></li>
-    <li><a href="ValueSet-opioid-misuse-assessment-procedure.html">Opioid misuse assessment procedure</a></li>
+    <li><a href="ValueSet-buprenorphine-and-methadone-medications.html">Buprenorphine and methadone medications</a></li>
+    <li><a href="ValueSet-cdc-malignant-cancer-conditions.html">CDC malignant cancer conditions</a></li>
+    <li><a href="ValueSet-condition-clinical-status-active">Condition ClinicalStatus Active</a></li>
+    <li><a href="ValueSet-condition-encounter-diagnosis-category">Condition Category Encounter Diagnosis</a></li>
+    <li><a href="ValueSet-condition-problem-list-category">Condition Category Problem List</a></li>
+    <li><a href="ValueSet-condition-us-core-health-concern-category">Condition Category US Core Health Concern</a></li>
     <li><a href="ValueSet-conditions-documenting-substance-misuse.html">Conditions documenting substance misuse</a></li>
+    <li><a href="ValueSet-conditions-likely-terminal-for-opioid-prescribing.html">Conditions likely terminal for opioid prescribing</a></li>
+    <li><a href="ValueSet-extended-release-opioid-with-ambulatory-misuse-potential.html">Extended release opioid analgesics with ambulatory misuse potential</a></li>
+    <li><a href="ValueSet-limited-life-expectancy-conditions.html">Limited life expectancy conditions</a></li>
+    <li><a href="ValueSet-medicationrequest-category-community">MedicationRequest Category Community</a></li>
+    <li><a href="ValueSet-medicationrequest-status-active">MedicationRequest Status Active</a></li>
+    <li><a href="ValueSet-naloxone-medications.html">Naloxone medications</a></li>
+    <li><a href="ValueSet-non-opioid-drug-urine-screening.html">Non-opioid drug urine screening</a></li>
+    <li><a href="ValueSet-observation-category-laboratory">Observation Category Laboratory</a></li>
+    <li><a href="ValueSet-observation-category-procedure">Observation Category Procedure</a></li>
+    <li><a href="ValueSet-oncology-specialty-designations.html">Oncology specialty designations (NUCC)</a></li>
+    <li><a href="ValueSet-opioid-analgesics-with-ambulatory-misuse-potential.html">Opioid analgesics with ambulatory misuse potential</a></li>
+    <li><a href="ValueSet-opioid-counseling-procedure.html">Opioid counseling procedure</a></li>
+    <li><a href="ValueSet-opioid-drug-urine-screening.html">Opioid drug urine screening</a></li>
+    <li><a href="ValueSet-opioid-misuse-assessment-procedure.html">Opioid misuse assessment procedure</a></li>
+    <li><a href="ValueSet-opioid-misuse-disorders.html">Opioid misuse disorders</a></li>
+
+    <li><a href="ValueSet-pain-management-procedure.html">Pain management procedure</a></li>
+    <li><a href="ValueSet-pain-treatment-plan.html">Pain treatment plan</a></li>
+    <li><a href="ValueSet-pdmp-data-reviewed-finding.html">PDMP data reviewed finding</a></li>
+    <li><a href="ValueSet-pdmp-review-procedure.html">PDMP review procedure</a></li>
+    <li><a href="ValueSet-substance-misuse-behavioral-counseling.html">Substance misuse behavioral counseling</a></li>
+    <li><a href="ValueSet-therapies-indicating-end-of-life-care.html">Therapies indicating end of life care</a></li>
+    <li><a href="ValueSet-urine-drug-screening-tests.html">Individual tests and panels of tests of urine for drugs of misuse</a></li>
 
     <!-- Not addressed in Rob McClure's spreadsheet -->
     <li><a href="ValueSet-office-visit.html">Office visit</a></li>
     <li><a href="ValueSet-opioidcds-indicator.html">Action Indicators</a></li>
-    <li><a href="ValueSet-discharge-to-hospice.html">Discharge to Hospice</a></li>
+    <li><a href="ValueSet-hospice-disposition.html">Hospice Disposition</a></li>
     <li><a href="ValueSet-hospice-finding.html">Hospice Observation Finding</a></li>
     <li><a href="ValueSet-hospice-procedure.html">Hospice Procedure/Request</a></li>
   </ul>
