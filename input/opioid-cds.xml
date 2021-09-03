@@ -470,37 +470,7 @@
             <description value="An ActivityDefinition for recommendation of urine screening"/>
             <exampleBoolean value="false"/>
             <groupingId value="activitydefinition"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ActivityDefinition/opioidcds-urine-screening-request-order-select"/>
-                <display value="Urine Screening ActivityDefinition Order Select"/>
-            </reference>
-            <name value="OpioidUrineScreeningActivityDefinitionOrderSelect"/>
-            <description value="An ActivityDefinition for recommendation of urine screening"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="activitydefinition"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ActivityDefinition/opioidcds-urine-screening-request-order-sign"/>
-                <display value="Urine Screening ActivityDefinition Order Sign"/>
-            </reference>
-            <name value="OpioidUrineScreeningActivityDefinitionOrderSign"/>
-            <description value="An ActivityDefinition for recommendation of urine screening"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="activitydefinition"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ActivityDefinition/opioidcds-urine-screening-request-patient-view"/>
-                <display value="Urine Screening ActivityDefinition Order Select"/>
-            </reference>
-            <name value="OpioidUrineScreeningActivityDefinitionPatientView"/>
-            <description value="An ActivityDefinition for recommendation of urine screening"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="activitydefinition"/>
-        </resource>
+        </resource>        
         <!-- Device -->
         <resource>
             <reference>
