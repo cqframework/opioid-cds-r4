@@ -71,19 +71,38 @@ define "Patient had Urine Screening in Last 12 Months":
   exists( "Urine Screenings during the Last 12 Months" )
 
 define "Urine Screenings during the Last 12 Months":
-  (
-    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
-      where date from LabObservations.effective in day of "Lookback Year"
-        and (LabObservations.code in Common."Non-opioid drug urine screening")
-        and not (LabObservations.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+  "Non-opioid Screenings"
+    union "Opioid Screenings"
+    union "Cocaine Screenings"
+    union "PCP Screenings"
+
+define "Laboratory Observations":
+    [Observation: "category" in Common."Observation Category Laboratory"]
+
+define "Non-opioid Screenings":
+  GetRelevantScreenings("Laboratory Observations" LabObservations
+      where (LabObservations.code in Common."Non-opioid drug urine screening")
   )
-  union
-  (
-    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
-      where date from LabObservations.effective in day of "Lookback Year"
-        and (LabObservations.code in Common."Opioid drug urine screening")
-        and not (LabObservations.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+
+define "Opioid Screenings":
+  GetRelevantScreenings("Laboratory Observations" LabObservations
+      where (LabObservations.code in Common."Opioid drug urine screening")
   )
+
+define "Cocaine Screenings":
+  GetRelevantScreenings("Laboratory Observations" LabObservations
+      where (LabObservations.code in Common."Cocaine Urine Tests")
+  )
+
+define "PCP Screenings":
+  GetRelevantScreenings("Laboratory Observations" LabObservations
+      where (LabObservations.code in Common."PCP Urine Tests")
+  )
+
+define function GetRelevantScreenings(obsList List<Observation>):
+  obsList LabObservations
+     where date from LabObservations.effective in day of "Lookback Year"
+       and not (LabObservations.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
 
 define "No Screening In Last 12 Months Indicator":
   if "Is Recommendation Applicable?"
