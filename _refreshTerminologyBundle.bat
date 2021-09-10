@@ -17,6 +17,7 @@ COPY input\vocabulary\codesystem\codesystem-opioidcds-indicator.xml bundlegen\so
 COPY input\vocabulary\valueset\valueset-benzodiazepine-medications.json bundlegen\sourcefiles\valueset-benzodiazepine-medications.json
 COPY input\vocabulary\valueset\valueset-buprenorphine-and-methadone-medications.json bundlegen\sourcefiles\valueset-buprenorphine-and-methadone-medications.json
 COPY input\vocabulary\valueset\valueset-cdc-malignant-cancer-conditions.json bundlegen\sourcefiles\valueset-cdc-malignant-cancer-conditions.json
+COPY input\vocabulary\valueset\valueset-cocaine-urine-drug-screening-tests.json bundlegen\sourcefiles\valueset-cocaine-urine-drug-screening-tests.json
 COPY input\vocabulary\valueset\valueset-conditions-documenting-substance-misuse.json bundlegen\sourcefiles\valueset-conditions-documenting-substance-misuse.json
 COPY input\vocabulary\valueset\valueset-conditions-likely-terminal-for-opioid-prescribing.json bundlegen\sourcefiles\valueset-conditions-likely-terminal-for-opioid-prescribing.json
 COPY input\vocabulary\valueset\valueset-condition-clinical-status-active bunlegen\sourcefiles\valueset-condition-clinical-status-active
