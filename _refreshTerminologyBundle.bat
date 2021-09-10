@@ -45,6 +45,7 @@ COPY input\vocabulary\valueset\valueset-pain-management-procedure.json bundlegen
 COPY input\vocabulary\valueset\valueset-pain-treatment-plan.json bundlegen\sourcefiles\valueset-pain-treatment-plan.json
 COPY input\vocabulary\valueset\valueset-pdmp-data-reviewed-finding.json bundlegen\sourcefiles\valueset-pdmp-data-reviewed-findings.json
 COPY input\vocabulary\valueset\valueset-pdmp-review-procedure.json bundlegen\sourcefiles\valueset-pdmp-review-procedure.json
+COPY input\vocabulary\valueset\valueset-phencyclidine-urine-drug-screening-tests.json bundlegen\sourcefiles\valueset-phencyclidine-urine-drug-screening-tests.json
 COPY input\vocabulary\valueset\valueset-substance-misuse-behavioral-counseling.json bundlegen\sourcefiles\valueset-substance-misuse-behavioral-counseling.json
 COPY input\vocabulary\valueset\valueset-therapies-indicating-end-of-life-care.json bundlegen\sourcefiles\valueset-therapies-indicating-end-of-life-care.json
 COPY input\vocabulary\valueset\valueset-urine-drug-screening-tests.json bundlegen\sourcefiles\valueset-urine-drug-screening-tests.json
