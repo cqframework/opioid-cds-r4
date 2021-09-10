@@ -17,6 +17,7 @@ cp input/vocabulary/codesystem/codesystem-opioidcds-indicator.xml bundlegen/sour
 cp input/vocabulary/valueset/valueset-benzodiazepine-medications.json bundlegen/sourcefiles/valueset-benzodiazepine-medications.json
 cp input/vocabulary/valueset/valueset-buprenorphine-and-methadone-medications.json bundlegen/sourcefiles/valueset-buprenorphine-and-methadone-medications.json
 cp input/vocabulary/valueset/valueset-cdc-malignant-cancer-conditions.json bundlegen/sourcefiles/valueset-cdc-malignant-cancer-conditions.json
+cp input/vocabulary/valueset/valueset-cocaine-urine-drug-screening-tests.json bundlegen/sourcefiles/valueset-cocaine-urine-drug-screening-tests.json
 cp input/vocabulary/valueset/valueset-conditions-documenting-substance-misuse.json bundlegen/sourcefiles/valueset-conditions-documenting-substance-misuse.json
 cp input/vocabulary/valueset/valueset-conditions-likely-terminal-for-opioid-prescribing.json bundlegen/sourcefiles/valueset-conditions-likely-terminal-for-opioid-prescribing.json
 cp input/vocabulary/valueset/valueset-condition-clinical-status-active bunlegen/sourcefiles/valueset-condition-clinical-status-active
@@ -45,6 +46,7 @@ cp input/vocabulary/valueset/valueset-pain-management-procedure.json bundlegen/s
 cp input/vocabulary/valueset/valueset-pain-treatment-plan.json bundlegen/sourcefiles/valueset-pain-treatment-plan.json
 cp input/vocabulary/valueset/valueset-pdmp-data-reviewed-finding.json bundlegen/sourcefiles/valueset-pdmp-data-reviewed-findings.json
 cp input/vocabulary/valueset/valueset-pdmp-review-procedure.json bundlegen/sourcefiles/valueset-pdmp-review-procedure.json
+cp input/vocabulary/valueset/valueset-phencyclidine-urine-drug-screening-tests.json bundlegen/sourcefiles/valueset-phencyclidine-urine-drug-screening-tests.json
 cp input/vocabulary/valueset/valueset-substance-misuse-behavioral-counseling.json bundlegen/sourcefiles/valueset-substance-misuse-behavioral-counseling.json
 cp input/vocabulary/valueset/valueset-therapies-indicating-end-of-life-care.json bundlegen/sourcefiles/valueset-therapies-indicating-end-of-life-care.json
 cp input/vocabulary/valueset/valueset-urine-drug-screening-tests.json bundlegen/sourcefiles/valueset-urine-drug-screening-tests.json

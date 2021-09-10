@@ -119,7 +119,7 @@
             <expression>
                 <description value="Patient has not had a urine screening in the past 12 months"/>
                 <language value="text/cql.identifier"/>
-                <expression value="Is Recommendation Applicable?"/>
+                <expression value="Applicable Not Because of Positive Cocaine or PCP"/>
             </expression>
         </condition>
         <type>
@@ -134,21 +134,21 @@
             <path value="action.description"/>
             <expression>
                 <language value="text/cql.identifier"/>
-                <expression value="No Screening In Last 12 Months Detail"/>
+                <expression value="Detail"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.title"/>
             <expression>
                 <language value="text/cql.identifier"/>
-                <expression value="No Screening In Last 12 Months Summary"/>
+                <expression value="Summary"/>
             </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.extension"/>
             <expression>
                 <language value="text/cql.identifier"/>
-                <expression value="No Screening In Last 12 Months Indicator"/>
+                <expression value="Indicator"/>
             </expression>
         </dynamicValue>
         <action>
@@ -162,4 +162,89 @@
             <description value="N/A - see comment, snooze 3 months"/>
         </action>
     </action>
-</PlanDefinition>
+    <action>
+        <prefix value="1." />
+        <title value="Cocaine or PCP Tested Positive"/>
+        <description value="Urine screening showed positive for cocaine or PCP"/>
+        <documentation>
+            <type value="documentation"/>
+            <display value="CDC guideline for prescribing opioids for chronic pain"/>
+            <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
+        </documentation>
+        <documentation>
+            <type value="documentation"/>
+            <document>
+                <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
+                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+                            <code value="weak"/>
+                            <display value="Weak"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+                            <code value="very-low"/>
+                            <display value="Very Low quality"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+            </document>
+        </documentation>
+        <trigger>
+            <type value="named-event"/>
+            <name value="patient-view"/>
+        </trigger>
+        <condition>
+            <kind value="applicability"/>
+            <expression>
+                <description value="Urine screening tested positive for cocaine or PCP"/>
+                <language value="text/cql.identifier"/>
+                <expression value="Applicable Because of Positive Cocaine or PCP"/>
+            </expression>
+        </condition>
+        <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/action-type" />
+                <code value="create" />
+                <display value="Create" />
+            </coding>
+        </type>
+        <!-- dynamic card elements -->
+        <dynamicValue>
+            <path value="action.description"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Detail"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="action.title"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Summary"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="action.extension"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Indicator"/>
+            </expression>
+        </dynamicValue>
+        <action>
+            <description value="Will repeat urine drug screen more frequently"/>
+            <!-- Open Order Set, where available -->
+        </action>
+        <action>
+            <description value="Will assess patient for substance abuse disorder"/>
+        </action>
+        <action>
+            <description value="Will access CDS quality improvement and care coordination for prescribing opioids for chronic pain https://www.cdc.gov/drugoverdose/pdf/prescribing/CDC-DUIP-QualityImprovementAndCareCoordination-508.pdf"/>
+        </action>
+    </action></PlanDefinition>
