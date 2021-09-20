@@ -6,7 +6,16 @@
   },
   "extension": [ {
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
-    "valueString": "Step 1. Add all codes found using the following LOINC query: Phencyclidine (=system:Urine)"
+    "valueMarkdown": "Step 1. Add all codes found using the following LOINC query: Phencyclidine (=system:Urine)"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+    "valueString": "Urine tests for phencyclidine"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+    "valueString": "Urine test"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+    "valueString": "Codes"
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
     "valueContactDetail": {
@@ -37,7 +46,7 @@
   "title": "Phencyclidine urine drug screening tests",
   "status": "active",
   "experimental": true,
-  "date": "2021-07-28T07:07:11-06:00",
+  "date": "2021-09-20T14:04:27-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Urine tests for phencyclidine",
   "jurisdiction": [ {
@@ -49,7 +58,8 @@
   "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "timestamp": "2021-07-28T07:07:11-06:00",
+    "identifier": "0a7ef1fd-046f-4857-9053-4d4cc679332c",
+    "timestamp": "2021-09-20T14:04:27-06:00",
     "contains": [ {
       "system": "http://loinc.org",
       "code": "3937-0",
