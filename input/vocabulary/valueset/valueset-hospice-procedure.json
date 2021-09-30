@@ -1,21 +1,15 @@
 {
   "resourceType": "ValueSet",
-  "id": "substance-misuse-behavioral-counseling",
+  "id": "hospice-procedure",
   "meta": {
     "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
-    "valueString": "Counseling and associated procedures for substance misuse"
+    "valueString": "Procedure codes for referral, admission, or transfer to a hospice"
   }, {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
     "valueString": "Procedure"
-  }, {
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
-    "valueString": "Counseling and associated procedures for substance misuse"
-  }, {
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
-    "valueString": "none"
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
     "valueContactDetail": {
@@ -41,21 +35,20 @@
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
-  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling",
-  "name": "substance_misuse_behavioral_counseling",
-  "title": "Substance misuse behavioral counseling",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure",
+  "name": "hospice_procedure",
+  "title": "Hospice Procedure",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-30T08:49:11-06:00",
+  "date": "2021-09-30T08:53:34-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Counseling and associated procedures for substance misuse",
+  "description": "Procedure codes for referral, admission, or transfer to a hospice",
   "jurisdiction": [ {
     "coding": [ {
       "system": "urn:iso:std:iso:3166",
       "code": "US"
     } ]
   } ],
-  "purpose": "Counseling and associated procedures for substance misuse that may be used for opioid management",
   "copyright": "© CDC 2016+.",
   "compose": {
     "include": [ {
@@ -64,7 +57,7 @@
       "filter": [ {
         "property": "concept",
         "op": "is-a",
-        "value": "313071005"
+        "value": "306205009"
       } ]
     }, {
       "system": "http://snomed.info/sct",
@@ -72,7 +65,7 @@
       "filter": [ {
         "property": "concept",
         "op": "is-a",
-        "value": "424407005"
+        "value": "305336008"
       } ]
     }, {
       "system": "http://snomed.info/sct",
@@ -80,7 +73,7 @@
       "filter": [ {
         "property": "concept",
         "op": "is-a",
-        "value": "423416000"
+        "value": "183919006"
       } ]
     }, {
       "system": "http://snomed.info/sct",
@@ -88,7 +81,7 @@
       "filter": [ {
         "property": "concept",
         "op": "is-a",
-        "value": "720174008"
+        "value": "428371000124100"
       } ]
     }, {
       "system": "http://snomed.info/sct",
@@ -96,43 +89,51 @@
       "filter": [ {
         "property": "concept",
         "op": "is-a",
-        "value": "720177001"
+        "value": "183920000"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "filter": [ {
+        "property": "concept",
+        "op": "is-a",
+        "value": "183921001"
       } ]
     } ]
   },
   "expansion": {
-    "identifier": "081c881a-736d-480e-b55b-61d6e88349cb",
-    "timestamp": "2021-09-30T08:49:13-06:00",
+    "identifier": "59339523-7079-4ab4-9893-06d3b2f13f3c",
+    "timestamp": "2021-09-30T08:53:34-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210301",
-      "code": "313071005",
-      "display": "Substance abuse counseling"
+      "code": "306205009",
+      "display": "Referral to hospice (procedure)"
     }, {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210301",
-      "code": "60112009",
-      "display": "Drug addiction counseling"
+      "code": "305336008",
+      "display": "Admission to hospice (procedure)"
     }, {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210301",
-      "code": "720174008",
-      "display": "Drug harm reduction program"
+      "code": "183919006",
+      "display": "Urgent admission to hospice (procedure)"
     }, {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210301",
-      "code": "720177001",
-      "display": "Drug relapse prevention program"
+      "code": "428371000124100",
+      "display": "Discharge to healthcare facility for hospice care"
     }, {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210301",
-      "code": "423416000",
-      "display": "Substance use cessation case management"
+      "code": "183920000",
+      "display": "Routine admission to hospice"
     }, {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210301",
-      "code": "424407005",
-      "display": "Substance use cessation education, guidance, and counseling"
+      "code": "183921001",
+      "display": "Admission to hospice for respite"
     } ]
   }
 }
