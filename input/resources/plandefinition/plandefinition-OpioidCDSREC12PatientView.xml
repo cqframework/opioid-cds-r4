@@ -83,13 +83,11 @@
     </relatedArtifact>
     <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC12PatientView"/>
     <action>
-        <!-- non-dynamic card summary -->
         <title value="Current patient is 18 or older and recieving evidence-based treatment for Opioid Misuse Disorders."/>
         <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #12 workflow."/>
         <documentation>
             <type value="documentation"/>
             <document>
-                <!-- We can use the example code systems from the FHIR Clinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
                     <valueCodeableConcept>
                         <coding>

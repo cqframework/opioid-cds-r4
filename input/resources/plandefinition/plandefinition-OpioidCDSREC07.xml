@@ -88,13 +88,11 @@
     </relatedArtifact>
     <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC07"/>
     <action>
-        <!-- non-dynamic card summary -->
         <title value="Existing patient should be evaluated for risk of continued opioid therapy."/>
         <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #7 workflow."/>
         <documentation>
             <type value="documentation"/>
             <document>
-                <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
                     <valueCodeableConcept>
                         <coding>
@@ -129,7 +127,6 @@
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
-        <!-- reference to risk assessment activity definition -->
         <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-risk-assessment-request"/>
         <type>
           <coding>
@@ -161,7 +158,6 @@
     		</dynamicValue>
         <action>
             <description value="Will schedule opioid misuse assessment"/>
-            <!-- Open Order Set, where available -->
         </action>
         <action>
             <description value="Benefits outweigh risks, snooze 3 months"/>

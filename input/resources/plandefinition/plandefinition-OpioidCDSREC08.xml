@@ -88,13 +88,11 @@
     </relatedArtifact>
     <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC08"/>
     <action>
-        <!-- non-dynamic card summary -->
         <title value="Existing patient exhibits risk factors for opioid-related harms."/>
         <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #8 workflow."/>
         <documentation>
             <type value="documentation"/>
             <document>
-                <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
                     <valueCodeableConcept>
                         <coding>
@@ -152,7 +150,6 @@
 		</dynamicValue>
         <action>
             <description value="Will offer Naloxone medications"/>
-            <!-- Open Order Set, where available -->
         </action>
         <action>
             <description value="Benefits outweigh risks, snooze 3 months"/>

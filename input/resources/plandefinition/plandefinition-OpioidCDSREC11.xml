@@ -98,7 +98,6 @@
     <documentation>
       <type value="documentation"/>
       <document>
-        <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
           <valueCodeableConcept>
             <coding>
@@ -156,7 +155,6 @@
     </dynamicValue>
     <action>
       <description value="Will revise"/>
-      <!-- Open Order Set, where available -->
     </action>
     <action>
       <description value="Benefits outweigh risks, snooze 3 months"/>

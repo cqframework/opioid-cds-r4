@@ -89,13 +89,11 @@
   </relatedArtifact>
   <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC04PatientView" />
   <action>
-    <!-- non-dynamic card summary -->
     <title value="Extended-release opioid prescription triggered." />
     <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #4 workflow." />
     <documentation>
       <type value="documentation" />
       <document>
-        <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
           <valueCodeableConcept>
             <coding>
