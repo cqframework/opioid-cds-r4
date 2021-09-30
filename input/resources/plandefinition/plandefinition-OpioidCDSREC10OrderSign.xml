@@ -72,7 +72,7 @@
 	</author>
 	<author>
 		<name value="Floyd Eisenberg, MD, MPH"/>
-	</author>
+	</author>`
 	<author>
 		<name value="Robert McClure, MD, MPH"/>
 	</author>
@@ -84,7 +84,6 @@
 	<library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10"/>
 	<action>
 			<prefix value="1." />
-			<label value="Annual Urine Screening Check"/>
 			<title value="Annual Urine Screening Check"/>
 			<description value="Patient has not had a urine screening in the past 12 months"/>
 			<documentation>
