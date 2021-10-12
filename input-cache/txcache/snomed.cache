@@ -871,8 +871,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:1342ce5b-ca02-47c9-bf28-615ca5c679cc",
-    "timestamp" : "2021-09-30T17:12:00.553Z",
+    "identifier" : "urn:uuid:327508b8-0a1d-463a-92e7-3db1ddd9aac4",
+    "timestamp" : "2021-09-10T18:22:19.239Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -922,8 +922,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:9a4b6fa1-beee-4353-a5ab-d19c5ebc08be",
-    "timestamp" : "2021-09-30T17:12:00.912Z",
+    "identifier" : "urn:uuid:70dfc18b-b083-4114-802b-4a8b42c1a907",
+    "timestamp" : "2021-09-10T18:22:19.676Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -1046,41 +1046,5 @@ v: {
   "system" : "",
   "severity" : "error",
   "error" : "Unable to find code 461651000124104 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"461651000124104\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461651000124104) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "183920000"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Routine admission to hospice",
-  "code" : "183920000",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "183921001"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Admission to hospice for respite",
-  "code" : "183921001",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "305911006"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Seen in hospice",
-  "code" : "305911006",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
 }
 -------------------------------------------------------------------------------------
