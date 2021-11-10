@@ -28,8 +28,8 @@ define function Prescriptions(Orders List<MedicationRequest>):
             then ToString((doseAndRate.dose as FHIR.Range).low)
                 + '-' + ToString((doseAndRate.dose as FHIR.Range).high)
                 + (doseAndRate.dose as FHIR.Range).high.unit.value
-            else ToString(FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity)),
-            ''
+              else ToString(System.Quantity { value: doseAndRate.dose.value, unit: doseAndRate.dose.unit}),
+          ''
         ),
       frequencyDescription:
         ToString(dosageInstruction.timing.repeat.frequency.value) +
@@ -50,7 +50,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded then ' PRN' else ''),
       dose: if doseAndRate.dose is FHIR.Range
             then (doseAndRate.dose as FHIR.Range).high
-            else FHIRHelpers.ToQuantity(doseAndRate.dose as FHIR.SimpleQuantity),
+            else System.Quantity { value: doseAndRate.dose.value, unit: doseAndRate.dose.unit},
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), 1.0)
     }
 
