@@ -57,11 +57,14 @@
                 "periodUnit": "d"
               }
             },
-            "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1.0,
-              "unit": "patch"
-            }
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "patch"
+                }
+              }
+            ]
           }
         ],
         "dispenseRequest": {
