@@ -80,6 +80,12 @@
             }
           ]
         },
+        "quantity": {
+          "value": 30,
+          "unit": "patch",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+          "code": "patch"
+        },
         "numberOfRepeatsAllowed": 3,
         "expectedSupplyDuration": {
           "value": 30.0,
@@ -126,9 +132,7 @@
         }
       }
     },
-    "item3": null,
-    "item4": null,
-    "item5": {
+    "item3": {
       "response": {
         "status": "200 OK"
       },
@@ -149,8 +153,9 @@
             "coding": [
               {
                 "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                "code": "problem-list-item",
-                "display": "Problem List Item"
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+
               }
             ]
           }
@@ -179,17 +184,6 @@
           ]
         }
       }
-    },
-    "item6": null,
-    "item7": null,
-    "item8": null,
-    "item9": null,
-    "item10": null,
-    "item11": null,
-    "item12": null,
-    "item13": null,
-    "item14": null,
-    "item15": null,
-    "item16": null
+    }
   }
 }
