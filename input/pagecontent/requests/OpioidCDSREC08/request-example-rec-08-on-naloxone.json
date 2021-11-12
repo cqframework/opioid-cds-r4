@@ -53,14 +53,14 @@
             "timing": {
               "repeat": {
                 "frequency": 1,
-                "period": 10.0,
+                "period": 3.0,
                 "periodUnit": "d"
               }
             },
             "doseAndRate": [
               {
                 "doseQuantity": {
-                  "value": 4.0,
+                  "value": 1.0,
                   "unit": "patch"
                 }
               }
@@ -122,8 +122,8 @@
           "coding": [
             {
               "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "2268081",
-              "display": "12 HR Naloxone Hydrochloride 10 MG / Oxycodone Hydrochloride 20 MG Extended Release Oral Tablet [Targiniq]"
+              "code": "1191212",
+              "display": "Naloxone Hydrochloride 0.02 MG/ML Injectable Solution"
             }
           ]
         },
