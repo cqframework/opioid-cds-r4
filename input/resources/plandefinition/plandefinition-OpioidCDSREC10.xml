@@ -123,7 +123,7 @@
 					<expression>
 							<description value="Patient has not had a urine screening in the past 12 months"/>
 							<language value="text/cql.identifier"/>
-							<expression value="Applicable Not Because of Positive Cocaine or PCP"/>
+							<expression value="Applicable Not Because of Positive Cocaine or PCP or Opiates"/>
 					</expression>
 			</condition>
 			<definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
@@ -167,8 +167,8 @@
 	</action>
 	<action>
 		<prefix value="1." />
-		<title value="Cocaine or PCP Tested Positive"/>
-		<description value="Urine screening showed positive for cocaine or PCP"/>
+		<title value="Tested Positive for Cocaine, Opiates, or PCP"/>
+		<description value="Urine screening showed positive for cocaine, opiates or PCP"/>
 		<documentation>
 			<type value="documentation"/>
 			<display value="CDC guideline for prescribing opioids for chronic pain"/>
@@ -205,9 +205,9 @@
 		<condition>
 			<kind value="applicability"/>
 			<expression>
-				<description value="Urine screening tested positive for cocaine or PCP"/>
+				<description value="Urine screening tested positive for cocaine, opiates or PCP"/>
 				<language value="text/cql.identifier"/>
-				<expression value="Applicable Because of Positive Cocaine or PCP"/>
+				<expression value="Applicable Because of Positive Cocaine or PCP or Opiates"/>
 			</expression>
 		</condition>
 		<definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
