@@ -7,86 +7,88 @@
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-on-benzodiazepine",
     "encounterId": "Encounter/example-rec-08-on-benzodiazepine-context",
-    "selections": [ "MedicationRequest/example-rec-08-on-benzodiazepine-context" ],
-    "draftOrders":
-      {
-        "resourceType": "MedicationRequest",
-        "id": "example-rec-08-on-benzodiazepine-context",
-        "status": "active",
-        "intent": "order",
-        "category": {
-          "coding": [
+    "selections": [
+      "MedicationRequest/example-rec-08-on-benzodiazepine-context"
+    ],
+    "draftOrders": {
+      "resourceType": "MedicationRequest",
+      "id": "example-rec-08-on-benzodiazepine-context",
+      "status": "active",
+      "intent": "order",
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+            "code": "community"
+          }
+        ]
+      },
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "197696",
+            "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/example-rec-08-on-benzodiazepine"
+      },
+      "encounter": {
+        "reference": "Encounter/example-rec-08-on-benzodiazepine-context"
+      },
+      "_authoredOn": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+            "valueExpression": {
+              "language": "text/cql",
+              "expression": "Today()"
+            }
+          }
+        ]
+      },
+      "dosageInstruction": [
+        {
+          "timing": {
+            "repeat": {
+              "frequency": 1,
+              "period": 12.0,
+              "periodUnit": "d"
+            }
+          },
+          "doseAndRate": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-              "code": "community"
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "patch"
+              }
             }
           ]
-        },
-        "medicationCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "197696",
-              "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/example-rec-08-on-benzodiazepine"
-        },
-        "encounter": {
-          "reference": "Encounter/example-rec-08-on-benzodiazepine-context"
-        },
-        "_authoredOn": {
+        }
+      ],
+      "dispenseRequest": {
+        "_validityPeriod": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
               "valueExpression": {
                 "language": "text/cql",
-                "expression": "Today()"
+                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
               }
             }
           ]
         },
-        "dosageInstruction": [
-          {
-            "timing": {
-              "repeat": {
-                "frequency": 1,
-                "period": 12.0,
-                "periodUnit": "d"
-              }
-            },
-            "doseAndRate": [
-              {
-                "doseQuantity": {
-                  "value": 1.0,
-                  "unit": "patch"
-                }
-              }
-            ]
-          }
-        ],        "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                }
-              }
-            ]
-          },
-          "numberOfRepeatsAllowed": 3,
-          "expectedSupplyDuration": {
-            "value": 30.0,
-            "unit": "days",
-            "system": "http://unitsofmeasure.org",
-            "code": "d"
-          }
+        "numberOfRepeatsAllowed": 3,
+        "expectedSupplyDuration": {
+          "value": 30.0,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
         }
       }
+    }
   },
   "prefetch": {
     "item1": {
@@ -121,8 +123,8 @@
           "coding": [
             {
               "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "687023",
-              "display": "24 HR Alprazolam 2 MG Extended Release Oral Tablet [Xanax]"
+              "code": "104693",
+              "display": "Temazepam 20 MG Oral Tablet"
             }
           ]
         },
@@ -161,7 +163,8 @@
               }
             ]
           }
-        ],        "dispenseRequest": {
+        ],
+        "dispenseRequest": {
           "_validityPeriod": {
             "extension": [
               {
