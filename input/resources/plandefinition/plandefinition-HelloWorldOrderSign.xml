@@ -1,16 +1,16 @@
 <PlanDefinition xmlns="http://hl7.org/fhir">
-    <id value="hello-world"/>
+    <id value="hello-world-order-sign"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-plandefinition"/>
     </meta>
-    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/plandefinition-HelloWorld"/>
+    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/hello-world-order-sign"/>
     <identifier>
         <use value="official"/>
-        <value value="helloworld-sample"/>
+        <value value="helloworld-order-sign-sample"/>
     </identifier>
     <version value="1.0.0"/>
-    <name value="HelloWorld"/>
-    <title value="Hello World"/>
+    <name value="HelloWorld (order-sign)"/>
+    <title value="Hello World (order-sign)"/>
     <type>
         <coding>
             <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
@@ -22,7 +22,7 @@
     <experimental value="true"/>
     <date value="2021-05-26T00:00:00-08:00"/>
     <publisher value="Alphora"/>
-    <description value="This PlanDefinition defines a simple Hello World recommendation."/>
+    <description value="This PlanDefinition defines a simple Hello World (order-sign) recommendation."/>
     <useContext>
         <code>
             <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
