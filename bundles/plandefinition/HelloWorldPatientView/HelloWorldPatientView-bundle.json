@@ -13,6 +13,11 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
+          "reference": "Device/cqf-tooling"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+        "valueReference": {
           "reference": "cqf-tooling"
         }
       } ],
@@ -67,7 +72,7 @@
       "resourceType": "PlanDefinition",
       "id": "hello-world-patient-view",
       "meta": {
-        "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-plandefinition" ]
+        "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition" ]
       },
       "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/hello-world-patient-view",
       "identifier": [ {
@@ -255,6 +260,11 @@
         "source": "#0oUvNjasVR8PueaB"
       },
       "extension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+        "valueReference": {
+          "reference": "Device/cqf-tooling"
+        }
+      }, {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
           "reference": "cqf-tooling"

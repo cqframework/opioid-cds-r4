@@ -8,6 +8,11 @@
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
       "reference": "cqf-tooling"
     }
   } ],
@@ -62,15 +67,15 @@
   }, {
     "type": "depends-on",
     "display": "Value set Encounter Diagnosis Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/encounter-diagnosis-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
   }, {
     "type": "depends-on",
     "display": "Value set Problem List Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/problem-list-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
   }, {
     "type": "depends-on",
     "display": "Value set US Core Health Concern Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/us-core-health-concern-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
   }, {
     "type": "depends-on",
     "display": "Value set Limited life expectancy conditions",
@@ -170,8 +175,12 @@
     "type": "string"
   } ],
   "dataRequirement": [ {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
     "type": "CarePlan",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/CarePlan" ],
+    "mustSupport": [ "created", "author", "meta", "category", "meta.lastUpdated", "status" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan"
@@ -179,9 +188,34 @@
   }, {
     "type": "Procedure",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "mustSupport": [ "code", "performer", "performed" ],
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "category" ],
+    "codeFilter": [ {
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "category" ],
+    "codeFilter": [ {
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "category" ],
+    "codeFilter": [ {
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   } ],
   "content": [ {

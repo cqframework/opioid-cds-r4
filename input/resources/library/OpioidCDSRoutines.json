@@ -8,6 +8,11 @@
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
       "reference": "cqf-tooling"
     }
   } ],
@@ -42,15 +47,15 @@
   }, {
     "type": "depends-on",
     "display": "Value set Encounter Diagnosis Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/encounter-diagnosis-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
   }, {
     "type": "depends-on",
     "display": "Value set Problem List Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/problem-list-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
   }, {
     "type": "depends-on",
     "display": "Value set US Core Health Concern Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/us-core-health-concern-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
   }, {
     "type": "depends-on",
     "display": "Value set Limited life expectancy conditions",
@@ -210,29 +215,76 @@
     "type": "MedicationDispense"
   } ],
   "dataRequirement": [ {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "category" ],
+    "codeFilter": [ {
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "category" ],
+    "codeFilter": [ {
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+    } ]
+  }, {
+    "type": "Condition",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+    "mustSupport": [ "category" ],
+    "codeFilter": [ {
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+    } ]
+  }, {
     "type": "ServiceRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "mustSupport": [ "code", "authoredOn", "intent", "status" ],
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     } ]
   }, {
-    "type": "Encounter",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-    "codeFilter": [ {
-      "path": "type",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
-    } ]
-  }, {
     "type": "PractitionerRole",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/PractitionerRole" ],
+    "mustSupport": [ "specialty" ],
     "codeFilter": [ {
       "path": "specialty",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations"
     } ]
   }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "period.start", "period", "diagnosis", "type", "period.start.value", "participant" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "status" ],
+    "codeFilter": [ {
+      "path": "status",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "recorder", "dosageInstruction", "authoredOn", "dispenseRequest", "subject", "medication.reference", "medication", "id", "category", "intent", "status" ],
+    "codeFilter": [ {
+      "path": "status",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
+    } ]
+  }, {
     "type": "MedicationDispense",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationDispense" ],
+    "mustSupport": [ "whenHandedOver", "medication", "status" ],
     "codeFilter": [ {
       "path": "medication",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
