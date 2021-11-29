@@ -1,4 +1,4 @@
-library HelloWorldPatientView version '1.0.0'
+library HelloWorld version '1.0.0'
 
 using FHIR version '4.0.1'
 
