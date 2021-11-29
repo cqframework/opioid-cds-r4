@@ -10,6 +10,11 @@
     "valueReference": {
       "reference": "Device/cqf-tooling"
     }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC03",
   "version": "2.0.1",
@@ -84,7 +89,7 @@
     "name": "ContextPrescriptions",
     "use": "in",
     "min": 0,
-    "max": "*",
+    "max": "1",
     "type": "MedicationRequest"
   }, {
     "name": "Patient",
