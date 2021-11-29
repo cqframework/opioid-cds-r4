@@ -13,6 +13,11 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
+          "reference": "Device/cqf-tooling"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+        "valueReference": {
           "reference": "cqf-tooling"
         }
       } ],
@@ -72,6 +77,11 @@
         "source": "#0oUvNjasVR8PueaB"
       },
       "extension": [ {
+        "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+        "valueReference": {
+          "reference": "Device/cqf-tooling"
+        }
+      }, {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
           "reference": "cqf-tooling"

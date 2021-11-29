@@ -1,7 +1,7 @@
 <PlanDefinition xmlns="http://hl7.org/fhir">
     <id value="hello-world-order-sign"/>
     <meta>
-        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-plandefinition"/>
     </meta>
     <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/hello-world-order-sign"/>
     <identifier>
