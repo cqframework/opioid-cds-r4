@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-08-on-naloxone",
     "encounterId": "Encounter/example-rec-08-on-naloxone-context",
     "selections": [ "MedicationRequest/example-rec-08-on-naloxone-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-08-on-naloxone-context",
@@ -53,15 +53,18 @@
             "timing": {
               "repeat": {
                 "frequency": 1,
-                "period": 12.0,
+                "period": 3.0,
                 "periodUnit": "d"
               }
             },
-            "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1.0,
-              "unit": "patch"
-            }
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "patch"
+                }
+              }
+            ]
           }
         ],
         "dispenseRequest": {
@@ -85,7 +88,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {
@@ -93,8 +95,19 @@
         "status": "200 OK"
       },
       "resource": {
+        "resourceType": "Patient",
+        "id": "example-rec-08-on-naloxone",
+        "gender": "female",
+        "birthDate": "1982-01-07"
+      }
+    },
+    "item2": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
         "resourceType": "MedicationRequest",
-        "id": "example-rec-08-on-naloxone-prefetch",
+        "id": "example-rec-08-on-naloxone-context",
         "status": "active",
         "intent": "order",
         "category": {
@@ -117,8 +130,8 @@
         "subject": {
           "reference": "Patient/example-rec-08-on-naloxone"
         },
-        "context": {
-          "reference": "Encounter/example-rec-08-on-naloxone-prefetch"
+        "encounter": {
+          "reference": "Encounter/example-rec-08-on-naloxone-context"
         },
         "_authoredOn": {
           "extension": [
@@ -126,7 +139,7 @@
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
               "valueExpression": {
                 "language": "text/cql",
-                "expression": "Today() - 14 days"
+                "expression": "Today()"
               }
             }
           ]
@@ -136,15 +149,18 @@
             "timing": {
               "repeat": {
                 "frequency": 1,
-                "period": 1.0,
+                "period": 10.0,
                 "periodUnit": "d"
               }
             },
-            "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 5.0,
-              "unit": "mL"
-            }
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 4.0,
+                  "unit": "patch"
+                }
+              }
+            ]
           }
         ],
         "dispenseRequest": {
@@ -154,7 +170,7 @@
                 "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
                 "valueExpression": {
                   "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 14 days }, end: FHIR.dateTime { value: Today() + 3 months } }"
+                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
                 }
               }
             ]
@@ -169,41 +185,7 @@
         }
       }
     },
-    "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
-        "resourceType": "Encounter",
-        "id": "example-rec-08-on-naloxone-prefetch",
-        "status": "finished",
-        "subject": {
-          "reference": "Patient/example-rec-08-on-naloxone"
-        },
-        "period": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 14 days }, end: FHIR.dateTime { value: Today() - 14 days } }"
-              }
-            }
-          ]
-        }
-      }
-    },
-    "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
-        "resourceType": "Patient",
-        "id": "example-rec-08-on-naloxone",
-        "gender": "female",
-        "birthDate": "1982-01-07"
-      }
-    },
+    "item3": null,
     "item4": null,
     "item5": null,
     "item6": null,

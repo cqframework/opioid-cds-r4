@@ -1,7 +1,7 @@
 <PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="opioidcds-04-patient-view" />
   <meta>
-  <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-plandefinition" />
+  <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition" />
   </meta>
   <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-04-patient-view" />
   <identifier>
