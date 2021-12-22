@@ -48,7 +48,7 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
+define "Is Perform Drug Screen Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
@@ -62,49 +62,35 @@ define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
     and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
-    and (not "Patient had Urine Screening in Last 12 Months"
-      or "Has Positive Screening for Cocaine in Last 12 Months"
-      or "Has Positive Screening for PCP in Last 12 Months")
+    and (not "Patient had Urine Screening in Last 12 Months")
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
 
 define "Patient had Urine Screening in Last 12 Months":
-  exists( "Urine Screenings during the Last 12 Months" )
+   (exists"Non-opioid Screenings" or exists "Cocaine Screenings" or exists "PCP Screenings") and
+    exists "Opiate Screenings"
 
-define "Urine Screenings during the Last 12 Months":
-  "Non-opioid Screenings"
-    union "Opioid Screenings"
-    union "Cocaine Screenings"
-    union "PCP Screenings"
-
-/*
-every pos date in last 12 months then count # neg and report that
-most recent POS PCP/cocaine
- then get subsequent neg date > pos based on date of each neg and pos
-*/
+define "Laboratory Observations":
+    [Observation: "category" in Common."Observation Category Laboratory"]
 
 define "Non-opioid Screenings":
-  GetRelevantScreenings(
-    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
+  GetRelevantScreenings("Laboratory Observations" LabObservations
       where (LabObservations.code in Common."Non-opioid drug urine screening")
   )
 
-define "Opioid Screenings":
-  GetRelevantScreenings(
-    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
+define "Opiate Screenings":
+  GetRelevantScreenings("Laboratory Observations" LabObservations
       where (LabObservations.code in Common."Opioid drug urine screening")
   )
 
 define "Cocaine Screenings":
-  GetRelevantScreenings(
-    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
+  GetRelevantScreenings("Laboratory Observations" LabObservations
       where (LabObservations.code in Common."Cocaine Urine Tests")
   )
 
 define "PCP Screenings":
-  GetRelevantScreenings(
-    [Observation: "category" in Common."Observation Category Laboratory"] LabObservations
+  GetRelevantScreenings("Laboratory Observations" LabObservations
       where (LabObservations.code in Common."PCP Urine Tests")
   )
 
@@ -118,6 +104,14 @@ define function GetRelevantScreenings(obsList List<Observation>):
 // @returns {System.String} the text representation of the dateTime
 define function DateTimeText(d FHIR.dateTime):
   ToString(d.value)
+
+define "Positive Opiate Screenings":
+  "Opiate Screenings" Opiate where
+    StartsWith(Lower(Opiate.value as FHIR.string), 'pos')
+
+define "Negative Opiate Screenings":
+  "Opiate Screenings" Opiate where
+    StartsWith(Lower(Opiate.value as FHIR.string), 'neg')
 
 define "Positive PCP Screenings":
   "PCP Screenings" PCP where
@@ -153,11 +147,22 @@ define "Negative PCP Screenings Count Since Last Positive Screening":
       DateTimeText(N.effective) >  DateTimeText("MostRecent"("Positive PCP Screenings").effective)
   )
 
+define "Negative Opiate Screenings Count Since Last Positive Screening":
+  Count(
+    "Negative Opiate Screenings" N where
+      DateTimeText(N.effective) >  DateTimeText("MostRecent"("Positive Opiate Screenings").effective)
+  )
+
 define "Negative Cocaine Screenings Count Since Last Positive Screening":
   Count(
     "Negative Cocaine Screenings" N where
       DateTimeText(N.effective) >  DateTimeText("MostRecent"("Positive Cocaine Screenings").effective)
   )
+
+define "Positive Opiate Dates in Lookback Period":
+  "Positive Opiate Screenings" Opiate
+    return
+      DateTimeText(Opiate.effective)
 
 define "Positive Cocaine Dates in Lookback Period":
   "Positive Cocaine Screenings" CS
@@ -177,27 +182,52 @@ define "Has Positive Screening for PCP in Last 12 Months":
   exists "PCP Screenings" PCP where
     StartsWith(Lower(PCP.value as FHIR.string), 'pos')
 
-define "Applicable Because of Positive Cocaine or PCP":
-  "Is Recommendation Applicable?"
-    and ("Has Positive Screening for Cocaine in Last 12 Months" or "Has Positive Screening for PCP in Last 12 Months")
+define "Has Positive Screening for Opiates in Last 12 Months":
+  exists "Opiate Screenings" Opioid where
+    StartsWith(Lower(Opioid.value as FHIR.string), 'pos')
 
-define "Applicable Not Because of Positive Cocaine or PCP":
-  "Is Recommendation Applicable?"
+define "Applicable Because of Positive Cocaine or PCP or Opiates":
+    if exists (Common."Opioid Other Than Synthetic Ordered In Last 12 Months")
+    then
+        "Has Positive Screening for Cocaine in Last 12 Months" or "Has Positive Screening for PCP in Last 12 Months"
+    else
+        "Has Positive Screening for Cocaine in Last 12 Months" or "Has Positive Screening for PCP in Last 12 Months" or "Has Positive Screening for Opiates in Last 12 Months"
+
+define "Applicable Not Because of Positive Cocaine or PCP or Opiates":
+  "Is Perform Drug Screen Recommendation Applicable?"
     and not "Has Positive Screening for Cocaine in Last 12 Months"
     and not "Has Positive Screening for PCP in Last 12 Months"
+    and not "Has Positive Screening for Opiates in Last 12 Months"
+
+define "Cocaine Detail":
+  if "Has Positive Screening for Cocaine in Last 12 Months"
+    then "Cocaine Summary"
+    else null
+
+define "Opiates Detail":
+  if "Has Positive Screening for Opiates in Last 12 Months"
+    then "Opiates Summary"
+    else null
+
+define "PCP Detail":
+  if "Has Positive Screening for PCP in Last 12 Months"
+    then "PCP Summary"
+    else null
 
 define "Detail":
-  if "Applicable Because of Positive Cocaine or PCP"
+    if "Is Perform Drug Screen Recommendation Applicable?"
     then
-      (
-        if ("Has Positive Screening for Cocaine in Last 12 Months" and "Has Positive Screening for PCP in Last 12 Months")
-          then "Cocaine And PCP Summary"
-        else if "Has Positive Screening for Cocaine in Last 12 Months"
-          then "Cocaine Summary"
-        else if "Has Positive Screening for PCP in Last 12 Months"
-          then "PCP Summary"
+        'Patients on opioid therapy should have a urine drug test performed every 12 months.'
+    else
+        if "Applicable Because of Positive Cocaine or PCP or Opiates"
+        then
+            "Cocaine Detail"&
+            "Opiates Detail"&
+            "PCP Detail"&
+            '<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug.'
         else
-          'No Details Available'
+            null
+
       )
   else if "Applicable Not Because of Positive Cocaine or PCP"
     then 'Patients on opioid therapy should have a urine drug test performed every 12 months.'
@@ -207,22 +237,50 @@ define "Indicator":
   'warning'
 
 define "Summary":
-  if "Applicable Because of Positive Cocaine or PCP"
-    then 'Positive Cocaine or PCP in Urine Screening'
-  else if "Applicable Not Because of Positive Cocaine or PCP"
-    then 'Annual Urine Screening Check'
-  else null
+    if "Is Perform Drug Screen Recommendation Applicable?"
+        then 'Annual Urine Screening Check'
+        else
+        if "Applicable Because of Positive Cocaine or PCP or Opiates"
+            then 'Positive Cocaine or PCP or Opiates in Urine Screening'
+        else null
 
 define "Cocaine And PCP Summary":
   'Positive for Cocaine AND PCP <br/><br/>' +
     "Cocaine Summary" + '<br/>' + "PCP Summary"
 
+define "Opiates Summary":
+    if not exists Common."Opioid Other Than Synthetic Ordered In Last 12 Months"
+    then
+        if "Negative Opiate Screenings Count Since Last Positive Screening" > 0
+        then
+          '<br/>*Positive for Opiates: ' +
+            Combine("Positive Opiate Dates in Lookback Period", ', ') +
+            '  (' + ToString("Negative Opiate Screenings Count Since Last Positive Screening") +
+            ' negative since)'
+        else
+          '<br/>*Positive for Opiates: ' +
+            Combine("Positive Opiate Dates in Lookback Period", ', ')
+    else
+        null
+
 define "PCP Summary":
-  'Positive for PCP: <br/>' +
-  'Positive lab dates: <br/>' + Combine("Positive PCP Dates in Lookback Period", ', <br/>') + '<br/>' +
-  'Negative test count since last Positive: ' + ToString("Negative PCP Screenings Count Since Last Positive Screening")
+    if "Negative PCP Screenings Count Since Last Positive Screening" > 0
+    then
+      '<br/>*Positive for PCP: <br/>' +
+        Combine("Positive PCP Dates in Lookback Period", ', ') +
+        '  (' + ToString("Negative PCP Screenings Count Since Last Positive Screening") +
+        ' negative since)'
+    else
+      '<br/>*Positive for PCP: <br/>' +
+        Combine("Positive PCP Dates in Lookback Period", ', ')
 
 define "Cocaine Summary":
-  'Positive for Cocaine: <br/>' +
-  'Positive lab dates: <br/>' + Combine("Positive Cocaine Dates in Lookback Period", '<br/>') + '<br/>' +
-  'Negative test count since last Positive: ' + ToString("Negative Cocaine Screenings Count Since Last Positive Screening")
+    if "Negative Cocaine Screenings Count Since Last Positive Screening" > 0
+    then
+      '<br/>*Positive for Cocaine: <br/>' +
+        Combine("Positive Cocaine Dates in Lookback Period", ', ') +
+        '  (' + ToString("Negative Cocaine Screenings Count Since Last Positive Screening") +
+        ' negative since)'
+    else
+      '<br/>*Positive for Cocaine: <br/>' +
+      Combine("Positive Cocaine Dates in Lookback Period", ', ')
