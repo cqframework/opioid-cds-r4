@@ -228,11 +228,6 @@ define "Detail":
         else
             null
 
-      )
-  else if "Applicable Not Because of Positive Cocaine or PCP"
-    then 'Patients on opioid therapy should have a urine drug test performed every 12 months.'
-    else null
-
 define "Indicator":
   'warning'
 
