@@ -1,6 +1,102 @@
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
+  "code" : "170935008"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Full care by hospice",
+  "code" : "170935008",
+  "system" : "http://snomed.info/sct",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "448451000124101"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "code" : "",
+  "system" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 448451000124101 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"448451000124101\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#448451000124101) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "1891000124102"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Transition from acute care to hospice (finding)",
+  "code" : "1891000124102",
+  "system" : "http://snomed.info/sct",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "1951000124104"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "code" : "",
+  "system" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 1951000124104 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"1951000124104\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#1951000124104) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "306205009"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Referral to hospice",
+  "code" : "306205009",
+  "system" : "http://snomed.info/sct",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "305336008"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Admission to hospice",
+  "code" : "305336008",
+  "system" : "http://snomed.info/sct",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "183919006"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "Urgent admission to hospice",
+  "code" : "183919006",
+  "system" : "http://snomed.info/sct",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428371000124100"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
+v: {
+  "display" : "",
+  "code" : "",
+  "system" : "",
+  "severity" : "error",
+  "error" : "Unable to find code 428371000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"428371000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428371000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/731000124108",
   "code" : "460831000124102"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
@@ -127,102 +223,6 @@ v: {
   "system" : "http://snomed.info/sct",
   "severity" : null,
   "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "170935008"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Full care by hospice",
-  "code" : "170935008",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "448451000124101"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "code" : "",
-  "system" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 448451000124101 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"448451000124101\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#448451000124101) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "1891000124102"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Transition from acute care to hospice (finding)",
-  "code" : "1891000124102",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "1951000124104"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "code" : "",
-  "system" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 1951000124104 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"1951000124104\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#1951000124104) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "306205009"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Referral to hospice",
-  "code" : "306205009",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "305336008"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Admission to hospice",
-  "code" : "305336008",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "183919006"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Urgent admission to hospice",
-  "code" : "183919006",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "428371000124100"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "",
-  "code" : "",
-  "system" : "",
-  "severity" : "error",
-  "error" : "Unable to find code 428371000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"428371000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#428371000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -483,30 +483,6 @@ v: {
   "system" : "",
   "severity" : "error",
   "error" : "Unable to find code 454281000124100 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code \"454281000124100\" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#454281000124100) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "183920000"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Routine admission to hospice",
-  "code" : "183920000",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "183921001"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Admission to hospice for respite",
-  "code" : "183921001",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
-  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -869,15 +845,110 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "305911006"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS"}####
-v: {
-  "display" : "Seen in hospice",
-  "code" : "305911006",
-  "system" : "http://snomed.info/sct",
-  "severity" : null,
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "170935008"
+      },
+      {
+        "code" : "448451000124101"
+      },
+      {
+        "code" : "1891000124102"
+      },
+      {
+        "code" : "1951000124104"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:61875c6e-2bb3-4c75-ac46-859262f3518e",
+    "timestamp" : "2021-11-24T19:11:01.317Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20210731"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "170935008",
+      "display" : "Full care by hospice"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "1891000124102",
+      "display" : "Transition from acute care to hospice (finding)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "306205009"
+      },
+      {
+        "code" : "305336008"
+      },
+      {
+        "code" : "183919006"
+      },
+      {
+        "code" : "428371000124100"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:4ee3c861-2d4c-4502-a523-b1ed2084f45d",
+    "timestamp" : "2021-11-24T19:11:01.473Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20210731"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "306205009",
+      "display" : "Referral to hospice"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "305336008",
+      "display" : "Admission to hospice"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "183919006",
+      "display" : "Urgent admission to hospice"
+    }]
+  }
+},
   "error" : ""
 }
 -------------------------------------------------------------------------------------

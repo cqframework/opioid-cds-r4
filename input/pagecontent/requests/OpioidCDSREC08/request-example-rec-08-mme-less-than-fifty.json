@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-08-mme-less-than-fifty",
     "encounterId": "Encounter/example-rec-08-mme-less-than-fifty-context",
     "selections": [ "MedicationRequest/example-rec-08-mme-less-than-fifty-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-08-mme-less-than-fifty-context",
@@ -57,11 +57,14 @@
                 "periodUnit": "d"
               }
             },
-            "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1.0,
-              "unit": "patch"
-            }
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "patch"
+                }
+              }
+            ]
           }
         ],
         "dispenseRequest": {
@@ -85,12 +88,9 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
-    "item1": null,
-    "item2": null,
-    "item3": {
+    "item1": {
       "response": {
         "status": "200 OK"
       },
@@ -101,6 +101,8 @@
         "birthDate": "1982-01-07"
       }
     },
+    "item2": null,
+    "item3": null,
     "item4": null,
     "item5": null,
     "item6": null,

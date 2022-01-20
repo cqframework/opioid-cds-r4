@@ -10,6 +10,11 @@
     "valueReference": {
       "reference": "Device/cqf-tooling"
     }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC11PatientView",
   "version": "2.0.1",
@@ -62,15 +67,15 @@
   }, {
     "type": "depends-on",
     "display": "Value set Encounter Diagnosis Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/encounter-diagnosis-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
   }, {
     "type": "depends-on",
     "display": "Value set Problem List Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/problem-list-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
   }, {
     "type": "depends-on",
     "display": "Value set US Core Health Concern Condition Category",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/us-core-health-concern-condition-category"
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
   }, {
     "type": "depends-on",
     "display": "Value set Limited life expectancy conditions",
@@ -188,7 +193,7 @@
     "mustSupport": [ "category" ],
     "codeFilter": [ {
       "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/encounter-diagnosis-condition-category"
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
     } ]
   }, {
     "type": "Condition",
@@ -196,7 +201,7 @@
     "mustSupport": [ "category" ],
     "codeFilter": [ {
       "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/problem-list-condition-category"
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
     } ]
   }, {
     "type": "Condition",
@@ -204,7 +209,7 @@
     "mustSupport": [ "category" ],
     "codeFilter": [ {
       "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/us-core-health-concern-condition-category"
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   }, {
     "type": "Procedure",

@@ -69,8 +69,10 @@ define "Inclusion Criteria":
     and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (
-      "Total MME" >= 50 'mg/d'
-        or "On Benzodiazepine"
+/* baustin - Commented out until we can update the MME calculator to current version
+      "Total MME" >= 50 'mg/d' or
+ */
+    "On Benzodiazepine"
         or "Has Substance Abuse History"
     )
 
@@ -113,7 +115,8 @@ define "Get Summary":
 
 define "Detail Descriptions":
 	{
-    { hasCondition: "Total MME" >= 50 'mg/d', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/d' },
+/* baustin - Commented out until we can update the MME calculator to current version
+    { hasCondition: "Total MME" >= 50 'mg/d', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/d' }, */
     { hasCondition: "On Benzodiazepine", text: 'concurrent use of benzodiazepine'},
     { hasCondition: "Has Substance Abuse History", text: 'history of alcohol or drug abuse' }
   }
