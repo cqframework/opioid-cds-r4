@@ -42,7 +42,7 @@ define "Lookback Year":
   Interval[Today() - 12 months - 1 days, Today() - 1 day]
 
 define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
-  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
+  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( [MedicationRequest] ) ) AmbulatoryOpioidPrescription
     where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
