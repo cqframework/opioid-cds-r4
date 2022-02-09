@@ -3,7 +3,7 @@
     <status value="active"/>
     <intent value="proposal"/>
     <action>
-        <selectionBehavior value="exactly-one"/>
+        <selectionBehavior value="any"/>
         <action>
             <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup-action-indicator">
                 <valueCode value="warning"/>
