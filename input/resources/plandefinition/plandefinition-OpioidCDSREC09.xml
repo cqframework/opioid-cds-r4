@@ -121,7 +121,8 @@
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
-        <selectionBehavior value="exactly-one"/>
+        <selectionBehavior value="any"/>
+        <!-- dynamic card elements -->
         <dynamicValue>
             <path value="action.title"/>
             <expression>

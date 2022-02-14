@@ -121,7 +121,7 @@
         </expression>
       </condition>
       <groupingBehavior value="visual-group"/>
-      <selectionBehavior value="exactly-one"/>
+      <selectionBehavior value="any"/>
       <dynamicValue>
         <path value="action.description"/>
         <expression>
