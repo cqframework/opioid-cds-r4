@@ -135,7 +135,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2021-01-22",
+              "effectiveDateTime": "2021-09-22",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -175,7 +175,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2021-03-01",
+              "effectiveDateTime": "2021-11-01",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -189,7 +189,6 @@
               ]
             }
           },
-
           {
             "resource": {
               "resourceType": "Observation",
@@ -216,7 +215,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2021-05-01",
+              "effectiveDateTime": "2021-12-01",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -255,7 +254,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2021-06-01",
+              "effectiveDateTime": "2022-02-01",
               "valueString": "NEG",
               "interpretation": [
                 {
