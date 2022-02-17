@@ -128,7 +128,7 @@
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
-        <selectionBehavior value="exactly-one"/>
+        <selectionBehavior value="any"/>
         <!-- reference to risk assessment activity definition -->
         <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-risk-assessment-request"/>
         <type>
