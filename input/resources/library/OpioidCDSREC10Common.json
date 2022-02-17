@@ -1,10 +1,6 @@
 {
   "resourceType": "Library",
   "id": "OpioidCDSREC10Common",
-  "text": {
-    "status": "generated",
-    "div": ""
-  },
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
