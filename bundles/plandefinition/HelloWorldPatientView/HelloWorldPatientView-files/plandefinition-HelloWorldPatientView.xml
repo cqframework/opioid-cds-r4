@@ -1,0 +1,90 @@
+<PlanDefinition xmlns="http://hl7.org/fhir">
+    <id value="hello-world-patient-view"/>
+    <meta>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+    </meta>
+    <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/hello-world-patient-view"/>
+    <identifier>
+        <use value="official"/>
+        <value value="helloworld-patient-view-sample"/>
+    </identifier>
+    <version value="1.0.0"/>
+    <name value="HelloWorldPatientView"/>
+    <title value="Hello World (patient-view)"/>
+    <type>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+            <code value="eca-rule"/>
+            <display value="ECA Rule"/>
+        </coding>
+    </type>
+    <status value="draft"/>
+    <experimental value="true"/>
+    <date value="2021-05-26T00:00:00-08:00"/>
+    <publisher value="Alphora"/>
+    <description value="This PlanDefinition defines a simple Hello World recommendation that triggers on patient-view."/>
+    <useContext>
+        <code>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+            <version value="4.0.1"/>
+            <code value="focus"/>
+            <display value="Clinical Focus"/>
+        </code>
+    </useContext>
+    <jurisdiction>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/iso3166-1-3"/>
+            <version value="4.0.1"/>
+            <code value="USA"/>
+            <display value="United States of America"/>
+        </coding>
+    </jurisdiction>
+    <purpose value="The purpose of this is to test the system to make sure we have complete end-to-end functionality"/>
+    <usage value="This is to be used in conjunction with a patient-facing FHIR application."/>
+    <copyright value="© CDC 2016+."/>
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/HelloWorld"/>
+    <action>
+        <label value="Hello World!"/>
+        <title value="Hello World!"/>
+        <description value="A simple Hello World (patient-view) recommendation"/>
+        <trigger>
+            <type value="named-event"/>
+            <name value="patient-view"/>
+        </trigger>
+        <condition>
+            <kind value="start"/>
+            <expression>
+                <description value="Whether or not a Hello World! card should be returned"/>
+                <language value="text/cql"/>
+                <expression value="Main Action Condition Expression Is True"/>
+            </expression>
+        </condition>
+        <type>
+            <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+            <code value="create"/>
+            <display value="Create"/>
+        </type>
+        <!-- dynamic card elements -->
+        <dynamicValue>
+            <path value="action.title"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Get Title"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="action.description"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Get Description"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="action.extension"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Get Indicator"/>
+            </expression>
+        </dynamicValue>
+    </action>
+</PlanDefinition>
