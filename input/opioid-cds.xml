@@ -22,6 +22,10 @@
       <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"/>
       <version value="current"/>
     </dependsOn>
+    <dependsOn>
+        <packageId value="fhir.cdc.opioid-mme-r4"/>
+        <version value="3.0.0"/>
+    </dependsOn>
     <definition>
         <grouping id="recommendation-artifact-packages">
             <name value="Recommendation Artifact Packages"/>
@@ -50,151 +54,11 @@
         </resource>
         <resource>
             <reference>
-                <reference value="Bundle/OpioidCDSREC01-bundle"/>
-                <display value="Recommendation 1 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC01Bundle"/>
-            <description value="A Bundle containing Recommendation 1 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC02-bundle"/>
-                <display value="Recommendation 2 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC02Bundle"/>
-            <description value="A Bundle containing Recommendation 2 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC03-bundle"/>
-                <display value="Recommendation 3 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC03Bundle"/>
-            <description value="A Bundle containing Recommendation 3 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC04-bundle"/>
-                <display value="Recommendation 4 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC04Bundle"/>
-            <description value="A Bundle containing Recommendation 4 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC04PatientView-bundle"/>
-                <display value="Recommendation 4 (patient-view) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC04PatientViewBundle"/>
-            <description value="A Bundle containing Recommendation 4 (patient-view) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC05-bundle"/>
-                <display value="Recommendation 5 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC05Bundle"/>
-            <description value="A Bundle containing Recommendation 5 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC06-bundle"/>
-                <display value="Recommendation 6 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC06Bundle"/>
-            <description value="A Bundle containing Recommendation 6 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC07-bundle"/>
-                <display value="Recommendation 7 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC07Bundle"/>
-            <description value="A Bundle containing Recommendation 7 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC08-bundle"/>
-                <display value="Recommendation 8 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC08Bundle"/>
-            <description value="A Bundle containing Recommendation 8 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC09-bundle"/>
-                <display value="Recommendation 9 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC09Bundle"/>
-            <description value="A Bundle containing Recommendation 9 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC10-bundle"/>
-                <display value="Recommendation 10 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC10Bundle"/>
-            <description value="A Bundle containing Recommendation 10 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
                 <display value="Recommendation 10 (Patient View) Artifact Package"/>
             </reference>
             <name value="OpioidCDSREC10PatientViewBundle"/>
             <description value="A Bundle containing Recommendation 10 (patient-view) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC11-bundle"/>
-                <display value="Recommendation 11 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC11Bundle"/>
-            <description value="A Bundle containing Recommendation 11 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC11PatientView-bundle"/>
-                <display value="Recommendation 11 (patient-view) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC11PatientViewBundle"/>
-            <description value="A Bundle containing Recommendation 11 (patient-view) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC12PatientView-bundle"/>
-                <display value="Recommendation 12 (patient-view) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC12PatientViewBundle"/>
-            <description value="A Bundle containing Recommendation 12 (patient-view) knowledge artifacts"/>
             <exampleBoolean value="false"/>
             <groupingId value="recommendation-artifact-packages"/>
         </resource>
@@ -227,16 +91,6 @@
             </reference>
             <name value="OpioidCDSCommonConfig"/>
             <description value="Common Configuration Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSCommonMME"/>
-                <display value="Common MME Library"/>
-            </reference>
-            <name value="OpioidCDSCommonMME"/>
-            <description value="Common MME Logic Library"/>
             <exampleBoolean value="false"/>
             <groupingId value="common-libraries"/>
         </resource>
@@ -928,63 +782,7 @@
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC01"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC02"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC03"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC04"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC04PatientView"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC05"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC06"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC07"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC08"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC09"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC10"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
           <value value="bundles/plandefinition/OpioidCDSREC10PatientView"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC11"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC11PatientView"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC12PatientView"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
