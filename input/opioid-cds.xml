@@ -50,16 +50,6 @@
         </resource>
         <resource>
             <reference>
-                <reference value="Bundle/OpioidCDSREC10-bundle"/>
-                <display value="Recommendation 10 (order-select) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC10Bundle"/>
-            <description value="A Bundle containing Recommendation 10 (order-select) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
                 <display value="Recommendation 10 (Patient View) Artifact Package"/>
             </reference>
