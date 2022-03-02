@@ -4,6 +4,7 @@ The reference:
     fhir.cdc."opioid-mme-r4".MMECalculator
 
 is currently not working. As a temporary way to use the MMECalculator do the following. Once that reference is funtioning, these changes will need to be backed out.   
+[For reference](https://build.fhir.org/ig/cqframework/opioid-mme-r4/index.html)
 
 ### Changes:
 In OpioidCDSRec08.cql and OpioidCDSRec08.cql comment out:
