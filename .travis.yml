@@ -1,8 +1,9 @@
 language: ruby
 jdk: oraclejdk11
 rvm: 2.4
-before_install: gem install jekyll
-  gem install jekyll-sass-converter -v 2.1.
+before_install:
+  - gem install jekyll
+  - gem install jekyll-sass-converter -v 2.1.
 script: ant -buildfile build.xml travis-publish-ig -Dguidename=ig.ini -Dspec=http://hl7.org/fhir/R4/
 vm:
   size: large
