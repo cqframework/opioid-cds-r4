@@ -63,7 +63,9 @@
                 "doseAndRate": {
                   "doseQuantity": {
                     "value": 1.0,
-                    "unit": "patch"
+                    "unit": "patch",
+                    "system" : "http://unitsofmeasure.org",
+                    "code" : "{patch}"
                   }
                 }
               }
@@ -192,7 +194,9 @@
             "doseAndRate": {
               "doseQuantity": {
                 "value": 1.0,
-                "unit": "tablet"
+                "unit": "tablet",
+                "system" : "http://unitsofmeasure.org",
+                "code" : "{tablet}"
               }
             }
           }
