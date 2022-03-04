@@ -1,4 +1,99 @@
 == Suppressed Messages ==
 
-# The code: 454281000124100 does exist in the http://snomed.info/sct CodeSystem
-ERROR: ActivityDefinition/opioidcds-risk-assessment-request: ActivityDefinition.code.coding: unable to find code 454281000124100 in http://snomed.info/sct
+# The following do resolve
+ERROR: ActivityDefinition/opioidcds-risk-assessment-request: ActivityDefinition.code.coding[0]: Unable to find code 454281000124100 in http://snomed.info/sct%
+ERROR: Device/cqf-tooling: Device.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm' does not resolve
+ERROR: Device/cqf-tooling: Device.type.coding[0]: Unknown Code System 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type'
+ERROR: Device/cqf-tooling: Device.type.coding[0].system: URL value 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type' does not resolve
+ERROR: Library/FHIR-ModelInfo: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/FHIR-ModelInfo: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/FHIR-ModelInfo: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/FHIR-ModelInfo: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/FHIRHelpers: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/FHIRHelpers: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/FHIRHelpers: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/FHIRHelpers: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/HelloWorld: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/HelloWorld: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/HelloWorld: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/HelloWorld: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/HelloWorldPatientView: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/HelloWorldPatientView: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/HelloWorldPatientView: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/HelloWorldPatientView: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKData2019: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKData2019: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKData2019: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKData2019: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKData2020: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKData2020: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKData2020: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKData2020: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKLogicMK2019: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKLogicMK2019: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKLogicMK2019: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKLogicMK2019: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKLogicMK2020: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKLogicMK2020: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OMTKLogicMK2020: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OMTKLogicMK2020: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSCommon: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSCommon: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSCommon: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSCommon: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSCommonConfig: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSCommonConfig: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSCommonConfig: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSCommonConfig: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSCommonMME: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSCommonMME: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSCommonMME: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSCommonMME: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC01: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC01: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC01: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC01: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC02: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC02: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC02: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC02: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC03: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC03: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC03: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC03: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC04: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC04: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC04: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC04: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC04PatientView: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC04PatientView: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC04PatientView: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC04PatientView: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC05: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC05: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC05: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC05: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC06: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC06: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC06: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC06: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC07: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC07: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC07: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC07: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC08: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC08: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC08: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC08: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC09: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC09: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC09: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC09: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library.relatedArtifact[5]: Unrecognised property '@name'
+ERROR: Library/OpioidCDSREC10: Library.extension[0]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC10: Library.extension[0].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+ERROR: Library/OpioidCDSREC10: Library.extension[1]: The extension http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem is unknown, and not allowed here
+ERROR: Library/OpioidCDSREC10: Library.extension[1].url: URL value 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem' does not resolve
+
+# this IS a valid code. see https://bioportal.bioontology.org/ontologies/SNOMEDCT?p=classes&conceptid=461621000124108
+ERROR: Bundle/example-rec-09-false-due-to-PDMP-review-within-90-days: Bundle.entry[1].resource.ofType(Procedure).code.coding[0]: Unable to find code 461621000124108 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code "461621000124108" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461621000124108) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4) for 'http://snomed.info/sct#461621000124108'
