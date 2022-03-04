@@ -41,15 +41,6 @@
         <!-- Artifact Package Bundles -->
         <resource>
             <reference>
-                <reference value="Bundle/opioid-cds-terminology"/>
-                <display value="OpioidCDS Terminology Bundle"/>
-            </reference>
-            <name value="OpioidCDSTerminologyBundle"/>
-            <description value="A Bundle containing terminology for all recommendations"/>
-            <exampleBoolean value="false"/>
-        </resource>
-        <resource>
-            <reference>
                 <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
                 <display value="Recommendation 10 (Patient View) Artifact Package"/>
             </reference>
