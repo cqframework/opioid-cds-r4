@@ -60,8 +60,6 @@
         </resource>
        <!-- Libraries -->
         <!-- Common Libraries-->
-      <!-- Libraries -->
-        <!-- Common Libraries-->
         <resource>
             <reference>
                 <reference value="Library/OpioidCDSRoutines"/>
@@ -73,6 +71,15 @@
             <groupingId value="common-libraries"/>
         </resource>
         <resource>
+            <reference>
+                <reference value="Library/OpioidCDSREC10Common"/>
+                <display value="Recommendation 10 Common Logic Library"/>
+            </reference>
+            <name value="OpioidCDSREC10CommonLibrary"/>
+            <description value="Common Logic Library for Recommendation #10 - Urine Drug Testing"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="recommendation-libraries"/>
+        </resource>        <resource>
             <reference>
                 <reference value="Library/OpioidCDSCommon"/>
                 <display value="Common Library"/>
