@@ -300,7 +300,7 @@
             <name value="OpioidRiskAssessmentActivityDefinition"/>
             <description value="An ActivityDefinition for recommendation of risk assessment"/>
             <exampleBoolean value="false"/>
-            <groupingId value="activitydefinition"/>
+            <groupingId value="activitydefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -310,7 +310,7 @@
             <name value="OpioidUrineScreeningActivityDefinition"/>
             <description value="An ActivityDefinition for recommendation of urine screening"/>
             <exampleBoolean value="false"/>
-            <groupingId value="activitydefinition"/>
+            <groupingId value="activitydefinitions"/>
         </resource>
         <!-- Device -->
         <resource>
@@ -332,7 +332,7 @@
             <name value="OpioidCDSREC01PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #1 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -342,7 +342,7 @@
             <name value="OpioidCDSREC02PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #2 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -352,7 +352,7 @@
             <name value="OpioidCDSREC03PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #3 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -362,7 +362,7 @@
             <name value="OpioidCDSREC04PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #4 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -372,7 +372,7 @@
             <name value="OpioidCDSREC04PatientViewPlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #4 (patient-view)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -382,7 +382,7 @@
             <name value="OpioidCDSREC05PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #5 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -392,7 +392,7 @@
             <name value="OpioidCDSREC06PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #6 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -402,7 +402,7 @@
             <name value="OpioidCDSREC07PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #7 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -412,7 +412,7 @@
             <name value="OpioidCDSREC08PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #8 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -422,7 +422,7 @@
             <name value="OpioidCDSREC08OrderSignPlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #8 (order-sign)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -432,7 +432,7 @@
             <name value="OpioidCDSREC09PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #9 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -442,7 +442,7 @@
             <name value="OpioidCDSREC10PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #10 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -452,7 +452,7 @@
             <name value="OpioidCDSREC10OrderSignPlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #10 (order-sign)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -462,7 +462,7 @@
             <name value="OpioidCDSREC10PatientViewPlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -472,7 +472,7 @@
             <name value="OpioidCDSREC11PlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #11 (order-select)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -482,7 +482,7 @@
             <name value="OpioidCDSREC11PatientViewPlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #11 (patient-view)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <resource>
             <reference>
@@ -492,7 +492,7 @@
             <name value="OpioidCDSREC12PatientViewPlanDefinition"/>
             <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #12 (patient-view)"/>
             <exampleBoolean value="false"/>
-            <groupingId value="plandefinition"/>
+            <groupingId value="plandefinitions"/>
         </resource>
         <!-- Pages -->
         <page>
