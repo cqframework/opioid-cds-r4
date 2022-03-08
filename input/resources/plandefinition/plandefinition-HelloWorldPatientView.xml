@@ -2,6 +2,7 @@
     <id value="hello-world-patient-view"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition"/>
     </meta>
     <extension
             url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
@@ -10,6 +11,10 @@
     <extension
             url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
         <valueCode value="computable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="executable"/>
     </extension>
     <extension
             url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">

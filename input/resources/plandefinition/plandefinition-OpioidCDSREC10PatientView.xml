@@ -2,7 +2,24 @@
     <id value="opioidcds-10-patient-view"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition"/>
     </meta>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="shareable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="computable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="executable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="publishable"/>
+    </extension>
     <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-patient-view"/>
     <identifier>
         <use value="official"/>
@@ -12,45 +29,46 @@
     <name value="PlanDefinition_Recommendation_10_Patient_View"/>
     <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)"/>
     <type>
-  		<coding>
-  			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
-  			<code value="eca-rule"/>
-  			<display value="ECA Rule"/>
-  		</coding>
-  	</type>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+            <code value="eca-rule"/>
+            <display value="ECA Rule"/>
+        </coding>
+    </type>
     <status value="draft"/>
     <experimental value="true"/>
     <date value="2019-01-12"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
-    <description value="When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs."/>
+    <description
+            value="When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs."/>
     <useContext>
-  		<code>
-  			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-  			<code value="focus"/>
-  			<display value="Clinical Focus"/>
-  		</code>
-  		<valueCodeableConcept>
-  			<coding>
-  				<system value="http://snomed.info/sct"/>
-  				<code value="182888003"/>
-  				<display value="Medication requested (situation)"/>
-  			</coding>
-  		</valueCodeableConcept>
-  	</useContext>
+        <code>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+            <code value="focus"/>
+            <display value="Clinical Focus"/>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="182888003"/>
+                <display value="Medication requested (situation)"/>
+            </coding>
+        </valueCodeableConcept>
+    </useContext>
     <useContext>
-  		<code>
-  			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-  			<code value="focus"/>
-  			<display value="Clinical Focus"/>
-  		</code>
-  		<valueCodeableConcept>
-  			<coding>
-  				<system value="http://snomed.info/sct"/>
-  				<code value="82423001"/>
-  				<display value="Chronic pain (finding)"/>
-  			</coding>
-  		</valueCodeableConcept>
-  	</useContext>
+        <code>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+            <code value="focus"/>
+            <display value="Clinical Focus"/>
+        </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="82423001"/>
+                <display value="Chronic pain (finding)"/>
+            </coding>
+        </valueCodeableConcept>
+    </useContext>
     <jurisdiction>
         <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -58,7 +76,8 @@
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
-    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+    <purpose
+            value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
     <usage value="Providers should be aware if patients are taking other prescription drugs or illicit drugs that might increase their risk of an overdose."/>
     <copyright value="© CDC 2016+."/>
     <topic>
@@ -76,7 +95,7 @@
     <author>
         <name value="Robert McClure, MD, MPH"/>
     </author>
-    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10PatientView" />
+    <library value="http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10PatientView"/>
     <action>
         <prefix value="Order Urine Screening"/>
         <title value="Annual Urine Screening Check"/>
@@ -123,13 +142,14 @@
             </expression>
         </condition>
         <type>
-          <coding>
-    				<system value="http://terminology.hl7.org/CodeSystem/action-type"/>
-    				<code value="create"/>
-    				<display value="Create"/>
-    			</coding>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+                <code value="create"/>
+                <display value="Create"/>
+            </coding>
         </type>
-        <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
+        <definitionCanonical
+                value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
         <dynamicValue>
             <path value="action.description"/>
             <expression>
@@ -163,7 +183,7 @@
         </action>
     </action>
     <action>
-        <prefix value="1." />
+        <prefix value="1."/>
         <title value="Tested Positive for Cocaine, Opiates, or PCP"/>
         <description value="Urine screening showed positive for cocaine, opiates or PCP"/>
         <documentation>
@@ -207,12 +227,13 @@
                 <expression value="Applicable Because of Positive Cocaine or PCP or Opiates"/>
             </expression>
         </condition>
-        <definitionCanonical value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
+        <definitionCanonical
+                value="http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"/>
         <type>
             <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/action-type" />
-                <code value="create" />
-                <display value="Create" />
+                <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+                <code value="create"/>
+                <display value="Create"/>
             </coding>
         </type>
         <!-- dynamic card elements -->
@@ -245,6 +266,8 @@
             <description value="Will assess patient for substance abuse disorder"/>
         </action>
         <action>
-            <description value="Will access CDS quality improvement and care coordination for prescribing opioids for chronic pain https://www.cdc.gov/drugoverdose/pdf/prescribing/CDC-DUIP-QualityImprovementAndCareCoordination-508.pdf"/>
+            <description
+                    value="Will access CDS quality improvement and care coordination for prescribing opioids for chronic pain https://www.cdc.gov/drugoverdose/pdf/prescribing/CDC-DUIP-QualityImprovementAndCareCoordination-508.pdf"/>
         </action>
-    </action></PlanDefinition>
+    </action>
+</PlanDefinition>
