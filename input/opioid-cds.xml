@@ -44,7 +44,16 @@
           <name value="PlanDefinitions"/>
         </grouping>
         <!-- Artifact Package Bundles -->
-
+        <resource>
+        <reference>
+            <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
+            <display value="Recommendation 10 (Patient View) Artifact Package"/>
+        </reference>
+        <name value="OpioidCDSREC10PatientViewBundle"/>
+        <description value="A Bundle containing Recommendation 10 (patient-view) knowledge artifacts"/>
+        <exampleBoolean value="false"/>
+        <groupingId value="recommendation-artifact-packages"/>
+    </resource>
        <!-- Libraries -->
         <!-- Common Libraries-->
         <resource>
@@ -802,7 +811,10 @@
           <code value="path-resource" />
           <value value="bundles"/>
         </parameter>
-
+        <parameter>
+          <code value="path-resource" />
+          <value value="bundles/plandefinition/OpioidCDSREC10PatientView"/>
+        </parameter>
         <parameter>
           <code value="path-resource" />
           <value value="input/resources/activitydefinition"/>
