@@ -58,12 +58,16 @@
               }
             },
             "asNeededBoolean": false,
-            "doseAndRate": [{
-              "doseQuantity": {
-                "value": 1.0,
-                "unit": "patch"
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "patch",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{patch}"
+                }
               }
-            }]
+              ]
           }
         ],
         "dispenseRequest": {
@@ -145,7 +149,9 @@
             "doseAndRate": [{
               "doseQuantity": {
                 "value": 1.0,
-                "unit": "patch"
+                "unit": "patch",
+                "system" : "http://unitsofmeasure.org",
+                "code" : "{patch}"
               }
             }]
           }

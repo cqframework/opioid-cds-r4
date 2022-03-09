@@ -79,7 +79,9 @@
               {
                 "doseQuantity": {
                   "value": 1.0,
-                  "unit": "capsule"
+                  "unit": "capsule",
+                  "system" : "http://unitsofmeasure.org",
+                  "code" : "{capsule}"
                 }
               }
             ]

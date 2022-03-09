@@ -3,9 +3,11 @@ library OpioidCDSREC05 version '2.0.1'
 using FHIR version '4.0.1'
 
 include OpioidCDSCommon version '2.0.1' called Common
-include OpioidCDSCommonMME version '2.0.1' called CommonMME
 include OpioidCDSCommonConfig version '2.0.1' called Config
 include OpioidCDSRoutines version '2.0.1' called Routines
+/*include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
+ */
+include MMECalculator version '3.0.0' called MMECalculator
 
 /*
 **
@@ -63,13 +65,13 @@ define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
     and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
-    and "Total MME" >= 50 'mg/d'
+    and "Total MME" >= 50 '{MME}/d'
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
 
 define "Total MME":
-  CommonMME.TotalMME(
+  MMECalculator.TotalMME(
     (
       "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
         union Common."Active Ambulatory Opioid Rx"

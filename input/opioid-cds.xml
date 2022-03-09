@@ -22,6 +22,10 @@
       <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"/>
       <version value="current"/>
     </dependsOn>
+    <dependsOn>
+        <packageId value="fhir.cdc.opioid-mme-r4"/>
+        <version value="3.0.0"/>
+    </dependsOn>
     <definition>
         <grouping id="recommendation-artifact-packages">
             <name value="Recommendation Artifact Packages"/>
@@ -58,8 +62,6 @@
             <exampleBoolean value="false"/>
             <groupingId value="recommendation-artifact-packages"/>
         </resource>
-       <!-- Libraries -->
-        <!-- Common Libraries-->
       <!-- Libraries -->
         <!-- Common Libraries-->
         <resource>
@@ -89,16 +91,6 @@
             </reference>
             <name value="OpioidCDSCommonConfig"/>
             <description value="Common Configuration Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSCommonMME"/>
-                <display value="Common MME Library"/>
-            </reference>
-            <name value="OpioidCDSCommonMME"/>
-            <description value="Common MME Logic Library"/>
             <exampleBoolean value="false"/>
             <groupingId value="common-libraries"/>
         </resource>
