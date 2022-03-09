@@ -33,4 +33,3 @@ else
 	fi
 fi
 
-sh _refreshTerminologyBundle.sh

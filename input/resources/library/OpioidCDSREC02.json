@@ -199,12 +199,11 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   }, {
-    "type": "Procedure",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-    "mustSupport": [ "code", "performer", "performed" ],
+    "type": "Medication",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
+    "mustSupport": [ "id" ],
     "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure"
+      "path": "id"
     } ]
   }, {
     "type": "ServiceRequest",
@@ -215,12 +214,8 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     } ]
   }, {
-    "type": "Medication",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-    "mustSupport": [ "id" ],
-    "codeFilter": [ {
-      "path": "id"
-    } ]
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
   }, {
     "type": "CarePlan",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/CarePlan" ],
@@ -230,8 +225,13 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan"
     } ]
   }, {
-    "type": "Patient",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+    "type": "Procedure",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+    "mustSupport": [ "code", "performer", "performed" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure"
+    } ]
   } ],
   "content": [ {
     "contentType": "text/cql",

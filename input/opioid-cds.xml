@@ -22,6 +22,11 @@
       <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"/>
       <version value="current"/>
     </dependsOn>
+    <dependsOn>
+        <uri value="http://hl7.fhir.us.cqfmeasures"/>
+        <packageId value="hl7.fhir.us.cqfmeasures"/>
+        <version value="2.0.0"/>
+    </dependsOn>
     <definition>
         <grouping id="recommendation-artifact-packages">
             <name value="Recommendation Artifact Packages"/>
@@ -39,18 +44,29 @@
           <name value="PlanDefinitions"/>
         </grouping>
         <!-- Artifact Package Bundles -->
-        <resource>
-            <reference>
-                <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
-                <display value="Recommendation 10 (Patient View) Artifact Package"/>
-            </reference>
-            <name value="OpioidCDSREC10PatientViewBundle"/>
-            <description value="A Bundle containing Recommendation 10 (patient-view) knowledge artifacts"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-artifact-packages"/>
-        </resource>
+
        <!-- Libraries -->
         <!-- Common Libraries-->
+        <resource>
+            <reference>
+                <reference value="Library/HelloWorld"/>
+                <display value="HelloWorld Library"/>
+            </reference>
+            <name value="HelloWorld"/>
+            <description value="HelloWorld Library"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="common-libraries"/>
+        </resource>
+        <resource>
+            <reference>
+                <reference value="Library/HelloWorldPatientView"/>
+                <display value="HelloWorldPatientView Library"/>
+            </reference>
+            <name value="HelloWorldPatientView"/>
+            <description value="HelloWorldPatientView Library"/>
+            <exampleBoolean value="false"/>
+            <groupingId value="common-libraries"/>
+        </resource>
         <resource>
             <reference>
                 <reference value="Library/OpioidCDSRoutines"/>
@@ -786,10 +802,7 @@
           <code value="path-resource" />
           <value value="bundles"/>
         </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC10PatientView"/>
-        </parameter>
+
         <parameter>
           <code value="path-resource" />
           <value value="input/resources/activitydefinition"/>
