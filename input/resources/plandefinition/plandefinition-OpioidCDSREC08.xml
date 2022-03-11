@@ -2,7 +2,24 @@
     <id value="opioidcds-08"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition"/>
     </meta>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="shareable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="computable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="executable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="publishable"/>
+    </extension>
     <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-08"/>
     <identifier>
         <use value="official"/>
@@ -22,7 +39,8 @@
     <experimental value="true"/>
     <date value="2018-03-19"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
-    <description value="Clinicians should incorporate into the management plan strategies to mitigate risk, including considering offering naloxone when factors that increase risk for opioid overdose, such as history of overdose, history of substance use disorder, higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are present."/>
+    <description
+            value="Clinicians should incorporate into the management plan strategies to mitigate risk, including considering offering naloxone when factors that increase risk for opioid overdose, such as history of overdose, history of substance use disorder, higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are present."/>
     <useContext>
         <code>
             <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -58,7 +76,8 @@
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
-    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+    <purpose
+            value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
     <usage value="Before starting and periodically during continuation of opioid therapy, clinicians should evaluate risk factors for opioid-related harms."/>
     <copyright value="© CDC 2016+."/>
     <topic>
@@ -90,7 +109,8 @@
     <action>
         <!-- non-dynamic card summary -->
         <title value="Existing patient exhibits risk factors for opioid-related harms."/>
-        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #8 workflow."/>
+        <description
+                value="Checking if the trigger prescription meets the inclusion criteria for recommendation #8 workflow."/>
         <documentation>
             <type value="documentation"/>
             <document>
@@ -122,7 +142,8 @@
         <condition>
             <kind value="applicability"/>
             <expression>
-                <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
+                <description
+                        value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
                 <language value="text/cql.identifier"/>
                 <expression value="Is Recommendation Applicable?"/>
             </expression>
@@ -130,26 +151,26 @@
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="any"/>
         <dynamicValue>
-			<path value="action.title"/>
-			<expression>
-        <language value="text/cql.identifier"/>
-				<expression value="Get Summary"/>
-			</expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="action.description"/>
-			<expression>
-        <language value="text/cql.identifier"/>
-				<expression value="Get Detail"/>
-			</expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="activity.extension"/>
-			<expression>
-        <language value="text/cql.identifier"/>
-				<expression value="Get Indicator"/>
-			</expression>
-		</dynamicValue>
+            <path value="action.title"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Get Summary"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="action.description"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Get Detail"/>
+            </expression>
+        </dynamicValue>
+        <dynamicValue>
+            <path value="activity.extension"/>
+            <expression>
+                <language value="text/cql.identifier"/>
+                <expression value="Get Indicator"/>
+            </expression>
+        </dynamicValue>
         <action>
             <description value="Will offer Naloxone medications"/>
             <!-- Open Order Set, where available -->

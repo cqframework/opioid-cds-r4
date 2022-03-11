@@ -1,4 +1,9 @@
 == Suppressed Messages ==
 
-# The code: 454281000124100 does exist in the http://snomed.info/sct CodeSystem
-ERROR: ActivityDefinition/opioidcds-risk-assessment-request: ActivityDefinition.code.coding: unable to find code 454281000124100 in http://snomed.info/sct
+# The following do resolve
+ERROR: ActivityDefinition/opioidcds-risk-assessment-request: ActivityDefinition.code.coding[0]: Unable to find code 454281000124100 in http://snomed.info/sct%
+ERROR: Device/cqf-tooling: Device.meta.profile[0]: Canonical URL 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm' does not resolve
+ERROR: Device/cqf-tooling: Device.type.coding[0]: Unknown Code System 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type'
+ERROR: Device/cqf-tooling: Device.type.coding[0].system: URL value 'http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type' does not resolve
+# this IS a valid code. see https://bioportal.bioontology.org/ontologies/SNOMEDCT?p=classes&conceptid=461621000124108
+ERROR: Bundle/example-rec-09-false-due-to-PDMP-review-within-90-days: Bundle.entry[1].resource.ofType(Procedure).code.coding[0]: Unable to find code 461621000124108 in http://snomed.info/sct (version http://snomed.info/sct/900000000000207008/version/20210731); The code "461621000124108" is not valid in the system http://snomed.info/sct; The code provided (http://snomed.info/sct#461621000124108) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4) for 'http://snomed.info/sct#461621000124108'

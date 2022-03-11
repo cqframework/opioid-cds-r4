@@ -11,16 +11,12 @@
     "valueReference": {
       "reference": "Device/cqf-tooling"
     }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
-    "valueReference": {
-      "reference": "Device/cqf-tooling"
-    }
   } ],
   "url": "http://hl7.org/fhir/Library/FHIRHelpers",
   "version": "4.0.1",
   "name": "FHIRHelpers",
   "title": "FHIR Helpers",
+  "status": "draft",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",

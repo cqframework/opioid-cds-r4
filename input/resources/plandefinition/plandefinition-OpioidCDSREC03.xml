@@ -2,7 +2,24 @@
     <id value="opioidcds-03"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition"/>
     </meta>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="shareable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="computable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="executable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="publishable"/>
+    </extension>
     <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-03"/>
     <identifier>
         <use value="official"/>
@@ -22,7 +39,8 @@
     <experimental value="true"/>
     <date value="2019-08-01"/>
     <publisher value="Centers for Disease Control and Prevention (CDC)"/>
-    <description value="Before starting and periodically during opioid therapy, clinicians should discuss with patients known risks and realistic benefits of opioid therapy and patient and clinician responsibilities for managing therapy."/>
+    <description
+            value="Before starting and periodically during opioid therapy, clinicians should discuss with patients known risks and realistic benefits of opioid therapy and patient and clinician responsibilities for managing therapy."/>
     <useContext>
         <code>
             <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -58,7 +76,8 @@
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
-    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+    <purpose
+            value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
     <usage value="Before starting and periodically during opioid therapy, clinicians should discuss with patients known risks and realistic benefits of opioid therapy and patient and clinician responsibilities for managing therapy."/>
     <copyright value="© CDC 2016+."/>
     <topic>
@@ -85,7 +104,8 @@
     <action>
         <!-- non-dynamic card summary -->
         <title value="Current Order is for Extended release opioid with ambulatory abuse potential."/>
-        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #3 workflow."/>
+        <description
+                value="Checking if the trigger prescription meets the inclusion criteria for recommendation #3 workflow."/>
         <documentation>
             <type value="documentation"/>
             <document>
@@ -117,7 +137,8 @@
         <condition>
             <kind value="applicability"/>
             <expression>
-                <description value="Check whether the current Order is for Extended release opioid with ambulatory abuse potential."/>
+                <description
+                        value="Check whether the current Order is for Extended release opioid with ambulatory abuse potential."/>
                 <language value="text/cql.identifier"/>
                 <expression value="Is Recommendation Applicable?"/>
             </expression>

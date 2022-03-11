@@ -215,12 +215,20 @@
     "type": "MedicationDispense"
   } ],
   "dataRequirement": [ {
-    "type": "Encounter",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-    "mustSupport": [ "period.start", "period", "diagnosis", "type", "period.start.value", "participant" ],
+    "type": "PractitionerRole",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/PractitionerRole" ],
+    "mustSupport": [ "specialty" ],
     "codeFilter": [ {
-      "path": "type",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
+      "path": "specialty",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations"
+    } ]
+  }, {
+    "type": "MedicationDispense",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationDispense" ],
+    "mustSupport": [ "whenHandedOver", "medication", "status" ],
+    "codeFilter": [ {
+      "path": "medication",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
     } ]
   }, {
     "type": "Condition",
@@ -255,22 +263,6 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     } ]
   }, {
-    "type": "MedicationDispense",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationDispense" ],
-    "mustSupport": [ "whenHandedOver", "medication", "status" ],
-    "codeFilter": [ {
-      "path": "medication",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
-    } ]
-  }, {
-    "type": "PractitionerRole",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/PractitionerRole" ],
-    "mustSupport": [ "specialty" ],
-    "codeFilter": [ {
-      "path": "specialty",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations"
-    } ]
-  }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
     "mustSupport": [ "status" ],
@@ -287,9 +279,6 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
     } ]
   }, {
-    "type": "Patient",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
-  }, {
     "type": "Medication",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
     "mustSupport": [ "id" ],
@@ -303,6 +292,17 @@
     "codeFilter": [ {
       "path": "status",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
+    } ]
+  }, {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "period.start", "period", "diagnosis", "type", "period.start.value", "participant" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
     } ]
   }, {
     "type": "Encounter",
