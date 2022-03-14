@@ -162,7 +162,7 @@
   }, {
     "type": "depends-on",
     "display": "Code system CDC MME Usage Context Codes",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/CDCMMEUsageContextCodes"
+    "resource": "http://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem/CDCMMEUsageContextCodes"
   } ],
   "parameter": [ {
     "name": "ErrorLevel",
