@@ -2,11 +2,13 @@ library OpioidCDSREC08 version '2.0.1'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.1' called FHIRHelpers
+include FHIRHelpers  version '4.0.1' called FHIRHelpers
 include OpioidCDSCommon version '2.0.1' called Common
-include OpioidCDSCommonMME version '2.0.1' called CommonMME
 include OpioidCDSCommonConfig version '2.0.1' called Config
 include OpioidCDSRoutines version '2.0.1' called Routines
+/*include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
+ */
+include MMECalculator version '3.0.0' called MMECalculator
 
 /*
 **
@@ -69,9 +71,8 @@ define "Inclusion Criteria":
     and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (
-/* baustin - Commented out until we can update the MME calculator to current version
-      "Total MME" >= 50 'mg/d' or
- */
+      "Total MME" >= 50 '{MME}/d' or
+
     "On Benzodiazepine"
         or "Has Substance Abuse History"
     )
@@ -84,7 +85,7 @@ define "Exclusion Criteria":
     or Common."End of Life Assessment"
 
 define "Total MME":
-  CommonMME.TotalMME(
+  MMECalculator.TotalMME(
     "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
       union Common."Active Ambulatory Opioid Rx"
   )
@@ -115,8 +116,7 @@ define "Get Summary":
 
 define "Detail Descriptions":
 	{
-/* baustin - Commented out until we can update the MME calculator to current version
-    { hasCondition: "Total MME" >= 50 'mg/d', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/d' }, */
+    { hasCondition: "Total MME" >= 50 '{MME}/d', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/d' },
     { hasCondition: "On Benzodiazepine", text: 'concurrent use of benzodiazepine'},
     { hasCondition: "Has Substance Abuse History", text: 'history of alcohol or drug abuse' }
   }

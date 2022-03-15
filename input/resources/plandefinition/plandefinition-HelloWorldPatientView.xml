@@ -2,7 +2,24 @@
     <id value="hello-world-patient-view"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition"/>
     </meta>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="shareable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="computable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="executable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="publishable"/>
+    </extension>
     <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/hello-world-patient-view"/>
     <identifier>
         <use value="official"/>
@@ -22,7 +39,8 @@
     <experimental value="true"/>
     <date value="2021-05-26T00:00:00-08:00"/>
     <publisher value="Alphora"/>
-    <description value="This PlanDefinition defines a simple Hello World recommendation that triggers on patient-view."/>
+    <description
+            value="This PlanDefinition defines a simple Hello World recommendation that triggers on patient-view."/>
     <useContext>
         <code>
             <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
@@ -30,12 +48,18 @@
             <code value="focus"/>
             <display value="Clinical Focus"/>
         </code>
+        <valueCodeableConcept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="82423001"/>
+                <display value="Chronic pain (finding)"/>
+            </coding>
+        </valueCodeableConcept>
     </useContext>
     <jurisdiction>
         <coding>
-            <system value="http://hl7.org/fhir/ValueSet/iso3166-1-3"/>
-            <version value="4.0.1"/>
-            <code value="USA"/>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
@@ -44,7 +68,6 @@
     <copyright value="© CDC 2016+."/>
     <library value="http://fhir.org/guides/cdc/opioid-cds/Library/HelloWorld"/>
     <action>
-        <label value="Hello World!"/>
         <title value="Hello World!"/>
         <description value="A simple Hello World (patient-view) recommendation"/>
         <trigger>
@@ -60,9 +83,11 @@
             </expression>
         </condition>
         <type>
-            <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
-            <code value="create"/>
-            <display value="Create"/>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+                <code value="create"/>
+                <display value="Create"/>
+            </coding>
         </type>
         <!-- dynamic card elements -->
         <dynamicValue>

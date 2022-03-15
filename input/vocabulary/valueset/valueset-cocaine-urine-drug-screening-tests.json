@@ -6,7 +6,10 @@
   },
   "extension": [ {
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
-    "valueString": "Step 1. Add all codes found using the following LOINC query: cocaine (=system:Urine)"
+    "valueMarkdown": "Step 1. Add all codes found using the following LOINC query: cocaine (=system:Urine)"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+    "valueString": "Urine tests for cocaine and cocaine metabolites"
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
     "valueContactDetail": {
@@ -37,7 +40,7 @@
   "title": "Cocaine urine drug screening tests",
   "status": "active",
   "experimental": true,
-  "date": "2021-07-28T07:07:11-06:00",
+  "date": "2021-09-20T14:04:27-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Urine tests for cocaine and cocaine metabolites",
   "jurisdiction": [ {
@@ -49,7 +52,8 @@
   "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "timestamp": "2021-07-28T07:07:11-06:00",
+    "identifier": "648e6fd5-6181-4ddc-9e5e-84b31ed9f0ed",
+    "timestamp": "2021-09-20T14:04:27-06:00",
     "contains": [ {
       "system": "http://loinc.org",
       "code": "50594-1",

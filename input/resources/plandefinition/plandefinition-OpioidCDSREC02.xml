@@ -2,7 +2,24 @@
     <id value="opioidcds-02"/>
     <meta>
         <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+        <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition"/>
     </meta>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="shareable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="computable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="executable"/>
+    </extension>
+    <extension
+            url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+        <valueCode value="publishable"/>
+    </extension>
     <url value="http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-02"/>
     <identifier>
         <use value="official"/>
@@ -58,7 +75,8 @@
             <display value="United States of America"/>
         </coding>
     </jurisdiction>
-    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+    <purpose
+            value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
     <usage value="Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function that outweighs risks to patient safety."/>
     <copyright value="© CDC 2016+."/>
     <topic>
@@ -85,7 +103,8 @@
     <action>
         <!-- non-dynamic card summary -->
         <title value="Current Order is for Opioid With Ambulatory Misuse Potential."/>
-        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #2 workflow."/>
+        <description
+                value="Checking if the trigger prescription meets the inclusion criteria for recommendation #2 workflow."/>
         <documentation>
             <type value="documentation"/>
             <document>
@@ -123,7 +142,7 @@
             </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
-        <selectionBehavior value="exactly-one"/>
+        <selectionBehavior value="any"/>
         <dynamicValue>
             <path value="action.title"/>
             <expression>

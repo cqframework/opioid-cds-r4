@@ -6,7 +6,7 @@
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-patient-view-POS-PCP-drugs",
-    "encounterId": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-context"
+    "encounterId": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-encounter"
   },
   "prefetch": {
     "item1": {
@@ -39,7 +39,7 @@
           {
             "resource": {
               "resourceType": "MedicationRequest",
-              "id": "example-rec-10-patient-view-POS-PCP-drugs-prefetch",
+              "id": "example-rec-10-patient-view-POS-PCP-drugs-medreq",
               "status": "active",
               "intent": "order",
               "category": [
@@ -65,7 +65,7 @@
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
               "encounter": {
-                "reference": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-prefetch"
+                "reference": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-encounter"
               },
               "_authoredOn": {
                 "extension": [
@@ -92,7 +92,9 @@
                     {
                       "doseQuantity": {
                         "value": 1.0,
-                        "unit": "tablet"
+                        "unit": "tablet",
+                        "system" : "http://unitsofmeasure.org",
+                        "code" : "{tablet}"
                       }
                     }
                   ]
@@ -123,7 +125,7 @@
           {
             "resource": {
               "resourceType": "MedicationRequest",
-              "id": "example-rec-10-patient-view-POS-PCP-drugs-context",
+              "id": "example-rec-10-patient-view-POS-PCP-drugs-medreq2",
               "status": "active",
               "intent": "order",
               "category": [
@@ -149,7 +151,7 @@
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
               "encounter": {
-                "reference": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-context"
+                "reference": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-encounter"
               },
               "_authoredOn": {
                 "extension": [
@@ -176,7 +178,9 @@
                     {
                       "doseQuantity": {
                         "value": 1.0,
-                        "unit": "patch"
+                        "unit": "patch",
+                        "system" : "http://unitsofmeasure.org",
+                        "code" : "{patch}"
                       }
                     }
                   ]
@@ -217,7 +221,7 @@
           {
             "resource": {
               "resourceType": "Observation",
-              "id": "example-rec-10-patient-view-POS-PCP-drugs-prefetch",
+              "id": "example-rec-10-patient-view-POS-PCP-drugs-obs1",
               "status": "final",
               "category": {
                 "coding": [
@@ -239,7 +243,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2021-01-22",
+              "effectiveDateTime": "2021-11-22",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -256,7 +260,7 @@
           {
             "resource": {
               "resourceType": "Observation",
-              "id": "example-rec-10-patient-view-POS-PCP-drugs-prefetch",
+              "id": "example-rec-10-illicit-drugs-POS-PCP-obs2",
               "status": "final",
               "category": {
                 "coding": [
@@ -270,15 +274,16 @@
                 "coding": [
                   {
                     "system": "http://loinc.org",
-                    "code": "8237-0",
-                    "display": "Phencyclidine [Presence] in Urine by SAMHSA confirm method"
+                    "version": "2.68",
+                    "code": "11246-6",
+                    "display": "oxyCODONE (U) [Mass/Vol]"
                   }
                 ]
               },
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2021-03-01",
+              "effectiveDateTime": "2021-12-01",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -295,7 +300,7 @@
           {
             "resource": {
               "resourceType": "Observation",
-              "id": "example-rec-10-patient-view-POS-PCP-drugs-prefetch-4",
+              "id": "example-rec-10-patient-view-POS-PCP-drugs-obs3",
               "status": "final",
               "category": {
                 "coding": [
@@ -317,7 +322,46 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2021-02-23",
+              "effectiveDateTime": "2022-02-01",
+              "valueString": "NEG",
+              "interpretation": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/v2/0078",
+                      "code": "NEG"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "Observation",
+              "id": "example-rec-10-patient-view-POS-PCP-drugs-obs4",
+              "status": "final",
+              "category": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                    "code": "laboratory"
+                  }
+                ]
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "8237-0",
+                    "display": "Phencyclidine [Presence] in Urine by SAMHSA confirm method"
+                  }
+                ]
+              },
+              "subject": {
+                "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
+              },
+              "effectiveDateTime": "2021-12-23",
               "valueString": "POS",
               "interpretation": [
                 {

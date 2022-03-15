@@ -8,7 +8,7 @@
     "patientId": "Patient/example-rec-10-end-of-life-med-exclusion",
     "encounterId": "Encounter/example-rec-10-end-of-life-med-exclusion-context",
     "selections": [ "MedicationRequest/example-rec-10-end-of-life-med-exclusion-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-end-of-life-med-exclusion-context",
@@ -64,7 +64,9 @@
                 {
                     "doseQuantity": {
                       "value": 5.0,
-                      "unit": "mL"
+                      "unit": "mL",
+                      "system" : "http://unitsofmeasure.org",
+                      "code" : "{mL}"
                     }
                 }
             ]
@@ -90,8 +92,7 @@
             "code": "d"
           }
         }
-      }
-    ]
+        }
   },
   "prefetch": {
     "item1": {
@@ -108,7 +109,68 @@
     "item2": null,
     "item3": null,
     "item4": null,
-    "item5": null,
+    "item5": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Condition",
+        "id": "EndOfLifeCondition",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "encounter-diagnosis",
+              "display": "Encounter Diagnosis"
+            }
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active Condition"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed",
+                "display": "Confirmed"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "version": "2021-03",
+              "code": "254612002",
+              "display": "Carcinoma of endocrine pancreas"
+            }
+          ]
+        },
+        "_recordedDate": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
+              "valueExpression": {
+                "language": "text/cql",
+                "expression": "Today() - 60 days"
+              }
+            }
+          ]
+        }
+      }
+    },
     "item6": null,
     "item7": null,
     "item8": null,
