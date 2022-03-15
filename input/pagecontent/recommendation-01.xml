@@ -51,9 +51,7 @@
 
       <a name="commonlibraries"> </a>
       <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
-
       <p></p>
-
       <table class="list">
         <thead>
           <tr>
@@ -72,6 +70,35 @@
             <td><a href="Library-OpioidCDSREC01.html">Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration</a></td>
             <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
             <td>Defines the data requirements to support evaluation of recommendation #1</td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
+      <p></p>
+    <details>
+      <!-- Example Data/Requests -->
+      <summary>
+      <a name="exampledatarequests"> </a>
+      <h3>Example Data/Requests</h3>
+      </summary>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored “Today” as well as a Medication Statement 95 days prior to today which will result in recommendation inclusion in addition to Opioid Naive &amp; Opioid Review Useful inclusion. Patients "Dosage Instructions" are 1 Film per day for 30 days. This should result in a summary message: "Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative."</td>
+            <td><a href="Bundle-example-rec-01-true-make-recommendations.html">Test Bundle</a></td>
+            <td><a href="requests/OpioidCDSREC01/request-example-rec-01-in-outpatient-opioid.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC01/response-example-rec-01-in-outpatient-opioid.json">Response JSON</a></td>
+          </tr>
+          <tr>
+            <td class="col-7">Patient is 18 years or older and has an inpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603). Patients “Dosage Instructions” are 1 Film per day for 30 days. This will result in an empty set of cards due to the Medication Request being inpatient.</td>
+            <td><a href="Bundle-example-rec-01-false-due-to-inpatient-opioid.html">Test Bundle</a></td>
+            <td><a href="requests/OpioidCDSREC01/request-example-rec-01-out-inpatient-opioid.json">Request JSON</a></td>
+            <td><a href="responses/OpioidCDSREC01/response-example-rec-01-out-inpatient-opioid.json">Response JSON</a></td>
           </tr>
         </tbody>
       </table>
