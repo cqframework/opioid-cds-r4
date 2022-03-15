@@ -2,7 +2,19 @@
 {"code" : {
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
   "code" : "840"
-}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction--2", "version": "4.0.1", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "severity" : "error",
   "error" : "The code provided (http://unstats.un.org/unsd/methods/m49/m49.htm#840) is not valid (from http://tx.fhir.org/r4)"
@@ -16,6 +28,15 @@ v: {
   "display" : "United States of America (USA)",
   "code" : "840",
   "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+  "code" : "840"
+}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction--2", "version": "4.0.1", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "The code provided (http://unstats.un.org/unsd/methods/m49/m49.htm#840) is not valid (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
 {"code" : {

@@ -223,14 +223,6 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations"
     } ]
   }, {
-    "type": "MedicationDispense",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationDispense" ],
-    "mustSupport": [ "whenHandedOver", "medication", "status" ],
-    "codeFilter": [ {
-      "path": "medication",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
-    } ]
-  }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
     "mustSupport": [ "category" ],
@@ -255,12 +247,20 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "authoredOn", "intent", "status" ],
+    "type": "MedicationDispense",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationDispense" ],
+    "mustSupport": [ "whenHandedOver", "medication", "status" ],
     "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+      "path": "medication",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+    } ]
+  }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "period.start", "period", "diagnosis", "type", "period.start.value", "participant" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
     } ]
   }, {
     "type": "MedicationRequest",
@@ -294,16 +294,16 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
     } ]
   }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "mustSupport": [ "code", "authoredOn", "intent", "status" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+    } ]
+  }, {
     "type": "Patient",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
-  }, {
-    "type": "Encounter",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-    "mustSupport": [ "period.start", "period", "diagnosis", "type", "period.start.value", "participant" ],
-    "codeFilter": [ {
-      "path": "type",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
-    } ]
   }, {
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],

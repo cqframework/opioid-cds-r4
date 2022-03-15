@@ -227,6 +227,14 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   }, {
+    "type": "Encounter",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+    "mustSupport": [ "period", "type" ],
+    "codeFilter": [ {
+      "path": "type",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
+    } ]
+  }, {
     "type": "Procedure",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
     "mustSupport": [ "code", "status.value", "status" ],
@@ -247,27 +255,11 @@
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
     "mustSupport": [ "period.start", "period", "status.value", "status" ]
   }, {
-    "type": "Encounter",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-    "mustSupport": [ "period", "type" ],
-    "codeFilter": [ {
-      "path": "type",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
-    } ]
-  }, {
     "type": "Medication",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
     "mustSupport": [ "id" ],
     "codeFilter": [ {
       "path": "id"
-    } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "authoredOn", "intent", "status" ],
-    "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     } ]
   }, {
     "type": "Patient",
@@ -279,6 +271,14 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure"
+    } ]
+  }, {
+    "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+    "mustSupport": [ "code", "authoredOn", "intent", "status" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     } ]
   } ],
   "content": [ {
