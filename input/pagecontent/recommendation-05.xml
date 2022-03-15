@@ -85,6 +85,35 @@
           </tbody>
         </table>
       </details>
+      <p></p>
+      <details>
+            <!-- Example Data/Requests -->
+        <summary>
+            <a name="exampledatarequests"> </a>
+            <h3>Example Data/Requests</h3>
+        </summary>
+        <table class="grid">
+          <thead>
+            <tr>
+              <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) one patch per 3 days for 30 days.This will trigger the message “High risk for opioid overdose - taper now” It will then link to the “MME Conversation Tables” "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"</td>
+              <td><a href="Bundle-example-rec-05-mme-greater-than-fifty.html">Test Bundle</a></td>
+              <td><a href="requests/OpioidCDSREC05/request-example-rec-05-mme-greater-than-fifty.json">Request JSON</a></td>
+              <td><a href="responses/OpioidCDSREC05/response-example-rec-05-mme-greater-than-fifty.json">Response JSON</a></td>
+            </tr>
+            <tr>
+              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) one patch per 12 days for 30 days.The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
+              <td><a href="Bundle-example-rec-05-mme-less-than-fifty.html">Test Bundle</a></td>
+              <td><a href="requests/OpioidCDSREC05/request-example-rec-05-mme-less-than-fifty.json">Request JSON</a></td>
+              <td><a href="responses/OpioidCDSREC05/response-example-rec-05-mme-less-than-fifty.json">Response JSON</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
     </body>
   </html>
 </div>
