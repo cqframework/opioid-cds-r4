@@ -33,8 +33,8 @@
     <copy file="${dir.publish}/publisher.jar" todir="${basedir}"/>
   </target>
   <target name="travis-setup" depends="dir-setup" description="--> Installs Jekyll, grabs publisher from CI website">
-    <!-- <get src="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar" dest="${basedir}"/> -->
-    <get src="https://github.com/HL7/fhir-ig-publisher/releases/download/1.1.112/publisher.jar" dest="${basedir}"/>
+    <get src="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar" dest="${basedir}"/>
+    <!-- <get src="https://github.com/HL7/fhir-ig-publisher/releases/download/1.1.112/publisher.jar" dest="${basedir}"/>  -->
   </target>
   <target name="publish-ig" depends="dir-setup"  description="--> Run the IG build">
     <!-- <java jar="${basedir}/org.hl7.fhir.publisher.cli-1.1.60-SNAPSHOT.jar" fork="true" failonerror="true" maxmemory="6000m"> -->
