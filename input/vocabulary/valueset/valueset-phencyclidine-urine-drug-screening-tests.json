@@ -42,11 +42,12 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests",
+  "version": "0.0.1",
   "name": "phencyclidine_urine_drug_screening_tests",
   "title": "Phencyclidine urine drug screening tests",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:27-06:00",
+  "date": "2022-03-23T12:30:32-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Urine tests for phencyclidine",
   "jurisdiction": [ {
@@ -58,62 +59,76 @@
   "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "identifier": "0a7ef1fd-046f-4857-9053-4d4cc679332c",
-    "timestamp": "2021-09-20T14:04:27-06:00",
+    "identifier": "4d040093-8a1d-4020-83e4-78a542f0daaa",
+    "timestamp": "2022-03-23T12:30:32-06:00",
     "contains": [ {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "3937-0",
       "display": "Phencyclidine [Mass/volume] in Urine"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "16254-5",
       "display": "Phencyclidine [Mass/volume] in Urine by Confirmatory method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "72825-3",
       "display": "Phencyclidine [Mass/volume] in Urine by Screen method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "52951-1",
       "display": "Phencyclidine [Moles/volume] in Urine"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "3936-2",
       "display": "Phencyclidine [Presence] in Urine"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "14311-5",
       "display": "Phencyclidine [Presence] in Urine by Confirm method >20 ng/mL"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "18392-1",
       "display": "Phencyclidine [Presence] in Urine by Confirmatory method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "8237-0",
       "display": "Phencyclidine [Presence] in Urine by SAMHSA confirm method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "8238-8",
       "display": "Phencyclidine [Presence] in Urine by SAMHSA screen method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "19659-2",
       "display": "Phencyclidine [Presence] in Urine by Screen method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "14310-7",
       "display": "Phencyclidine [Presence] in Urine by Screen method >25 ng/mL"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "19661-8",
       "display": "Phencyclidine cutoff [Mass/volume] in Urine for Confirmatory method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "19660-0",
       "display": "Phencyclidine cutoff [Mass/volume] in Urine for Screen method"
     }, {
       "system": "http://loinc.org",
+      "version": "2.69",
       "code": "58397-1",
       "display": "Phencyclidine/Creatinine [Mass Ratio] in Urine"
     } ]

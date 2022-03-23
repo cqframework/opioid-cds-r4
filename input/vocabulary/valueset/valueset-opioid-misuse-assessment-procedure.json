@@ -30,11 +30,12 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure",
+  "version": "0.0.1",
   "name": "opioid_misuse_assessment_procedure",
   "title": "Opioid misuse assessment procedure",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:28-06:00",
+  "date": "2022-03-23T12:30:32-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Procedure to assess the risk of opioid abuse occurring by a patient",
   "jurisdiction": [ {
@@ -55,10 +56,11 @@
     } ]
   },
   "expansion": {
-    "identifier": "d6624e22-add4-4678-a932-828fa3e9a84f",
-    "timestamp": "2021-09-20T14:04:28-06:00",
+    "identifier": "36065d5f-2ef5-41d4-b6ed-c3dc835c451d",
+    "timestamp": "2022-03-23T12:30:32-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "454281000124100",
       "display": "Assessment of risk for opioid abuse (procedure)"
     } ]
