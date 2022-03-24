@@ -30,12 +30,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure",
-  "version": "0.0.1",
   "name": "opioid_counseling_procedure",
   "title": "Opioid counseling procedure",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Procedure for couseling on opioid use",
   "jurisdiction": [ {
@@ -56,8 +55,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "431319b6-cd2b-4cf2-a35b-ea318255c758",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "2bd474f2-4a9c-4dcb-ad95-6f43f49006e3",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210901",

@@ -42,12 +42,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications",
-  "version": "0.0.1",
   "name": "benzodiazepine_medications",
   "title": "benzodiazepine medications",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "All benzodiazepine clinical drugs",
   "jurisdiction": [ {
@@ -59,8 +58,8 @@
   "purpose": "Benzodiazepine medications for opioid management",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "identifier": "4cdc6cfd-0928-42fe-a980-b6f46e5a555b",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "af538e0b-5b61-4c21-890b-1adcb5c2fd93",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
       "version": "01-Mar-2021",

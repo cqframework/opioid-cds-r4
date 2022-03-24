@@ -42,12 +42,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling",
-  "version": "0.0.1",
   "name": "substance_misuse_behavioral_counseling",
   "title": "Substance misuse behavioral counseling",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:30-06:00",
+  "date": "2022-03-24T08:25:58-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Counseling and associated procedures for substance misuse",
   "jurisdiction": [ {
@@ -102,8 +101,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "152e3a38-6a15-4ecb-84b8-990bbd432dcf",
-    "timestamp": "2022-03-23T12:30:31-06:00",
+    "identifier": "e75275b7-822e-421e-810f-8c3db5051bf9",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210901",

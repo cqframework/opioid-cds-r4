@@ -39,12 +39,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opiate-specific-urine-drug-screening-tests",
-  "version": "0.0.1",
   "name": "opiate_specific_urine_drug_screening_tests",
   "title": "Opiate specific urine drug screening tests",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Urine tests for naturally occuring opioids (i.e. opiates) that are specific to a particular natually occurring opioid and therefore do not have the general word 'opiates' in the long name.",
   "jurisdiction": [ {
@@ -56,8 +55,8 @@
   "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "identifier": "bfbb31c6-eacb-4101-8e31-94820d14bae6",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "6e7ac6bb-57e9-48a3-a9e6-2e3bed4fe896",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://loinc.org",
       "version": "2.69",

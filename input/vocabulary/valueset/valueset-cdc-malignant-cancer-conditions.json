@@ -42,12 +42,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions",
-  "version": "0.0.1",
   "name": "cdc_malignant_cancer_conditions",
   "title": "CDC malignant cancer conditions",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "All neoplastic and malignant conditions, including pain due to neoplasm.",
   "jurisdiction": [ {
@@ -105,8 +104,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "75cbdda8-2b73-4ae3-8fc9-1013703db7eb",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "5baa682b-b075-4e38-a870-572798b97411",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://hl7.org/fhir/sid/icd-10-cm",
       "version": "FY2021",

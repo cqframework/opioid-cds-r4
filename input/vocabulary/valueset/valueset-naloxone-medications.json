@@ -42,12 +42,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications",
-  "version": "0.0.1",
   "name": "naloxone_medications",
   "title": "naloxone medications",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "All naloxone medications",
   "jurisdiction": [ {
@@ -106,8 +105,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "9986a0d0-6c9d-4ed6-962c-31ca1cfb43c3",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "cc7cf614-6623-4287-aa40-d2cb052f1804",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
       "version": "01-Mar-2021",

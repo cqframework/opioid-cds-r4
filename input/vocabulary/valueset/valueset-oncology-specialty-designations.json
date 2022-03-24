@@ -42,12 +42,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations",
-  "version": "0.0.1",
   "name": "oncology_specialty_designations",
   "title": "Oncology specialty designations (NUCC)",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "NUCC oncology provider types who may provide encounters to patients with cancer",
   "jurisdiction": [ {
@@ -69,8 +68,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "d729434b-b6a6-42c3-be3b-214c8ccedb7f",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "3119d283-87cb-4acb-b029-441501f3a0e7",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://nucc.org/provider-taxonomy",
       "version": "20",

@@ -30,12 +30,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure",
-  "version": "0.0.1",
   "name": "pain_management_procedure",
   "title": "Pain management procedure",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Procedure for chronic pain control management",
   "jurisdiction": [ {
@@ -56,8 +55,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "eff11b89-cda3-42e1-be24-db8301c1b2f5",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "b74705a1-5b4b-4a46-b496-66f9decea217",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210901",

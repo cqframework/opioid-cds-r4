@@ -39,12 +39,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding",
-  "version": "0.0.1",
   "name": "hospice_finding",
   "title": "Hospice Finding",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Finding codes for receiving hospice care",
   "jurisdiction": [ {
@@ -99,8 +98,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "7ca3ad8d-8858-484a-951d-89a5a3e75eb5",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "ca4532c8-7e97-4b3b-9c44-6e043efc2f37",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210901",

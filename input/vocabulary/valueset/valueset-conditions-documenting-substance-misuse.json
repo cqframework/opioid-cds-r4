@@ -30,12 +30,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-substance-misuse",
-  "version": "0.0.1",
   "name": "conditions_documenting_substance_misuse",
   "title": "Conditions documenting substance misuse",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Any finding or condition that indicate problematic misuse of a substance other than tobacco or laxatives, including \"history of\" conditions.",
   "jurisdiction": [ {
@@ -302,8 +301,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "e34f6beb-801e-46f3-a382-dcdcf134f5ab",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "700a5d04-9514-4e99-b2dd-6e64cf75a054",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
       "version": "http://snomed.info/sct/731000124108/version/20210901",

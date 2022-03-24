@@ -42,12 +42,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests",
-  "version": "0.0.1",
   "name": "phencyclidine_urine_drug_screening_tests",
   "title": "Phencyclidine urine drug screening tests",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Urine tests for phencyclidine",
   "jurisdiction": [ {
@@ -59,8 +58,8 @@
   "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "identifier": "4d040093-8a1d-4020-83e4-78a542f0daaa",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "6922abe4-4b26-4517-994f-a718d266496c",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://loinc.org",
       "version": "2.69",

@@ -30,12 +30,11 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/urine-drug-screening-tests",
-  "version": "0.0.1",
   "name": "urine_drug_screening_tests",
   "title": "Urine drug screening tests",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-23T12:30:32-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Individual tests and panels of tests of urine for drugs of misuse",
   "jurisdiction": [ {
@@ -54,8 +53,8 @@
     } ]
   },
   "expansion": {
-    "identifier": "ea0794ec-9840-4973-9172-59f8381ad979",
-    "timestamp": "2022-03-23T12:30:32-06:00",
+    "identifier": "00853d98-ee70-4388-adae-6df86dec7eee",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://loinc.org",
       "version": "2.68",
