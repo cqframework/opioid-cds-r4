@@ -34,7 +34,7 @@
   "title": "PDMP review procedure",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:28-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Procedure for Prescription Drug Monitoring Program (PDMP) review",
   "jurisdiction": [ {
@@ -55,10 +55,11 @@
     } ]
   },
   "expansion": {
-    "identifier": "ffd56ce1-4125-4d4f-8fe7-0377cb63b48b",
-    "timestamp": "2021-09-20T14:04:28-06:00",
+    "identifier": "74a0087c-9c87-4b67-a817-ceef89e07905",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "461621000124108",
       "display": "Review of prescription drug monitoring program record (procedure)"
     } ]

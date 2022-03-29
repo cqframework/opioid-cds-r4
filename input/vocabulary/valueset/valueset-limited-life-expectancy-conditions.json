@@ -46,7 +46,7 @@
   "title": "Limited life expectancy conditions",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:27-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "A finding that documents a terminal prognosis",
   "jurisdiction": [ {
@@ -85,30 +85,36 @@
     } ]
   },
   "expansion": {
-    "identifier": "5e83bd67-8dfd-4dcf-bdac-6bef16fc0541",
-    "timestamp": "2021-09-20T14:04:27-06:00",
+    "identifier": "399c98d7-53d0-4fe6-83b2-41ace7d8d77a",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "111947009",
       "display": "Functional disorder present, condition terminal"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "27143004",
       "display": "Patient status determination, pre-terminal"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "170969009",
       "display": "Prognosis bad"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "300936002",
       "display": "Terminal illness"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "162607003",
       "display": "Terminal illness - early stage"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "162608008",
       "display": "Terminal illness - late stage"
     } ]

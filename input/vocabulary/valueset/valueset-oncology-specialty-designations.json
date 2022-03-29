@@ -46,7 +46,7 @@
   "title": "Oncology specialty designations (NUCC)",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:28-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "NUCC oncology provider types who may provide encounters to patients with cancer",
   "jurisdiction": [ {
@@ -68,62 +68,76 @@
     } ]
   },
   "expansion": {
-    "identifier": "a1cbd7b4-bbfd-41be-95fd-a7a3218f34f7",
-    "timestamp": "2021-09-20T14:04:28-06:00",
+    "identifier": "3119d283-87cb-4acb-b029-441501f3a0e7",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "207VX0201X",
       "display": "Gynecologic Oncology"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "207RH0003X",
       "display": "Hematology & Oncology"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "207RX0202X",
       "display": "Medical Oncology"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "133VN1301X",
       "display": "Nutrition, Oncology"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "261QX0200X",
       "display": "Oncology Clinic/Center"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "364SX0200X",
       "display": "Oncology Clinical Nurse Specialist"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "1835X0200X",
       "display": "Oncology Pharmacist"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "163WX0200X",
       "display": "Oncology Registered Nurse"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "364SX0204X",
       "display": "Oncology, Pediatrics"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "261QX0203X",
       "display": "Oncology, Radiation"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "2080P0207X",
       "display": "Pediatric Hematology-Oncology"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "163WP0218X",
       "display": "Pediatric Oncology"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "2085R0001X",
       "display": "Radiation Oncology"
     }, {
       "system": "http://nucc.org/provider-taxonomy",
+      "version": "20",
       "code": "2086X0206X",
       "display": "Surgical Oncology"
     } ]

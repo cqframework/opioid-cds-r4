@@ -43,7 +43,7 @@
   "title": "Hospice Finding",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:27-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Finding codes for receiving hospice care",
   "jurisdiction": [ {
@@ -98,26 +98,31 @@
     } ]
   },
   "expansion": {
-    "identifier": "c6e7bdd5-c563-4b1c-947a-41cb992713b9",
-    "timestamp": "2021-09-20T14:04:27-06:00",
+    "identifier": "ca4532c8-7e97-4b3b-9c44-6e043efc2f37",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "170935008",
       "display": "Full care by hospice (finding)"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "448451000124101",
       "display": "Transition from self-care to hospice (finding)"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "1891000124102",
       "display": "Transition from acute care to hospice (finding)"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "1951000124104",
       "display": "Transition from long-term care to hospice (finding)"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "305911006",
       "display": "Seen in hospice"
     } ]

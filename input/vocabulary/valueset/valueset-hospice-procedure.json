@@ -40,7 +40,7 @@
   "title": "Hospice Procedure",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:28-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Procedure codes for referral, admission, or transfer to a hospice",
   "jurisdiction": [ {
@@ -102,30 +102,36 @@
     } ]
   },
   "expansion": {
-    "identifier": "6c501a96-a24c-4890-9340-f4ab3c4d506a",
-    "timestamp": "2021-09-20T14:04:28-06:00",
+    "identifier": "24e41425-3781-43f4-a6d1-f42b8306f973",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "306205009",
       "display": "Referral to hospice (procedure)"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "305336008",
       "display": "Admission to hospice (procedure)"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "183919006",
       "display": "Urgent admission to hospice (procedure)"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "428371000124100",
       "display": "Discharge to healthcare facility for hospice care"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "183920000",
       "display": "Routine admission to hospice"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "183921001",
       "display": "Admission to hospice for respite"
     } ]

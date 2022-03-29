@@ -34,7 +34,7 @@
   "title": "Opioid misuse assessment procedure",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:28-06:00",
+  "date": "2022-03-24T08:25:59-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Procedure to assess the risk of opioid abuse occurring by a patient",
   "jurisdiction": [ {
@@ -55,10 +55,11 @@
     } ]
   },
   "expansion": {
-    "identifier": "d6624e22-add4-4678-a932-828fa3e9a84f",
-    "timestamp": "2021-09-20T14:04:28-06:00",
+    "identifier": "5d3c3261-2d46-4c31-8e89-5e816e724eac",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "454281000124100",
       "display": "Assessment of risk for opioid abuse (procedure)"
     } ]

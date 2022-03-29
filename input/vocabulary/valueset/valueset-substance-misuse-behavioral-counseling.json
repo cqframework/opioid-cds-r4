@@ -46,7 +46,7 @@
   "title": "Substance misuse behavioral counseling",
   "status": "active",
   "experimental": true,
-  "date": "2021-09-20T14:04:26-06:00",
+  "date": "2022-03-24T08:25:58-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Counseling and associated procedures for substance misuse",
   "jurisdiction": [ {
@@ -101,30 +101,36 @@
     } ]
   },
   "expansion": {
-    "identifier": "114a3b3b-1b6b-44d5-8402-c10d2ad72e2c",
-    "timestamp": "2021-09-20T14:04:27-06:00",
+    "identifier": "e75275b7-822e-421e-810f-8c3db5051bf9",
+    "timestamp": "2022-03-24T08:25:59-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "313071005",
       "display": "Substance abuse counseling"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "60112009",
       "display": "Drug addiction counseling"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "720174008",
       "display": "Drug harm reduction program"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "720177001",
       "display": "Drug relapse prevention program"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "423416000",
       "display": "Substance use cessation case management"
     }, {
       "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108/version/20210901",
       "code": "424407005",
       "display": "Substance use cessation education, guidance, and counseling"
     } ]
