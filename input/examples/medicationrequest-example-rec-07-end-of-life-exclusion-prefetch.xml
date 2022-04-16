@@ -21,14 +21,7 @@
    <encounter>
       <reference value="Encounter/example-rec-07-end-of-life-exclusion-prefetch"/>
    </encounter>
-   <authoredOn>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-          <valueExpression>
-              <language value="text/cql"/>
-              <expression value="Today() - 6 weeks"/>
-          </valueExpression>
-     </extension>
-   </authoredOn>
+   <authoredOn value="2022/02/25"/>
    <dosageInstruction>
       <timing>
          <repeat>
@@ -47,12 +40,7 @@
    </dosageInstruction>
    <dispenseRequest>
       <validityPeriod>
-         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 6 weeks }, end: FHIR.dateTime { value: Today() + 6 weeks } }"/>
-            </valueExpression>
-        </extension>
+         value= "{start:2022/02/25 end:2022/05/20}"
       </validityPeriod>
       <numberOfRepeatsAllowed value="3"/>
       <expectedSupplyDuration>

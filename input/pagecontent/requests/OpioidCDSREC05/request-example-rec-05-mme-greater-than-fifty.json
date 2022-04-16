@@ -1,14 +1,13 @@
 {
   "hookInstance": "4676f1ae-65c0-4935-9833-35a123e4767a",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-05-mme-greater-than-fifty",
     "encounterId": "Encounter/example-rec-05-mme-greater-than-fifty-context",
     "selections": [ "MedicationRequest/example-rec-05-mme-greater-than-fifty-context" ],
-    "draftOrders": [
+    "draftOrders":
       {
         "resourceType": "MedicationRequest",
         "id": "example-rec-05-mme-greater-than-fifty-context",
@@ -37,17 +36,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-05-mme-greater-than-fifty-context"
         },
-        "_authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today()"
-              }
-            }
-          ]
-        },
+        "authoredOn": "2022-04-08",
         "dosageInstruction": [
           {
             "timing": {
@@ -65,16 +54,9 @@
           }
         ],
         "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 6 months } }"
-                }
-              }
-            ]
+          "validityPeriod": {
+            "start": "2022-04-08",
+            "end": "2022-10-08"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
@@ -85,7 +67,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": null,
