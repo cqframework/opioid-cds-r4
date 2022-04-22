@@ -59,6 +59,16 @@
         <exampleBoolean value="false"/>
         <groupingId value="recommendation-artifact-packages"/>
     </resource>
+        <!-- Extensions -->
+        <resource>
+            <reference>
+                <reference value="StructureDefinition/dataDateRoller"/>
+                <display value="Data Date-Roller Extension"/>
+            </reference>
+            <name value="DataDateRollerExtension"/>
+            <description value="Declares the DateLastUpdated and Frequency arguments to be used by the Data Date Roller for maintaining/rolling test data dates to keep them from going stale."/>
+            <exampleBoolean value="false"/>
+        </resource>
        <!-- Libraries -->
         <!-- Common Libraries-->
         <resource>
@@ -809,6 +819,10 @@
         <parameter>
           <code value="path-resource" />
           <value value="bundles/plandefinition/OpioidCDSREC10PatientView"/>
+        </parameter>
+        <parameter>
+          <code value="path-resource" />
+          <value value="input/extensions"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
