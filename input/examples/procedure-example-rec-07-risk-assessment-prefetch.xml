@@ -15,13 +15,7 @@
       <reference value="Encounter/example-rec-07-risk-assessment-prefetch"/>
   </encounter>
    <performedPeriod>
-      <start>
-         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 2 weeks }, end: FHIR.dateTime { value: Today() - 2 weeks } }"/>
-            </valueExpression>
-        </extension>
-      </start>
+                  <start>2022-04-11</start>
+                  <end>2022-04-11</end>
    </performedPeriod>
 </Procedure>

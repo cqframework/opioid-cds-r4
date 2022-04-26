@@ -1,8 +1,7 @@
 {
   "hookInstance": "17ff4874-b68a-490c-abaa-b62b1a91b1bd",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-12-criteria-valid"
@@ -15,13 +14,13 @@
       "resource": {
         "resourceType": "Patient",
         "id": "example-rec-12-criteria-valid",
-        "_birthDate": {
+        "birthDate": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
               "valueExpression": {
                 "language": "text/cql",
-                "expression": "Today() - 20 years"
+                "expression": "2002-04-14"
               }
             }
           ]
@@ -77,13 +76,13 @@
             }
           ]
         },
-        "_recordedDate": {
+        "recordedDate": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
               "valueExpression": {
                 "language": "text/cql",
-                "expression": "Today() - 60 days"
+                "expression": "2022-02-13"
               }
             }
           ]

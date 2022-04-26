@@ -1,8 +1,7 @@
 {
   "hookInstance": "fa44ba28-6895-4060-b7d0-9e86715e0e08",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-07-seven-of-past-ten-days",
@@ -37,13 +36,13 @@
         "encounter": {
           "reference": "Encounter/example-rec-07-seven-of-past-ten-days-context"
         },
-        "_authoredOn": {
+        "authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
               "valueExpression": {
                 "language": "text/cql",
-                "expression": "Today()"
+                "expression": "2022-04-14"
               }
             }
           ]
@@ -65,16 +64,9 @@
           }
         ],
         "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                }
-              }
-            ]
+          "validityPeriod": {
+                    "start": "2022-04-14",
+                    "end": "2022-07-14"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -120,13 +112,13 @@
         "context": {
           "reference": "Encounter/example-rec-07-seven-of-past-ten-days-prefetch"
         },
-        "_authoredOn": {
+        "authoredOn": {
           "extension": [
             {
               "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
               "valueExpression": {
                 "language": "text/cql",
-                "expression": "Today() - 10 days"
+                "expression": "2022-04-04"
               }
             }
           ]
@@ -148,16 +140,9 @@
           }
         ],
         "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 10 days }, end: FHIR.dateTime { value: Today() } }"
-                }
-              }
-            ]
+          "validityPeriod": {
+                    "start": "2022-04-04",
+                    "end": "2022-04-14"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -181,18 +166,9 @@
           "reference": "Patient/example-rec-07-seven-of-past-ten-days"
         },
         "period": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 10 days }, end: FHIR.dateTime { value: Today() - 10 days } }"
-              }
-            }
-          ]
-        }
-      }
-    },
+                  "start": "2022-04-04",
+                  "end": "2022-04-04"
+        },
     "item3": {
       "response": {
         "status": "200 OK"
@@ -215,5 +191,7 @@
     "item12": null,
     "item13": null,
     "item14": null
+  }
+}
   }
 }

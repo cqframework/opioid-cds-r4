@@ -2,7 +2,7 @@
    <id value="example-rec-11-opioid-trigger-without-benzo"/>
    <type value="transaction"/>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-11-opioid-trigger-without-benzo"/>
+      <fullUrl value="http://localhost:8080/fhir/Patient/example-rec-11-opioid-trigger-without-benzo"/>
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
             <id value="example-rec-11-opioid-trigger-without-benzo"/>

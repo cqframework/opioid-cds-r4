@@ -25,7 +25,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
           <valueExpression>
               <language value="text/cql"/>
-              <expression value="Today() - 6 weeks"/>
+              <expression value="2022-03-14"/>
           </valueExpression>
      </extension>
    </authoredOn>
@@ -47,12 +47,8 @@
    </dosageInstruction>
    <dispenseRequest>
       <validityPeriod>
-         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 6 weeks }, end: FHIR.dateTime { value: Today() + 6 weeks } }"/>
-            </valueExpression>
-        </extension>
+                  <start>2022-03-14</start>
+                  <end>2022-06-06</end>
       </validityPeriod>
       <numberOfRepeatsAllowed value="3"/>
       <expectedSupplyDuration>

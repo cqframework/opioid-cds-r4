@@ -15,7 +15,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
             <valueExpression>
                 <language value="text/cql"/>
-                <expression value="Today() - 4 weeks"/>
+                <expression value="2022-04-28"/>
             </valueExpression>
         </extension>
    </effectiveDateTime>

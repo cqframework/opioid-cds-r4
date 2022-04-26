@@ -2,7 +2,7 @@
    <id value="example-rec-10-unprescribed-opioids"/>
    <type value="transaction"/>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-unprescribed-opioids"/>
+      <fullUrl value="http://localhost:8080/fhir/Patient/example-rec-10-unprescribed-opioids"/>
       <resource>
           <Patient xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids"/>
@@ -20,7 +20,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-unprescribed-opioids-prefetch"/>
+      <fullUrl value="http://localhost:8080/fhir/Encounter/example-rec-10-unprescribed-opioids-prefetch"/>
       <resource>
           <Encounter xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch"/>
@@ -34,12 +34,8 @@
                 <reference value="Patient/example-rec-10-unprescribed-opioids"/>
              </subject>
              <period>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                   <valueExpression>
-                      <language value="text/cql"/>
-                      <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() - 90 days } }"/>
-                   </valueExpression>
-                </extension>
+                  <start>2022-01-25</start>
+                  <end>2022-01-25</end>
              </period>
           </Encounter>
       </resource>
@@ -49,7 +45,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-10-unprescribed-opioids-prefetch"/>
+      <fullUrl value="http://localhost:8080/fhir/MedicationRequest/example-rec-10-unprescribed-opioids-prefetch"/>
       <resource>
           <MedicationRequest xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch"/>
@@ -78,7 +74,7 @@
                  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
                      <valueExpression>
                          <language value="text/cql"/>
-                         <expression value="Today() - 90 days"/>
+                         <expression value="2022-01-25"/>
                      </valueExpression>
                 </extension>
              </authoredOn>
@@ -100,12 +96,8 @@
              </dosageInstruction>
              <dispenseRequest>
                 <validityPeriod>
-                   <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                      <valueExpression>
-                          <language value="text/cql"/>
-                          <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() } }"/>
-                      </valueExpression>
-                  </extension>
+                  <start>2022-01-25</start>
+                  <end>2022-04-25</end>
                 </validityPeriod>
                 <numberOfRepeatsAllowed value="3"/>
                 <expectedSupplyDuration>
@@ -121,7 +113,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-codeine"/>
+      <fullUrl value="http://localhost:8080/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-codeine"/>
       <resource>
           <Observation xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch-codeine"/>
@@ -140,7 +132,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
                       <valueExpression>
                           <language value="text/cql"/>
-                          <expression value="Today() - 3 weeks"/>
+                          <expression value="2022-04-04"/>
                       </valueExpression>
                   </extension>
              </effectiveDateTime>
@@ -158,7 +150,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
+      <fullUrl value="http://localhost:8080/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
       <resource>
           <Observation xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
@@ -177,7 +169,7 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
                       <valueExpression>
                           <language value="text/cql"/>
-                          <expression value="Today() - 4 weeks"/>
+                          <expression value="2022-03-28"/>
                       </valueExpression>
                   </extension>
              </effectiveDateTime>
