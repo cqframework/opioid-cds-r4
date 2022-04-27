@@ -10,6 +10,26 @@
             {
                 "resourceType": "MedicationRequest",
                 "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3",
+                "extension": [
+                    {
+                      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                      "extension": [
+                        {
+                          "url": "dateLastUpdated",
+                          "valueDateTime": "2022-04-22"
+                        },
+                        {
+                          "url": "frequency",
+                          "valueDuration": {
+                            "value": 30.0,
+                            "unit": "days",
+                            "system": "http://unitsofmeasure.org",
+                            "code": "d"
+                          }
+                        }
+                      ]
+                    }
+                  ],
                 "status": "active",
                 "intent": "order",
                 "category": {
@@ -104,6 +124,26 @@
             "resource": {
                 "resourceType": "Procedure",
                 "id": "d2e1e4f3-9117-46c3-a8ee-125c58674997",
+                "extension": [
+                    {
+                      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                      "extension": [
+                        {
+                          "url": "dateLastUpdated",
+                          "valueDateTime": "2022-04-22"
+                        },
+                        {
+                          "url": "frequency",
+                          "valueDuration": {
+                            "value": 30.0,
+                            "unit": "days",
+                            "system": "http://unitsofmeasure.org",
+                            "code": "d"
+                          }
+                        }
+                      ]
+                    }
+                  ],
                 "status": "completed",
                 "code": {
                     "coding": [

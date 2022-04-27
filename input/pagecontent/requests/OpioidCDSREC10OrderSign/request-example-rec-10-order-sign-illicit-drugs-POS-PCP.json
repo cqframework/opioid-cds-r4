@@ -13,6 +13,26 @@
           "resource": {
             "resourceType": "MedicationRequest",
             "id": "example-rec-10-2-illicit-POS-PCP-drugs-context",
+            "extension": [
+              {
+                "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                "extension": [
+                  {
+                    "url": "dateLastUpdated",
+                    "valueDateTime": "2022-04-22"
+                  },
+                  {
+                    "url": "frequency",
+                    "valueDuration": {
+                      "value": 30.0,
+                      "unit": "days",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "d"
+                    }
+                  }
+                ]
+              }
+            ],
             "status": "active",
             "intent": "order",
             "category": {
@@ -113,6 +133,26 @@
       "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-22"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "status": "finished",
         "subject": {
           "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
@@ -134,6 +174,26 @@
             "resource": {
               "resourceType": "Observation",
               "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-obs1",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-22"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "status": "final",
               "category": {
                 "coding": [
@@ -173,6 +233,26 @@
             "resource": {
               "resourceType": "Observation",
               "id": "example-rec-10-illicit-drugs-POS-PCP-prefetch-obs6",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-22"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "status": "final",
               "category": {
                 "coding": [
@@ -213,6 +293,26 @@
             "resource": {
               "resourceType": "Observation",
               "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-obs2",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-22"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "status": "final",
               "category": {
                 "coding": [
@@ -252,6 +352,26 @@
             "resource": {
               "resourceType": "Observation",
               "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-obs3",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-22"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "status": "final",
               "category": {
                 "coding": [
@@ -298,6 +418,26 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-3",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-22"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "status": "active",
         "intent": "order",
         "category": {

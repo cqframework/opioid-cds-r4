@@ -8,7 +8,7 @@
             "resource": {
                 "resourceType": "Patient",
                 "id": "example-rec-09-true-return-recommendations",
-                "_birthDate": {
+                "birthDate": {
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",

@@ -24,6 +24,19 @@
       <resource>
           <Encounter xmlns="http://hl7.org/fhir">
              <id value="example-rec-11-benzo-trigger-with-opioid-prefetch"/>
+              <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+     <extension url="dateLastUpdated">
+       <valueDateTime value="2022-04-22" />
+     </extension>
+     <extension url="frequency">
+       <valueDuration>
+         <value value="30.0" />
+         <unit value="days" />
+         <system value="http://unitsofmeasure.org" />
+         <code value="d" />
+       </valueDuration>
+     </extension>
+   </extension>
              <status value="finished"/>
              <class>
                  <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -49,6 +62,19 @@
       <resource>
           <MedicationRequest xmlns="http://hl7.org/fhir">
              <id value="example-rec-11-benzo-trigger-with-opioid-prefetch"/>
+              <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+     <extension url="dateLastUpdated">
+       <valueDateTime value="2022-04-22" />
+     </extension>
+     <extension url="frequency">
+       <valueDuration>
+         <value value="30.0" />
+         <unit value="days" />
+         <system value="http://unitsofmeasure.org" />
+         <code value="d" />
+       </valueDuration>
+     </extension>
+   </extension>
              <status value="active"/>
              <intent value="order"/>
              <category>
@@ -71,12 +97,8 @@
                 <reference value="Encounter/example-rec-11-benzo-trigger-with-opioid-prefetch"/>
              </encounter>
              <authoredOn>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                      <valueExpression>
-                          <language value="text/cql"/>
-                          <expression value="2022-03-28"/>
-                      </valueExpression>
-                  </extension>
+                  <start>2022-03-28</start>
+                  <end>2022-03-28</end>
              </authoredOn>
              <dosageInstruction>
                 <timing>

@@ -24,6 +24,19 @@
       <resource>
           <Encounter xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch"/>
+              <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+     <extension url="dateLastUpdated">
+       <valueDateTime value="2022-04-22" />
+     </extension>
+     <extension url="frequency">
+       <valueDuration>
+         <value value="30.0" />
+         <unit value="days" />
+         <system value="http://unitsofmeasure.org" />
+         <code value="d" />
+       </valueDuration>
+     </extension>
+   </extension>
              <status value="finished"/>
              <class>
                  <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -49,6 +62,19 @@
       <resource>
           <MedicationRequest xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch"/>
+              <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+     <extension url="dateLastUpdated">
+       <valueDateTime value="2022-04-22" />
+     </extension>
+     <extension url="frequency">
+       <valueDuration>
+         <value value="30.0" />
+         <unit value="days" />
+         <system value="http://unitsofmeasure.org" />
+         <code value="d" />
+       </valueDuration>
+     </extension>
+   </extension>
              <status value="active"/>
              <intent value="order"/>
              <category>
@@ -117,6 +143,19 @@
       <resource>
           <Observation xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch-codeine"/>
+              <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+     <extension url="dateLastUpdated">
+       <valueDateTime value="2022-04-22" />
+     </extension>
+     <extension url="frequency">
+       <valueDuration>
+         <value value="30.0" />
+         <unit value="days" />
+         <system value="http://unitsofmeasure.org" />
+         <code value="d" />
+       </valueDuration>
+     </extension>
+   </extension>
              <status value="final"/>
              <code>
                 <coding>
@@ -129,12 +168,8 @@
                 <reference value="Patient/example-rec-10-unprescribed-opioids"/>
              </subject>
              <effectiveDateTime>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                      <valueExpression>
-                          <language value="text/cql"/>
-                          <expression value="2022-04-04"/>
-                      </valueExpression>
-                  </extension>
+                  <start>2022-04-04</start>
+                  <end>2022-04-04</end>
              </effectiveDateTime>
              <interpretation>
                 <coding>
@@ -154,6 +189,19 @@
       <resource>
           <Observation xmlns="http://hl7.org/fhir">
              <id value="example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
+              <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+     <extension url="dateLastUpdated">
+       <valueDateTime value="2022-04-22" />
+     </extension>
+     <extension url="frequency">
+       <valueDuration>
+         <value value="30.0" />
+         <unit value="days" />
+         <system value="http://unitsofmeasure.org" />
+         <code value="d" />
+       </valueDuration>
+     </extension>
+   </extension>
              <status value="final"/>
              <code>
                 <coding>
@@ -166,12 +214,8 @@
                 <reference value="Patient/example-rec-10-unprescribed-opioids"/>
              </subject>
              <effectiveDateTime>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                      <valueExpression>
-                          <language value="text/cql"/>
-                          <expression value="2022-03-28"/>
-                      </valueExpression>
-                  </extension>
+                  <start>2022-03-28</start>
+                  <end>2022-03-28</end>
              </effectiveDateTime>
              <interpretation>
                 <coding>

@@ -1,5 +1,18 @@
 <MedicationRequest xmlns="http://hl7.org/fhir">
    <id value="example-rec-10-not-missing-prescribed-opioids-prefetch"/>
+    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+     <extension url="dateLastUpdated">
+       <valueDateTime value="2022-04-22" />
+     </extension>
+     <extension url="frequency">
+       <valueDuration>
+         <value value="30.0" />
+         <unit value="days" />
+         <system value="http://unitsofmeasure.org" />
+         <code value="d" />
+       </valueDuration>
+     </extension>
+   </extension>
    <status value="active"/>
    <intent value="order"/>
    <category>
@@ -22,12 +35,8 @@
       <reference value="Encounter/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
    </encounter>
    <authoredOn>
-       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-           <valueExpression>
-               <language value="text/cql"/>
-               <expression value="2022-01-25"/>
-           </valueExpression>
-      </extension>
+                  <start>2022-01-25</start>
+                  <end>2022-01-25</end>
    </authoredOn>
    <dosageInstruction>
       <timing>
