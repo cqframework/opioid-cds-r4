@@ -58,15 +58,8 @@
         "reference": "Encounter/example-rec-10-illicit-drugs-POS-Opiate-context"
       },
       "authoredOn": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql",
-              "expression": "2022-04-14"
-            }
-          }
-        ]
+        "start": "2022-04-14",
+        "end": "2022-04-14"
       },
       "dosageInstruction": [
         {
@@ -460,15 +453,8 @@
           "reference": "Encounter/example-rec-10-illicit-drugs-POS-Opiate-prefetch"
         },
         "authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-01-14"
-              }
-            }
-          ]
+          "start": "2022-01-14",
+          "end": "2022-01-14"
         },
         "dosageInstruction": [
           {

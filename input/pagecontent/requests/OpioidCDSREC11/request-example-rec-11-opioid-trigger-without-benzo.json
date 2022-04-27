@@ -59,15 +59,8 @@
           "reference": "Encounter/example-rec-11-opioid-trigger-without-benzo-context"
         },
         "authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-04-25"
-              }
-            }
-          ]
+          "start": "2022-04-25",
+          "end": "2022-04-25"
         },
         "dosageInstruction": [
           {

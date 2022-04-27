@@ -53,16 +53,9 @@
                 "subject": {
                     "reference": "Patient/example-rec-09-true-return-recommendations"
                 },
-                "authoredOn": {
-                  "extension": [
-                    {
-                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                      "valueExpression": {
-                        "language": "text/cql",
-                        "expression": "2022-04-14"
-                      }
-                    }
-                  ]
+                "authoredOn": { 
+                  "start": "2022-04-14",
+                  "end": "2022-04-14"
                 },
                 "dosageInstruction": [
                     {
@@ -105,15 +98,8 @@
                 "resourceType": "Patient",
                 "id": "example-rec-09-true-return-recommendations",
                 "birthDate": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueExpression": {
-                                "language": "text/cql",
-                                "expression": "2002-04-14"
-                            }
-                        }
-                    ]
+                  "start": "2002-04-14",
+                  "end": "2002-04-14"
                 }
             }
         },

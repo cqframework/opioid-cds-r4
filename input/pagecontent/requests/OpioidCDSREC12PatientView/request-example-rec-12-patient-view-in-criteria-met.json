@@ -15,15 +15,8 @@
         "resourceType": "Patient",
         "id": "example-rec-12-criteria-valid",
         "birthDate": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2002-04-14"
-              }
-            }
-          ]
+          "start": "2002-04-14",
+          "end": "2002-04-14"
         }
       }
     },
@@ -77,15 +70,8 @@
           ]
         },
         "recordedDate": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-02-13"
-              }
-            }
-          ]
+          "start": "2022-02-13",
+          "end": "2022-02-13"
         }
       }
     },

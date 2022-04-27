@@ -87,15 +87,8 @@
                 "reference": "Encounter/example-rec-10-patient-view-2-illicit-drugs-encounter"
               },
               "authoredOn": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "valueExpression": {
-                      "language": "text/cql",
-                      "expression": "2022-01-25"
-                    }
-                  }
-                ]
+                "start": "2022-01-25",
+                "end": "2022-01-25"
               },
               "dosageInstruction": [
                 {
@@ -186,15 +179,8 @@
                 "reference": "Encounter/example-rec-10-patient-view-2-illicit-drugs-encounter"
               },
               "authoredOn": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "valueExpression": {
-                      "language": "text/cql",
-                      "expression": "2022-04-25"
-                    }
-                  }
-                ]
+                "start": "2022-04-25",
+                "end": "2022-04-25"
               },
               "dosageInstruction": [
                 {

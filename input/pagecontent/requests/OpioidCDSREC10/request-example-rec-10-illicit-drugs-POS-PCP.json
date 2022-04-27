@@ -58,15 +58,8 @@
         "reference": "Encounter/example-rec-10-illicit-drugs-POS-PCP-context"
       },
       "authoredOn": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql",
-              "expression": "2022-04-22"
-            }
-          }
-        ]
+        "start": "2022-04-22",
+        "end": "2022-04-22"
       },
       "dosageInstruction": [
         {
@@ -460,15 +453,8 @@
           "reference": "Encounter/example-rec-10-illicit-drugs-POS-PCP-prefetch"
         },
         "authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-01-22"
-              }
-            }
-          ]
+          "start": "2022-01-22",
+          "end": "2022-01-22"
         },
         "dosageInstruction": [
           {

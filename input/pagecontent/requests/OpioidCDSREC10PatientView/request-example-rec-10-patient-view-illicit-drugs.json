@@ -87,15 +87,8 @@
                 "reference": "Encounter/example-rec-10-illicit-drugs-prefetch"
               },
               "authoredOn": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "valueExpression": {
-                      "language": "text/cql",
-                      "expression": "2022-01-25"
-                    }
-                  }
-                ]
+                "start": "2022-01-25",
+                "end": "2022-01-25"
               },
               "dosageInstruction": [
                 {
@@ -186,15 +179,8 @@
                 "reference": "Encounter/example-rec-10-illicit-drugs-context"
               },
               "authoredOn": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "valueExpression": {
-                      "language": "text/cql",
-                      "expression": "2022-04-25"
-                    }
-                  }
-                ]
+                "start": "2022-04-25",
+                "end": "2022-04-25"
               },
               "dosageInstruction": [
                 {
@@ -277,15 +263,8 @@
           "reference": "Patient/example-rec-10-illicit-drugs"
         },
         "effectiveDateTime": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-03-28"
-              }
-            }
-          ]
+          "start": "2022-03-28",
+          "end": "2022-03-28"
         },
         "interpretation": {
           "coding": [

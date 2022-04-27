@@ -74,15 +74,8 @@
                 "reference": "Encounter/example-rec-10-no-screenings-context"
               },
               "authoredOn": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "valueExpression": {
-                      "language": "text/cql",
-                      "expression": "2022-04-25"
-                    }
-                  }
-                ]
+                "start": "2022-04-25",
+                "end": "2022-04-25"
               },
               "dosageInstruction": [
                 {
@@ -168,15 +161,8 @@
                 "reference": "Encounter/example-rec-10-no-screenings-prefetch"
               },
               "authoredOn": {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                    "valueExpression": {
-                      "language": "text/cql",
-                      "expression": "2022-01-25"
-                    }
-                  }
-                ]
+                "start": "2022-01-25",
+                "end": "2022-01-25"
               },
               "dosageInstruction": [
                 {

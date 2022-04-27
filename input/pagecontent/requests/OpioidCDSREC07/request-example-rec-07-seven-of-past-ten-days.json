@@ -57,15 +57,8 @@
           "reference": "Encounter/example-rec-07-seven-of-past-ten-days-context"
         },
         "authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-04-14"
-              }
-            }
-          ]
+          "start": "2022-04-14",
+          "end": "2022-04-14"
         },
         "dosageInstruction": [
           {
@@ -153,15 +146,8 @@
           "reference": "Encounter/example-rec-07-seven-of-past-ten-days-prefetch"
         },
         "authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-04-04"
-              }
-            }
-          ]
+          "start": "2022-04-04",
+          "end": "2022-04-04"
         },
         "dosageInstruction": [
           {

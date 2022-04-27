@@ -58,15 +58,8 @@
         "reference": "Encounter/example-rec-10-illicit-POS-Cocaine-drugs-context"
       },
       "authoredOn": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql",
-              "expression": "2022-04-14"
-            }
-          }
-        ]
+        "start": "2022-04-14",
+        "end": "2022-04-14"
       },
       "dosageInstruction": [
         {
@@ -412,6 +405,26 @@
       "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-illicit-POS-Cocaine-drugs-prefetch-5",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-22"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],        
         "status": "active",
         "intent": "order",
         "category": {
@@ -438,15 +451,8 @@
           "reference": "Encounter/example-rec-10-illicit-POS-Cocaine-drugs-context"
         },
         "authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-01-14"
-              }
-            }
-          ]
+          "start": "2022-01-14",
+          "end": "2022-01-14"
         },
         "dosageInstruction": [
           {
