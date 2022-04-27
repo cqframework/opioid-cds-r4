@@ -10,11 +10,7 @@
       <reference value="Patient/example-rec-07-seven-of-past-ten-days"/>
    </subject>
    <period>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-          <valueExpression>
-              <language value="text/cql"/>
-              <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 10 days }, end: FHIR.dateTime { value: Today() - 10 days } }"/>
-          </valueExpression>
-      </extension>
+        <start>2022-03-29</start>
+        <end>2022-03-29</end>
    </period>
 </Encounter>

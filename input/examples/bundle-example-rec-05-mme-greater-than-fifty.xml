@@ -2,7 +2,7 @@
    <id value="example-rec-05-mme-greater-than-fifty"/>
    <type value="transaction"/>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-05-mme-greater-than-fifty"/>
+      <fullUrl value="http://localhost:8080/fhir/Patient/example-rec-05-mme-greater-than-fifty"/>
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
             <id value="example-rec-05-mme-greater-than-fifty"/>
@@ -16,7 +16,7 @@
       </request>
    </entry>
    <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-05-mme-greater-than-fifty-context"/>
+      <fullUrl value="http://localhost:8080/fhir/Encounter/example-rec-05-mme-greater-than-fifty-context"/>
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <id value="example-rec-05-mme-greater-than-fifty-context"/>
@@ -30,12 +30,8 @@
                <reference value="Patient/example-rec-05-mme-greater-than-fifty"/>
             </subject>
             <period>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                    <valueExpression>
-                        <language value="text/cql"/>
-                        <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() } }"/>
-                    </valueExpression>
-                </extension>
+               <start>2022-04-08</start>
+               <end>2022-04-08</end>
             </period>
          </Encounter>
       </resource>
