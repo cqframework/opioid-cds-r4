@@ -8,6 +8,26 @@
             "resource": {
                 "resourceType": "Patient",
                 "id": "example-rec-03-true-make-recommendations",
+                "extension": [
+                    {
+                      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                      "extension": [
+                        {
+                          "url": "dateLastUpdated",
+                          "valueDateTime": "2022-04-08"
+                        },
+                        {
+                          "url": "frequency",
+                          "valueDuration": {
+                            "value": 30.0,
+                            "unit": "days",
+                            "system": "http://unitsofmeasure.org",
+                            "code": "d"
+                          }
+                        }
+                      ]
+                    }
+                  ],
                 "_birthDate": {
                     "extension": [
                         {
@@ -30,6 +50,26 @@
             "resource": {
                 "resourceType": "MedicationRequest",
                 "id": "example-rec-03-true-make-recommendations",
+                "extension": [
+                    {
+                      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                      "extension": [
+                        {
+                          "url": "dateLastUpdated",
+                          "valueDateTime": "2022-04-08"
+                        },
+                        {
+                          "url": "frequency",
+                          "valueDuration": {
+                            "value": 30.0,
+                            "unit": "days",
+                            "system": "http://unitsofmeasure.org",
+                            "code": "d"
+                          }
+                        }
+                      ]
+                    }
+                  ],
                 "authoredOn": "2018-08-01T00:00:00.0Z",
                 "status": "active",
                 "intent": "order",
@@ -67,6 +107,26 @@
             "resource": {
                 "resourceType": "Procedure",
                 "id": "example-rec-03-true-make-recommendations",
+                "extension": [
+                    {
+                      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                      "extension": [
+                        {
+                          "url": "dateLastUpdated",
+                          "valueDateTime": "2022-04-08"
+                        },
+                        {
+                          "url": "frequency",
+                          "valueDuration": {
+                            "value": 30.0,
+                            "unit": "days",
+                            "system": "http://unitsofmeasure.org",
+                            "code": "d"
+                          }
+                        }
+                      ]
+                    }
+                  ],
                 "status": "completed",
                 "code": {
                     "coding": [
