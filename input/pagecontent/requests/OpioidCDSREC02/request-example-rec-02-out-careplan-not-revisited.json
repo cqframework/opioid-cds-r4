@@ -1,8 +1,7 @@
 {
   "hookInstance": "95e3c637-8c92-4d48-9e00-fa223b072506",
-  "fhirServer": "http://localhost:8080/fhir",
+  "fhirServer": "http://cqf-ruler.localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-02-false-due-to-careplan-within-90-days",

@@ -1,8 +1,8 @@
 {
   "hookInstance": "b32cab7a-75ea-4cd1-9514-20ebf473cac9",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://cqf-ruler.localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
+
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-substance-abuse",
@@ -38,18 +38,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-08-substance-abuse-context"
       },
-      "_authoredOn": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql",
-              "expression": "Today()"
-            }
-          }
-        ]
-      },
-      "dosageInstruction": [
+"authoredOn": "2022-04-28",      "dosageInstruction": [
         {
           "timing": {
             "repeat": {
@@ -71,16 +60,9 @@
         }
       ],
       "dispenseRequest": {
-        "_validityPeriod": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-              }
-            }
-          ]
+        "validityPeriod": {
+          "start": "2022-04-28",
+          "end": "2022-07-28"
         },
         "quantity": {
           "value": 30,
@@ -122,15 +104,8 @@
           "reference": "Patient/example-rec-08-substance-abuse"
         },
         "period": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 14 days }, end: FHIR.dateTime { value: Today() - 14 days } }"
-              }
-            }
-          ]
+          "start" :"2022-04-14",
+          "end": "2022-04-14"
         }
       }
     },

@@ -1,8 +1,8 @@
 {
   "hookInstance": "d23ec776-f58a-4902-b0a4-6ef3d9f59309",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://cqf-ruler.localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
+
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-07-six-of-past-ten-days",
@@ -37,17 +37,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-07-six-of-past-ten-days-context"
         },
-        "_authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today()"
-              }
-            }
-          ]
-        },
+        "authoredOn": "2022-04-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -65,16 +55,9 @@
           }
         ],
         "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                }
-              }
-            ]
+          "validityPeriod": {
+            "start": "2022-04-28",
+            "end": "2022-07-28"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -120,17 +103,7 @@
         "context": {
           "reference": "Encounter/example-rec-07-six-of-past-ten-days-prefetch"
         },
-        "_authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today() - 10 days"
-              }
-            }
-          ]
-        },
+        "authoredOn": "2022-04-18",
         "dosageInstruction": [
           {
             "timing": {
@@ -148,16 +121,9 @@
           }
         ],
         "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 10 days }, end: FHIR.dateTime { value: Today() } }"
-                }
-              }
-            ]
+          "validityPeriod": {
+            "start": "2022-04-18",
+            "end": "2022-04-28"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -181,15 +147,8 @@
           "reference": "Patient/example-rec-07-six-of-past-ten-days"
         },
         "period": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 10 days }, end: FHIR.dateTime { value: Today() - 10 days } }"
-              }
-            }
-          ]
+          "start" :"2022-04-18",
+          "end": "2022-04-18"
         }
       }
     },

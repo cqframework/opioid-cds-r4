@@ -1,8 +1,8 @@
 {
   "hookInstance": "a3f05376-ec08-4102-a8ba-2c88c0af2f8f",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://cqf-ruler.localhost:8080/fhir",
   "hook": "order-sign",
-  "applyCql": true,
+
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-order-sign-on-benzodiazepine",
@@ -38,18 +38,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-08-order-sign-on-benzodiazepine-context"
       },
-      "_authoredOn": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql",
-              "expression": "Today()"
-            }
-          }
-        ]
-      },
-      "dosageInstruction": [
+"authoredOn": "2022-04-28",      "dosageInstruction": [
         {
           "timing": {
             "repeat": {
@@ -71,16 +60,9 @@
         }
       ],
       "dispenseRequest": {
-        "_validityPeriod": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-              }
-            }
-          ]
+        "validityPeriod": {
+          "start": "2022-04-28",
+          "end": "2022-07-28"
         },
         "numberOfRepeatsAllowed": 3,
         "expectedSupplyDuration": {
@@ -136,17 +118,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-08-order-sign-on-benzodiazepine-context"
         },
-        "_authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today()"
-              }
-            }
-          ]
-        },
+"authoredOn": "2022-04-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -169,16 +141,9 @@
           }
         ],
         "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                }
-              }
-            ]
+          "validityPeriod": {
+            "start": "2022-04-28",
+            "end": "2022-07-28"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
