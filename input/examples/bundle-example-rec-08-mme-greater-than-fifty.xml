@@ -30,12 +30,8 @@
                <reference value="Patient/example-rec-08-mme-greater-than-fifty"/>
             </subject>
             <period>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                    <valueExpression>
-                        <language value="text/cql"/>
-                        <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() } }"/>
-                    </valueExpression>
-                </extension>
+<start>"2022-04-28"</start>
+<end>"2022-04-28"</end>
             </period>
          </Encounter>
       </resource>

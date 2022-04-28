@@ -21,14 +21,7 @@
    <encounter>
       <reference value="Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
    </encounter>
-   <authoredOn>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="Today() - 4 weeks"/>
-            </valueExpression>
-        </extension>
-   </authoredOn>
+   <authoredOn value="2022-03-31"/>
    <dosageInstruction>
       <timing>
          <repeat>
@@ -47,12 +40,8 @@
    </dosageInstruction>
    <dispenseRequest>
       <validityPeriod>
-         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 4 weeks }, end: FHIR.dateTime { value: Today() + 3 months } }"/>
-            </valueExpression>
-        </extension>
+         <start>2022-03-31</start>
+         <end>2022-07-28</end>
       </validityPeriod>
       <numberOfRepeatsAllowed value="3"/>
       <expectedSupplyDuration>

@@ -11,14 +11,7 @@
    <subject>
       <reference value="Patient/example-rec-10-unprescribed-opioids"/>
    </subject>
-   <effectiveDateTime>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="Today() - 3 weeks"/>
-            </valueExpression>
-        </extension>
-   </effectiveDateTime>
+   <effectiveDateTime value="2022-04-07"/>
    <interpretation>
       <coding>
           <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>

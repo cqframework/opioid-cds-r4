@@ -4,7 +4,7 @@
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/fhir/Patient/example-rec-03-true-make-recommendations",
+            "fullUrl": "http://cqf-ruler.localhost:8080/fhir/Patient/example-rec-03-true-make-recommendations",
             "resource": {
                 "resourceType": "Patient",
                 "id": "example-rec-03-true-make-recommendations",
@@ -16,7 +16,7 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/fhir/MedicationRequest/example-rec-03-true-make-recommendations",
+            "fullUrl": "http://cqf-ruler.localhost:8080/fhir/MedicationRequest/example-rec-03-true-make-recommendations",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "id": "example-rec-03-true-make-recommendations",
@@ -53,7 +53,7 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/fhir/Procedure/example-rec-03-true-make-recommendations",
+            "fullUrl": "http://cqf-ruler.localhost:8080/fhir/Procedure/example-rec-03-true-make-recommendations",
             "resource": {
                 "resourceType": "Procedure",
                 "id": "example-rec-03-true-make-recommendations",

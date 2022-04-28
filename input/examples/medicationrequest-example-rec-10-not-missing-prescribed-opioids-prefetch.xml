@@ -21,14 +21,7 @@
    <encounter>
       <reference value="Encounter/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
    </encounter>
-   <authoredOn>
-       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-           <valueExpression>
-               <language value="text/cql"/>
-               <expression value="Today() - 90 days"/>
-           </valueExpression>
-      </extension>
-   </authoredOn>
+   <authoredOn value="2022-01-28"/>
    <dosageInstruction>
       <timing>
          <repeat>
@@ -47,14 +40,9 @@
    </dosageInstruction>
    <dispenseRequest>
       <validityPeriod>
-         <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="FHIR.Period { start: FHIR.dateTime { value: Today() - 90 days }, end: FHIR.dateTime { value: Today() } }"/>
-            </valueExpression>
-        </extension>
-      </validityPeriod>
-      <numberOfRepeatsAllowed value="3"/>
+         <start>2022-01-28</start>
+         <end>2022-04-28</end>
+      </validityPeriod>      <numberOfRepeatsAllowed value="3"/>
       <expectedSupplyDuration>
          <value value="27.0"/>
          <unit value="d"/>
