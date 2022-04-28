@@ -56,10 +56,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-07-sixtythree-of-past-ninety-days-context"
         },
-        "authoredOn": {
-          "start": "2022-04-14",
-          "end": "2022-04-14"
-        },
+        "authoredOn": "2022-04-14",
         "dosageInstruction": [
           {
             "timing": {
@@ -145,10 +142,7 @@
         "context": {
           "reference": "Encounter/example-rec-07-sixtythree-of-past-ninety-days-prefetch"
         },
-        "authoredOn": {
-          "start": "2022-01-14",
-          "end": "2022-01-14"
-        },
+        "authoredOn": "2022-01-14",
         "dosageInstruction": [
           {
             "timing": {

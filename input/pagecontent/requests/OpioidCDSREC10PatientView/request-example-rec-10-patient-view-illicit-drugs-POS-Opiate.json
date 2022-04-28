@@ -57,10 +57,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-10-patient-view-illicit-drugs-POS-Opiate-encounter"
       },
-      "authoredOn": {
-        "start": "2022-04-25",
-        "end": "2022-04-25"
-      },
+      "authoredOn": "2022-04-25",
       "dosageInstruction": [
         {
           "timing": {
@@ -453,10 +450,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-patient-view-illicit-drugs-POS-Opiate-encounter"
         },
-        "authoredOn": {
-          "start": "2022-01-25",
-          "end": "2022-01-25"
-        },
+        "authoredOn": "2022-01-25",
         "dosageInstruction": [
           {
             "timing": {

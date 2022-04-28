@@ -57,10 +57,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-10-2-illicit-drugs-context"
       },
-      "authoredOn": {
-        "start": "2022-04-14",
-        "end": "2022-04-14"
-      },
+      "authoredOn": "2022-04-14",
       "dosageInstruction": [
         {
           "timing": {
@@ -452,10 +449,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-2-illicit-drugs-prefetch"
         },
-        "authoredOn": {
-          "start": "2022-01-14",
-          "end": "2022-01-14"
-        },
+        "authoredOn": "2022-01-14",
         "dosageInstruction": [
           {
             "timing": {

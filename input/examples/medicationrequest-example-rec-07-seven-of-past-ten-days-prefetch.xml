@@ -35,8 +35,7 @@
       <reference value="Encounter/example-rec-07-seven-of-past-ten-days-prefetch"/>
    </encounter>
    <authoredOn>
-                  <start>2022-04-15</start>
-                  <end>2022-04-15</end>
+ <authoredOn value = "2022-04-15"/>
    </authoredOn>
    <dosageInstruction>
       <timing>

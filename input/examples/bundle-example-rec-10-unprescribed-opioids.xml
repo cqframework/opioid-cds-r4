@@ -97,12 +97,7 @@
                 <reference value="Encounter/example-rec-10-unprescribed-opioids-prefetch"/>
              </encounter>
              <authoredOn>
-                 <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-                     <valueExpression>
-                         <language value="text/cql"/>
-                         <expression value="2022-01-25"/>
-                     </valueExpression>
-                </extension>
+                  <authoredOn value = "2022-01-25"/>
              </authoredOn>
              <dosageInstruction>
                 <timing>

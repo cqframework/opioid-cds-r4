@@ -35,8 +35,7 @@
       <reference value="Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
    </encounter>
    <authoredOn>
-                  <start>2022-03-28</start>
-                  <end>2022-03-28</end>
+ <authoredOn value = "2022-03-28"/>
    </authoredOn>
    <dosageInstruction>
       <timing>

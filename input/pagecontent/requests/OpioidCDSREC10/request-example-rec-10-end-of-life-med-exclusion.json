@@ -58,10 +58,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-end-of-life-med-exclusion-context"
         },
-        "authoredOn": {
-          "start": "2022-04-14",
-          "end": "2022-04-14"
-        },
+        "authoredOn": "2022-04-14",
         "dosageInstruction": [
           {
             "timing": {
@@ -203,10 +200,7 @@
             }
           ]
         },
-        "recordedDate": {
-          "start": "2022-02-13",
-          "end": "2022-02-13"
-        }
+        "recordedDate": "2022-02-13"
       }
     },
     "item6": null,

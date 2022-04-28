@@ -56,17 +56,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-08-on-naloxone-context"
         },
-        "authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "2022-04-14"
-              }
-            }
-          ]
-        },
+        "authoredOn": "2022-04-14",
         "dosageInstruction": [
           {
             "timing": {
@@ -167,10 +157,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-08-on-naloxone-context"
         },
-        "authoredOn": {
-          "start": "2022-04-14",
-          "end": "2022-04-14"
-        },
+        "authoredOn": "2022-04-14",
         "dosageInstruction": [
           {
             "timing": {

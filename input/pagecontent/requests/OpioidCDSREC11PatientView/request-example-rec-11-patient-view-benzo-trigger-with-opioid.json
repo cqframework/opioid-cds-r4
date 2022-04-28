@@ -73,10 +73,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-11-benzo-trigger-with-opioid-context"
         },
-        "authoredOn": {
-          "start": "2022-04-25",
-          "end": "2022-04-25"
-        },
+        "authoredOn": "2022-04-25",
         "dosageInstruction": [
           {
             "timing": {
@@ -168,10 +165,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-11-benzo-trigger-with-opioid-prefetch"
         },
-        "authoredOn": {
-          "start": "2022-03-28",
-          "end": "2022-03-28"
-        },
+        "authoredOn": "2022-03-28",
         "dosageInstruction": [
           {
             "timing": {

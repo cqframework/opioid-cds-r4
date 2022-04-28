@@ -57,10 +57,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-10-illicit-POS-Cocaine-drugs-context"
       },
-      "authoredOn": {
-        "start": "2022-04-14",
-        "end": "2022-04-14"
-      },
+      "authoredOn": "2022-04-14",
       "dosageInstruction": [
         {
           "timing": {
@@ -450,10 +447,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-illicit-POS-Cocaine-drugs-context"
         },
-        "authoredOn": {
-          "start": "2022-01-14",
-          "end": "2022-01-14"
-        },
+        "authoredOn": "2022-01-14",
         "dosageInstruction": [
           {
             "timing": {

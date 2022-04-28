@@ -25,8 +25,7 @@
       <reference value="Patient/example-rec-10-missing-prescribed-opioids"/>
    </subject>
    <effectiveDateTime>
-                  <start>2022-03-28</start>
-                  <end>2022-03-28</end>
+ <effectiveDateTime value = "2022-03-28"/>
    </effectiveDateTime>
    <interpretation>
       <coding>

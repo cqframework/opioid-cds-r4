@@ -55,10 +55,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-07-end-of-life-exclusion-context"
         },
-        "authoredOn": {
-          "start": "2022-04-14",
-          "end": "2022-04-14"
-        },
+        "authoredOn": "2022-04-14",
         "dosageInstruction": [
           {
             "timing": {
@@ -144,10 +141,7 @@
         "context": {
           "reference": "Encounter/example-rec-07-end-of-life-exclusion-prefetch"
         },
-        "authoredOn": {
-          "start": "2022-03-03",
-          "end": "2022-03-03"
-        },
+        "authoredOn" : "2022-03-03",
         "dosageInstruction": [
           {
             "timing": {

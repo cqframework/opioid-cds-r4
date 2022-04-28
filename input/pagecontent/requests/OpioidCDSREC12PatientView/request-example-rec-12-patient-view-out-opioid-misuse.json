@@ -14,10 +14,7 @@
             "resource": {
                 "resourceType": "Patient",
                 "id": "example-rec-12-criteria-invalid",
-                "birthDate": {
-                    "start": "2002-04-14",
-                    "end": "2002-04-14"
-                }
+                "birthDate": "2002-04-14"
             }
         },
         "item2": null,

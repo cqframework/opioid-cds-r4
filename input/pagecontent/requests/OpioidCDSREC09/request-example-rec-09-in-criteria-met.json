@@ -53,10 +53,7 @@
                 "subject": {
                     "reference": "Patient/example-rec-09-true-return-recommendations"
                 },
-                "authoredOn": { 
-                  "start": "2022-04-14",
-                  "end": "2022-04-14"
-                },
+                "authoredOn": "2022-04-14",
                 "dosageInstruction": [
                     {
                         "timing": {

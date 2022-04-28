@@ -57,10 +57,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-10-illicit-drugs-POS-PCP-context"
       },
-      "authoredOn": {
-        "start": "2022-04-22",
-        "end": "2022-04-22"
-      },
+      "authoredOn": "2022-04-22",
       "dosageInstruction": [
         {
           "timing": {
@@ -452,10 +449,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-illicit-drugs-POS-PCP-prefetch"
         },
-        "authoredOn": {
-          "start": "2022-01-22",
-          "end": "2022-01-22"
-        },
+        "authoredOn": "2022-01-22",
         "dosageInstruction": [
           {
             "timing": {
