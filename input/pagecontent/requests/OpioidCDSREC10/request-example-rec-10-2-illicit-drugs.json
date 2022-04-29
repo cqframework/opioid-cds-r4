@@ -1,8 +1,7 @@
 {
   "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
-  "fhirServer": "http://localhost:8080/cqf-ruler/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-2-illicit-drugs",
@@ -38,7 +37,8 @@
       "encounter": {
         "reference": "Encounter/example-rec-10-2-illicit-drugs-context"
       },
-"authoredOn": "2022-04-28",      "dosageInstruction": [
+      "authoredOn": "2022-04-28",
+      "dosageInstruction": [
         {
           "timing": {
             "repeat": {
@@ -53,8 +53,8 @@
               "doseQuantity": {
                 "value": 1.0,
                 "unit": "patch",
-                "system" : "http://unitsofmeasure.org",
-                "code" : "{patch}"
+                "system": "http://unitsofmeasure.org",
+                "code": "{patch}"
               }
             }
           ]
@@ -266,7 +266,7 @@
           "reference": "Patient/example-rec-10-2-illicit-drugs"
         },
         "period": {
-          "start" :"2022-01-28",
+          "start": "2022-01-28",
           "end": "2022-01-28"
         }
       }
@@ -325,8 +325,8 @@
                 "doseQuantity": {
                   "value": 1.0,
                   "unit": "tablet",
-                  "system" : "http://unitsofmeasure.org",
-                  "code" : "{tablet}"
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tablet}"
                 }
               }
             ]

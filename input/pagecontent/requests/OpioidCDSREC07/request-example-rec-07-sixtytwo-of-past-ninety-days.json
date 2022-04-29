@@ -1,6 +1,6 @@
 {
   "hookInstance": "e0493f61-6b3e-4eab-a6f9-45cd54ef5558",
-  "fhirServer": "http://localhost:8080/cqf-ruler/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
   "context": {
     "userId": "Practitioner/example",
