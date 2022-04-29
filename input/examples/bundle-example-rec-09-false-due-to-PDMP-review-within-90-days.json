@@ -7,7 +7,26 @@
       "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-09-false-due-to-PDMP-review-within-90-days",
       "resource": {
         "resourceType": "Patient",
-        "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],        "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
         "birthDate": "2002-04-28"
       },
       "request": {
@@ -19,7 +38,26 @@
       "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Procedure/example-rec-09-false-due-to-PDMP-review-within-90-days",
       "resource": {
         "resourceType": "Procedure",
-        "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],        "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
         "status": "completed",
         "code": {
           "coding": [
@@ -47,7 +85,26 @@
       "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-09-false-due-to-PDMP-review-within-90-days",
       "resource": {
         "resourceType": "MedicationRequest",
-        "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],        "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
         "authoredOn": "2018-08-01T00:00:00.0Z",
         "status": "active",
         "intent": "order",

@@ -1,47 +1,80 @@
 <Bundle xmlns="http://hl7.org/fhir">
-   <id value="example-rec-10-end-of-life-med-exclusion"/>
-   <type value="transaction"/>
-   <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-end-of-life-med-exclusion"/>
-      <resource>
-         <Patient xmlns="http://hl7.org/fhir">
-            <id value="example-rec-10-end-of-life-med-exclusion"/>
-            <name>
-                <family value="example-rec-10"/>
-                <given value="end-of-life-med-exclusion"/>
-            </name>
-            <gender value="female"/>
-            <birthDate value="1982-01-07"/>
-         </Patient>
-      </resource>
-      <request>
-         <method value="PUT"/>
-         <url value="Patient/example-rec-10-end-of-life-med-exclusion"/>
-      </request>
-   </entry>
-   <entry>
-      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
-      <resource>
-         <Encounter xmlns="http://hl7.org/fhir">
-            <id value="example-rec-10-end-of-life-med-exclusion-context"/>
-            <status value="finished"/>
-            <class>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-                <code value="AMB"/>
-                <display value="ambulatory"/>
-            </class>
-            <subject>
-               <reference value="Patient/example-rec-10-end-of-life-med-exclusion"/>
-            </subject>
-            <period>
-<start>"2022-04-28"</start>
-<end>"2022-04-28"</end>
-            </period>
-         </Encounter>
-      </resource>
-      <request>
-         <method value="PUT"/>
-         <url value="Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
-      </request>
-   </entry>
+    <id value="example-rec-10-end-of-life-med-exclusion"/>
+    <type value="transaction"/>
+    <entry>
+        <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-end-of-life-med-exclusion"/>
+        <resource>
+            <Patient xmlns="http://hl7.org/fhir">
+                <extension>
+                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"
+                    <extension>
+                        <url value="dateLastUpdated"/>
+                        <valueDateTime value="2022-04-28"/>
+                    </extension>
+                    <extension>
+                        <url value="frequency"/>"
+                        <valueDuration>": {
+                            <value value="30.0"/>
+                            <unit value="days"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="d"/>
+                        </valueDuration>
+                    </extension>
+                </extension>
+                <id value="example-rec-10-end-of-life-med-exclusion"/>
+                <name>
+                    <family value="example-rec-10"/>
+                    <given value="end-of-life-med-exclusion"/>
+                </name>
+                <gender value="female"/>
+                <birthDate value="1982-01-07"/>
+            </Patient>
+        </resource>
+        <request>
+            <method value="PUT"/>
+            <url value="Patient/example-rec-10-end-of-life-med-exclusion"/>
+        </request>
+    </entry>
+    <entry>
+        <fullUrl
+                value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
+        <resource>
+            <Encounter xmlns="http://hl7.org/fhir">
+                <extension>
+                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"
+                    <extension>
+                        <url value="dateLastUpdated"/>
+                        <valueDateTime value="2022-04-28"/>
+                    </extension>
+                    <extension>
+                        <url value="frequency"/>"
+                        <valueDuration>": {
+                            <value value="30.0"/>
+                            <unit value="days"/>
+                            <system value="http://unitsofmeasure.org"/>
+                            <code value="d"/>
+                        </valueDuration>
+                    </extension>
+                </extension>
+                <id value="example-rec-10-end-of-life-med-exclusion-context"/>
+                <status value="finished"/>
+                <class>
+                    <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+                    <code value="AMB"/>
+                    <display value="ambulatory"/>
+                </class>
+                <subject>
+                    <reference value="Patient/example-rec-10-end-of-life-med-exclusion"/>
+                </subject>
+                <period>
+                    <start>"2022-04-28"</start>
+                    <end>"2022-04-28"</end>
+                </period>
+            </Encounter>
+        </resource>
+        <request>
+            <method value="PUT"/>
+            <url value="Encounter/example-rec-10-end-of-life-med-exclusion-context"/>
+        </request>
+    </entry>
 </Bundle>

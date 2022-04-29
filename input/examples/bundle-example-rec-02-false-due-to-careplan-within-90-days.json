@@ -7,6 +7,26 @@
             "fullUrl": "http://localhost:8080/fhir/Patient/example-rec-02-false-due-to-careplan-within-90-days",
             "resource": {
                 "resourceType": "Patient",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-28"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "example-rec-02-false-due-to-careplan-within-90-days",
                 "birthDate": "2002-04-08"
             },
@@ -70,6 +90,26 @@
             "fullUrl": "http://localhost:8080/fhir/CarePlan/example-rec-02-false-due-to-careplan-within-90-days",
             "resource": {
                 "resourceType": "CarePlan",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-28"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "example-rec-02-false-due-to-careplan-within-90-days",
                 "meta": {
                     "lastUpdated": "2022-01-09"    
