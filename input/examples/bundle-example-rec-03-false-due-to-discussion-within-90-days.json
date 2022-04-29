@@ -4,7 +4,7 @@
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-03-false-due-to-discussion-within-90-days",
+            "fullUrl": "http://localhost:8080/fhir/Patient/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "Patient",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-1",
@@ -28,17 +28,7 @@
                       ]
                     }
                   ],
-                "_birthDate": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueExpression": {
-                                "language": "text/cql",
-                                "expression": "Today() - 20 years"
-                            }
-                        }
-                    ]
-                }
+                "birthDate": "2002-04-08"
             },
             "request": {
                 "method": "PUT",
@@ -46,7 +36,7 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-03-false-due-to-discussion-within-90-days",
+            "fullUrl": "http://localhost:8080/fhir/MedicationRequest/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-3",
@@ -103,7 +93,7 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Procedure/example-rec-03-false-due-to-discussion-within-90-days",
+            "fullUrl": "http://localhost:8080/fhir/Procedure/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "Procedure",
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-21",
@@ -141,15 +131,8 @@
                     "reference": "Patient/7bdbc7ea-f76d-476e-bf94-85c6e368df67-1"
                 },
                 "performedPeriod": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueExpression": {
-                                "language": "text/cql",
-                                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() - 89 days }, end: FHIR.dateTime { value: Today() - 88 days } }"
-                            }
-                        }
-                    ]
+                    "start": "2022-01-09",
+                    "end": "2022-01-10"
                 }
             },
             "request": {

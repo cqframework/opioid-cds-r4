@@ -4,7 +4,7 @@
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://localhost:8080/fhir/Patient/example-rec-02-true-make-recommendations",
             "resource": {
                 "resourceType": "Patient",
                 "id": "example-rec-02-true-make-recommendations",
@@ -28,17 +28,7 @@
                       ]
                     }
                   ],
-                "_birthDate": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueExpression": {
-                                "language": "text/cql",
-                                "expression": "Today() - 20 years"
-                            }
-                        }
-                    ]
-                }
+                "birthDate": "2002-04-08"
             },
             "request": {
                 "method": "PUT",
@@ -46,7 +36,7 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Practitioner/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://localhost:8080/fhir/Practitioner/example-rec-02-true-make-recommendations",
             "resource": {
                 "resourceType": "Practitioner",
                 "id": "example-rec-02-true-make-recommendations"
@@ -57,7 +47,7 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://localhost:8080/fhir/MedicationRequest/example-rec-02-true-make-recommendations",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "id": "example-rec-02-true-make-recommendations",
@@ -117,7 +107,7 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/CarePlan/example-rec-02-true-make-recommendations",
+            "fullUrl": "http://localhost:8080/fhir/CarePlan/example-rec-02-true-make-recommendations",
             "resource": {
                 "resourceType": "CarePlan",
                 "id": "example-rec-02-true-make-recommendations",
@@ -142,17 +132,7 @@
                     }
                   ],
                 "meta": {
-                    "_lastUpdated": {
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                                "valueExpression": {
-                                    "language": "text/cql",
-                                    "expression": "Today() - 120 days"
-                                }
-                            }
-                        ]
-                    }
+                    "lastUpdated": "2021-12-09"
                 },
                 "status": "active",
                 "intent": "plan",
@@ -170,17 +150,7 @@
                 "subject": {
                     "reference": "Patient/example-rec-02-true-make-recommendations"
                 },
-                "_created": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueExpression": {
-                                "language": "text/cql",
-                                "expression": "Today() - 150 days"
-                            }
-                        }
-                    ]
-                },
+                "created": "2021-12-09",
                 "author": {
                     "reference": "Practitioner/example-rec-02-true-make-recommendations"
                 }
