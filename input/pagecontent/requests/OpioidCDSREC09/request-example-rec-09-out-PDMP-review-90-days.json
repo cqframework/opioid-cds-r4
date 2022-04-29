@@ -11,6 +11,26 @@
     "draftOrders": [
       {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "f4540e09-8aaf-4d77-86be-9fd9a4d6a06c-3",
         "status": "active",
         "intent": "order",
@@ -75,6 +95,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
         "birthDate": "2002-04-28"
       }

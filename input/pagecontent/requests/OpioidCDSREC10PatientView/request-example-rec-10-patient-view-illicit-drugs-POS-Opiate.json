@@ -2,7 +2,6 @@
   "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
   "fhirServer": "http://localhost:8080/fhir",
   "hook": "patient-view",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-patient-view-illicit-drugs-POS-Opiate",
@@ -12,6 +11,26 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
       "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-medreq1",
       "status": "active",
       "intent": "order",
@@ -38,7 +57,8 @@
       "encounter": {
         "reference": "Encounter/example-rec-10-patient-view-illicit-drugs-POS-Opiate-encounter"
       },
-"authoredOn": "2022-04-28",      "dosageInstruction": [
+      "authoredOn": "2022-04-28",
+      "dosageInstruction": [
         {
           "timing": {
             "repeat": {
@@ -53,8 +73,8 @@
               "doseQuantity": {
                 "value": 1.0,
                 "unit": "patch",
-                "system" : "http://unitsofmeasure.org",
-                "code" : "{patch}"
+                "system": "http://unitsofmeasure.org",
+                "code": "{patch}"
               }
             }
           ]
@@ -82,6 +102,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate",
         "gender": "female",
         "birthDate": "1982-01-07"
@@ -97,6 +137,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-prefetch-obs1",
               "status": "final",
               "category": {
@@ -136,6 +196,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-prefetch-obs2",
               "status": "final",
               "category": {
@@ -176,6 +256,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-prefetch-obs2",
               "status": "final",
               "category": {
@@ -212,9 +312,30 @@
                 }
               ]
             }
-          },          {
+          },
+          {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-prefetch-obs3",
               "status": "final",
               "category": {
@@ -265,13 +386,33 @@
       },
       "resource": {
         "resourceType": "Encounter",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-encounter",
         "status": "finished",
         "subject": {
           "reference": "Patient/example-rec-10-patient-view-illicit-drugs-POS-Opiate"
         },
         "period": {
-          "start" :"2022-01-28",
+          "start": "2022-01-28",
           "end": "2022-01-28"
         }
       }
@@ -284,6 +425,26 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-medreq2",
         "status": "active",
         "intent": "order",
@@ -326,8 +487,8 @@
                 "doseQuantity": {
                   "value": 1.0,
                   "unit": "tablet",
-                  "system" : "http://unitsofmeasure.org",
-                  "code" : "{tablet}"
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tablet}"
                 }
               }
             ]

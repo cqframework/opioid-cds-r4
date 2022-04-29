@@ -2,7 +2,6 @@
   "hookInstance": "a172a2ce-38e7-4a21-a411-522cf481d5d1",
   "fhirServer": "http://localhost:8080/fhir",
   "hook": "patient-view",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs",
@@ -15,6 +14,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-patient-view-no-screenings",
         "gender": "female",
         "birthDate": "1982-01-07"
@@ -31,6 +50,26 @@
           {
             "resource": {
               "resourceType": "MedicationRequest",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-no-screenings-context",
               "status": "active",
               "intent": "order",
@@ -75,8 +114,8 @@
                       "doseQuantity": {
                         "value": 1.0,
                         "unit": "patch",
-                        "system" : "http://unitsofmeasure.org",
-                        "code" : "{patch}"
+                        "system": "http://unitsofmeasure.org",
+                        "code": "{patch}"
                       }
                     }
                   ]
@@ -100,6 +139,26 @@
           {
             "resource": {
               "resourceType": "MedicationRequest",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-no-screenings-prefetch",
               "status": "active",
               "intent": "order",
@@ -128,7 +187,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-no-screenings-prefetch"
               },
-"authoredOn": "2022-01-28",
+              "authoredOn": "2022-01-28",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -144,8 +203,8 @@
                       "doseQuantity": {
                         "value": 1.0,
                         "unit": "tablet",
-                        "system" : "http://unitsofmeasure.org",
-                        "code" : "{tablet}"
+                        "system": "http://unitsofmeasure.org",
+                        "code": "{tablet}"
                       }
                     }
                   ]

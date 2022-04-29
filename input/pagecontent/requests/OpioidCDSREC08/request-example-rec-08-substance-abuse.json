@@ -2,7 +2,6 @@
   "hookInstance": "b32cab7a-75ea-4cd1-9514-20ebf473cac9",
   "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-substance-abuse",
@@ -12,6 +11,26 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
       "id": "example-rec-08-substance-abuse-context",
       "status": "active",
       "intent": "order",
@@ -38,7 +57,8 @@
       "encounter": {
         "reference": "Encounter/example-rec-08-substance-abuse-context"
       },
-"authoredOn": "2022-04-28",      "dosageInstruction": [
+      "authoredOn": "2022-04-28",
+      "dosageInstruction": [
         {
           "timing": {
             "repeat": {
@@ -52,8 +72,8 @@
               "doseQuantity": {
                 "value": 1.0,
                 "unit": "patch",
-                "system" : "http://unitsofmeasure.org",
-                "code" : "{patch}"
+                "system": "http://unitsofmeasure.org",
+                "code": "{patch}"
               }
             }
           ]
@@ -87,6 +107,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-08-substance-abuse",
         "gender": "female",
         "birthDate": "1982-01-07"
@@ -98,13 +138,33 @@
       },
       "resource": {
         "resourceType": "Encounter",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-08-substance-abuse-prefetch",
         "status": "finished",
         "subject": {
           "reference": "Patient/example-rec-08-substance-abuse"
         },
         "period": {
-          "start" :"2022-04-14",
+          "start": "2022-04-14",
           "end": "2022-04-14"
         }
       }
@@ -115,6 +175,26 @@
       },
       "resource": {
         "resourceType": "Condition",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-08-substance-abuse-condition",
         "clinicalStatus": {
           "coding": [
@@ -132,7 +212,6 @@
                 "system": "http://terminology.hl7.org/CodeSystem/condition-category",
                 "code": "encounter-diagnosis",
                 "display": "Encounter Diagnosis"
-
               }
             ]
           }

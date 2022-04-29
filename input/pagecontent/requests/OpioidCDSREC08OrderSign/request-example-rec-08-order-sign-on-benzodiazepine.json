@@ -2,7 +2,6 @@
   "hookInstance": "a3f05376-ec08-4102-a8ba-2c88c0af2f8f",
   "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-sign",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-order-sign-on-benzodiazepine",
@@ -12,6 +11,26 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
       "id": "example-rec-08-order-sign-on-benzodiazepine-context",
       "status": "active",
       "intent": "order",
@@ -38,7 +57,8 @@
       "encounter": {
         "reference": "Encounter/example-rec-08-order-sign-on-benzodiazepine-context"
       },
-"authoredOn": "2022-04-28",      "dosageInstruction": [
+      "authoredOn": "2022-04-28",
+      "dosageInstruction": [
         {
           "timing": {
             "repeat": {
@@ -52,8 +72,8 @@
               "doseQuantity": {
                 "value": 1.0,
                 "unit": "patch",
-                "system" : "http://unitsofmeasure.org",
-                "code" : "{patch}"
+                "system": "http://unitsofmeasure.org",
+                "code": "{patch}"
               }
             }
           ]
@@ -81,6 +101,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-08-order-sign-on-benzodiazepine",
         "gender": "female",
         "birthDate": "1982-01-07"
@@ -92,6 +132,26 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-08-order-sign-on-benzodiazepine-context",
         "status": "active",
         "intent": "order",
@@ -118,7 +178,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-08-order-sign-on-benzodiazepine-context"
         },
-"authoredOn": "2022-04-28",
+        "authoredOn": "2022-04-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -133,8 +193,8 @@
                 "doseQuantity": {
                   "value": 1.0,
                   "unit": "tablet",
-                  "system" : "http://unitsofmeasure.org",
-                  "code" : "{tablet}"
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tablet}"
                 }
               }
             ]

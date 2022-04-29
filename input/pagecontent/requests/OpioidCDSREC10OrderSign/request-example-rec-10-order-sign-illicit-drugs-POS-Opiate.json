@@ -11,6 +11,26 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
       "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate-context",
       "status": "active",
       "intent": "order",
@@ -82,6 +102,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate",
         "gender": "female",
         "birthDate": "1982-01-07"
@@ -97,6 +137,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate-prefetch-obs1",
               "status": "final",
               "category": {
@@ -136,6 +196,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate-prefetch-obs2",
               "status": "final",
               "category": {
@@ -176,6 +256,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate-prefetch-obs2",
               "status": "final",
               "category": {
@@ -215,6 +315,26 @@
           },          {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate-prefetch-obs3",
               "status": "final",
               "category": {
@@ -265,6 +385,26 @@
       },
       "resource": {
         "resourceType": "Encounter",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate-prefetch",
         "status": "finished",
         "subject": {
@@ -284,6 +424,26 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-order-sign-illicit-drugs-POS-Opiate-prefetch-3",
         "status": "active",
         "intent": "order",

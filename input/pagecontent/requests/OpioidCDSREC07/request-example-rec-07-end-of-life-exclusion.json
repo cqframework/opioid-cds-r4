@@ -2,15 +2,36 @@
   "hookInstance": "10a3a703-86d7-4818-ae03-3f7e436bfd2a",
   "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-07-end-of-life-exclusion",
     "encounterId": "Encounter/example-rec-07-end-of-life-exclusion-context",
-    "selections": [ "MedicationRequest/example-rec-07-end-of-life-exclusion-context" ],
+    "selections": [
+      "MedicationRequest/example-rec-07-end-of-life-exclusion-context"
+    ],
     "draftOrders": [
       {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-08"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-07-end-of-life-exclusion-context",
         "status": "active",
         "intent": "order",
@@ -37,7 +58,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-07-end-of-life-exclusion-context"
         },
-"authoredOn": "2022-04-28",
+        "authoredOn": "2022-04-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -77,6 +98,26 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-08"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-07-end-of-life-exclusion-prefetch",
         "status": "active",
         "intent": "order",
@@ -141,6 +182,26 @@
       },
       "resource": {
         "resourceType": "Encounter",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-08"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-07-end-of-life-exclusion-prefetch",
         "status": "finished",
         "subject": {
@@ -158,6 +219,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-08"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-07-end-of-life-exclusion",
         "gender": "male",
         "birthDate": "1982-01-07"

@@ -2,7 +2,6 @@
   "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
   "fhirServer": "http://localhost:8080/fhir",
   "hook": "patient-view",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs",
@@ -15,6 +14,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-patient-view-POS-Cocaine-drugs",
         "gender": "female",
         "birthDate": "1982-01-07",
@@ -39,6 +58,26 @@
           {
             "resource": {
               "resourceType": "MedicationRequest",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-POS-Cocaine-drugs-prefetch",
               "status": "active",
               "intent": "order",
@@ -67,7 +106,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-POS-Cocaine-drugs-prefetch"
               },
-"authoredOn": "2022-01-28",
+              "authoredOn": "2022-01-28",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -83,8 +122,8 @@
                       "doseQuantity": {
                         "value": 1.0,
                         "unit": "tablet",
-                        "system" : "http://unitsofmeasure.org",
-                        "code" : "{tablet}"
+                        "system": "http://unitsofmeasure.org",
+                        "code": "{tablet}"
                       }
                     }
                   ]
@@ -108,6 +147,26 @@
           {
             "resource": {
               "resourceType": "MedicationRequest",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-POS-Cocaine-drugs-context",
               "status": "active",
               "intent": "order",
@@ -152,8 +211,8 @@
                       "doseQuantity": {
                         "value": 1.0,
                         "unit": "patch",
-                        "system" : "http://unitsofmeasure.org",
-                        "code" : "{patch}"
+                        "system": "http://unitsofmeasure.org",
+                        "code": "{patch}"
                       }
                     }
                   ]
@@ -187,6 +246,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-POS-Cocaine-drugs-prefetch",
               "status": "final",
               "category": {
@@ -226,6 +305,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-POS-Cocaine-drugs-prefetch",
               "status": "final",
               "category": {
@@ -265,6 +364,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-prefetch-obs2",
               "status": "final",
               "category": {
@@ -305,6 +424,26 @@
           {
             "resource": {
               "resourceType": "Observation",
+              "extension": [
+                {
+                  "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                  "extension": [
+                    {
+                      "url": "dateLastUpdated",
+                      "valueDateTime": "2022-04-28"
+                    },
+                    {
+                      "url": "frequency",
+                      "valueDuration": {
+                        "value": 30.0,
+                        "unit": "days",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"
+                      }
+                    }
+                  ]
+                }
+              ],
               "id": "example-rec-10-patient-view-POS-Cocaine-drugs-prefetch-4",
               "status": "final",
               "category": {

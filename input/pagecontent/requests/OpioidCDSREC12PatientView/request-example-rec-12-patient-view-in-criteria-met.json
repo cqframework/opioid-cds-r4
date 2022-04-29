@@ -14,8 +14,28 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-12-criteria-valid",
-        "_birthDate": "2022-04-28"
+        "birthDate": "2002-04-28"
       }
     },
     "item2": null,
@@ -25,6 +45,26 @@
       },
       "resource": {
         "resourceType": "Condition",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "6bf0522c-e143-43e2-af80-47536d52de0c",
         "category": {
           "coding": [
@@ -67,7 +107,7 @@
             }
           ]
         },
-        "recordedDate": "2022-02-27"
+        "recordedDate": "2022-02-28"
       }
     },
     "item4": null,

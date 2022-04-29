@@ -2,77 +2,97 @@
   "hookInstance": "7d7eab76-d435-458d-8432-de2d35ccac9e",
   "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-sign",
-
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-order-sign-mme-less-than-fifty",
     "encounterId": "Encounter/example-rec-08-order-sign-mme-less-than-fifty-context",
-    "selections": [ "MedicationRequest/example-rec-08-order-sign-mme-less-than-fifty-context" ],
-    "draftOrders":
-      {
-        "resourceType": "MedicationRequest",
-        "id": "example-rec-08-order-sign-mme-less-than-fifty-context",
-        "status": "active",
-        "intent": "order",
-        "category": {
-          "coding": [
+    "selections": [
+      "MedicationRequest/example-rec-08-order-sign-mme-less-than-fifty-context"
+    ],
+    "draftOrders": {
+      "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-              "code": "community"
-            }
-          ]
-        },
-        "medicationCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "197696",
-              "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/example-rec-08-order-sign-mme-less-than-fifty"
-        },
-        "encounter": {
-          "reference": "Encounter/example-rec-08-order-sign-mme-less-than-fifty-context"
-        },
-"authoredOn": "2022-04-28",
-        "dosageInstruction": [
-          {
-            "timing": {
-              "repeat": {
-                "frequency": 1,
-                "period": 12.0,
-                "periodUnit": "d"
-              }
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
             },
-            "doseAndRate": [
-              {
-                "doseQuantity": {
-                  "value": 1.0,
-                  "unit": "patch",
-                  "system" : "http://unitsofmeasure.org",
-                  "code" : "{patch}"
-                }
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
               }
-            ]
+            }
+          ]
+        }
+      ],
+      "id": "example-rec-08-order-sign-mme-less-than-fifty-context",
+      "status": "active",
+      "intent": "order",
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+            "code": "community"
           }
-        ],
-        "dispenseRequest": {
-          "validityPeriod": {
-"start": "2022-04-28",
-"end": "2022-07-28"
-},
-          "numberOfRepeatsAllowed": 3,
-          "expectedSupplyDuration": {
-            "value": 30.0,
-            "unit": "days",
-            "system": "http://unitsofmeasure.org",
-            "code": "d"
+        ]
+      },
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "197696",
+            "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
           }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/example-rec-08-order-sign-mme-less-than-fifty"
+      },
+      "encounter": {
+        "reference": "Encounter/example-rec-08-order-sign-mme-less-than-fifty-context"
+      },
+      "authoredOn": "2022-04-28",
+      "dosageInstruction": [
+        {
+          "timing": {
+            "repeat": {
+              "frequency": 1,
+              "period": 12.0,
+              "periodUnit": "d"
+            }
+          },
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "patch",
+                "system": "http://unitsofmeasure.org",
+                "code": "{patch}"
+              }
+            }
+          ]
+        }
+      ],
+      "dispenseRequest": {
+        "validityPeriod": {
+          "start": "2022-04-28",
+          "end": "2022-07-28"
+        },
+        "numberOfRepeatsAllowed": 3,
+        "expectedSupplyDuration": {
+          "value": 30.0,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
         }
       }
+    }
   },
   "prefetch": {
     "item1": {
@@ -81,6 +101,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-08-order-sign-mme-less-than-fifty",
         "gender": "male",
         "birthDate": "1982-01-07"

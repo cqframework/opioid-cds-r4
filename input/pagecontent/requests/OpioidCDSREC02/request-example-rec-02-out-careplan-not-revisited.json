@@ -5,10 +5,32 @@
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-02-false-due-to-careplan-within-90-days",
-    "selections": [ "MedicationRequest/a6590d30-c320-4016-861f-678f9f87bca5" ],
+    "selections": [
+      "MedicationRequest/a6590d30-c320-4016-861f-678f9f87bca5"
+    ],
     "draftOrders": [
       {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-08"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "a6590d30-c320-4016-861f-678f9f87bca5",
         "status": "active",
         "intent": "order",
@@ -76,6 +98,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-08"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-02-false-due-to-careplan-within-90-days",
         "birthDate": "2002-04-08"
       }
@@ -86,6 +128,26 @@
       },
       "resource": {
         "resourceType": "CarePlan",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-08"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "f4a02a0e-ce41-457f-92aa-c46a6402d450",
         "meta": {
           "lastUpdated": "2022-01-09"
@@ -96,7 +158,7 @@
           "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
         },
         "created": {
-          "extension": "2021-12-09"   
+          "extension": "2021-12-09"
         },
         "author": {
           "reference": "Practitioner/example"
