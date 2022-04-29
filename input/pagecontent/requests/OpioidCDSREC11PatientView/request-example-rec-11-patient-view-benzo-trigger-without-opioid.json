@@ -1,6 +1,6 @@
 {
   "hookInstance": "259cf767-4b52-4e14-a741-04da147a430f",
-  "fhirServer": "http://cqf-ruler.localhost:8080/fhir",
+  "fhirServer": "http://localhost:8080/cqf-ruler/fhir",
   "hook": "patient-view",
 
   "context": {
