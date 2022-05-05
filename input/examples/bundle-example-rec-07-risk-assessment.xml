@@ -5,15 +5,13 @@
         <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-07-risk-assessment"/>
         <resource>
             <Patient xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-07-risk-assessment"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -21,7 +19,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-07-risk-assessment"/>
                 <gender value="male"/>
                 <birthDate value="1982-01-07"/>
             </Patient>
@@ -35,15 +32,13 @@
         <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-07-risk-assessment-context"/>
         <resource>
             <Encounter xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-07-risk-assessment-context"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -51,7 +46,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-07-risk-assessment-context"/>
                 <status value="finished"/>
                 <class>
                     <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -62,8 +56,8 @@
                     <reference value="Patient/example-rec-07-risk-assessment"/>
                 </subject>
                 <period>
-                    <start>"2022-04-28"</start>
-                    <end>"2022-04-28"</end>
+                    <start value="2022-04-28"/>
+                    <end value="2022-04-28"/>
                 </period>
             </Encounter>
         </resource>

@@ -5,15 +5,13 @@
       <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-11-benzo-trigger-without-opioid"/>
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
-            <extension>
-               <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-               <extension>
-                  <url value="dateLastUpdated"/>
+            <id value="example-rec-11-benzo-trigger-without-opioid"/>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
                   <valueDateTime value="2022-04-28"/>
                </extension>
-               <extension>
-                  <url value="frequency"/>"
-                  <valueDuration>": {
+               <extension url="frequency">
+                  <valueDuration>
                      <value value="30.0" />
                      <unit value="days"/>
                      <system value="http://unitsofmeasure.org"/>
@@ -21,7 +19,6 @@
                   </valueDuration>
                </extension>
             </extension>
-            <id value="example-rec-11-benzo-trigger-without-opioid"/>
             <name>
                 <family value="example-rec-10"/>
                 <given value="benzo-trigger-without-opioid"/>

@@ -1,15 +1,13 @@
 <MedicationRequest xmlns="http://hl7.org/fhir"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://hl7.org/fhir ..\schema\medicationrequest.xsd">
-    <extension>
-        <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-        <extension>
-            <url value="dateLastUpdated"/>
+    <id value="example-opioidcds"/>
+    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+        <extension url="dateLastUpdated">
             <valueDateTime value="2022-04-28"/>
         </extension>
-        <extension>
-            <url value="frequency"/>"
-            <valueDuration>": {
+        <extension url="frequency">
+            <valueDuration>
                 <value value="30.0"/>
                 <unit value="days"/>
                 <system value="http://unitsofmeasure.org"/>
@@ -17,7 +15,6 @@
             </valueDuration>
         </extension>
     </extension>
-    <id value="example-opioidcds"/>
     <status value="active"/>
     <intent value="order"/>
     <medicationCodeableConcept>

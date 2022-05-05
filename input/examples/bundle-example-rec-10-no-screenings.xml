@@ -5,15 +5,13 @@
         <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-no-screenings"/>
         <resource>
             <Patient xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-10-no-screenings"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -21,7 +19,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-10-no-screenings"/>
                 <name>
                     <family value="example-rec-10"/>
                     <given value="no-screenings"/>
@@ -39,15 +36,13 @@
         <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-no-screenings-prefetch"/>
         <resource>
             <Encounter xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-10-no-screenings-prefetch"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -55,7 +50,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-10-no-screenings-prefetch"/>
                 <status value="finished"/>
                 <class>
                     <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -66,8 +60,8 @@
                     <reference value="Patient/example-rec-10-no-screenings"/>
                 </subject>
                 <period>
-                    <start>"2022-01-28"</start>
-                    <end>"2022-01-28"</end>
+                    <start value="2022-01-28"/>
+                    <end value="2022-01-28"/>
                 </period>
             </Encounter>
         </resource>
@@ -81,15 +75,13 @@
                 value="http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-10-no-screenings-prefetch"/>
         <resource>
             <MedicationRequest xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-10-no-screenings-prefetch"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -97,7 +89,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-10-no-screenings-prefetch"/>
                 <status value="active"/>
                 <intent value="order"/>
                 <category>
@@ -138,8 +129,8 @@
                 </dosageInstruction>
                 <dispenseRequest>
                     <validityPeriod>
-                        <start>2022-01-28</start>
-                        <end>2022-04-28</end>
+                        <start value="2022-01-28"/>
+                        <end value="2022-04-28"/>
                     </validityPeriod>
                     <numberOfRepeatsAllowed value="3"/>
                     <expectedSupplyDuration>

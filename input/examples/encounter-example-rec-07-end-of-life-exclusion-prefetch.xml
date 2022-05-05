@@ -1,13 +1,11 @@
 <Encounter xmlns="http://hl7.org/fhir">
-    <extension>
-        <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-        <extension>
-            <url value="dateLastUpdated"/>
+    <id value="example-rec-07-end-of-life-exclusion-prefetch"/>
+    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+        <extension url="dateLastUpdated">
             <valueDateTime value="2022-04-08"/>
         </extension>
-        <extension>
-            <url value="frequency"/>"
-            <valueDuration>": {
+        <extension url="frequency">
+            <valueDuration>
                 <value value="30.0" />
                 <unit value="days"/>
                 <system value="http://unitsofmeasure.org"/>
@@ -15,7 +13,6 @@
             </valueDuration>
         </extension>
     </extension>
-   <id value="example-rec-07-end-of-life-exclusion-prefetch"/>
    <status value="finished"/>
    <class>
        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -26,7 +23,7 @@
       <reference value="Patient/example-rec-07-end-of-life-exclusion"/>
    </subject>
    <period>
-        <start>2022-02-25</start>
-        <end>2022-02-25</end>
+        <start value="2022-02-25"/>
+        <end value="2022-02-25"/>
    </period>
 </Encounter>

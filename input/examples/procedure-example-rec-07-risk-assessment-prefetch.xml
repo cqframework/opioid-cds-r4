@@ -1,13 +1,11 @@
 <Procedure xmlns="http://hl7.org/fhir">
-    <extension>
-        <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-        <extension>
-            <url value="dateLastUpdated"/>
+    <id value="example-rec-07-risk-assessment-prefetch"/>
+    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+        <extension url="dateLastUpdated">
             <valueDateTime value="2022-04-28"/>
         </extension>
-        <extension>
-            <url value="frequency"/>"
-            <valueDuration>": {
+        <extension url="frequency">
+            <valueDuration>
                 <value value="30.0" />
                 <unit value="days"/>
                 <system value="http://unitsofmeasure.org"/>
@@ -15,7 +13,6 @@
             </valueDuration>
         </extension>
     </extension>
-   <id value="example-rec-07-risk-assessment-prefetch"/>
    <status value="completed"/>
    <code>
       <coding>
@@ -31,9 +28,7 @@
       <reference value="Encounter/example-rec-07-risk-assessment-prefetch"/>
   </encounter>
    <performedPeriod>
-      <start>
-        <start>2022-03-25</start>
-        <end>2022-03-25</end>
-      </start>
+        <start value="2022-03-25"/>
+        <end value="2022-03-25"/>
    </performedPeriod>
 </Procedure>

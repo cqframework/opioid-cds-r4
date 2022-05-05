@@ -5,15 +5,13 @@
         <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-not-missing-prescribed-opioids"/>
         <resource>
             <Patient xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-10-not-missing-prescribed-opioids"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -21,7 +19,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-10-not-missing-prescribed-opioids"/>
                 <name>
                     <family value="example-rec-10"/>
                     <given value="not-missing-prescribed-opioids"/>
@@ -40,15 +37,13 @@
                 value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
         <resource>
             <Encounter xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-10-missing-prescribed-opioids-prefetch"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -56,7 +51,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-10-missing-prescribed-opioids-prefetch"/>
                 <status value="finished"/>
                 <class>
                     <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -67,8 +61,8 @@
                     <reference value="Patient/example-rec-10-missing-prescribed-opioids"/>
                 </subject>
                 <period>
-                    <start>"2022-01-28"</start>
-                    <end>"2022-01-28"</end>
+                    <start value="2022-01-28"/>
+                    <end value="2022-01-28"/>
                 </period>
             </Encounter>
         </resource>
@@ -82,15 +76,13 @@
                 value="http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
         <resource>
             <MedicationRequest xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-10-not-missing-prescribed-opioids-prefetch"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -98,7 +90,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-10-not-missing-prescribed-opioids-prefetch"/>
                 <status value="active"/>
                 <intent value="order"/>
                 <category>
@@ -139,8 +130,8 @@
                 </dosageInstruction>
                 <dispenseRequest>
                     <validityPeriod>
-                        <start>2022-01-28</start>
-                        <end>2022-04-28</end>
+                        <start value="2022-01-28"/>
+                        <end value="2022-04-28"/>
                     </validityPeriod>
                     <numberOfRepeatsAllowed value="3"/>
                     <expectedSupplyDuration>
@@ -160,15 +151,13 @@
                 value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-not-missing-prescribed-opioids-prefetch"/>
         <resource>
             <Observation xmlns="http://hl7.org/fhir">
-                <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
-                    <extension>
-                        <url value="dateLastUpdated"/>
+                <id value="example-rec-10-not-missing-prescribed-opioids-prefetch"/>
+                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+                    <extension url="dateLastUpdated">
                         <valueDateTime value="2022-04-28"/>
                     </extension>
-                    <extension>
-                        <url value="frequency"/>"
-                        <valueDuration>": {
+                    <extension url="frequency">
+                        <valueDuration>
                             <value value="30.0"/>
                             <unit value="days"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -176,7 +165,6 @@
                         </valueDuration>
                     </extension>
                 </extension>
-                <id value="example-rec-10-not-missing-prescribed-opioids-prefetch"/>
                 <status value="final"/>
                 <code>
                     <coding>
