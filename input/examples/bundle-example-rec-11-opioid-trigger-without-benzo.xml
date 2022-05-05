@@ -6,7 +6,7 @@
         <resource>
             <Patient xmlns="http://hl7.org/fhir">
                 <extension>
-                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"
+                    <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"/>
                     <extension>
                         <url value="dateLastUpdated"/>
                         <valueDateTime value="2022-04-28"/>
