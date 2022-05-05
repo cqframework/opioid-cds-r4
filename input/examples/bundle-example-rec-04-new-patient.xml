@@ -6,6 +6,19 @@
       <resource>
          <Patient xmlns="http://hl7.org/fhir">
             <id value="example-rec-04-new-patient"/>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
+                  <valueDateTime value="2022-04-22"/>
+               </extension>
+               <extension url="frequency">
+                  <valueDuration>
+                     <value value="30.0" />
+                     <unit value="days"/>
+                     <system value="http://unitsofmeasure.org"/>
+                     <code value="d"/>
+                  </valueDuration>
+               </extension>
+            </extension>
             <gender value="male"/>
             <birthDate value="1982-01-07"/>
          </Patient>
@@ -20,6 +33,19 @@
       <resource>
          <Encounter xmlns="http://hl7.org/fhir">
             <id value="example-rec-04-new-patient-context"/>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
+                  <valueDateTime value="2022-04-22"/>
+               </extension>
+               <extension url="frequency">
+                  <valueDuration>
+                     <value value="30.0" />
+                     <unit value="days"/>
+                     <system value="http://unitsofmeasure.org"/>
+                     <code value="d"/>
+                  </valueDuration>
+               </extension>
+            </extension>
             <status value="finished"/>
             <class>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -30,8 +56,8 @@
                <reference value="Patient/example-rec-04-new-patient"/>
             </subject>
             <period>
-               <start>2022-04-08</start>
-               <end>2022-04-08</end>
+               <start value="2022-04-08"/>
+               <end value="2022-04-08"/>
             </period>
          </Encounter>
       </resource>

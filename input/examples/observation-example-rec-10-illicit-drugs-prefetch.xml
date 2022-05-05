@@ -1,5 +1,18 @@
 <Observation xmlns="http://hl7.org/fhir">
    <id value="example-rec-10-illicit-drugs-prefetch"/>
+   <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+      <extension url="dateLastUpdated">
+         <valueDateTime value="2022-04-28"/>
+      </extension>
+      <extension url="frequency">
+         <valueDuration>
+            <value value="30.0" />
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/>
+         </valueDuration>
+      </extension>
+   </extension>
    <status value="final"/>
    <code>
       <coding>
@@ -11,14 +24,7 @@
    <subject>
       <reference value="Patient/example-rec-10-illicit-drugs"/>
    </subject>
-   <effectiveDateTime>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
-            <valueExpression>
-                <language value="text/cql"/>
-                <expression value="Today() - 4 weeks"/>
-            </valueExpression>
-        </extension>
-   </effectiveDateTime>
+   <effectiveDateTime value="2022-03-31"/>
    <interpretation>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>

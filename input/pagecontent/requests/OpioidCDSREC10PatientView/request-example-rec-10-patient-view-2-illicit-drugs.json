@@ -1,6 +1,6 @@
 {
   "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "patient-view",
   "context": {
     "userId": "Practitioner/example",
@@ -222,7 +222,7 @@
                 "validityPeriod": {
                   "start": "2022-04-22",
                   "end": "2022-07-22"
-                },,
+                },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
                   "value": 30.0,

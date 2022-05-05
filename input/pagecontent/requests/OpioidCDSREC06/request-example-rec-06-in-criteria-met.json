@@ -9,6 +9,26 @@
         "draftOrders":
             {
                 "resourceType": "MedicationRequest",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-08"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "8280aeb5-db2e-4b2e-a80c-aaaa597762b3",
                 "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
@@ -76,6 +96,26 @@
             },
             "resource": {
                 "resourceType": "Patient",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-08"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "example-rec-06-criteria-valid",
                 "birthDate": "2002-04-08"
             }

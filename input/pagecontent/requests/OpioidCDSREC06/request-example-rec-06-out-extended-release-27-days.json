@@ -1,6 +1,6 @@
 {
     "hookInstance": "c7107fd7-7be4-4837-9892-2f31b3224ffe",
-    "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+    "fhirServer": "http://localhost:8080/fhir",
     "hook": "order-select",
     "context": {
       "userId": "Practitioner/example",
@@ -9,8 +9,27 @@
         "draftOrders": 
             {
                 "resourceType": "MedicationRequest",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-08"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "15fa9928-4f72-4ee3-ac61-1412d9fa446b",
-                "authoredOn": "2018-08-01T00:00:00.0",
                 "status": "active",
                 "intent": "order",
                 "category": {
@@ -76,6 +95,26 @@
             },
             "resource": {
                 "resourceType": "Patient",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-08"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "example-rec-06-with-extended-release-for-27-days",
                 "birthDate": "2002-04-08"
             }

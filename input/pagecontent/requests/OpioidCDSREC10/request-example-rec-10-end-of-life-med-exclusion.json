@@ -1,98 +1,101 @@
 {
   "hookInstance": "514b3e2f-2daf-4045-9c56-ad891fc6e233",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-end-of-life-med-exclusion",
     "encounterId": "Encounter/example-rec-10-end-of-life-med-exclusion-context",
-    "selections": [ "MedicationRequest/example-rec-10-end-of-life-med-exclusion-context" ],
-    "draftOrders":
-      {
-        "resourceType": "MedicationRequest",
-        "id": "example-rec-10-end-of-life-med-exclusion-context",
-        "status": "active",
-        "intent": "order",
-        "category": [
-            {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-                  "code": "community"
-                }
-              ]
-            }
-        ],
-        "medicationCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "1012727",
-              "display": "Carbinoxamine maleate 0.4 MG/ML / Hydrocodone Bitartrate 1 MG/ML / Pseudoephedrine Hydrochloride 6 MG/ML Oral Solution"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
-        },
-        "encounter": {
-          "reference": "Encounter/example-rec-10-end-of-life-med-exclusion-context"
-        },
-        "_authoredOn": {
+    "selections": [
+      "MedicationRequest/example-rec-10-end-of-life-med-exclusion-context"
+    ],
+    "draftOrders": {
+      "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
           "extension": [
             {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today()"
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
               }
             }
           ]
-        },
-        "dosageInstruction": [
+        }
+      ],
+      "id": "example-rec-10-end-of-life-med-exclusion-context",
+      "status": "active",
+      "intent": "order",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "community"
+            }
+          ]
+        }
+      ],
+      "medicationCodeableConcept": {
+        "coding": [
           {
-            "timing": {
-              "repeat": {
-                "frequency": 1,
-                "period": 12.0,
-                "periodUnit": "d"
-              }
-            },
-            "asNeededBoolean": false,
-            "doseAndRate": [
-                {
-                    "doseQuantity": {
-                      "value": 5.0,
-                      "unit": "mL",
-                      "system" : "http://unitsofmeasure.org",
-                      "code" : "{mL}"
-                    }
-                }
-            ]
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "1012727",
+            "display": "Carbinoxamine maleate 0.4 MG/ML / Hydrocodone Bitartrate 1 MG/ML / Pseudoephedrine Hydrochloride 6 MG/ML Oral Solution"
           }
-        ],
-        "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                }
-              }
-            ]
+        ]
+      },
+      "subject": {
+        "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
+      },
+      "encounter": {
+        "reference": "Encounter/example-rec-10-end-of-life-med-exclusion-context"
+      },
+      "authoredOn": "2022-04-28",
+      "dosageInstruction": [
+        {
+          "timing": {
+            "repeat": {
+              "frequency": 1,
+              "period": 12.0,
+              "periodUnit": "d"
+            }
           },
-          "numberOfRepeatsAllowed": 3,
-          "expectedSupplyDuration": {
-            "value": 30.0,
-            "unit": "days",
-            "system": "http://unitsofmeasure.org",
-            "code": "d"
-          }
+          "asNeededBoolean": false,
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 5.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "{mL}"
+              }
+            }
+          ]
         }
+      ],
+      "dispenseRequest": {
+        "validityPeriod": {
+          "start": "2022-04-28",
+          "end": "2022-07-28"
+        },
+        "numberOfRepeatsAllowed": 3,
+        "expectedSupplyDuration": {
+          "value": 30.0,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
         }
+      }
+    }
   },
   "prefetch": {
     "item1": {
@@ -101,6 +104,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-end-of-life-med-exclusion",
         "gender": "female",
         "birthDate": "1982-01-07"
@@ -115,6 +138,26 @@
       },
       "resource": {
         "resourceType": "Condition",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "EndOfLifeCondition",
         "category": {
           "coding": [
@@ -158,17 +201,7 @@
             }
           ]
         },
-        "_recordedDate": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today() - 60 days"
-              }
-            }
-          ]
-        }
+        "recordedDate": "2022-02-27"
       }
     },
     "item6": null,

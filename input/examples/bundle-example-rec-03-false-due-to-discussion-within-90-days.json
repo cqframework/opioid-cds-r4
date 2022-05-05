@@ -7,6 +7,26 @@
             "fullUrl": "http://localhost:8080/fhir/Patient/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "Patient",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-28"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-1",
                 "birthDate": "2002-04-08"
             },
@@ -19,6 +39,26 @@
             "fullUrl": "http://localhost:8080/fhir/MedicationRequest/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "MedicationRequest",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-28"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-3",
                 "authoredOn": "2018-08-01T00:00:00.0Z",
                 "status": "active",
@@ -56,6 +96,26 @@
             "fullUrl": "http://localhost:8080/fhir/Procedure/example-rec-03-false-due-to-discussion-within-90-days",
             "resource": {
                 "resourceType": "Procedure",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-28"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "7bdbc7ea-f76d-476e-bf94-85c6e368df67-21",
                 "status": "completed",
                 "code": {

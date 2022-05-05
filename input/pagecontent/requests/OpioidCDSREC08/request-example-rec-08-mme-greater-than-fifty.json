@@ -1,8 +1,7 @@
 {
   "hookInstance": "229a709f-ee1c-4954-b7fd-72e6c46706dd",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
-  "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-08-mme-greater-than-fifty",
@@ -12,6 +11,26 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
       "id": "example-rec-08-mme-greater-than-fifty-context",
       "status": "active",
       "intent": "order",
@@ -38,17 +57,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-08-mme-greater-than-fifty-context"
       },
-      "_authoredOn": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-            "valueExpression": {
-              "language": "text/cql",
-              "expression": "Today()"
-            }
-          }
-        ]
-      },
+      "authoredOn": "2022-04-28",
       "dosageInstruction": [
         {
           "timing": {
@@ -70,16 +79,9 @@
         }
       ],
       "dispenseRequest": {
-        "_validityPeriod": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-              }
-            }
-          ]
+        "validityPeriod": {
+          "start": "2022-04-28",
+          "end": "2022-07-28"
         },
         "quantity": {
           "value": 30,
@@ -104,6 +106,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-08-mme-greater-than-fifty",
         "gender": "male",
         "birthDate": "1982-01-07"

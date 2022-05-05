@@ -1,6 +1,6 @@
 {
     "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
-    "fhirServer": "http://cqf-ruler.localhost:8080/fhir",
+    "fhirServer": "http://localhost:8080/fhir",
     "hook": "order-select",
     "context": {
       "userId": "Practitioner/example",
@@ -11,6 +11,26 @@
       ],
       "draftOrders": {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-22"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-10-non-synthetic-drug-context",
         "status": "active",
         "intent": "order",
@@ -97,6 +117,26 @@
             {
               "resource": {
                 "resourceType": "Observation",
+                "extension": [
+                  {
+                    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                    "extension": [
+                      {
+                        "url": "dateLastUpdated",
+                        "valueDateTime": "2022-04-22"
+                      },
+                      {
+                        "url": "frequency",
+                        "valueDuration": {
+                          "value": 30.0,
+                          "unit": "days",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "d"
+                        }
+                      }
+                    ]
+                  }
+                ],
                 "id": "example-rec-10-non-synthetic-drug-prefetch-obs1",
                 "status": "final",
                 "category": {
@@ -136,6 +176,26 @@
             {
               "resource": {
                 "resourceType": "Observation",
+                "extension": [
+                  {
+                    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                    "extension": [
+                      {
+                        "url": "dateLastUpdated",
+                        "valueDateTime": "2022-04-22"
+                      },
+                      {
+                        "url": "frequency",
+                        "valueDuration": {
+                          "value": 30.0,
+                          "unit": "days",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "d"
+                        }
+                      }
+                    ]
+                  }
+                ],
                 "id": "example-rec-10-non-synthetic-drug-prefetch-obs2",
                 "status": "final",
                 "category": {
@@ -176,6 +236,26 @@
             {
               "resource": {
                 "resourceType": "Observation",
+                "extension": [
+                  {
+                    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                    "extension": [
+                      {
+                        "url": "dateLastUpdated",
+                        "valueDateTime": "2022-04-22"
+                      },
+                      {
+                        "url": "frequency",
+                        "valueDuration": {
+                          "value": 30.0,
+                          "unit": "days",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "d"
+                        }
+                      }
+                    ]
+                  }
+                ],
                 "id": "example-rec-10-non-synthetic-drug-prefetch-obs2",
                 "status": "final",
                 "category": {
@@ -216,6 +296,26 @@
             {
               "resource": {
                 "resourceType": "Observation",
+                "extension": [
+                  {
+                    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                    "extension": [
+                      {
+                        "url": "dateLastUpdated",
+                        "valueDateTime": "2022-04-22"
+                      },
+                      {
+                        "url": "frequency",
+                        "valueDuration": {
+                          "value": 30.0,
+                          "unit": "days",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "d"
+                        }
+                      }
+                    ]
+                  }
+                ],
                 "id": "example-rec-10-non-synthetic-drug-prefetch-obs3",
                 "status": "final",
                 "category": {
@@ -265,6 +365,26 @@
         },
         "resource": {
           "resourceType": "MedicationRequest",
+          "extension": [
+            {
+              "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+              "extension": [
+                {
+                  "url": "dateLastUpdated",
+                  "valueDateTime": "2022-04-22"
+                },
+                {
+                  "url": "frequency",
+                  "valueDuration": {
+                    "value": 30.0,
+                    "unit": "days",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "d"
+                  }
+                }
+              ]
+            }
+          ],
           "id": "example-rec-10-non-synthetic-drug-prefetch-3",
           "status": "active",
           "intent": "order",
@@ -335,6 +455,26 @@
         },
         "resource": {
           "resourceType": "Encounter",
+          "extension": [
+            {
+              "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+              "extension": [
+                {
+                  "url": "dateLastUpdated",
+                  "valueDateTime": "2022-04-22"
+                },
+                {
+                  "url": "frequency",
+                  "valueDuration": {
+                    "value": 30.0,
+                    "unit": "days",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "d"
+                  }
+                }
+              ]
+            }
+          ],
           "id": "example-rec-10-non-synthetic-drug-prefetch",
           "status": "finished",
           "subject": {

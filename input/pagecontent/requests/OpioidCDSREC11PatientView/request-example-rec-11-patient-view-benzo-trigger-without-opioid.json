@@ -1,8 +1,7 @@
 {
   "hookInstance": "259cf767-4b52-4e14-a741-04da147a430f",
-  "fhirServer": "http://localhost:8080/cqf-ruler-r4/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "patient-view",
-  "applyCql": true,
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-11-benzo-trigger-without-opioid",
@@ -15,6 +14,26 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-11-benzo-trigger-without-opioid",
         "gender": "female",
         "birthDate": "1982-01-07"
@@ -26,6 +45,26 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "id": "example-rec-11-benzo-trigger-without-opioid-context",
         "status": "active",
         "intent": "order",
@@ -54,17 +93,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-11-benzo-trigger-without-opioid-context"
         },
-        "_authoredOn": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-              "valueExpression": {
-                "language": "text/cql",
-                "expression": "Today()"
-              }
-            }
-          ]
-        },
+        "authoredOn": "2022-04-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -80,24 +109,17 @@
                 "doseQuantity": {
                   "value": 1.0,
                   "unit": "capsule",
-                  "system" : "http://unitsofmeasure.org",
-                  "code" : "{capsule}"
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{capsule}"
                 }
               }
             ]
           }
         ],
         "dispenseRequest": {
-          "_validityPeriod": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                "valueExpression": {
-                  "language": "text/cql",
-                  "expression": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 3 months } }"
-                }
-              }
-            ]
+          "validityPeriod": {
+            "start": "2022-04-28",
+            "end": "2022-07-28"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
