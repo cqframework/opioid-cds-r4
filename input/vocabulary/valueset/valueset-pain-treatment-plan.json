@@ -34,7 +34,7 @@
   "title": "Pain treatment plan",
   "status": "active",
   "experimental": true,
-  "date": "2022-03-29T11:43:42-06:00",
+  "date": "2022-05-09T10:21:56-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "A Pain medicine Plan of care note",
   "jurisdiction": [ {
@@ -54,11 +54,11 @@
     } ]
   },
   "expansion": {
-    "identifier": "fcb16e36-55ad-48e6-ae04-d01bb8553111",
-    "timestamp": "2022-03-29T11:43:42-06:00",
+    "identifier": "6e9ea4fa-f7a6-48a8-9514-8f1f8980a970",
+    "timestamp": "2022-05-09T10:21:56-06:00",
     "contains": [ {
       "system": "http://loinc.org",
-      "version": "2.69",
+      "version": "2.72",
       "code": "80764-4",
       "display": "Pain medicine Plan of care note"
     } ]
