@@ -1,10 +1,10 @@
-library OpioidCDSREC11PatientView version '2.0.0'
+library OpioidCDSREC11PatientView version '0.1.1'
 
 using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDSCommon version '2.0.0' called Common
-include OpioidCDSRoutines version '2.0.0' called Routines
+include OpioidCDSCommon version '0.1.1' called Common
+include OpioidCDSRoutines version '0.1.1' called Routines
 
 /*
 **
