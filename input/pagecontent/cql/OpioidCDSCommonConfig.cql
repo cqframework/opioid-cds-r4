@@ -1,4 +1,4 @@
-library OpioidCDSCommonConfig version '2.0.0'
+library OpioidCDSCommonConfig version '0.1.1'
 
 define "Chronically on Opioids Enabled":
   true
