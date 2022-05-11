@@ -1,10 +1,10 @@
-library OpioidCDSRoutines version '2.0.1'
+library OpioidCDSRoutines version '0.1.1'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '2.0.1' called Common
-include OpioidCDSCommonConfig version '2.0.1' called Config
+include OpioidCDSCommon version '0.1.1' called Common
+include OpioidCDSCommonConfig version '0.1.1' called Config
 
 context Patient
 
@@ -204,23 +204,25 @@ define "Oncologist Practitioner Roles":
 define "Encounters with Cancer Diagnosis During Encounter Period":
   [Encounter: Common."Office Visit"] Encounter
     where date from Encounter.period."start".value in day of "Encounter Period"
-      and exists (
-        Encounter.diagnosis EncounterDiagnosis
-          with "Active Cancer Diagnoses" CancerDiagnosis
-          such that EndsWith(EncounterDiagnosis.condition.reference, CancerDiagnosis.id)
-      )
-      and exists (
-        Encounter.participant EncounterParticipant
-          where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
-            or (
-              if (Config."Active Cancer Treatment PractitionerRole Specialty Is Enabled") then
-                exists (
-                  "Oncologist Practitioner Roles" PractitionerRole
-                    where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
-                )
-              else
-                false
-            )
+      and (
+        exists (
+          Encounter.diagnosis EncounterDiagnosis
+            with "Active Cancer Diagnoses" CancerDiagnosis
+            such that EndsWith(EncounterDiagnosis.condition.reference, CancerDiagnosis.id)
+        )
+        or exists (
+          Encounter.participant EncounterParticipant
+            where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
+              or (
+                if (Config."Active Cancer Treatment PractitionerRole Specialty Is Enabled") then
+                  exists (
+                    "Oncologist Practitioner Roles" PractitionerRole
+                      where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
+                  )
+                else
+                  false
+              )
+        )
       )
 
 
