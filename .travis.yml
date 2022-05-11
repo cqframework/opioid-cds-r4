@@ -1,5 +1,8 @@
 language: ruby
-jdk: oraclejdk9
-rvm: 2.2
-before_install: gem install jekyll
-script: ant -buildfile build.xml travis-publish-ig -Dguidename=opioid-cds -Dspec=http://hl7.org/fhir/2016Sep/
+jdk: oraclejdk11
+rvm: 2.5.0
+before_install:
+  - gem install jekyll
+script: ant -buildfile build.xml travis-publish-ig -Dguidename=ig.ini -Dspec=http://hl7.org/fhir/R4/
+vm:
+  size: large

@@ -1,0 +1,208 @@
+{
+  "hookInstance": "514b3e2f-2daf-4045-9c56-ad891fc6e233",
+  "fhirServer": "http://localhost:8080/fhir",
+  "hook": "patient-view",
+  "context": {
+    "userId": "Practitioner/example",
+    "patientId": "Patient/example-rec-10-end-of-life-med-exclusion",
+    "encounterId": "Encounter/example-rec-10-end-of-life-med-exclusion-context"
+  },
+  "prefetch": {
+    "item1": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "example-rec-10-end-of-life-med-exclusion",
+        "gender": "female",
+        "birthDate": "1982-01-07"
+      }
+    },
+    "item2": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "example-rec-10-end-of-life-med-exclusion-context",
+        "status": "active",
+        "intent": "order",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "community"
+            }
+          ]
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197696",
+              "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
+        },
+        "encounter": {
+          "reference": "Encounter/example-rec-10-end-of-life-med-exclusion-context"
+        },
+        "authoredOn": "2022-04-28",
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 12.0,
+                "periodUnit": "d"
+              }
+            },
+            "asNeededBoolean": false,
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "patch",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{patch}"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2022-04-28",
+            "end": "2022-07-28"
+          },
+          "numberOfRepeatsAllowed": 3,
+          "expectedSupplyDuration": {
+            "value": 30.0,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    "item3": null,
+    "item4": null,
+    "item5": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Condition",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "EndOfLifeCondition",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "encounter-diagnosis",
+              "display": "Encounter Diagnosis"
+            }
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active Condition"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                "code": "confirmed",
+                "display": "Confirmed"
+              }
+            ]
+          }
+        },
+        "subject": {
+          "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "version": "2021-03",
+              "code": "254612002",
+              "display": "Carcinoma of endocrine pancreas"
+            }
+          ]
+        },
+        "recordedDate": "2022-02-27"
+      }
+    },
+    "item6": null
+  }
+}

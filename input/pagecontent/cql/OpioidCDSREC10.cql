@@ -1,10 +1,12 @@
-library OpioidCDSREC10 version '0.1.1'
+library OpioidCDSREC10 version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSRoutines version '0.1.1' called Routines
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include OpioidCDSCommon version '2.0.1' called Common
+include OpioidCDSCommonConfig version '2.0.1' called Config
+include OpioidCDSRoutines version '2.0.1' called Routines
+include OpioidCDSREC10Common version '2.0.1' called Rec10Common
 
 /*
 **  Recommendation #10
@@ -37,9 +39,6 @@ parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
-define "Lookback Year":
-  Interval[Today() - 12 months - 1 days, Today() - 1 day]
-
 define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
     where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
@@ -47,43 +46,22 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Inclusion Criteria":
+define "Is Perform Drug Screen Recommendation Applicable?":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and Routines."Is Opioid Review Useful?"
-    and not "Patient had Urine Screening in Last 12 Months"
+    and Rec10Common."Inclusion Criteria"
+    and not Rec10Common."Exclusion Criteria"
 
-define "Exclusion Criteria":
-  Common."End of Life Assessment"
+define "Applicable Because of Positive Cocaine or PCP or Opiates":
+  Rec10Common."Applicable Because of Positive Cocaine or PCP or Opiates"
 
-define "Patient had Urine Screening in Last 12 Months":
-  exists( "Urine Screenings during the Last 12 Months" )
+define "Urine Drug Screening ProcedureRequest Category":
+  Rec10Common."Urine Drug Screening ProcedureRequest Category"
 
-define "Urine Screenings during the Last 12 Months":
-  (
-    [Observation: "code" in Common."Non-opioid drug urine screening"] IllicitDrugScreen
-      where date from IllicitDrugScreen.effective in day of "Lookback Year"
-  )
-  union
-  (
-    [Observation: "code" in Common."Opioid drug urine screening"] OpioidDrugScreen
-      where date from OpioidDrugScreen.effective in day of "Lookback Year"
-  )
+define "Detail":
+  Rec10Common."Get Detail" ("Is Perform Drug Screen Recommendation Applicable?")
 
-define "No Screening In Last 12 Months Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
+define "Indicator":
+  Rec10Common."Indicator"
 
-define "No Screening In Last 12 Months Summary":
-  if "Is Recommendation Applicable?"
-    then 'Annual Urine Screening Check'
-  else null
-
-define "No Screening In Last 12 Months Detail":
-  if "Is Recommendation Applicable?"
-    then 'Patients on opioid therapy should have a urine drug test performed every 12 months.'
-  else null
+define "Summary":
+  Rec10Common."Get Summary" ("Is Perform Drug Screen Recommendation Applicable?")

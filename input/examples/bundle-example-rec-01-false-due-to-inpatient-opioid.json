@@ -4,21 +4,31 @@
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-01-false-due-to-inpatient-opioid",
+            "fullUrl": "http://localhost:8080/fhir/Patient/example-rec-01-false-due-to-inpatient-opioid",
             "resource": {
                 "resourceType": "Patient",
-                "id": "example-rec-01-false-due-to-inpatient-opioid",
-                "_birthDate": {
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-expression",
-                            "valueExpression": {
-                                "language": "text/cql",
-                                "expression": "Today() - 20 years"
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-28"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
                             }
-                        }
-                    ]
-                }
+                        ]
+                    }
+                ],
+                "id": "example-rec-01-false-due-to-inpatient-opioid",
+                "birthDate": "2002-04-08"  
             },
             "request": {
                 "method": "PUT",
@@ -26,9 +36,29 @@
             }
         },
         {
-            "fullUrl": "http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-01-false-due-to-inpatient-opioid",
+            "fullUrl": "http://localhost:8080/fhir/MedicationRequest/example-rec-01-false-due-to-inpatient-opioid",
             "resource": {
                 "resourceType": "MedicationRequest",
+                "extension": [
+                    {
+                        "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                        "extension": [
+                            {
+                                "url": "dateLastUpdated",
+                                "valueDateTime": "2022-04-28"
+                            },
+                            {
+                                "url": "frequency",
+                                "valueDuration": {
+                                    "value": 30.0,
+                                    "unit": "days",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "d"
+                                }
+                            }
+                        ]
+                    }
+                ],
                 "id": "example-rec-01-false-due-to-inpatient-opioid",
                 "status": "active",
                 "intent": "order",

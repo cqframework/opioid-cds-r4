@@ -5,4 +5,7 @@
 /template
 .DS_Store
 .idea/
-/input-cache
+input-cache/*
+!/input-cache/txcache
+bundles/plandefinition/
+!/bundles/plandefinition/OpioidCDSREC10PatientView/

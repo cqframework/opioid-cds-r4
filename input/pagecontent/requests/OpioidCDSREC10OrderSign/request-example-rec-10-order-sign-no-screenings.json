@@ -1,0 +1,265 @@
+{
+  "hookInstance": "a172a2ce-38e7-4a21-a411-522cf481d5d1",
+  "fhirServer": "http://localhost:8080/fhir",
+  "hook": "order-sign",
+  "context": {
+    "userId": "Practitioner/example",
+    "patientId": "Patient/example-rec-10-order-sign-no-screenings",
+    "encounterId": "Encounter/example-rec-10-order-sign-no-screenings-context",
+    "draftOrders": {
+      "resourceType": "Bundle",
+      "entry": [
+        {
+          "resource": {
+            "resourceType": "MedicationRequest",
+            "extension": [
+              {
+                "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+                "extension": [
+                  {
+                    "url": "dateLastUpdated",
+                    "valueDateTime": "2022-04-28"
+                  },
+                  {
+                    "url": "frequency",
+                    "valueDuration": {
+                      "value": 30.0,
+                      "unit": "days",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "d"
+                    }
+                  }
+                ]
+              }
+            ],
+            "id": "example-rec-10-order-sign-no-screenings-context",
+            "status": "active",
+            "intent": "order",
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                  "code": "community"
+                }
+              ]
+            },
+            "medicationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "197696",
+                  "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/example-rec-10-order-sign-no-screenings"
+            },
+            "encounter": {
+              "reference": "Encounter/example-rec-10-order-sign-no-screenings-context"
+            },
+            "authoredOn": "2022-04-28",
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "frequency": 1,
+                    "period": 12.0,
+                    "periodUnit": "d"
+                  }
+                },
+                "asNeededBoolean": false,
+                "doseAndRate": {
+                  "doseQuantity": {
+                    "value": 1.0,
+                    "unit": "patch",
+                    "system" : "http://unitsofmeasure.org",
+                    "code" : "{patch}"
+                  }
+                }
+              }
+            ],
+            "dispenseRequest": {
+              "validityPeriod": {
+                "start": "2022-04-28",
+                "end": "2022-07-28"
+              },
+              "numberOfRepeatsAllowed": 3,
+              "expectedSupplyDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "prefetch": {
+    "item1": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "example-rec-10-order-sign-no-screenings",
+        "gender": "female",
+        "birthDate": "1982-01-07"
+      }
+    },
+    "item2": null,
+    "item3": null,
+    "item4": null,
+    "item5": null,
+    "item6": null,
+    "item7": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Encounter",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "example-rec-10-order-sign-no-screenings-prefetch",
+        "status": "finished",
+        "subject": {
+          "reference": "Patient/example-rec-10-order-sign-no-screenings"
+        },
+        "period": {
+          "start" :"2022-01-28",
+          "end": "2022-01-28"
+        }
+      }
+    },
+    "item8": null,
+    "item9": null,
+    "item10": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "example-rec-10-order-sign-no-screenings-prefetch",
+        "status": "active",
+        "intent": "order",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "community"
+            }
+          ]
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1049502",
+              "display": "12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-rec-10-order-sign-no-screenings"
+        },
+        "encounter": {
+          "reference": "Encounter/example-rec-10-order-sign-no-screenings-prefetch"
+        },
+        "authoredOn": "2022-01-28",
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1.0,
+                "periodUnit": "d"
+              }
+            },
+            "asNeededBoolean": false,
+            "doseAndRate": {
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "tablet",
+                "system" : "http://unitsofmeasure.org",
+                "code" : "{tablet}"
+              }
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2022-01-28",
+            "end": "2022-04-28"
+          },
+          "numberOfRepeatsAllowed": 3,
+          "expectedSupplyDuration": {
+            "value": 30.0,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    }
+  }
+}

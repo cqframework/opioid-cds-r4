@@ -1,0 +1,151 @@
+{
+  "hookInstance": "229a709f-ee1c-4954-b7fd-72e6c46706dd",
+  "fhirServer": "http://localhost:8080/fhir",
+  "hook": "order-sign",
+  "context": {
+    "userId": "Practitioner/example",
+    "patientId": "Patient/example-rec-08-order-sign-mme-greater-than-fifty",
+    "encounterId": "Encounter/example-rec-08-order-sign-mme-greater-than-fifty-context",
+    "selections": [
+      "MedicationRequest/example-rec-08-order-sign-mme-greater-than-fifty-context"
+    ],
+    "draftOrders": {
+      "resourceType": "MedicationRequest",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-04-28"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "id": "example-rec-08-order-sign-mme-greater-than-fifty-context",
+      "status": "active",
+      "intent": "order",
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+            "code": "community"
+          }
+        ]
+      },
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "197696",
+            "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/example-rec-08-order-sign-mme-greater-than-fifty"
+      },
+      "encounter": {
+        "reference": "Encounter/example-rec-08-order-sign-mme-greater-than-fifty-context"
+      },
+      "authoredOn": "2022-04-28",
+      "dosageInstruction": [
+        {
+          "timing": {
+            "repeat": {
+              "frequency": 1,
+              "period": 3.0,
+              "periodUnit": "d"
+            }
+          },
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "patch",
+                "system": "http://unitsofmeasure.org",
+                "code": "{patch}"
+              }
+            }
+          ]
+        }
+      ],
+      "dispenseRequest": {
+        "validityPeriod": {
+          "start": "2022-04-28",
+          "end": "2022-07-28"
+        },
+        "quantity": {
+          "value": 30,
+          "unit": "patch",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+          "code": "patch"
+        },
+        "numberOfRepeatsAllowed": 3,
+        "expectedSupplyDuration": {
+          "value": 30.0,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
+        }
+      }
+    }
+  },
+  "prefetch": {
+    "item1": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-04-28"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "id": "example-rec-08-order-sign-mme-greater-than-fifty",
+        "gender": "male",
+        "birthDate": "1982-01-07"
+      }
+    },
+    "item2": null,
+    "item3": null,
+    "item4": null,
+    "item5": null,
+    "item6": null,
+    "item7": null,
+    "item8": null,
+    "item9": null,
+    "item10": null,
+    "item11": null,
+    "item12": null,
+    "item13": null,
+    "item14": null,
+    "item15": null,
+    "item16": null
+  }
+}

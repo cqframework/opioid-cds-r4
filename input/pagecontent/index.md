@@ -22,16 +22,14 @@ This implementation guide includes support for the following guideline recommend
 * [Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration](recommendation-01.html)
 * [Recommendation #2 - Opioid Therapy Goals Discussion](recommendation-02.html)
 * [Recommendation #3 - Opioid Therapy Risk/Benefit Discussion](recommendation-03.html)
-* [Recommendation #4 - Opioid Release Rate When Starting Opioid Therapy](recommendation-04.html)
+* [Recommendation #4 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-04.html)
 * [Recommendation #5 - Lowest Effective Dose](recommendation-05.html)
 * [Recommendation #6 - Prescribe Lowest Effective Dose and Duration](recommendation-06.html)
 * [Recommendation #7 - Opioid Therapy Risk Assessment](recommendation-07.html)
 * [Recommendation #8 - Naloxone Consideration](recommendation-08.html)
 * [Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions](recommendation-09.html)
 * [Recommendation #10 - Urine Drug Testing](recommendation-10.html)
-* [Recommendation #10 Patient View - Urine Drug Testing](recommendation-10-patient-view.html)
 * [Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11.html)
-* [Recommendation #11 Patient View - Concurrent Use of Opioids and Benzodiazepines](recommendation-11-patient-view.html)
 * [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)
 
 ### Getting Started
@@ -92,9 +90,7 @@ service, refer to the [Service Documentation](service-documentation.html).
       <li><a href="recommendation-08.html">Recommendation #8 - Naloxone Consideration</a></li>
       <li><a href="recommendation-09.html">Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions</a></li>
       <li><a href="recommendation-10.html">Recommendation #10 - Urine Drug Testing</a></li>
-      <li><a href="recommendation-10-patient-view.html">Recommendation #10 Patient View - Urine Drug Testing</a></li>
       <li><a href="recommendation-11.html">Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines</a></li>
-      <li><a href="recommendation-11-patient-view.html">Recommendation #11 Patient View - Concurrent Use of Opioids and Benzodiazepines</a></li>
       <li><a href="recommendation-12.html">Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder</a></li>
   </ul>
 

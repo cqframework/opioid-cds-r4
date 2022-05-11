@@ -1,7 +1,4 @@
-library OpioidCDSCommonConfig version '0.1.1'
-
-define "Chronically on Opioids Enabled":
-  true
+library OpioidCDSCommonConfig version '2.0.1'
 
 // Opioid Review Useful
 define "Age Less than 18 Years Is Enabled":
@@ -15,6 +12,9 @@ define "End-Stage Disease Criteria Enabled":
 define "Active Cancer Treatment Encounters Condition Is Enabled":
   true
 
+define "Active Cancer Treatment PractitionerRole Specialty Is Enabled":
+  false
+
 // Opioid Naive
 define "Opioid Naive Prescription Condition Is Enabled":
   true
@@ -26,6 +26,10 @@ define "Opioid Naive Report Condition Is Enabled":
 // Opioid Naive
 define "Opioid Naive Dispense Condition Is Enabled":
   true
+
+// OpioidCDSCommon
+define "Hospice Findings Exclusion Enabled":
+  false
 
 // Recommendation 2
 define "Opioid Treatment Plan Verification Enabled":
@@ -46,6 +50,10 @@ define "Evidence of Naloxone Enabled":
 // Recommendation 9
 define "PDMP Data Not Reviewed in Past 90 Days Criteria Enabled":
   true
+
+// Recommendation 10
+define "Opiate Urine Screening Check Enabled":
+  false
 
 // Recommendation 12
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":

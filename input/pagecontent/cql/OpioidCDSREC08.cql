@@ -1,11 +1,14 @@
-library OpioidCDSREC08 version '0.1.1'
+library OpioidCDSREC08 version '2.0.1'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include FHIRHelpers  version '4.0.1' called FHIRHelpers
+include OpioidCDSCommon version '2.0.1' called Common
+include OpioidCDSCommonConfig version '2.0.1' called Config
+include OpioidCDSRoutines version '2.0.1' called Routines
+/*include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
+ */
+include MMECalculator version '3.0.0' called MMECalculator
 
 /*
 **
@@ -57,12 +60,20 @@ define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
+define "Patient Age Less Than 18":
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false
+
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (
-      "Total MME" >= 50 'mg/d'
-        or "On Benzodiazepine"
+      "Total MME" >= 50 '{MME}/d' or
+
+    "On Benzodiazepine"
         or "Has Substance Abuse History"
     )
 
@@ -74,7 +85,7 @@ define "Exclusion Criteria":
     or Common."End of Life Assessment"
 
 define "Total MME":
-  Common.TotalMME(
+  MMECalculator.TotalMME(
     "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
       union Common."Active Ambulatory Opioid Rx"
   )
@@ -87,8 +98,10 @@ define "On Benzodiazepine":
 
 define "Has Substance Abuse History":
   exists (
-    [Condition: Common."Substance misuse behavioral counseling"]
-      union [Condition: Common."Conditions documenting substance misuse"]
+    [Procedure: Common."Substance misuse behavioral counseling"]
+    union
+    Common."US Core-Categorized Conditions" C
+      where C.code in Common."Conditions documenting substance misuse"
   )
 
 define "Get Indicator":
@@ -103,7 +116,7 @@ define "Get Summary":
 
 define "Detail Descriptions":
 	{
-    { hasCondition: "Total MME" >= 50 'mg/day', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/day' },
+    { hasCondition: "Total MME" >= 50 '{MME}/d', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/d' },
     { hasCondition: "On Benzodiazepine", text: 'concurrent use of benzodiazepine'},
     { hasCondition: "Has Substance Abuse History", text: 'history of alcohol or drug abuse' }
   }
