@@ -81,8 +81,10 @@ define function Prescriptions(Orders List<MedicationRequest>):
       medicationName: OMTKLogic.GetMedicationName(rxNormCode),
       // NOTE: Assuming a single dosage instruction element
       dosageInstruction: singleton from O.dosageInstruction,
-      // NOTE: Assuming a single dose and rate element
-      doseAndRate: singleton from dosageInstruction.doseAndRate,
+      //  NOTE: Some systems return multiple doseAndRate entries, with system-specific codes for the types. In those cases,
+      //  this logic should select the most appropriate dose and rate, but standardization on doseAndRate type codes is
+      //  needed to make this logic shareable
+      doseAndRate: singleton from (dosageInstruction.doseAndRate DR where DR.type is null or DR.type.text = 'ordered'),
       repeat: dosageInstruction.timing.repeat,
       frequency: Coalesce(repeat.frequencyMax.value, repeat.frequency.value),
       period: OMTKLogic.Quantity(repeat.period.value, repeat.periodUnit.value),
