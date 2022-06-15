@@ -84,10 +84,13 @@ define "Exclusion Criteria":
   )
     or Common."End of Life Assessment"
 
+define "Active Ambulatory Opioid Rx":
+  Common."Active Ambulatory Opioid Rx"
+
 define "Total MME":
   MMECalculator.TotalMME(
     "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
-      union Common."Active Ambulatory Opioid Rx"
+      union "Active Ambulatory Opioid Rx"
   )
 
 define "On Naloxone":
