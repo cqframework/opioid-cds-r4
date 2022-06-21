@@ -214,8 +214,9 @@ define "Admitted/Referred/Discharged to Hospice Care":
   )
   union
   (
-    [ServiceRequest: code in "Hospice Procedure Codes"] E
-      where E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
+    "Service Requests" SR
+      where SR.code in "Hospice Procedure Codes"
+        and SR.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
   )
   union
   (
@@ -355,3 +356,7 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
   singleton from (
     coding C where C.system = 'http://www.nlm.nih.gov/research/umls/rxnorm'
   )
+
+ define "Service Requests":
+   [ServiceRequest] SR
+    return SR
