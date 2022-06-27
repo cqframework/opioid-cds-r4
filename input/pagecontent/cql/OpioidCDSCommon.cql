@@ -216,7 +216,7 @@ define "Admitted/Referred/Discharged to Hospice Care":
   (
     "Service Requests" SR
       where SR.code in "Hospice Procedure Codes"
-        and SR.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
+        and SR.status.value in { 'active', 'completed' }
   )
   union
   (
