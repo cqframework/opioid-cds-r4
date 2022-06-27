@@ -62,10 +62,11 @@ define "Conditions Indicating End Of Life Present":
 
 define "Order For Palliative Care In Past 90 Days":
   exists (
-    [ServiceRequest: Common."Therapies indicating end of life care"] SR
-      where SR.status in { 'active', 'completed'}
-        and SR.intent != null
-        and FHIRHelpers.ToDateTime(SR.authoredOn) during day of "Palliative Care Lookback Period"
+    Common."Service Requests" SR
+    where SR.status in { 'active', 'completed'}
+      and SR.intent != null
+      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of "Palliative Care Lookback Period"
+      and SR.code in Common."Therapies indicating end of life care"
   )
 
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
