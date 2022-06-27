@@ -215,7 +215,7 @@ define "Admitted/Referred/Discharged to Hospice Care":
   union
   (
     [ServiceRequest: code in "Hospice Procedure Codes"] E
-      where E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }
+      where E.status.value in { 'active', 'completed' }
   )
   union
   (
