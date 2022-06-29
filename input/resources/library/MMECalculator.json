@@ -182,11 +182,11 @@
   }, {
     "type": "CodeSystem",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/CodeSystem" ],
-    "mustSupport": [ "supplements", "supplements.value", "name.value", "concept", "name", "useContext" ]
+    "mustSupport": [ "supplements", "supplements.value", "name", "name.value", "useContext", "concept" ]
   }, {
     "type": "CodeSystem",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/CodeSystem" ],
-    "mustSupport": [ "supplements", "supplements.value", "name.value", "concept", "name", "useContext" ]
+    "mustSupport": [ "supplements", "supplements.value", "name", "name.value", "useContext", "concept" ]
   } ],
   "content": [ {
     "contentType": "text/cql",

@@ -175,9 +175,27 @@
     "type": "string"
   } ],
   "dataRequirement": [ {
+    "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
+    "type": "Medication",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
+    "mustSupport": [ "id" ],
+    "codeFilter": [ {
+      "path": "id"
+    } ]
+  }, {
+    "type": "CarePlan",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/CarePlan" ],
+    "mustSupport": [ "category", "status", "created", "meta", "meta.lastUpdated", "author" ],
+    "codeFilter": [ {
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan"
+    } ]
+  }, {
     "type": "Procedure",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-    "mustSupport": [ "code", "performer", "performed" ],
+    "mustSupport": [ "code", "performed", "performer" ],
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure"
@@ -207,31 +225,13 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   }, {
-    "type": "CarePlan",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/CarePlan" ],
-    "mustSupport": [ "created", "author", "meta", "category", "meta.lastUpdated", "status" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan"
-    } ]
-  }, {
     "type": "ServiceRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "authoredOn", "intent", "status" ],
+    "mustSupport": [ "code", "status", "intent", "authoredOn" ],
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     } ]
-  }, {
-    "type": "Medication",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-    "mustSupport": [ "id" ],
-    "codeFilter": [ {
-      "path": "id"
-    } ]
-  }, {
-    "type": "Patient",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
   } ],
   "content": [ {
     "contentType": "text/cql",
