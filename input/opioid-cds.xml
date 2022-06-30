@@ -650,17 +650,22 @@
             </page>
           </page>
           <page>
-            <nameUrl value="recommendation-04.html" />
-            <title value="Recommendation #4 - Opioid Immediate Release Form When Starting Opioid Therapy" />
+            <nameUrl value="recommendation-04-order-sign.html" />
+            <title value="Recommendation #4 Order Sign Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-04-cql.html" />
-              <title value="OpioidCDS Recommendation 04 - CQL Source" />
+              <title value="OpioidCDS Recommendation 04 Order Sign - CQL Source" />
               <generation value="html" />
             </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-04-patient-view.html" />
+            <title value="Recommendation #4 Patient View Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
+            <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-04-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 04 (patient view)- CQL Source" />
+              <title value="OpioidCDS Recommendation 04 Patient View - CQL Source" />
               <generation value="html" />
             </page>
           </page>
