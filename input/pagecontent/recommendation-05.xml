@@ -8,112 +8,113 @@
       to ≥90 MME/day or carefully justify a decision to titrate dosage to >90 MME/day
       <em>(recommendation category: A, evidence type: 3)</em>.</strong>
   </p>
-  <html>
-    <body>
-      <details open="true">
-        <summary>
-          <h3 class="title">Functional Description</h3>
-        </summary>
-        <a name="funcdesc"> </a>
 
-        {% include recommendation05-functional-description.html %}
-        <p></p>
-        <img src="assets/images/Recommendation05-flow.png" style="max-width: 100%;" />
-        <p></p>
-        <img src="assets/images/Recommendation05-Definitions.png" style="max-width: 100%;" />
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">For Chronic Pain</h3>
-        </summary>
-        {% include for-chronic-pain-definitions.html %}
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">Opioid Review Useful</h3>
-        </summary>
-        {% include opioid-review-useful-definitions.html %}
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">Opioid Naive</h3>
-        </summary>
-        {% include opioid-naive-definitions.html %}
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">Opioid Review Useful</h3>
-        </summary>
-        {% include opioid-review-useful-definitions.html %}
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">Content</h3>
-        </summary>
-        <a name="content"> </a>
-        <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+  <div class="toc-container">
+    <p class="toc-title">Contents</p>
+    <ul id="toc-list">
+      <li><a href="#functional-description">Functional Description</a></li>
+      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
+      <li><a href="#opioid-naive">Opioid Naive</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#example-data-requests">Example Data/Requests</a></li>
+    </ul>
+  </div>
 
-        <a name="commonlibraries"> </a>
-        <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
+  <details class="tree-nav__item is-expandable" open="true">
+    <summary class="tree-nav__item-title">
+      <a name="functional-description"> </a>
+      <h3 class="title">Functional Description</h3>
+    </summary>
 
-        <p></p>
+    {% include recommendation05-functional-description.html %}
 
-        <table class="list">
-          <thead>
-            <tr>
-              <th>Resource</th>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="PlanDefinition-opioidcds-05.html">CDC Opioid Prescribing Guideline Recommendation #5</a></td>
-              <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-              <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #5</td>
-            </tr>
-            <tr>
-              <td><a href="Library-OpioidCDSREC05.html">Recommendation #5 - lowest effective dosage</a></td>
-              <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
-              <td>CQL Library that provides logic for evaluating whether a prescription exceeds the MME of 50 mg/day</td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-      <p></p>
-      <details>
-            <!-- Example Data/Requests -->
-        <summary>
-            <a name="exampledatarequests"> </a>
-            <h3>Example Data/Requests</h3>
-        </summary>
-        <table class="grid">
-          <thead>
-            <tr>
-              <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) one patch per 3 days for 30 days.This will trigger the message “High risk for opioid overdose - taper now” It will then link to the “MME Conversation Tables” "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"</td>
-              <td><a href="Bundle-example-rec-05-mme-greater-than-fifty.html">Test Bundle</a></td>
-              <td><a href="requests/OpioidCDSREC05/request-example-rec-05-mme-greater-than-fifty.json">Request JSON</a></td>
-              <td><a href="responses/OpioidCDSREC05/response-example-rec-05-mme-greater-than-fifty.json">Response JSON</a></td>
-            </tr>
-            <tr>
-              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) one patch per 12 days for 30 days.The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
-              <td><a href="Bundle-example-rec-05-mme-less-than-fifty.html">Test Bundle</a></td>
-              <td><a href="requests/OpioidCDSREC05/request-example-rec-05-mme-less-than-fifty.json">Request JSON</a></td>
-              <td><a href="responses/OpioidCDSREC05/response-example-rec-05-mme-less-than-fifty.json">Response JSON</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-    </body>
-  </html>
+    <img src="assets/images/Recommendation05-flow.png" style="max-width: 100%;" />
+    <br />
+    <img src="assets/images/Recommendation05-Definitions.png" style="max-width: 100%;" />
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="for-chronic-pain"> </a>
+      <h3 class="title">For Chronic Pain</h3>
+    </summary>
+    {% include for-chronic-pain-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="opioid-review-useful"> </a>
+      <h3 class="title">Opioid Review Useful</h3>
+    </summary>
+    {% include opioid-review-useful-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="opioid-naive"> </a>
+      <h3 class="title">Opioid Naive</h3>
+    </summary>
+    {% include opioid-naive-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="content"> </a>
+      <h3 class="title">Content</h3>
+    </summary>
+    
+    <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+
+    <table class="list">
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="PlanDefinition-opioidcds-05.html">CDC Opioid Prescribing Guideline Recommendation #5</a></td>
+          <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
+          <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #5</td>
+        </tr>
+        <tr>
+          <td><a href="Library-OpioidCDSREC05.html">Recommendation #5 - lowest effective dosage</a></td>
+          <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
+          <td>CQL Library that provides logic for evaluating whether a prescription exceeds the MME of 50 mg/day</td>
+        </tr>
+        {% include common-libraries.html %}
+      </tbody>
+    </table>
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="example-data-requests"> </a>
+      <h3>Example Data/Requests</h3>
+    </summary>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) one patch per 3 days for 30 days.This will trigger the message "High risk for opioid overdose - taper now" It will then link to the "MME Conversation Tables" "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"</td>
+          <td><a href="Bundle-example-rec-05-mme-greater-than-fifty.html">Test Bundle</a></td>
+          <td><a href="requests/OpioidCDSREC05/request-example-rec-05-mme-greater-than-fifty.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC05/response-example-rec-05-mme-greater-than-fifty.json">Response JSON</a></td>
+        </tr>
+        <tr>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) one patch per 12 days for 30 days.The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
+          <td><a href="Bundle-example-rec-05-mme-less-than-fifty.html">Test Bundle</a></td>
+          <td><a href="requests/OpioidCDSREC05/request-example-rec-05-mme-less-than-fifty.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC05/response-example-rec-05-mme-less-than-fifty.json">Response JSON</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
 </div>

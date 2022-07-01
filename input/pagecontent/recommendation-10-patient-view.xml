@@ -1,0 +1,117 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec10"> </a>
+  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids" target="_blank">Recommendation #10:</a></p>
+  <p>
+    <strong>When prescribing opioids for chronic pain, providers should use urine drug testing before
+      starting opioid therapy and consider urine drug testing at least annually to assess for
+      prescribed medications as well as other controlled prescription drugs and illicit drugs
+      <em>(recommendation category: B, evidence type: 4)</em>.</strong>
+  </p>
+
+  <ul class="nav nav-tabs">
+    <li><a href="recommendation-10-order-sign.html">Order Sign</a></li>
+    <li class="active"><a href="#">Patient View</a></li>
+  </ul>
+
+  <div class="toc-container">
+    <p class="toc-title">Contents</p>
+    <ul id="toc-list">
+      <li><a href="#functional-description">Functional Description</a></li>
+      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#example-data-requests">Example Data/Requests</a></li>
+    </ul>
+  </div>
+
+  <details class="tree-nav__item is-expandable" open="true">
+    <summary class="tree-nav__item-title">
+      <a name="functional-description"> </a>
+      <h3 class="title">Functional Description</h3>
+    </summary>
+
+    {% include recommendation10-functional-description.html %}
+
+    <img src="assets/images/Recommendation10-patient-view-flow.png" style="max-width: 100%;" />
+    <br />
+    <img src="assets/images/Recommendation10-Patient-View-Definitions.png" style="max-width: 100%;" />
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="for-chronic-pain"> </a>
+      <h3 class="title">For Chronic Pain</h3>
+    </summary>
+    {% include for-chronic-pain-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="opioid-review-useful"> </a>
+      <h3 class="title">Opioid Review Useful</h3>
+    </summary>
+    {% include opioid-review-useful-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="content"> </a>
+      <h3 class="title">Content</h3>
+    </summary>
+
+    <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+
+    <table class="list">
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="PlanDefinition-opioidcds-10-patient-view.html">CDC Opioid Prescribing Guideline Recommendation #10 Patient View</a></td>
+          <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
+          <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #10 Patient View</td>
+        </tr>
+        <tr>
+          <td><a href="Library-OpioidCDSREC10PatientView.html">Recommendation #10 Patient View - urine drug testing when prescribing opioids for chronic pain</a></td>
+          <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
+          <td>Defines the data requirements to support evaluation of recommendation #10 Patient View</td>
+        </tr>
+        {% include common-libraries.html %}
+      </tbody>
+    </table>
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="example-data-requests"> </a>
+      <h3>Example Data/Requests - patient-view hook</h3>
+    </summary>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-7">Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696), once every 12 days for 30 days. 
+            <br/>
+            This triggers the message that urine drug screening is recommended with the following three feedback options:
+            <br/>
+            i.	Perform the screening
+            <br/>
+            ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
+            <br/>
+            iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. 
+          </td>
+          <td><a href="Bundle-example-rec-10-no-screenings.html">Test Bundle</a></td>
+          <td><a href="requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC10PatientView/response-example-rec-10-patient-view-no-screenings.json">Response JSON</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+</div>
