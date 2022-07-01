@@ -711,7 +711,7 @@
           </page>
           <page>
             <nameUrl value="recommendation-09.html" />
-            <title value="Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions" />
+            <title value="Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-09-cql.html" />
@@ -720,17 +720,22 @@
             </page>
           </page>
           <page>
-            <nameUrl value="recommendation-10.html" />
-            <title value="Recommendation #10 - Urine Drug Testing" />
+            <nameUrl value="recommendation-10-order-sign.html" />
+            <title value="Recommendation #10 Order Sign Variation - Urine Drug Testing" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-10-cql.html" />
-              <title value="OpioidCDS Recommendation 10 - CQL Source" />
+              <title value="OpioidCDS Recommendation 10 Order Sign - CQL Source" />
               <generation value="html" />
             </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-10-patient-view.html" />
+            <title value="Recommendation #10 Patient View Variation - Urine Drug Testing" />
+            <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 10 (patient-view) - CQL Source" />
+              <title value="OpioidCDS Recommendation 10 Patient View - CQL Source" />
               <generation value="html" />
             </page>
           </page>

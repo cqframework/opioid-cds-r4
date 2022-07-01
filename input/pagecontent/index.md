@@ -28,7 +28,7 @@ This implementation guide includes support for the following guideline recommend
 * [Recommendation #7 - Opioid Therapy Risk Assessment](recommendation-07.html)
 * [Recommendation #8 - Naloxone Consideration](recommendation-08.html)
 * [Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions](recommendation-09.html)
-* [Recommendation #10 - Urine Drug Testing](recommendation-10.html)
+* [Recommendation #10 - Urine Drug Testing](recommendation-10-order-sign.html)
 * [Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11.html)
 * [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)
 
