@@ -138,6 +138,25 @@ body {
 }
 
 /* 
-Tabs for recommendation variations
+Table of contents styles
 */
 
+.toc-container {
+  background: #f9f9f9 none repeat scroll 0 0;
+  border: 1px solid #aaa;
+  display: table;
+  font-size: 95%;
+  margin-bottom: 1em;
+  padding: 20px;
+  width: auto;
+}
+
+.toc-title {
+  font-weight: 700;
+  text-align: center;
+}
+
+.toc-container li, .toc-container ul, .toc-container ul li{
+  list-style: outside none none !important;
+  padding: 0 0 0 0 !important;
+}

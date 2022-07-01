@@ -12,6 +12,17 @@
     <li class="active"><a href="#">Patient View</a></li>
   </ul>
 
+  <div class="toc-container">
+    <p class="toc-title">Contents</p>
+    <ul id="toc-list">
+      <li><a href="#functional-description">Functional Description</a></li>
+      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#example-data-requests">Example Data/Requests</a></li>
+    </ul>
+  </div>
+
   <details class="tree-nav__item is-expandable" open="true">
     <summary class="tree-nav__item-title">
       <a name="functional-description"> </a>
@@ -75,7 +86,7 @@
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
-      <a name="example-data-requests-patient-view"> </a>
+      <a name="example-data-requests"> </a>
       <h3>Example Data/Requests - patient-view hook</h3>
     </summary>
     <table class="grid">
