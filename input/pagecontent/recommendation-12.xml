@@ -23,8 +23,8 @@
     {% include recommendation12-functional-description.html %}
 
     <img src="assets/images/Recommendation12-flow.png" style="max-width: 100%;" />
-    <br />
-    <img src="assets/images/Recommendation12-Definitions.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation12-data-elements.html %}
 
     <a name="rationale-for-treatment"> </a>
     <h4>Rationale for Medication-Assisted Treatment or Behavioral Therapy</h4>

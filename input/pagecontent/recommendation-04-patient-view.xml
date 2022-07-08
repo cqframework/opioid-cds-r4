@@ -5,6 +5,8 @@
       instead of extended-release/long-acting (ER/LA) opioids <em>(recommendation category: A, evidence type: 4)</em>.</strong>
   </p>
 
+  {% include multiple-variation-note.html %}
+
   <ul class="nav nav-tabs">
     <li><a href="recommendation-04-order-sign.html">Order Sign</a></li>
     <li class="active"><a href="#">Patient View</a></li>
@@ -30,8 +32,8 @@
     {% include recommendation04-functional-description.html %}
 
     <img src="assets/images/Recommendation04-patient-view-flow.png" style="max-width: 100%;" />
-    <br />
-    <img src="assets/images/Recommendation04-Patient-View-Definitions.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation04-data-elements-patient-view.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">

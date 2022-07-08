@@ -160,3 +160,47 @@ Table of contents styles
   list-style: outside none none !important;
   padding: 0 0 0 0 !important;
 }
+
+/*
+Data Elements table style
+*/
+
+#dataElements {
+  border-collapse: collapse;
+  min-width: 100%;
+}
+
+#dataElements td, #dataElements th {
+  border: 1px solid #ddd !important;
+  padding: 8px;
+}
+
+#dataElements tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#dataElements tr:hover {
+  background-color: #ddd;
+}
+
+#dataElements th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #105eab !important;
+  color: white;
+}
+
+#dataElements caption {
+  font-family: verdana;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 10px;
+  background-color: #f2f2f2;
+}
+
+#multipleVariation {
+  background-color: #f2f2f2 !important;
+  border: 1px solid #ddd !important;
+  padding: 5px !important;
+}

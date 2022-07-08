@@ -5,6 +5,8 @@
       whenever possible <em>(recommendation category: A, evidence type: 3)</em>.</strong>
   </p>
 
+  {% include multiple-variation-note.html %}
+
   <ul class="nav nav-tabs">
     <li><a href="recommendation-11-order-select.html">Order Select</a></li>
     <li class="active"><a href="#">Patient View</a></li>
@@ -29,8 +31,8 @@
     {% include recommendation11-functional-description.html %}
 
     <img src="assets/images/Recommendation11-patient-view-flow.png" style="max-width: 100%;" />
-    <br />
-    <img src="assets/images/Recommendation11-Patient-View-Definitions.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation11-data-elements-patient-view.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
