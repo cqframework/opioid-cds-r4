@@ -28,8 +28,8 @@
     {% include recommendation08-functional-description.html %}
 
     <img src="assets/images/Recommendation08-flow.png" style="max-width: 100%;" />
-    <br />
-    <img src="assets/images/Recommendation08-Definitions.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation08-data-elements.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">

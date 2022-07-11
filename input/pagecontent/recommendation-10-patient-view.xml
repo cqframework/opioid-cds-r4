@@ -7,6 +7,8 @@
       <em>(recommendation category: B, evidence type: 4)</em>.</strong>
   </p>
 
+  {% include multiple-variation-note.html %}
+
   <ul class="nav nav-tabs">
     <li><a href="recommendation-10-order-sign.html">Order Sign</a></li>
     <li class="active"><a href="#">Patient View</a></li>
@@ -32,8 +34,8 @@
     {% include recommendation10-functional-description.html %}
 
     <img src="assets/images/Recommendation10-patient-view-flow.png" style="max-width: 100%;" />
-    <br />
-    <img src="assets/images/Recommendation10-Patient-View-Definitions.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation10-data-elements-patient-view.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">

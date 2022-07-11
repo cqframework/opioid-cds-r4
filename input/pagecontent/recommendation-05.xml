@@ -30,8 +30,8 @@
     {% include recommendation05-functional-description.html %}
 
     <img src="assets/images/Recommendation05-flow.png" style="max-width: 100%;" />
-    <br />
-    <img src="assets/images/Recommendation05-Definitions.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation05-data-elements.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">

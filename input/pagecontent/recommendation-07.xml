@@ -29,8 +29,8 @@
     {% include recommendation07-functional-description.html %}
 
     <img src="assets/images/Recommendation07-flow.png" style="max-width: 100%;" />
-    <br />
-    <img src="assets/images/Recommendation07-Definitions.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation07-data-elements.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
