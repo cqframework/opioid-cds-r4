@@ -199,12 +199,12 @@ define "PCP Detail":
 
 define function "Get Detail" (isScreeningRecommended Boolean):
   if isScreeningRecommended then
-    'Patients on opioid therapy should have a urine drug test performed every 12 months.'
+    'Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
   else if "Applicable Because of Positive Cocaine or PCP or Opiates" then
     "Cocaine Detail"&
     "Opiates Detail"&
     "PCP Detail"&
-    '<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug.'
+    '<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
   else
       null
 
