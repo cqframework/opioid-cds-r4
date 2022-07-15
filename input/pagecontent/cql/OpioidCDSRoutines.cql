@@ -238,7 +238,7 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
 
 /*
 **  Routine #4
-**  For Chronic Pain Routine
+**  For Subacute or Chronic Pain Routine
 **
 **  Definition                  | Answer to Proceed   | Details                                        | Data (Terminology) Requirement
 **  -----------------------------------------------------------------------------------------------------------------------------------
@@ -249,14 +249,14 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
 **
 */
 
-define function "Is Chronic Pain Prescription?"(prescription FHIR.MedicationRequest):
+define function "Is Subacute or Chronic Pain Prescription?"(prescription FHIR.MedicationRequest):
   (
     prescription.dispenseRequest is not null
       and prescription.dispenseRequest.expectedSupplyDuration is not null
       and Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28
   )
 
-// End of For Chronic Pain Routine
+// End of For Subacute or Chronic Pain Routine
 
 /*
 **  Routine #5

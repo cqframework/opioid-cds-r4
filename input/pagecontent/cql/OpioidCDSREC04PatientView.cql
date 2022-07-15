@@ -37,7 +37,7 @@ context Patient
 
 define "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   Common."Active Ambulatory Opioid Rx" AmbulatoryOpioidPrescription
-    where Routines."Is Chronic Pain Prescription?"(AmbulatoryOpioidPrescription)
+    where Routines."Is Subacute or Chronic Pain Prescription?"(AmbulatoryOpioidPrescription)
       and AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
 
 define "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential":

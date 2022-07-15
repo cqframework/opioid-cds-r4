@@ -41,7 +41,7 @@ context Patient
 
 define "Subacute or Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
-    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+    where Routines."Is Subacute or Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Subacute or Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
