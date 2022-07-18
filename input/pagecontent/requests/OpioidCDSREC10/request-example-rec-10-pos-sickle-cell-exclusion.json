@@ -4,10 +4,10 @@
   "hook": "order-select",
   "context": {
     "userId": "Practitioner/example",
-    "patientId": "Patient/example-rec-10-end-of-life-med-exclusion",
-    "encounterId": "Encounter/example-rec-10-end-of-life-med-exclusion-context",
+    "patientId": "Patient/example-pos-sickle-cell-exclusion",
+    "encounterId": "Encounter/example-rec-10-pos-sickle-cell-exclusion-context",
     "selections": [
-      "MedicationRequest/example-rec-10-end-of-life-med-exclusion-context"
+      "MedicationRequest/example-pos-sickle-cell-exclusion-context"
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
@@ -17,7 +17,7 @@
           "extension": [
             {
               "url": "dateLastUpdated",
-              "valueDateTime": "2022-04-28"
+              "valueDateTime": "2022-07-18"
             },
             {
               "url": "frequency",
@@ -31,7 +31,7 @@
           ]
         }
       ],
-      "id": "example-rec-10-end-of-life-med-exclusion-context",
+      "id": "example-rec-10-pos-sickle-cell-exclusion-context",
       "status": "active",
       "intent": "order",
       "category": [
@@ -54,12 +54,12 @@
         ]
       },
       "subject": {
-        "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
+        "reference": "Patient/example-pos-sickle-cell-exclusion"
       },
       "encounter": {
-        "reference": "Encounter/example-rec-10-end-of-life-med-exclusion-context"
+        "reference": "Encounter/example-pos-sickle-cell-exclusion-context"
       },
-      "authoredOn": "2022-04-28",
+      "authoredOn": "2022-07-18",
       "dosageInstruction": [
         {
           "timing": {
@@ -84,8 +84,8 @@
       ],
       "dispenseRequest": {
         "validityPeriod": {
-          "start": "2022-04-28",
-          "end": "2022-07-28"
+          "start": "2022-07-18",
+          "end": "2022-10-28"
         },
         "numberOfRepeatsAllowed": 3,
         "expectedSupplyDuration": {
@@ -110,7 +110,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-07-18"
               },
               {
                 "url": "frequency",
@@ -124,7 +124,7 @@
             ]
           }
         ],
-        "id": "example-rec-10-end-of-life-med-exclusion",
+        "id": "example-pos-sickle-cell-exclusion",
         "gender": "female",
         "birthDate": "1982-01-07"
       }
@@ -144,7 +144,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-07-18"
               },
               {
                 "url": "frequency",
@@ -158,7 +158,7 @@
             ]
           }
         ],
-        "id": "EndOfLifeCondition",
+        "id": "example-pos-sickle-cell-exclusion-condition",
         "category": {
           "coding": [
             {
@@ -189,7 +189,7 @@
           }
         },
         "subject": {
-          "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
+          "reference": "Patient/example-pos-sickle-cell-exclusion"
         },
         "code": {
           "coding": [

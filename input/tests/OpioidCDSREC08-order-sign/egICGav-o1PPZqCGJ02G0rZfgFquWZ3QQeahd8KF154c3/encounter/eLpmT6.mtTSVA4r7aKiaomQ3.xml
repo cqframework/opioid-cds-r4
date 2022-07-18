@@ -1,0 +1,36 @@
+<Encounter>
+    <id value="eLpmT6.mtTSVA4r7aKiaomQ3" />
+    <identifier>
+        <use value="usual" />
+        <system value="urn:oid:1.2.840.114350.1.13.246.3.7.3.698084.8" />
+        <value value="1000144609" />
+    </identifier>
+    <status value="finished" />
+    <class>
+        <system value="urn:oid:1.2.840.114350.1.72.1.7.7.10.696784.13260" />
+        <code value="13" />
+        <display value="Support OP Encounter" />
+    </class>
+    <type>
+        <coding>
+            <system value="urn:oid:1.2.840.114350.1.13.246.3.7.10.698084.30" />
+            <code value="111" />
+            <display value="Orders Only" />
+        </coding>
+        <text value="Orders Only" />
+    </type>
+    <subject>
+        <reference value="Patient/egICGav-o1PPZqCGJ02G0rZfgFquWZ3QQeahd8KF154c3" />
+        <display value="Cdshookstwo, Ashley" />
+    </subject>
+    <period>
+        <start value="2022-07-05" />
+        <end value="2022-07-05" />
+    </period>
+    <location>
+        <location>
+            <reference value="Location/eWTDviK-nOibnj-xDtQM2BM7qGd9-7rhB9nItyYE6Nw43" />
+            <display value="UCHealth Internal Medicine Clinic - Lowry" />
+        </location>
+    </location>
+</Encounter>

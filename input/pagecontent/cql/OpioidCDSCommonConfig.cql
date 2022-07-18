@@ -8,6 +8,10 @@ define "Age Less than 18 Years Is Enabled":
 define "End-Stage Disease Criteria Enabled":
   true
 
+// Sickle Cell
+define "Sickle Cell Check Enabled":
+ true
+
 // Active Cancer Treatment
 define "Active Cancer Treatment Encounters Condition Is Enabled":
   true

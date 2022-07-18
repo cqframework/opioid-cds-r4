@@ -18,7 +18,11 @@ context Patient
 **                          |                     | patients with age less than 18 years at the  |
 **                          |                     | time of the prescription                     |
 **  ------------------------------------------------------------------------------------------------------------------------------------
-**  Limited life            | No                  | Look for documented findings consistent      | Limited life expectancy conditions
+**  Evidence of             | No                  | Look for documented findings consistent      | Limited life expectancy conditions
+**  sickle cell disease?    |                     | with those listed in the sickle cell         |
+**                          |                     | value set                                    |
+**  ------------------------------------------------------------------------------------------------------------------------------------
+**  Limited life            | No                  | Look for documented findings consistent      | Sickle cell conditions
 **  expectancy conditions   |                     | with those listed in the limited life        |
 **  present?                |                     | expectancy value set (terminal illness, bad  |
 **                          |                     | prognosis, pre-terminal)                     |
@@ -41,17 +45,26 @@ define "Palliative Care Lookback Period":
   Interval[Today() - 90 days, Today()]
 
 define "Is Opioid Review Useful?":
-  /* not "Patient Age Less Than 18" */
-    not "Conditions Indicating End Of Life Present"
+  not "Patient Age Less Than 18" */
+    and not "Conditions Indicating End Of Life Present"
     and not "Order For Palliative Care In Past 90 Days"
     and not "Is Active Cancer Treatment?"
     and not "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
+    and not "Condition Positive for Sickle Cell"
 
 /* define "Patient Age Less Than 18":
   if (Config."Age Less than 18 Years Is Enabled") then
     AgeInYearsAt(Today()) < 18
   else
     false */
+
+define "Condition Positive for Sickle Cell":
+      if (Config."Sickle Cell Check Enabled") then
+        exists(
+            Common."Positive Sickle Cell Condition"
+        )  else
+        false
+
 
 define "Conditions Indicating End Of Life Present":
   exists (

@@ -53,6 +53,7 @@ valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/Valu
 valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
 valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
 valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
+valueset "Conditions positive for sickle cell": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-sickle-cell-category'
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
@@ -188,11 +189,15 @@ define "End of Life Assessment":
     /* or exists (
       "Medications Indicating End of Life"
     ) */
-
 define "US Core-Categorized Conditions":
   [Condition: category in "Encounter Diagnosis Condition Category"]
     union [Condition: category in "Problem List Condition Category"]
     union [Condition: category in "US Core Health Concern Condition Category"]
+
+define "Positive Sickle Cell Condition":
+    "US Core-Categorized Conditions" C
+      where C.code in "Conditions positive for sickle cell"
+        and C.clinicalStatus in "Active Condition"
 
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (

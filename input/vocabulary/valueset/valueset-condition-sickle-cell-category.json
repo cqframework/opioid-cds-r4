@@ -1,0 +1,46 @@
+{
+  "resourceType": "ValueSet",
+  "id": "condition-sickle-cell-category",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+  },
+  "extension": [    {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "executable"
+  },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+      "valueCode": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+      "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+    }
+  ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-sickle-cell-category",
+  "name": "valueset_sickle_cell_condition",
+  "title": "Valueset - Sickle cell condition",
+  "status": "active",
+  "experimental": true,
+  "date": "2022-07-15T13:00:29-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "description": "A finding that documents a sickle cell diagnosis",
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    } ]
+  } ],
+  "purpose": "Provide terminology for conditions to be used as exclusions for opioid use recommendations",
+  "copyright": "© CDC 2016+.",
+  "expansion": {
+    "timestamp": "2022-07-15T13:47:55-07:00",
+    "contains": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+        "code": "sickle-cell",
+        "display": "Sickle cell"
+      }
+    ]
+  }
+}
