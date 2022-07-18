@@ -162,6 +162,33 @@
             <td style="padding-left: 4px;">{{PlanDefinition.description.escape('html')}}</td>
         </tr>
         {% endif %}
+        {% if PlanDefinition.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition').exists() %}
+            <tr>
+                <th scope="row"><a name="effective-data-requirements"> </a><b>Logic Definitions: </b></th>
+                <td style="padding-left: 4px;">
+                    {% for extension in PlanDefinition.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition') %}
+                        <table class="grid-dict">
+                            <tr><th><b>Library Name</b></th><th><b>Name</b></th><th><b>sequence</b></th></tr>
+                            <tr>
+                                {% for lNameExtension in extension.extension.where(url = 'libraryName') %}
+                                    <td>{{lNameExtension.value.escape('html')}}</td>
+                                {% endfor %}
+                                {% for nameExtension in extension.extension.where(url = 'name') %}
+                                    <td>{{nameExtension.value.escape('html')}}</td>
+                                {% endfor %}
+                                {% for sequenceExtension in extension.extension.where(url = 'displaySequence') %}
+                                    <td>{{sequenceExtension.value}}</td>
+                                {% endfor %}
+                            </tr>
+                        </table>
+                        {% for statementExtension in extension.extension.where(url = 'statement') %}
+                            <pre><code class="language-cql">{{statementExtension.value.escape('html')}}</code></pre>
+                        {% endfor %}
+                        <br/><br/>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endif %}
         {% if PlanDefinition.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability').exists() %}
         <tr>
           <th scope="row"><b>Knowledge Capability: </b></th>
