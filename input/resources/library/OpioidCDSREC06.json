@@ -194,12 +194,11 @@
     } ]
   }, {
     "type": "ServiceRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
+  }, {
+    "type": "ServiceRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "status", "intent", "authoredOn" ],
-    "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-    } ]
+    "mustSupport": [ "status", "intent", "authoredOn", "code" ]
   } ],
   "content": [ {
     "contentType": "text/cql",
