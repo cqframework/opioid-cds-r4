@@ -194,8 +194,10 @@
         "code": {
           "coding": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-              "code": "sickle-cell"
+              "system": "http://snomed.info/sct",
+              "version": "2021-03",
+              "code": "254612002",
+              "display": "Carcinoma of endocrine pancreas"
             }
           ]
         },
