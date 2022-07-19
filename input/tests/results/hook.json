@@ -1,0 +1,179 @@
+{
+    "hookInstance": "1f49a608-fc9e-11ec-8db3-f203ed674d20",
+    "fhirServer": "https://cloud.alphora.com/sandbox/r4/cds/fhir",
+    "hook": "order-sign",
+    "fhirAuthorization": {
+        "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ1cm46VUNIOkNFX1BPQy5DRV9QT0MiLCJjbGllbnRfaWQiOiJkN2IyOTI2NS0xZTk4LTRiNzEtYTk1NS1jYzVkODk0YjhmMzEiLCJlcGljLmVjaSI6InVybjplcGljOmFfZXBpY3RzdCIsImVwaWMubWV0YWRhdGEiOiJiLW9BNHRibjFReXd4aE1IOW5SYU5BdEpJT25ZX1lfRU1qLXZYa3oxbGh2NGNYLWxGN2FOUFVBZkJfbXBvOFRQWUVHY1VpMzB1dW1kVjNqLUxDdUhZcldLdUJMTlp6UHplYVZhYlZBM0JYRWhxSTVpcUw3aF9tQ2k4a2VNbUdvSSIsImVwaWMudG9rZW50eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU3MDU1MjYwLCJpYXQiOjE2NTcwNTE2NjAsImlzcyI6InVybjpVQ0g6Q0VfUE9DLkNFX1BPQyIsImp0aSI6IjFlNDE3YWE2LTU4NDAtNGMyZC1hZDM0LWI4NmE3MGY3YTE4NiIsIm5iZiI6MTY1NzA1MTY2MCwic3ViIjoiZWQ1R3g0ZjktY0E4aGZmNENiaEh2VmczIn0.ftrprmfx5JFAH9PombzSzIDTevRNQNesCUz9r7JUxzE9zKm_-vTo0BcOA5ewvltog6Q7FFuP04NEc6H08so3wLVZVhjqrN1Ab57_bJHtmOWkfEhTyTZ3MnNyaZrsXM4_vZHVTHhhA4Jhi_FbAtmNFwmCADqNMpjwQto7K8f8eibgPnSo2pMCXYDENz6hWxT1G-TAk_lakbmY4JrfWort1wm7HkfCbDCoir7o1KC_O_HUmbMJrL015tKtxC-5mMcAt0MBQKjp7aQmtFcbrTLjwwYXmClrwelq8g4nCf27LxNYvpXgsm5z4cUb79sK9KdpXvI-CfIRVvn1VFX2-jTvSA",
+        "token_type": "Bearer",
+        "expires_in": 3600,
+        "scope": "user/CareTeam.read user/Condition.read user/DiagnosticReport.read user/Encounter.read user/Medication.read user/MedicationRequest.read user/MedicationStatement.Read user/Observation.read user/Patient.read user/Practitioner.read user/PractitionerRole.read user/Procedure.read user/ServiceRequest.Read",
+        "subject": "d7b29265-1e98-4b71-a955-cc5d894b8f31"
+    },
+    "context": {
+        "patientId": "egICGav-o1PPZqCGJ02G0rZfgFquWZ3QQeahd8KF154c3",
+        "encounterId": "eLpmT6.mtTSVA4r7aKiaomQ3",
+        "userId": "PractitionerRole/e7v8x8KnybWo0qlpVS6j9Ig3",
+        "draftOrders": {
+            "resourceType": "Bundle",
+            "type": "collection",
+            "entry": [
+                {
+                    "resource": {
+                        "resourceType": "MedicationRequest",
+                        "id": "eIdRHpjeEzbLS3ZcGmRmVZ8bbravWOED29hdNLJSFBrBdzDWOqd1a5MMIjQ874tKP8pBlftzNEoXvBpLw3-HLG.mXMk2EBbb0mQQchsUGubXTALDN6umdJmr2GnF3bS4FgSrc5ZsddJhasJiv.H11Qg8jd56-KfANXTJT48RrzudQ9sa5U10W1E6s2LoiBImg3",
+                        "status": "draft",
+                        "intent": "order",
+                        "category": [
+                            {
+                                "coding": [
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                                        "code": "community",
+                                        "display": "Community"
+                                    }
+                                ],
+                                "text": "Community"
+                            }
+                        ],
+                        "medicationReference": {
+                            "reference": "Medication/eAfgatAovleK4GXF4MnFNxg3",
+                            "display": "MORPHINE 30 MG IMMEDIATE RELEASE TABLET"
+                        },
+                        "subject": {
+                            "reference": "Patient/egICGav-o1PPZqCGJ02G0rZfgFquWZ3QQeahd8KF154c3",
+                            "display": "Cdshookstwo, Ashley"
+                        },
+                        "encounter": {
+                            "reference": "Encounter/eLpmT6.mtTSVA4r7aKiaomQ3"
+                        },
+                        "requester": {
+                            "reference": "Practitioner/euVn9muFUSk04uKRd0o6-Yg3",
+                            "type": "Practitioner",
+                            "display": "Richard Louis Altman, MD"
+                        },
+                        "recorder": {
+                            "reference": "Practitioner/euVn9muFUSk04uKRd0o6-Yg3",
+                            "type": "Practitioner",
+                            "display": "Richard Louis Altman, MD"
+                        },
+                        "dosageInstruction": [
+                            {
+                                "text": "Take 1 tablet by mouth every 4 hours as needed for Pain.",
+                                "patientInstruction": "Take 1 tablet by mouth every 4 hours as needed for Pain.",
+                                "timing": {
+                                    "repeat": {
+                                        "boundsPeriod": {
+                                            "start": "2022-07-05T06:00:00Z"
+                                        },
+                                        "frequency": 1,
+                                        "period": 4,
+                                        "periodUnit": "h"
+                                    },
+                                    "code": {
+                                        "text": "Q4H PRN"
+                                    }
+                                },
+                                "asNeededBoolean": true,
+                                "route": {
+                                    "coding": [
+                                        {
+                                            "system": "urn:oid:1.2.840.114350.1.13.246.3.7.4.798268.7025",
+                                            "code": "15",
+                                            "display": "Oral"
+                                        }
+                                    ],
+                                    "text": "Oral"
+                                },
+                                "method": {
+                                    "text": "Take"
+                                },
+                                "doseAndRate": [
+                                    {
+                                        "type": {
+                                            "coding": [
+                                                {
+                                                    "system": "http://epic.com/CodeSystem/dose-rate-type",
+                                                    "code": "calculated",
+                                                    "display": "calculated"
+                                                }
+                                            ],
+                                            "text": "calculated"
+                                        },
+                                        "doseQuantity": {
+                                            "value": 30,
+                                            "unit": "mg",
+                                            "system": "http://unitsofmeasure.org",
+                                            "code": "mg"
+                                        }
+                                    },
+                                    {
+                                        "type": {
+                                            "coding": [
+                                                {
+                                                    "system": "http://epic.com/CodeSystem/dose-rate-type",
+                                                    "code": "admin-amount",
+                                                    "display": "admin-amount"
+                                                }
+                                            ],
+                                            "text": "admin-amount"
+                                        },
+                                        "doseQuantity": {
+                                            "value": 1,
+                                            "unit": "tablet",
+                                            "system": "http://unitsofmeasure.org",
+                                            "code": "{tbl}"
+                                        }
+                                    },
+                                    {
+                                        "type": {
+                                            "coding": [
+                                                {
+                                                    "system": "http://epic.com/CodeSystem/dose-rate-type",
+                                                    "code": "ordered",
+                                                    "display": "ordered"
+                                                }
+                                            ],
+                                            "text": "ordered"
+                                        },
+                                        "doseQuantity": {
+                                            "value": 30,
+                                            "unit": "mg",
+                                            "system": "http://unitsofmeasure.org",
+                                            "code": "mg"
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "dispenseRequest": {
+                            "validityPeriod": {
+                                "start": "2022-07-05T06:00:00Z",
+                                "end": "2022-08-19T06:00:00Z"
+                            },
+                            "numberOfRepeatsAllowed": 0,
+                            "quantity": {
+                                "value": 175,
+                                "unit": "tablet"
+                            },
+                            "expectedSupplyDuration": {
+                                "value": 30,
+                                "unit": "Day",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "d"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "extension": {
+        "com.epic.cdshooks.request.bpa-trigger-action": "23",
+        "com.epic.cdshooks.request.cds-hooks-specification-version": "1.1",
+        "com.epic.cdshooks.request.fhir-version": "R4",
+        "com.epic.cdshooks.request.criteria-id": "14830",
+        "com.epic.cdshooks.request.epic-version": "10.1",
+        "com.epic.cdshooks.request.cds-hooks-implementation-version": "1.4",
+        "com.epic.cdshooks.request.cds-hooks-su-version": "0"
+    }
+}

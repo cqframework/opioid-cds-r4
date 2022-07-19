@@ -1,0 +1,225 @@
+<Medication xmlns="http://hl7.org/fhir">
+    <id value="eAfgatAovleK4GXF4MnFNxg3" />
+    <code>
+        <coding>
+            <system value="http://www.whocc.no/atc" />
+            <code value="N02AA01" />
+        </coding>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.6.208" />
+            <code value="4092" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="7052" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="30236" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="151999" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="152164" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="152356" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="153664" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="203240" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="203354" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="203355" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="203356" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="203357" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="203358" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="219576" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="219632" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="225993" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="352452" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="885779" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="892672" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="892673" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="1745876" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="1871435" />
+        </coding>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="2055303" />
+        </coding>
+        <text value="MORPHINE 30 MG IMMEDIATE RELEASE TABLET" />
+    </code>
+    <form>
+        <coding>
+            <system value="urn:oid:1.2.840.114350.1.13.246.3.7.4.698288.310" />
+            <code value="Tab" />
+            <display value="Tablet" />
+        </coding>
+        <text value="Tablet" />
+    </form>
+    <ingredient>
+        <itemCodeableConcept>
+            <coding>
+                <system value="http://www.whocc.no/atc" />
+                <code value="N02AA01" />
+            </coding>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.6.208" />
+                <code value="4092" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="7052" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="30236" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="151999" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="152164" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="152356" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="153664" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="203240" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="203354" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="203355" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="203356" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="203357" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="203358" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="219576" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="219632" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="225993" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="352452" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="885779" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="892672" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="892673" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="1745876" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="1871435" />
+            </coding>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+                <code value="2055303" />
+            </coding>
+            <text value="MORPHINE 30 MG IMMEDIATE RELEASE TABLET" />
+        </itemCodeableConcept>
+        <strength>
+            <numerator>
+                <value value="30" />
+                <unit value="mg" />
+                <system value="http://unitsofmeasure.org" />
+                <code value="mg" />
+            </numerator>
+            <denominator>
+                <value value="30" />
+                <unit value="mg" />
+                <system value="http://unitsofmeasure.org" />
+                <code value="mg" />
+            </denominator>
+        </strength>
+    </ingredient>
+</Medication>

@@ -1,7 +1,7 @@
 {
     "resourceType": "MedicationRequest",
     "id": "eIdRHpjeEzbLS3ZcGmRmVZ8bbravWOED29hdNLJSFBrBdzDWOqd1a5MMIjQ874tKP8pBlftzNEoXvBpLw3",
-    "status": "draft",
+    "status": "active",
     "intent": "order",
     "category": [
         {
@@ -68,43 +68,7 @@
                 "text": "Take"
             },
             "doseAndRate": [
-                {
-                    "type": {
-                        "coding": [
-                            {
-                                "system": "http://epic.com/CodeSystem/dose-rate-type",
-                                "code": "calculated",
-                                "display": "calculated"
-                            }
-                        ],
-                        "text": "calculated"
-                    },
-                    "doseQuantity": {
-                        "value": 30,
-                        "unit": "mg",
-                        "system": "http://unitsofmeasure.org",
-                        "code": "mg"
-                    }
-                },
-                {
-                    "type": {
-                        "coding": [
-                            {
-                                "system": "http://epic.com/CodeSystem/dose-rate-type",
-                                "code": "admin-amount",
-                                "display": "admin-amount"
-                            }
-                        ],
-                        "text": "admin-amount"
-                    },
-                    "doseQuantity": {
-                        "value": 1,
-                        "unit": "tablet",
-                        "system": "http://unitsofmeasure.org",
-                        "code": "{tbl}"
-                    }
-                },
-                {
+                 {
                     "type": {
                         "coding": [
                             {
