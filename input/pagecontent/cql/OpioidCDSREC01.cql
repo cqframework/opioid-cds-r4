@@ -18,7 +18,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **    (recommendation category: A, evidence type: 3).
 **
 **  When
-**    Prescription is for treating chronic pain
+**    Prescription is for treating acute pain
 **    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
@@ -44,12 +44,12 @@ parameter ContextPrescriptions List<FHIR.MedicationRequest>
 
 context Patient
 
-define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+define "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
-    where Routines."Is Subacute or Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+    where Routines."Is Acute Pain Prescription?"( AmbulatoryOpioidPrescription )
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
-  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+  exists( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
@@ -78,7 +78,7 @@ define "Get Indicator":
 define "Get Summary":
   if "Is Recommendation Applicable?"
     // NOTE: Wordsmithing here
-    then 'Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative'
+    then 'For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs.'
   else null
 
 define "Get Detail":
