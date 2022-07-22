@@ -30,8 +30,11 @@ This implementation guide includes support for the following guideline recommend
 * [Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions](recommendation-09.html)
 * [Recommendation #10 - Urine Drug Testing](recommendation-10-order-sign.html)
 * [Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11-order-select.html)
-* [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)
+* [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)  
 
+### Trigger Overview 
+[Trigger Overview Image](assets/images/trigger-overview.png "Trigger Overview image")
+    
 ### Getting Started
 
 For a quick start to get up and running and see how the artifacts work, refer to the [Quick Start](quick-start.html)
