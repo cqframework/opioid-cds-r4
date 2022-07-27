@@ -109,7 +109,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Recommend creation, review or update of opioid treatment plan'
+    then 'For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs.'
   else null
 
 define "Get Detail":

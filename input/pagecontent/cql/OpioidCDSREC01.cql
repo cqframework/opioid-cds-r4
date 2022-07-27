@@ -11,7 +11,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 **  Recommendation #1
 **    Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred
-**    for chronic pain. Clinicians should consider opioid therapy only if expected
+**    for acute pain. Clinicians should consider opioid therapy only if expected
 **    benefits for both pain and function are anticipated to outweigh risks to the
 **    patient. If opioids are used, they should be combined with nonpharmacologic
 **    therapy and nonopioid pharmacologic therapy, as appropriate

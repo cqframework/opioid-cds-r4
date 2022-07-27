@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#1_Nonpharmacologic_therapy" target="_blank">Recommendation #1:</a></p>
-  <p><strong>Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient.
+  <p><strong>Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for acute pain. Clinicians should consider opioid therapy only if expected benefits for both pain and function are anticipated to outweigh risks to the patient.
       If opioids are used, they should be combined with nonpharmacologic therapy and nonopioid pharmacologic therapy, as appropriate (recommendation category: A, evidence type: 3).</strong></p>
   <html>
 
@@ -22,9 +22,9 @@
     <p></p>
     <details>
       <summary>
-        <h3 class="title">For Chronic Pain</h3>
+        <h3 class="title">For Acute Pain</h3>
       </summary>
-      {% include for-chronic-pain-definitions.html %}
+      {% include for-acute-pain-definitions.html %}
     </details>
     <p></p>
     <details>
