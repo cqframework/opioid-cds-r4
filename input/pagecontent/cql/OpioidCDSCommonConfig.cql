@@ -36,7 +36,7 @@ define "Hospice Findings Exclusion Enabled":
   false
 
 // Past Medications
-define "Can the implementing EHR support queries for past medications by date range?"
+define "Can the implementing EHR support queries for past medications by date range?":
     true
 
 // Recommendation 2

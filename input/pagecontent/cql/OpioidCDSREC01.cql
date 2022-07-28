@@ -84,6 +84,6 @@ define "Get Summary":
 define "Get Detail":
   if "Is Recommendation Applicable?"
     then 'Medication requests(s): '
-      + Combine(("Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
+      + Combine(("Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
            return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
   else null

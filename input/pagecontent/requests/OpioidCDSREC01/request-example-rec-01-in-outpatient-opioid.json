@@ -16,12 +16,12 @@
           "extension": [
             {
               "url": "dateLastUpdated",
-              "valueDateTime": "2022-04-08"
+              "valueDateTime": "2022-07-08"
             },
             {
               "url": "frequency",
               "valueDuration": {
-                "value": 30.0,
+                "value": 27.0,
                 "unit": "days",
                 "system": "http://unitsofmeasure.org",
                 "code": "d"
@@ -49,7 +49,8 @@
             "code": "1010603",
             "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
           }
-        ]
+        ],
+        "text": "Suboxone 2 MG / 0.5 MG Sublingual Film"
       },
       "subject": {
         "reference": "Patient/example-rec-01-true-make-recommendations"
@@ -57,7 +58,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-01-in-outpatient-opioid-context"
       },
-      "authoredOn": "2022-04-08",
+      "authoredOn": "2022-07-08",
       "dosageInstruction": [
         {
           "timing": {
@@ -68,20 +69,26 @@
             }
           },
           "asNeededBoolean": false,
-          "doseQuantity": {
-            "value": 1.0,
-            "unit": "film"
-          }
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 1.0,
+                "unit": "film",
+                "system": "http://unitsofmeasure.org",
+                "code": "{film}"
+              }
+            }
+          ]
         }
       ],
       "dispenseRequest": {
         "validityPeriod": {
-          "start": "2022-04-08",
-          "end": "2022-07-08"
+          "start": "2022-07-08",
+          "end": "2022-10-08"
         },
         "numberOfRepeatsAllowed": 1,
         "expectedSupplyDuration": {
-          "value": 30,
+          "value": 27,
           "unit": "days",
           "system": "http://unitsofmeasure.org",
           "code": "d"
@@ -102,12 +109,12 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-08"
+                "valueDateTime": "2022-07-08"
               },
               {
                 "url": "frequency",
                 "valueDuration": {
-                  "value": 30.0,
+                  "value": 27.0,
                   "unit": "days",
                   "system": "http://unitsofmeasure.org",
                   "code": "d"
@@ -136,7 +143,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-08"
+                "valueDateTime": "2022-07-08"
               },
               {
                 "url": "frequency",
@@ -164,7 +171,7 @@
         "subject": {
           "reference": "Patient/8119002c-6322-4d16-988b-36bb6d9b3940-1"
         },
-        "effectiveDateTime": "2022-01-03"
+        "effectiveDateTime": "2022-04-03"
       }
     },
     "item8": null,

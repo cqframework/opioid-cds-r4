@@ -141,8 +141,9 @@ define function "Get Active Ambulatory Medication Requests" (value List<Medicati
 define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
   value Rx
     let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-    where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
-      and Rx.category in "Community"
+/*    where ((not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential")
+      and */
+    where Rx.category in "Community"
     return
       MedicationRequest {
         id: Rx.id,
