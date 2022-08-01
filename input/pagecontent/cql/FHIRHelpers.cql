@@ -33,6 +33,9 @@ define function ToQuantity(quantity FHIR.Quantity):
         when quantity.system is null or quantity.system.value = 'http://unitsofmeasure.org'
               or quantity.system.value = 'http://hl7.org/fhirpath/CodeSystem/calendar-units' then
             System.Quantity { value: quantity.value.value, unit: ToCalendarUnit(Coalesce(quantity.code.value, quantity.unit.value, '1')) }
+       when quantity.system is null or quantity.system.value = 'http://unitsofmeasure.org'
+              or quantity.system.value = 'http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm' then
+            System.Quantity { value: quantity.value.value, unit: Coalesce(quantity.code.value, quantity.unit.value)}
         else
             Message(null, true, 'FHIRHelpers.ToQuantity.InvalidFHIRQuantity', 'Error', 'Invalid FHIR Quantity code: ' & quantity.unit.value & ' (' & quantity.system.value & '|' & quantity.code.value & ')')
     end

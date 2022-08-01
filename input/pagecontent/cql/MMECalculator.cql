@@ -113,6 +113,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
         else
           // TODO: Shouldn't need the .value here on asNeededBoolean
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded then ' PRN' else ''),
+//        dose: FHIRHelpers.ToQuantity(Coalesce(doseQuantity, doseRange.high) as FHIR.Quantity),
       dose: ToQuantity(Coalesce(doseQuantity, doseRange.high)),
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), timesPerDay, 1.0)
     }
