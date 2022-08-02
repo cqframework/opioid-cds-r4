@@ -55,6 +55,10 @@ define function ToQuantity(quantity FHIR.SimpleQuantity):
         value: quantity.value.value,
         unit: quantity.code.value
       }
+   when quantity.system is null or quantity.system.value = 'http://unitsofmeasure.org'
+      or quantity.system.value = 'http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm' then
+    System.Quantity { value: quantity.value.value, unit: Coalesce(quantity.code.value, quantity.unit.value)}
+
     else
       Message(null, true, 'MMECalculator.ToQuantity.InvalidFHIRQuantity', ErrorLevel, 'Invalid FHIR Quantity code: ' & quantity.code.value)
 end
@@ -90,6 +94,7 @@ define function Prescriptions(Orders List<MedicationRequest>):
       period: OMTKLogic.Quantity(repeat.period.value, repeat.periodUnit.value),
       doseRange: ToFHIRRange(doseAndRate.dose),
       doseQuantity: ToFHIRQuantity(doseAndRate.dose),
+      doseHigh: ToQuantity(doseRange.high),
       timesPerDay: Count(repeat.timeOfDay),
       doseDescription:
         Coalesce(
@@ -113,8 +118,8 @@ define function Prescriptions(Orders List<MedicationRequest>):
         else
           // TODO: Shouldn't need the .value here on asNeededBoolean
           medicationName + ' ' + doseDescription + ' q' + frequencyDescription + (if dosageInstruction.asNeeded then ' PRN' else ''),
-//        dose: FHIRHelpers.ToQuantity(Coalesce(doseQuantity, doseRange.high) as FHIR.Quantity),
-      dose: ToQuantity(Coalesce(doseQuantity, doseRange.high)),
+        dose: Coalesce(doseQuantity, doseHigh),
+//      dose: ToQuantity(Coalesce(doseQuantity, doseRange.high)),
       dosesPerDay: Coalesce(OMTKLogic.ToDaily(frequency, period), timesPerDay, 1.0)
     }
 
