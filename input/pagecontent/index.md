@@ -30,7 +30,7 @@ This implementation guide includes support for the following guideline recommend
 * [Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions](recommendation-09.html)
 * [Recommendation #10 - Urine Drug Testing](recommendation-10-order-sign.html)
 * [Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11-order-select.html)
-* [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)
+* [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)  
 
 ### Getting Started
 
@@ -47,3 +47,8 @@ FHIR Clinical Reasoning server, refer to the [Implementation Documentation](impl
 
 For a detailed description of how to implement the functionality with a Java-based CDS Hooks
 service, refer to the [Service Documentation](service-documentation.html).
+
+### Trigger Overview
+![Trigger Overview Image](assets/images/trigger-overview.png "Trigger Overview image") 
+ 
+
