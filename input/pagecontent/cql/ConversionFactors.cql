@@ -122,6 +122,11 @@ define function GetConversionFactor(ingredientCode System.Code, dailyDose System
     end
   )
 
+/*
+The use of the CDCMMEClinicalConversionFactors is a workaround for the fact that we can't retrieve the formally 
+defined CodeSystem resource (https://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem-CDCMMEClinicalConversionFactors.html) 
+from the FHIR server
+*/
 define ConversionFactorSupplement:
   CDCMMEClinicalConversionFactors."CDCMMEClinicalConversionFactorsCodeSystem" C
     where C.supplements.value = 'http://www.nlm.nih.gov/research/umls/rxnorm'
