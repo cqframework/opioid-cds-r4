@@ -161,7 +161,7 @@
         "subject": {
           "reference": "Patient/example-rec-03-false-due-to-discussion-within-90-days"
         },
-        "_performedPeriod": {
+        "performedPeriod": {
           "start": "2022-01-09",
           "end": "2022-01-10"
         }

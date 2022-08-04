@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec09"> </a>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#9_Clinicians_should_review" target="_blank">Recommendation #9:</a></p>
   <p>
     <strong>Long-term opioid use often begins with treatment of acute pain. When opioids are used for acute pain, clinicians should prescribe the lowest effective dose of immediate-release opioids and should prescribe no greater quantity than needed
@@ -92,12 +92,12 @@
       </thead>
       <tbody>
         <!-- Commented out because the example response is empty. Need to capture the expected response and add it to that file -->
-        <!-- <tr>
+        <tr>
           <td class="col-7">Patient is 18 or older. Patient has been prescribed Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) Patients "Dosage Instructions" are 1 FIlm per day for 30 days. This will trigger the message "PDMP Data Review" </td>
           <td><a href="Bundle-example-rec-09-true-return-recommendations.html">Test Bundle</a></td>
           <td><a href="requests/OpioidCDSREC09/request-example-rec-09-in-criteria-met.json">Request JSON</a></td>
           <td><a href="responses/OpioidCDSREC09/response-example-rec-09-in-criteria-met.json">Response JSON</a></td>
-        </tr> -->
+        </tr>
         <tr>
           <td class="col-7">Patient is 18 or older. Patient has been prescribed Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) Patients "Dosage Instructions" are 1 Film per day for 30 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
           <td><a href="Bundle-example-rec-09-false-due-to-PDMP-review-within-90-days.html">Test Bundle</a></td>

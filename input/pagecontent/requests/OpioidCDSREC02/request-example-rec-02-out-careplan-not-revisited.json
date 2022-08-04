@@ -8,8 +8,7 @@
     "selections": [
       "MedicationRequest/a6590d30-c320-4016-861f-678f9f87bca5"
     ],
-    "draftOrders": [
-      {
+    "draftOrders": {
         "resourceType": "MedicationRequest",
         "extension": [
           {
@@ -89,7 +88,6 @@
           }
         }
       }
-    ]
   },
   "prefetch": {
     "item1": {
@@ -157,9 +155,7 @@
         "subject": {
           "reference": "Patient/example-rec-02-false-due-to-careplan-within-90-days"
         },
-        "created": {
-          "extension": "2021-12-09"
-        },
+        "created": "2021-12-09",
         "author": {
           "reference": "Practitioner/example"
         }
