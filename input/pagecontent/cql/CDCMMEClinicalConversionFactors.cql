@@ -4,6 +4,7 @@ using FHIR version '4.0.1'
 
 define CDCMMEClinicalConversionFactorsCodeSystem:
     CodeSystem {
+        name: string { value: 'CDCMMEClinicalConversionFactors' },
         concept: List<FHIR.CodeSystem.Concept> {
             FHIR.CodeSystem.Concept {
                 code: code { value: '2670' },
