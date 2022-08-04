@@ -47,6 +47,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
 
+
 codesystem "Usage Context Type": 'http://terminology.hl7.org/CodeSystem/usage-context-type'
 codesystem "CDC MME Usage Context Codes": 'http://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem/CDCMMEUsageContextCodes'
 
@@ -64,7 +65,7 @@ If neither of these configurations is available, the hard-coded conversion facto
 in GetConversionFactor will be used. The hard-coded conversion factors use the
 clinical conversion factors only.
 */
-parameter ConversionFactorSupplementName String
+parameter ConversionFactorSupplementName String default 'CDCMMEClinicalConversionFactors'
 
 context Patient
 
