@@ -14,13 +14,14 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "id": "example-rec-11-opioid-trigger-with-benzo",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -34,9 +35,8 @@
             ]
           }
         ],
-        "id": "example-rec-11-opioid-trigger-with-benzo",
         "gender": "female",
-        "birthDate": "1982-01-07"
+        "birthDate": "1982-04-14"
       }
     },
     "item2": {
@@ -45,13 +45,14 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "id": "example-rec-11-opioid-trigger-with-benzo-prefetch",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -65,7 +66,6 @@
             ]
           }
         ],
-        "id": "example-rec-11-opioid-trigger-with-benzo-prefetch",
         "status": "active",
         "intent": "order",
         "category": [
@@ -93,7 +93,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"
         },
-        "authoredOn": "2022-04-01",
+        "authoredOn": "2022-07-07",
         "dosageInstruction": [
           {
             "timing": {
@@ -118,8 +118,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-04-01",
-            "end": "2022-07-28"
+            "start": "2022-07-07T00:00:00-06:00",
+            "end": "2022-11-02T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
@@ -137,13 +137,14 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "id": "example-rec-11-opioid-trigger-with-benzo-context",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -157,7 +158,6 @@
             ]
           }
         ],
-        "id": "example-rec-11-opioid-trigger-with-benzo-context",
         "status": "active",
         "intent": "order",
         "category": [
@@ -185,7 +185,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-11-opioid-trigger-with-benzo-context"
         },
-        "authoredOn": "2022-04-28",
+        "authoredOn": "2022-08-03",
         "dosageInstruction": [
           {
             "timing": {
@@ -210,8 +210,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-04-28",
-            "end": "2022-07-28"
+            "start": "2022-08-03T00:00:00-06:00",
+            "end": "2022-11-02T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {

@@ -1,23 +1,23 @@
 <Patient xmlns="http://hl7.org/fhir">
-    <id value="example-rec-10-illicit-drugs"/>
-    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-        <extension url="dateLastUpdated">
-            <valueDateTime value="2022-04-28"/>
-        </extension>
-        <extension url="frequency">
-            <valueDuration>
-                <value value="30.0" />
-                <unit value="days"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="d"/>
-            </valueDuration>
-        </extension>
-    </extension>
+   <id value="example-rec-10-illicit-drugs"></id>
+   <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+      <extension url="dateLastUpdated">
+         <valueDateTime value="2022-08-03"></valueDateTime>
+      </extension>
+      <extension url="frequency">
+         <valueDuration>
+            <value value="30.0"></value>
+            <unit value="days"></unit>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="d"></code>
+         </valueDuration>
+      </extension>
+   </extension>
    <name>
-       <family value="Smith"/>
-       <given value="John"/>
-       <given value="A."/>
+      <family value="Smith"></family>
+      <given value="John"></given>
+      <given value="A."></given>
    </name>
-   <gender value="female"/>
-   <birthDate value="1982-01-07"/>
+   <gender value="female"></gender>
+   <birthDate value="1982-04-14"></birthDate>
 </Patient>

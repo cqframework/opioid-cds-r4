@@ -11,13 +11,14 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
+      "id": "example-rec-08-on-naloxone-context",
       "extension": [
         {
           "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
           "extension": [
             {
               "url": "dateLastUpdated",
-              "valueDateTime": "2022-04-28"
+              "valueDateTime": "2022-08-03"
             },
             {
               "url": "frequency",
@@ -31,17 +32,18 @@
           ]
         }
       ],
-      "id": "example-rec-08-on-naloxone-context",
       "status": "active",
       "intent": "order",
-      "category": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-            "code": "community"
-          }
-        ]
-      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "community"
+            }
+          ]
+        }
+      ],
       "medicationCodeableConcept": {
         "coding": [
           {
@@ -57,7 +59,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-08-on-naloxone-context"
       },
-      "authoredOn": "2022-04-28",
+      "authoredOn": "2022-08-03",
       "dosageInstruction": [
         {
           "timing": {
@@ -81,8 +83,8 @@
       ],
       "dispenseRequest": {
         "validityPeriod": {
-          "start": "2022-04-28",
-          "end": "2022-07-28"
+          "start": "2022-08-03T00:00:00-06:00",
+          "end": "2022-11-02T00:00:00-06:00"
         },
         "numberOfRepeatsAllowed": 3,
         "expectedSupplyDuration": {
@@ -101,13 +103,14 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "id": "example-rec-08-on-naloxone",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -121,9 +124,8 @@
             ]
           }
         ],
-        "id": "example-rec-08-on-naloxone",
         "gender": "female",
-        "birthDate": "1982-01-07"
+        "birthDate": "1982-04-14"
       }
     },
     "item2": {
@@ -132,13 +134,14 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
+        "id": "example-rec-08-on-naloxone-context",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -152,17 +155,18 @@
             ]
           }
         ],
-        "id": "example-rec-08-on-naloxone-context",
         "status": "active",
         "intent": "order",
-        "category": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-              "code": "community"
-            }
-          ]
-        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "community"
+              }
+            ]
+          }
+        ],
         "medicationCodeableConcept": {
           "coding": [
             {
@@ -178,7 +182,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-08-on-naloxone-context"
         },
-        "authoredOn": "2022-04-28",
+        "authoredOn": "2022-08-03",
         "dosageInstruction": [
           {
             "timing": {
@@ -202,8 +206,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-04-28",
-            "end": "2022-07-28"
+            "start": "2022-08-03T00:00:00-06:00",
+            "end": "2022-11-02T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {

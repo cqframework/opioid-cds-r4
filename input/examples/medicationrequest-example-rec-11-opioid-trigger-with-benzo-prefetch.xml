@@ -1,65 +1,65 @@
 <MedicationRequest xmlns="http://hl7.org/fhir">
-   <id value="example-rec-11-opioid-trigger-with-benzo-prefetch"/>
+   <id value="example-rec-11-opioid-trigger-with-benzo-prefetch"></id>
    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
       <extension url="dateLastUpdated">
-         <valueDateTime value="2022-04-28"/>
+         <valueDateTime value="2022-08-03"></valueDateTime>
       </extension>
       <extension url="frequency">
          <valueDuration>
-            <value value="30.0" />
-            <unit value="days"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="d"/>
+            <value value="30.0"></value>
+            <unit value="days"></unit>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="d"></code>
          </valueDuration>
       </extension>
    </extension>
-   <status value="active"/>
-   <intent value="order"/>
+   <status value="active"></status>
+   <intent value="order"></intent>
    <category>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
-         <code value="outpatient"/>
+         <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"></system>
+         <code value="outpatient"></code>
       </coding>
    </category>
    <medicationCodeableConcept>
       <coding>
-         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-         <code value="1298088"/>
-         <display value="flurazepam HCl 15 MG Oral Capsule"/>
+         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"></system>
+         <code value="1298088"></code>
+         <display value="flurazepam HCl 15 MG Oral Capsule"></display>
       </coding>
    </medicationCodeableConcept>
    <subject>
-      <reference value="Patient/example-rec-11-opioid-trigger-with-benzo"/>
+      <reference value="Patient/example-rec-11-opioid-trigger-with-benzo"></reference>
    </subject>
    <encounter>
-      <reference value="Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"/>
+      <reference value="Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"></reference>
    </encounter>
-   <authoredOn value="2022-03-31"/>
+   <authoredOn value="2022-07-06"></authoredOn>
    <dosageInstruction>
       <timing>
          <repeat>
-            <frequency value="1"/>
-            <period value="1.0"/>
-            <periodUnit value="d"/>
+            <frequency value="1"></frequency>
+            <period value="1.0"></period>
+            <periodUnit value="d"></periodUnit>
          </repeat>
       </timing>
-      <asNeededBoolean value="false"/>
+      <asNeededBoolean value="false"></asNeededBoolean>
       <doseAndRate>
-          <doseQuantity>
-             <value value="1.0"/>
-             <unit value="capsule"/>
-          </doseQuantity>
+         <doseQuantity>
+            <value value="1.0"></value>
+            <unit value="capsule"></unit>
+         </doseQuantity>
       </doseAndRate>
    </dosageInstruction>
    <dispenseRequest>
       <validityPeriod>
-         <start value="2022-03-31"/>
-         <end value="2022-07-28"/>
+         <start value="2022-07-06T00:00:00-06:00"></start>
+         <end value="2022-11-02T00:00:00-06:00"></end>
       </validityPeriod>
-      <numberOfRepeatsAllowed value="3"/>
+      <numberOfRepeatsAllowed value="3"></numberOfRepeatsAllowed>
       <expectedSupplyDuration>
-         <value value="30.0"/>
-         <unit value="d"/>
+         <value value="30.0"></value>
+         <unit value="d"></unit>
       </expectedSupplyDuration>
    </dispenseRequest>
 </MedicationRequest>

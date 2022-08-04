@@ -1,29 +1,29 @@
 <Encounter xmlns="http://hl7.org/fhir">
-    <id value="example-rec-04-new-patient-context"/>
-    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-        <extension url="dateLastUpdated">
-            <valueDateTime value="2022-04-28"/>
-        </extension>
-        <extension url="frequency">
-            <valueDuration>
-                <value value="30.0" />
-                <unit value="days"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="d"/>
-            </valueDuration>
-        </extension>
-    </extension>
-   <status value="finished"/>
+   <id value="example-rec-04-new-patient-context"></id>
+   <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+      <extension url="dateLastUpdated">
+         <valueDateTime value="2022-08-03"></valueDateTime>
+      </extension>
+      <extension url="frequency">
+         <valueDuration>
+            <value value="30.0"></value>
+            <unit value="days"></unit>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="d"></code>
+         </valueDuration>
+      </extension>
+   </extension>
+   <status value="finished"></status>
    <class>
-       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-       <code value="AMB"/>
-       <display value="ambulatory"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"></system>
+      <code value="AMB"></code>
+      <display value="ambulatory"></display>
    </class>
    <subject>
-      <reference value="Patient/example-rec-04-new-patient"/>
+      <reference value="Patient/example-rec-04-new-patient"></reference>
    </subject>
    <period>
-        <start value="2022-04-08"/>
-        <end value="2022-04-08"/>
+      <start value="2022-07-14"></start>
+      <end value="2022-07-14"></end>
    </period>
 </Encounter>

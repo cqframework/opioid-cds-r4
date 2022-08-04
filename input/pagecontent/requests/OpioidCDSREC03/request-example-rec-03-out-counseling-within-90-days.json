@@ -8,33 +8,33 @@
     "selections": [
       "MedicationRequest/e9e50568-5737-427d-8b1b-7a48f3ea9986"
     ],
-    "draftOrders":
-      {
-        "resourceType": "MedicationRequest",
-        "extension": [
-          {
-            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
-            "extension": [
-              {
-                "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-08"
-              },
-              {
-                "url": "frequency",
-                "valueDuration": {
-                  "value": 30.0,
-                  "unit": "days",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "d"
-                }
+    "draftOrders": {
+      "resourceType": "MedicationRequest",
+      "id": "e9e50568-5737-427d-8b1b-7a48f3ea9986",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-08-03"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
               }
-            ]
-          }
-        ],
-        "id": "e9e50568-5737-427d-8b1b-7a48f3ea9986",
-        "status": "active",
-        "intent": "order",
-        "category": {
+            }
+          ]
+        }
+      ],
+      "status": "active",
+      "intent": "order",
+      "category": [
+        {
           "coding": [
             {
               "system": "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
@@ -42,53 +42,46 @@
               "display": "Community"
             }
           ]
-        },
-        "medicationCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "1010603",
-              "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/example-rec-03-false-due-to-discussion-within-90-days"
-        },
-        "encounter": {
-          "reference": "Encounter/example-rec-03-out-counseling-within-90-days-context"
-        },
-        "authoredOn": "2022-04-08",
-        "dosageInstruction": [
+        }
+      ],
+      "medicationCodeableConcept": {
+        "coding": [
           {
-            "timing": {
-              "repeat": {
-                "frequency": 1,
-                "period": 1,
-                "periodUnit": "d"
-              }
-            },
-            "asNeededBoolean": false,
-            "doseQuantity": {
-              "value": 1,
-              "unit": "film"
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "1010603",
+            "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/example-rec-03-false-due-to-discussion-within-90-days"
+      },
+      "encounter": {
+        "reference": "Encounter/example-rec-03-out-counseling-within-90-days-context"
+      },
+      "authoredOn": "2022-08-03",
+      "dosageInstruction": [
+        {
+          "timing": {
+            "repeat": {
+              "frequency": 1,
+              "period": 1,
+              "periodUnit": "d"
             }
-          }
-        ],
-        "dispenseRequest": {
-          "_validityPeriod": {
-            "start": "2022-04-08",
-            "end": "2022-07-08"
           },
-          "numberOfRepeatsAllowed": 1,
-          "expectedSupplyDuration": {
-            "value": 30,
-            "unit": "days",
-            "system": "http://unitsofmeasure.org",
-            "code": "d"
-          }
+          "asNeededBoolean": false
+        }
+      ],
+      "dispenseRequest": {
+        "numberOfRepeatsAllowed": 1,
+        "expectedSupplyDuration": {
+          "value": 30,
+          "unit": "days",
+          "system": "http://unitsofmeasure.org",
+          "code": "d"
         }
       }
+    }
   },
   "prefetch": {
     "item1": {
@@ -97,13 +90,14 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "id": "example-rec-03-false-due-to-discussion-within-90-days",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-08"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -117,8 +111,7 @@
             ]
           }
         ],
-        "id": "example-rec-03-false-due-to-discussion-within-90-days",
-        "birthDate": "2002-04-08"
+        "birthDate": "2002-08-03"
       }
     },
     "item2": {
@@ -127,13 +120,14 @@
       },
       "resource": {
         "resourceType": "Procedure",
+        "id": "ab45f30e-b150-4265-a288-02da1b74ca19",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-08"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -147,7 +141,6 @@
             ]
           }
         ],
-        "id": "ab45f30e-b150-4265-a288-02da1b74ca19",
         "status": "completed",
         "code": {
           "coding": [
@@ -162,8 +155,8 @@
           "reference": "Patient/example-rec-03-false-due-to-discussion-within-90-days"
         },
         "performedPeriod": {
-          "start": "2022-01-09",
-          "end": "2022-01-10"
+          "start": "2022-05-06",
+          "end": "2022-05-07"
         }
       }
     }

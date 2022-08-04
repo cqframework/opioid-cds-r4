@@ -1,237 +1,233 @@
 <Bundle xmlns="http://hl7.org/fhir">
-    <id value="example-rec-10-unprescribed-opioids"/>
-    <type value="transaction"/>
-    <entry>
-        <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-unprescribed-opioids"/>
-        <resource>
-            <Patient xmlns="http://hl7.org/fhir">
-                <id value="example-rec-10-unprescribed-opioids"/>
-                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-                    <extension url="dateLastUpdated">
-                        <valueDateTime value="2022-04-28"/>
-                    </extension>
-                    <extension url="frequency">
-                        <valueDuration>
-                            <value value="30.0"/>
-                            <unit value="days"/>
-                            <system value="http://unitsofmeasure.org"/>
-                            <code value="d"/>
-                        </valueDuration>
-                    </extension>
-                </extension>
-                <name>
-                    <family value="example-rec-10"/>
-                    <given value="unprescribed-opioids"/>
-                </name>
-                <gender value="female"/>
-                <birthDate value="1982-01-07"/>
-            </Patient>
-        </resource>
-        <request>
-            <method value="PUT"/>
-            <url value="Patient/example-rec-10-unprescribed-opioids"/>
-        </request>
-    </entry>
-    <entry>
-        <fullUrl
-                value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-unprescribed-opioids-prefetch"/>
-        <resource>
-            <Encounter xmlns="http://hl7.org/fhir">
-                <id value="example-rec-10-unprescribed-opioids-prefetch"/>
-                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-                    <extension url="dateLastUpdated">
-                        <valueDateTime value="2022-04-28"/>
-                    </extension>
-                    <extension url="frequency">
-                        <valueDuration>
-                            <value value="30.0"/>
-                            <unit value="days"/>
-                            <system value="http://unitsofmeasure.org"/>
-                            <code value="d"/>
-                        </valueDuration>
-                    </extension>
-                </extension>
-                <status value="finished"/>
-                <class>
-                    <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-                    <code value="AMB"/>
-                    <display value="ambulatory"/>
-                </class>
-                <subject>
-                    <reference value="Patient/example-rec-10-unprescribed-opioids"/>
-                </subject>
-                <period>
-                    <start value="2022-01-28"/>
-                    <end value="2022-01-28"/>
-                </period>
-            </Encounter>
-        </resource>
-        <request>
-            <method value="PUT"/>
-            <url value="Encounter/example-rec-10-unprescribed-opioids-prefetch"/>
-        </request>
-    </entry>
-    <entry>
-        <fullUrl
-                value="http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-10-unprescribed-opioids-prefetch"/>
-        <resource>
-            <MedicationRequest xmlns="http://hl7.org/fhir">
-                <id value="example-rec-10-unprescribed-opioids-prefetch"/>
-                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-                    <extension url="dateLastUpdated">
-                        <valueDateTime value="2022-04-28"/>
-                    </extension>
-                    <extension url="frequency">
-                        <valueDuration>
-                            <value value="30.0"/>
-                            <unit value="days"/>
-                            <system value="http://unitsofmeasure.org"/>
-                            <code value="d"/>
-                        </valueDuration>
-                    </extension>
-                </extension>
-                <status value="active"/>
-                <intent value="order"/>
-                <category>
-                    <coding>
-                        <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
-                        <code value="outpatient"/>
-                    </coding>
-                </category>
-                <medicationCodeableConcept>
-                    <coding>
-                        <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-                        <code value="1049502"/>
-                        <display value="oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"/>
-                    </coding>
-                </medicationCodeableConcept>
-                <subject>
-                    <reference value="Patient/example-rec-10-unprescribed-opioids"/>
-                </subject>
-                <encounter>
-                    <reference value="Encounter/example-rec-10-unprescribed-opioids-prefetch"/>
-                </encounter>
-                <authoredOn value="2022-01-28"/>
-                <dosageInstruction>
-                    <timing>
-                        <repeat>
-                            <frequency value="3"/>
-                            <period value="1.0"/>
-                            <periodUnit value="d"/>
-                        </repeat>
-                    </timing>
-                    <asNeededBoolean value="false"/>
-                    <doseAndRate>
-                        <doseQuantity>
-                            <value value="1.0"/>
-                            <unit value="tablet"/>
-                        </doseQuantity>
-                    </doseAndRate>
-                </dosageInstruction>
-                <dispenseRequest>
-                    <validityPeriod>
-                        <start value="2022-01-28"/>
-                        <end value="2022-04-28"/>
-                    </validityPeriod>
-                    <numberOfRepeatsAllowed value="3"/>
-                    <expectedSupplyDuration>
-                        <value value="27.0"/>
-                        <unit value="d"/>
-                    </expectedSupplyDuration>
-                </dispenseRequest>
-            </MedicationRequest>
-        </resource>
-        <request>
-            <method value="PUT"/>
-            <url value="MedicationRequest/example-rec-10-unprescribed-opioids-prefetch"/>
-        </request>
-    </entry>
-    <entry>
-        <fullUrl
-                value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-codeine"/>
-        <resource>
-            <Observation xmlns="http://hl7.org/fhir">
-                <id value="example-rec-10-unprescribed-opioids-prefetch-codeine"/>
-                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-                    <extension url="dateLastUpdated">
-                        <valueDateTime value="2022-04-28"/>
-                    </extension>
-                    <extension url="frequency">
-                        <valueDuration>
-                            <value value="30.0"/>
-                            <unit value="days"/>
-                            <system value="http://unitsofmeasure.org"/>
-                            <code value="d"/>
-                        </valueDuration>
-                    </extension>
-                </extension>
-                <status value="final"/>
-                <code>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="3507-1"/>
-                        <display value="Codeine [Presence] in Urine"/>
-                    </coding>
-                </code>
-                <subject>
-                    <reference value="Patient/example-rec-10-unprescribed-opioids"/>
-                </subject>
-                <effectiveDateTime value="2022-04-07"/>
-                <interpretation>
-                    <coding>
-                        <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
-                        <code value="POS"/>
-                    </coding>
-                </interpretation>
-            </Observation>
-        </resource>
-        <request>
-            <method value="PUT"/>
-            <url value="Observation/example-rec-10-unprescribed-opioids-prefetch-codeine"/>
-        </request>
-    </entry>
-    <entry>
-        <fullUrl
-                value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
-        <resource>
-            <Observation xmlns="http://hl7.org/fhir">
-                <id value="example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
-                <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-                    <extension url="dateLastUpdated">
-                        <valueDateTime value="2022-04-28"/>
-                    </extension>
-                    <extension url="frequency">
-                        <valueDuration>
-                            <value value="30.0"/>
-                            <unit value="days"/>
-                            <system value="http://unitsofmeasure.org"/>
-                            <code value="d"/>
-                        </valueDuration>
-                    </extension>
-                </extension>
-                <status value="final"/>
-                <code>
-                    <coding>
-                        <system value="http://loinc.org"/>
-                        <code value="10998-3"/>
-                        <display value="Oxycodone [Presence] in Urine"/>
-                    </coding>
-                </code>
-                <subject>
-                    <reference value="Patient/example-rec-10-unprescribed-opioids"/>
-                </subject>
-                <effectiveDateTime value="2022-03-31"/>
-                <interpretation>
-                    <coding>
-                        <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
-                        <code value="POS"/>
-                    </coding>
-                </interpretation>
-            </Observation>
-        </resource>
-        <request>
-            <method value="PUT"/>
-            <url value="Observation/example-rec-10-unprescribed-opioids-prefetch-oxycodone"/>
-        </request>
-    </entry>
+   <id value="example-rec-10-unprescribed-opioids"></id>
+   <type value="transaction"></type>
+   <entry>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-unprescribed-opioids"></fullUrl>
+      <resource>
+         <Patient xmlns="http://hl7.org/fhir">
+            <id value="example-rec-10-unprescribed-opioids"></id>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
+                  <valueDateTime value="2022-08-03"></valueDateTime>
+               </extension>
+               <extension url="frequency">
+                  <valueDuration>
+                     <value value="30.0"></value>
+                     <unit value="days"></unit>
+                     <system value="http://unitsofmeasure.org"></system>
+                     <code value="d"></code>
+                  </valueDuration>
+               </extension>
+            </extension>
+            <name>
+               <family value="example-rec-10"></family>
+               <given value="unprescribed-opioids"></given>
+            </name>
+            <gender value="female"></gender>
+            <birthDate value="1982-04-14"></birthDate>
+         </Patient>
+      </resource>
+      <request>
+         <method value="PUT"></method>
+         <url value="Patient/example-rec-10-unprescribed-opioids"></url>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Encounter/example-rec-10-unprescribed-opioids-prefetch"></fullUrl>
+      <resource>
+         <Encounter xmlns="http://hl7.org/fhir">
+            <id value="example-rec-10-unprescribed-opioids-prefetch"></id>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
+                  <valueDateTime value="2022-08-03"></valueDateTime>
+               </extension>
+               <extension url="frequency">
+                  <valueDuration>
+                     <value value="30.0"></value>
+                     <unit value="days"></unit>
+                     <system value="http://unitsofmeasure.org"></system>
+                     <code value="d"></code>
+                  </valueDuration>
+               </extension>
+            </extension>
+            <status value="finished"></status>
+            <class>
+               <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"></system>
+               <code value="AMB"></code>
+               <display value="ambulatory"></display>
+            </class>
+            <subject>
+               <reference value="Patient/example-rec-10-unprescribed-opioids"></reference>
+            </subject>
+            <period>
+               <start value="2022-05-05"></start>
+               <end value="2022-05-05"></end>
+            </period>
+         </Encounter>
+      </resource>
+      <request>
+         <method value="PUT"></method>
+         <url value="Encounter/example-rec-10-unprescribed-opioids-prefetch"></url>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/MedicationRequest/example-rec-10-unprescribed-opioids-prefetch"></fullUrl>
+      <resource>
+         <MedicationRequest xmlns="http://hl7.org/fhir">
+            <id value="example-rec-10-unprescribed-opioids-prefetch"></id>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
+                  <valueDateTime value="2022-08-03"></valueDateTime>
+               </extension>
+               <extension url="frequency">
+                  <valueDuration>
+                     <value value="30.0"></value>
+                     <unit value="days"></unit>
+                     <system value="http://unitsofmeasure.org"></system>
+                     <code value="d"></code>
+                  </valueDuration>
+               </extension>
+            </extension>
+            <status value="active"></status>
+            <intent value="order"></intent>
+            <category>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"></system>
+                  <code value="outpatient"></code>
+               </coding>
+            </category>
+            <medicationCodeableConcept>
+               <coding>
+                  <system value="http://www.nlm.nih.gov/research/umls/rxnorm"></system>
+                  <code value="1049502"></code>
+                  <display value="oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"></display>
+               </coding>
+            </medicationCodeableConcept>
+            <subject>
+               <reference value="Patient/example-rec-10-unprescribed-opioids"></reference>
+            </subject>
+            <encounter>
+               <reference value="Encounter/example-rec-10-unprescribed-opioids-prefetch"></reference>
+            </encounter>
+            <authoredOn value="2022-05-05"></authoredOn>
+            <dosageInstruction>
+               <timing>
+                  <repeat>
+                     <frequency value="3"></frequency>
+                     <period value="1.0"></period>
+                     <periodUnit value="d"></periodUnit>
+                  </repeat>
+               </timing>
+               <asNeededBoolean value="false"></asNeededBoolean>
+               <doseAndRate>
+                  <doseQuantity>
+                     <value value="1.0"></value>
+                     <unit value="tablet"></unit>
+                  </doseQuantity>
+               </doseAndRate>
+            </dosageInstruction>
+            <dispenseRequest>
+               <validityPeriod>
+                  <start value="2022-05-05T00:00:00-06:00"></start>
+                  <end value="2022-08-03T00:00:00-06:00"></end>
+               </validityPeriod>
+               <numberOfRepeatsAllowed value="3"></numberOfRepeatsAllowed>
+               <expectedSupplyDuration>
+                  <value value="27.0"></value>
+                  <unit value="d"></unit>
+               </expectedSupplyDuration>
+            </dispenseRequest>
+         </MedicationRequest>
+      </resource>
+      <request>
+         <method value="PUT"></method>
+         <url value="MedicationRequest/example-rec-10-unprescribed-opioids-prefetch"></url>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-codeine"></fullUrl>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <id value="example-rec-10-unprescribed-opioids-prefetch-codeine"></id>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
+                  <valueDateTime value="2022-08-03"></valueDateTime>
+               </extension>
+               <extension url="frequency">
+                  <valueDuration>
+                     <value value="30.0"></value>
+                     <unit value="days"></unit>
+                     <system value="http://unitsofmeasure.org"></system>
+                     <code value="d"></code>
+                  </valueDuration>
+               </extension>
+            </extension>
+            <status value="final"></status>
+            <code>
+               <coding>
+                  <system value="http://loinc.org"></system>
+                  <code value="3507-1"></code>
+                  <display value="Codeine [Presence] in Urine"></display>
+               </coding>
+            </code>
+            <subject>
+               <reference value="Patient/example-rec-10-unprescribed-opioids"></reference>
+            </subject>
+            <effectiveDateTime value="2022-07-13"></effectiveDateTime>
+            <interpretation>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"></system>
+                  <code value="POS"></code>
+               </coding>
+            </interpretation>
+         </Observation>
+      </resource>
+      <request>
+         <method value="PUT"></method>
+         <url value="Observation/example-rec-10-unprescribed-opioids-prefetch-codeine"></url>
+      </request>
+   </entry>
+   <entry>
+      <fullUrl value="http://localhost:8080/cqf-ruler-r4/fhir/Observation/example-rec-10-unprescribed-opioids-prefetch-oxycodone"></fullUrl>
+      <resource>
+         <Observation xmlns="http://hl7.org/fhir">
+            <id value="example-rec-10-unprescribed-opioids-prefetch-oxycodone"></id>
+            <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+               <extension url="dateLastUpdated">
+                  <valueDateTime value="2022-08-03"></valueDateTime>
+               </extension>
+               <extension url="frequency">
+                  <valueDuration>
+                     <value value="30.0"></value>
+                     <unit value="days"></unit>
+                     <system value="http://unitsofmeasure.org"></system>
+                     <code value="d"></code>
+                  </valueDuration>
+               </extension>
+            </extension>
+            <status value="final"></status>
+            <code>
+               <coding>
+                  <system value="http://loinc.org"></system>
+                  <code value="10998-3"></code>
+                  <display value="Oxycodone [Presence] in Urine"></display>
+               </coding>
+            </code>
+            <subject>
+               <reference value="Patient/example-rec-10-unprescribed-opioids"></reference>
+            </subject>
+            <effectiveDateTime value="2022-07-06"></effectiveDateTime>
+            <interpretation>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"></system>
+                  <code value="POS"></code>
+               </coding>
+            </interpretation>
+         </Observation>
+      </resource>
+      <request>
+         <method value="PUT"></method>
+         <url value="Observation/example-rec-10-unprescribed-opioids-prefetch-oxycodone"></url>
+      </request>
+   </entry>
 </Bundle>

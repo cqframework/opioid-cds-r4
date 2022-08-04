@@ -11,13 +11,14 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
+      "id": "example-rec-10-end-of-life-med-exclusion-context",
       "extension": [
         {
           "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
           "extension": [
             {
               "url": "dateLastUpdated",
-              "valueDateTime": "2022-04-28"
+              "valueDateTime": "2022-08-03"
             },
             {
               "url": "frequency",
@@ -31,7 +32,6 @@
           ]
         }
       ],
-      "id": "example-rec-10-end-of-life-med-exclusion-context",
       "status": "active",
       "intent": "order",
       "category": [
@@ -59,7 +59,7 @@
       "encounter": {
         "reference": "Encounter/example-rec-10-end-of-life-med-exclusion-context"
       },
-      "authoredOn": "2022-04-28",
+      "authoredOn": "2022-08-03",
       "dosageInstruction": [
         {
           "timing": {
@@ -84,8 +84,8 @@
       ],
       "dispenseRequest": {
         "validityPeriod": {
-          "start": "2022-04-28",
-          "end": "2022-07-28"
+          "start": "2022-08-03T00:00:00-06:00",
+          "end": "2022-11-02T00:00:00-06:00"
         },
         "numberOfRepeatsAllowed": 3,
         "expectedSupplyDuration": {
@@ -104,13 +104,14 @@
       },
       "resource": {
         "resourceType": "Patient",
+        "id": "example-rec-10-end-of-life-med-exclusion",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -124,9 +125,8 @@
             ]
           }
         ],
-        "id": "example-rec-10-end-of-life-med-exclusion",
         "gender": "female",
-        "birthDate": "1982-01-07"
+        "birthDate": "1982-04-14"
       }
     },
     "item2": null,
@@ -138,13 +138,14 @@
       },
       "resource": {
         "resourceType": "Condition",
+        "id": "EndOfLifeCondition",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-08-03"
               },
               {
                 "url": "frequency",
@@ -158,16 +159,6 @@
             ]
           }
         ],
-        "id": "EndOfLifeCondition",
-        "category": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-              "code": "encounter-diagnosis",
-              "display": "Encounter Diagnosis"
-            }
-          ]
-        },
         "clinicalStatus": {
           "coding": [
             {
@@ -177,20 +168,17 @@
             }
           ]
         },
-        "verificationStatus": {
-          "code": {
+        "category": [
+          {
             "coding": [
               {
-                "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-                "code": "confirmed",
-                "display": "Confirmed"
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
               }
             ]
           }
-        },
-        "subject": {
-          "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
-        },
+        ],
         "code": {
           "coding": [
             {
@@ -201,7 +189,10 @@
             }
           ]
         },
-        "recordedDate": "2022-02-27"
+        "subject": {
+          "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
+        },
+        "recordedDate": "2022-06-04"
       }
     },
     "item6": null,

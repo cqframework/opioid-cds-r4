@@ -1,34 +1,34 @@
 <Observation xmlns="http://hl7.org/fhir">
-   <id value="example-rec-10-unprescribed-opioids-prefetch-codeine"/>
+   <id value="example-rec-10-unprescribed-opioids-prefetch-codeine"></id>
    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
       <extension url="dateLastUpdated">
-         <valueDateTime value="2022-04-08"/>
+         <valueDateTime value="2022-08-03"></valueDateTime>
       </extension>
       <extension url="frequency">
          <valueDuration>
-            <value value="30.0" />
-            <unit value="days"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="d"/>
+            <value value="30.0"></value>
+            <unit value="days"></unit>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="d"></code>
          </valueDuration>
       </extension>
    </extension>
-   <status value="final"/>
+   <status value="final"></status>
    <code>
       <coding>
-         <system value="http://loinc.org"/>
-         <code value="3507-1"/>
-         <display value="Codeine [Presence] in Urine"/>
+         <system value="http://loinc.org"></system>
+         <code value="3507-1"></code>
+         <display value="Codeine [Presence] in Urine"></display>
       </coding>
    </code>
    <subject>
-      <reference value="Patient/example-rec-10-unprescribed-opioids"/>
+      <reference value="Patient/example-rec-10-unprescribed-opioids"></reference>
    </subject>
-   <effectiveDateTime value="2022-04-07"/>
+   <effectiveDateTime value="2022-08-02"></effectiveDateTime>
    <interpretation>
       <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
-          <code value="POS"/>
+         <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"></system>
+         <code value="POS"></code>
       </coding>
    </interpretation>
 </Observation>
