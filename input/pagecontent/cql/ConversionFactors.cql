@@ -46,7 +46,7 @@ All conversion factors supplied in these supplements are in 'mg/d'.
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-
+include CDCMMEClinicalConversionFactors version '3.0.0' called CDCMMEClinicalConversionFactors
 
 codesystem "Usage Context Type": 'http://terminology.hl7.org/CodeSystem/usage-context-type'
 codesystem "CDC MME Usage Context Codes": 'http://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem/CDCMMEUsageContextCodes'
@@ -123,18 +123,16 @@ define function GetConversionFactor(ingredientCode System.Code, dailyDose System
   )
 
 define ConversionFactorSupplement:
-  singleton from (
-    [CodeSystem] C
-      where C.supplements.value = 'http://www.nlm.nih.gov/research/umls/rxnorm'
-      and (
-        C.name.value = ConversionFactorSupplementName
-          or exists (
-            C.useContext UC
-              where UC.code ~ "Task Usage Context"
-                and UC.value ~ "MME Calculation"
-          )
-      )
-  )
+  CDCMMEClinicalConversionFactors."CDCMMEClinicalConversionFactorsCodeSystem" C
+    where C.supplements.value = 'http://www.nlm.nih.gov/research/umls/rxnorm'
+    and (
+      C.name.value = ConversionFactorSupplementName
+        or exists (
+          C.useContext UC
+            where UC.code ~ "Task Usage Context"
+              and UC.value ~ "MME Calculation"
+        )
+    )
 
 /*
 Converts a range value boundary to a Decimal (or null for a wildcard)
