@@ -68,7 +68,7 @@ define "Patient Age Less Than 18":
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-/*    and not "Patient Age Less Than 18"
+    and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (
       "Total MME" >= 50 '{MME}/d' or
@@ -76,7 +76,7 @@ define "Inclusion Criteria":
     "On Benzodiazepine"
         or "Has Substance Abuse History"
     )
-*/
+
 define "Exclusion Criteria":
   (
     Config."Evidence of Naloxone Enabled"
