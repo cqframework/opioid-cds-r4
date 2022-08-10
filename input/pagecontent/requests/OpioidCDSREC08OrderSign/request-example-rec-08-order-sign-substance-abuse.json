@@ -12,68 +12,61 @@
     ],
     "draftOrders": {
       "resourceType": "MedicationRequest",
-      "extension": [
+      "id": "rec-08-order-sign",
+      "status": "active",
+      "intent": "order",
+      "category": [
         {
-          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
-          "extension": [
+          "coding": [
             {
-              "url": "dateLastUpdated",
-              "valueDateTime": "2022-04-28"
-            },
-            {
-              "url": "frequency",
-              "valueDuration": {
-                "value": 30.0,
-                "unit": "days",
-                "system": "http://unitsofmeasure.org",
-                "code": "d"
-              }
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "community"
             }
           ]
         }
       ],
-      "id": "example-rec-08-order-sign-substance-abuse-context",
-      "status": "active",
-      "intent": "order",
-      "category": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-            "code": "community"
-          }
-        ]
-      },
       "medicationCodeableConcept": {
         "coding": [
           {
             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "197696",
-            "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+            "code": "1185223",
+            "display": "Pepto-bismol Pill"
           }
         ]
       },
       "subject": {
-        "reference": "Patient/example-rec-08-order-sign-substance-abuse"
+        "reference": "Patient/example-rec-08-order-sign"
       },
       "encounter": {
-        "reference": "Encounter/example-rec-08-order-sign-substance-abuse-context"
+        "reference": "Encounter/example-rec-08-order-sign"
       },
-"authoredOn": "2022-04-28",      "dosageInstruction": [
+      "authoredOn": "2022-07-20",
+      "dosageInstruction": [
         {
           "timing": {
             "repeat": {
               "frequency": 1,
-              "period": 12.0,
+              "period": 3.0,
               "periodUnit": "d"
             }
           },
           "doseAndRate": [
             {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://epic.com/CodeSystem/dose-rate-type",
+                    "code": "ordered",
+                    "display": "ordered"
+                  }
+                ],
+                "text": "ordered"
+              },
               "doseQuantity": {
                 "value": 1.0,
-                "unit": "patch",
-                "system" : "http://unitsofmeasure.org",
-                "code" : "{patch}"
+                "unit": "Pill",
+                "system": "http://unitsofmeasure.org",
+                "code": "{Pill}"
               }
             }
           ]
@@ -85,10 +78,10 @@
           "end": "2022-07-28"
         },
         "quantity": {
-          "value": 30,
-          "unit": "patch",
-          "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
-          "code": "patch"
+          "value": 1.0,
+          "unit": "Pill",
+          "system": "http://unitsofmeasure.org",
+          "code": "{Pill}"
         },
         "numberOfRepeatsAllowed": 3,
         "expectedSupplyDuration": {
