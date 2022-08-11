@@ -140,7 +140,13 @@ define function "Get Active Ambulatory Medication Requests" (value List<Medicati
 define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
   value Rx
     let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-    where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
+   where (
+        (
+          not(Rx.medication is Reference)
+            and Rx.medication in "Opioid analgesics with ambulatory misuse potential"
+        )
+        or Med.code in "Opioid analgesics with ambulatory misuse potential"
+      )
       and Rx.category in "Community"
     return
       MedicationRequest {
@@ -159,7 +165,13 @@ define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value Li
     define function "Is Benzodiazepine?"(value List<MedicationRequest>):
       value Rx
         let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-        where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
+        where (
+            (
+              not(Rx.medication is Reference)
+                and Rx.medication in "Benzodiazepine medications"
+            )
+            or Med.code in "Benzodiazepine medications"
+          )
           and Rx.category in "Community"
         return
               MedicationRequest {
@@ -319,7 +331,7 @@ define function GetDurationInDays(value FHIR.Duration):
       when value.code.value ~ 'ms' then value.value.value / 60.0 / 60.0 / 24.0 / 1000.0
       when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')
       else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)
-    end
+end
 
 /*
 *  Conversion Functions
