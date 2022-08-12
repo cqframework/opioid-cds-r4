@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec10"> </a>
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids" target="_blank">Recommendation #10:</a></p>
   <p>
-    <strong>When prescribing opioids for chronic pain, providers should use urine drug testing before
+    <strong>When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before
       starting opioid therapy and consider urine drug testing at least annually to assess for
       prescribed medications as well as other controlled prescription drugs and illicit drugs
       <em>(recommendation category: B, evidence type: 4)</em>.</strong>
@@ -25,9 +25,9 @@
       <p></p>
       <details>
         <summary>
-          <h3 class="title">For Chronic Pain</h3>
+          <h3 class="title">For Subacute or Chronic Pain</h3>
         </summary>
-        {% include for-chronic-pain-definitions.html %}
+        {% include for-subacute-and-chronic-pain-definitions.html %}
       </details>
       <p></p>
       <details>
@@ -99,7 +99,7 @@
             <tr>
               <td class="col-7">Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696), once every 12 days for 30 days. This triggers the message that urine drug screening is recommended with the following three feedback options:
                 i.	Perform the screening
-                ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
+                ii.	Indicate that the prescription is not for subacute or chronic pain management and snooze for 3 months
                 iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. </td>
               <td><a href="Bundle-example-rec-10-no-screenings.html">Test Bundle</a></td>
               <td><a href="requests/OpioidCDSREC10/request-example-rec-10-no-screenings.json">Request JSON</a></td>
@@ -124,7 +124,7 @@
             <tr>
               <td class="col-7">Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696), once every 12 days for 30 days. This triggers the message that urine drug screening is recommended with the following three feedback options:
                 i.	Perform the screening
-                ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
+                ii.	Indicate that the prescription is not for subacute or chronic pain management and snooze for 3 months
                 iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. </td>
               <td><a href="Bundle-example-rec-10-no-screenings.html">Test Bundle</a></td>
               <td><a href="requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json">Request JSON</a></td>
