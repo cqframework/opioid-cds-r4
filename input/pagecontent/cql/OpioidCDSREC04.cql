@@ -55,8 +55,7 @@ define "Patient Age Less Than 18":
     false
 
 define "Inclusion Criteria":
-  "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
+  not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and Routines."Is Opioid Naive?"
 

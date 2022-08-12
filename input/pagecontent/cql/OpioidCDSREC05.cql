@@ -62,8 +62,7 @@ define "Patient Age Less Than 18":
     false
 
 define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
+  not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and "Total MME" >= 50 '{MME}/d'
 
