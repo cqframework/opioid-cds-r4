@@ -1,7 +1,7 @@
 {
   "hookInstance": "17ff4874-b68a-490c-abaa-b62b1a91b1bd",
   "fhirServer": "https://cloud.alphora.com/sandbox/r4/cds/fhir",
-  "hook": "order-select",
+  "hook": "patient-view",
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-12-criteria-valid"

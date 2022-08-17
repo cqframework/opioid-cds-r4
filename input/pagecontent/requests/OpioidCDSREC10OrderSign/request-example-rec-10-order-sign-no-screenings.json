@@ -8,6 +8,7 @@
     "encounterId": "Encounter/example-rec-10-order-sign-no-screenings-context",
     "draftOrders": {
       "resourceType": "Bundle",
+      "type": "collection",
       "entry": [
         {
           "resource": {

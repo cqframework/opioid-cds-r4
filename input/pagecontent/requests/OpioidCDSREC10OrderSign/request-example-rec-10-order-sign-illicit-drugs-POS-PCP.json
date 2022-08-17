@@ -8,6 +8,7 @@
     "encounterId": "Encounter/example-rec-10-2-illicit-POS-PCP-drugs-context",
     "draftOrders": {
       "resourceType": "Bundle",
+      "type": "collection",
       "entry": [
         {
           "resource": {

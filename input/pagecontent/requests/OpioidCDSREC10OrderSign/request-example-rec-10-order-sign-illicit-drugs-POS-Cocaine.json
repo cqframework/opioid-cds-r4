@@ -6,11 +6,9 @@
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-10-order-sign-illicit-POS-Cocaine-drugs",
     "encounterId": "Encounter/example-rec-10-order-sign-illicit-POS-Cocaine-drugs-context",
-    "selections": [
-      "MedicationRequest/example-rec-10-order-sign-illicit-POS-Cocaine-drugs-context"
-    ],
     "draftOrders": {
       "resourceType": "Bundle",
+      "type": "collection",
       "entry": [
         {
           "resource": {
