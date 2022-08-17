@@ -75,14 +75,16 @@
                   }
                 },
                 "asNeededBoolean": false,
-                "doseAndRate": {
-                  "doseQuantity": {
-                    "value": 1.0,
-                    "unit": "capsule",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "{capsule}"
+                "doseAndRate": [
+                  {
+                    "doseQuantity": {
+                      "value": 1.0,
+                      "unit": "capsule",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "{capsule}"
+                    }
                   }
-                }
+                ]
               }
             ],
             "dispenseRequest": {

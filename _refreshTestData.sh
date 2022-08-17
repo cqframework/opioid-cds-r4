@@ -5,6 +5,8 @@ input_cache_path=$PWD/input-cache
 patient_data_bundles=$PWD/input/examples
 service_requests=$PWD/input/pagecontent/requests
 
+echo Refreshing Test Data...
+
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
     JAVA -jar $tooling -RollTestsDataDates -v=r4 -ip="$patient_data_bundles"
