@@ -643,7 +643,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.540Z",
-    "modified": "2022-08-18T23:15:30.470Z",
+    "modified": "2022-08-18T23:51:22.061Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -657,7 +657,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-with-opioid.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Avoid prescribing opioid pain medication and benzodiazepine concurrently whenever possible."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "The benzodiazepine prescription request is concurrent with an active opioid prescription"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "5ed47362-b8b4-4ea8-bb38-cf19f7a08445",
@@ -963,7 +988,7 @@
     "method": "POST",
     "sortNum": 27500,
     "created": "2022-08-08T19:42:27.558Z",
-    "modified": "2022-08-18T23:19:09.978Z",
+    "modified": "2022-08-18T23:48:28.500Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -977,7 +1002,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-with-benzo.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Avoid prescribing opioid pain medication and benzodiazepine concurrently whenever possible."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "The opioid prescription request is concurrent with an active benzodiazepine prescription"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "3debcd38-1e02-4a49-9842-1a9c85e272ce",
@@ -1334,7 +1384,7 @@
     "method": "POST",
     "sortNum": 35000,
     "created": "2022-08-08T19:42:27.578Z",
-    "modified": "2022-08-18T23:23:14.781Z",
+    "modified": "2022-08-18T23:49:40.520Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1348,7 +1398,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-without-opioid.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "d0ef4bad-584c-478a-ac7c-af76ff9d7d8b",
@@ -1790,7 +1853,7 @@
     "method": "POST",
     "sortNum": 50000,
     "created": "2022-08-08T19:42:27.605Z",
-    "modified": "2022-08-18T23:26:32.321Z",
+    "modified": "2022-08-18T23:35:36.196Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1804,7 +1867,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-without-benzo.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "ddb3a7b5-eb5c-402f-9824-f6b52f6e956a",
