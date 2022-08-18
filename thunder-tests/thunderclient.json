@@ -83,8 +83,13 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-08T19:42:27.509Z",
-    "modified": "2022-08-08T19:42:27.509Z",
-    "headers": [],
+    "modified": "2022-08-18T19:03:19.230Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -311,26 +316,6 @@
       "raw": "",
       "form": [],
       "binary": "{{igBase}}/bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
-    },
-    "tests": []
-  },
-  {
-    "_id": "5cc6b8fb-ab0e-48d4-bcd3-9038e9246297",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION_LAO",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 20000,
-    "created": "2022-08-08T19:42:27.524Z",
-    "modified": "2022-08-08T19:42:27.524Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-04-long-acting-opioid.xml"
     },
     "tests": []
   },
@@ -773,8 +758,13 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.546Z",
-    "modified": "2022-08-08T19:42:27.546Z",
-    "headers": [],
+    "modified": "2022-08-18T19:55:25.017Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -782,7 +772,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-long-acting-opioid.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "The following medication requests(s) release rates should be re-evaluated: <Unable to determine medication name>"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "ba3d3fef-a25b-4af8-81ff-2815611174af",
@@ -1133,26 +1148,6 @@
     ]
   },
   {
-    "_id": "2b75729d-a82e-4076-a6c7-ec65ec67444b",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION_NP",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 30000,
-    "created": "2022-08-08T19:42:27.562Z",
-    "modified": "2022-08-08T19:42:27.562Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-04-new-patient.xml"
-    },
-    "tests": []
-  },
-  {
     "_id": "78be1cc6-2373-489e-8d76-bb42febecc9b",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "e18914b8-fe97-4ccb-ad2e-b817ba45af55",
@@ -1373,26 +1368,6 @@
     "tests": []
   },
   {
-    "_id": "ac15d726-4405-4cb9-ac11-d46e0287fb57",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
-    "name": "REQUEST_RETURN_NO_RECOMMENDATION_NP",
-    "url": "{{cdsHooksServer}}/opioidcds-04",
-    "method": "POST",
-    "sortNum": 35000,
-    "created": "2022-08-08T19:42:27.574Z",
-    "modified": "2022-08-08T19:42:27.574Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-new-patient.json"
-    },
-    "tests": []
-  },
-  {
     "_id": "e015296e-39b0-4a39-b1c2-4098c70142fe",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "e18914b8-fe97-4ccb-ad2e-b817ba45af55",
@@ -1529,26 +1504,6 @@
         "value": "0"
       }
     ]
-  },
-  {
-    "_id": "87219884-7f37-4b60-bd2d-3a517dc8374e",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION_NLAO",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 40000,
-    "created": "2022-08-08T19:42:27.583Z",
-    "modified": "2022-08-08T19:42:27.583Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-04-not-long-acting-opioid.xml"
-    },
-    "tests": []
   },
   {
     "_id": "0f1ea5d3-6692-44bd-8b9a-811b9f3a6678",
@@ -1779,8 +1734,13 @@
     "method": "POST",
     "sortNum": 45000,
     "created": "2022-08-08T19:42:27.595Z",
-    "modified": "2022-08-08T19:42:27.595Z",
-    "headers": [],
+    "modified": "2022-08-18T19:54:21.740Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1788,7 +1748,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-not-long-acting-opioid.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "ec005e4f-f271-43da-860f-cdc75f2e5586",
@@ -1879,26 +1852,6 @@
         "value": "warning"
       }
     ]
-  },
-  {
-    "_id": "46adf0f2-925a-43cd-bf9c-d7413d49cebc",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION_OWAP",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 50000,
-    "created": "2022-08-08T19:42:27.600Z",
-    "modified": "2022-08-08T19:42:27.600Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-04-opioid-with-abuse-potential.xml"
-    },
-    "tests": []
   },
   {
     "_id": "99c9aa17-8cc9-47a4-bc97-d2bf311a1cfb",
@@ -2044,21 +1997,39 @@
     "_id": "ed511944-ff88-47bf-aed2-a0537b5f64f9",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
-    "name": "REQUEST_RETURN_NO_RECOMMENDATION_OWAP",
+    "name": "REQUEST_RETURN_NO_RECOMMENDATION_PELOA",
     "url": "{{cdsHooksServer}}/opioidcds-04",
     "method": "POST",
     "sortNum": 60000,
     "created": "2022-08-08T19:42:27.608Z",
-    "modified": "2022-08-08T19:42:27.608Z",
-    "headers": [],
+    "modified": "2022-08-18T19:51:43.722Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
       "raw": "",
       "form": [],
-      "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-opioid-with-abuse-potential.json"
+      "binary": "../input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-preexisting-long-acting-opioid.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "4b37a3a6-e811-4382-8555-93b30101cc00",

@@ -1,13 +1,10 @@
 {
   "hookInstance": "32a89854-a395-4f0e-8fa7-a660c7c9dd3d",
   "fhirServer": "http://localhost:8080/fhir",
-  "hook": "order-select",
+  "hook": "order-sign",
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-01-false-due-to-inpatient-opioid",
-    "selections": [
-      "MedicationRequest/4d2b4402-022e-4f69-813e-ab16934286a6"
-    ],
     "draftOrders": {
       "resourceType": "Bundle",
       "type": "collection",

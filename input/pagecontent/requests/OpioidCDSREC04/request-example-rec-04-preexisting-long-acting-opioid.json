@@ -1,14 +1,11 @@
 {
   "hookInstance": "1bf95787-c6eb-42c5-aacd-405803921024",
   "fhirServer": "http://localhost:8080/fhir",
-  "hook": "order-select",
+  "hook": "order-sign",
   "context": {
     "userId": "Practitioner/example",
-    "patientId": "Patient/example-rec-04-opioid-with-abuse-potential",
-    "encounterId": "Encounter/example-rec-04-opioid-with-abuse-potential-context",
-    "selections": [
-      "MedicationRequest/example-rec-04-opioid-with-abuse-potential-context"
-    ],
+    "patientId": "Patient/example-rec-04-preexisting-long-acting-opioid",
+    "encounterId": "Encounter/example-rec-04-preexisting-long-acting-opioid-context",
     "draftOrders": {
       "resourceType": "Bundle",
       "type": "collection",
@@ -16,19 +13,19 @@
         {
           "resource": {
             "resourceType": "MedicationRequest",
-            "id": "example-rec-04-opioid-with-abuse-potential-context",
+            "id": "example-rec-04-preexisting-long-acting-opioid",
             "extension": [
               {
                 "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-03"
+                    "valueDateTime": "2022-08-18"
                   },
                   {
                     "url": "frequency",
                     "valueDuration": {
-                      "value": 30.0,
+                      "value": 1.0,
                       "unit": "days",
                       "system": "http://unitsofmeasure.org",
                       "code": "d"
@@ -53,18 +50,18 @@
               "coding": [
                 {
                   "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "1049502",
-                  "display": "12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"
+                  "code": "1010600",
+                  "display": "Buprenorphine 2 MG / Naloxone 0.5 MG Oral Strip"
                 }
               ]
             },
             "subject": {
-              "reference": "Patient/example-rec-04-opioid-with-abuse-potential"
+              "reference": "Patient/example-rec-04-preexisting-long-acting-opioid"
             },
             "encounter": {
-              "reference": "Encounter/example-rec-04-opioid-with-abuse-potential-context"
+              "reference": "Encounter/example-rec-04-preexisting-long-acting-opioid-context"
             },
-            "authoredOn": "2022-08-03",
+            "authoredOn": "2022-08-18",
             "dosageInstruction": [
               {
                 "timing": {
@@ -89,8 +86,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-08-03T00:00:00-06:00",
-                "end": "2022-11-02T00:00:00-06:00"
+                "start": "2022-08-18",
+                "end": "2022-11-18"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {
@@ -112,14 +109,14 @@
       },
       "resource": {
         "resourceType": "MedicationRequest",
-        "id": "example-rec-04-opioid-with-abuse-potential-prefetch",
+        "id": "example-rec-04-preexisting-long-acting-opioid-prefetch",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -155,9 +152,9 @@
           ]
         },
         "subject": {
-          "reference": "Patient/example-rec-04-opioid-with-abuse-potential"
+          "reference": "Patient/example-rec-04-preexisting-long-acting-opioid"
         },
-        "authoredOn": "2022-07-20",
+        "authoredOn": "2022-07-18",
         "dosageInstruction": [
           {
             "timing": {
@@ -182,8 +179,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-07-20T00:00:00-06:00",
-            "end": "2022-11-02T00:00:00-06:00"
+            "start": "2022-07-18",
+            "end": "2022-10-18"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
@@ -195,57 +192,21 @@
         }
       }
     },
-    "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
-        "resourceType": "Encounter",
-        "id": "example-rec-04-opioid-with-abuse-potential-prefetch",
-        "extension": [
-          {
-            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
-            "extension": [
-              {
-                "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
-              },
-              {
-                "url": "frequency",
-                "valueDuration": {
-                  "value": 30.0,
-                  "unit": "days",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "d"
-                }
-              }
-            ]
-          }
-        ],
-        "status": "finished",
-        "subject": {
-          "reference": "Patient/example-rec-04-opioid-with-abuse-potential"
-        },
-        "period": {
-          "start": "2022-07-20",
-          "end": "2022-07-20"
-        }
-      }
-    },
+    "item2": null,
     "item3": {
       "response": {
         "status": "200 OK"
       },
       "resource": {
         "resourceType": "Patient",
-        "id": "example-rec-04-opioid-with-abuse-potential",
+        "id": "example-rec-04-preexisting-long-acting-opioid",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -260,7 +221,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "1982-05-04"
+        "birthDate": "2002-08-18"
       }
     },
     "item4": null,

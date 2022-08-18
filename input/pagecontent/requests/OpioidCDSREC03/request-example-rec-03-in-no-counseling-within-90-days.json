@@ -1,13 +1,10 @@
 {
   "hookInstance": "53a6848f-0d7a-467a-9d6e-0c612a7ddb15",
   "fhirServer": "http://localhost:8080/fhir",
-  "hook": "order-select",
+  "hook": "order-sign",
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-03-true-make-recommendations",
-    "selections": [
-      "MedicationRequest/54cd4101-f1b8-408e-ac61-8862d5399bcd"
-    ],
     "draftOrders": {
       "resourceType": "Bundle",
       "type": "collection",
