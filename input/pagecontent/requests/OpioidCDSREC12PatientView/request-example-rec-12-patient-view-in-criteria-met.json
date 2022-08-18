@@ -1,8 +1,7 @@
 {
   "hookInstance": "17ff4874-b68a-490c-abaa-b62b1a91b1bd",
   "fhirServer": "http://localhost:8080/fhir",
-  "hook": "order-select",
-
+  "hook": "patient-view",
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-12-criteria-valid"
@@ -20,7 +19,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-07-28"
               },
               {
                 "url": "frequency",
@@ -35,7 +34,7 @@
           }
         ],
         "id": "example-rec-12-criteria-valid",
-        "birthDate": "2002-04-28"
+        "birthDate": "2002-07-28"
       }
     },
     "item2": null,
@@ -51,7 +50,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-04-28"
+                "valueDateTime": "2022-07-28"
               },
               {
                 "url": "frequency",
@@ -107,7 +106,7 @@
             }
           ]
         },
-        "recordedDate": "2022-02-28"
+        "recordedDate": "2022-07-28"
       }
     },
     "item4": null,
