@@ -1,6 +1,6 @@
 {
   "hookInstance": "3a2ff17f-4d50-43a0-a409-20d7686b90ea",
-  "fhirServer": "https://cloud.alphora.com/sandbox/r4/cds/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "patient-view",
   "context": {
     "userId": "Practitioner/example",

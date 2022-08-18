@@ -1,6 +1,6 @@
 {
   "hookInstance": "rec08-p02-5",
-  "fhirServer": "https://cloud.alphora.com/sandbox/r4/cds/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-sign",
   "context": {
     "userId": "Practitioner/example-rec-08-order-sign",

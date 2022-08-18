@@ -1,6 +1,6 @@
 {
   "hookInstance": "31c74cfc-747c-4afc-82e4-bdd3b7a0a58c",
-  "fhirServer": "https://cloud.alphora.com/sandbox/r4/cds/fhir",
+  "fhirServer": "http://localhost:8080/fhir",
   "hook": "order-select",
   "context": {
     "userId": "Practitioner/example",
