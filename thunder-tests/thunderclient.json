@@ -33,8 +33,13 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-08T19:42:27.507Z",
-    "modified": "2022-08-08T19:42:27.507Z",
-    "headers": [],
+    "modified": "2022-08-18T17:55:38.997Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -301,26 +306,6 @@
       "raw": "",
       "form": [],
       "binary": "{{igBase}}/bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
-    },
-    "tests": []
-  },
-  {
-    "_id": "0697da4e-09b4-4d7f-af26-fba0731b9af1",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "c517211f-b05c-4072-a59b-d7e07258eba9",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 20000,
-    "created": "2022-08-08T19:42:27.522Z",
-    "modified": "2022-08-08T19:42:27.522Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-02-true-make-recommendations.json"
     },
     "tests": []
   },
@@ -1078,13 +1063,18 @@
     "_id": "d1e4c13f-3f47-44cc-9e38-642f2f7c7a20",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "c517211f-b05c-4072-a59b-d7e07258eba9",
-    "name": "REQUEST_RETURN_RECOMMENDATION",
+    "name": "REQUEST_RETURN_NO_RECOMMENDATION",
     "url": "{{cdsHooksServer}}/opioidcds-02",
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-08-08T19:42:27.560Z",
-    "modified": "2022-08-08T19:42:27.560Z",
-    "headers": [],
+    "modified": "2022-08-18T18:15:20.957Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1092,7 +1082,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC02/request-example-rec-02-in-careplan-revisited.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "138c424e-25dd-4d79-bd46-c691e1426ede",
@@ -1513,26 +1516,6 @@
     ]
   },
   {
-    "_id": "1b2b67d4-6bf2-4fd4-990d-904338df1582",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "c517211f-b05c-4072-a59b-d7e07258eba9",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 40000,
-    "created": "2022-08-08T19:42:27.581Z",
-    "modified": "2022-08-08T19:42:27.581Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-02-false-due-to-careplan-within-90-days.json"
-    },
-    "tests": []
-  },
-  {
     "_id": "05344f5e-d83c-43f8-a34f-7d86b8249ebf",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "652312fd-c9dc-48f6-8f2b-64ffa36d3385",
@@ -1856,13 +1839,18 @@
     "_id": "460ccd3e-63a5-40d1-b0c6-4dd88a1c474c",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "c517211f-b05c-4072-a59b-d7e07258eba9",
-    "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+    "name": "REQUEST_RETURN_RECOMMENDATION",
     "url": "{{cdsHooksServer}}/opioidcds-02",
     "method": "POST",
-    "sortNum": 50000,
+    "sortNum": 20000,
     "created": "2022-08-08T19:42:27.598Z",
-    "modified": "2022-08-08T19:42:27.598Z",
-    "headers": [],
+    "modified": "2022-08-18T18:14:52.127Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1870,7 +1858,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC02/request-example-rec-02-out-careplan-not-revisited.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Recommend creation, review or update of opioid treatment plan"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "Medication requests(s): <Unable to determine medication name>"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "0cd03be3-e0e1-4e59-adf4-5bb8603600a9",
