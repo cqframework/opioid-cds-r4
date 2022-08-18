@@ -6,9 +6,6 @@
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-05-mme-greater-than-fifty",
     "encounterId": "Encounter/example-rec-05-mme-greater-than-fifty-context",
-    "selections": [
-      "MedicationRequest/example-rec-05-mme-greater-than-fifty-context"
-    ],
     "draftOrders": {
       "resourceType": "Bundle",
       "id": "opioidcds-05-bundle",
@@ -77,7 +74,7 @@
                 "doseAndRate": [
                   {
                     "doseQuantity": {
-                      "value": 0.2,
+                      "value": 1.0,
                       "unit": "patch",
                       "system": "http://unitsofmeasure.org",
                       "code": "{patch}"
