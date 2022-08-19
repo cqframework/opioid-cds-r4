@@ -258,8 +258,13 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-08T19:42:27.516Z",
-    "modified": "2022-08-08T19:42:27.516Z",
-    "headers": [],
+    "modified": "2022-08-19T06:20:49.908Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -278,8 +283,13 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-08T19:42:27.517Z",
-    "modified": "2022-08-08T19:42:27.517Z",
-    "headers": [],
+    "modified": "2022-08-19T06:41:12.336Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -361,46 +371,6 @@
       "raw": "",
       "form": [],
       "binary": "{{igBase}}/bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
-    },
-    "tests": []
-  },
-  {
-    "_id": "7804ec2a-b60e-4782-83fb-e3ffffcd516b",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 20000,
-    "created": "2022-08-08T19:42:27.531Z",
-    "modified": "2022-08-08T19:42:27.531Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-10-no-screenings.xml"
-    },
-    "tests": []
-  },
-  {
-    "_id": "7c80ba78-ca69-419b-acae-336b269b0b3f",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 20000,
-    "created": "2022-08-08T19:42:27.532Z",
-    "modified": "2022-08-08T19:42:27.532Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-10-no-screenings.xml"
     },
     "tests": []
   },
@@ -864,13 +834,18 @@
     "_id": "7da36078-290b-4fdc-86da-fd7e480ece9f",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
-    "name": "REQUEST_RETURN_RECOMMENDATION",
-    "url": "{{cdsHooksServer}}/opioidcds-10",
+    "name": "REQUEST_RETURN_RECOMMENDATION_NO_SCREEN",
+    "url": "{{cdsHooksServer}}/opioidcds-10-order-sign",
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.550Z",
-    "modified": "2022-08-08T19:42:27.550Z",
-    "headers": [],
+    "modified": "2022-08-19T06:30:35.039Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -878,7 +853,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-no-screenings.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Annual Urine Screening Check"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "92a005e1-7157-4d78-84cd-125a2b308b0b",
@@ -889,8 +889,13 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.551Z",
-    "modified": "2022-08-08T19:42:27.551Z",
-    "headers": [],
+    "modified": "2022-08-19T06:49:26.990Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -898,7 +903,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Annual Urine Screening Check"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "7de6bd8e-5701-4ee6-9e82-1ed61fa35b76",
@@ -1295,46 +1325,6 @@
     ]
   },
   {
-    "_id": "9a225c74-2fee-4cc7-bc30-e6b0258d6688",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 30000,
-    "created": "2022-08-08T19:42:27.569Z",
-    "modified": "2022-08-08T19:42:27.569Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-10-end-of-life-med-exclusion.xml"
-    },
-    "tests": []
-  },
-  {
-    "_id": "58007aba-099a-4482-bc85-10601c83f23a",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 30000,
-    "created": "2022-08-08T19:42:27.572Z",
-    "modified": "2022-08-08T19:42:27.572Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-10-end-of-life-med-exclusion.xml"
-    },
-    "tests": []
-  },
-  {
     "_id": "e015296e-39b0-4a39-b1c2-4098c70142fe",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "e18914b8-fe97-4ccb-ad2e-b817ba45af55",
@@ -1689,26 +1679,6 @@
     ]
   },
   {
-    "_id": "2d0c86a2-badc-488f-85c3-9a961f60dcae",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
-    "name": "REQUEST_RETURN_NO_RECOMMENDATION",
-    "url": "{{cdsHooksServer}}/opioidcds-10",
-    "method": "POST",
-    "sortNum": 40000,
-    "created": "2022-08-08T19:42:27.592Z",
-    "modified": "2022-08-08T19:42:27.592Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC10/request-example-rec-10-end-of-life-med-exclusion.json"
-    },
-    "tests": []
-  },
-  {
     "_id": "83a94d8b-f81f-4f96-a781-ac03a9fa723e",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
@@ -1717,8 +1687,13 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2022-08-08T19:42:27.593Z",
-    "modified": "2022-08-08T19:42:27.593Z",
-    "headers": [],
+    "modified": "2022-08-19T06:52:16.977Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1726,7 +1701,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-end-of-life-med-exclusion.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "efb1a5ff-be14-415d-8b9b-2b15f82f3240",
@@ -2193,6 +2181,56 @@
         "custom": "json.cards.length",
         "action": "equal",
         "value": "0"
+      }
+    ]
+  },
+  {
+    "_id": "074a3868-044d-4bf6-9f5c-234e81a9bc66",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
+    "name": "REQUEST_RETURN_RECOMMENDATION_ILLICIT_DRUGS",
+    "url": "{{cdsHooksServer}}/opioidcds-10-order-sign",
+    "method": "POST",
+    "sortNum": 32500,
+    "created": "2022-08-19T06:23:02.556Z",
+    "modified": "2022-08-19T06:26:41.092Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-illicit-drugs.json"
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Positive Cocaine or PCP in Urine Screening"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "<br/>*Positive for PCP: <br/>2022-04-14<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
       }
     ]
   }
