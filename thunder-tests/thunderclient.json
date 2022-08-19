@@ -233,8 +233,13 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-08T19:42:27.515Z",
-    "modified": "2022-08-08T19:42:27.515Z",
-    "headers": [],
+    "modified": "2022-08-19T05:43:04.056Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -351,26 +356,6 @@
       "raw": "",
       "form": [],
       "binary": "{{igBase}}/bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
-    },
-    "tests": []
-  },
-  {
-    "_id": "5857ae0d-fb8f-42fc-89ef-5786b02ba3cd",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "3f2e1468-e24b-4dea-847d-1a6e5d7805ad",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 20000,
-    "created": "2022-08-08T19:42:27.530Z",
-    "modified": "2022-08-08T19:42:27.530Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-09-true-return-recommendations.json"
     },
     "tests": []
   },
@@ -849,8 +834,13 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.549Z",
-    "modified": "2022-08-08T19:42:27.549Z",
-    "headers": [],
+    "modified": "2022-08-19T05:48:30.328Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -858,7 +848,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC09/request-example-rec-09-in-criteria-met.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Notify: PDMP data for this patient has not been reviewed in the past 90 days."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "Medication requests(s): <Unable to determine medication name>"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "7da36078-290b-4fdc-86da-fd7e480ece9f",
@@ -1265,26 +1280,6 @@
     ]
   },
   {
-    "_id": "bc93529d-0562-442d-8e01-b190c15c468d",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "3f2e1468-e24b-4dea-847d-1a6e5d7805ad",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 30000,
-    "created": "2022-08-08T19:42:27.568Z",
-    "modified": "2022-08-08T19:42:27.568Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-09-false-due-to-PDMP-review-within-90-days.json"
-    },
-    "tests": []
-  },
-  {
     "_id": "9a225c74-2fee-4cc7-bc30-e6b0258d6688",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
@@ -1669,8 +1664,13 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2022-08-08T19:42:27.591Z",
-    "modified": "2022-08-08T19:42:27.591Z",
-    "headers": [],
+    "modified": "2022-08-19T05:51:47.740Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1678,7 +1678,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC09/request-example-rec-09-out-PDMP-review-90-days.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "2d0c86a2-badc-488f-85c3-9a961f60dcae",

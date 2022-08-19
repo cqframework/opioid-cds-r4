@@ -1,13 +1,10 @@
 {
   "hookInstance": "6a7fbd0e-f48e-4936-a2b6-dfeefed8575d",
   "fhirServer": "http://localhost:8080/fhir",
-  "hook": "order-select",
+  "hook": "order-sign",
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-09-true-return-recommendations",
-    "selections": [
-      "MedicationRequest/60640bf6-3845-4dbd-bf15-b2616118e8c8-3"
-    ],
     "draftOrders": {
       "resourceType": "Bundle",
       "type": "collection",
@@ -22,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-03"
+                    "valueDateTime": "2022-08-18"
                   },
                   {
                     "url": "frequency",
@@ -42,7 +39,7 @@
               {
                 "coding": [
                   {
-                    "system": "http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category",
+                    "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
                     "code": "community",
                     "display": "Community"
                   }
@@ -61,7 +58,7 @@
             "subject": {
               "reference": "Patient/example-rec-09-true-return-recommendations"
             },
-            "authoredOn": "2022-08-03",
+            "authoredOn": "2022-08-18",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,8 +73,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-08-03T00:00:00-06:00",
-                "end": "2022-11-02T00:00:00-06:00"
+                "start": "2022-08-18",
+                "end": "2022-11-18"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
@@ -106,7 +103,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -120,7 +117,7 @@
             ]
           }
         ],
-        "birthDate": "2002-08-03"
+        "birthDate": "2002-08-18"
       }
     },
     "item2": {
@@ -136,7 +133,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -154,9 +151,9 @@
         "code": {
           "coding": [
             {
-              "system": "TODO",
-              "code": "Not In VS",
-              "display": "PDMP Data Review"
+              "system": "http://snomed.info/sct",
+              "code": "461651000124104",
+              "display": "Review of prescription drug monitoring program record done (situation)"
             }
           ]
         },
@@ -164,8 +161,8 @@
           "reference": "Patient/example-rec-09-true-return-recommendations"
         },
         "performedPeriod": {
-          "start": "2018-04-08T00:00:00-06:00",
-          "end": "2018-04-09T00:00:00-06:00"
+          "start": "2018-04-18",
+          "end": "2018-04-18"
         }
       }
     }
