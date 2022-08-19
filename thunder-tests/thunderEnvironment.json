@@ -5,7 +5,7 @@
     "default": true,
     "sortNum": 10000,
     "created": "2022-08-17T23:29:44.876Z",
-    "modified": "2022-08-17T23:38:00.218Z",
+    "modified": "2022-08-19T19:22:35.285Z",
     "data": [
       {
         "name": "fhirServer",
@@ -14,10 +14,6 @@
       {
         "name": "cdsHooksServer",
         "value": "http://localhost:8080/cds-services"
-      },
-      {
-        "name": "igBase",
-        "value": "/Users/christopherschuler/Documents/workspace/cqframework/igs/opioid-cds-r4"
       }
     ]
   }
