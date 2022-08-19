@@ -768,7 +768,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.547Z",
-    "modified": "2022-08-18T21:48:17.623Z",
+    "modified": "2022-08-19T01:21:07.104Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -782,7 +782,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC05/request-example-rec-05-mme-greater-than-fifty.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "High risk for opioid overdose - taper now"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "Total morphine milligram equivalent (MME) is 180.0 '{MME}/d'. Taper to less than 50."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "9ec4493a-4410-45c7-8dca-5b5ed884a540",
@@ -1545,7 +1570,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2022-08-08T19:42:27.589Z",
-    "modified": "2022-08-18T21:48:27.201Z",
+    "modified": "2022-08-19T01:44:46.284Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1559,7 +1584,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC05/request-example-rec-05-mme-less-than-fifty.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "49b537ab-d029-4816-847e-f9f6925213b5",
