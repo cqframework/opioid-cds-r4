@@ -116,8 +116,8 @@
         </tr>
         <tr>
           <td class="col-7">Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696), once every 12 days for 30 days. Patient has condition indicating end of life (Carcinoma of endocrine pancreas). The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
-          <td><a href="requests/request-example-rec-10-patient-view-end-of-life-med-exclusion.json">Request JSON</a></td>
-          <td><a href="responses/response-example-rec-10-patient-view-end-of-life-med-exclusion.json">Response JSON</a></td>
+          <td><a href="requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-end-of-life-med-exclusion.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC10PatientView/response-example-rec-10-patient-view-end-of-life-med-exclusion.json">Response JSON</a></td>
         </tr>
       </tbody>
     </table>
