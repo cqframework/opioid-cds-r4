@@ -20,7 +20,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -34,7 +34,7 @@
             ]
           }
         ],
-        "birthDate": "2002-08-03"
+        "birthDate": "2002-08-18"
       }
     },
     "item2": null,
@@ -44,7 +44,27 @@
       },
       "resource": {
         "resourceType": "Condition",
-        "id": "64615597-1124-44bf-b0a5-ae5e45b45ea8",
+        "id": "example-rec-12-criteria-invalid",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-08-18"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
         "clinicalStatus": {
           "coding": [
             {
@@ -54,21 +74,123 @@
             }
           ]
         },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
         "code": {
           "coding": [
             {
-              "system": "TODO",
-              "code": "Not In VS",
-              "display": "Opioid Misuse Disorders"
+              "system": "http://snomed.info/sct",
+              "code": "191865004",
+              "display": "Combined opioid with other drug dependence"
             }
           ]
         },
         "subject": {
           "reference": "Patient/example-rec-12-criteria-invalid"
+        },
+        "recordedDate": "2022-06-18"
+      }
+    },
+    "item4": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "example-rec-12-criteria-invalid",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-08-18"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "community"
+              }
+            ]
+          }
+        ],
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1010600",
+              "display": "Buprenorphine 2 MG / Naloxone 0.5 MG Sublingual Film"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-rec-12-criteria-invalid"
+        },
+        "encounter": {
+          "reference": "Encounter/example-rec-12-criteria-invalid-context"
+        },
+        "authoredOn": "2022-08-18",
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 12.0,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "tablet",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tablet}"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2022-08-18",
+            "end": "2022-11-18"
+          },
+          "numberOfRepeatsAllowed": 3,
+          "expectedSupplyDuration": {
+            "value": 30.0,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
         }
       }
     },
-    "item4": null,
     "item5": null
   }
 }
