@@ -158,8 +158,13 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-08T19:42:27.512Z",
-    "modified": "2022-08-08T19:42:27.512Z",
-    "headers": [],
+    "modified": "2022-08-19T01:59:47.314Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -336,26 +341,6 @@
       "raw": "",
       "form": [],
       "binary": "{{igBase}}/bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
-    },
-    "tests": []
-  },
-  {
-    "_id": "6c6fde18-2b0c-45fd-aeb2-8dde8a3b2e8f",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "83de11e6-fee3-49e2-afc5-402fe6a28c69",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 20000,
-    "created": "2022-08-08T19:42:27.527Z",
-    "modified": "2022-08-08T19:42:27.527Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-06-with-extended-release-for-27-days.json"
     },
     "tests": []
   },
@@ -818,8 +803,13 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.548Z",
-    "modified": "2022-08-08T19:42:27.548Z",
-    "headers": [],
+    "modified": "2022-08-19T02:08:42.247Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -827,7 +817,32 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC06/request-example-rec-06-out-extended-release-27-days.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Recommend limit therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "Medication requests(s): <Unable to determine medication name>"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      }
+    ]
   },
   {
     "_id": "277cd1e8-ff4f-41fc-a27b-c6df5ae869d4",
@@ -1176,26 +1191,6 @@
         "value": "warning"
       }
     ]
-  },
-  {
-    "_id": "e4dfd170-7ca9-45d2-8a48-49aac46c485d",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "83de11e6-fee3-49e2-afc5-402fe6a28c69",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 30000,
-    "created": "2022-08-08T19:42:27.565Z",
-    "modified": "2022-08-08T19:42:27.565Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-06-criteria-valid.json"
-    },
-    "tests": []
   },
   {
     "_id": "6a0b6222-266e-49fe-8257-80be707d7607",
@@ -1608,8 +1603,13 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2022-08-08T19:42:27.590Z",
-    "modified": "2022-08-08T19:42:27.590Z",
-    "headers": [],
+    "modified": "2022-08-19T02:09:05.941Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1617,7 +1617,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC06/request-example-rec-06-in-criteria-met.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "e59e5d06-2742-4ffa-8ae6-8252a98dc9dd",
