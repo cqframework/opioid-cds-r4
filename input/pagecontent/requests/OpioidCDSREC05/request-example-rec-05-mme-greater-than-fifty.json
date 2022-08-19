@@ -21,6 +21,7 @@
                   {
                     "url": "dateLastUpdated",
                     "valueDateTime": "2022-08-18"
+
                   },
                   {
                     "url": "frequency",
@@ -34,6 +35,7 @@
                 ]
               }
             ],
+
             "status": "active",
             "intent": "order",
             "category": [
@@ -76,8 +78,9 @@
                   {
                     "doseQuantity": {
                       "value": 1.0,
+                      "unit": "patch",
                       "system": "http://unitsofmeasure.org",
-                      "unit": "PATCH"
+                      "code": "{patch}"
                     }
                   }
                 ]
