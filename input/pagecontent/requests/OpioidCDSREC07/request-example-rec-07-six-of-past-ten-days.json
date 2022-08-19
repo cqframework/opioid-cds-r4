@@ -1,14 +1,11 @@
 {
   "hookInstance": "d23ec776-f58a-4902-b0a4-6ef3d9f59309",
   "fhirServer": "http://localhost:8080/fhir",
-  "hook": "order-select",
+  "hook": "order-sign",
   "context": {
     "userId": "Practitioner/example",
     "patientId": "Patient/example-rec-07-six-of-past-ten-days",
     "encounterId": "Encounter/example-rec-07-six-of-past-ten-days-context",
-    "selections": [
-      "MedicationRequest/example-rec-07-six-of-past-ten-days-context"
-    ],
     "draftOrders": {
       "resourceType": "Bundle",
       "type": "collection",
@@ -23,12 +20,12 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-03"
+                    "valueDateTime": "2022-08-18"
                   },
                   {
                     "url": "frequency",
                     "valueDuration": {
-                      "value": 30.0,
+                      "value": 1.0,
                       "unit": "days",
                       "system": "http://unitsofmeasure.org",
                       "code": "d"
@@ -79,12 +76,12 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-08-03T00:00:00-06:00",
-                "end": "2022-11-02T00:00:00-06:00"
+                "start": "2022-08-18",
+                "end": "2022-11-18"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
-                "value": 6.0,
+                "value": 30.0,
                 "unit": "days",
                 "system": "http://unitsofmeasure.org",
                 "code": "d"
@@ -109,7 +106,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -147,7 +144,7 @@
         "subject": {
           "reference": "Patient/example-rec-07-six-of-past-ten-days"
         },
-        "authoredOn": "2022-07-24",
+        "authoredOn": "2022-07-09",
         "dosageInstruction": [
           {
             "timing": {
@@ -162,8 +159,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-07-24T00:00:00-06:00",
-            "end": "2022-08-03T00:00:00-06:00"
+            "start": "2022-07-09",
+            "end": "2022-07-19"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -188,7 +185,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -203,12 +200,23 @@
           }
         ],
         "status": "finished",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185463005",
+                "display": "Visit out of hours (procedure)"
+              }
+            ]
+          }
+        ],
         "subject": {
           "reference": "Patient/example-rec-07-six-of-past-ten-days"
         },
         "period": {
-          "start": "2022-07-24",
-          "end": "2022-07-24"
+          "start": "2022-07-09",
+          "end": "2022-07-09"
         }
       }
     },
@@ -225,7 +233,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-08-18"
               },
               {
                 "url": "frequency",
@@ -240,7 +248,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "1982-04-14"
+        "birthDate": "2002-08-18"
       }
     },
     "item4": null,

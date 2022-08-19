@@ -183,8 +183,13 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-08T19:42:27.513Z",
-    "modified": "2022-08-08T19:42:27.513Z",
-    "headers": [],
+    "modified": "2022-08-19T02:13:24.347Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -341,26 +346,6 @@
       "raw": "",
       "form": [],
       "binary": "{{igBase}}/bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
-    },
-    "tests": []
-  },
-  {
-    "_id": "a5140727-df91-4b3c-8944-36f62cc15c26",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION_7OF10",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 20000,
-    "created": "2022-08-08T19:42:27.528Z",
-    "modified": "2022-08-08T19:42:27.528Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-07-seven-of-past-ten-days.xml"
     },
     "tests": []
   },
@@ -573,8 +558,13 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.538Z",
-    "modified": "2022-08-08T19:42:27.538Z",
-    "headers": [],
+    "modified": "2022-08-19T04:23:50.719Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -582,7 +572,38 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-seven-of-past-ten-days.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "No evaluation for benefits and harms has been performed for the patient starting opioid therapy"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].suggestions[0].actions[0].resource.resourceType",
+        "action": "equal",
+        "value": "ServiceRequest"
+      }
+    ]
   },
   {
     "_id": "b58520cd-5326-41bd-bf4a-0d723ef670dd",
@@ -653,26 +674,6 @@
         "value": "warning"
       }
     ]
-  },
-  {
-    "_id": "5ed47362-b8b4-4ea8-bb38-cf19f7a08445",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
-    "name": "LOAD_PATIENT_DATA_RECOMMENDATION_63OF90",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 25000,
-    "created": "2022-08-08T19:42:27.543Z",
-    "modified": "2022-08-08T19:42:27.543Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-07-sixtythree-of-past-ninety-days.xml"
-    },
-    "tests": []
   },
   {
     "_id": "8534ef2c-e708-4366-ac39-d34106a3a83f",
@@ -1023,8 +1024,13 @@
     "method": "POST",
     "sortNum": 27500,
     "created": "2022-08-08T19:42:27.557Z",
-    "modified": "2022-08-08T19:42:27.557Z",
-    "headers": [],
+    "modified": "2022-08-19T04:50:32.434Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1032,7 +1038,38 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-sixtythree-of-past-ninety-days.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].summary",
+        "action": "equal",
+        "value": "Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently."
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "No evaluation for benefits and harms associated with opioid therapy has been performed for the patient in the past 3 months"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].indicator",
+        "action": "equal",
+        "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].suggestions[0].actions[0].resource.resourceType",
+        "action": "equal",
+        "value": "ServiceRequest"
+      }
+    ]
   },
   {
     "_id": "50b9f93e-455b-4c66-97dc-dfd252618db2",
@@ -1193,26 +1230,6 @@
     ]
   },
   {
-    "_id": "6a0b6222-266e-49fe-8257-80be707d7607",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION_EOLE",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 30000,
-    "created": "2022-08-08T19:42:27.566Z",
-    "modified": "2022-08-08T19:42:27.566Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-07-end-of-life-exclusion.xml"
-    },
-    "tests": []
-  },
-  {
     "_id": "a6590515-c51a-4dcc-90fe-ab3ac5bdb042",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
@@ -1359,8 +1376,13 @@
     "method": "POST",
     "sortNum": 35000,
     "created": "2022-08-08T19:42:27.576Z",
-    "modified": "2022-08-08T19:42:27.576Z",
-    "headers": [],
+    "modified": "2022-08-19T02:14:33.689Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1368,7 +1390,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-end-of-life-exclusion.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "db06b613-678d-46e2-ab0b-1f61c24ca355",
@@ -1515,26 +1550,6 @@
         "value": "0"
       }
     ]
-  },
-  {
-    "_id": "b931b5e5-cd2c-4966-a8ec-a3eb97a0441d",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION_RA",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 40000,
-    "created": "2022-08-08T19:42:27.585Z",
-    "modified": "2022-08-08T19:42:27.585Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-07-risk-assessment.xml"
-    },
-    "tests": []
   },
   {
     "_id": "9f296bea-2b0c-406f-adb5-cc12dc661b4a",
@@ -1759,8 +1774,13 @@
     "method": "POST",
     "sortNum": 45000,
     "created": "2022-08-08T19:42:27.596Z",
-    "modified": "2022-08-08T19:42:27.596Z",
-    "headers": [],
+    "modified": "2022-08-19T02:18:38.167Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1768,7 +1788,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-risk-assessment.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "fec9233f-e865-4364-8b3a-b90a8e91d001",
@@ -1859,26 +1892,6 @@
     ]
   },
   {
-    "_id": "99c9aa17-8cc9-47a4-bc97-d2bf311a1cfb",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION_6OF10",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 50000,
-    "created": "2022-08-08T19:42:27.601Z",
-    "modified": "2022-08-08T19:42:27.601Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-07-six-of-past-ten-days.xml"
-    },
-    "tests": []
-  },
-  {
     "_id": "694d27b1-4284-4711-b4a4-608023bea78f",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
@@ -1945,8 +1958,13 @@
     "method": "POST",
     "sortNum": 55000,
     "created": "2022-08-08T19:42:27.606Z",
-    "modified": "2022-08-08T19:42:27.606Z",
-    "headers": [],
+    "modified": "2022-08-19T04:28:27.623Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -1954,27 +1972,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-six-of-past-ten-days.json"
     },
-    "tests": []
-  },
-  {
-    "_id": "a8aa5912-d2f7-4b8c-a2b0-e9301dd8081f",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
-    "name": "LOAD_PATIENT_DATA_NO_RECOMMENDATION_62OF90",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 60000,
-    "created": "2022-08-08T19:42:27.607Z",
-    "modified": "2022-08-08T19:42:27.607Z",
-    "headers": [],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "{{igBase}}/input/examples/bundle-example-rec-07-sixtytwo-of-past-ninety-days.xml"
-    },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "ed511944-ff88-47bf-aed2-a0537b5f64f9",
@@ -2061,8 +2072,13 @@
     "method": "POST",
     "sortNum": 70000,
     "created": "2022-08-08T19:42:27.610Z",
-    "modified": "2022-08-08T19:42:27.610Z",
-    "headers": [],
+    "modified": "2022-08-19T04:56:44.890Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
     "params": [],
     "body": {
       "type": "binary",
@@ -2070,7 +2086,20 @@
       "form": [],
       "binary": "{{igBase}}/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-sixtytwo-of-past-ninety-days.json"
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards.length",
+        "action": "equal",
+        "value": "0"
+      }
+    ]
   },
   {
     "_id": "e3be1964-d851-440f-a537-7f1ab874e1ae",
