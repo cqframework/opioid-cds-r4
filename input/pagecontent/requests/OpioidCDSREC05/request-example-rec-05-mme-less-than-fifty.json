@@ -14,6 +14,7 @@
           "resource": {
             "resourceType": "MedicationRequest",
             "id": "example-rec-05-mme-less-than-fifty-context",
+
             "extension": [
               {
                 "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",

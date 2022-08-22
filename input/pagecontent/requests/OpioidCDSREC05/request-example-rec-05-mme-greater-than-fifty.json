@@ -76,8 +76,9 @@
                   {
                     "doseQuantity": {
                       "value": 1.0,
-                      "unit": "PATCH",
-                      "system": "http://unitsofmeasure.org"
+                      "unit": "patch",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "{patch}"
                     }
                   }
                 ]
