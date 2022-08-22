@@ -1,31 +1,31 @@
 <Patient xmlns="http://hl7.org/fhir">
-    <id value="example-opioidcds"/>
-    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-        <extension url="dateLastUpdated">
-            <valueDateTime value="2022-04-28"/>
-        </extension>
-        <extension url="frequency">
-            <valueDuration>
-                <value value="30.0"/>
-                <unit value="days"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="d"/>
-            </valueDuration>
-        </extension>
-    </extension>
-    <name>
-        <family value="example"/>
-        <given value="opioidcds"/>
-    </name>
-    <gender value="male"/>
-    <birthDate value="1982-01-07"/>
-    <address>
-        <use value="home"/>
-        <type value="postal"/>
-        <line value="751 E Apple Drive"/>
-        <city value="Novi"/>
-        <district value="Oakland County"/>
-        <state value="MI"/>
-        <postalCode value="48376"/>
-    </address>
+   <id value="example-opioidcds"></id>
+   <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+      <extension url="dateLastUpdated">
+         <valueDateTime value="2022-08-03"></valueDateTime>
+      </extension>
+      <extension url="frequency">
+         <valueDuration>
+            <value value="30.0"></value>
+            <unit value="days"></unit>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="d"></code>
+         </valueDuration>
+      </extension>
+   </extension>
+   <name>
+      <family value="example"></family>
+      <given value="opioidcds"></given>
+   </name>
+   <gender value="male"></gender>
+   <birthDate value="1982-04-14"></birthDate>
+   <address>
+      <use value="home"></use>
+      <type value="postal"></type>
+      <line value="751 E Apple Drive"></line>
+      <city value="Novi"></city>
+      <district value="Oakland County"></district>
+      <state value="MI"></state>
+      <postalCode value="48376"></postalCode>
+   </address>
 </Patient>

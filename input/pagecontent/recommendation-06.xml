@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec06"> </a>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#6_Long_term_opioid_use" target="_blank">Recommendation #6:</a></p>
   <p>
     <strong>Long-term opioid use often begins with treatment of acute pain. When opioids are used for acute pain, clinicians should prescribe the lowest effective dose of immediate-release opioids and should prescribe no greater quantity than needed
@@ -86,19 +86,17 @@
     <table class="grid">
       <thead>
         <tr>
-          <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+          <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="col-7">Patient is 18 or older. Patient has been prescribed oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet (RXNorm 1049502). Patients "Dosage Instructions" are 1 Tablet per day for 29 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
-          <td><a href="Bundle-example-rec-06-criteria-valid.html">Test Bundle</a></td>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet (RXNorm 1049502). Patients "Dosage Instructions" are 1 Tablet per day for 5 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
           <td><a href="requests/OpioidCDSREC06/request-example-rec-06-in-criteria-met.json">Request JSON</a></td>
           <td><a href="responses/OpioidCDSREC06/response-example-rec-06-in-criteria-met.json">Response JSON</a></td>
         </tr>
         <tr>
-          <td class="col-7">Patient is 18 or older. Patient has been prescribed oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet (RXNorm 1049502).Patients "Dosage Instructions" are 1 Tablet per day for 27 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned. </td>
-          <td><a href="Bundle-example-rec-06-with-extended-release-for-27-days.html">Test Bundle</a></td>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet (RXNorm 1049502).Patients "Dosage Instructions" are 1 Tablet per day for 27 days. The patient will be included and the following message will be triggered - "Recommend limit therapy to ≤ 3 days to maximum of ≤ 7 days and to limit to immediate release opioids".</td>
           <td><a href="requests/OpioidCDSREC06/request-example-rec-06-out-extended-release-27-days.json">Request JSON</a></td>
           <td><a href="responses/OpioidCDSREC06/response-example-rec-06-out-extended-release-27-days.json">Response JSON</a></td>
         </tr>
