@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-18"
+                    "valueDateTime": "2022-08-22"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-05-mme-less-than-fifty-context"
             },
-            "authoredOn": "2022-08-18",
+            "authoredOn": "2022-08-22",
             "dosageInstruction": [
               {
                 "timing": {
@@ -86,8 +86,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-08-18",
-                "end": "2023-02-18"
+                "start": "2022-08-22T00:00:00-06:00",
+                "end": "2023-02-22T00:00:00-07:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {

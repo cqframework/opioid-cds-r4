@@ -171,7 +171,9 @@
     },
     "item2": null,
     "item3": {
-      "response": null,
+      "response": {
+        "status": "200 OK"
+      },
       "resource": {
         "resourceType": "Condition",
         "id": "example-rec-08-order-sign",

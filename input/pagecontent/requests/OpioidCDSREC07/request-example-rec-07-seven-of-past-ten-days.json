@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-18"
+                    "valueDateTime": "2022-08-22"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-07-seven-of-past-ten-days-context"
             },
-            "authoredOn": "2022-08-18",
+            "authoredOn": "2022-08-22",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,8 +76,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-08-18",
-                "end": "2022-11-18"
+                "start": "2022-08-22T00:00:00-06:00",
+                "end": "2022-11-22T00:00:00-07:00"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
@@ -106,12 +106,12 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-18"
+                "valueDateTime": "2022-08-22"
               },
               {
                 "url": "frequency",
                 "valueDuration": {
-                  "value": 30.0,
+                  "value": 1.0,
                   "unit": "days",
                   "system": "http://unitsofmeasure.org",
                   "code": "d"
@@ -144,7 +144,7 @@
         "subject": {
           "reference": "Patient/example-rec-07-seven-of-past-ten-days"
         },
-        "authoredOn": "2022-08-10",
+        "authoredOn": "2022-08-14",
         "dosageInstruction": [
           {
             "timing": {
@@ -159,8 +159,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-08-10",
-            "end": "2022-08-18"
+            "start": "2022-08-14",
+            "end": "2022-08-22"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -172,24 +172,25 @@
         }
       }
     },
-    "item2":  {
+    "item2": {
       "response": {
         "status": "200 OK"
       },
       "resource": {
         "resourceType": "Encounter",
+        "id": "example-rec-07-seven-of-past-ten-days-prefetch",
         "extension": [
           {
             "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-18"
+                "valueDateTime": "2022-08-22"
               },
               {
                 "url": "frequency",
                 "valueDuration": {
-                  "value": 30.0,
+                  "value": 1.0,
                   "unit": "days",
                   "system": "http://unitsofmeasure.org",
                   "code": "d"
@@ -198,7 +199,6 @@
             ]
           }
         ],
-        "id": "example-rec-07-seven-of-past-ten-days-prefetch",
         "status": "finished",
         "type": [
           {
@@ -215,8 +215,8 @@
           "reference": "Patient/example-rec-07-seven-of-past-ten-days"
         },
         "period": {
-          "start" :"2022-08-08",
-          "end": "2022-08-08"
+          "start": "2022-08-12",
+          "end": "2022-08-12"
         }
       }
     },
