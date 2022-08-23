@@ -1,7 +1,7 @@
 ### Introduction
 
 This implementation guide provides resources and discussion in support of applying the Centers
-for Disease Control and Prevention (CDC) Opioid Prescribing Guidelines:
+for Disease Control and Prevention (CDC) 2016 Opioid Prescribing Guideline:
 
 [CDC guideline for prescribing opioids for chronic pain](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm)
 
@@ -13,7 +13,7 @@ clinical quality measurement.
 
 This project is a joint effort by the Centers for Disease Control and Prevention (CDC) and the
 Office of the National Coordinator for Health IT (ONC) focused on improving processes for the
-development of standardized, shareable, computable decision support artifacts using the CDC Opioid
+development of standardized, shareable, computable decision support artifacts using the CDC 2016 Opioid
 Prescribing Guideline as a model case.
 
 ### Scope
