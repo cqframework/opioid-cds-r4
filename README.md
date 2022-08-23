@@ -12,6 +12,8 @@ The guide currently includes artifacts to support all 12 recommendations contain
 
 Feedback and issues can be submitted via the [issues](issues) page, and will be incorporated into subsequent releases as time and resources allow.
 
+Contributions must follow the commit policy defined [here](/commit_policy.md)
+
 ## Repository and Build Information
 
 This repository contains the source for the Opioid Prescribing Support Implementation Guide, and uses the [FHIR Implementation Guide publisher](http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation) to produce a FHIR Implementation Guide.

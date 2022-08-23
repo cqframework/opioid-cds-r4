@@ -1,33 +1,33 @@
 <Observation xmlns="http://hl7.org/fhir">
-    <id value="example-opioidcds"/>
-    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
-        <extension url="dateLastUpdated">
-            <valueDateTime value="2022-04-28"/>
-        </extension>
-        <extension url="frequency">
-            <valueDuration>
-                <value value="30.0" />
-                <unit value="days"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="d"/>
-            </valueDuration>
-        </extension>
-    </extension>
-    <status value="final"/>
-    <code>
-        <coding>
-            <system value="http://loinc.org"/>
-            <code value="3779-6"/>
-        </coding>
-    </code>
-    <subject>
-        <reference value="Patient/example-opioidcds"/>
-    </subject>
-    <effectiveDateTime value="2022-04-28"/>
-    <interpretation>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
-            <code value="POS"/>
-        </coding>
-    </interpretation>
+   <id value="example-opioidcds"></id>
+   <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+      <extension url="dateLastUpdated">
+         <valueDateTime value="2022-08-03"></valueDateTime>
+      </extension>
+      <extension url="frequency">
+         <valueDuration>
+            <value value="30.0"></value>
+            <unit value="days"></unit>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="d"></code>
+         </valueDuration>
+      </extension>
+   </extension>
+   <status value="final"></status>
+   <code>
+      <coding>
+         <system value="http://loinc.org"></system>
+         <code value="3779-6"></code>
+      </coding>
+   </code>
+   <subject>
+      <reference value="Patient/example-opioidcds"></reference>
+   </subject>
+   <effectiveDateTime value="2022-08-03"></effectiveDateTime>
+   <interpretation>
+      <coding>
+         <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"></system>
+         <code value="POS"></code>
+      </coding>
+   </interpretation>
 </Observation>

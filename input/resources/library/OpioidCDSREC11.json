@@ -62,10 +62,6 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications"
   }, {
     "type": "depends-on",
-    "display": "Value set Active MedicationRequest",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
-  }, {
-    "type": "depends-on",
     "display": "Value set Encounter Diagnosis Condition Category",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
   }, {
@@ -187,74 +183,19 @@
       "path": "id"
     } ]
   }, {
-    "type": "Medication",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-    "mustSupport": [ "id" ],
-    "codeFilter": [ {
-      "path": "id"
-    } ]
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status" ],
-    "codeFilter": [ {
-      "path": "status",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
-    } ]
+    "mustSupport": [ "authoredOn", "medication" ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "authoredOn", "medication", "category", "medication.reference", "id", "intent", "subject", "recorder", "dosageInstruction", "dispenseRequest" ],
-    "codeFilter": [ {
-      "path": "status",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
-    } ]
-  }, {
-    "type": "Medication",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-    "mustSupport": [ "id" ],
-    "codeFilter": [ {
-      "path": "id"
-    } ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "authoredOn", "medication", "category", "medication.reference", "id", "intent", "subject", "recorder", "dosageInstruction", "dispenseRequest" ],
-    "codeFilter": [ {
-      "path": "status",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
-    } ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status" ],
-    "codeFilter": [ {
-      "path": "status",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
-    } ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "authoredOn", "medication", "category", "medication.reference", "id", "intent", "subject", "recorder", "dosageInstruction", "dispenseRequest" ],
-    "codeFilter": [ {
-      "path": "status",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
-    } ]
-  }, {
-    "type": "Medication",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-    "mustSupport": [ "id" ],
-    "codeFilter": [ {
-      "path": "id"
-    } ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "authoredOn", "medication", "category", "medication.reference", "id", "intent", "subject", "recorder", "dosageInstruction", "dispenseRequest" ],
-    "codeFilter": [ {
-      "path": "status",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active"
-    } ]
+    "mustSupport": [ "authoredOn", "medication" ]
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],

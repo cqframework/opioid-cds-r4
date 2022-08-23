@@ -96,7 +96,7 @@
     <table class="grid">
       <thead>
         <tr>
-          <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
+          <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
         </tr>
       </thead>
       <tbody>
@@ -108,9 +108,13 @@
             ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
             <br />
             iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. </td>
-          <td><a href="Bundle-example-rec-10-no-screenings.html">Test Bundle</a></td>
-          <td><a href="requests/OpioidCDSREC10/request-example-rec-10-no-screenings.json">Request JSON</a></td>
-          <td><a href="responses/OpioidCDSREC10/response-example-rec-10-no-screenings.json">Response JSON</a></td>
+          <td><a href="requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-no-screenings.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC10OrderSign/response-example-rec-10-order-sign-no-screenings.json">Response JSON</a></td>
+        </tr>
+        <tr>
+          <td class="col-7">Patient 18 or older. Patient is being prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RxNorm code 197696) and a urine screening with the prescence of Phencyclidine is present. This triggers the message "Positive Cocaine or PCP in Urine Screening" with a note explaining this may be a false positive or indicate recreational or addictive use.</td>
+          <td><a href="requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-illicit-drugs.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC10OrderSign/response-example-rec-10-order-sign-illicit-drugs.json">Response JSON</a></td>
         </tr>
       </tbody>
     </table>
