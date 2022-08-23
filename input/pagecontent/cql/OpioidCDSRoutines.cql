@@ -64,7 +64,7 @@ define "Order For Palliative Care In Past 90 Days":
   exists (
     Common."Service Requests" SR
     where SR.status in { 'active', 'completed'}
-      and not IsNull(SR.intent)
+      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}
       and FHIRHelpers.ToDateTime(SR.authoredOn) during day of "Palliative Care Lookback Period"
       and SR.code in Common."Therapies indicating end of life care"
   )
