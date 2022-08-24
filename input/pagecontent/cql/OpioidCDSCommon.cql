@@ -53,6 +53,7 @@ valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/Valu
 valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
 valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
 valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
+valueset "Sickle Cell Diseases": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/sickle-cell-diseases'
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
@@ -300,6 +301,11 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
   singleton from (
     coding C where C.system = 'http://www.nlm.nih.gov/research/umls/rxnorm'
   )
+
+define "Positive Sickle Cell Condition":
+    "US Core-Categorized Conditions" C
+    where C.code in "Sickle Cell Diseases"
+        and C.clinicalStatus in "Active Condition"
 
  define "Service Requests":
    [ServiceRequest] SR

@@ -153,3 +153,23 @@ v: {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "D57"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Sickle-cell disorders",
+  "code" : "D57",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "D57.1"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Sickle-cell disease without crisis",
+  "code" : "D57.1",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+}
+-------------------------------------------------------------------------------------
