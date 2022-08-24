@@ -4,106 +4,113 @@
     <strong>Before starting opioid therapy for chronic pain, clinicians should establish treatment goals with all patients, including realistic goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do
       not outweigh risks. Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function that outweighs risks to patient safety (recommendation category: A, evidence type: 4).</strong>
   </p>
-  <html>
-      <body>
-        <details open="true">
-          <summary>
-            <h3 class="title">Functional Description</h3>
-          </summary>
-          <a name="funcdesc"> </a>
-          {% include recommendation02-functional-description.html %}
-          <p></p>
-          <img src="assets/images/Recommendation02-flow.png" style="max-width: 100%;" />
-          <p></p>
-          <img src="assets/images/Recommendation02-Definitions.png" style="max-width: 100%;" />
-        </details>
-        <p></p>
-        <details>
-          <summary>
-            <h3 class="title">For Chronic Pain</h3>
-          </summary>
-          {% include for-chronic-pain-definitions.html %}
-        </details>
-        <p></p>
-        <details>
-          <summary>
-            <h3 class="title">Opioid Review Useful Definitions</h3>
-          </summary>
-          {% include opioid-review-useful-definitions.html %}
-        </details>
-        <p></p>
-        <details>
-          <summary>
-            <h3 class="title">Opioid Naive Definitions</h3>
-          </summary>
-          {% include opioid-naive-definitions.html %}
-        </details>
-        <p></p>
-        <details>
-          <a name="content"> </a>
-          <summary>
-            <h3 class="title">Content</h3>
-          </summary>
 
-          <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+  <div class="toc-container">
+    <p class="toc-title">Contents</p>
+    <ul id="toc-list">
+      <li><a href="#functional-description">Functional Description</a></li>
+      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
+      <li><a href="#opioid-naive">Opioid Naive</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#example-data-requests">Example Data/Requests</a></li>
+    </ul>
+  </div>
 
-          <a name="commonlibraries"> </a>
-          <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
+  <details class="tree-nav__item is-expandable" open="true">
+    <summary class="tree-nav__item-title">
+      <a name="functional-description"> </a>
+      <h3 class="title">Functional Description</h3>
+    </summary>
 
-          <p></p>
+    {% include recommendation02-functional-description.html %}
 
-          <table class="list">
-            <thead>
-              <tr>
-                <th>Resource</th>
-                <th>Type</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href="PlanDefinition-opioidcds-02.html">CDC Opioid Prescribing Guideline Recommendation #2</a></td>
-                <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-                <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #2</td>
-              </tr>
-              <tr>
-                <td><a href="Library-OpioidCDSREC02.html">Recommendation #2 - Opioid Therapy Goals Discussion</a></td>
-                <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
-                <td>Defines the data requirements to support evaluation of recommendation #2</td>
-              </tr>
-            </tbody>
-          </table>
-        </details>
-        <p></p>
-          <p></p>
-<details>
-          <!-- Example Data/Requests -->
-  <summary>
-          <a name="exampledatarequests"> </a>
-          <h3>Example Data/Requests</h3>
-  </summary>
-          <table class="grid">
-              <thead>
-                <tr>
-                  <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                    <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored “Today” as well as an Opioid Treatment Care Plan updated 89 days prior to today. Patients “Dosage Instructions” are 1 Film per day for 30 days. This patient will not trigger any cards and there should not be a recommendation message.This will result in a summary message: “Recommend creation, review or update of opioid treatment plan.” CarePlan.category.code needs to be Common.”Opioid Treatment Plan…”</td>
-                    <td><a href="Bundle-example-rec-02-true-make-recommendations.html">Test Bundle example-rec-02-true-make-recommendations</a></td>
-                    <td><a href="requests/OpioidCDSREC02/request-example-rec-02-in-careplan-revisited.json">Request JSON example-rec-02-in-careplan-revisited</a></td>
-                    <td><a href="responses/OpioidCDSREC02/response-example-rec-02-in-careplan-revisited.json">Response JSON example-rec-02-in-careplan-revisited</a></td>
-                  </tr>
-                  <tr>
-                    <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored “Today” as well as a Care Plan most recently updated 120 days prior to today. Patients “Dosage Instructions” are 1 Film per day for 30 days.  Due to the most recent review of the Care Plan having been conducted more than 89 days prior to today this will result in a summary message: “Recommend creation, review or update of opioid treatment plan. CarePlan.category.code needs to be Common.”Opioid Treatment Plan…”</td>
-                    <td><a href="Bundle-example-rec-02-false-due-to-careplan-within-90-days.html">Test Bundle example-rec-02-false-due-to-careplan-within-90-days</a></td>
-                    <td><a href="requests/OpioidCDSREC02/request-example-rec-02-out-careplan-not-revisited.json">Request JSON example-rec-02-out-careplan-not-revisited</a></td>
-                    <td><a href="responses/OpioidCDSREC02/response-example-rec-02-out-careplan-not-revisited.json">Response JSON example-rec-02-out-careplan-not-revisited</a></td>
-                  </tr>
-              </tbody>
-          </table>
-        </details>
-      </body>
-  </html>
+    <img src="assets/images/Recommendation02-flow.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation02-data-elements.html %}
+  </details>
+  <p></p>
+  <a href="PlanDefinition-opioidcds-02.html#effective-data-requirements">Effective Data Requirements</a>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="for-chronic-pain"> </a>
+      <h3 class="title">For Chronic Pain</h3>
+    </summary>
+    {% include for-chronic-pain-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="opioid-review-useful"> </a>
+      <h3 class="title">Opioid Review Useful Definitions</h3>
+    </summary>
+    {% include opioid-review-useful-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="opioid-naive"> </a>
+      <h3 class="title">Opioid Naive Definitions</h3>
+    </summary>
+    {% include opioid-naive-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="content"> </a>
+      <h3 class="title">Content</h3>
+    </summary>
+
+    <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+
+    <table class="list">
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="PlanDefinition-opioidcds-02.html">CDC Opioid Prescribing Guideline Recommendation #2</a></td>
+          <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
+          <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #2</td>
+        </tr>
+        <tr>
+          <td><a href="Library-OpioidCDSREC02.html">Recommendation #2 - Opioid Therapy Goals Discussion</a></td>
+          <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
+          <td>Defines the data requirements to support evaluation of recommendation #2</td>
+        </tr>
+        {% include common-libraries.html %}
+      </tbody>
+    </table>
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="example-data-requests"> </a>
+      <h3>Example Data/Requests</h3>
+    </summary>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored "Today" as well as an Opioid Treatment Care Plan updated 89 days prior to today. Patients "Dosage Instructions" are 1 Film per day for 30 days. This patient will not trigger any cards and there should not be a recommendation message.</td>
+            <td><a href="requests/OpioidCDSREC02/request-example-rec-02-in-careplan-revisited.json">Request JSON example-rec-02-in-careplan-revisited</a></td>
+            <td><a href="responses/OpioidCDSREC02/response-example-rec-02-in-careplan-revisited.json">Response JSON example-rec-02-in-careplan-revisited</a></td>
+          </tr>
+          <tr>
+            <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored "Today" as well as a Care Plan most recently updated 120 days prior to today. Patients "Dosage Instructions" are 1 Film per day for 30 days. Due to the most recent review of the Care Plan having been conducted more than 89 days prior to today this will result in a summary message: "Recommend creation, review or update of opioid treatment plan."</td>
+            <td><a href="requests/OpioidCDSREC02/request-example-rec-02-out-careplan-not-revisited.json">Request JSON example-rec-02-out-careplan-not-revisited</a></td>
+            <td><a href="responses/OpioidCDSREC02/response-example-rec-02-out-careplan-not-revisited.json">Response JSON example-rec-02-out-careplan-not-revisited</a></td>
+          </tr>
+      </tbody>
+    </table>
+  </details>
 </div>

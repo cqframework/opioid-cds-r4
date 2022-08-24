@@ -25,10 +25,10 @@
     <dependsOn>
         <uri value="http://hl7.fhir.us.cqfmeasures"/>
         <packageId value="hl7.fhir.us.cqfmeasures"/>
-        <version value="2.0.0"/>
+        <version value="3.0.0"/>
     </dependsOn>
     <dependsOn>
-        <uri value="http://fhir.org/guides/cdc/opioid-cds/Library/MMECalculator"/>
+        <uri value="http://fhir.org/guides/cdc/opioid-mme-r4"/>
         <packageId value="fhir.cdc.opioid-mme-r4"/>
         <version value="3.0.0"/>
     </dependsOn>
@@ -352,178 +352,6 @@
             <description value="A Device that represents a CQF Tooling version."/>
             <exampleBoolean value="false"/>
         </resource>
-
-        <!-- PlanDefinition -->
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-01"/>
-                <display value="Recommendation #1 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC01PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #1 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-02"/>
-                <display value="Recommendation #2 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC02PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #2 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-03"/>
-                <display value="Recommendation #3 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC03PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #3 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-04"/>
-                <display value="Recommendation #4 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC04PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #4 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-04-patient-view"/>
-                <display value="Recommendation #4 (patient-view) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC04PatientViewPlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #4 (patient-view)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-05"/>
-                <display value="Recommendation #5 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC05PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #5 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-06"/>
-                <display value="Recommendation #6 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC06PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #6 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-07"/>
-                <display value="Recommendation #7 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC07PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #7 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-08"/>
-                <display value="Recommendation #8 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC08PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #8 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-08-order-sign"/>
-                <display value="Recommendation #8 (order-sign) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC08OrderSignPlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #8 (order-sign)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-09"/>
-                <display value="Recommendation #9 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC09PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #9 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-10"/>
-                <display value="Recommendation #10 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC10PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #10 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-10-order-sign"/>
-                <display value="Recommendation #10 (order-sign) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC10OrderSignPlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #10 (order-sign)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-10-patient-view"/>
-                <display value="Recommendation #10 (patient-view) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC10PatientViewPlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-11"/>
-                <display value="Recommendation #11 (order-select) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC11PlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #11 (order-select)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-11-patient-view"/>
-                <display value="Recommendation #11 (patient-view) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC11PatientViewPlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #11 (patient-view)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="PlanDefinition/opioidcds-12-patient-view"/>
-                <display value="Recommendation #12 (patient-view) PlanDefinition"/>
-            </reference>
-            <name value="OpioidCDSREC12PatientViewPlanDefinition"/>
-            <description value="A PlanDefinition for CDC Opioid Prescribing Guideline Recommendation #12 (patient-view)"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="plandefinitions"/>
-        </resource>
         <!-- Pages -->
         <page>
           <nameUrl value="toc.html" />
@@ -615,41 +443,6 @@
             <generation value="html" />
           </page>
           <page>
-            <nameUrl value="common.html" />
-            <title value="Common Libraries" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-common-cql.html" />
-              <title value="OpioidCDS Common - CQL Source" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="opioidcds-omtk-data-2019-cql.html" />
-              <title value="OpioidCDS OMTK Data (2019) - CQL Source" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="opioidcds-omtk-data-2020-cql.html" />
-              <title value="OpioidCDS OMTK Data (2020) - CQL Source" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="opioidcds-omtk-logic-2019-cql.html" />
-              <title value="OpioidCDS OMTK Logic (2019) - CQL Source" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="opioidcds-omtk-logic-2020-cql.html" />
-              <title value="OpioidCDS OMTK Logic (2020) - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-            <page>
-                <nameUrl value="acute-pain.html" />
-                <title value="Acute Pain Decision Documentation" />
-                <generation value="markdown" />
-            </page>
-          <page>
             <nameUrl value="chronic-pain.html" />
             <title value="Chronic Pain Decision Documentation" />
             <generation value="markdown" />
@@ -685,17 +478,22 @@
             </page>
           </page>
           <page>
-            <nameUrl value="recommendation-04.html" />
-            <title value="Recommendation #4 - Opioid Immediate Release Form When Starting Opioid Therapy" />
+            <nameUrl value="recommendation-04-order-sign.html" />
+            <title value="Recommendation #4 Order Sign Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-04-cql.html" />
-              <title value="OpioidCDS Recommendation 04 - CQL Source" />
+              <title value="OpioidCDS Recommendation 04 Order Sign - CQL Source" />
               <generation value="html" />
             </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-04-patient-view.html" />
+            <title value="Recommendation #4 Patient View Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
+            <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-04-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 04 (patient view)- CQL Source" />
+              <title value="OpioidCDS Recommendation 04 Patient View - CQL Source" />
               <generation value="html" />
             </page>
           </page>
@@ -741,7 +539,7 @@
           </page>
           <page>
             <nameUrl value="recommendation-09.html" />
-            <title value="Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions" />
+            <title value="Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-09-cql.html" />
@@ -750,32 +548,42 @@
             </page>
           </page>
           <page>
-            <nameUrl value="recommendation-10.html" />
-            <title value="Recommendation #10 - Urine Drug Testing" />
+            <nameUrl value="recommendation-10-order-sign.html" />
+            <title value="Recommendation #10 Order Sign Variation - Urine Drug Testing" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-10-cql.html" />
-              <title value="OpioidCDS Recommendation 10 - CQL Source" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 10 (patient-view) - CQL Source" />
+              <title value="OpioidCDS Recommendation 10 Order Sign - CQL Source" />
               <generation value="html" />
             </page>
           </page>
           <page>
-            <nameUrl value="recommendation-11.html" />
-            <title value="Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines" />
+            <nameUrl value="recommendation-10-patient-view.html" />
+            <title value="Recommendation #10 Patient View Variation - Urine Drug Testing" />
+            <generation value="html" />
+            <page>
+              <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
+              <title value="OpioidCDS Recommendation 10 Patient View - CQL Source" />
+              <generation value="html" />
+            </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-11-order-select.html" />
+            <title value="Recommendation #11 Order Select Variation - Concurrent Use of Opioids and Benzodiazepines" />
             <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-11-cql.html" />
-              <title value="OpioidCDS Recommendation 11 - CQL Source" />
+              <title value="OpioidCDS Recommendation 11 Order Select - CQL Source" />
               <generation value="html" />
             </page>
+          </page>
+          <page>
+            <nameUrl value="recommendation-11-patient-view.html" />
+            <title value="Recommendation #11 Patient View Variation - Concurrent Use of Opioids and Benzodiazepines" />
+            <generation value="html" />
             <page>
               <nameUrl value="opioidcds-recommendation-11-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 11 (patient-view) - CQL Source" />
+              <title value="OpioidCDS Recommendation 11 Patient View - CQL Source" />
               <generation value="html" />
             </page>
           </page>

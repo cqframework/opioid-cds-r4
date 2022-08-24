@@ -7,119 +7,119 @@
       overdose, such as history of overdose, history of substance use disorder, higher opioid dosages
       (≥50 MME/day), or concurrent benzodiazepine use, are present <em>(recommendation category: A, evidence type: 4)</em>.</strong>
   </p>
-  <html>
-    <body>
-      <details open="true">
-        <summary>
-          <h3 class="title">Functional Description</h3>
-        </summary>
-        <a name="funcdesc"> </a>
 
-        {% include recommendation08-functional-description.html %}
+  <div class="toc-container">
+    <p class="toc-title">Contents</p>
+    <ul id="toc-list">
+      <li><a href="#functional-description">Functional Description</a></li>
+      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#example-data-requests">Example Data/Requests</a></li>
+    </ul>
+  </div>
 
-        <p></p>
+  <details class="tree-nav__item is-expandable" open="true">
+    <summary class="tree-nav__item-title">
+      <a name="functional-description"> </a>
+      <h3 class="title">Functional Description</h3>
+    </summary>
 
-        <img src="assets/images/Recommendation08-flow.png" style="max-width: 100%;" />
-        <p></p>
-        <img src="assets/images/Recommendation08-Definitions.png" style="max-width: 100%;" />
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">For Chronic Pain</h3>
-        </summary>
-        {% include for-chronic-pain-definitions.html %}
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">Opioid Review Useful</h3>
-        </summary>
-        {% include opioid-review-useful-definitions.html %}
-      </details>
-      <p></p>
-      <details>
-        <summary>
-          <h3 class="title">Content</h3>
-        </summary>
-        <a name="content"> </a>
+    {% include recommendation08-functional-description.html %}
 
-        <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+    <img src="assets/images/Recommendation08-flow.png" style="max-width: 100%;" />
+    <p></p>
+    {% include recommendation08-data-elements.html %}
+  </details>
+  <p></p>
+  <a href="PlanDefinition-opioidcds-08.html#effective-data-requirements">Effective Data Requirements</a>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="for-chronic-pain"> </a>
+      <h3 class="title">For Chronic Pain</h3>
+    </summary>
+    {% include for-chronic-pain-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="opioid-review-useful"> </a>
+      <h3 class="title">Opioid Review Useful</h3>
+    </summary>
+    {% include opioid-review-useful-definitions.html %}
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="content"> </a>
+      <h3 class="title">Content</h3>
+    </summary>
 
-        <a name="commonlibraries"> </a>
-        <h4><a href="common.html" title="link to here" class="self-link">Common Libraries</a></h4>
+    <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
 
-        <p></p>
-
-        <table class="list">
-          <thead>
-            <tr>
-              <th>Resource</th>
-              <th>Type</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="PlanDefinition-opioidcds-08.html">CDC Opioid Prescribing Guideline Recommendation #8</a></td>
-              <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-              <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #8</td>
-            </tr>
-            <tr>
-              <td><a href="Library-OpioidCDSREC08.html">Recommendation #8 - risk factors for opioid-related harms before and during opioid therapy</a></td>
-              <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
-              <td>Defines the data requirements to support evaluation of recommendation #8</td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-      <p></p>
-      <details>
-        <!-- Example Data/Requests -->
-        <summary>
-          <a name="exampledatarequests"> </a>
-          <h3>Example Data/Requests</h3>
-        </summary>
-        <table class="grid">
-          <thead>
-            <tr>
-              <th>Description</th><th>Bundle</th><th>CDS Hooks Request</th><th>Expected Response</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 10 days for 30 days. This will trigger the message “Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present”Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (54.000000 'mg/d') >= 50 mg/day.</td>
-              <td><a href="Bundle-example-rec-08-mme-greater-than-fifty.html">Test Bundle</a></td>
-              <td><a href="requests/OpioidCDSREC08/request-example-rec-08-mme-greater-than-fifty.json">Request JSON</a></td>
-              <td><a href="responses/OpioidCDSREC08/response-example-rec-08-mme-greater-than-fifty.json">Response JSON</a></td>
-            </tr>
-            <tr>
-              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
-              <td><a href="Bundle-example-rec-08-mme-less-than-fifty.html">Test Bundle</a></td>
-              <td><a href="requests/OpioidCDSREC08/request-example-rec-08-mme-less-than-fifty.json">Request JSON</a></td>
-              <td><a href="responses/OpioidCDSREC08/response-example-rec-08-mme-less-than-fifty.json">Response JSON</a></td>
-            </tr>
-            <tr>
-              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. Patient has also been prescribed Temazepam 20 MG Oral Tablet (RXNorm 104693) 1 tablet per 1 day for 30 days. This will trigger the message “Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present. Consider offering naloxone given following risk factor(s) for opioid overdose: concurrent use of benzodiazepine.</td>
-              <td><a href="Bundle-example-rec-08-on-benzodiazepine.html">Test Bundle</a></td>
-              <td><a href="requests/OpioidCDSREC08/request-example-rec-08-on-benzodiazepine.json">Request JSON</a></td>
-              <td><a href="responses/OpioidCDSREC08/response-example-rec-08-on-benzodiazepine.json">Response JSON</a></td>
-            </tr>
-            <tr>
-              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. Patient has also been prescribed Naloxone Hydrochloride 0.02 MG/ML Injectable Solution (RXNorm 1191212) 1ml per 1 day for 30 days. The patient will be excluded and no message will be triggered – an empty set of cards will be returned.</td>
-              <td><a href="Bundle-example-rec-08-on-naloxone.html">Test Bundle</a></td>
-              <td><a href="requests/OpioidCDSREC08/request-example-rec-08-on-naloxone.json">Request JSON</a></td>
-              <td><a href="responses/OpioidCDSREC08/response-example-rec-08-on-naloxone.json">Response JSON</a></td>
-            </tr>
-            <tr>
-              <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. This will trigger the message "Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present" Consider offering naloxone given following risk factor(s) for opioid overdose: history of alcohol or drug abuse.</td>
-              <td><a href="Bundle-example-rec-08-substance-abuse.html">Test Bundle</a></td>
-              <td><a href="requests/OpioidCDSREC08/request-example-rec-08-substance-abuse.json">Request JSON</a></td>
-              <td><a href="responses/OpioidCDSREC08/response-example-rec-08-substance-abuse.json">Response JSON</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-    </body>
-  </html>
+    <table class="list">
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="PlanDefinition-opioidcds-08.html">CDC Opioid Prescribing Guideline Recommendation #8</a></td>
+          <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
+          <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #8</td>
+        </tr>
+        <tr>
+          <td><a href="Library-OpioidCDSREC08.html">Recommendation #8 - risk factors for opioid-related harms before and during opioid therapy</a></td>
+          <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
+          <td>Defines the data requirements to support evaluation of recommendation #8</td>
+        </tr>
+        {% include common-libraries.html %}
+      </tbody>
+    </table>
+  </details>
+  <p></p>
+  <details class="tree-nav__item is-expandable">
+    <summary class="tree-nav__item-title">
+      <a name="example-data-requests"> </a>
+      <h3>Example Data/Requests</h3>
+    </summary>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 10 days for 30 days. This will trigger the message "Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present." Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (54.000000 'mg/d') >= 50 mg/day.</td>
+          <td><a href="requests/OpioidCDSREC08/request-example-rec-08-mme-greater-than-fifty.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC08/response-example-rec-08-mme-greater-than-fifty.json">Response JSON</a></td>
+        </tr>
+        <tr>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
+          <td><a href="requests/OpioidCDSREC08/request-example-rec-08-mme-less-than-fifty.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC08/response-example-rec-08-mme-less-than-fifty.json">Response JSON</a></td>
+        </tr>
+        <tr>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. Patient has also been prescribed Temazepam 20 MG Oral Tablet (RXNorm 104693) 1 tablet per 1 day for 30 days. This will trigger the message “Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present. Consider offering naloxone given following risk factor(s) for opioid overdose: concurrent use of benzodiazepine.</td>
+          <td><a href="requests/OpioidCDSREC08/request-example-rec-08-on-benzodiazepine.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC08/response-example-rec-08-on-benzodiazepine.json">Response JSON</a></td>
+        </tr>
+        <tr>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. Patient has also been prescribed Naloxone Hydrochloride 0.02 MG/ML Injectable Solution (RXNorm 1191212) 1ml per 1 day for 30 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
+          <td><a href="requests/OpioidCDSREC08/request-example-rec-08-on-naloxone.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC08/response-example-rec-08-on-naloxone.json">Response JSON</a></td>
+        </tr>
+        <tr>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) 1 patch per 12 days for 30 days. This will trigger the message "Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present" Consider offering naloxone given following risk factor(s) for opioid overdose: history of alcohol or drug abuse.</td>
+          <td><a href="requests/OpioidCDSREC08/request-example-rec-08-substance-abuse.json">Request JSON</a></td>
+          <td><a href="responses/OpioidCDSREC08/response-example-rec-08-substance-abuse.json">Response JSON</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
 </div>

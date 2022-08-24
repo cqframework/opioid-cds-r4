@@ -53,7 +53,6 @@ valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/Valu
 valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
 valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
 valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
-valueset "Conditions positive for sickle cell": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-sickle-cell-category'
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
@@ -69,69 +68,24 @@ define "Opioid Other Than Synthetic Ordered In Last 12 Months":
 
 define "Active Ambulatory Opioid Rx":
   (
-    ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) MR
-      where date from MR.authoredOn 2 years or less on or before Today()
-        and MR.medication is Reference or MR.medication in "Opioid analgesics with ambulatory misuse potential"
-        and MR.category in "Community"
+    "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
   ) Rx
-    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-    where not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential"
-      return
-        MedicationRequest {
-          id: Rx.id,
-          status: Rx.status,
-          intent: Rx.intent,
-          category: Rx.category,
-          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
-          subject: Rx.subject,
-          recorder: Rx.recorder,
-          dosageInstruction: Rx.dosageInstruction,
-          dispenseRequest: Rx.dispenseRequest
-        }
+    where date from Rx.authoredOn 2 years or less on or before Today()
+      and Rx.medication in "Opioid analgesics with ambulatory misuse potential"
 
 define "Active Ambulatory Benzodiazepine Rx":
   (
-    ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) MR
-      where date from MR.authoredOn 2 years or less on or before Today()
-        and MR.medication is Reference or MR.medication in "Benzodiazepine medications"
-        and MR.category in "Community"
+    "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
   ) Rx
-    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-    where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
-      return
-        MedicationRequest {
-          id: Rx.id,
-          status: Rx.status,
-          intent: Rx.intent,
-          category: Rx.category,
-          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
-          subject: Rx.subject,
-          recorder: Rx.recorder,
-          dosageInstruction: Rx.dosageInstruction,
-          dispenseRequest: Rx.dispenseRequest
-        }
+    where date from Rx.authoredOn 2 years or less on or before Today()
+      and Rx.medication in "Benzodiazepine medications"
 
 define "Active Ambulatory Naloxone Rx":
   (
-    ("Get Active Ambulatory Medication Requests"([MedicationRequest: status in "Active MedicationRequest"])) MR
-      where date from MR.authoredOn 2 years or less on or before Today()
-        and MR.medication is Reference or MR.medication in "Naloxone medications"
-        and MR.category in "Community"
+    "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
   ) Rx
-    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-    where not(Rx.medication is Reference) or Med.code in "Naloxone medications"
-      return
-        MedicationRequest {
-          id: Rx.id,
-          status: Rx.status,
-          intent: Rx.intent,
-          category: Rx.category,
-          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
-          subject: Rx.subject,
-          recorder: Rx.recorder,
-          dosageInstruction: Rx.dosageInstruction,
-          dispenseRequest: Rx.dispenseRequest
-        }
+    where date from Rx.authoredOn 2 years or less on or before Today()
+      and Rx.medication in "Naloxone medications"
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
@@ -139,12 +93,19 @@ define function "Get Active Ambulatory Medication Requests" (value List<Medicati
       and Rx.category in "Community"
 
 define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
+  ("Get MedicationRequest Medication as Code"(value)) Rx
+    where Rx.medication in "Opioid analgesics with ambulatory misuse potential" 
+      and Rx.category in "Community"
+
+define function "Is Benzodiazepine?"(value List<MedicationRequest>):
+  ("Get MedicationRequest Medication as Code"(value)) Rx
+    where Rx.medication in "Benzodiazepine medications" 
+      and Rx.category in "Community"
+
+define function "Get MedicationRequest Medication as Code"(value List<MedicationRequest>):
   value Rx
     let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-/*    where ((not(Rx.medication is Reference) or Med.code in "Opioid analgesics with ambulatory misuse potential")
-      and */
-    where Rx.category in "Community"
-    return
+    return 
       MedicationRequest {
         id: Rx.id,
         status: Rx.status,
@@ -157,25 +118,6 @@ define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value Li
         dosageInstruction: Rx.dosageInstruction,
         dispenseRequest: Rx.dispenseRequest
       }
-
-    define function "Is Benzodiazepine?"(value List<MedicationRequest>):
-      value Rx
-        let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
-        where not(Rx.medication is Reference) or Med.code in "Benzodiazepine medications"
-          and Rx.category in "Community"
-        return
-              MedicationRequest {
-                id: Rx.id,
-                status: Rx.status,
-                intent: Rx.intent,
-                category: Rx.category,
-                medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
-                subject: Rx.subject,
-                authoredOn: Rx.authoredOn,
-                recorder: Rx.recorder,
-                dosageInstruction: Rx.dosageInstruction,
-                dispenseRequest: Rx.dispenseRequest
-              }
 
 define "End of Life Assessment":
     // 1. Conditions indicating end of life or with limited life expectancy
@@ -190,15 +132,11 @@ define "End of Life Assessment":
     /* or exists (
       "Medications Indicating End of Life"
     ) */
+
 define "US Core-Categorized Conditions":
   [Condition: category in "Encounter Diagnosis Condition Category"]
     union [Condition: category in "Problem List Condition Category"]
     union [Condition: category in "US Core Health Concern Condition Category"]
-
-define "Positive Sickle Cell Condition":
-    "US Core-Categorized Conditions" C
-      where C.code in "Conditions positive for sickle cell"
-        and C.clinicalStatus in "Active Condition"
 
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
@@ -325,7 +263,7 @@ define function GetDurationInDays(value FHIR.Duration):
       when value.code.value ~ 'ms' then value.value.value / 60.0 / 60.0 / 24.0 / 1000.0
       when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')
       else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)
-    end
+end
 
 /*
 *  Conversion Functions

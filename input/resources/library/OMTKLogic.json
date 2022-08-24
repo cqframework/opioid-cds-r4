@@ -149,6 +149,10 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/ConversionFactors|3.0.0"
   }, {
     "type": "depends-on",
+    "display": "Library CDCMMEClinicalConversionFactors",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/CDCMMEClinicalConversionFactors|3.0.0"
+  }, {
+    "type": "depends-on",
     "display": "Library FHIRHelpers",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
   }, {
@@ -176,15 +180,6 @@
     "min": 0,
     "max": "1",
     "type": "string"
-  } ],
-  "dataRequirement": [ {
-    "type": "CodeSystem",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/CodeSystem" ],
-    "mustSupport": [ "supplements", "supplements.value", "name", "name.value", "useContext", "concept" ]
-  }, {
-    "type": "CodeSystem",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/CodeSystem" ],
-    "mustSupport": [ "supplements", "supplements.value", "name", "name.value", "useContext", "concept" ]
   } ],
   "content": [ {
     "contentType": "text/cql",
