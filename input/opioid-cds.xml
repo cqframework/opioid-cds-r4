@@ -51,7 +51,7 @@
         <!-- Artifact Package Bundles -->
         <resource>
         <reference>
-            <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
+            <reference value="Bundle/opioidcds-10-patient-view-bundle"/>
             <display value="Recommendation 10 (Patient View) Artifact Package"/>
         </reference>
         <name value="OpioidCDSREC10PatientViewBundle"/>
@@ -631,7 +631,7 @@
         </parameter>
         <parameter>
           <code value="path-resource" />
-          <value value="bundles/plandefinition/OpioidCDSREC10PatientView"/>
+          <value value="bundles/plandefinition/opioidcds-10-patient-view"/>
         </parameter>
         <parameter>
           <code value="path-resource" />

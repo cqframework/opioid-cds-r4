@@ -53,7 +53,7 @@
       "valueString": "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
     }, {
       "url": "statement",
-      "valueString": "define \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  ( Common.\"Is Opioid Analgesic with Ambulatory Misuse Potential?\"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription\n    where Routines.\"Is Chronic Pain Prescription?\"( AmbulatoryOpioidPrescription )"
+      "valueString": "define \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  ( Common.\"Is Opioid Analgesic with Ambulatory Misuse Potential?\"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription\n    where Routines.\"Is Acute Pain Prescription?\"( AmbulatoryOpioidPrescription )"
     }, {
       "url": "displaySequence",
       "valueInteger": 1
@@ -263,7 +263,7 @@
       "valueString": "Total MME"
     }, {
       "url": "statement",
-      "valueString": "define \"Total MME\":\n  MMECalculator.TotalMME(\n    (\n      \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\"\n        union Common.\"Active Ambulatory Opioid Rx\"\n    ) AmbulatoryOpioidPrescription\n      where Routines.\"Is Chronic Pain Prescription?\"( AmbulatoryOpioidPrescription )\n  )"
+      "valueString": "define \"Total MME\":\n  MMECalculator.TotalMME(\n    (\n      \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\"\n        union Common.\"Active Ambulatory Opioid Rx\"\n    ) AmbulatoryOpioidPrescription\n      where Routines.\"Is Acute Pain Prescription?\"( AmbulatoryOpioidPrescription )\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 15

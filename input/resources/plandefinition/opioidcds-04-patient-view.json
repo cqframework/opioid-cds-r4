@@ -56,7 +56,7 @@
       "valueString": "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
     }, {
       "url": "statement",
-      "valueString": "define \"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  Common.\"Active Ambulatory Opioid Rx\" AmbulatoryOpioidPrescription\n    where Routines.\"Is Chronic Pain Prescription?\"(AmbulatoryOpioidPrescription)\n      and AmbulatoryOpioidPrescription.medication in Common.\"Extended release opioid with ambulatory misuse potential\""
+      "valueString": "define \"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  Common.\"Active Ambulatory Opioid Rx\" AmbulatoryOpioidPrescription\n    where Routines.\"Is Acute Pain Prescription?\"(AmbulatoryOpioidPrescription)\n      and AmbulatoryOpioidPrescription.medication in Common.\"Extended release opioid with ambulatory misuse potential\""
     }, {
       "url": "displaySequence",
       "valueInteger": 2
