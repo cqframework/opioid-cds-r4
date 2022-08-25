@@ -1,0 +1,28 @@
+{
+  "resourceType": "Condition",
+  "id": "terminal",
+  "clinicalStatus": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+      "code": "active",
+      "display": "Active"
+    } ]
+  },
+  "category": [ {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+      "code": "encounter-diagnosis",
+      "display": "Encounter Diagnosis"
+    } ]
+  } ],
+  "code": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "708248004",
+      "display": "End stage liver disease"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/example-opioidcds"
+  }
+}
