@@ -2469,5 +2469,179 @@
         "value": "true"
       }
     ]
+  },
+  {
+    "_id": "745cccb7-d7b7-4d68-9f48-01a1f930f2b6",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+    "name": "LOAD_ARTIFACT_BUNDLE",
+    "url": "{{fhirServer}}",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-08-25T03:29:35.968Z",
+    "modified": "2022-08-25T03:29:40.370Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "6d57a4a4-e8a0-41b4-a4ca-5d38cd7dbced",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+    "name": "LOAD_PATIENT",
+    "url": "{{fhirServer}}/Patient/example-opioidcds",
+    "method": "PUT",
+    "sortNum": 20000,
+    "created": "2022-08-25T03:30:06.436Z",
+    "modified": "2022-08-25T03:30:16.356Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/xml"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/patient-example-opioidcds.xml"
+    },
+    "tests": []
+  },
+  {
+    "_id": "06ba754e-31b6-4256-a735-50b1d66c9311",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+    "name": "LOAD_AMBULATORY_OPIOID_REQUEST",
+    "url": "{{fhirServer}}/MedicationRequest/ambulatory-opioid",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2022-08-25T03:31:28.386Z",
+    "modified": "2022-08-25T03:32:45.484Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/medicationrequest-ambulatory-opioid.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "12a2be8a-9950-4a79-bcb2-39e60c68e2ef",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+    "name": "LOAD_AMBULATORY_OPIOID_DISPENSE",
+    "url": "{{fhirServer}}/MedicationDispense/ambulatory-opioid",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2022-08-25T03:33:00.335Z",
+    "modified": "2022-08-25T03:33:39.370Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/medicationdispense-ambulatory-opioid.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "95c537e1-1b7a-4415-a580-855576177152",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+    "name": "TEST_AMBULATORY_OPIOID_REQUEST",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 35000,
+    "created": "2022-08-25T03:33:57.367Z",
+    "modified": "2022-08-25T03:34:58.386Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "_id": "d1f45cfa-aec8-4fce-8fe3-c808efe90742",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+    "name": "TEST_AMBULATORY_OPIOID_DISPENSE",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-08-25T03:35:05.999Z",
+    "modified": "2022-08-25T03:35:43.215Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
   }
 ]

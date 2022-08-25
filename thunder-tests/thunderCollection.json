@@ -113,10 +113,18 @@
       },
       {
         "_id": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
-        "name": "IS_OPIOID_REVIEW_USEFUL",
+        "name": "OPIOID_REVIEW_USEFUL",
         "containerId": "",
         "created": "2022-08-24T22:24:44.633Z",
         "sortNum": 130000,
+        "settings": {}
+      },
+      {
+        "_id": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+        "name": "OPIOID_NAIVE",
+        "containerId": "",
+        "created": "2022-08-25T01:07:01.578Z",
+        "sortNum": 140000,
         "settings": {}
       }
     ],
