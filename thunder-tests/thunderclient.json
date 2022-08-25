@@ -2233,5 +2233,241 @@
         "value": "warning"
       }
     ]
+  },
+  {
+    "_id": "4ef86cec-7277-418a-a2bc-c3414aae9b3d",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "LOAD_PATIENT",
+    "url": "{{fhirServer}}/Patient/example-opioidcds",
+    "method": "PUT",
+    "sortNum": 80000,
+    "created": "2022-08-24T22:25:27.789Z",
+    "modified": "2022-08-24T22:38:32.869Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/xml"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/patient-example-opioidcds.xml"
+    },
+    "tests": []
+  },
+  {
+    "_id": "92ef2e64-f014-453d-ae21-f09ad0ac8de8",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "LOAD_END_OF_LIFE_CONDITION",
+    "url": "{{fhirServer}}/Condition/end-of-life",
+    "method": "PUT",
+    "sortNum": 90000,
+    "created": "2022-08-24T22:37:33.659Z",
+    "modified": "2022-08-24T22:38:54.805Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/condition-end-of-life.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "0ea649a4-102f-4fb2-9ec7-607e0f634fea",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "TEST_END_OF_LIFE_CONDITION",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 100000,
+    "created": "2022-08-24T22:40:00.321Z",
+    "modified": "2022-08-24T23:56:45.723Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Conditions Indicating End Of Life Present\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "_id": "d9e0d5dd-c0ac-4f0f-aa78-ca3b54bd3cf2",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "LOAD_ARTIFACT_BUNDLE",
+    "url": "{{fhirServer}}",
+    "method": "POST",
+    "sortNum": 78750,
+    "created": "2022-08-24T23:42:40.484Z",
+    "modified": "2022-08-24T23:42:47.503Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "6addb9a3-832b-4604-ac61-80499e161e6d",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "LOAD_PALLIATIVE_CARE_ORDER",
+    "url": "{{fhirServer}}/ServiceRequest/palliative-care",
+    "method": "PUT",
+    "sortNum": 110000,
+    "created": "2022-08-25T00:00:51.875Z",
+    "modified": "2022-08-25T00:02:15.085Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/servicerequest-palliative-care.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "964e4e5a-708d-480a-9078-f6d4dd3c5685",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "TEST_PALLIATIVE_CARE",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 120000,
+    "created": "2022-08-25T00:02:38.825Z",
+    "modified": "2022-08-25T00:03:33.298Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Order For Palliative Care In Past 90 Days\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "_id": "22514eb9-f204-4d18-a09e-b15417e3d87d",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "LOAD_TERMINAL_CONDITION",
+    "url": "{{fhirServer}}/Condition/terminal",
+    "method": "PUT",
+    "sortNum": 130000,
+    "created": "2022-08-25T00:31:48.137Z",
+    "modified": "2022-08-25T00:32:48.265Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/condition-terminal.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "81cb4c94-b612-4bcb-8371-d784b24c5859",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "TEST_TERMINAL_CONDITION",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 140000,
+    "created": "2022-08-25T00:34:07.080Z",
+    "modified": "2022-08-25T00:35:12.685Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
   }
 ]
