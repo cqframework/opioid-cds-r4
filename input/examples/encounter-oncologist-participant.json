@@ -1,61 +1,46 @@
 {
-    "resourceType": "Encounter",
-    "id": "oncologist-participant",
-    "extension": [
-        {
-            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
-            "extension": [
-                {
-                    "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-24"
-                },
-                {
-                    "url": "frequency",
-                    "valueDuration": {
-                        "value": 30.0,
-                        "unit": "days",
-                        "system": "http://unitsofmeasure.org",
-                        "code": "d"
-                    }
-                }
-            ]
-        }
-    ],
-    "status": "finished",
-    "type": [
-        {
-            "coding": [
-                {
-                    "system": "http://www.ama-assn.org/go/cpt",
-                    "code": "99203",
-                    "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and low level of medical decision making. When using time for code selection, 30-44 minutes of total time is spent on the date of the encounter."
-                }
-            ]
-        }
-    ],
-    "subject": {
-        "reference": "Patient/example-opioidcds"
-    },
-    "participant": [
-        {
-            "type": [
-                {
-                    "coding": [
-                        {
-                            "system": "http://nucc.org/provider-taxonomy",
-                            "code": "207RX0202X",
-                            "display": "Medical Oncology"
-                        }
-                    ]
-                }
-            ],
-            "individual": {
-                "reference": "PractitionerRole/oncology-specialist"
-            }
-        }
-    ],
-    "period": {
-        "start": "2022-03-24",
-        "end": "2022-03-24"
+  "resourceType": "Encounter",
+  "id": "oncologist-participant",
+  "extension": [ {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+    "extension": [ {
+      "url": "dateLastUpdated",
+      "valueDateTime": "2022-08-24"
+    }, {
+      "url": "frequency",
+      "valueDuration": {
+        "value": 30.0,
+        "unit": "days",
+        "system": "http://unitsofmeasure.org",
+        "code": "d"
+      }
+    } ]
+  } ],
+  "status": "finished",
+  "type": [ {
+    "coding": [ {
+      "system": "http://www.ama-assn.org/go/cpt",
+      "code": "99203",
+      "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and low level of medical decision making. When using time for code selection, 30-44 minutes of total time is spent on the date of the encounter."
+    } ]
+  } ],
+  "subject": {
+    "reference": "Patient/example-opioidcds"
+  },
+  "participant": [ {
+    "type": [ {
+      "coding": [ {
+        "system": "http://nucc.org/provider-taxonomy",
+        "code": "207RX0202X",
+        "display": "Medical Oncology"
+      } ]
+    } ],
+    "individual": {
+      "reference": "PractitionerRole/oncology-specialist"
     }
+  } ],
+  "period": {
+    "start": "2022-03-24",
+    "end": "2022-03-24"
+  }
 }
