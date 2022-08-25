@@ -2643,5 +2643,303 @@
         "value": "true"
       }
     ]
+  },
+  {
+    "_id": "32f662da-cad4-4577-b6c6-762d067a0f02",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "LOAD_ARTIFACT_BUNDLE",
+    "url": "{{fhirServer}}",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-08-25T04:38:12.446Z",
+    "modified": "2022-08-25T04:38:15.577Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "548d8a1e-945c-4b46-91b8-aacd5dc38918",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "LOAD_PATIENT",
+    "url": "{{fhirServer}}/Patient/example-opioidcds",
+    "method": "PUT",
+    "sortNum": 20000,
+    "created": "2022-08-25T04:38:30.030Z",
+    "modified": "2022-08-25T04:38:32.577Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/xml"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/patient-example-opioidcds.xml"
+    },
+    "tests": []
+  },
+  {
+    "_id": "4d4e6fd3-d404-4e8f-bc0b-c5b562262eeb",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "LOAD_CANCER_CONDITION",
+    "url": "{{fhirServer}}/Condition/cancer-diagnosis",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2022-08-25T04:38:49.143Z",
+    "modified": "2022-08-25T04:40:31.298Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/condition-cancer-diagnosis.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "7c4161a4-3298-42a5-ae08-5087d46e4724",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "LOAD_DIAGNOSIS_ENCOUNTER",
+    "url": "{{fhirServer}}/Encounter/oncologist-participant",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2022-08-25T04:41:01.744Z",
+    "modified": "2022-08-25T04:42:23.615Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/encounter-oncologist-participant.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "4bfab388-3298-426c-997d-5e615a9911ed",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "LOAD_PARTICIPANT_ENCOUNTER",
+    "url": "{{fhirServer}}/Encounter/cancer-diagnosis",
+    "method": "PUT",
+    "sortNum": 50000,
+    "created": "2022-08-25T04:41:43.443Z",
+    "modified": "2022-08-25T04:41:43.443Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/encounter-cancer-diagnosis.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "9b396325-00d1-4a85-ad1c-8c783bf18c40",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "LOAD_ONCOLOGY_PRACTITIONERROLE",
+    "url": "{{fhirServer}}/PractitionerRole/oncology-specialist",
+    "method": "PUT",
+    "sortNum": 25000,
+    "created": "2022-08-25T04:42:36.209Z",
+    "modified": "2022-08-25T04:43:49.341Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "binary",
+      "raw": "",
+      "form": [],
+      "binary": "../input/examples/practitionerrole-oncology-specialist.json"
+    },
+    "tests": []
+  },
+  {
+    "_id": "5d3d9342-09c0-4740-8e71-f2837e6f1eae",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "TEST_TWO_ENCOUNTERS_CANCER_DIAGNOSIS",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2022-08-25T04:44:42.109Z",
+    "modified": "2022-08-25T04:45:55.271Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "_id": "b0f32b0f-1e4f-42ad-86df-218edbdc9265",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+    "name": "TEST_IS_ACTIVE_CANCER_TREATMENT",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2022-08-25T04:46:54.862Z",
+    "modified": "2022-08-25T04:47:38.339Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Is Active Cancer Treatment?\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "_id": "f88de369-fdbb-4538-9d9d-78b6de7bc9c5",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+    "name": "TEST_IS_OPIOID_NAIVE",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2022-08-25T04:48:21.374Z",
+    "modified": "2022-08-25T04:50:16.093Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Is Opioid Naive?\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "false"
+      }
+    ]
+  },
+  {
+    "_id": "a9169d4c-de7c-46c0-8c61-32481b9e9fcc",
+    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+    "name": "TEST_IS_OPIOID_REVIEW_USEFUL",
+    "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+    "method": "POST",
+    "sortNum": 150000,
+    "created": "2022-08-25T04:49:12.292Z",
+    "modified": "2022-08-25T04:49:56.307Z",
+    "headers": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Is Opioid Review Useful?\"\n    }\n  ]\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.parameter[0].valueBoolean",
+        "action": "equal",
+        "value": "false"
+      }
+    ]
   }
 ]
