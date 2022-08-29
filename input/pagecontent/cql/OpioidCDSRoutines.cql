@@ -164,7 +164,7 @@ define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
 
 define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
   if (Config."Opioid Naive Prescription Condition Is Enabled") then
-    exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
+    exists ("Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
   else
     false
 
