@@ -10,20 +10,20 @@ include OpioidCDSCommonConfig version '0.1.1' called Config
 **
 **  Recommendation #12
 **    Clinicians should offer or arrange evidence-based treatment (usually
-**    medication-assisted treatment with buprenorphine or methadone in combination
-**    with behavioral therapies) for patients with opioid use disorder
+**    medication-assisted treatment with buprenorphine or methadone) for patients with opioid use disorder
 **    (recommendation category: A, evidence type: 2)
 **
 **  When
 **    Patient is 18 years and older and not receiving evidence-based treatment for
 **      opioid use disorder, which may include medication treatment with buprenorphine
-**      or methadone, or opioid-specific behavioral counseling
+**      or methadone
+Removed with 2022 update, or opioid-specific behavioral counseling
 **    Patient has a diagnosis of opioid use disorder in the past 90 days
 **  Then
 **    Recommend opioid agonist or partial agonist treatment with methadone maintenance
 **    therapy, buprenorphine therapy, and/or behavioral therapy. Potential actions include:
 **      Order methadone or buprenorphine
-**      Refer to qualified treatment provider (i.e. substance disorder specialist)
+** Removed with 2022 update      Refer to qualified treatment provider (i.e. substance disorder specialist)
 **      N/A - see comment; snooze 3 months
 **
 */
@@ -60,6 +60,7 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
           where MR.status in { 'active', 'completed' }
             and date from MR.authoredOn during day of "Opioid Use Disorder Lookback Period"
       )
+    /* update 2022 removes "behavioral therapy condition"
       or exists (
         [Procedure: Common."Substance misuse behavioral counseling"] P
           where P.status ~ 'completed'
@@ -73,7 +74,7 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
                   null as Interval<DateTime>
                 end
             ) during day of "Opioid Use Disorder Lookback Period"
-      )
+      )*/
     )
 
 define "Presence of Diagnosis of Opioid Use Disorder":
@@ -94,7 +95,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine and/or behavioral therapy'
+    then 'Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine'/* and/or behavioral therapy' */
   else null
 
 define "Get Detail":
