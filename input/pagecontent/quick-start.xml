@@ -139,7 +139,7 @@
       {
         "hook": "patient-view",
         "name": "PlanDefinition_Recommendation_10_Patient_View",
-        "title": "PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)",
+        "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #10 (patient-view)",
         "description": "When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
         "id": "opioidcds-10-patient-view",
         "prefetch": {
@@ -197,7 +197,7 @@
                     "indicator": "warning",
                     "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
                     "source": {
-                        "label": "CDC guideline for prescribing opioids for chronic pain",
+                        "label": "CDC 2016 Guideline for prescribing opioids for chronic pain",
                         "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
                     },
                     "suggestions": [

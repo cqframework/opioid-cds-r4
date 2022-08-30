@@ -27,7 +27,7 @@
     </identifier>
     <version value="0.1.1"/>
     <name value="PlanDefinition_Recommendation_10_Patient_View"/>
-    <title value="PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)"/>
+    <title value="PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #10 (patient-view)"/>
     <type>
         <coding>
             <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
@@ -102,7 +102,7 @@
         <description value="Patient has not had a urine screening in the past 12 months"/>
         <documentation>
             <type value="documentation"/>
-            <display value="CDC guideline for prescribing opioids for chronic pain"/>
+            <display value="CDC 2016 Guideline for prescribing opioids for chronic pain"/>
             <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
         </documentation>
         <documentation>
@@ -188,7 +188,7 @@
         <description value="Urine screening showed positive for cocaine, opiates or PCP"/>
         <documentation>
             <type value="documentation"/>
-            <display value="CDC guideline for prescribing opioids for chronic pain"/>
+            <display value="CDC 2016 Guideline for prescribing opioids for chronic pain"/>
             <url value="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"/>
         </documentation>
         <documentation>

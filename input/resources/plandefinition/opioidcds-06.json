@@ -294,7 +294,7 @@
   } ],
   "version": "0.1.1",
   "name": "CDC_opioid_06",
-  "title": "PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #6",
+  "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #6",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -358,7 +358,7 @@
   } ],
   "relatedArtifact": [ {
     "type": "documentation",
-    "display": "CDC guideline for prescribing opioids for chronic pain",
+    "display": "CDC 2016 Guideline for prescribing opioids for chronic pain",
     "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC06" ],

@@ -459,7 +459,7 @@
   } ],
   "version": "0.1.1",
   "name": "PlanDefinition_Recommendation_10_Order_Sign",
-  "title": "PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 (order-sign)",
+  "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #10 (order-sign)",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -523,7 +523,7 @@
   } ],
   "relatedArtifact": [ {
     "type": "documentation",
-    "display": "CDC guideline for prescribing opioids for chronic pain",
+    "display": "CDC 2016 Guideline for prescribing opioids for chronic pain",
     "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10" ],
@@ -533,7 +533,7 @@
     "description": "Patient has not had a urine screening in the past 12 months",
     "documentation": [ {
       "type": "documentation",
-      "display": "CDC guideline for prescribing opioids for chronic pain",
+      "display": "CDC 2016 Guideline for prescribing opioids for chronic pain",
       "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
     }, {
       "type": "documentation",
@@ -616,7 +616,7 @@
     "description": "Urine screening showed positive for cocaine, opiates or PCP",
     "documentation": [ {
       "type": "documentation",
-      "display": "CDC guideline for prescribing opioids for chronic pain",
+      "display": "CDC 2016 Guideline for prescribing opioids for chronic pain",
       "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
     }, {
       "type": "documentation",
