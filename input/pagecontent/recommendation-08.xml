@@ -35,14 +35,6 @@
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
-    </summary>
-    {% include for-subacute-or-chronic-pain-definitions.html %}
-  </details>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
       <a name="opioid-review-useful"> </a>
       <h3 class="title">Opioid Review Useful</h3>
     </summary>
