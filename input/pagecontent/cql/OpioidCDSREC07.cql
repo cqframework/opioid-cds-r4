@@ -11,7 +11,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 **  Recommendation #7
 **    Clinicians should evaluate benefits and harms with patients within 1 to 4
-**    weeks of starting opioid therapy for chronic pain or of dose escalation.
+**    weeks of starting opioid therapy for subacute or chronic pain or of dose escalation.
 **    Clinicians should evaluate benefits and harms of continued therapy with
 **    patients every 3 months or more frequently. If benefits do not outweigh
 **    harms of continued opioid therapy, clinicians should optimize other
@@ -20,7 +20,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating chronic pain.
+**    Prescription is for treating subacure or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy

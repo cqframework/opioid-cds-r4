@@ -10,7 +10,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 /*
 **
 **  Recommendation #2
-**    Before starting opioid therapy for chronic pain, clinicians should establish
+**    Before starting opioid therapy for subacute or chronic pain, clinicians should establish
 **    treatment goals with all patients, including realistic goals for pain and
 **    function, and should consider how opioid therapy will be discontinued if
 **    benefits do not outweigh risks. Clinicians should continue opioid therapy
@@ -20,7 +20,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 **  When
 **    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating chronic pain.
+**    Prescription is for treating subacute or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy

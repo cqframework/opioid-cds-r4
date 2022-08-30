@@ -3,7 +3,7 @@
 This implementation guide provides resources and discussion in support of applying the Centers
 for Disease Control and Prevention (CDC) Opioid Prescribing Guidelines:
 
-[CDC guideline for prescribing opioids for chronic pain](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm)
+[CDC guideline for prescribing opioids for subacute or chronic pain](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm)
 
 This implementation guide was developed as part of the Clinical Quality Framework Initiative,
 a public-private partnership sponsored by the Centers for Medicare & Medicaid

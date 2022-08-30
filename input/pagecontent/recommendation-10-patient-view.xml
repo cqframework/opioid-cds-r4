@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec10"> </a>
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids" target="_blank">Recommendation #10:</a></p>
   <p>
-    <strong>When prescribing opioids for chronic pain, providers should use urine drug testing before
+    <strong>When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before
       starting opioid therapy and consider urine drug testing at least annually to assess for
       prescribed medications as well as other controlled prescription drugs and illicit drugs
       <em>(recommendation category: B, evidence type: 4)</em>.</strong>
@@ -18,7 +18,7 @@
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#for-subacute-or-chronic-pain">For Subacute or Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#content">Content</a></li>
       <li><a href="#example-data-requests">Example Data/Requests</a></li>
@@ -42,8 +42,8 @@
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
+      <a name="for-subacute-or-chronic-pain"> </a>
+      <h3 class="title">For Subacute or Chronic Pain</h3>
     </summary>
     {% include for-subacute-and-chronic-pain-definitions.html %}
   </details>
@@ -79,7 +79,7 @@
           <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #10 Patient View</td>
         </tr>
         <tr>
-          <td><a href="Library-OpioidCDSREC10PatientView.html">Recommendation #10 Patient View - urine drug testing when prescribing opioids for chronic pain</a></td>
+          <td><a href="Library-OpioidCDSREC10PatientView.html">Recommendation #10 Patient View - urine drug testing when prescribing opioids for subacute or chronic pain</a></td>
           <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
           <td>Defines the data requirements to support evaluation of recommendation #10 Patient View</td>
         </tr>
@@ -107,7 +107,7 @@
             <br/>
             i.	Perform the screening
             <br/>
-            ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
+            ii.	Indicate that the prescription is not for subacute or chronic pain management and snooze for 3 months
             <br/>
             iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. 
           </td>

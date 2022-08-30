@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#2_Before_starting_opioid_therapy" target="_blank">Recommendation #2:</a></p>
   <p>
-    <strong>Before starting opioid therapy for chronic pain, clinicians should establish treatment goals with all patients, including realistic goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do
+    <strong>Before starting opioid therapy for subacute or chronic pain, clinicians should establish treatment goals with all patients, including realistic goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do
       not outweigh risks. Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function that outweighs risks to patient safety (recommendation category: A, evidence type: 4).</strong>
   </p>
 
@@ -9,7 +9,7 @@
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#for-subacute-or-chronic-pain">For Subacute or Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#opioid-naive">Opioid Naive</a></li>
       <li><a href="#content">Content</a></li>
@@ -34,8 +34,8 @@
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
+      <a name="for-subacute-or-chronic-pain"> </a>
+      <h3 class="title">For Subacute or Chronic Pain</h3>
     </summary>
     {% include for-subacute-and-chronic-pain-definitions.html %}
   </details>

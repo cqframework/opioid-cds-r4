@@ -9,7 +9,7 @@ include OpioidCDSCommonConfig version '0.1.1' called Config
 
 /*
 **  Recommendation #10
-**    When prescribing opioids for chronic pain, providers should use urine drug
+**    When prescribing opioids for subacute or chronic pain, providers should use urine drug
 **    testing before starting opioid therapy and consider urine drug testing at
 **    least annually to assess for prescribed medications as well as other controlled
 **    prescription drugs and illicit drugs (recommendation category: B, evidence type: 4)
@@ -27,7 +27,7 @@ include OpioidCDSCommonConfig version '0.1.1' called Config
 **  Then
 **    Recommend urine drug screening
 **      Will perform urine screening
-**      Not for chronic pain management, snooze 3 months
+**      Not for subacute or chronic pain management, snooze 3 months
 **      N/A - see comment, snooze 3 months
 **
 */

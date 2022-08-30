@@ -12,14 +12,14 @@ code "Urine Drug Screening": '310627008' from Common.SNOMED display 'Urine drug 
 
 /*
 **  Recommendation #10
-**    When prescribing opioids for chronic pain, providers should use urine drug
+**    When prescribing opioids for subacute or chronic pain, providers should use urine drug
 **    testing before starting opioid therapy and consider urine drug testing at
 **    least annually to assess for prescribed medications as well as other controlled
 **    prescription drugs and illicit drugs (recommendation category: B, evidence type: 4)
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating chronic pain.
+**    Prescription is for treating subacute or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy
@@ -30,7 +30,7 @@ code "Urine Drug Screening": '310627008' from Common.SNOMED display 'Urine drug 
 **  Then
 **    Recommend urine drug screening
 **      Will perform urine screening
-**      Not for chronic pain management, snooze 3 months
+**      Not for subacute or chronic pain management, snooze 3 months
 **      N/A - see comment, snooze 3 months
 **
 */

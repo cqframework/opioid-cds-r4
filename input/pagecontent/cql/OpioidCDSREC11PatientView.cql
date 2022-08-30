@@ -15,16 +15,16 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Provider is prescribing a benzodiazepine medication
+**    Provider is prescribing a benzodiazepine  or other central nervous system depressant medication
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
 **        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
-**    Patient prescribed opioid analgesic with ambulatory misuse potential and benzodiazepine medication concurrently
+**    Patient prescribed opioid analgesic with ambulatory misuse potential and benzodiazepine  or other central nervous system depressant medication concurrently
 **  Then
-**    Recommend to avoid prescribing opioid pain medication and benzodiazepine concurrently
+**    Recommend to avoid prescribing opioid pain medication and benzodiazepine  or other central nervous system depressant concurrently
 **      Will revise
 **      Benefits outweigh risks, snooze 3 months
 **      N/A - see comment, snooze 3 months

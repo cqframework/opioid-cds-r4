@@ -18,9 +18,9 @@
   <h4>Clinical Assumptions</h4>
 
   <p>
-      Opioids for chronic pain management are often not started with an intent for chronic use; such
+      Opioids for subacute or chronic pain management are often not started with an intent for chronic use; such
       prescriptions often transition from intended acute pain management. Therefore, it is very difficult
-      to identify a new opioid prescription a priori as for chronic pain management.
+      to identify a new opioid prescription a priori as for subacute or chronic pain management.
   </p>
 
   <p>Indications and associated diagnoses for opioid prescriptions are often not available within the EHR.</p>
@@ -328,7 +328,7 @@
   <h3>Functional Description</h3>
   <p>The following two criteria must be satisfied for every patient for each recommendation:</p>
   <ul>
-      <li>Patient is being prescribed opioid medications for chronic pain</li>
+      <li>Patient is being prescribed opioid medications for subacute or chronic pain</li>
       <li>Patient does not appear to be at end of life</li>
   </ul>
   <h4>Chronic Pain</h4>

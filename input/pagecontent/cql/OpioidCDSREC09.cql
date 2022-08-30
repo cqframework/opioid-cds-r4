@@ -14,14 +14,14 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **    prescriptions using state prescription drug monitoring program (PDMP) data
 **    to determine whether the patient is receiving opioid dosages or dangerous
 **    combinations that put him or her at high risk for overdose. Clinicians
-**    should review PDMP data when starting opioid therapy for chronic pain
-**    and periodically during opioid therapy for chronic pain, ranging from
+**    should review PDMP data when starting opioid therapy for subacute or chronic pain
+**    and periodically during opioid therapy for subacute or chronic pain, ranging from
 **    every prescription to every 3 months
 **    (recommendation category: A, evidence type: 4).
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating chronic pain.
+**    Prescription is for treating subacute or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy

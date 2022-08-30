@@ -2,7 +2,7 @@
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#7_Clinicians_should_evaluate_benefits" target="_blank">Recommendation #7:</a></p>
   <p>
     <strong>Clinicians should evaluate benefits and harms with patients within 1 to 4 weeks of
-      starting opioid therapy for chronic pain or of dose escalation. Clinicians should
+      starting opioid therapy for subacute or chronic pain or of dose escalation. Clinicians should
       evaluate benefits and harms of continued therapy with patients every 3 months or
       more frequently. If benefits do not outweigh harms of continued opioid therapy,
       clinicians should optimize other therapies and work with patients to taper opioids
@@ -13,7 +13,7 @@
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#for-subacute-or-chronic-pain">For Subacute or Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#content">Content</a></li>
       <li><a href="#example-data-requests">Example Data/Requests</a></li>
@@ -37,8 +37,8 @@
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
+      <a name="for-subacute-or-chronic-pain"> </a>
+      <h3 class="title">For Subacute or Chronic Pain</h3>
     </summary>
     {% include for-subacute-and-chronic-pain-definitions.html %}
   </details>
@@ -73,7 +73,7 @@
           <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #7</td>
         </tr>
         <tr>
-          <td><a href="Library-OpioidCDSREC07.html">Recommendation #7 - benefits and harms of starting and/or continuing opioid therapy for chronic pain</a></td>
+          <td><a href="Library-OpioidCDSREC07.html">Recommendation #7 - benefits and harms of starting and/or continuing opioid therapy for subacute or chronic pain</a></td>
           <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
           <td>Defines the data requirements to support evaluation of recommendation #7</td>
         </tr>
