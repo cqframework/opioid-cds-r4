@@ -12,7 +12,6 @@
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#content">Content</a></li>
       <li><a href="#example-data-requests">Example Data/Requests</a></li>
@@ -39,7 +38,7 @@
       <a name="for-chronic-pain"> </a>
       <h3 class="title">For Chronic Pain</h3>
     </summary>
-    {% include for-chronic-pain-definitions.html %}
+    {% include for-subacute-or-chronic-pain-definitions.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
