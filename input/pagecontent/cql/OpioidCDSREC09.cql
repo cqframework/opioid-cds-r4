@@ -64,8 +64,7 @@ define "Patient Age Less Than 18":
     false
 
 define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"  
+  not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and "PDMP Data Not Reviewed in Past 90 Days"
 
@@ -107,5 +106,5 @@ define "Get Detail":
   if "Is Recommendation Applicable?"
     then 'Medication requests(s): '
       + Combine(("Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
-           return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
+           return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')
   else null

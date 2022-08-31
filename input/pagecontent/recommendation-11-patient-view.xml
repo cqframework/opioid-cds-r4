@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec11"> </a>
   <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#11_Clinicians_should_avoid_prescribing" target="_blank">Recommendation #11:</a></p>
   <p>
-    <strong>Clinicians should avoid prescribing opioid pain medication and benzodiazepines concurrently
+    <strong>Clinicians should avoid prescribing opioid pain medication and benzodiazepines or other central nervous system depressant concurrently
       whenever possible <em>(recommendation category: A, evidence type: 3)</em>.</strong>
   </p>
 
@@ -68,7 +68,7 @@
           <td>Event-Condition-Action rule that implements behavior for CDC Opioid Prescribing Guideline Recommendation #11 Patient View</td>
         </tr>
         <tr>
-          <td><a href="Library-OpioidCDSREC11PatientView.html">Recommendation #11 Patient View - concurrent opioid pain medication and benzodiazepines prescriptions</a></td>
+          <td><a href="Library-OpioidCDSREC11PatientView.html">Recommendation #11 Patient View - concurrent opioid pain medication and benzodiazepines or other central nervous system depressant prescriptions</a></td>
           <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
           <td>Defines the data requirements to support evaluation of recommendation #11 Patient View</td>
         </tr>
