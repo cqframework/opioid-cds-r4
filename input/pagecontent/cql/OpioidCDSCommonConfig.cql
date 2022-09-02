@@ -53,7 +53,7 @@ define "PDMP Data Not Reviewed in Past 90 Days Criteria Enabled":
 
 // Recommendation 10
 define "Opiate Urine Screening Check Enabled":
-  true
+  false
 
 // Recommendation 12
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":
