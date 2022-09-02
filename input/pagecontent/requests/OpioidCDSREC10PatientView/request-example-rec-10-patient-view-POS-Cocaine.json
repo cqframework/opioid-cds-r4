@@ -290,7 +290,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2021-04-29",
+              "effectiveDateTime": "2022-04-29",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -351,7 +351,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2021-06-06",
+              "effectiveDateTime": "2022-06-06",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -404,16 +404,15 @@
                 "coding": [
                   {
                     "system": "http://loinc.org",
-                    "version": "2.68",
-                    "code": "11246-6",
-                    "display": "oxyCODONE (U) [Mass/Vol]"
+                    "code": "70146-6",
+                    "display": "Benzoylecgonine [Mass/volume] in Urine by Screen method"
                   }
                 ]
               },
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2022-02-06",
+              "effectiveDateTime": "2022-07-06",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -474,7 +473,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2021-05-31",
+              "effectiveDateTime": "2022-02-27",
               "valueString": "POS",
               "interpretation": [
                 {

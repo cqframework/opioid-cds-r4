@@ -60,7 +60,7 @@ define "Applicable Because of Positive Cocaine or PCP or Opiates":
 define "Inclusion Criteria":
   not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
-    and not "Patient had Urine Screening in Last 12 Months"
+    and (not "Patient had Urine Screening in Last 12 Months")
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
@@ -71,7 +71,7 @@ define "Patient had Urine Screening in Last 12 Months":
     or exists ("Cocaine Screenings")
     or exists ("PCP Screenings")
   )
-  and
+  or
     if Config."Opiate Urine Screening Check Enabled" then
       exists ("Opiate Screenings")
     else

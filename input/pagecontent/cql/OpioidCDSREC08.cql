@@ -119,7 +119,7 @@ define "Get Summary":
 
 define "Detail Descriptions":
 	{
-    { hasCondition: "Total MME" >= 50 '{MME}/d', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/d' },
+    { hasCondition: "Total MME" >= 50 '{MME}/d', text: 'Average MME (' + ToString("Total MME") + ') ≥ 50 mg/d' },
     { hasCondition: "On Benzodiazepine", text: 'concurrent use of benzodiazepine'},
     { hasCondition: "Has Substance Abuse History", text: 'history of alcohol or drug abuse' }
   }
