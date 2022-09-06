@@ -290,6 +290,11 @@ define function "Is Acute Pain Prescription?"(prescription FHIR.MedicationReques
     and prescription.dispenseRequest.expectedSupplyDuration is not null
     and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) < 28
 
+define function "Acute Pain Prescription Greater Than 7 Days?"(prescription FHIR.MedicationRequest):
+      prescription.dispenseRequest is not null
+    and prescription.dispenseRequest.expectedSupplyDuration is not null
+    and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) > 7
+    and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) < 28
 // End of For Acute Pain Routine
 
 // TODO: Include logic for dispensing and patient-reported events

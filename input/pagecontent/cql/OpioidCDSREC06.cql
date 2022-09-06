@@ -44,6 +44,7 @@ context Patient
 define "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
     where Routines."Is Acute Pain Prescription?"( AmbulatoryOpioidPrescription )
+      and Routines."Acute Pain Prescription Greater Than 7 Days?"(AmbulatoryOpioidPrescription)
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain":
   exists( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
@@ -62,7 +63,6 @@ define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain"
     and not "Patient Age Less Than 18"  
     and Routines."Is Opioid Review Useful?"
-    and "Order is for Long-Acting Opioid"
 
 define "Exclusion Criteria":
   false
@@ -81,12 +81,12 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids'
+    then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days. When prescribing opioids for acute pain, CDC recommends prescribing no greater quantity than needed for the expected duration of severe pain'
   else null
 
   define "Get Detail":
     if "Is Recommendation Applicable?"
       then 'Medication requests(s): '
         + Combine(("Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
-             return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
+             return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')
     else null

@@ -19,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-24"
+                    "valueDateTime": "2022-09-06"
                   },
                   {
                     "url": "frequency",
@@ -49,9 +49,9 @@
             "medicationCodeableConcept": {
               "coding": [
                 {
-                  "system": "http://snomed.info/sct",
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                   "code": "1049502",
-                  "display": "12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"
+                  "display": "oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
                 }
               ]
             },
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-06-in-criteria-met-context"
             },
-            "authoredOn": "2022-08-24",
+            "authoredOn": "2022-09-06",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,10 +76,10 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-08-24T00:00:00-06:00",
-                "end": "2022-11-24T00:00:00-07:00"
+                "start": "2022-09-06",
+                "end": "2022-12-06"
               },
-              "numberOfRepeatsAllowed": 1,
+              "numberOfRepeatsAllowed": 0,
               "expectedSupplyDuration": {
                 "value": 5.0,
                 "unit": "days",
