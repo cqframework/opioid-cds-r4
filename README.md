@@ -38,7 +38,7 @@ This repository will leverage a branching strategy to maintain multiple versions
 
 This will be developed from source branches for each version, master will be 2022 latest development, and v2016 will be latest development for 2016. This will leverage a gitflow type model where feature branches are made from respective branches and merged back to the parent via pull request and approved peer review. See diagram below
 
-![branching](diagrams/BranchingStrategy.svg)
+![branching](diagrams/Branching.png)
 
 ### IG Publishing
 
