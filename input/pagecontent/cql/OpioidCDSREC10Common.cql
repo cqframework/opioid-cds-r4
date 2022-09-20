@@ -87,7 +87,7 @@ define "Non-opioid Screenings":
 
 define "Opiate Screenings":
   GetRelevantScreenings("Laboratory Observations" LabObservations
-    where (LabObservations.code in Common."Opioid drug urine screening")
+    where (LabObservations.code in Common."Opiate drug urine screening")
   )
 
 define "Cocaine Screenings":
