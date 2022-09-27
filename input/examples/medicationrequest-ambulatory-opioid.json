@@ -5,7 +5,7 @@
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
     "extension": [ {
       "url": "dateLastUpdated",
-      "valueDateTime": "2022-08-24"
+      "valueDateTime": "2022-09-26"
     }, {
       "url": "frequency",
       "valueDuration": {
@@ -35,7 +35,7 @@
   "subject": {
     "reference": "Patient/example-opioidcds"
   },
-  "authoredOn": "2022-07-24",
+  "authoredOn": "2022-08-26",
   "dosageInstruction": [ {
     "timing": {
       "repeat": {
@@ -54,8 +54,8 @@
   } ],
   "dispenseRequest": {
     "validityPeriod": {
-      "start": "2022-07-24",
-      "end": "2022-10-24"
+      "start": "2022-08-26T00:00:00-06:00",
+      "end": "2022-11-26T00:00:00-07:00"
     },
     "numberOfRepeatsAllowed": 1,
     "expectedSupplyDuration": {

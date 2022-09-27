@@ -23,7 +23,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-08-03"
+                    "valueDateTime": "2022-09-26"
                   },
                   {
                     "url": "frequency",
@@ -64,7 +64,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-10-non-synthetic-drug-context"
             },
-            "authoredOn": "2022-08-03",
+            "authoredOn": "2022-09-26",
             "dosageInstruction": [
               {
                 "timing": {
@@ -89,8 +89,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-08-03T00:00:00-06:00",
-                "end": "2022-11-02T00:00:00-06:00"
+                "start": "2022-09-26T00:00:00-06:00",
+                "end": "2022-12-26T00:00:00-07:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {
@@ -134,7 +134,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -171,7 +171,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-non-synthetic-drug"
               },
-              "effectiveDateTime": "2022-07-27",
+              "effectiveDateTime": "2022-09-19",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -195,7 +195,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -233,7 +233,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-non-synthetic-drug"
               },
-              "effectiveDateTime": "2022-05-05",
+              "effectiveDateTime": "2022-06-28",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -257,7 +257,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -295,7 +295,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-non-synthetic-drug"
               },
-              "effectiveDateTime": "2022-06-01",
+              "effectiveDateTime": "2022-07-25",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -319,7 +319,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -357,7 +357,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-non-synthetic-drug"
               },
-              "effectiveDateTime": "2022-06-12",
+              "effectiveDateTime": "2022-08-05",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -390,7 +390,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-09-26"
               },
               {
                 "url": "frequency",
@@ -431,7 +431,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-non-synthetic-drug-prefetch"
         },
-        "authoredOn": "2022-05-05",
+        "authoredOn": "2022-06-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -456,8 +456,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-05-05T00:00:00-06:00",
-            "end": "2022-08-03T00:00:00-06:00"
+            "start": "2022-06-28T00:00:00-06:00",
+            "end": "2022-09-26T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
@@ -482,7 +482,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-09-26"
               },
               {
                 "url": "frequency",
@@ -501,8 +501,8 @@
           "reference": "Patient/example-rec-10-non-synthetic-drug"
         },
         "period": {
-          "start": "2022-05-05",
-          "end": "2022-05-05"
+          "start": "2022-06-28",
+          "end": "2022-06-28"
         }
       }
     },

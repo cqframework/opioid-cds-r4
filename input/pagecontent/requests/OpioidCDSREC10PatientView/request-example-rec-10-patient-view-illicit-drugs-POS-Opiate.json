@@ -21,7 +21,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-09-26"
               },
               {
                 "url": "frequency",
@@ -36,7 +36,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1982-04-14"
+        "birthDate": "1982-06-07"
       }
     },
     "item2": {
@@ -56,7 +56,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -93,7 +93,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2021-12-28",
+              "effectiveDateTime": "2022-02-20",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -117,7 +117,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -155,7 +155,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2022-02-06",
+              "effectiveDateTime": "2022-04-01",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -179,7 +179,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -217,7 +217,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2022-03-08",
+              "effectiveDateTime": "2022-05-01",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -241,7 +241,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-08-03"
+                      "valueDateTime": "2022-09-26"
                     },
                     {
                       "url": "frequency",
@@ -279,7 +279,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-illicit-drugs-POS-Opiate"
               },
-              "effectiveDateTime": "2022-05-09",
+              "effectiveDateTime": "2022-07-02",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -313,7 +313,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-09-26"
               },
               {
                 "url": "frequency",
@@ -332,8 +332,8 @@
           "reference": "Patient/example-rec-10-patient-view-illicit-drugs-POS-Opiate"
         },
         "period": {
-          "start": "2022-05-05",
-          "end": "2022-05-05"
+          "start": "2022-06-28",
+          "end": "2022-06-28"
         }
       }
     },
@@ -352,7 +352,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-08-03"
+                "valueDateTime": "2022-09-26"
               },
               {
                 "url": "frequency",
@@ -393,7 +393,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-patient-view-illicit-drugs-POS-Opiate-encounter"
         },
-        "authoredOn": "2022-05-05",
+        "authoredOn": "2022-06-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -418,8 +418,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-05-05T00:00:00-06:00",
-            "end": "2022-08-03T00:00:00-06:00"
+            "start": "2022-06-28T00:00:00-06:00",
+            "end": "2022-09-26T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
