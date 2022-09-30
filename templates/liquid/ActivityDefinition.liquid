@@ -216,7 +216,7 @@
             <p><b>Documentation</b></p>
             <ul>
               {% for artifact in ActivityDefinition.relatedArtifact.where(type = 'documentation' or type = 'justification') %}
-                <li><a href="{{artifact.url}}">{{artifact.label}} {{artifact.display}}</a></li>
+                <li><a href="{{artifact.url.value}}">{{artifact.label}} {{artifact.display}}</a></li>
               {% endfor %}
             </ul>
             {% endif %}
@@ -224,7 +224,7 @@
             <p><b>References</b></p>
             <ul>
               {% for artifact in ActivityDefinition.relatedArtifact.where(type = 'citation') %}
-                <li>{{artifact.citation}}<br/><a href="{{artifact.url}}">{{artifact.url}}</a></li>
+                <li>{{artifact.citation}}<br/><a href="{{artifact.url.value}}">{{artifact.url}}</a></li>
               {% endfor %}
             </ul>
             {% endif %}
