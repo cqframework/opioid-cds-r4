@@ -1,5 +1,5 @@
 @ECHO OFF
-SET tooling_jar=tooling-1.4.1-SNAPSHOT-jar-with-dependencies.jar
+SET tooling_jar=tooling-cli-2.1.0-SNAPSHOT.jar
 SET input_cache_path=%~dp0input-cache
 SET resources_path=%~dp0/input/resources
 SET ig_ini_path=%~dp0/ig.ini
