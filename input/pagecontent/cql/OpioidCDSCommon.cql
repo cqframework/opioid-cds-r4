@@ -304,3 +304,13 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
  define "Service Requests":
    [ServiceRequest] SR
     return SR
+
+define "Patient 18 or Older?":
+  Config."Age Less than 18 Years Is Enabled"
+    and AgeInYears() >= 18
+
+define "Patient Age Less Than 18":
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false

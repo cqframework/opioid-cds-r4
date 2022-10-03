@@ -35,26 +35,20 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 
 context Patient
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Inclusion Criteria":
   (
     exists (Common."Active Ambulatory Benzodiazepine Rx")
       and exists (Common."Active Ambulatory Opioid Rx")
   )
-    and not "Patient Age Less Than 18"
+    and not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"
