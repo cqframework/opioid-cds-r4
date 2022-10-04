@@ -1,20 +1,20 @@
 <Device xmlns="http://hl7.org/fhir">
-   <id value="cqf-tooling"/>
+   <id value="cqf-tooling"></id>
    <meta>
-      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"/>
+      <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"></profile>
    </meta>
-   <manufacturer value="CQFramework"/>
+   <manufacturer value="CQFramework"></manufacturer>
    <deviceName>
-      <name value="cqf-tooling"/>
-      <type value="manufacturer-name"/>
+      <name value="cqf-tooling"></name>
+      <type value="manufacturer-name"></type>
    </deviceName>
    <type>
       <coding>
-         <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type"/>
-         <code value="tooling"/>
+         <system value="http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type"></system>
+         <code value="tooling"></code>
       </coding>
    </type>
    <version>
-      <value value="1.4.1-SNAPSHOT"/>
+      <value value="unspecified"></value>
    </version>
 </Device>
