@@ -1,671 +1,796 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-    <id value="fhir.cdc.opioid-cds-r4"/>
-    <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/fhir.cdc.opioid-cds-r4"/>
-    <version value="0.1.1"/>
-    <name value="Opioid_CDC"/>
-    <title value="Opioid Prescribing Support Implementation Guide"/>
-    <status value="active"/>
-    <experimental value="false"/>
-    <date value="2017-02-06"/>
-    <publisher value="Centers for Disease Control and Prevention (CDC)"/>
-    <contact>
-      <telecom>
-        <system value="url"/>
-        <value value="https://www.cdc.gov"/>
-      </telecom>
-    </contact>
-    <description value="Opioid Prescribing Support Implementation Guide"/>
-    <packageId value="fhir.cdc.opioid-cds-r4"/>
-	  <fhirVersion value="4.0.1"/>
-    <dependsOn>
-      <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg"/>
-      <version value="current"/>
-    </dependsOn>
-    <dependsOn>
-        <uri value="http://hl7.fhir.us.cqfmeasures"/>
-        <packageId value="hl7.fhir.us.cqfmeasures"/>
-        <version value="3.0.0"/>
-    </dependsOn>
-    <dependsOn>
-        <uri value="http://fhir.org/guides/cdc/opioid-mme-r4"/>
-        <packageId value="fhir.cdc.opioid-mme-r4"/>
-        <version value="3.0.0"/>
-    </dependsOn>
-    <definition>
-        <grouping id="recommendation-artifact-packages">
-            <name value="Recommendation Artifact Packages"/>
-        </grouping>
-        <grouping id="common-libraries">
-          <name value="Common Logic Libraries"/>
-        </grouping>
-        <grouping id="recommendation-libraries">
-          <name value="Recommendation Logic Libraries"/>
-        </grouping>
-        <grouping id="activitydefinitions">
-          <name value="ActivityDefinitions"/>
-        </grouping>
-        <grouping id="plandefinitions">
-          <name value="PlanDefinitions"/>
-        </grouping>
-        <!-- Artifact Package Bundles -->
-        <resource>
-        <reference>
-            <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
-            <display value="Recommendation 10 (Patient View) Artifact Package"/>
-        </reference>
-        <name value="OpioidCDSREC10PatientViewBundle"/>
-        <description value="A Bundle containing Recommendation 10 (patient-view) knowledge artifacts"/>
-        <exampleBoolean value="false"/>
-        <groupingId value="recommendation-artifact-packages"/>
+  <id value="fhir.cdc.opioid-cds-r4" />
+  <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/fhir.cdc.opioid-cds-r4" />
+  <version value="0.1.1" />
+  <name value="Opioid_CDC" />
+  <title value="Opioid Prescribing Support Implementation Guide" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2017-02-06" />
+  <publisher value="Centers for Disease Control and Prevention (CDC)" />
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="https://www.cdc.gov" />
+    </telecom>
+  </contact>
+  <description value="Opioid Prescribing Support Implementation Guide" />
+  <packageId value="fhir.cdc.opioid-cds-r4" />
+  <fhirVersion value="4.0.1" />
+  <dependsOn>
+    <uri value="http://hl7.org/fhir/uv/cpg" />
+    <packageId value="hl7.fhir.uv.cpg" />
+    <version value="1.0.0" />
+  </dependsOn>
+  <dependsOn>
+    <uri value="http://hl7.fhir.us.cqfmeasures" />
+    <packageId value="hl7.fhir.us.cqfmeasures" />
+    <version value="3.0.0" />
+  </dependsOn>
+  <dependsOn>
+    <uri value="http://fhir.org/guides/cdc/opioid-mme-r4" />
+    <packageId value="fhir.cdc.opioid-mme-r4" />
+    <version value="3.0.0" />
+  </dependsOn>
+  <definition>
+    <grouping id="recommendation-artifact-packages">
+      <name value="Recommendation Artifact Packages" />
+    </grouping>
+    <grouping id="common-libraries">
+      <name value="Common Logic Libraries" />
+    </grouping>
+    <grouping id="recommendation-libraries">
+      <name value="Recommendation Logic Libraries" />
+    </grouping>
+    <grouping id="activitydefinitions">
+      <name value="ActivityDefinitions" />
+    </grouping>
+    <grouping id="plandefinitions">
+      <name value="PlanDefinitions" />
+    </grouping>
+    <!-- Artifact Package Bundles -->
+    <!-- <resource>
+          <reference>
+              <reference value="Bundle/OpioidCDSREC10PatientView-bundle"/>
+              <display value="Recommendation 10 (Patient View) Artifact Package"/>
+          </reference>
+          <name value="OpioidCDSREC10PatientViewBundle"/>
+          <description value="A Bundle containing Recommendation 10 (patient-view) knowledge artifacts"/>
+          <exampleBoolean value="false"/>
+          <groupingId value="recommendation-artifact-packages"/>
+      </resource> -->
+    <!-- Examples -->
+    <resource>
+      <reference>
+        <reference value="CarePlan/example-opioidcds" />
+      </reference>
+      <name value="OpioidCDS CarePlan" />
+      <description value="CarePlan Example" />
+      <exampleBoolean value="true" />
     </resource>
-        <!-- Extensions -->
-        <resource>
-            <reference>
-                <reference value="StructureDefinition/dataDateRoller"/>
-                <display value="Data Date-Roller Extension"/>
-            </reference>
-            <name value="DataDateRollerExtension"/>
-            <description value="Declares the DateLastUpdated and Frequency arguments to be used by the Data Date Roller for maintaining/rolling test data dates to keep them from going stale."/>
-            <exampleBoolean value="false"/>
-        </resource>
-       <!-- Libraries -->
-        <!-- Common Libraries-->
-        <resource>
-            <reference>
-                <reference value="Library/HelloWorld"/>
-                <display value="HelloWorld Library"/>
-            </reference>
-            <name value="HelloWorld"/>
-            <description value="HelloWorld Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/HelloWorldPatientView"/>
-                <display value="HelloWorldPatientView Library"/>
-            </reference>
-            <name value="HelloWorldPatientView"/>
-            <description value="HelloWorldPatientView Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSRoutines"/>
-                <display value="Common Routines Library"/>
-            </reference>
-            <name value="OpioidCDSRoutines"/>
-            <description value="Common Routines Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC10Common"/>
-                <display value="Recommendation 10 Common Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC10CommonLibrary"/>
-            <description value="Common Logic Library for Recommendation #10 - Urine Drug Testing"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSCommon"/>
-                <display value="Common Library"/>
-            </reference>
-            <name value="OpioidCDSCommon"/>
-            <description value="Common Logic Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSCommonConfig"/>
-                <display value="Common Configuration Library"/>
-            </reference>
-            <name value="OpioidCDSCommonConfig"/>
-            <description value="Common Configuration Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OMTKLogicMK2020"/>
-                <display value="OMTK Logic MK (2020) Library"/>
-            </reference>
-            <name value="OpioidLogicMK2020"/>
-            <description value="OMTK Logic MK (2020) Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OMTKData2020"/>
-                <display value="OMTK Data (2020) Library"/>
-            </reference>
-            <name value="OpioidData2020"/>
-            <description value="OMTK Data (2020) Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/FHIRHelpers"/>
-                <display value="FHIR Helpers Library"/>
-            </reference>
-            <name value="FHIRHelpers"/>
-            <description value="FHIR Helpers Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/FHIR-ModelInfo"/>
-                <display value="FHIR ModelInfo Library"/>
-            </reference>
-            <name value="FHIRModelInfo"/>
-            <description value="FHIR ModelInfo Library"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="common-libraries"/>
-        </resource>
-        <!-- Rec Libraries-->
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC01"/>
-                <display value="Recommendation 1 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC01Library"/>
-            <description value="Logic Library for Recommendation #1 (order-select) - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC02"/>
-                <display value="Recommendation 2 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC01Library"/>
-            <description value="Logic Library for Recommendation #2 (order-select) - Opioid Therapy Goals Discussion"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC03"/>
-                <display value="Recommendation 3 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC03Library"/>
-            <description value="Logic Library for Recommendation #3 (order-select) - Opioid Therapy Risk/Benefit Discussion"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC04"/>
-                <display value="Recommendation 4 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC04Library"/>
-            <description value="Logic Library for Recommendation #4 (order-select) - Opioid Immediate Release Form When Starting Opioid Therapy"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC04PatientView"/>
-                <display value="Recommendation 4 (patient-view) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC04PatientViewLibrary"/>
-            <description value="Logic Library for Recommendation #4 (patient-view) - Opioid Immediate Release Form When Starting Opioid Therapy"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC05"/>
-                <display value="Recommendation 5 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC05Library"/>
-            <description value="Logic Library for Recommendation #5 (order-select) - Lowest Effective Dose"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC06"/>
-                <display value="Recommendation 6 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC06Library"/>
-            <description value="Logic Library for Recommendation #6 (order-select) - Prescribe Lowest Effective Dose and Duration"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC07"/>
-                <display value="Recommendation 7 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC07Library"/>
-            <description value="Logic Library for Recommendation #7 (order-select) - Opioid Therapy Risk Assessment"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC08"/>
-                <display value="Recommendation 8 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC08Library"/>
-            <description value="Logic Library for Recommendation #8 (order-select) - Naloxone Consideration"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC09"/>
-                <display value="Recommendation 9 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC09Library"/>
-            <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient’s History of Controlled Substance Prescriptions"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC10"/>
-                <display value="Recommendation 10 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC10Library"/>
-            <description value="Logic Library for Recommendation #10 (order-select) - Urine Drug Testing"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC10PatientView"/>
-                <display value="Recommendation 10 (patient-view) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC10PatientViewLibrary"/>
-            <description value="Logic Library for Recommendation #10 (patient-view) - Urine Drug Testing"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC11"/>
-                <display value="Recommendation 11 (order-select) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC11Library"/>
-            <description value="Logic Library for Recommendation #11 (order-select) - Concurrent Use of Opioids and Benzodiazepines"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC11PatientView"/>
-                <display value="Recommendation 11 (patient-view) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC11PatientViewLibrary"/>
-            <description value="Logic Library for Recommendation #11 (patient-view) - Concurrent Use of Opioids and Benzodiazepines"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="Library/OpioidCDSREC12PatientView"/>
-                <display value="Recommendation 12 (patient-view) Logic Library"/>
-            </reference>
-            <name value="OpioidCDSREC12PatientViewLibrary"/>
-            <description value="Logic Library for Recommendation #12 (patient-view) - Evidence-based Treatment for Patients with Opioid Use Disorder"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="recommendation-libraries"/>
-        </resource>
-        <!-- ActivityDefinition -->
-        <resource>
-            <reference>
-                <reference value="ActivityDefinition/opioidcds-risk-assessment-request"/>
-                <display value="Risk Assessment ActivityDefinition"/>
-            </reference>
-            <name value="OpioidRiskAssessmentActivityDefinition"/>
-            <description value="An ActivityDefinition for recommendation of risk assessment"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="activitydefinitions"/>
-        </resource>
-        <resource>
-            <reference>
-                <reference value="ActivityDefinition/opioidcds-urine-screening-request"/>
-                <display value="Urine Screening ActivityDefinition"/>
-            </reference>
-            <name value="OpioidUrineScreeningActivityDefinition"/>
-            <description value="An ActivityDefinition for recommendation of urine screening"/>
-            <exampleBoolean value="false"/>
-            <groupingId value="activitydefinitions"/>
-        </resource>
-        <!-- Device -->
-        <resource>
-            <reference>
-                <reference value="Device/cqf-tooling"/>
-                <display value="CQF Tooling Device"/>
-            </reference>
-            <name value="CQFToolingDevice"/>
-            <description value="A Device that represents a CQF Tooling version."/>
-            <exampleBoolean value="false"/>
-        </resource>
-        <!-- Pages -->
-        <page>
-          <nameUrl value="toc.html" />
-          <title value="Table of Contents" />
-          <generation value="html" />
-          <page>
-            <nameUrl value="index.html" />
-            <title value="Home" />
-            <generation value="markdown" />
-          </page>
-          <!-- <page>
+    <resource>
+      <reference>
+        <reference value="Condition/cancer-diagnosis" />
+      </reference>
+      <name value="Cancer Diagnosis Condition" />
+      <description value="Cancer Diagnosis Condition Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Condition/end-of-life" />
+      </reference>
+      <name value="End of Life Condition" />
+      <description value="End of Life Condition Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Condition/terminal" />
+      </reference>
+      <name value="Terminal Condition" />
+      <description value="Terminal Condition Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Encounter/cancer-diagnosis" />
+      </reference>
+      <name value="Cancer Diagnosis Encounter" />
+      <description value="Cancer Diagnosis Encounter Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Encounter/oncologist-participant" />
+      </reference>
+      <name value="Oncology Participant Encounter" />
+      <description value="Oncology Participant Encounter Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationDispense/ambulatory-opioid" />
+      </reference>
+      <name value="Ambulatory Opioid MedicationDispense" />
+      <description value="Ambulatory Opioid MedicationDispense Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/example-opioidcds" />
+      </reference>
+      <name value="OpioidCDS MedicationRequest" />
+      <description value="MedicationRequest Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/ambulatory-opioid" />
+      </reference>
+      <name value="Ambulatory Opioid MedicationRequest" />
+      <description value="Ambulatory Opioid MedicationRequest Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-opioidcds" />
+      </reference>
+      <name value="OpioidCDS Observation" />
+      <description value="Observation Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Patient/example-opioidcds" />
+      </reference>
+      <name value="OpioidCDS Patient" />
+      <description value="Patient Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="PractitionerRole/oncology-specialist" />
+      </reference>
+      <name value="Oncology Specialist PractitionerRole" />
+      <description value="Oncology Specialist PractitionerRole Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="RequestGroup/example-opioidcds" />
+      </reference>
+      <name value="OpioidCDS RequestGroup" />
+      <description value="RequestGroup Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/palliative-care" />
+      </reference>
+      <name value="Palliative Care ServiceRequest" />
+      <description value="Palliative Care ServiceRequest Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <!-- Extensions -->
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/dataDateRoller" />
+        <display value="Data Date-Roller Extension" />
+      </reference>
+      <name value="DataDateRollerExtension" />
+      <description value="Declares the DateLastUpdated and Frequency arguments to be used by the Data Date Roller for maintaining/rolling test data dates to keep them from going stale." />
+      <exampleBoolean value="false" />
+    </resource>
+    <!-- Libraries -->
+    <!-- Common Libraries-->
+    <resource>
+      <reference>
+        <reference value="Library/HelloWorld" />
+        <display value="HelloWorld Library" />
+      </reference>
+      <name value="HelloWorld" />
+      <description value="HelloWorld Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/HelloWorldPatientView" />
+        <display value="HelloWorldPatientView Library" />
+      </reference>
+      <name value="HelloWorldPatientView" />
+      <description value="HelloWorldPatientView Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/CDCMMEClinicalConversionFactors" />
+        <display value="CDCMMEClinicalConversionFactors Library" />
+      </reference>
+      <name value="CDCMMEClinicalConversionFactors" />
+      <description value="CDCMMEClinicalConversionFactors Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSRoutines" />
+        <display value="Common Routines Library" />
+      </reference>
+      <name value="OpioidCDSRoutines" />
+      <description value="Common Routines Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC10Common" />
+        <display value="Recommendation 10 Common Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC10CommonLibrary" />
+      <description value="Common Logic Library for Recommendation #10 - Urine Drug Testing" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSCommon" />
+        <display value="Common Library" />
+      </reference>
+      <name value="OpioidCDSCommon" />
+      <description value="Common Logic Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSCommonConfig" />
+        <display value="Common Configuration Library" />
+      </reference>
+      <name value="OpioidCDSCommonConfig" />
+      <description value="Common Configuration Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OMTKLogicMK2020" />
+        <display value="OMTK Logic MK (2020) Library" />
+      </reference>
+      <name value="OpioidLogicMK2020" />
+      <description value="OMTK Logic MK (2020) Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OMTKData2020" />
+        <display value="OMTK Data (2020) Library" />
+      </reference>
+      <name value="OpioidData2020" />
+      <description value="OMTK Data (2020) Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/FHIRHelpers" />
+        <display value="FHIR Helpers Library" />
+      </reference>
+      <name value="FHIRHelpers" />
+      <description value="FHIR Helpers Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/FHIR-ModelInfo" />
+        <display value="FHIR ModelInfo Library" />
+      </reference>
+      <name value="FHIRModelInfo" />
+      <description value="FHIR ModelInfo Library" />
+      <exampleBoolean value="false" />
+      <groupingId value="common-libraries" />
+    </resource>
+    <!-- Rec Libraries-->
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC01" />
+        <display value="Recommendation 1 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC01Library" />
+      <description value="Logic Library for Recommendation #1 (order-select) - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC02" />
+        <display value="Recommendation 2 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC01Library" />
+      <description value="Logic Library for Recommendation #2 (order-select) - Opioid Therapy Goals Discussion" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC03" />
+        <display value="Recommendation 3 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC03Library" />
+      <description value="Logic Library for Recommendation #3 (order-select) - Opioid Therapy Risk/Benefit Discussion" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC04" />
+        <display value="Recommendation 4 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC04Library" />
+      <description value="Logic Library for Recommendation #4 (order-select) - Opioid Immediate Release Form When Starting Opioid Therapy" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC04PatientView" />
+        <display value="Recommendation 4 (patient-view) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC04PatientViewLibrary" />
+      <description value="Logic Library for Recommendation #4 (patient-view) - Opioid Immediate Release Form When Starting Opioid Therapy" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC05" />
+        <display value="Recommendation 5 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC05Library" />
+      <description value="Logic Library for Recommendation #5 (order-select) - Lowest Effective Dose" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC06" />
+        <display value="Recommendation 6 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC06Library" />
+      <description value="Logic Library for Recommendation #6 (order-select) - Prescribe Lowest Effective Dose and Duration" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC07" />
+        <display value="Recommendation 7 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC07Library" />
+      <description value="Logic Library for Recommendation #7 (order-select) - Opioid Therapy Risk Assessment" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC08" />
+        <display value="Recommendation 8 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC08Library" />
+      <description value="Logic Library for Recommendation #8 (order-select) - Naloxone Consideration" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC09" />
+        <display value="Recommendation 9 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC09Library" />
+      <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient’s History of Controlled Substance Prescriptions" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC10" />
+        <display value="Recommendation 10 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC10Library" />
+      <description value="Logic Library for Recommendation #10 (order-select) - Urine Drug Testing" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC10PatientView" />
+        <display value="Recommendation 10 (patient-view) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC10PatientViewLibrary" />
+      <description value="Logic Library for Recommendation #10 (patient-view) - Urine Drug Testing" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC11" />
+        <display value="Recommendation 11 (order-select) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC11Library" />
+      <description value="Logic Library for Recommendation #11 (order-select) - Concurrent Use of Opioids and Benzodiazepines" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC11PatientView" />
+        <display value="Recommendation 11 (patient-view) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC11PatientViewLibrary" />
+      <description value="Logic Library for Recommendation #11 (patient-view) - Concurrent Use of Opioids and Benzodiazepines" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Library/OpioidCDSREC12PatientView" />
+        <display value="Recommendation 12 (patient-view) Logic Library" />
+      </reference>
+      <name value="OpioidCDSREC12PatientViewLibrary" />
+      <description value="Logic Library for Recommendation #12 (patient-view) - Evidence-based Treatment for Patients with Opioid Use Disorder" />
+      <exampleBoolean value="false" />
+      <groupingId value="recommendation-libraries" />
+    </resource>
+    <!-- ActivityDefinition -->
+    <resource>
+      <reference>
+        <reference value="ActivityDefinition/opioidcds-risk-assessment-request" />
+        <display value="Risk Assessment ActivityDefinition" />
+      </reference>
+      <name value="OpioidRiskAssessmentActivityDefinition" />
+      <description value="An ActivityDefinition for recommendation of risk assessment" />
+      <exampleBoolean value="false" />
+      <groupingId value="activitydefinitions" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ActivityDefinition/opioidcds-urine-screening-request" />
+        <display value="Urine Screening ActivityDefinition" />
+      </reference>
+      <name value="OpioidUrineScreeningActivityDefinition" />
+      <description value="An ActivityDefinition for recommendation of urine screening" />
+      <exampleBoolean value="false" />
+      <groupingId value="activitydefinitions" />
+    </resource>
+    <!-- Device -->
+    <resource>
+      <reference>
+        <reference value="Device/cqf-tooling" />
+        <display value="CQF Tooling Device" />
+      </reference>
+      <name value="CQFToolingDevice" />
+      <description value="A Device that represents a CQF Tooling version." />
+      <exampleBoolean value="false" />
+    </resource>
+    <!-- Pages -->
+    <page>
+      <nameUrl value="toc.html" />
+      <title value="Table of Contents" />
+      <generation value="html" />
+      <page>
+        <nameUrl value="index.html" />
+        <title value="Home" />
+        <generation value="markdown" />
+      </page>
+      <!-- <page>
             <nameUrl value="artifacts.html" />
             <title value="CDC 2016 Opioid Prescribing Guideline - Artifacts" />
             <generation value="html" />
           </page> -->
-          <page>
-            <nameUrl value="quick-start.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Quick Start" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="documentation.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Documentation" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="implementation-documentation.html" />
-              <title value="CDC 2016 Opioid Prescribing Guideline - Implementation Documentation" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="integration-documentation.html" />
-              <title value="CDC 2016 Opioid Prescribing Guideline - Integration Documentation" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="process-documentation.html" />
-              <title value="CDC 2016 Opioid Prescribing Guideline - Process Documentation" />
-              <generation value="html" />
-            </page>
-            <page>
-              <nameUrl value="service-documentation.html" />
-              <title value="CDC 2016 Opioid Prescribing Guideline - Service Documentation" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="profiles.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Profiles" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="extensions.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Extensions" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="operations.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Operations" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="registry.html" />
-            <title value="Conformance Resource Registry" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="services.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Services" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="terminology.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Terminology" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="examples.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Examples" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="test.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Test data" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="downloads.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Downloads" />
-            <generation value="html" />
-          </page>
-          <page>
-            <nameUrl value="chronic-pain.html" />
-            <title value="Chronic Pain Decision Documentation" />
-            <generation value="markdown" />
-          </page>
-          <page>
-            <nameUrl value="recommendation-01.html" />
-            <title value="Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-01-cql.html" />
-              <title value="OpioidCDS Recommendation 01 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-02.html" />
-            <title value="Recommendation #2 - Opioid Therapy Goals Discussion" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-02-cql.html" />
-              <title value="OpioidCDS Recommendation 02 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-03.html" />
-            <title value="Recommendation #3 - Opioid Therapy Risk/Benefit Discussion" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-03-cql.html" />
-              <title value="OpioidCDS Recommendation 03 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-04-order-sign.html" />
-            <title value="Recommendation #4 Order Sign Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-04-cql.html" />
-              <title value="OpioidCDS Recommendation 04 Order Sign - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-04-patient-view.html" />
-            <title value="Recommendation #4 Patient View Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-04-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 04 Patient View - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-05.html" />
-            <title value="Recommendation #5 - Lowest Effective Dose" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-05-cql.html" />
-              <title value="OpioidCDS Recommendation 05 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-06.html" />
-            <title value="Recommendation #6 - Prescribe Lowest Effective Dose and Duration" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-06-cql.html" />
-              <title value="OpioidCDS Recommendation 06 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-07.html" />
-            <title value="Recommendation #7 - Opioid Therapy Risk Assessment" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-07-cql.html" />
-              <title value="OpioidCDS Recommendation 07 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-08.html" />
-            <title value="Recommendation #8 - Naloxone Consideration" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-08-cql.html" />
-              <title value="OpioidCDS Recommendation 08 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-09.html" />
-            <title value="Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-09-cql.html" />
-              <title value="OpioidCDS Recommendation 09 - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-10-order-sign.html" />
-            <title value="Recommendation #10 Order Sign Variation - Urine Drug Testing" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-10-cql.html" />
-              <title value="OpioidCDS Recommendation 10 Order Sign - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-10-patient-view.html" />
-            <title value="Recommendation #10 Patient View Variation - Urine Drug Testing" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 10 Patient View - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-11-order-select.html" />
-            <title value="Recommendation #11 Order Select Variation - Concurrent Use of Opioids and Benzodiazepines" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-11-cql.html" />
-              <title value="OpioidCDS Recommendation 11 Order Select - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-11-patient-view.html" />
-            <title value="Recommendation #11 Patient View Variation - Concurrent Use of Opioids and Benzodiazepines" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-11-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 11 Patient View - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="recommendation-12.html" />
-            <title value="Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder" />
-            <generation value="html" />
-            <page>
-              <nameUrl value="opioidcds-recommendation-12-patient-view-cql.html" />
-              <title value="OpioidCDS Recommendation 12 (patient-view) - CQL Source" />
-              <generation value="html" />
-            </page>
-          </page>
-          <page>
-            <nameUrl value="license.html" />
-            <title value="License and Legal Terms" />
-            <generation value="html" />
-          </page>
+      <page>
+        <nameUrl value="quick-start.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Quick Start" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="documentation.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Documentation" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="implementation-documentation.html" />
+          <title value="CDC 2016 Opioid Prescribing Guideline - Implementation Documentation" />
+          <generation value="html" />
         </page>
-        <!-- copyright year is a mandatory parameter -->
-        <parameter>
-          <code value="copyrightyear" />
-          <value value="2019+" />
-        </parameter>
-        <!-- releaselabel should be the ballot status for HL7-published IGs. -->
-        <parameter>
-          <code value="releaselabel" />
-          <value value="CI Build" />
-        </parameter>
-        <parameter>
-          <code value="find-other-resources" />
-          <value value="true" />
-        </parameter>
-        <parameter>
-          <code value="path-liquid" />
-          <value value="templates/liquid"/>
-        </parameter>
-        <parameter>
-          <code value="path-pages" />
-          <value value="input/pagecontent"/>
-        </parameter>
-        <parameter>
+        <page>
+          <nameUrl value="integration-documentation.html" />
+          <title value="CDC 2016 Opioid Prescribing Guideline - Integration Documentation" />
+          <generation value="html" />
+        </page>
+        <page>
+          <nameUrl value="process-documentation.html" />
+          <title value="CDC 2016 Opioid Prescribing Guideline - Process Documentation" />
+          <generation value="html" />
+        </page>
+        <page>
+          <nameUrl value="service-documentation.html" />
+          <title value="CDC 2016 Opioid Prescribing Guideline - Service Documentation" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="profiles.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Profiles" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="extensions.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Extensions" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="operations.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Operations" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="registry.html" />
+        <title value="Conformance Resource Registry" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="services.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Services" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="terminology.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Terminology" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="examples.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Examples" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="test.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Test data" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="downloads.html" />
+        <title value="CDC 2016 Opioid Prescribing Guideline - Downloads" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="chronic-pain.html" />
+        <title value="Chronic Pain Decision Documentation" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="recommendation-01.html" />
+        <title value="Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-01-cql.html" />
+          <title value="OpioidCDS Recommendation 01 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-02.html" />
+        <title value="Recommendation #2 - Opioid Therapy Goals Discussion" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-02-cql.html" />
+          <title value="OpioidCDS Recommendation 02 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-03.html" />
+        <title value="Recommendation #3 - Opioid Therapy Risk/Benefit Discussion" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-03-cql.html" />
+          <title value="OpioidCDS Recommendation 03 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-04-order-sign.html" />
+        <title value="Recommendation #4 Order Sign Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-04-cql.html" />
+          <title value="OpioidCDS Recommendation 04 Order Sign - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-04-patient-view.html" />
+        <title value="Recommendation #4 Patient View Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-04-patient-view-cql.html" />
+          <title value="OpioidCDS Recommendation 04 Patient View - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-05.html" />
+        <title value="Recommendation #5 - Lowest Effective Dose" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-05-cql.html" />
+          <title value="OpioidCDS Recommendation 05 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-06.html" />
+        <title value="Recommendation #6 - Prescribe Lowest Effective Dose and Duration" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-06-cql.html" />
+          <title value="OpioidCDS Recommendation 06 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-07.html" />
+        <title value="Recommendation #7 - Opioid Therapy Risk Assessment" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-07-cql.html" />
+          <title value="OpioidCDS Recommendation 07 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-08.html" />
+        <title value="Recommendation #8 - Naloxone Consideration" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-08-cql.html" />
+          <title value="OpioidCDS Recommendation 08 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-09.html" />
+        <title value="Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-09-cql.html" />
+          <title value="OpioidCDS Recommendation 09 - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-10-order-sign.html" />
+        <title value="Recommendation #10 Order Sign Variation - Urine Drug Testing" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-10-cql.html" />
+          <title value="OpioidCDS Recommendation 10 Order Sign - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-10-patient-view.html" />
+        <title value="Recommendation #10 Patient View Variation - Urine Drug Testing" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
+          <title value="OpioidCDS Recommendation 10 Patient View - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-11-order-select.html" />
+        <title value="Recommendation #11 Order Select Variation - Concurrent Use of Opioids and Benzodiazepines" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-11-cql.html" />
+          <title value="OpioidCDS Recommendation 11 Order Select - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-11-patient-view.html" />
+        <title value="Recommendation #11 Patient View Variation - Concurrent Use of Opioids and Benzodiazepines" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-11-patient-view-cql.html" />
+          <title value="OpioidCDS Recommendation 11 Patient View - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="recommendation-12.html" />
+        <title value="Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder" />
+        <generation value="html" />
+        <page>
+          <nameUrl value="opioidcds-recommendation-12-patient-view-cql.html" />
+          <title value="OpioidCDS Recommendation 12 (patient-view) - CQL Source" />
+          <generation value="html" />
+        </page>
+      </page>
+      <page>
+        <nameUrl value="license.html" />
+        <title value="License and Legal Terms" />
+        <generation value="html" />
+      </page>
+    </page>
+    <!-- copyright year is a mandatory parameter -->
+    <parameter>
+      <code value="copyrightyear" />
+      <value value="2019+" />
+    </parameter>
+    <!-- releaselabel should be the ballot status for HL7-published IGs. -->
+    <parameter>
+      <code value="releaselabel" />
+      <value value="CI Build" />
+    </parameter>
+    <parameter>
+      <code value="find-other-resources" />
+      <value value="true" />
+    </parameter>
+    <parameter>
+      <code value="path-liquid" />
+      <value value="templates/liquid" />
+    </parameter>
+    <parameter>
+      <code value="path-pages" />
+      <value value="input/pagecontent" />
+    </parameter>
+    <!-- <parameter>
           <code value="path-resource" />
           <value value="bundles"/>
         </parameter>
         <parameter>
           <code value="path-resource" />
           <value value="bundles/plandefinition/OpioidCDSREC10PatientView"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/extensions"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/resources/activitydefinition"/>
-        </parameter>
-        <!--<parameter>-->
-          <!--<code value="path-resource" />-->
-          <!--<value value="input/resources/capabilitystatement"/>-->
-        <!--</parameter>-->
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/resources/device"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/resources/library"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/resources/plandefinition"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/vocabulary/codesystem"/>
-        </parameter>
-        <parameter>
-          <code value="path-resource" />
-          <value value="input/vocabulary/valueset"/>
-        </parameter>
-        <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings
+        </parameter> -->
+    <parameter>
+      <code value="path-resource" />
+      <value value="input/extensions" />
+    </parameter>
+    <parameter>
+      <code value="path-resource" />
+      <value value="input/resources/activitydefinition" />
+    </parameter>
+    <!--<parameter>-->
+    <!--<code value="path-resource" />-->
+    <!--<value value="input/resources/capabilitystatement"/>-->
+    <!--</parameter>-->
+    <parameter>
+      <code value="path-resource" />
+      <value value="input/resources/device" />
+    </parameter>
+    <parameter>
+      <code value="path-resource" />
+      <value value="input/resources/library" />
+    </parameter>
+    <parameter>
+      <code value="path-resource" />
+      <value value="input/resources/plandefinition" />
+    </parameter>
+    <parameter>
+      <code value="path-resource" />
+      <value value="input/vocabulary/codesystem" />
+    </parameter>
+    <parameter>
+      <code value="path-resource" />
+      <value value="input/vocabulary/valueset" />
+    </parameter>
+    <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings
          <parameter>
            <code value="excludexml"/>
            <value value="true"/>
@@ -682,5 +807,5 @@
            <code value="excludemap"/>
            <value value="true"/>
          </parameter>-->
-    </definition>
+  </definition>
 </ImplementationGuide>

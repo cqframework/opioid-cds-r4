@@ -4,6 +4,269 @@
   "meta": {
     "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition" ]
   },
+  "contained": [ {
+    "resourceType": "Library",
+    "id": "effective-data-requirements",
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "relatedArtifact": [ {
+      "type": "depends-on",
+      "display": "Library Common",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|0.1.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library Routines",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|0.1.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library MMECalculator",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/MMECalculator|3.0.0"
+    }, {
+      "type": "depends-on",
+      "display": "Library OMTKLogic",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OMTKLogic|3.0.0"
+    }, {
+      "type": "depends-on",
+      "display": "Library OMTKData",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OMTKData|3.0.0"
+    }, {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library ConversionFactors",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/ConversionFactors|3.0.0"
+    }, {
+      "type": "depends-on",
+      "display": "Library CDCMMEClinicalConversionFactors",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/CDCMMEClinicalConversionFactors|3.0.0"
+    }, {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library Config",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommonConfig|0.1.1"
+    }, {
+      "type": "depends-on",
+      "display": "Code system Usage Context Type",
+      "resource": "http://terminology.hl7.org/CodeSystem/usage-context-type"
+    }, {
+      "type": "depends-on",
+      "display": "Code system CDC MME Usage Context Codes",
+      "resource": "http://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem/CDCMMEUsageContextCodes"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Opioid analgesics with ambulatory misuse potential",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Community",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Encounter Diagnosis Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Problem List Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set US Core Health Concern Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Limited life expectancy conditions",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Active Condition",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Therapies indicating end of life care",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Benzodiazepine medications",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Substance misuse behavioral counseling",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Conditions documenting substance misuse",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-substance-misuse"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Naloxone medications",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Conditions likely terminal for opioid prescribing",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Hospice Procedure Codes",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+    } ],
+    "parameter": [ {
+      "name": "ContextPrescriptions",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "type": "MedicationRequest"
+    }, {
+      "name": "ErrorLevel",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "ConversionFactorSupplementName",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "Get Summary",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "Is Recommendation Applicable?",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }, {
+      "name": "Get Detail",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "Get Indicator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    } ],
+    "dataRequirement": [ {
+      "type": "Medication",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
+      "mustSupport": [ "id" ],
+      "codeFilter": [ {
+        "path": "id"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+      } ]
+    }, {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
+    }, {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "status", "intent", "authoredOn", "code" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication" ]
+    }, {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling"
+      } ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication" ]
+    }, {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "code", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+      } ]
+    }, {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "code", "status", "status.value" ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "period", "period.start", "status", "status.value" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication" ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "authoredOn", "medication" ]
+    } ]
+  } ],
   "extension": [ {
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
     "valueCode": "shareable"
@@ -17,16 +280,9 @@
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
     "valueCode": "publishable"
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-    "valueCoding": {
-      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
-      "code": "task"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-    "valueCoding": {
-      "system": "http://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem/CDCMMEUsageContextCodes",
-      "code": "mme-calculation"
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
     }
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -158,7 +414,7 @@
       "valueString": "Order For Palliative Care In Past 90 Days"
     }, {
       "url": "statement",
-      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent != null\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
+      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 8
@@ -227,16 +483,31 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
+      "valueString": "CDCMMEClinicalConversionFactors"
+    }, {
+      "url": "name",
+      "valueString": "CDCMMEClinicalConversionFactorsCodeSystem"
+    }, {
+      "url": "statement",
+      "valueString": "define CDCMMEClinicalConversionFactorsCodeSystem:\n    CodeSystem {\n        name: string { value: 'CDCMMEClinicalConversionFactors' },\n        supplements: canonical { value: 'http://www.nlm.nih.gov/research/umls/rxnorm' },\n        concept: List<FHIR.CodeSystem.Concept> {\n            FHIR.CodeSystem.Concept {\n                code: code { value: '2670' },\n                display: string { value: 'Codeine' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'conversion-factor' },\n                            value: decimal { value: 0.15 }\n                    }\n                }\n            },\n            FHIR.CodeSystem.Concept {\n                code: code { value: '4337' },\n                display: string { value: 'Fentanyl' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'dose-form-conversion-factor' },\n                            value: string { value: '316987:7200@0.33333333' }\n                    }\n                }\n            },\n            FHIR.CodeSystem.Concept {\n                code: code { value: '3423' },\n                display: string { value: 'Hydromorphone' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'conversion-factor' },\n                            value: decimal { value: 4 }\n                    }\n                }\n            },\n            FHIR.CodeSystem.Concept {\n                code: code { value: '5489' },\n                display: string { value: 'Hydrocodone' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'conversion-factor' },\n                            value: decimal { value: 1 }\n                    }\n                }\n            },\n            FHIR.CodeSystem.Concept {\n                code: code { value: '6813' },\n                display: string { value: 'Methadone' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'dose-range-conversion-factor' },\n                            value: string { value: '1-20:4' }\n                    },\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'dose-range-conversion-factor' },\n                            value: string { value: '21-40:8' }\n                    },\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'dose-range-conversion-factor' },\n                            value: string { value: '41-60:10' }\n                    },\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'dose-range-conversion-factor' },\n                            value: string { value: '61-*:12' }\n                    }\n                }\n            },\n            FHIR.CodeSystem.Concept {\n                code: code { value: '7052' },\n                display: string { value: 'Morphine' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'conversion-factor' },\n                            value: decimal { value: 1 }\n                    }\n                }\n            },\n            FHIR.CodeSystem.Concept {\n                code: code { value: '7804' },\n                display: string { value: 'Oxycodone' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'conversion-factor' },\n                            value: decimal { value: 1.5 }\n                    }\n                }\n            },\n            FHIR.CodeSystem.Concept {\n                code: code { value: '7814' },\n                display: string { value: 'Oxymorphone' },\n                property: List<FHIR.CodeSystem.\"Concept\".\"Property\"> {\n                    FHIR.CodeSystem.\"Concept\".\"Property\" {\n                            code: code { value: 'conversion-factor' },\n                            value: decimal { value: 3 }\n                    }\n                }\n            }\n        }\n    }"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 13
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
       "valueString": "ConversionFactors"
     }, {
       "url": "name",
       "valueString": "ConversionFactorSupplement"
     }, {
       "url": "statement",
-      "valueString": "define ConversionFactorSupplement:\n  singleton from (\n    [CodeSystem] C\n      where C.supplements.value = 'http://www.nlm.nih.gov/research/umls/rxnorm'\n      and (\n        C.name.value = ConversionFactorSupplementName\n          or exists (\n            C.useContext UC\n              where UC.code ~ \"Task Usage Context\"\n                and UC.value ~ \"MME Calculation\"\n          )\n      )\n  )"
+      "valueString": "/*\nThe use of the CDCMMEClinicalConversionFactors is a workaround for the fact that we can't retrieve the formally \ndefined CodeSystem resource (https://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem-CDCMMEClinicalConversionFactors.html) \nfrom the FHIR server\n*/\ndefine ConversionFactorSupplement:\n  CDCMMEClinicalConversionFactors.\"CDCMMEClinicalConversionFactorsCodeSystem\" C\n    where C.supplements.value = 'http://www.nlm.nih.gov/research/umls/rxnorm'\n    and (\n      C.name.value = ConversionFactorSupplementName\n        or exists (\n          C.useContext UC\n            where UC.code ~ \"Task Usage Context\"\n              and UC.value ~ \"MME Calculation\"\n        )\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 13
+      "valueInteger": 14
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -248,10 +519,10 @@
       "valueString": "Active Ambulatory Opioid Rx"
     }, {
       "url": "statement",
-      "valueString": "define \"Active Ambulatory Opioid Rx\":\n  (\n    (\"Get Active Ambulatory Medication Requests\"([MedicationRequest: status in \"Active MedicationRequest\"])) MR\n      where date from MR.authoredOn 2 years or less on or before Today()\n        and MR.medication is Reference or MR.medication in \"Opioid analgesics with ambulatory misuse potential\"\n        and MR.category in \"Community\"\n  ) Rx\n    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]\n    where not(Rx.medication is Reference) or Med.code in \"Opioid analgesics with ambulatory misuse potential\"\n      return\n        MedicationRequest {\n          id: Rx.id,\n          status: Rx.status,\n          intent: Rx.intent,\n          category: Rx.category,\n          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,\n          subject: Rx.subject,\n          recorder: Rx.recorder,\n          dosageInstruction: Rx.dosageInstruction,\n          dispenseRequest: Rx.dispenseRequest\n        }"
+      "valueString": "define \"Active Ambulatory Opioid Rx\":\n  (\n    \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n  ) Rx\n    where date from Rx.authoredOn 2 years or less on or before Today()\n      and Rx.medication in \"Opioid analgesics with ambulatory misuse potential\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 14
+      "valueInteger": 15
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -266,7 +537,7 @@
       "valueString": "define \"Active Ambulatory Opioid Rx\":\n  Common.\"Active Ambulatory Opioid Rx\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 15
+      "valueInteger": 16
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -281,7 +552,7 @@
       "valueString": "define \"Total MME\":\n  MMECalculator.TotalMME(\n    \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\"\n      union \"Active Ambulatory Opioid Rx\"\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 16
+      "valueInteger": 17
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -293,10 +564,10 @@
       "valueString": "Active Ambulatory Benzodiazepine Rx"
     }, {
       "url": "statement",
-      "valueString": "define \"Active Ambulatory Benzodiazepine Rx\":\n  (\n    (\"Get Active Ambulatory Medication Requests\"([MedicationRequest: status in \"Active MedicationRequest\"])) MR\n      where date from MR.authoredOn 2 years or less on or before Today()\n        and MR.medication is Reference or MR.medication in \"Benzodiazepine medications\"\n        and MR.category in \"Community\"\n  ) Rx\n    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]\n    where not(Rx.medication is Reference) or Med.code in \"Benzodiazepine medications\"\n      return\n        MedicationRequest {\n          id: Rx.id,\n          status: Rx.status,\n          intent: Rx.intent,\n          category: Rx.category,\n          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,\n          subject: Rx.subject,\n          recorder: Rx.recorder,\n          dosageInstruction: Rx.dosageInstruction,\n          dispenseRequest: Rx.dispenseRequest\n        }"
+      "valueString": "define \"Active Ambulatory Benzodiazepine Rx\":\n  (\n    \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n  ) Rx\n    where date from Rx.authoredOn 2 years or less on or before Today()\n      and Rx.medication in \"Benzodiazepine medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 17
+      "valueInteger": 18
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -311,7 +582,7 @@
       "valueString": "define \"On Benzodiazepine\":\n  exists( Common.\"Active Ambulatory Benzodiazepine Rx\" )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 18
+      "valueInteger": 19
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -326,7 +597,7 @@
       "valueString": "define \"Has Substance Abuse History\":\n  exists (\n    [Procedure: Common.\"Substance misuse behavioral counseling\"]\n  )\n    or exists (\n      Common.\"US Core-Categorized Conditions\" C\n        where C.code in Common.\"Conditions documenting substance misuse\"\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 19
+      "valueInteger": 20
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -341,7 +612,7 @@
       "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and not \"Patient Age Less Than 18\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and (\n      \"Total MME\" >= 50 '{MME}/d' or\n\n    \"On Benzodiazepine\"\n        or \"Has Substance Abuse History\"\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 20
+      "valueInteger": 21
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -356,7 +627,7 @@
       "valueString": "// Recommendation 8\ndefine \"Evidence of Naloxone Enabled\":\n  true"
     }, {
       "url": "displaySequence",
-      "valueInteger": 21
+      "valueInteger": 22
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -368,10 +639,10 @@
       "valueString": "Active Ambulatory Naloxone Rx"
     }, {
       "url": "statement",
-      "valueString": "define \"Active Ambulatory Naloxone Rx\":\n  (\n    (\"Get Active Ambulatory Medication Requests\"([MedicationRequest: status in \"Active MedicationRequest\"])) MR\n      where date from MR.authoredOn 2 years or less on or before Today()\n        and MR.medication is Reference or MR.medication in \"Naloxone medications\"\n        and MR.category in \"Community\"\n  ) Rx\n    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]\n    where not(Rx.medication is Reference) or Med.code in \"Naloxone medications\"\n      return\n        MedicationRequest {\n          id: Rx.id,\n          status: Rx.status,\n          intent: Rx.intent,\n          category: Rx.category,\n          medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,\n          subject: Rx.subject,\n          recorder: Rx.recorder,\n          dosageInstruction: Rx.dosageInstruction,\n          dispenseRequest: Rx.dispenseRequest\n        }"
+      "valueString": "define \"Active Ambulatory Naloxone Rx\":\n  (\n    \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n  ) Rx\n    where date from Rx.authoredOn 2 years or less on or before Today()\n      and Rx.medication in \"Naloxone medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 22
+      "valueInteger": 23
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -386,7 +657,7 @@
       "valueString": "define \"On Naloxone\":\n  exists( Common.\"Active Ambulatory Naloxone Rx\" )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 23
+      "valueInteger": 24
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -401,7 +672,7 @@
       "valueString": "define \"Conditions Indicating End of Life or With Limited Life Expectancy\":\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Conditions likely terminal for opioid prescribing\"\n        and C.clinicalStatus in \"Active Condition\"\n  )\n  union\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Limited life expectancy conditions\"\n        and C.clinicalStatus in \"Active Condition\"\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 24
+      "valueInteger": 25
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -416,7 +687,7 @@
       "valueString": "define \"Admitted/Referred/Discharged to Hospice Care\":\n  (\n    [Procedure: code in \"Hospice Procedure Codes\"] P\n      where P.status.value in { 'in-progress', 'completed' }\n  )\n  union\n  (\n    \"Service Requests\" SR\n      where SR.code in \"Hospice Procedure Codes\"\n        and SR.status.value in { 'active', 'completed' }\n  )\n  union\n  (\n    if (Config.\"Hospice Findings Exclusion Enabled\") then\n      [Observation: code in \"Hospice Finding Codes\"] O\n        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })\n    else\n      {}\n  )\n  union\n  (\n    [Encounter] E\n      where date from E.period.start 1 year or less on or before Today()\n        and (\n          if E.hospitalization.dischargeDisposition.coding is null\n              or not exists (E.hospitalization.dischargeDisposition.coding)\n            then false\n          else E.hospitalization.dischargeDisposition in \"Hospice Disposition\"\n        )\n        and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 25
+      "valueInteger": 26
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -431,7 +702,7 @@
       "valueString": "define \"End of Life Assessment\":\n    // 1. Conditions indicating end of life or with limited life expectancy\n    exists (\n      \"Conditions Indicating End of Life or With Limited Life Expectancy\"\n    )\n    // 2. Admitted/referred/discharged to hospice care\n    or exists (\n      \"Admitted/Referred/Discharged to Hospice Care\"\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 26
+      "valueInteger": 27
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -446,7 +717,7 @@
       "valueString": "define \"Exclusion Criteria\":\n  (\n    Config.\"Evidence of Naloxone Enabled\"\n      and \"On Naloxone\"\n  )\n    or Common.\"End of Life Assessment\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 27
+      "valueInteger": 28
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -461,7 +732,7 @@
       "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\"\n    and not \"Exclusion Criteria\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 28
+      "valueInteger": 29
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -476,7 +747,7 @@
       "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'Consider offering naloxone given following risk factor(s) for opioid overdose: '\n        + if \"Detail List\" is not null and \"Detail List\" != ''\n         then \"Detail List\" + '.'\n        else 'N/A.'\n  else null"
     }, {
       "url": "displaySequence",
-      "valueInteger": 29
+      "valueInteger": 30
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -491,8 +762,14 @@
       "valueString": "define \"Get Indicator\":\n  if \"Is Recommendation Applicable?\"\n    then 'warning'\n  else null"
     }, {
       "url": "displaySequence",
-      "valueInteger": 30
+      "valueInteger": 31
     } ]
+  }, {
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-08-order-sign",
   "identifier": [ {
@@ -511,7 +788,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2018-03-19",
+  "date": "2022-10-03",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should incorporate into the management plan strategies to mitigate risk, including considering offering naloxone when factors that increase risk for opioid overdose, such as history of overdose, history of substance use disorder, higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are present.",
   "useContext": [ {
@@ -566,24 +843,26 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "CDC 2016 Guideline for prescribing opioids for chronic pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+    "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm",
+    "document": {
+      "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+    }
   }, {
     "type": "documentation",
     "display": "MME Conversion Tables",
-    "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+    "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf",
+    "document": {
+      "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+    }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC08" ],
   "action": [ {
     "title": "Existing patient exhibits risk factors for opioid-related harms.",
-    "_title": {
-      "fhir_comments": [ " non-dynamic card summary " ]
-    },
     "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #8 workflow.",
     "documentation": [ {
       "type": "documentation",
       "document": {
         "extension": [ {
-          "fhir_comments": [ " We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here " ],
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
           "valueCodeableConcept": {
             "coding": [ {
@@ -638,10 +917,7 @@
       }
     } ],
     "action": [ {
-      "description": "Will offer Naloxone medications",
-      "_description": {
-        "fhir_comments": [ " Open Order Set, where available " ]
-      }
+      "description": "Will offer Naloxone medications"
     }, {
       "description": "Benefits outweigh risks, snooze 3 months"
     }, {
