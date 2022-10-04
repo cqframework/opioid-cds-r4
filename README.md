@@ -34,15 +34,22 @@ The HL7 IG Publisher is committed to this repository to make building as easy as
 
 ## Release and Branching
 
-This repository will leverage a branching strategy to maintain multiple versions of opioid recommendations (currently 2016 and 2022) and their respective IG's. This will use semantic versioning on releases to make it clear which version of the recommendations the release is for. Any release for 2022 version will be v2022.#.# and any that are 2016 will be v2016.#.#. 
+This repository will leverage a branching strategy to maintain multiple versions of the CDC opioid recommendations (currently 2016 and 2022) and their respective IG's. This will use semantic versioning on releases to make it clear which version of the recommendations the release is for.
+ The format used will be major.minor.patch
+- major represents the guideline version, and refers to the publication year (e.g. 2016)
+- minor is for new features and capabilities, but not breaking changes, thus backwards compatible
+- patches are bug fixes and technical corrections
 
-This will be developed from source branches for each version, master will be 2022 latest development, and v2016 will be latest development for 2016. This will leverage a gitflow type model where feature branches are made from respective branches and merged back to the parent via pull request and approved peer review. See diagram below
+Any release for 2022 version will be v2022.#.# and any that are 2016 will be v2016.#.#.
 
-![branching](diagrams/Branching.png)
+Note: that the "v" prefix is only used in the branch and tag names in git. The actual version will be "2016.#.#"
+
+
+![branching](diagrams/Branching.svg)
 
 ### IG Publishing
 
-You can view latest development of the IG by going to the following locations:
+You can view the latest development of the IG by going to the following locations:
 
 #### v2016
 [https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/](https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/)
