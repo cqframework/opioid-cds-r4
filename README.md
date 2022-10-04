@@ -36,7 +36,7 @@ The HL7 IG Publisher is committed to this repository to make building as easy as
 
 This repository will leverage a branching strategy to maintain multiple versions of the CDC opioid recommendations (currently 2016 and 2022) and their respective IG's. This will use semantic versioning on releases to make it clear which version of the recommendations the release is for.
  The format used will be major.minor.patch
-- major is for new CDC Recommendations and refers to the guideline publication year (e.g. 2016)
+- major represents the guideline version, and refers to the publication year (e.g. 2016)
 - minor is for new features and capabilities, but not breaking changes, thus backwards compatible
 - patches are bug fixes and technical corrections
 
