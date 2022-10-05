@@ -49,16 +49,6 @@ define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Pote
 define "Patient Is Being Prescribed Benzodiazepine":
   exists( "Benzodiazepine Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Inclusion Criteria":
   (
     (
@@ -70,11 +60,15 @@ define "Inclusion Criteria":
           and exists Common."Active Ambulatory Opioid Rx"
       )
   )
-    and not "Patient Age Less Than 18"
+    and not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"
