@@ -1,10 +1,10 @@
-library OpioidCDSREC05 version '0.1.1'
+library OpioidCDSREC05 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 /*include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
  */
 include MMECalculator version '3.0.0' called MMECalculator
