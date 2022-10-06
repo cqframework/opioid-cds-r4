@@ -2,7 +2,7 @@
 
 This project is a joint effort by the Centers for Disease Control and Prevention (CDC) and the Office of the National Coordinator for Health IT (ONC) focused on improving processes for the development of standardized, shareable, computable decision support artifacts using the [CDC 2016 Opioid Prescribing Guideline](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm) as a model case.
 
-The current draft of the implementation guide is available [here](http://build.fhir.org/ig/cqframework/opioid-cds-r4/). The draft is in the final stages of cleanup before publishing the initial 1.0 release.
+The current draft of the implementation guide is available [here](https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/). 
 
 The guide is published under a Creative Commons [license](LICENSE.md).
 
@@ -20,11 +20,11 @@ This repository contains the source for the Opioid Prescribing Support Implement
 
 Commits to this repository will automatically trigger a new build of the IG, which will then be published to the following location:
 
-[http://build.fhir.org/ig/cqframework/opioid-cds-r4/](http://build.fhir.org/ig/cqframework/opioid-cds-r4/)
+[https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/](https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/)
 
 Debugging information is available here:
 
-[http://build.fhir.org/ig/cqframework/opioid-cds-r4/debug.tgz](http://build.fhir.org/ig/cqframework/opioid-cds-r4/debug.tgz)
+[https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/debug.tgz](https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/debug.tgz)
 
 ### Local Build
 
