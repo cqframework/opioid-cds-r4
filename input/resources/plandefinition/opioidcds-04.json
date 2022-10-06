@@ -17,7 +17,7 @@
     "relatedArtifact": [ {
       "type": "depends-on",
       "display": "Library Common",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|2016.4.0"
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
@@ -25,7 +25,7 @@
     }, {
       "type": "depends-on",
       "display": "Library Routines",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2016.4.0"
     }, {
       "type": "depends-on",
       "display": "Value set Opioid analgesics with ambulatory misuse potential",
@@ -224,7 +224,7 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC04"
+      "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
       "valueString": "Patient Age Less Than 18"
@@ -410,7 +410,7 @@
       "valueString": "Inclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential\"\n    and not \"Patient Age Less Than 18\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and Routines.\"Is Opioid Naive?\""
+      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential\"\n    and not Common.\"Patient Age Less Than 18\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and Routines.\"Is Opioid Naive?\""
     }, {
       "url": "displaySequence",
       "valueInteger": 15
@@ -544,7 +544,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2022-10-03",
+  "date": "2022-10-06",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When starting opioid therapy for chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids.",
   "useContext": [ {

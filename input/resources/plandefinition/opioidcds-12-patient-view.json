@@ -16,12 +16,12 @@
     },
     "relatedArtifact": [ {
       "type": "depends-on",
-      "display": "Library Config",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommonConfig|0.1.1"
+      "display": "Library Common",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|2016.4.0"
     }, {
       "type": "depends-on",
-      "display": "Library Common",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|0.1.1"
+      "display": "Library Config",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommonConfig|2016.4.0"
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
@@ -176,7 +176,7 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC12PatientView"
+      "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
       "valueString": "Patient 18 or Older?"
@@ -287,7 +287,7 @@
       "valueString": "Inclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria\":\n  \"Patient 18 or Older?\"\n    and \"Not Receiving Evidence-Based Treatment for Opioid Use Disorder\"\n    and \"Presence of Diagnosis of Opioid Use Disorder\"\n    and \"Positive Result from Opioid Use Disorder Evaluation Tool\""
+      "valueString": "define \"Inclusion Criteria\":\n  Common.\"Patient 18 or Older?\"\n    and \"Not Receiving Evidence-Based Treatment for Opioid Use Disorder\"\n    and \"Presence of Diagnosis of Opioid Use Disorder\"\n    and \"Positive Result from Opioid Use Disorder Evaluation Tool\""
     }, {
       "url": "displaySequence",
       "valueInteger": 9
@@ -376,7 +376,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2022-10-03",
+  "date": "2022-10-06",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Arrange evidence-based treatment (usually medication-assisted treatment with buprenorphine or methadone in combination with behavioral therapies) for patients with opioid use disorder.",
   "useContext": [ {

@@ -17,7 +17,7 @@
     "relatedArtifact": [ {
       "type": "depends-on",
       "display": "Library Common",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|2016.4.0"
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
@@ -25,15 +25,15 @@
     }, {
       "type": "depends-on",
       "display": "Library Routines",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2016.4.0"
     }, {
       "type": "depends-on",
       "display": "Library Rec10Common",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10Common|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10Common|2016.4.0"
     }, {
       "type": "depends-on",
       "display": "Library Routines",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2016.4.0"
     }, {
       "type": "depends-on",
       "display": "Value set Opioid analgesics with ambulatory misuse potential",
@@ -291,7 +291,7 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
+      "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
       "valueString": "Patient Age Less Than 18"
@@ -522,7 +522,7 @@
       "valueString": "Inclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria\":\n  not \"Patient Age Less Than 18\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and (not \"Patient had Urine Screening in Last 12 Months\")"
+      "valueString": "define \"Inclusion Criteria\":\n  not Common.\"Patient Age Less Than 18\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and (not \"Patient had Urine Screening in Last 12 Months\")"
     }, {
       "url": "displaySequence",
       "valueInteger": 17
@@ -716,7 +716,7 @@
   },
   "status": "active",
   "experimental": true,
-  "date": "2022-10-03",
+  "date": "2022-10-06",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
   "useContext": [ {
