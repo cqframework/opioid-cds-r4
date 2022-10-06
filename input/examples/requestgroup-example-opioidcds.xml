@@ -21,7 +21,7 @@
             <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"></url>
          </documentation>
          <resource>
-            <reference value="ActivityDefinition/opioidcds-risk-assessment-request" />
+            <reference value="ActivityDefinition/opioidcds-risk-assessment-request"></reference>
          </resource>
       </action>
    </action>

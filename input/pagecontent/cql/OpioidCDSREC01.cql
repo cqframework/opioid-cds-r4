@@ -44,31 +44,25 @@ parameter ContextPrescriptions List<FHIR.MedicationRequest>
 
 context Patient
 
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+
 define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
     where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
-define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
-  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
-
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
+    and not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and Routines."Is Opioid Naive?"
 
 define "Exclusion Criteria":
   false
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

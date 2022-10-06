@@ -35,23 +35,6 @@ context Patient
 define "Opioid Use Disorder Lookback Period":
   Interval[Today() - 90 days, Today()]
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Inclusion Criteria":
-  "Patient 18 or Older?"
-    and "Not Receiving Evidence-Based Treatment for Opioid Use Disorder"
-    and "Presence of Diagnosis of Opioid Use Disorder"
-    and "Positive Result from Opioid Use Disorder Evaluation Tool"
-
-define "Exclusion Criteria":
-  false
-
-define "Patient 18 or Older?":
-  Config."Age Less than 18 Years Is Enabled"
-    and AgeInYears() >= 18
-
 define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
   Config."Evidence Based Treatment Criteria For Opioid Use Disorder"
     and not (
@@ -86,6 +69,19 @@ define "Presence of Diagnosis of Opioid Use Disorder":
 
 define "Positive Result from Opioid Use Disorder Evaluation Tool":
   true
+
+define "Inclusion Criteria":
+  Common."Patient 18 or Older?"
+    and "Not Receiving Evidence-Based Treatment for Opioid Use Disorder"
+    and "Presence of Diagnosis of Opioid Use Disorder"
+    and "Positive Result from Opioid Use Disorder Evaluation Tool"
+
+define "Exclusion Criteria":
+  false
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

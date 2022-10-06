@@ -56,19 +56,27 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
+define "Total MME":
+  MMECalculator.TotalMME(
+    "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
+      union Common."Active Ambulatory Opioid Rx"
+  )
 
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
+define "On Benzodiazepine":
+  exists( Common."Active Ambulatory Benzodiazepine Rx" )
+
+define "Has Substance Abuse History":
+  exists (
+    [Procedure: Common."Substance misuse behavioral counseling"]
+  )
+    or exists (
+      Common."US Core-Categorized Conditions" C
+        where C.code in Common."Conditions documenting substance misuse"
+    )
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
+    and not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (
       "Total MME" >= 50 '{MME}/d' or
@@ -84,29 +92,12 @@ define "Exclusion Criteria":
   )
     or Common."End of Life Assessment"
 
-define "Active Ambulatory Opioid Rx":
-  Common."Active Ambulatory Opioid Rx"
-
-define "Total MME":
-  MMECalculator.TotalMME(
-    "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
-      union "Active Ambulatory Opioid Rx"
-  )
-
 define "On Naloxone":
   exists( Common."Active Ambulatory Naloxone Rx" )
 
-define "On Benzodiazepine":
-  exists( Common."Active Ambulatory Benzodiazepine Rx" )
-
-define "Has Substance Abuse History":
-  exists (
-    [Procedure: Common."Substance misuse behavioral counseling"]
-  )
-    or exists (
-      Common."US Core-Categorized Conditions" C
-        where C.code in Common."Conditions documenting substance misuse"
-    )
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"
