@@ -383,7 +383,7 @@
     "method": "POST",
     "sortNum": 21250,
     "created": "2022-08-08T19:42:27.536Z",
-    "modified": "2022-08-18T17:16:39.664Z",
+    "modified": "2022-10-12T18:20:58.620Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -408,7 +408,7 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative"
+        "value": "For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs."
       },
       {
         "type": "json-query",
@@ -539,7 +539,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.539Z",
-    "modified": "2022-08-19T05:13:27.129Z",
+    "modified": "2022-10-11T17:45:35.382Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -570,7 +570,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') >= 50 mg/d."
+        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d."
       },
       {
         "type": "json-query",
@@ -739,7 +739,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.548Z",
-    "modified": "2022-08-19T02:08:42.247Z",
+    "modified": "2022-10-12T18:38:21.492Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -748,10 +748,9 @@
     ],
     "params": [],
     "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "../input/pagecontent/requests/OpioidCDSREC06/request-example-rec-06-out-extended-release-27-days.json"
+      "type": "json",
+      "raw": "{\n  \"hookInstance\": \"c7107fd7-7be4-4837-9892-2f31b3224ffe\",\n  \"fhirServer\": \"http://localhost:8080/fhir\",\n  \"hook\": \"order-sign\",\n  \"context\": {\n    \"userId\": \"Practitioner/example\",\n    \"patientId\": \"Patient/example-rec-06-with-extended-release-for-27-days\",\n    \"draftOrders\": {\n      \"resourceType\": \"Bundle\",\n      \"type\": \"collection\",\n      \"entry\": [\n        {\n          \"resource\": {\n            \"resourceType\": \"MedicationRequest\",\n            \"id\": \"15fa9928-4f72-4ee3-ac61-1412d9fa446b\",\n            \"extension\": [\n              {\n                \"url\": \"http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller\",\n                \"extension\": [\n                  {\n                    \"url\": \"dateLastUpdated\",\n                    \"valueDateTime\": \"2022-10-10\"\n                  },\n                  {\n                    \"url\": \"frequency\",\n                    \"valueDuration\": {\n                      \"value\": 30.0,\n                      \"unit\": \"days\",\n                      \"system\": \"http://unitsofmeasure.org\",\n                      \"code\": \"d\"\n                    }\n                  }\n                ]\n              }\n            ],\n            \"status\": \"active\",\n            \"intent\": \"order\",\n            \"category\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/medicationrequest-category\",\n                    \"code\": \"community\",\n                    \"display\": \"Community\"\n                  }\n                ]\n              }\n            ],\n            \"medicationCodeableConcept\": {\n              \"coding\": [\n                {\n                  \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\",\n                  \"code\": \"1049502\",\n                  \"display\": \"oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet\"\n                }\n              ]\n            },\n            \"subject\": {\n              \"reference\": \"Patient/example-rec-06-with-extended-release-for-27-days\"\n            },\n            \"encounter\": {\n              \"reference\": \"Encounter/example-rec-06-out-extended-release-27-day-context\"\n            },\n            \"authoredOn\": \"2022-06-09\",\n            \"dosageInstruction\": [\n              {\n                \"timing\": {\n                  \"repeat\": {\n                    \"frequency\": 1,\n                    \"period\": 1.0,\n                    \"periodUnit\": \"d\"\n                  }\n                },\n                \"asNeededBoolean\": false\n              }\n            ],\n            \"dispenseRequest\": {\n              \"validityPeriod\": {\n                \"start\": \"2022-10-10T00:00:00-06:00\",\n                \"end\": \"2023-01-10T00:00:00-07:00\"\n              },\n              \"numberOfRepeatsAllowed\": 1,\n              \"expectedSupplyDuration\": {\n                \"value\": 27.0,\n                \"unit\": \"days\",\n                \"system\": \"http://unitsofmeasure.org\",\n                \"code\": \"d\"\n              }\n            }\n          }\n        }\n      ]\n    }\n  },\n  \"prefetch\": {\n    \"item1\": {\n      \"response\": {\n        \"status\": \"200 OK\"\n      },\n      \"resource\": {\n        \"resourceType\": \"Patient\",\n        \"id\": \"example-rec-06-with-extended-release-for-27-days\",\n        \"extension\": [\n          {\n            \"url\": \"http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller\",\n            \"extension\": [\n              {\n                \"url\": \"dateLastUpdated\",\n                \"valueDateTime\": \"2022-10-10\"\n              },\n              {\n                \"url\": \"frequency\",\n                \"valueDuration\": {\n                  \"value\": 30.0,\n                  \"unit\": \"days\",\n                  \"system\": \"http://unitsofmeasure.org\",\n                  \"code\": \"d\"\n                }\n              }\n            ]\n          }\n        ],\n        \"birthDate\": \"2002-10-10\"\n      }\n    }\n  }\n}",
+      "form": []
     },
     "tests": [
       {
@@ -764,13 +763,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend limit therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids"
+        "value": "Recommend limit therapy to <= 3 days to maximum of <= 7 days. When prescribing opioids for acute pain, CDC recommends prescribing no greater quantity than needed for the expected duration of severe pain"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Medication requests(s): <Unable to determine medication name>"
+        "value": "Medication requests(s): oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
       },
       {
         "type": "json-query",
@@ -789,7 +788,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.549Z",
-    "modified": "2022-08-19T05:48:30.328Z",
+    "modified": "2022-10-11T17:55:00.011Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -818,15 +817,15 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Medication requests(s): <Unable to determine medication name>"
-      },
-      {
-        "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "equal",
+        "value": "Medication requests(s): Suboxone 2 MG / 0.5 MG Sublingual Film"
       }
     ]
   },
@@ -839,7 +838,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.550Z",
-    "modified": "2022-08-19T06:30:35.039Z",
+    "modified": "2022-10-12T18:41:27.137Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -851,7 +850,7 @@
       "type": "binary",
       "raw": "",
       "form": [],
-      "binary": "../input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-no-screenings.json"
+      "binary": "..\\..\\..\\opioid-cds-r4\\input\\pagecontent\\requests\\OpioidCDSREC10OrderSign\\request-example-rec-10-order-sign-no-screenings.json"
     },
     "tests": [
       {
@@ -989,7 +988,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.553Z",
-    "modified": "2022-08-19T06:01:39.575Z",
+    "modified": "2022-10-12T18:49:38.013Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1014,7 +1013,7 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine and/or behavioral therapy"
+        "value": "Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine"
       },
       {
         "type": "json-query",
@@ -1039,7 +1038,7 @@
     "method": "POST",
     "sortNum": 26250,
     "created": "2022-08-08T19:42:27.554Z",
-    "modified": "2022-08-19T05:21:46.791Z",
+    "modified": "2022-10-11T17:46:33.289Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1070,7 +1069,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') >= 50 mg/d, concurrent use of benzodiazepine."
+        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d, concurrent use of benzodiazepine."
       },
       {
         "type": "json-query",
@@ -1195,7 +1194,7 @@
     "method": "POST",
     "sortNum": 28750,
     "created": "2022-08-08T19:42:27.559Z",
-    "modified": "2022-08-19T05:26:46.383Z",
+    "modified": "2022-10-11T17:46:59.840Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1226,7 +1225,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') >= 50 mg/d, history of alcohol or drug abuse."
+        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d, history of alcohol or drug abuse."
       },
       {
         "type": "json-query",
@@ -1283,7 +1282,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-08-08T19:42:27.561Z",
-    "modified": "2022-08-18T18:51:08.046Z",
+    "modified": "2022-10-12T18:33:54.347Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1877,7 +1876,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-08-08T19:42:27.598Z",
-    "modified": "2022-08-18T18:14:52.127Z",
+    "modified": "2022-10-11T17:14:29.631Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1902,7 +1901,7 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend creation, review or update of opioid treatment plan"
+        "value": "For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs."
       },
       {
         "type": "json-query",
@@ -2193,7 +2192,7 @@
     "method": "POST",
     "sortNum": 32500,
     "created": "2022-08-19T06:23:02.556Z",
-    "modified": "2022-08-19T06:58:22.368Z",
+    "modified": "2022-10-11T18:15:54.698Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -2224,7 +2223,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "<br/>*Positive for Cocaine: <br/>2022-03-14<br/>*Positive for PCP: <br/>2022-04-14<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug."
+        "value": "<br/>*Positive for Cocaine: <br/>2022-05-06<br/>*Positive for PCP: <br/>2022-06-06<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446."
       },
       {
         "type": "json-query",

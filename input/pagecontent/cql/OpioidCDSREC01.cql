@@ -19,7 +19,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 **  When
 **    Prescription is for treating acute pain
-**    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
+**    Provider is prescribing an opioid with ambulatory misuse potential
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy
@@ -51,24 +51,17 @@ define "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptio
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and Routines."Is Opioid Naive?"
 
 define "Exclusion Criteria":
   false
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

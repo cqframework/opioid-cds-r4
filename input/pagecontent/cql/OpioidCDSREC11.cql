@@ -14,7 +14,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **    concurrently whenever possible (recommendation category: A, evidence type: 3)
 **
 **  When
-**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential
 **    Provider is prescribing a benzodiazepine medication or other central nervous system depressants
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
@@ -49,16 +49,6 @@ define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Pote
 define "Patient Is Being Prescribed Benzodiazepine":
   exists( "Benzodiazepine Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Inclusion Criteria":
   (
     (
@@ -70,11 +60,14 @@ define "Inclusion Criteria":
           and exists Common."Active Ambulatory Opioid Rx"
       )
   )
-    and not "Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

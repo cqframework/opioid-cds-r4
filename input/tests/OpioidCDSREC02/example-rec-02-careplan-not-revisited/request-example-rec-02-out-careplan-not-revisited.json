@@ -1,0 +1,133 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "a6590d30-c320-4016-861f-678f9f87bca5",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-10-10"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 1.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "community",
+                "display": "Community"
+              }
+            ]
+          }
+        ],
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1010603",
+              "display": "Suboxone 2 MG / 0.5 MG Sublingual Film"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-rec-02-careplan-not-revisited"
+        },
+        "encounter": {
+          "reference": "Encounter/example-rec-02-careplan-not-revisited-context"
+        },
+        "authoredOn": "2022-06-09",
+        "recorder": {
+          "reference": "Practitioner/example"
+        },
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1.0,
+                "periodUnit": "d"
+              }
+            },
+            "asNeededBoolean": false
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2022-08-24T00:00:00-06:00",
+            "end": "2022-11-24T00:00:00-07:00"
+          },
+          "numberOfRepeatsAllowed": 1,
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "resourceType": "CarePlan",
+      "id": "example-rec-02-careplan-not-revisited",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2022-08-18"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "active",
+      "intent": "plan",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "80764-4",
+              "display": "Pain medicine Plan of care note"
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "reference": "Patient/example-rec-02-careplan-not-revisited"
+      },
+      "created": "2022-04-20",
+      "author": {
+        "reference": "Practitioner/example"
+      }
+    }
+  ]
+}
