@@ -65,7 +65,7 @@ define "Patient had Urine Screening in Last 12 Months":
     or exists ("Cocaine Screenings")
     or exists ("PCP Screenings")
   )
-  and
+  or
     if Config."Opiate Urine Screening Check Enabled" then
       exists ("Opiate Screenings")
     else
