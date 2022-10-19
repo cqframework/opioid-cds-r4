@@ -2218,15 +2218,26 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Positive Cocaine or PCP in Urine Screening"
+        "value": "Positive Cocaine or PCP or Opiates in Urine Screening"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "<br/>*Positive for Cocaine: <br/>2022-04-22<br/>*Positive for PCP: <br/>2022-05-23<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug."
+        "action": "contains",
+        "value": "*Positive for Cocaine:"
       },
       {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "*Positive for PCP:"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug."
+      },{
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
