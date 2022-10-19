@@ -1,11 +1,11 @@
-library OpioidCDSREC06 version '0.1.1'
+library OpioidCDSREC06 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 
 /*
 **
@@ -48,31 +48,25 @@ define "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptio
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain":
   exists( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain"
-    and not "Patient Age Less Than 18"  
-    and Routines."Is Opioid Review Useful?"
-    and "Order is for Long-Acting Opioid"
-
-define "Exclusion Criteria":
-  false
-
 define "Order is for Long-Acting Opioid":
   exists (
     "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" AmbulatoryOpioidPrescription
       where AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
         or Common.GetDurationInDays( AmbulatoryOpioidPrescription.dispenseRequest.expectedSupplyDuration ) > 7
   )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain"
+    and not Common."Patient Age Less Than 18"  
+    and Routines."Is Opioid Review Useful?"
+    and "Order is for Long-Acting Opioid"
+
+define "Exclusion Criteria":
+  false
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

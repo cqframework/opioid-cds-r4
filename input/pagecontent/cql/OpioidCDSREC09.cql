@@ -1,11 +1,11 @@
-library OpioidCDSREC09 version '0.1.1'
+library OpioidCDSREC09 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 
 /*
 **
@@ -53,25 +53,6 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"  
-    and Routines."Is Opioid Review Useful?"
-    and "PDMP Data Not Reviewed in Past 90 Days"
-
-define "Exclusion Criteria":
-  false
-
 define "PDMP Data Not Reviewed in Past 90 Days":
   Config."PDMP Data Not Reviewed in Past 90 Days Criteria Enabled"
     and not (
@@ -92,6 +73,19 @@ define "PDMP Data Not Reviewed in Past 90 Days":
           )
       )
     )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and not Common."Patient Age Less Than 18"  
+    and Routines."Is Opioid Review Useful?"
+    and "PDMP Data Not Reviewed in Past 90 Days"
+
+define "Exclusion Criteria":
+  false
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

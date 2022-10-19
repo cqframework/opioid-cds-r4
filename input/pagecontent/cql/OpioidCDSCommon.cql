@@ -1,10 +1,10 @@
-library OpioidCDSCommon version '0.1.1'
+library OpioidCDSCommon version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OMTKLogicMK2020 version '0.1.1' called OMTKLogic
-include OpioidCDSCommonConfig version '0.1.1' called Config
+include OMTKLogicMK2020 version '2016.4.0' called OMTKLogic
+include OpioidCDSCommonConfig version '2016.4.0' called Config
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
@@ -304,3 +304,13 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
  define "Service Requests":
    [ServiceRequest] SR
     return SR
+
+define "Patient 18 or Older?":
+  Config."Age Less than 18 Years Is Enabled"
+    and AgeInYears() >= 18
+
+define "Patient Age Less Than 18":
+  if (Config."Age Less than 18 Years Is Enabled") then
+    AgeInYearsAt(Today()) < 18
+  else
+    false

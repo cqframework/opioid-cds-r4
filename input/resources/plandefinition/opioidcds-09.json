@@ -4,6 +4,160 @@
   "meta": {
     "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishableplandefinition" ]
   },
+  "contained": [ {
+    "resourceType": "Library",
+    "id": "effective-data-requirements",
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "relatedArtifact": [ {
+      "type": "depends-on",
+      "display": "Library Common",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|2016.4.0"
+    }, {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
+      "display": "Library Routines",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2016.4.0"
+    }, {
+      "type": "depends-on",
+      "display": "Library Config",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommonConfig|2016.4.0"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Opioid analgesics with ambulatory misuse potential",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Community",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Encounter Diagnosis Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Problem List Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set US Core Health Concern Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Limited life expectancy conditions",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Active Condition",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Therapies indicating end of life care",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+    }, {
+      "type": "depends-on",
+      "display": "Value set PDMP review procedure",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure"
+    }, {
+      "type": "depends-on",
+      "display": "Value set PDMP data reviewed finding",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding"
+    } ],
+    "parameter": [ {
+      "name": "ContextPrescriptions",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "type": "MedicationRequest"
+    }, {
+      "name": "Get Summary",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "Is Recommendation Applicable?",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }, {
+      "name": "Get Detail",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "Get Indicator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    } ],
+    "dataRequirement": [ {
+      "type": "Medication",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
+      "mustSupport": [ "id" ],
+      "codeFilter": [ {
+        "path": "id"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+      } ]
+    }, {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
+    }, {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "status", "intent", "authoredOn", "code" ]
+    }, {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "code", "status", "performed" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "status" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding"
+      } ]
+    } ]
+  } ],
   "extension": [ {
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
     "valueCode": "shareable"
@@ -16,6 +170,11 @@
   }, {
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
     "valueCode": "publishable"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
@@ -65,7 +224,7 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC09"
+      "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
       "valueString": "Patient Age Less Than 18"
@@ -146,7 +305,7 @@
       "valueString": "Order For Palliative Care In Past 90 Days"
     }, {
       "url": "statement",
-      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent != null\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
+      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 8
@@ -251,7 +410,7 @@
       "valueString": "Inclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and not \"Patient Age Less Than 18\"  \n    and Routines.\"Is Opioid Review Useful?\"\n    and \"PDMP Data Not Reviewed in Past 90 Days\""
+      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and not Common.\"Patient Age Less Than 18\"  \n    and Routines.\"Is Opioid Review Useful?\"\n    and \"PDMP Data Not Reviewed in Past 90 Days\""
     }, {
       "url": "displaySequence",
       "valueInteger": 15
@@ -316,13 +475,19 @@
       "url": "displaySequence",
       "valueInteger": 19
     } ]
+  }, {
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-09",
   "identifier": [ {
     "use": "official",
     "value": "cdc-opioid-guidance"
   } ],
-  "version": "0.1.1",
+  "version": "2016.4.0",
   "name": "CDC_opioid_09",
   "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #9",
   "type": {
@@ -334,7 +499,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2019-08-01",
+  "date": "2022-10-06",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should review PDMP data when starting opioid therapy for chronic pain and periodically during opioid therapy for chronic pain.",
   "useContext": [ {
@@ -389,20 +554,19 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "CDC 2016 Guideline for prescribing opioids for chronic pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+    "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm",
+    "document": {
+      "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+    }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC09" ],
   "action": [ {
     "title": "Current Order is for Opioid With Ambulatory Misuse Potential.",
-    "_title": {
-      "fhir_comments": [ " non-dynamic card summary " ]
-    },
     "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #9 workflow.",
     "documentation": [ {
       "type": "documentation",
       "document": {
         "extension": [ {
-          "fhir_comments": [ " We can use the example code systems from the FHIR Clinical Reasoning Module, or we can define GRADE specific code systems and use those here " ],
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
           "valueCodeableConcept": {
             "coding": [ {
@@ -438,7 +602,6 @@
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
     "dynamicValue": [ {
-      "fhir_comments": [ " dynamic card elements " ],
       "path": "action.title",
       "expression": {
         "language": "text/cql.identifier",

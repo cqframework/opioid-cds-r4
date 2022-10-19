@@ -79,7 +79,14 @@
   		<tr><th>Resource</th><th>Type</th><th>Description</th></tr>
   	</thead>
   	<tbody>
-  		<tr><td><a href="Bundle-OpioidCDSREC10PatientView-bundle.html">opioidcds-rec10-patientview-bundle</a></td><td>Bundle</td><td>All Required Content for Recommendation #10</td></tr>
+    <tr>
+      <td>
+        <!-- TODO: change this to stable branch url once v2016 is released -->
+        <a href="https://raw.githubusercontent.com/cqframework/opioid-cds-r4/master/bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json">opioidcds-rec10-patientview-bundle</a>
+      </td>
+      <td>Bundle</td>
+      <td>All Required Content for Recommendation #10</td>
+    </tr>
   	</tbody>
   </table>
 

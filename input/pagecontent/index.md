@@ -5,16 +5,17 @@ for Disease Control and Prevention (CDC) 2016 Opioid Prescribing Guideline:
 
 [CDC 2016 Guideline for prescribing opioids for chronic pain](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm)
 
-This implementation guide was developed as part of the Clinical Quality Framework Initiative,
-a public-private partnership sponsored by the Centers for Medicare & Medicaid
-Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology
-(ONC) to identify, develop, and harmonize standards for clinical decision support and electronic
-clinical quality measurement.
+This implementation guide was developed based on work initially done as part of the
+<a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">Clinical Quality Framework (CQF)</a>
+Initiative, a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and
+the U.S. Office of the National Coordinator for Health Information Technology (ONC) to identify, develop, and harmonize
+standards for clinical decision support and electronic clinical quality measurement, as well as a joint effort by
+the Centers for Disease Control and Prevention (CDC) and the Office of the National Coordinator for Health IT (ONC)
+focused on improving processes for the development of standardized, shareable, computable decision support artifacts
+using the CDC 2016 Opioid Prescribing Guideline as a model case.
 
-This project is a joint effort by the Centers for Disease Control and Prevention (CDC) and the
-Office of the National Coordinator for Health IT (ONC) focused on improving processes for the
-development of standardized, shareable, computable decision support artifacts using the CDC 2016 Opioid
-Prescribing Guideline as a model case.
+Feedback and contributions are welcome and can be submitted using the New Issue link in the footer of every page. Discussions on the
+use of this IG as well as other CQF projects take place regularly on the <a href="https://confluence.hl7.org/display/CDS/CPGonFHIR">CPG-on-FHIR calls</a>, a subworkgroup of the HL7 Clinical Decision Support Workgroup.
 
 ### Scope
 

@@ -1,11 +1,11 @@
-library OpioidCDSREC02 version '0.1.1'
+library OpioidCDSREC02 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 
 /*
 **
@@ -56,28 +56,19 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and Routines."Is Opioid Naive?"
-    and not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?"
-
 define "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
   Config."Opioid Treatment Plan Verification Enabled"
     and not (
       exists ( "Opioid Treatment Plan Creation or Update in Past 90 Days" )
         or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
     )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Naive?"
+    and not Common."Patient Age Less Than 18"
+    and Routines."Is Opioid Review Useful?"
+    and "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?"
 
 define "Opioid Treatment Plan Creation or Update in Past 90 Days":
   [CarePlan: category in Common."Pain treatment plan"] PainTreatmentPlan
@@ -101,6 +92,9 @@ define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
             such that Performer.actor ~ ChronicPainScript.recorder
         )
   )
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

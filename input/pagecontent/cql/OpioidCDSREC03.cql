@@ -1,11 +1,11 @@
-library OpioidCDSREC03 version '0.1.1'
+library OpioidCDSREC03 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 
 /*
 **
@@ -50,27 +50,18 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and "No Documented Discussions of Opioid Harms and Risks"
-
 define "No Documented Discussions of Opioid Harms and Risks":
   Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
     and not (
       exists ( "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" )
         or exists ( "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today" )
     )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and not Common."Patient Age Less Than 18"
+    and Routines."Is Opioid Review Useful?"
+    and "No Documented Discussions of Opioid Harms and Risks"
 
 define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
   [Procedure: Common."Opioid counseling procedure"] P
@@ -80,6 +71,9 @@ define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excludi
 define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
   [ServiceRequest: Common."Opioid counseling procedure"] SR
     where SR.occurrence during day of "Opioid Harms & Risks Counseling Lookback Period"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

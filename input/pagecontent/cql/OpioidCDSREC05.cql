@@ -1,10 +1,10 @@
-library OpioidCDSREC05 version '0.1.1'
+library OpioidCDSREC05 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 /*include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
  */
 include MMECalculator version '3.0.0' called MMECalculator
@@ -44,31 +44,16 @@ parameter ContextPrescriptions List<MedicationRequest>
 
 context Patient
 
+define "Taper Now": "Total MME".value >= 90
+
+define "Consider Tapering": "Total MME".value < 90
+
 define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
     where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
-
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and "Total MME" >= 50 '{MME}/d'
-
-define "Exclusion Criteria":
-  Common."End of Life Assessment"
 
 define "Total MME":
   MMECalculator.TotalMME(
@@ -79,9 +64,18 @@ define "Total MME":
       where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
   )
 
-define "Taper Now": "Total MME".value >= 90
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and not Common."Patient Age Less Than 18"
+    and Routines."Is Opioid Review Useful?"
+    and "Total MME" >= 50 '{MME}/d'
 
-define "Consider Tapering": "Total MME".value < 90
+define "Exclusion Criteria":
+  Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

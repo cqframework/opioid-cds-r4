@@ -1,11 +1,11 @@
-library OpioidCDSREC07 version '0.1.1'
+library OpioidCDSREC07 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 
 /*
 **
@@ -58,29 +58,6 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"  
-    and Routines."Is Opioid Review Useful?"
-    and not exists ( "Opioid Risk Assessment in Past 90 Days" )
-    and (
-      "Prescribed Opioids for 7 of Past 10 Days with an Encounter"
-        or Common."Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
-    )
-
-define "Exclusion Criteria":
-  Common."End of Life Assessment"
-
 define "Opioid Risk Assessment in Past 90 Days":
   [Procedure: Common."Opioid misuse assessment procedure"] riskAssessment
     where start of (riskAssessment.performed as FHIR.Period) in day of "Risk Assessment Interval"
@@ -91,6 +68,23 @@ define "Prescribed Opioids for 7 of Past 10 Days with an Encounter":
       [Encounter: Common."Office Visit"] AmbulatoryEncounter
         where AmbulatoryEncounter.period during "Encounter Interval"
     )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and not Common."Patient Age Less Than 18"  
+    and Routines."Is Opioid Review Useful?"
+    and not exists ( "Opioid Risk Assessment in Past 90 Days" )
+    and (
+      "Prescribed Opioids for 7 of Past 10 Days with an Encounter"
+        or Common."Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
+    )
+
+define "Exclusion Criteria":
+  Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

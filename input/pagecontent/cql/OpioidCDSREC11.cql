@@ -1,11 +1,11 @@
-library OpioidCDSREC11 version '0.1.1'
+library OpioidCDSREC11 version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSCommonConfig version '2016.4.0' called Config
+include OpioidCDSRoutines version '2016.4.0' called Routines
 
 /*
 **
@@ -49,16 +49,6 @@ define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Pote
 define "Patient Is Being Prescribed Benzodiazepine":
   exists( "Benzodiazepine Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Inclusion Criteria":
   (
     (
@@ -70,11 +60,15 @@ define "Inclusion Criteria":
           and exists Common."Active Ambulatory Opioid Rx"
       )
   )
-    and not "Patient Age Less Than 18"
+    and not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

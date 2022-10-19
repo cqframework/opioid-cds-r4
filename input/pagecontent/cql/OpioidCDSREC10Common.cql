@@ -1,11 +1,11 @@
-library OpioidCDSREC10Common version '0.1.1'
+library OpioidCDSREC10Common version '2016.4.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSRoutines version '0.1.1' called Routines
-include OpioidCDSCommonConfig version '0.1.1' called Config
+include OpioidCDSCommon version '2016.4.0' called Common
+include OpioidCDSRoutines version '2016.4.0' called Routines
+include OpioidCDSCommonConfig version '2016.4.0' called Config
 
 /*
 **  Recommendation #10
@@ -39,12 +39,6 @@ context Patient
 define "Lookback Year":
   Interval[Today() - 12 months - 1 days, Today() - 1 day]
 
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Applicable Because of Positive Cocaine or PCP or Opiates":
   if exists (Common."Opioid Other Than Synthetic Ordered In Last 12 Months") then
     "Has Positive Screening for Cocaine in Last 12 Months"
@@ -58,7 +52,7 @@ define "Applicable Because of Positive Cocaine or PCP or Opiates":
         else false
 
 define "Inclusion Criteria":
-  not "Patient Age Less Than 18"
+  not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (not "Patient had Urine Screening in Last 12 Months")
 
