@@ -68,7 +68,7 @@ define "Patient had Urine Screening in Last 12 Months":
     if Config."Opiate Urine Screening Check Enabled" then
       exists ("Opiate Screenings")
     else
-      true
+      false
 
 define "Laboratory Observations":
   [Observation: "category" in Common."Observation Category Laboratory"]

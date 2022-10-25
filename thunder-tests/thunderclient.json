@@ -850,7 +850,7 @@
       "type": "binary",
       "raw": "",
       "form": [],
-      "binary": "..\\..\\..\\opioid-cds-r4\\input\\pagecontent\\requests\\OpioidCDSREC10OrderSign\\request-example-rec-10-order-sign-no-screenings.json"
+      "binary": "../input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-no-screenings.json"
     },
     "tests": [
       {
@@ -868,7 +868,7 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
+        "action": "contains",
         "value": "Patients on opioid therapy should have a urine drug test performed every 12 months."
       },
       {
@@ -2216,14 +2216,26 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].summary",
-        "action": "equal",
-        "value": "Positive Cocaine or PCP in Urine Screening"
+        "action": "contains",
+        "value": "Positive Cocaine or PCP or Opiates in Urine Screening"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "<br/>*Positive for Cocaine: <br/>2022-05-06<br/>*Positive for PCP: <br/>2022-06-06<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446."
+        "action": "contains",
+        "value": "Positive for Cocaine:"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "Positive for PCP:"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446."
       },
       {
         "type": "json-query",
