@@ -45,9 +45,9 @@ define "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambul
   exists( "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
 define "Inclusion Criteria":
-"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
-    and Routines."Is Opioid Review Useful?"
-    and Routines."Is Opioid Naive?"
+  "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
+      and Routines."Is Opioid Review Useful?"
+      and Routines."Is Opioid Naive?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"

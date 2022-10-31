@@ -52,8 +52,8 @@ define "Applicable Because of Positive Cocaine or PCP or Opiates":
         else false
 
 define "Inclusion Criteria":
-    Routines."Is Opioid Review Useful?"
-    and (not "Patient had Urine Screening in Last 12 Months")
+  Routines."Is Opioid Review Useful?"
+  and (not "Patient had Urine Screening in Last 12 Months")
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"

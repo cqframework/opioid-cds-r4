@@ -1,0 +1,1592 @@
+{
+  "info": {
+    "name": "OpioidCDSR4_Test_Suite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "REC_01",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-01/opioidcds-01-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-01",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-01"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC01/request-example-rec-01-in-outpatient-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-01",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-01"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC01/request-example-rec-01-out-inpatient-opioid.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_02",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-02/opioidcds-02-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-02",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-02"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC02/request-example-rec-02-out-careplan-not-revisited.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-02",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-02"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC02/request-example-rec-02-in-careplan-revisited.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_03",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-03/opioidcds-03-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-03",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-03"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC03/request-example-rec-03-in-no-counseling-within-90-days.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-03",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-03"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC03/request-example-rec-03-out-counseling-within-90-days.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_04_ORDER_SIGN",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-04/opioidcds-04-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_LAO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-04",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-04"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-long-acting-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_NLAO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-04",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-04"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-not-long-acting-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_PELOA",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-04",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-04"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC04/request-example-rec-04-preexisting-long-acting-opioid.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_04_PATIENT_VIEW",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-04-patient-view/opioidcds-04-patient-view-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_LAO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-04-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-04-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC04PatientView/request-example-rec-04-patient-view-long-acting-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_NLAO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-04-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-04-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC04PatientView/request-example-rec-04-patient-view-not-long-acting-opioid.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_05",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-05/opioidcds-05-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-05",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-05"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC05/request-example-rec-05-mme-greater-than-fifty.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-05",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-05"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC05/request-example-rec-05-mme-less-than-fifty.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_06",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-06/opioidcds-06-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-06",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-06"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC06/request-example-rec-06-out-extended-release-27-days.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-06",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-06"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC06/request-example-rec-06-in-criteria-met.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_07",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-07/opioidcds-07-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_7OF10",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-07",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-07"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-seven-of-past-ten-days.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_63OF90",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-07",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-07"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-sixtythree-of-past-ninety-days.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_EOLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-07",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-07"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-end-of-life-exclusion.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_RA",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-07",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-07"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-risk-assessment.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_6OF10",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-07",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-07"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-six-of-past-ten-days.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_62OF90",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-07",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-07"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-sixtytwo-of-past-ninety-days.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_08",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-08-order-sign/opioidcds-08-order-sign-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_MMEGT50",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-08-order-sign"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-mme-greater-than-fifty.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_ONBENZO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-08-order-sign"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-on-benzodiazepine.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_SA",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-08-order-sign"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-substance-abuse.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_MMELT50",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-08-order-sign"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-mme-less-than-fifty.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_ONNALOX",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-08-order-sign"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-on-naloxone.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_09",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-09/opioidcds-09-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-09",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-09"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC09/request-example-rec-09-in-criteria-met.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-09",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-09"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC09/request-example-rec-09-out-PDMP-review-90-days.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_10_ORDER_SIGN",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-10-order-sign/opioidcds-10-order-sign-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_NO_SCREEN",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-10-order-sign",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-10-order-sign"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-no-screenings.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_ILLICIT_DRUGS",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-10-order-sign",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-10-order-sign"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-illicit-drugs.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_10_PATIENT_VIEW",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-10-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-10-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-10-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-10-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-end-of-life-med-exclusion.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_11_ORDER_SELECT",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-11/opioidcds-11-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_BWO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-with-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_OWB",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-with-benzo.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_BWOO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-without-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_OWOB",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-without-benzo.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_11_PATIENT_VIEW",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-11-patient-view/opioidcds-11-patient-view-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_BWO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-benzo-trigger-with-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION_OWB",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-opioid-trigger-with-benzo.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_BWOO",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-benzo-trigger-without-opioid.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION_OWOB",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-11-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-opioid-trigger-without-benzo.json"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REC_12",
+      "item": [
+        {
+          "name": "LOAD_ARTIFACT_BUNDLE",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{fhirServer}}",
+              "host": [
+                "{{fhirserver}}"
+              ],
+              "path": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-12-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-12-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC12PatientView/request-example-rec-12-patient-view-in-criteria-met.json"
+              }
+            }
+          }
+        },
+        {
+          "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{cdsHooksServer}}/opioidcds-12-patient-view",
+              "host": [
+                "{{cdshooksserver}}"
+              ],
+              "path": [
+                "opioidcds-12-patient-view"
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "/Users/bryantaustin/Projects/opioid-cds-r4/input/pagecontent/requests/OpioidCDSREC12PatientView/request-example-rec-12-patient-view-out-opioid-misuse.json"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

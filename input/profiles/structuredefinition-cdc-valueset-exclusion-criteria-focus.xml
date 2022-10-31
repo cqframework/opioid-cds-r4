@@ -3,7 +3,7 @@
     <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria"/>
     <version value="1.0.0"/>
     <name value="CDC_Opioid_Guidance_ValueSet_Exclusion_Criteria_Extension"/>
-    <title value="CDC Opioid Guidance exclusion Criteria Extension"/>
+    <title value="CDC 2016 Opioid Guidance exclusion Criteria Extension"/>
     <status value="draft"/>
     <date value="2018-04-22"/>
     <description value="Describes the clinical focus for the ValueSet."/>
@@ -32,7 +32,7 @@
     <snapshot>
         <element id="Extension:exclusion">
             <path value="Extension"/>
-            <short value="CDC Opioid Guidance exclusion Criteria Extension"/>
+            <short value="CDC 2016 Opioid Guidance exclusion Criteria Extension"/>
             <definition value="Describes the exclusion criteria for the ValueSet."/>
             <min value="0"/>
             <max value="1"/>
@@ -147,7 +147,7 @@
     <differential>
         <element id="Extension:exclusion">
             <path value="Extension"/>
-            <short value="CDC Opioid Guidance exclusion Criteria Extension"/>
+            <short value="CDC 2016 Opioid Guidance exclusion Criteria Extension"/>
             <definition value="Describes the exclusion criteria for the ValueSet."/>
             <min value="0"/>
             <max value="1"/>
