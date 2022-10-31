@@ -3,7 +3,7 @@
     <url value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus"/>
     <version value="1.0.0"/>
     <name value="CDC_Opioid_Guidance_ValueSet_Clinical_Focus_Extension"/>
-    <title value="CDC 2016 Opioid Guidance Clinical Focus Extension"/>
+    <title value="CDC 2022 Opioid Guidance Clinical Focus Extension"/>
     <status value="draft"/>
     <date value="2018-04-22"/>
     <description value="Describes the clinical focus for the ValueSet."/>
@@ -32,7 +32,7 @@
     <snapshot>
         <element id="Extension:clinicalFocus">
             <path value="Extension"/>
-            <short value="CDC 2016 Opioid Guidance Clinical Focus Extension"/>
+            <short value="CDC 2022 Opioid Guidance Clinical Focus Extension"/>
             <definition value="Describes the clinical focus for the ValueSet."/>
             <min value="0"/>
             <max value="1"/>
@@ -147,7 +147,7 @@
     <differential>
         <element id="Extension:clinicalFocus">
             <path value="Extension"/>
-            <short value="CDC 2016 Opioid Guidance Clinical Focus Extension"/>
+            <short value="CDC 2022 Opioid Guidance Clinical Focus Extension"/>
             <definition value="Describes the clinical focus for the ValueSet."/>
             <min value="0"/>
             <max value="1"/>

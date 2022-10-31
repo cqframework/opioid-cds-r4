@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p>
-    This documentation is provided as a resource for developers interested in implementing the CDC 2016 Opioid Prescribing Guideline.
+    This documentation is provided as a resource for developers interested in implementing the CDC 2022 Opioid Prescribing Guideline.
     It is assumed that the developer will have a basic understanding of CQL, FHIR, a FHIR API (like HAPI), and the CDS Hooks API.
   </p>
 
@@ -485,7 +485,7 @@
 
   <p>
     The $apply operation, in general, applies a PlanDefinition to a specific context.
-    In the context of the CDC 2016 Opioid Guideline, the application of the PlanDefinition
+    In the context of the CDC 2022 Opioid Guideline, the application of the PlanDefinition
     is depicted in the following diagram:
   </p>
 
@@ -495,7 +495,7 @@
 
   <p>
     As shown in the flowchart, the $apply operation begins by parsing the input parameters.
-    Then the <a href="Library-OpioidCDSREC05.json.html">CDC 2016 Opioid Guideline
+    Then the <a href="Library-OpioidCDSREC05.json.html">CDC 2022 Opioid Guideline
       library</a> is serialized into a library object. The next step is to resolve data
     providers for FHIR STU3 and OMTK. OMTK, or Opioid Management Terminology Knowledge,
     is a library that provides MME conversion factors and terminology information for the
