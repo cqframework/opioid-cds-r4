@@ -233,7 +233,7 @@ define function "Prescription Relevant Period"(prescription FHIR.MedicationReque
   )
   then Interval[
     date from prescription.authoredOn,
-    date from prescription.authoredOn + System.Quantity{ value: GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration), unit: 'days' }
+    date from prescription.authoredOn + GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration)
   ]
   else null
 
@@ -254,14 +254,14 @@ define function GetDurationInDays(value FHIR.Duration):
   if value is null then null
   else
     case
-      when value.code.value ~ 'a' then value.value.value * 365.0
-      when value.code.value ~ 'mo' then value.value.value * 30.0
-      when value.code.value ~ 'wk' then value.value.value * 7.0
-      when value.code.value ~ 'd' then value.value.value
-      when value.code.value ~ 'h' then value.value.value / 24.0
-      when value.code.value ~ 'min' then value.value.value / 60.0 / 24.0
-      when value.code.value ~ 's' then value.value.value / 60.0 / 60.0 / 24.0
-      when value.code.value ~ 'ms' then value.value.value / 60.0 / 60.0 / 24.0 / 1000.0
+      when value.code.value ~ 'a' then System.Quantity{ value: value.value.value * 365.0, unit: 'days' }
+      when value.code.value ~ 'mo' then System.Quantity{ value: value.value.value * 30.0, unit: 'days' }
+      when value.code.value ~ 'wk' then System.Quantity{ value: value.value.value * 7.0, unit: 'days' }
+      when value.code.value ~ 'd' then System.Quantity{ value: value.value.value, unit: 'days' }
+      when value.code.value ~ 'h' then System.Quantity{ value: value.value.value / 24.0, unit: 'days' }
+      when value.code.value ~ 'min' then System.Quantity{ value: value.value.value / 60.0 / 24.0, unit: 'days' }
+      when value.code.value ~ 's' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0, unit: 'days' }
+      when value.code.value ~ 'ms' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0 / 1000.0, unit: 'days' }
       when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')
       else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)
 end

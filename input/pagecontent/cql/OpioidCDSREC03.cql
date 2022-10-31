@@ -50,21 +50,6 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and "No Documented Discussions of Opioid Harms and Risks"
-
 define "No Documented Discussions of Opioid Harms and Risks":
   Config."Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
     and not (
@@ -80,6 +65,14 @@ define "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excludi
 define "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today":
   [ServiceRequest: Common."Opioid counseling procedure"] SR
     where SR.occurrence during day of "Opioid Harms & Risks Counseling Lookback Period"
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and "No Documented Discussions of Opioid Harms and Risks"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

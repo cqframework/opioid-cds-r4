@@ -12,7 +12,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **    Prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids
 **
 **  When
-**    Provider is prescribing an extended release opioid with ambulatory misuse potential in the outpatient setting
+**    Provider is prescribing an extended release opioid with ambulatory misuse potential
 **    Prescription is for treating chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
@@ -44,23 +44,17 @@ define "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Po
 define "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Inclusion Criteria":
-  not "Patient Age Less Than 18"
+"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
     and Routines."Is Opioid Review Useful?"
     and Routines."Is Opioid Naive?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

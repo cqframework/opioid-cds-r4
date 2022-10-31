@@ -22,7 +22,7 @@ include MMECalculator version '3.0.0' called MMECalculator
 **    present (recommendation category: A, evidence type: 4)
 **
 **  When
-**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential
 **    Prescription is for treating chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
@@ -56,47 +56,14 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and (
-      "Total MME" >= 50 '{MME}/d' or
-
-    "On Benzodiazepine"
-        or "Has Substance Abuse History"
-    )
-
-define "Exclusion Criteria":
-  (
-    Config."Evidence of Naloxone Enabled"
-      and "On Naloxone"
-  )
-    or Common."End of Life Assessment"
-
-define "Active Ambulatory Opioid Rx":
-  Common."Active Ambulatory Opioid Rx"
+define "On Benzodiazepine":
+  exists( Common."Active Ambulatory Benzodiazepine Rx" )
 
 define "Total MME":
   MMECalculator.TotalMME(
     "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
-      union "Active Ambulatory Opioid Rx"
+      union Common."Active Ambulatory Opioid Rx"
   )
-
-define "On Naloxone":
-  exists( Common."Active Ambulatory Naloxone Rx" )
-
-define "On Benzodiazepine":
-  exists( Common."Active Ambulatory Benzodiazepine Rx" )
 
 define "Has Substance Abuse History":
   exists (
@@ -106,6 +73,29 @@ define "Has Substance Abuse History":
       Common."US Core-Categorized Conditions" C
         where C.code in Common."Conditions documenting substance misuse"
     )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and (
+      "On Benzodiazepine"
+        or "Total MME" >= 50 '{MME}/d'
+        or "Has Substance Abuse History"
+    )
+
+define "On Naloxone":
+  exists( Common."Active Ambulatory Naloxone Rx" )
+
+define "Exclusion Criteria":
+  (
+    Config."Evidence of Naloxone Enabled"
+      and "On Naloxone"
+  )
+    or Common."End of Life Assessment"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

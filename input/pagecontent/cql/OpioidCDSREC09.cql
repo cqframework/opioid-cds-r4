@@ -53,24 +53,6 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-    and not "Exclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and "PDMP Data Not Reviewed in Past 90 Days"
-
-define "Exclusion Criteria":
-  false
-
 define "PDMP Data Not Reviewed in Past 90 Days":
   Config."PDMP Data Not Reviewed in Past 90 Days Criteria Enabled"
     and not (
@@ -91,6 +73,18 @@ define "PDMP Data Not Reviewed in Past 90 Days":
           )
       )
     )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and "PDMP Data Not Reviewed in Past 90 Days"
+
+define "Exclusion Criteria":
+  false
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
+    and not "Exclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

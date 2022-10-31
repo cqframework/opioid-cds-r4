@@ -56,22 +56,6 @@ define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescript
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
-define "Is Recommendation Applicable?":
-  "Inclusion Criteria"
-
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and Routines."Is Opioid Naive?"
-    and not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?"
-
 define "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?":
   Config."Opioid Treatment Plan Verification Enabled"
     and not (
@@ -101,6 +85,15 @@ define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
             such that Performer.actor ~ ChronicPainScript.recorder
         )
   )
+
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and Routines."Is Opioid Naive?"
+    and "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?"
+
+define "Is Recommendation Applicable?":
+  "Inclusion Criteria"
 
 define "Get Indicator":
   if "Is Recommendation Applicable?"

@@ -39,12 +39,6 @@ context Patient
 define "Lookback Year":
   Interval[Today() - 12 months - 1 days, Today() - 1 day]
 
-define "Patient Age Less Than 18":
-  if (Config."Age Less than 18 Years Is Enabled") then
-    AgeInYearsAt(Today()) < 18
-  else
-    false
-
 define "Applicable Because of Positive Cocaine or PCP or Opiates":
   if exists (Common."Opioid Other Than Synthetic Ordered In Last 12 Months") then
     "Has Positive Screening for Cocaine in Last 12 Months"
@@ -58,8 +52,7 @@ define "Applicable Because of Positive Cocaine or PCP or Opiates":
         else false
 
 define "Inclusion Criteria":
-  not "Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
+    Routines."Is Opioid Review Useful?"
     and (not "Patient had Urine Screening in Last 12 Months")
 
 define "Exclusion Criteria":
@@ -75,7 +68,7 @@ define "Patient had Urine Screening in Last 12 Months":
     if Config."Opiate Urine Screening Check Enabled" then
       exists ("Opiate Screenings")
     else
-      true
+      false
 
 define "Laboratory Observations":
   [Observation: "category" in Common."Observation Category Laboratory"]
