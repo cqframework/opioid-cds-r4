@@ -33,8 +33,8 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **  Then
 **    Recommend creation, review or update of an opioid treatment plan. Potential actions include:
 **      Create treatment plan with goals for opioid use
-**      Update patient’s opioid treatment plan
-**      Review patient’s opioid treatment plan
+**      Update patient's opioid treatment plan
+**      Review patient's opioid treatment plan
 **      N/A - see comment, snooze 3 months
 **      Taper / Discontinue opioid
 **

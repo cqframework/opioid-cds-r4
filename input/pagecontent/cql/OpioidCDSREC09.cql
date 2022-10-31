@@ -10,7 +10,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 /*
 **
 **  Recommendation #9
-**    Clinicians should review the patient’s history of controlled substance
+**    Clinicians should review the patient's history of controlled substance
 **    prescriptions using state prescription drug monitoring program (PDMP) data
 **    to determine whether the patient is receiving opioid dosages or dangerous
 **    combinations that put him or her at high risk for overdose. Clinicians

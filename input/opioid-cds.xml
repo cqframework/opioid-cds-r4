@@ -392,7 +392,7 @@
         <display value="Recommendation 9 (order-select) Logic Library" />
       </reference>
       <name value="OpioidCDSREC09Library" />
-      <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient’s History of Controlled Substance Prescriptions" />
+      <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient's History of Controlled Substance Prescriptions" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -492,6 +492,11 @@
             <title value="CDC 2022 Opioid Prescribing Guideline - Artifacts" />
             <generation value="html" />
           </page> -->
+      <page>
+        <nameUrl value="acute-pain.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Acute Pain" />
+        <generation value="markdown" />
+      </page>
       <page>
         <nameUrl value="quick-start.html" />
         <title value="CDC 2022 Opioid Prescribing Guideline - Quick Start" />

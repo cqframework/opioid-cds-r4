@@ -241,7 +241,7 @@
   <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
   <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/cqf-ruler-r4/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p>
   <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cqf-ruler-r4/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there.</p>
-  <p>Now the sandbox is configured to use the CDS Hooks service that you created above. The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you’re going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-illicit-drugs.json file above and then PUT that to the FHIR server created above. </p>
+  <p>Now the sandbox is configured to use the CDS Hooks service that you created above. The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you're going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-illicit-drugs.json file above and then PUT that to the FHIR server created above. </p>
   <div class="example">
     <pre class="http">
   PUT http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-no-screenings
