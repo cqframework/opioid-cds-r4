@@ -888,7 +888,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.551Z",
-    "modified": "2022-08-19T06:49:26.990Z",
+    "modified": "2022-10-30T22:26:42.066Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -919,7 +919,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months."
+        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446."
       },
       {
         "type": "json-query",
