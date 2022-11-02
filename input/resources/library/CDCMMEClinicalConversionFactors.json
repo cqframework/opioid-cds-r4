@@ -12,12 +12,10 @@
   "name": "CDCMMEClinicalConversionFactors",
   "status": "active",
   "type": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/library-type",
-        "code": "logic-library"
-      }
-    ]
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/library-type",
+      "code": "logic-library"
+    } ]
   },
   "relatedArtifact": [ {
     "type": "depends-on",

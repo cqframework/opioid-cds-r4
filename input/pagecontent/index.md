@@ -3,7 +3,7 @@
 This implementation guide provides resources and discussion in support of applying the Centers
 for Disease Control and Prevention (CDC) 2022 Opioid Prescribing Guideline:
 
-[CDC 2022 guideline for prescribing opioids for subacute or chronic pain](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm)
+[CDC 2022 guideline for prescribing opioids for subacute or chronic pain](https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids)
 
 This implementation guide was developed based on work initially done as part of the
 <a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">Clinical Quality Framework (CQF)</a>
@@ -22,8 +22,8 @@ use of this IG as well as other CQF projects take place regularly on the <a href
 This implementation guide includes support for the following guideline recommendations:
 * [Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration](recommendation-01.html)
 * [Recommendation #2 - Opioid Therapy Goals Discussion](recommendation-02.html)
-* [Recommendation #3 - Opioid Therapy Risk/Benefit Discussion](recommendation-03.html)
-* [Recommendation #4 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-04-order-sign.html)
+* [Recommendation #3 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-03-order-sign.html)
+* [Recommendation #4 - Opioid Therapy Risk/Benefit Discussion](recommendation-04.html)
 * [Recommendation #5 - Lowest Effective Dose](recommendation-05.html)
 * [Recommendation #6 - Prescribe Lowest Effective Dose and Duration](recommendation-06.html)
 * [Recommendation #7 - Opioid Therapy Risk Assessment](recommendation-07.html)

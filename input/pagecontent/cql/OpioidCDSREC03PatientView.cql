@@ -1,4 +1,4 @@
-library OpioidCDSREC03 version '0.1.1'
+library OpioidCDSREC03PatientView version '0.1.1'
 
 using FHIR version '4.0.1'
 
@@ -8,12 +8,12 @@ include OpioidCDSCommonConfig version '0.1.1' called Config
 include OpioidCDSRoutines version '0.1.1' called Routines
 
 /*
+**
 **  Recommendation #3
 **    Prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids
 **
 **  When
 **    Provider is prescribing an extended release opioid with ambulatory misuse potential
-**    Prescription is for treating chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy
@@ -32,24 +32,22 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 */
 
-// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-03
-
-parameter ContextPrescriptions List<MedicationRequest>
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-03-patient-view
 
 context Patient
 
 define "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
-  ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
-    where Routines."Is Subacute or Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+  Common."Active Ambulatory Opioid Rx" AmbulatoryOpioidPrescription
+    where Routines."Is Subacute or Chronic Pain Prescription?"(AmbulatoryOpioidPrescription)
       and AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
 
 define "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential":
-  exists( "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+  exists ("Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions")
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
-      and Routines."Is Opioid Review Useful?"
-      and Routines."Is Opioid Naive?"
+    and Routines."Is Opioid Review Useful?"
+    and Routines."Is Opioid Naive?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"

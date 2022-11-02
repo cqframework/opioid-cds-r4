@@ -28,16 +28,16 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|0.1.1"
     }, {
       "type": "depends-on",
-      "display": "Library Config",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommonConfig|0.1.1"
-    }, {
-      "type": "depends-on",
       "display": "Value set Opioid analgesics with ambulatory misuse potential",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
     }, {
       "type": "depends-on",
       "display": "Value set Community",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Extended release opioid with ambulatory misuse potential",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential"
     }, {
       "type": "depends-on",
       "display": "Value set Encounter Diagnosis Condition Category",
@@ -64,8 +64,12 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     }, {
       "type": "depends-on",
-      "display": "Value set Opioid counseling procedure",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure"
+      "display": "Value set Conditions likely terminal for opioid prescribing",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Hospice Procedure Codes",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
     } ],
     "parameter": [ {
       "name": "ContextPrescriptions",
@@ -139,19 +143,19 @@
     }, {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-      "mustSupport": [ "code", "performed", "status" ],
+      "mustSupport": [ "code", "status", "status.value" ],
       "codeFilter": [ {
         "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure"
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
       } ]
     }, {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-      "mustSupport": [ "code", "occurrence" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure"
-      } ]
+      "mustSupport": [ "code", "status", "status.value" ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "period", "period.start", "status", "status.value" ]
     } ]
   } ],
   "extension": [ {
@@ -181,7 +185,7 @@
       "valueString": "Get Summary"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'Recommend counseling regarding potential opioid harms and risks'\n  else null"
+      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids.'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 0
@@ -193,10 +197,10 @@
       "valueString": "OpioidCDSREC03"
     }, {
       "url": "name",
-      "valueString": "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
+      "valueString": "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
     }, {
       "url": "statement",
-      "valueString": "define \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  ( Common.\"Is Opioid Analgesic with Ambulatory Misuse Potential?\"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription\n    where Routines.\"Is Subacute or Chronic Pain Prescription?\"( AmbulatoryOpioidPrescription )"
+      "valueString": "define \"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  ( Common.\"Is Opioid Analgesic with Ambulatory Misuse Potential?\"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription\n    where Routines.\"Is Subacute or Chronic Pain Prescription?\"( AmbulatoryOpioidPrescription )\n      and AmbulatoryOpioidPrescription.medication in Common.\"Extended release opioid with ambulatory misuse potential\""
     }, {
       "url": "displaySequence",
       "valueInteger": 1
@@ -208,10 +212,10 @@
       "valueString": "OpioidCDSREC03"
     }, {
       "url": "name",
-      "valueString": "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+      "valueString": "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential"
     }, {
       "url": "statement",
-      "valueString": "define \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\":\n  exists( \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" )"
+      "valueString": "define \"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential\":\n  exists( \"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" )"
     }, {
       "url": "displaySequence",
       "valueInteger": 2
@@ -370,13 +374,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommonConfig"
+      "valueString": "OpioidCDSRoutines"
     }, {
       "url": "name",
-      "valueString": "Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled"
+      "valueString": "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days"
     }, {
       "url": "statement",
-      "valueString": "// Recommendation 3\ndefine \"Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled\":\n  true"
+      "valueString": "define \"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\":\n    if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n      exists (\"Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    else\n      false"
     }, {
       "url": "displaySequence",
       "valueInteger": 13
@@ -385,13 +389,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
+      "valueString": "OpioidCDSRoutines"
     }, {
       "url": "name",
-      "valueString": "Opioid Harms & Risks Counseling Lookback Period"
+      "valueString": "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days"
     }, {
       "url": "statement",
-      "valueString": "define \"Opioid Harms & Risks Counseling Lookback Period\":\n  Interval[Today() - 90 days, Today() - 1 days]"
+      "valueString": "define \"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\":\n  if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n    exists (\"Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")\n  else\n    false"
     }, {
       "url": "displaySequence",
       "valueInteger": 14
@@ -400,13 +404,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
+      "valueString": "OpioidCDSRoutines"
     }, {
       "url": "name",
-      "valueString": "Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today"
+      "valueString": "Is Opioid Naive?"
     }, {
       "url": "statement",
-      "valueString": "define \"Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today\":\n  [Procedure: Common.\"Opioid counseling procedure\"] P\n    where P.performed during day of \"Opioid Harms & Risks Counseling Lookback Period\"\n      and P.status ~ 'completed'"
+      "valueString": "// NOTE: MedicationStatement-dependent logic comment out due to bug in Publisher not supporting MedicationStatement in AllTypes.\ndefine \"Is Opioid Naive?\":\n    not (\"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    /* and not (\"Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days\") */\n    and not (\"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")"
     }, {
       "url": "displaySequence",
       "valueInteger": 15
@@ -418,10 +422,10 @@
       "valueString": "OpioidCDSREC03"
     }, {
       "url": "name",
-      "valueString": "Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today"
+      "valueString": "Inclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today\":\n  [ServiceRequest: Common.\"Opioid counseling procedure\"] SR\n    where SR.occurrence during day of \"Opioid Harms & Risks Counseling Lookback Period\""
+      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential\"\n      and Routines.\"Is Opioid Review Useful?\"\n      and Routines.\"Is Opioid Naive?\""
     }, {
       "url": "displaySequence",
       "valueInteger": 16
@@ -430,13 +434,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
+      "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
-      "valueString": "No Documented Discussions of Opioid Harms and Risks"
+      "valueString": "Conditions Indicating End of Life or With Limited Life Expectancy"
     }, {
       "url": "statement",
-      "valueString": "define \"No Documented Discussions of Opioid Harms and Risks\":\n  Config.\"Opioid Harms & Risks Discussion in Past 90 Days Criteria Enabled\"\n    and not (\n      exists ( \"Documented Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today\" )\n        or exists ( \"Ordered Discussions of Opioid Harms and Risks in Past 90 Days Excluding Today\" )\n    )"
+      "valueString": "define \"Conditions Indicating End of Life or With Limited Life Expectancy\":\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Conditions likely terminal for opioid prescribing\"\n        and C.clinicalStatus in \"Active Condition\"\n  )\n  union\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Limited life expectancy conditions\"\n        and C.clinicalStatus in \"Active Condition\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 17
@@ -445,13 +449,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
+      "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
-      "valueString": "Inclusion Criteria"
+      "valueString": "Admitted/Referred/Discharged to Hospice Care"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and \"No Documented Discussions of Opioid Harms and Risks\""
+      "valueString": "define \"Admitted/Referred/Discharged to Hospice Care\":\n  (\n    [Procedure: code in \"Hospice Procedure Codes\"] P\n      where P.status.value in { 'in-progress', 'completed' }\n  )\n  union\n  (\n    \"Service Requests\" SR\n      where SR.code in \"Hospice Procedure Codes\"\n        and SR.status.value in { 'active', 'completed' }\n  )\n  union\n  (\n    if (Config.\"Hospice Findings Exclusion Enabled\") then\n      [Observation: code in \"Hospice Finding Codes\"] O\n        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })\n    else\n      {}\n  )\n  union\n  (\n    [Encounter] E\n      where date from E.period.start 1 year or less on or before Today()\n        and (\n          if E.hospitalization.dischargeDisposition.coding is null\n              or not exists (E.hospitalization.dischargeDisposition.coding)\n            then false\n          else E.hospitalization.dischargeDisposition in \"Hospice Disposition\"\n        )\n        and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 18
@@ -460,13 +464,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
+      "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
-      "valueString": "Is Recommendation Applicable?"
+      "valueString": "End of Life Assessment"
     }, {
       "url": "statement",
-      "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\""
+      "valueString": "define \"End of Life Assessment\":\n    // 1. Conditions indicating end of life or with limited life expectancy\n    exists (\n      \"Conditions Indicating End of Life or With Limited Life Expectancy\"\n    )\n    // 2. Admitted/referred/discharged to hospice care\n    or exists (\n      \"Admitted/Referred/Discharged to Hospice Care\"\n    )"
     }, {
       "url": "displaySequence",
       "valueInteger": 19
@@ -478,13 +482,43 @@
       "valueString": "OpioidCDSREC03"
     }, {
       "url": "name",
-      "valueString": "Get Detail"
+      "valueString": "Exclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'Medication requests(s): '\n      + Combine((\"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" M\n           return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')\n  else null"
+      "valueString": "define \"Exclusion Criteria\":\n  Common.\"End of Life Assessment\""
     }, {
       "url": "displaySequence",
       "valueInteger": 20
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC03"
+    }, {
+      "url": "name",
+      "valueString": "Is Recommendation Applicable?"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\"\n    and not \"Exclusion Criteria\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 21
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC03"
+    }, {
+      "url": "name",
+      "valueString": "Get Detail"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'The following medication requests(s) release rates should be re-evaluated: '\n      + Combine((\"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" M\n           return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')\n  else null"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 22
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -499,7 +533,7 @@
       "valueString": "define \"Get Indicator\":\n  if \"Is Recommendation Applicable?\"\n    then 'warning'\n  else null"
     }, {
       "url": "displaySequence",
-      "valueInteger": 21
+      "valueInteger": 23
     } ]
   }, {
     "id": "effective-data-requirements",
@@ -525,9 +559,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2022-10-30",
+  "date": "2022-11-01",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Before starting and periodically during opioid therapy, clinicians should discuss with patients known risks and realistic benefits of opioid therapy and patient and clinician responsibilities for managing therapy.",
+  "description": "When starting opioid therapy for subacute or chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -562,8 +596,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "CDC's Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Before starting and periodically during opioid therapy, clinicians should discuss with patients known risks and realistic benefits of opioid therapy and patient and clinician responsibilities for managing therapy.",
+  "purpose": "CDC's Guideline for Prescribing Opioids for Subacute or Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
+  "usage": "Providers should use caution when prescribing extended-release/long-acting (ER/LA) opioids as they carry a higher risk and negligible benefit compared to immediate-release opioids.",
   "copyright": "© CDC 2022+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -579,16 +613,23 @@
   } ],
   "relatedArtifact": [ {
     "type": "documentation",
-    "display": "CDC guideline for prescribing opioids for chronic pain",
+    "display": "CDC guideline for prescribing opioids for subacute or chronic pain",
     "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm",
     "document": {
       "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
     }
+  }, {
+    "type": "documentation",
+    "display": "MME Conversion Tables",
+    "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf",
+    "document": {
+      "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+    }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC03" ],
   "action": [ {
-    "title": "Current Order is for Extended release opioid with ambulatory abuse potential.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #3 workflow.",
+    "title": "Extended-release opioid prescription triggered.",
+    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #4 workflow.",
     "documentation": [ {
       "type": "documentation",
       "document": {
@@ -606,8 +647,8 @@
           "valueCodeableConcept": {
             "coding": [ {
               "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "low",
-              "display": "Low quality"
+              "code": "very-low",
+              "display": "Very Low quality"
             } ]
           }
         } ]
@@ -620,7 +661,7 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the current Order is for Extended release opioid with ambulatory abuse potential.",
+        "description": "Check whether the opioid prescription for the existing patient is extended-release without any opioids-with-abuse-potential prescribed in the past 90 days.",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
@@ -647,13 +688,11 @@
       }
     } ],
     "action": [ {
-      "description": "Order counseling"
+      "description": "Will precribe immediate release"
     }, {
-      "description": "Document that counseling provided"
+      "description": "Benefits outweigh risks, snooze 3 months"
     }, {
-      "description": "Document the reason for not counseling; snooze 3 months"
-    }, {
-      "description": "N/A - see comment; snooze 3 months"
+      "description": "N/A - see comment, snooze 3 months"
     } ]
   } ]
 }
