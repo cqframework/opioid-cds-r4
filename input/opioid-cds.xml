@@ -338,21 +338,11 @@
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC04" />
-        <display value="Recommendation 4 (order-select) Logic Library" />
+        <reference value="Library/OpioidCDSREC04And05" />
+        <display value="Recommendations 4 and 5 (order-select) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC04Library" />
-      <description value="Logic Library for Recommendation #4 (order-select) - Opioid Therapy Risk/Benefit Discussion" />
-      <exampleBoolean value="false" />
-      <groupingId value="recommendation-libraries" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="Library/OpioidCDSREC05" />
-        <display value="Recommendation 5 (order-select) Logic Library" />
-      </reference>
-      <name value="OpioidCDSREC05Library" />
-      <description value="Logic Library for Recommendation #5 (order-select) - Lowest Effective Dose" />
+      <name value="OpioidCDSREC04And05Library" />
+      <description value="Logic Library for Recommendations #4 and #5 (order-select) - Lowest Effective Dose" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -613,22 +603,12 @@
         </page>
       </page>
       <page>
-        <nameUrl value="recommendation-04.html" />
-        <title value="Recommendation #4 - Opioid Therapy Risk/Benefit Discussion" />
+        <nameUrl value="recommendation-04-05.html" />
+        <title value="Recommendations #4 and #5 - Lowest Effective Dose" />
         <generation value="html" />
         <page>
-          <nameUrl value="opioidcds-recommendation-04-cql.html" />
-          <title value="OpioidCDS Recommendation 04 - CQL Source" />
-          <generation value="html" />
-        </page>
-      </page>
-      <page>
-        <nameUrl value="recommendation-05.html" />
-        <title value="Recommendation #5 - Lowest Effective Dose" />
-        <generation value="html" />
-        <page>
-          <nameUrl value="opioidcds-recommendation-05-cql.html" />
-          <title value="OpioidCDS Recommendation 05 - CQL Source" />
+          <nameUrl value="opioidcds-recommendation-04-05-cql.html" />
+          <title value="OpioidCDS Recommendations 04 and 05 - CQL Source" />
           <generation value="html" />
         </page>
       </page>

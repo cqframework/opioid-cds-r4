@@ -356,13 +356,9 @@
   <h4>Recommendation #3</h4>
   {% include recommendation03-functional-description.html %}
 
-  <a name="scope-rationale-rec04"> </a>
-  <h4>Recommendation #4</h4>
-  {% include recommendation04-functional-description.html %}
-
-  <a name="scope-rationale-rec05"> </a>
-  <h4>Recommendation #5</h4>
-  {% include recommendation05-functional-description.html %}
+  <a name="scope-rationale-rec04-05"> </a>
+  <h4>Recommendations #4 and #5</h4>
+  {% include recommendation04-05-functional-description.html %}
 
   <a name="scope-rationale-rec06"> </a>
   <h4>Recommendation #6</h4>

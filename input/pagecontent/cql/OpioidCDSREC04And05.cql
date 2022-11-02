@@ -1,4 +1,4 @@
-library OpioidCDSREC05 version '0.1.1'
+library OpioidCDSREC04And05 version '0.1.1'
 
 using FHIR version '4.0.1'
 
@@ -38,7 +38,7 @@ include MMECalculator version '3.0.0' called MMECalculator
 **
 */
 
-// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-05
+// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-04-05
 
 parameter ContextPrescriptions List<MedicationRequest>
 
