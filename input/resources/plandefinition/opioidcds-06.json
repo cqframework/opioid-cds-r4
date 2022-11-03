@@ -515,9 +515,9 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "CDC guideline for prescribing opioids for chronic pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm",
+    "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+      "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC06" ],
@@ -584,9 +584,9 @@
     "action": [ {
       "description": "Change order to maximum of 7 days"
     }, {
-      "description": "Document reason for not limiting therapy; snooze 3 months"
+      "description": "Document reason for not limiting therapy, snooze 3 months"
     }, {
-      "description": "N/A - see comment; snooze 3 months"
+      "description": "N/A - see comment, snooze 3 months"
     } ]
   } ]
 }
