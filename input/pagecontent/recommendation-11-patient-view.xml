@@ -1,8 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec11"> </a>
-  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#11_Clinicians_should_avoid_prescribing" target="_blank">Recommendation #11:</a></p>
   <p>
-    <strong>Clinicians should avoid prescribing opioid pain medication and benzodiazepines or other central nervous system depressant concurrently
-      whenever possible <em>(recommendation category: A, evidence type: 3)</em>.</strong>
+    Recommendations #11 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 145 lines 3579):
+  </p>
+  <p>
+    <strong>Clinicians should avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible
+      (recommendation category: B, evidence type: 3).
+    </strong>
   </p>
 
   {% include multiple-variation-note.html %}

@@ -1,10 +1,12 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec10"> </a>
-  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids" target="_blank">Recommendation #10:</a></p>
+  <p>
+    Recommendations #10 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 139 lines 3421):
+  </p>
   <p>
     <strong>When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before
       starting opioid therapy and consider urine drug testing at least annually to assess for
       prescribed medications as well as other controlled prescription drugs and illicit drugs
-      <em>(recommendation category: B, evidence type: 4)</em>.</strong>
+      (recommendation category: B, evidence type: 4).</strong>
   </p>
 
   {% include multiple-variation-note.html %}
