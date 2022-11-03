@@ -17,7 +17,7 @@
     "relatedArtifact": [ {
       "type": "depends-on",
       "display": "Library Common",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|2022.1.0"
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
@@ -25,7 +25,7 @@
     }, {
       "type": "depends-on",
       "display": "Library Routines",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|0.1.1"
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2022.1.0"
     }, {
       "type": "depends-on",
       "display": "Value set Opioid analgesics with ambulatory misuse potential",
@@ -547,7 +547,7 @@
     "use": "official",
     "value": "cdc-opioid-guidance"
   } ],
-  "version": "0.1.1",
+  "version": "2022.1.0",
   "name": "CDC_opioid_03",
   "title": "PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #3",
   "type": {

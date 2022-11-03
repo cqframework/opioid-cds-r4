@@ -1,4 +1,4 @@
-library OMTKData2019 version '0.1.1'
+library OMTKData2019 version '2022.1.0'
 
 define Months: { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }
 
