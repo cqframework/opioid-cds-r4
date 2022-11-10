@@ -18,9 +18,9 @@
   <h4>Clinical Assumptions</h4>
 
   <p>
-      Opioids for chronic pain management are often not started with an intent for chronic use; such
+      Opioids for subacute or chronic pain management are often not started with an intent for chronic use; such
       prescriptions often transition from intended acute pain management. Therefore, it is very difficult
-      to identify a new opioid prescription a priori as for chronic pain management.
+      to identify a new opioid prescription a priori as for subacute or chronic pain management.
   </p>
 
   <p>Indications and associated diagnoses for opioid prescriptions are often not available within the EHR.</p>
@@ -102,7 +102,7 @@
   <p>
   Medication self-administration data are not available in the ambulatory setting,
   nor would such data be reliable. Therefore, the most proximal information about
-  a patient’s medication usage is medication dispensed data. Such dispensed data
+  a patient's medication usage is medication dispensed data. Such dispensed data
   is increasingly accessible from claims data available to insurers and used to
   evaluate provider medication utilization rates.<sup><a href="#fn1" id="ref1">1</a></sup>  Researchers can access
   population-based dispensed data from government sources.<sup><a href="#fn2" id="ref2">2</a></sup>  Some provider
@@ -236,7 +236,7 @@
   <p>The team rejected use of the concept <i>At risk for drug therapy problem (finding) (SCTID: 451691000124102)</i>
    as it was too generic as it could address non-opioid medication therapy concerns.
    The team also considered searching for use of patient responses to pain scales as
-   evidence that the clinician evaluated patients’ responses to opioid use. However,
+   evidence that the clinician evaluated patients' responses to opioid use. However,
    pain scales have many uses without concomitant use of opioids and merely evaluating
    pain is not sufficient to assess risk for opioid-related harms. Therefore, the
    guidance does not include pain scale evaluation as a method for determining the
@@ -328,7 +328,7 @@
   <h3>Functional Description</h3>
   <p>The following two criteria must be satisfied for every patient for each recommendation:</p>
   <ul>
-      <li>Patient is being prescribed opioid medications for chronic pain</li>
+      <li>Patient is being prescribed opioid medications for subacute or chronic pain</li>
       <li>Patient does not appear to be at end of life</li>
   </ul>
   <h4>Chronic Pain</h4>
@@ -356,13 +356,9 @@
   <h4>Recommendation #3</h4>
   {% include recommendation03-functional-description.html %}
 
-  <a name="scope-rationale-rec04"> </a>
-  <h4>Recommendation #4</h4>
-  {% include recommendation04-functional-description.html %}
-
-  <a name="scope-rationale-rec05"> </a>
-  <h4>Recommendation #5</h4>
-  {% include recommendation05-functional-description.html %}
+  <a name="scope-rationale-rec04-05"> </a>
+  <h4>Recommendations #4 and #5</h4>
+  {% include recommendation04-05-functional-description.html %}
 
   <a name="scope-rationale-rec06"> </a>
   <h4>Recommendation #6</h4>
@@ -403,6 +399,6 @@
   </p>
 
   <p>
-    <sup id="fn3">3. Stokowski LA. Adult cancer pain: part 2 – the latest guideline for pain management. Medscape Oncology. 2010. Available at: https://www.medscape.com/viewarticle/733067_2. Accessed 19 July 2018.<a href="#ref3">↩</a></sup>
+    <sup id="fn3">3. Stokowski LA. Adult cancer pain: part 2 - the latest guideline for pain management. Medscape Oncology. 2010. Available at: https://www.medscape.com/viewarticle/733067_2. Accessed 19 July 2018.<a href="#ref3">↩</a></sup>
   </p>
 </div>

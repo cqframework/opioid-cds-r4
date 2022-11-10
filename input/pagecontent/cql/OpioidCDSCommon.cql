@@ -1,10 +1,10 @@
-library OpioidCDSCommon version '0.1.1'
+library OpioidCDSCommon version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OMTKLogicMK2020 version '0.1.1' called OMTKLogic
-include OpioidCDSCommonConfig version '0.1.1' called Config
+include OMTKLogicMK2020 version '2022.1.0' called OMTKLogic
+include OpioidCDSCommonConfig version '2022.1.0' called Config
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
@@ -53,6 +53,7 @@ valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/Valu
 valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
 valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
 valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
+valueset "Sickle Cell Diseases": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/sickle-cell-diseases'
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
 
@@ -232,7 +233,7 @@ define function "Prescription Relevant Period"(prescription FHIR.MedicationReque
   )
   then Interval[
     date from prescription.authoredOn,
-    date from prescription.authoredOn + System.Quantity{ value: GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration), unit: 'days' }
+    date from prescription.authoredOn + GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration)
   ]
   else null
 
@@ -253,14 +254,14 @@ define function GetDurationInDays(value FHIR.Duration):
   if value is null then null
   else
     case
-      when value.code.value ~ 'a' then value.value.value * 365.0
-      when value.code.value ~ 'mo' then value.value.value * 30.0
-      when value.code.value ~ 'wk' then value.value.value * 7.0
-      when value.code.value ~ 'd' then value.value.value
-      when value.code.value ~ 'h' then value.value.value / 24.0
-      when value.code.value ~ 'min' then value.value.value / 60.0 / 24.0
-      when value.code.value ~ 's' then value.value.value / 60.0 / 60.0 / 24.0
-      when value.code.value ~ 'ms' then value.value.value / 60.0 / 60.0 / 24.0 / 1000.0
+      when value.code.value ~ 'a' then System.Quantity{ value: value.value.value * 365.0, unit: 'days' }
+      when value.code.value ~ 'mo' then System.Quantity{ value: value.value.value * 30.0, unit: 'days' }
+      when value.code.value ~ 'wk' then System.Quantity{ value: value.value.value * 7.0, unit: 'days' }
+      when value.code.value ~ 'd' then System.Quantity{ value: value.value.value, unit: 'days' }
+      when value.code.value ~ 'h' then System.Quantity{ value: value.value.value / 24.0, unit: 'days' }
+      when value.code.value ~ 'min' then System.Quantity{ value: value.value.value / 60.0 / 24.0, unit: 'days' }
+      when value.code.value ~ 's' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0, unit: 'days' }
+      when value.code.value ~ 'ms' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0 / 1000.0, unit: 'days' }
       when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')
       else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)
 end
@@ -300,6 +301,11 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
   singleton from (
     coding C where C.system = 'http://www.nlm.nih.gov/research/umls/rxnorm'
   )
+
+define "Positive Sickle Cell Condition":
+    "US Core-Categorized Conditions" C
+    where C.code in "Sickle Cell Diseases"
+        and C.clinicalStatus in "Active Condition"
 
  define "Service Requests":
    [ServiceRequest] SR

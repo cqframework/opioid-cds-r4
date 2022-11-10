@@ -23,6 +23,11 @@
   }, {
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
     "valueCode": "structured"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/MMECalculator",
   "version": "3.0.0",
@@ -115,9 +120,9 @@
     }
   }, {
     "type": "citation",
-    "label": "CDC 2016 Opioid Prescribing Guideline",
+    "label": "CDC Opioid Prescribing Guideline",
     "display": "Centers For Disease Control and Prevention (CDC) Guideline for Prescribing Opioids for Chronic Pain — United States, 2016",
-    "citation": "Dowell D, Haegerich TM, Chou R. CDC Guideline for Prescribing Opioids for Chronic Pain — United States, 2016. MMWR Recomm Rep 2016;65(No. RR-1):1–49. DOI: http://dx.doi.org/10.15585/mmwr.rr6501e1",
+    "citation": "Dowell D, Haegerich TM, Chou R. CDC Guideline for Prescribing Opioids for Subacute or Chronic Pain — United States, 2016. MMWR Recomm Rep 2016;65(No. RR-1):1–49. DOI: http://dx.doi.org/10.15585/mmwr.rr6501e1",
     "url": "http://dx.doi.org/10.15585/mmwr.rr6501e1",
     "document": {
       "url": "http://dx.doi.org/10.15585/mmwr.rr6501e1"

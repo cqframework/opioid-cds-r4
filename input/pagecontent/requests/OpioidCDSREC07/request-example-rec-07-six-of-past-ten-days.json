@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-10-06"
+                    "valueDateTime": "2022-11-02"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-07-six-of-past-ten-days-context"
             },
-            "authoredOn": "2022-09-21",
+            "authoredOn": "2022-10-18",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,8 +76,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-10-06T00:00:00-06:00",
-                "end": "2023-01-06T00:00:00-07:00"
+                "start": "2022-11-02T00:00:00-06:00",
+                "end": "2023-02-02T00:00:00-07:00"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
@@ -106,7 +106,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -144,7 +144,7 @@
         "subject": {
           "reference": "Patient/example-rec-07-six-of-past-ten-days"
         },
-        "authoredOn": "2022-08-17",
+        "authoredOn": "2022-08-31",
         "dosageInstruction": [
           {
             "timing": {
@@ -159,8 +159,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-08-17T00:00:00-06:00",
-            "end": "2022-08-27T00:00:00-06:00"
+            "start": "2022-08-31T00:00:00-06:00",
+            "end": "2022-09-10T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -185,7 +185,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -215,8 +215,8 @@
           "reference": "Patient/example-rec-07-six-of-past-ten-days"
         },
         "period": {
-          "start": "2022-08-17",
-          "end": "2022-08-17"
+          "start": "2022-08-31",
+          "end": "2022-08-31"
         }
       }
     },
@@ -233,7 +233,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -248,7 +248,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "2002-09-26"
+        "birthDate": "2002-10-10"
       }
     },
     "item4": null,

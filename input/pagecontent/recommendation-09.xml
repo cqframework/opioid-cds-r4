@@ -1,15 +1,19 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
-  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#9_Clinicians_should_review" target="_blank">Recommendation #9:</a></p>
   <p>
-    <strong>Long-term opioid use often begins with treatment of acute pain. When opioids are used for acute pain, clinicians should prescribe the lowest effective dose of immediate-release opioids and should prescribe no greater quantity than needed
-      for the expected duration of pain severe enough to require opioids. Three days or less will often be sufficient; more than seven days will rarely be needed (recommendation category: A, evidence type: 4).</strong>
+    Recommendations #9 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 135 lines 3299):
+  </p>
+  <p>
+    <strong>Clinicians should review the patient's history of controlled substance prescriptions using state prescription 
+      drug monitoring program (PDMP) data to determine whether the patient is receiving opioid dosages or dangerous 
+      combinations that put him or her at high risk for overdose. Clinicians should review PDMP data when starting opioid 
+      therapy for chronic pain and periodically during opioid therapy for chronic pain, ranging from every prescription to 
+      every 3 months (recommendation category: B, evidence type: 4).</strong>
   </p>
 
   <div class="toc-container">
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#content">Content</a></li>
       <li><a href="#example-data-requests">Example Data/Requests</a></li>
@@ -30,14 +34,6 @@
   </details>
   <p></p>
   <a href="PlanDefinition-opioidcds-09.html#effective-data-requirements">Effective Data Requirements</a>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
-    </summary>
-    {% include for-chronic-pain-definitions.html %}
-  </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
@@ -65,9 +61,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-09.html">CDC 2016 Opioid Prescribing Guideline Recommendation #9</a></td>
+          <td><a href="PlanDefinition-opioidcds-09.html">CDC 2022 Opioid Prescribing Guideline Recommendation #9</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2016 Opioid Prescribing Guideline Recommendation #9</td>
+          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #9</td>
         </tr>
         <tr>
           <td><a href="Library-OpioidCDSREC09.html">Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions</a></td>

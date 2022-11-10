@@ -1,10 +1,10 @@
-library OpioidCDSRoutines version '0.1.1'
+library OpioidCDSRoutines version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
+include OpioidCDSCommon version '2022.1.0' called Common
+include OpioidCDSCommonConfig version '2022.1.0' called Config
 
 context Patient
 
@@ -17,6 +17,10 @@ context Patient
 **  Age < 18 years?         | No                  | Calculate age from date of birth; exclude    | Date of birth
 **                          |                     | patients with age less than 18 years at the  |
 **                          |                     | time of the prescription                     |
+**  ------------------------------------------------------------------------------------------------------------------------------------
+**  Evidence of             | No                  | Look for documented findings consistent      | Sickle cell disease conditions
+**  sickle cell disease?    |                     | with those listed in the sickle cell         |
+**                          |                     | value set                                    |
 **  ------------------------------------------------------------------------------------------------------------------------------------
 **  Limited life            | No                  | Look for documented findings consistent      | Limited life expectancy conditions
 **  expectancy conditions   |                     | with those listed in the limited life        |
@@ -41,17 +45,26 @@ define "Palliative Care Lookback Period":
   Interval[Today() - 90 days, Today()]
 
 define "Is Opioid Review Useful?":
-  /* not "Patient Age Less Than 18" */
-    not "Conditions Indicating End Of Life Present"
+  not "Patient Age Less Than 18"
+    and not "Condition Positive for Sickle Cell"
+    and not "Conditions Indicating End Of Life Present"
     and not "Order For Palliative Care In Past 90 Days"
     and not "Is Active Cancer Treatment?"
     and not "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
 
-/* define "Patient Age Less Than 18":
+define "Patient Age Less Than 18":
   if (Config."Age Less than 18 Years Is Enabled") then
     AgeInYearsAt(Today()) < 18
   else
-    false */
+    false
+
+define "Condition Positive for Sickle Cell":
+      if (Config."Sickle Cell Check Enabled") then
+        exists(
+            Common."Positive Sickle Cell Condition"
+        )  else
+        false
+
 
 define "Conditions Indicating End Of Life Present":
   exists (
@@ -238,25 +251,37 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
 
 /*
 **  Routine #4
-**  For Chronic Pain Routine
+**  For Subacute or Chronic Pain Routine
 **
 **  Definition                  | Answer to Proceed   | Details                                        | Data (Terminology) Requirement
 **  -----------------------------------------------------------------------------------------------------------------------------------
 **  Order for opioid analgesic  | Yes                 | Order for opioid analgesics with ambulatory    | Opioid analgesics with
 **  with expected supply        |                     | misuse potential with a supply duration of >=  | ambulatory misuse potential
 **  duration >= 28 days         |                     | 28 days                                        |
+**                              |                     |                                                |
+**                              |                     | - Subacute definition = order for opioid       |
+**                              |                     |   analgesics with ambulatory misuse            |
+**                              |                     |   potential with a supply duration of one to   |
+**                              |                     |   two months.                                  |
+**                              |                     | - Chronic pain definition = order for opioid   |
+**                              |                     |   analgesics with ambulatory misuse            |
+**                              |                     |   potential with a supply duration of >= two   |
+**                              |                     |   months.                                      |
 **  -----------------------------------------------------------------------------------------------------------------------------------
 **
 */
 
-define function "Is Chronic Pain Prescription?"(prescription FHIR.MedicationRequest):
+define function "Is Subacute or Chronic Pain Prescription?"(prescription FHIR.MedicationRequest):
   (
     prescription.dispenseRequest is not null
       and prescription.dispenseRequest.expectedSupplyDuration is not null
-      and Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28
+      and (
+        Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) between 30 days and 60 days
+          or Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 60 days
+      )
   )
 
-// End of For Chronic Pain Routine
+// End of For Subacute or Chronic Pain Routine
 
 /*
 **  Routine #5
@@ -272,11 +297,18 @@ define function "Is Chronic Pain Prescription?"(prescription FHIR.MedicationRequ
 **
 */
 
+// should allow DateTime precision, but not working in the Ruler specifically
 define function "Is Acute Pain Prescription?"(prescription FHIR.MedicationRequest):
   prescription.dispenseRequest is not null
     and prescription.dispenseRequest.expectedSupplyDuration is not null
-    and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) < 28
+    and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) < 28 days
 
+// should allow DateTime precision, but not working in the Ruler specifically
+define function "Acute Pain Prescription Greater Than 7 Days?"(prescription FHIR.MedicationRequest):
+      prescription.dispenseRequest is not null
+    and prescription.dispenseRequest.expectedSupplyDuration is not null
+    and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) > 7 days
+    and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) < 28 days
 // End of For Acute Pain Routine
 
 // TODO: Include logic for dispensing and patient-reported events

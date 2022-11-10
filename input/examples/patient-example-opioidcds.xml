@@ -2,7 +2,7 @@
    <id value="example-opioidcds"></id>
    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
       <extension url="dateLastUpdated">
-         <valueDateTime value="2022-09-26"></valueDateTime>
+         <valueDateTime value="2022-10-10"></valueDateTime>
       </extension>
       <extension url="frequency">
          <valueDuration>
@@ -18,7 +18,7 @@
       <given value="opioidcds"></given>
    </name>
    <gender value="male"></gender>
-   <birthDate value="1982-06-07"></birthDate>
+   <birthDate value="1982-06-21"></birthDate>
    <address>
       <use value="home"></use>
       <type value="postal"></type>

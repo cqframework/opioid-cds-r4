@@ -1,15 +1,15 @@
-library OpioidCDSREC10Common version '0.1.1'
+library OpioidCDSREC10Common version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSRoutines version '0.1.1' called Routines
-include OpioidCDSCommonConfig version '0.1.1' called Config
+include OpioidCDSCommon version '2022.1.0' called Common
+include OpioidCDSRoutines version '2022.1.0' called Routines
+include OpioidCDSCommonConfig version '2022.1.0' called Config
 
 /*
 **  Recommendation #10
-**    When prescribing opioids for chronic pain, providers should use urine drug
+**    When prescribing opioids for subacute or chronic pain, providers should use urine drug
 **    testing before starting opioid therapy and consider urine drug testing at
 **    least annually to assess for prescribed medications as well as other controlled
 **    prescription drugs and illicit drugs (recommendation category: B, evidence type: 4)
@@ -27,7 +27,7 @@ include OpioidCDSCommonConfig version '0.1.1' called Config
 **  Then
 **    Recommend urine drug screening
 **      Will perform urine screening
-**      Not for chronic pain management, snooze 3 months
+**      Not for subacute or chronic pain management, snooze 3 months
 **      N/A - see comment, snooze 3 months
 **
 */
@@ -52,9 +52,8 @@ define "Applicable Because of Positive Cocaine or PCP or Opiates":
         else false
 
 define "Inclusion Criteria":
-  not Common."Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and (not "Patient had Urine Screening in Last 12 Months")
+  Routines."Is Opioid Review Useful?"
+  and (not "Patient had Urine Screening in Last 12 Months")
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
@@ -65,11 +64,11 @@ define "Patient had Urine Screening in Last 12 Months":
     or exists ("Cocaine Screenings")
     or exists ("PCP Screenings")
   )
-  and
+  or
     if Config."Opiate Urine Screening Check Enabled" then
       exists ("Opiate Screenings")
     else
-      true
+      false
 
 define "Laboratory Observations":
   [Observation: "category" in Common."Observation Category Laboratory"]
@@ -193,12 +192,12 @@ define "PCP Detail":
 
 define function "Get Detail" (isScreeningRecommended Boolean):
   if isScreeningRecommended then
-    'Patients on opioid therapy should have a urine drug test performed every 12 months.'
+    'Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
   else if "Applicable Because of Positive Cocaine or PCP or Opiates" then
     "Cocaine Detail"&
     "Opiates Detail"&
     "PCP Detail"&
-    '<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug.'
+    '<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
   else
       null
 

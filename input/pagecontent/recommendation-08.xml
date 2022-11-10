@@ -1,5 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec08"> </a>
-  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#8_starting_periodically_during_continuation" target="_blank">Recommendation #8:</a></p>
+  <p>
+    Recommendations #8 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 125 lines 3017):
+  </p>
   <p>
     <strong>Before starting and periodically during continuation of opioid therapy, clinicians should evaluate
       risk factors for opioid-related harms. Clinicians should incorporate into the management plan strategies
@@ -12,7 +14,6 @@
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#content">Content</a></li>
       <li><a href="#example-data-requests">Example Data/Requests</a></li>
@@ -33,14 +34,6 @@
   </details>
   <p></p>
   <a href="PlanDefinition-opioidcds-08.html#effective-data-requirements">Effective Data Requirements</a>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
-    </summary>
-    {% include for-chronic-pain-definitions.html %}
-  </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
@@ -68,9 +61,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-08.html">CDC 2016 Opioid Prescribing Guideline Recommendation #8</a></td>
+          <td><a href="PlanDefinition-opioidcds-08.html">CDC 2022 Opioid Prescribing Guideline Recommendation #8</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2016 Opioid Prescribing Guideline Recommendation #8</td>
+          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #8</td>
         </tr>
         <tr>
           <td><a href="Library-OpioidCDSREC08.html">Recommendation #8 - risk factors for opioid-related harms before and during opioid therapy</a></td>

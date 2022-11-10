@@ -1,25 +1,25 @@
-library OpioidCDSREC01 version '0.1.1'
+library OpioidCDSREC01 version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2022.1.0' called Common
+include OpioidCDSCommonConfig version '2022.1.0' called Config
+include OpioidCDSRoutines version '2022.1.0' called Routines
 
 /*
 **
 **  Recommendation #1
 **    Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred
-**    for chronic pain. Clinicians should consider opioid therapy only if expected
+**    for acute pain. Clinicians should consider opioid therapy only if expected
 **    benefits for both pain and function are anticipated to outweigh risks to the
 **    patient. If opioids are used, they should be combined with nonpharmacologic
 **    therapy and nonopioid pharmacologic therapy, as appropriate
 **    (recommendation category: A, evidence type: 3).
 **
 **  When
-**    Prescription is for treating chronic pain
-**    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating acute pain
+**    Provider is prescribing an opioid with ambulatory misuse potential
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy
@@ -44,16 +44,15 @@ parameter ContextPrescriptions List<FHIR.MedicationRequest>
 
 context Patient
 
-define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
-  exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
-
-define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
+define "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
-    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+    where Routines."Is Acute Pain Prescription?"( AmbulatoryOpioidPrescription )
+
+define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
+  exists( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and Routines."Is Opioid Naive?"
 
@@ -72,12 +71,12 @@ define "Get Indicator":
 define "Get Summary":
   if "Is Recommendation Applicable?"
     // NOTE: Wordsmithing here
-    then 'Recommend use of nonpharmacologic therapy and nonopioid pharmacologic therapy as alternative'
+    then 'For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs.'
   else null
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
     then 'Medication requests(s): '
-      + Combine(("Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
+      + Combine(("Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
            return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
   else null

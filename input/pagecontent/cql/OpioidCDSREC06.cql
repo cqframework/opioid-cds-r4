@@ -1,11 +1,11 @@
-library OpioidCDSREC06 version '0.1.1'
+library OpioidCDSREC06 version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2022.1.0' called Common
+include OpioidCDSCommonConfig version '2022.1.0' called Config
+include OpioidCDSRoutines version '2022.1.0' called Routines
 
 /*
 **
@@ -44,6 +44,7 @@ context Patient
 define "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
     where Routines."Is Acute Pain Prescription?"( AmbulatoryOpioidPrescription )
+      and Routines."Acute Pain Prescription Greater Than 7 Days?"(AmbulatoryOpioidPrescription)
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain":
   exists( "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
@@ -52,12 +53,11 @@ define "Order is for Long-Acting Opioid":
   exists (
     "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" AmbulatoryOpioidPrescription
       where AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
-        or Common.GetDurationInDays( AmbulatoryOpioidPrescription.dispenseRequest.expectedSupplyDuration ) > 7
+        or Common.GetDurationInDays( AmbulatoryOpioidPrescription.dispenseRequest.expectedSupplyDuration ) > 7 days
   )
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential for Acute Pain"
-    and not Common."Patient Age Less Than 18"  
     and Routines."Is Opioid Review Useful?"
     and "Order is for Long-Acting Opioid"
 
@@ -75,12 +75,12 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days and to limit to immediate release opioids'
+    then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days. When prescribing opioids for acute pain, CDC recommends prescribing no greater quantity than needed for the expected duration of severe pain'
   else null
 
   define "Get Detail":
     if "Is Recommendation Applicable?"
       then 'Medication requests(s): '
         + Combine(("Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
-             return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
+             return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')
     else null

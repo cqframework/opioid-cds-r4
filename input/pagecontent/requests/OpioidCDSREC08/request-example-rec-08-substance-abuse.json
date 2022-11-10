@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-10-06"
+                    "valueDateTime": "2022-11-02"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-08-substance-abuse-context"
             },
-            "authoredOn": "2022-10-06",
+            "authoredOn": "2022-11-02",
             "dosageInstruction": [
               {
                 "timing": {
@@ -85,8 +85,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-10-06T00:00:00-06:00",
-                "end": "2023-01-06T00:00:00-07:00"
+                "start": "2022-11-02T00:00:00-06:00",
+                "end": "2023-02-02T00:00:00-07:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {
@@ -115,7 +115,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -130,7 +130,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "2002-09-26"
+        "birthDate": "2002-10-10"
       }
     },
     "item2": null,
@@ -147,7 +147,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",

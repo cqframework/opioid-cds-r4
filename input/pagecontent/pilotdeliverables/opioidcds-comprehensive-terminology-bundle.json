@@ -45,7 +45,7 @@
           }
         ],
         "purpose": "Identify a procedure for opioid use couseling to the patient",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -119,7 +119,7 @@
           }
         ],
         "purpose": "Identification of opioid urine drug tests where rusults can be used when considering opioid therapy",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -2532,7 +2532,7 @@
           }
         ],
         "purpose": "Counseling and associated procedures for substance misuse that may be used for opioid management",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -2682,7 +2682,7 @@
           }
         ],
         "purpose": "Identification of Pain medicine Plan of care note for use in opioid therapy management",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -2907,7 +2907,7 @@
           }
         ],
         "purpose": "Conditions that may indicate need for opioid management",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -3540,7 +3540,7 @@
           }
         ],
         "purpose": "Risk assessment to occur when considering opioid therapy",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -3665,7 +3665,7 @@
           }
         ],
         "purpose": "Used to determine if patient was discharged to hospice as part of the patient's end of life assessment workflow in all recommendations.",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "extension": [
             {
@@ -3763,7 +3763,7 @@
           }
         ],
         "purpose": "Naloxone medications for opioid management",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -4397,7 +4397,7 @@
           }
         ],
         "purpose": "Provider types used to identify cancer care related encounters",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -4550,7 +4550,7 @@
           }
         ],
         "purpose": "Identification of patients that have a documented substance misuse condition",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -10679,7 +10679,7 @@
           }
         ],
         "purpose": "Opioid medications that should have opioid management CDS",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "expansion": {
           "timestamp": "2020-03-26T17:39:09-06:00",
           "contains": [
@@ -17796,7 +17796,7 @@
           }
         ],
         "purpose": "A procedure to review the prescription drug monitoring program data",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -17886,7 +17886,7 @@
           }
         ],
         "purpose": "Cancer conditions to be used as an exclusion for opioid management review",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -28031,7 +28031,7 @@
           }
         ],
         "purpose": "Provide terminology for conditions to be used as exclusions for opioid use recommendations",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -28176,7 +28176,7 @@
           }
         ],
         "purpose": "Benzodiazepine medications for opioid management",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "expansion": {
           "timestamp": "2020-03-26T17:39:09-06:00",
           "contains": [
@@ -29333,7 +29333,7 @@
           }
         ],
         "purpose": "Buprenorphine and Methadone medications for opioid management",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -30394,7 +30394,7 @@
           }
         ],
         "purpose": "A procedure to provide chronic pain control management",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -30605,8 +30605,8 @@
             ]
           }
         ],
-        "purpose": "Conditions for exclusions in CDC 2016 Opioid Guideline",
-        "copyright": "© CDC 2016+.",
+        "purpose": "Conditions for exclusions in CDC 2022 Opioid Guideline",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -36615,8 +36615,8 @@
             ]
           }
         ],
-        "purpose": "Conditions for exclusions in CDC 2016 Opioid Guideline",
-        "copyright": "© CDC 2016+.",
+        "purpose": "Conditions for exclusions in CDC 2022 Opioid Guideline",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -36738,7 +36738,7 @@
         "id": "us-core-condition-category",
         "text": {
           "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US Core Condition Category Codes</h2><div><p>The US Core Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems. However this is not mandatory for 2015 certification</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in <a href=\"http://hl7.org/fhir/R4/codesystem-condition-category.html\"><code>http://terminology.hl7.org/CodeSystem/condition-category</code></a></li><li>Include these codes as defined in <a href=\"CodeSystem-condition-category.html\"><code>http://hl7.org/fhir/us/core/CodeSystem/condition-category</code></a><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"CodeSystem-condition-category.html#condition-category-health-concern\">health-concern</a></td><td>Health Concern</td><td>Additional health concerns from other stakeholders which are outside the provider’s problem list.</td></tr></table></li></ul></div>"
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>US Core Condition Category Codes</h2><div><p>The US Core Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems. However this is not mandatory for 2015 certification</p>\n</div><p>This value set includes codes from the following code systems:</p><ul><li>Include all codes defined in <a href=\"http://hl7.org/fhir/R4/codesystem-condition-category.html\"><code>http://terminology.hl7.org/CodeSystem/condition-category</code></a></li><li>Include these codes as defined in <a href=\"CodeSystem-condition-category.html\"><code>http://hl7.org/fhir/us/core/CodeSystem/condition-category</code></a><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"CodeSystem-condition-category.html#condition-category-health-concern\">health-concern</a></td><td>Health Concern</td><td>Additional health concerns from other stakeholders which are outside the provider's problem list.</td></tr></table></li></ul></div>"
         },
         "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category",
         "version": "3.1.0",
@@ -36825,7 +36825,7 @@
           }
         ],
         "purpose": "Finding indicating that the Prescription Drug Monitoring Program (PDMP) data was reviewed",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -36899,7 +36899,7 @@
           }
         ],
         "purpose": "Identification of non-opioid urine drug tests where rusults can be used when considering opioid therapy",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "compose": {
           "include": [
             {
@@ -39461,7 +39461,7 @@
           }
         ],
         "purpose": "Identify medication orders for long-acting opioids",
-        "copyright": "© CDC 2016+.",
+        "copyright": "© CDC 2022+.",
         "expansion": {
           "timestamp": "2020-03-26T17:39:10-06:00",
           "contains": [

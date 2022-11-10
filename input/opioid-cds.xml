@@ -2,7 +2,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="fhir.cdc.opioid-cds-r4" />
   <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/fhir.cdc.opioid-cds-r4" />
-  <version value="0.1.1" />
+  <version value="2022.1.0" />
   <name value="Opioid_CDC" />
   <title value="Opioid Prescribing Support Implementation Guide" />
   <status value="active" />
@@ -311,7 +311,7 @@
         <reference value="Library/OpioidCDSREC02" />
         <display value="Recommendation 2 (order-select) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC01Library" />
+      <name value="OpioidCDSREC02Library" />
       <description value="Logic Library for Recommendation #2 (order-select) - Opioid Therapy Goals Discussion" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
@@ -322,37 +322,27 @@
         <display value="Recommendation 3 (order-select) Logic Library" />
       </reference>
       <name value="OpioidCDSREC03Library" />
-      <description value="Logic Library for Recommendation #3 (order-select) - Opioid Therapy Risk/Benefit Discussion" />
+      <description value="Logic Library for Recommendation #3 (order-select) - Opioid Immediate Release Form When Starting Opioid Therapy" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC04" />
-        <display value="Recommendation 4 (order-select) Logic Library" />
+        <reference value="Library/OpioidCDSREC03PatientView" />
+        <display value="Recommendation 3 (patient-view) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC04Library" />
-      <description value="Logic Library for Recommendation #4 (order-select) - Opioid Immediate Release Form When Starting Opioid Therapy" />
+      <name value="OpioidCDSREC03PatientViewLibrary" />
+      <description value="Logic Library for Recommendation #3 (patient-view) - Opioid Immediate Release Form When Starting Opioid Therapy" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC04PatientView" />
-        <display value="Recommendation 4 (patient-view) Logic Library" />
+        <reference value="Library/OpioidCDSREC04And05" />
+        <display value="Recommendations 4 and 5 (order-select) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC04PatientViewLibrary" />
-      <description value="Logic Library for Recommendation #4 (patient-view) - Opioid Immediate Release Form When Starting Opioid Therapy" />
-      <exampleBoolean value="false" />
-      <groupingId value="recommendation-libraries" />
-    </resource>
-    <resource>
-      <reference>
-        <reference value="Library/OpioidCDSREC05" />
-        <display value="Recommendation 5 (order-select) Logic Library" />
-      </reference>
-      <name value="OpioidCDSREC05Library" />
-      <description value="Logic Library for Recommendation #5 (order-select) - Lowest Effective Dose" />
+      <name value="OpioidCDSREC04And05Library" />
+      <description value="Logic Library for Recommendations #4 and #5 (order-select) - Lowest Effective Dose" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -392,7 +382,7 @@
         <display value="Recommendation 9 (order-select) Logic Library" />
       </reference>
       <name value="OpioidCDSREC09Library" />
-      <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient’s History of Controlled Substance Prescriptions" />
+      <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient's History of Controlled Substance Prescriptions" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -487,54 +477,74 @@
         <title value="Home" />
         <generation value="markdown" />
       </page>
-      <!-- <page>
-            <nameUrl value="artifacts.html" />
-            <title value="CDC 2016 Opioid Prescribing Guideline - Artifacts" />
-            <generation value="html" />
-          </page> -->
       <page>
-        <nameUrl value="quick-start.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Quick Start" />
+        <nameUrl value="profiles.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Profiles" />
+        <generation value="html" />
+      </page>
+      <!-- <page>
+        <nameUrl value="artifacts.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Artifacts" />
+        <generation value="html" />
+      </page> -->
+      <page>
+        <nameUrl value="terminology.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Terminology" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="examples.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Examples" />
         <generation value="html" />
       </page>
       <page>
         <nameUrl value="documentation.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Documentation" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Documentation" />
         <generation value="html" />
         <page>
           <nameUrl value="implementation-documentation.html" />
-          <title value="CDC 2016 Opioid Prescribing Guideline - Implementation Documentation" />
+          <title value="CDC 2022 Opioid Prescribing Guideline - Implementation Documentation" />
           <generation value="html" />
         </page>
         <page>
           <nameUrl value="integration-documentation.html" />
-          <title value="CDC 2016 Opioid Prescribing Guideline - Integration Documentation" />
+          <title value="CDC 2022 Opioid Prescribing Guideline - Integration Documentation" />
           <generation value="html" />
         </page>
         <page>
           <nameUrl value="process-documentation.html" />
-          <title value="CDC 2016 Opioid Prescribing Guideline - Process Documentation" />
+          <title value="CDC 2022 Opioid Prescribing Guideline - Process Documentation" />
           <generation value="html" />
         </page>
         <page>
           <nameUrl value="service-documentation.html" />
-          <title value="CDC 2016 Opioid Prescribing Guideline - Service Documentation" />
+          <title value="CDC 2022 Opioid Prescribing Guideline - Service Documentation" />
           <generation value="html" />
         </page>
       </page>
       <page>
-        <nameUrl value="profiles.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Profiles" />
+        <nameUrl value="downloads.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Downloads" />
+        <generation value="html" />
+      </page>
+      <page>
+        <nameUrl value="acute-pain.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Acute Pain" />
+        <generation value="markdown" />
+      </page>
+      <page>
+        <nameUrl value="quick-start.html" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Quick Start" />
         <generation value="html" />
       </page>
       <page>
         <nameUrl value="extensions.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Extensions" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Extensions" />
         <generation value="html" />
       </page>
       <page>
         <nameUrl value="operations.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Operations" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Operations" />
         <generation value="html" />
       </page>
       <page>
@@ -544,27 +554,7 @@
       </page>
       <page>
         <nameUrl value="services.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Services" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="terminology.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Terminology" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="examples.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Examples" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="test.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Test data" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="downloads.html" />
-        <title value="CDC 2016 Opioid Prescribing Guideline - Downloads" />
+        <title value="CDC 2022 Opioid Prescribing Guideline - Services" />
         <generation value="html" />
       </page>
       <page>
@@ -593,42 +583,32 @@
         </page>
       </page>
       <page>
-        <nameUrl value="recommendation-03.html" />
-        <title value="Recommendation #3 - Opioid Therapy Risk/Benefit Discussion" />
+        <nameUrl value="recommendation-03-order-sign.html" />
+        <title value="Recommendation #3 Order Sign Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-03-cql.html" />
-          <title value="OpioidCDS Recommendation 03 - CQL Source" />
+          <title value="OpioidCDS Recommendation 03 Order Sign - CQL Source" />
           <generation value="html" />
         </page>
       </page>
       <page>
-        <nameUrl value="recommendation-04-order-sign.html" />
-        <title value="Recommendation #4 Order Sign Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
+        <nameUrl value="recommendation-03-patient-view.html" />
+        <title value="Recommendation #3 Patient View Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
         <generation value="html" />
         <page>
-          <nameUrl value="opioidcds-recommendation-04-cql.html" />
-          <title value="OpioidCDS Recommendation 04 Order Sign - CQL Source" />
+          <nameUrl value="opioidcds-recommendation-03-patient-view-cql.html" />
+          <title value="OpioidCDS Recommendation 03 Patient View - CQL Source" />
           <generation value="html" />
         </page>
       </page>
       <page>
-        <nameUrl value="recommendation-04-patient-view.html" />
-        <title value="Recommendation #4 Patient View Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
+        <nameUrl value="recommendation-04-05.html" />
+        <title value="Recommendations #4 and #5 - Lowest Effective Dose" />
         <generation value="html" />
         <page>
-          <nameUrl value="opioidcds-recommendation-04-patient-view-cql.html" />
-          <title value="OpioidCDS Recommendation 04 Patient View - CQL Source" />
-          <generation value="html" />
-        </page>
-      </page>
-      <page>
-        <nameUrl value="recommendation-05.html" />
-        <title value="Recommendation #5 - Lowest Effective Dose" />
-        <generation value="html" />
-        <page>
-          <nameUrl value="opioidcds-recommendation-05-cql.html" />
-          <title value="OpioidCDS Recommendation 05 - CQL Source" />
+          <nameUrl value="opioidcds-recommendation-04-05-cql.html" />
+          <title value="OpioidCDS Recommendations 04 and 05 - CQL Source" />
           <generation value="html" />
         </page>
       </page>

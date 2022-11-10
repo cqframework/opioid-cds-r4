@@ -1,15 +1,19 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
-  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#2_Before_starting_opioid_therapy" target="_blank">Recommendation #2:</a></p>
   <p>
-    <strong>Before starting opioid therapy for chronic pain, clinicians should establish treatment goals with all patients, including realistic goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do
-      not outweigh risks. Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function that outweighs risks to patient safety (recommendation category: A, evidence type: 4).</strong>
+    Recommendation #2 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - page 75 line 1729):
+  </p>
+  <p>
+    <strong>Before starting opioid therapy for subacute and chronic pain, clinicians should establish treatment goals with all patients, 
+      including realistic goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not 
+      outweigh risks. Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function 
+      that outweighs risks to patient safety (recommendation category: A, evidence type: 2).</strong>
   </p>
 
   <div class="toc-container">
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#for-subacute-or-chronic-pain">For Subacute or Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#opioid-naive">Opioid Naive</a></li>
       <li><a href="#content">Content</a></li>
@@ -34,10 +38,10 @@
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
+      <a name="for-subacute-or-chronic-pain"> </a>
+      <h3 class="title">For Subacute or Chronic Pain</h3>
     </summary>
-    {% include for-chronic-pain-definitions.html %}
+    {% include for-subacute-and-chronic-pain-definitions.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
@@ -74,9 +78,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-02.html">CDC 2016 Opioid Prescribing Guideline Recommendation #2</a></td>
+          <td><a href="PlanDefinition-opioidcds-02.html">CDC 2022 Opioid Prescribing Guideline Recommendation #2</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2016 Opioid Prescribing Guideline Recommendation #2</td>
+          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #2</td>
         </tr>
         <tr>
           <td><a href="Library-OpioidCDSREC02.html">Recommendation #2 - Opioid Therapy Goals Discussion</a></td>

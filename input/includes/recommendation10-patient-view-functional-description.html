@@ -1,0 +1,36 @@
+<ul>
+  <li>When</li>
+    <ul>
+      <li>Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting:</li>
+      {% include subacute-and-chronic-pain-definition.html %}
+      <li>Opioid review is useful for this patient:</li>
+      {% include opioid-review-useful-functional-description.html %}
+      <li>Urine drug screening has not been performed in last 12 months</li>
+    </ul>
+  <li>Then</li>
+    <ul>
+      <li>Recommend urine drug screening:</li>
+      <ul>
+        <li>Will perform urine screening</li>
+        <li>Not for subacute or chronic pain management, snooze 3 months</li>
+        <li>N/A - see comment; snooze 3 months</li>
+      </ul>
+    </ul>
+  <li>When</li>
+    <ul>
+      <li>Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting:</li>
+      {% include subacute-and-chronic-pain-definition.html %}
+      <li>Opioid review is useful for this patient:</li>
+      {% include opioid-review-useful-functional-description.html %}
+      <li>Any urine test in last 12 months with a positive result for cocaine or PCP</li>
+    </ul>
+  <li>Then</li>
+    <ul>
+      <li>Alert user with positive results with dates and number of negative results since the last positive result:</li>
+      <ul>
+        <li>Will repeat urine screening more frequently</li>
+        <li>Will assess patient for substance abuse disorder</li>
+        <li>Will assess CDS quality improvement and care coordination for prescribing opioids for chronic pain</li>
+      </ul>
+    </ul>
+</ul>

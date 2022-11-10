@@ -16,7 +16,7 @@
     Event-Condition-Action rules.</p>
 
   <div>
-    <img src="assets/images/Recommendation05-flow.png" style="max-width: 100%;"/>
+    <img src="assets/images/Recommendation04-05-flow.png" style="max-width: 100%;"/>
   </div>
 
   <p>The orange starting point for the flow indicates the point at which a clinician is
@@ -41,11 +41,11 @@
   <a name="resources"> </a>
   <h3>Clinical Reasoning Resources</h3>
 
-  <p>As described in the previous section, recommendation #5 is represented in Clnical Reasoning
+  <p>As described in the previous section, recommendation #4 and #5 is represented in Clinical Reasoning
     resources using a PlanDefinition and several Library resources:</p>
 
   <ul>
-    <li>plandefinition-cdc-opioid-05 - Captures the structure of the Event-Condition-Action rule defining the interaction.</li>
+    <li>plandefinition-cdc-opioid-04-05 - Captures the structure of the Event-Condition-Action rule defining the interaction.</li>
     <li>library-opioidcds-stu3 - Contains the CQL for the STU3 version of the opioid CDS expressions. This library references the OMTKLogic library.</li>
     <li>library-omtklogic - Contains Opioid Management Terminology Knowledge (OMTK) logic used to calculate MME equivalence.</li>
     <li>library-omtk-modelinfo - Contains the OMTK model info referenced by the OMTK logic.</li>

@@ -1,6 +1,12 @@
 {
   "resourceType": "Library",
   "id": "CDCMMEClinicalConversionFactors",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/CDCMMEClinicalConversionFactors",
   "version": "3.0.0",
   "name": "CDCMMEClinicalConversionFactors",

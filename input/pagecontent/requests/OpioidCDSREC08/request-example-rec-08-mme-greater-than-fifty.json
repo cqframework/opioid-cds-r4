@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-10-06"
+                    "valueDateTime": "2022-11-02"
                   },
                   {
                     "url": "frequency",
@@ -50,8 +50,8 @@
               "coding": [
                 {
                   "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "197696",
-                  "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+                  "code": "1185223",
+                  "display": "Pepto-bismol Pill"
                 }
               ]
             },
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-08-mme-greater-than-fifty-context"
             },
-            "authoredOn": "2022-10-06",
+            "authoredOn": "2022-11-02",
             "dosageInstruction": [
               {
                 "timing": {
@@ -85,8 +85,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-10-06T00:00:00-06:00",
-                "end": "2023-01-06T00:00:00-07:00"
+                "start": "2022-11-02T00:00:00-06:00",
+                "end": "2023-02-02T00:00:00-07:00"
               },
               "numberOfRepeatsAllowed": 3,
               "quantity": {
@@ -121,7 +121,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -136,10 +136,106 @@
           }
         ],
         "gender": "male",
-        "birthDate": "2002-09-26"
+        "birthDate": "2002-10-10"
       }
     },
-    "item2": null,
+    "item2": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "example-rec-08-mme-greater-than-fifty-context",
+        "extension": [
+          {
+            "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+            "extension": [
+              {
+                "url": "dateLastUpdated",
+                "valueDateTime": "2022-11-02"
+              },
+              {
+                "url": "frequency",
+                "valueDuration": {
+                  "value": 1.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "community"
+              }
+            ]
+          }
+        ],
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197696",
+              "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example-rec-08-mme-greater-than-fifty"
+        },
+        "encounter": {
+          "reference": "Encounter/example-rec-08-mme-greater-than-fifty-context"
+        },
+        "authoredOn": "2022-11-02",
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 3.0,
+                "periodUnit": "d"
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 1.0,
+                  "unit": "patch",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{patch}"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2022-11-02T00:00:00-06:00",
+            "end": "2023-02-02T00:00:00-07:00"
+          },
+          "numberOfRepeatsAllowed": 3,
+          "quantity": {
+            "value": 30,
+            "unit": "patch",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "patch"
+          },
+          "expectedSupplyDuration": {
+            "value": 30.0,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
     "item3": null,
     "item4": null,
     "item5": null,

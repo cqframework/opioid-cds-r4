@@ -1,16 +1,16 @@
-library OpioidCDSREC02 version '0.1.1'
+library OpioidCDSREC02 version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2022.1.0' called Common
+include OpioidCDSCommonConfig version '2022.1.0' called Config
+include OpioidCDSRoutines version '2022.1.0' called Routines
 
 /*
 **
 **  Recommendation #2
-**    Before starting opioid therapy for chronic pain, clinicians should establish
+**    Before starting opioid therapy for subacute or chronic pain, clinicians should establish
 **    treatment goals with all patients, including realistic goals for pain and
 **    function, and should consider how opioid therapy will be discontinued if
 **    benefits do not outweigh risks. Clinicians should continue opioid therapy
@@ -20,7 +20,7 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **
 **  When
 **    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating chronic pain.
+**    Prescription is for treating subacute or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy
@@ -33,8 +33,8 @@ include OpioidCDSRoutines version '0.1.1' called Routines
 **  Then
 **    Recommend creation, review or update of an opioid treatment plan. Potential actions include:
 **      Create treatment plan with goals for opioid use
-**      Update patient’s opioid treatment plan
-**      Review patient’s opioid treatment plan
+**      Update patient's opioid treatment plan
+**      Review patient's opioid treatment plan
 **      N/A - see comment, snooze 3 months
 **      Taper / Discontinue opioid
 **
@@ -51,7 +51,7 @@ define "Treatment Plan Lookback Period":
 
 define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
-    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+    where Routines."Is Subacute or Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
@@ -62,13 +62,6 @@ define "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days
       exists ( "Opioid Treatment Plan Creation or Update in Past 90 Days" )
         or "Had Opioid Treatment Plan Reviewed in Past 90 Days"
     )
-
-define "Inclusion Criteria":
-  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and Routines."Is Opioid Naive?"
-    and not Common."Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
-    and "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?"
 
 define "Opioid Treatment Plan Creation or Update in Past 90 Days":
   [CarePlan: category in Common."Pain treatment plan"] PainTreatmentPlan
@@ -93,6 +86,12 @@ define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
         )
   )
 
+define "Inclusion Criteria":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Routines."Is Opioid Review Useful?"
+    and Routines."Is Opioid Naive?"
+    and "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?"
+
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
 
@@ -103,7 +102,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Recommend creation, review or update of opioid treatment plan'
+    then 'For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs.'
   else null
 
 define "Get Detail":

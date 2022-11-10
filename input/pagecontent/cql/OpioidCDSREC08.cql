@@ -1,11 +1,11 @@
-library OpioidCDSREC08 version '0.1.1'
+library OpioidCDSREC08 version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers  version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2022.1.0' called Common
+include OpioidCDSCommonConfig version '2022.1.0' called Config
+include OpioidCDSRoutines version '2022.1.0' called Routines
 /*include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
  */
 include MMECalculator version '3.0.0' called MMECalculator
@@ -22,7 +22,7 @@ include MMECalculator version '3.0.0' called MMECalculator
 **    present (recommendation category: A, evidence type: 4)
 **
 **  When
-**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential
 **    Prescription is for treating chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
@@ -51,19 +51,19 @@ context Patient
 
 define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
-    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+    where Routines."Is Subacute or Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
+
+define "On Benzodiazepine":
+  exists( Common."Active Ambulatory Benzodiazepine Rx" )
 
 define "Total MME":
   MMECalculator.TotalMME(
     "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
       union Common."Active Ambulatory Opioid Rx"
   )
-
-define "On Benzodiazepine":
-  exists( Common."Active Ambulatory Benzodiazepine Rx" )
 
 define "Has Substance Abuse History":
   exists (
@@ -76,14 +76,15 @@ define "Has Substance Abuse History":
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not Common."Patient Age Less Than 18"
     and Routines."Is Opioid Review Useful?"
     and (
-      "Total MME" >= 50 '{MME}/d' or
-
-    "On Benzodiazepine"
+      "On Benzodiazepine"
+        or "Total MME" >= 50 '{MME}/d'
         or "Has Substance Abuse History"
     )
+
+define "On Naloxone":
+  exists( Common."Active Ambulatory Naloxone Rx" )
 
 define "Exclusion Criteria":
   (
@@ -91,9 +92,6 @@ define "Exclusion Criteria":
       and "On Naloxone"
   )
     or Common."End of Life Assessment"
-
-define "On Naloxone":
-  exists( Common."Active Ambulatory Naloxone Rx" )
 
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
@@ -111,7 +109,7 @@ define "Get Summary":
 
 define "Detail Descriptions":
 	{
-    { hasCondition: "Total MME" >= 50 '{MME}/d', text: 'Average MME (' + ToString("Total MME") + ') >= 50 mg/d' },
+    { hasCondition: "Total MME" >= 50 '{MME}/d', text: 'Average MME (' + ToString("Total MME") + ') ≥ 50 mg/d' },
     { hasCondition: "On Benzodiazepine", text: 'concurrent use of benzodiazepine'},
     { hasCondition: "Has Substance Abuse History", text: 'history of alcohol or drug abuse' }
   }

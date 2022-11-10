@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p>
-    This documentation is provided as a resource for developers interested in implementing the CDC 2016 Opioid Prescribing Guideline.
+    This documentation is provided as a resource for developers interested in implementing the CDC 2022 Opioid Prescribing Guideline.
     It is assumed that the developer will have a basic understanding of CQL, FHIR, a FHIR API (like HAPI), and the CDS Hooks API.
   </p>
 
@@ -463,7 +463,7 @@
   <h3 class="self-link-parent">PlanDefinition $apply Operation</h3>
 
   <p>
-    Now that the CDS request has been parsed and the resources have been converted to STU3, it is time to apply the <a href="PlanDefinition-opioidcds-05.json.html">Opioid Guidance PlanDefinition</a>. The first step is to prepare the $apply operation
+    Now that the CDS request has been parsed and the resources have been converted to STU3, it is time to apply the <a href="PlanDefinition-opioidcds-04-05.json.html">Opioid Guidance PlanDefinition</a>. The first step is to prepare the $apply operation
     parameters.
   </p>
 
@@ -485,7 +485,7 @@
 
   <p>
     The $apply operation, in general, applies a PlanDefinition to a specific context.
-    In the context of the CDC 2016 Opioid Guideline, the application of the PlanDefinition
+    In the context of the CDC 2022 Opioid Guideline, the application of the PlanDefinition
     is depicted in the following diagram:
   </p>
 
@@ -495,7 +495,7 @@
 
   <p>
     As shown in the flowchart, the $apply operation begins by parsing the input parameters.
-    Then the <a href="Library-OpioidCDSREC05.json.html">CDC 2016 Opioid Guideline
+    Then the <a href="Library-OpioidCDSREC04_05.json.html">CDC 2022 Opioid Guideline
       library</a> is serialized into a library object. The next step is to resolve data
     providers for FHIR STU3 and OMTK. OMTK, or Opioid Management Terminology Knowledge,
     is a library that provides MME conversion factors and terminology information for the
@@ -553,8 +553,8 @@
    ],
    "note": [
      {
-       "id": "CDC 2016 Guideline for prescribing opioids for chronic pain",
-       "text": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+       "id": "CDC 2022 guideline for prescribing opioids for subacute or chronic pain",
+       "text": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
      },
      {
        "id": "MME Conversion Tables",
@@ -576,9 +576,9 @@
    "indicator": "warning",
    "links": [
      {
-       "label": "CDC 2016 Guideline for prescribing opioids for chronic pain",
+       "label": "CDC 2022 guideline for prescribing opioids for subacute or chronic pain",
        "type": "absolute",
-       "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+       "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
      },
      {
        "label": "MME Conversion Tables",

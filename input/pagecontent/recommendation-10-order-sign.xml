@@ -1,10 +1,12 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec10"> </a>
-  <p><a href="https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids" target="_blank">Recommendation #10:</a></p>
   <p>
-    <strong>When prescribing opioids for chronic pain, providers should use urine drug testing before
+    Recommendations #10 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 139 lines 3421):
+  </p>
+  <p>
+    <strong>When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before
       starting opioid therapy and consider urine drug testing at least annually to assess for
       prescribed medications as well as other controlled prescription drugs and illicit drugs
-      <em>(recommendation category: B, evidence type: 4)</em>.</strong>
+      (recommendation category: B, evidence type: 4).</strong>
   </p>
 
   {% include multiple-variation-note.html %}
@@ -18,7 +20,7 @@
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
       <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-chronic-pain">For Chronic Pain</a></li>
+      <li><a href="#for-subacute-or-chronic-pain">For Subacute or Chronic Pain</a></li>
       <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
       <li><a href="#content">Content</a></li>
       <li><a href="#example-data-requests">Example Data/Requests</a></li>
@@ -42,10 +44,10 @@
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
-      <a name="for-chronic-pain"> </a>
-      <h3 class="title">For Chronic Pain</h3>
+      <a name="for-subacute-or-chronic-pain"> </a>
+      <h3 class="title">For Subacute or Chronic Pain</h3>
     </summary>
-    {% include for-chronic-pain-definitions.html %}
+    {% include for-subacute-and-chronic-pain-definitions.html %}
   </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
@@ -74,12 +76,12 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-10.html">CDC 2016 Opioid Prescribing Guideline Recommendation #10 Order Sign</a></td>
+          <td><a href="PlanDefinition-opioidcds-10.html">CDC 2022 Opioid Prescribing Guideline Recommendation #10 Order Sign</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2016 Opioid Prescribing Guideline Recommendation #10 Order Sign</td>
+          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #10 Order Sign</td>
         </tr>
         <tr>Sign
-          <td><a href="Library-OpioidCDSREC10.html">Recommendation #10 Order Sign - urine drug testing when prescribing opioids for chronic pain</a></td>
+          <td><a href="Library-OpioidCDSREC10.html">Recommendation #10 Order Sign - urine drug testing when prescribing opioids for subacute or chronic pain</a></td>
           <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
           <td>Defines the data requirements to support evaluation of recommendation #10 Order Sign</td>
         </tr>
@@ -105,7 +107,7 @@
             <br />
             i.	Perform the screening
             <br />
-            ii.	Indicate that the prescription is not for chronic pain management and snooze for 3 months
+            ii.	Indicate that the prescription is not for subacute or chronic pain management and snooze for 3 months
             <br />
             iii.	Indicate that it is not applicable, log a comment and snooze for 3 months. </td>
           <td><a href="requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-no-screenings.json">Request JSON</a></td>

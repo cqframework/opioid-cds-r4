@@ -19,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-10-06"
+                    "valueDateTime": "2022-11-02"
                   },
                   {
                     "url": "frequency",
@@ -49,9 +49,9 @@
             "medicationCodeableConcept": {
               "coding": [
                 {
-                  "system": "http://snomed.info/sct",
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
                   "code": "1049502",
-                  "display": "12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"
+                  "display": "oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
                 }
               ]
             },
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-06-in-criteria-met-context"
             },
-            "authoredOn": "2022-10-06",
+            "authoredOn": "2022-11-02",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,10 +76,10 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-10-06T00:00:00-06:00",
-                "end": "2023-01-06T00:00:00-07:00"
+                "start": "2022-11-02T00:00:00-06:00",
+                "end": "2023-02-01T00:00:00-07:00"
               },
-              "numberOfRepeatsAllowed": 1,
+              "numberOfRepeatsAllowed": 0,
               "expectedSupplyDuration": {
                 "value": 5.0,
                 "unit": "days",
@@ -106,7 +106,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -120,7 +120,7 @@
             ]
           }
         ],
-        "birthDate": "2002-09-26"
+        "birthDate": "2002-10-10"
       }
     }
   }

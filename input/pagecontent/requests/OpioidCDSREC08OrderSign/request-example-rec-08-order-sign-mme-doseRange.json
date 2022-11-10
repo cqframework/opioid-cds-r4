@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-09-26"
+                    "valueDateTime": "2022-10-10"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-08-order-sign"
             },
-            "authoredOn": "2022-09-12",
+            "authoredOn": "2022-09-26",
             "reasonCode": [
               {
                 "coding": [
@@ -115,8 +115,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-06-21T00:00:00-06:00",
-                "end": "2022-10-21T00:00:00-06:00"
+                "start": "2022-07-05T00:00:00-06:00",
+                "end": "2022-11-04T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "quantity": {
@@ -151,7 +151,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -166,7 +166,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "1982-06-28"
+        "birthDate": "1982-07-12"
       }
     },
     "item2": null,
@@ -183,7 +183,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-10-10"
               },
               {
                 "url": "frequency",
@@ -240,7 +240,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-08-order-sign"
         },
-        "onsetDateTime": "2018-06-28",
+        "onsetDateTime": "2018-07-12",
         "recorder": {
           "reference": "Practitioner/example-rec-08-order-sign"
         }

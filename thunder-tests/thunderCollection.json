@@ -18,63 +18,64 @@
         "name": "REC_02",
         "containerId": "",
         "created": "2022-08-08T19:42:27.505Z",
-        "sortNum": 20000
-      },
-      {
-        "_id": "652312fd-c9dc-48f6-8f2b-64ffa36d3385",
-        "name": "REC_03",
-        "containerId": "",
-        "created": "2022-08-08T19:42:27.506Z",
-        "sortNum": 30000
+        "sortNum": 20000,
+        "settings": {}
       },
       {
         "_id": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
-        "name": "REC_04_ORDER_SIGN",
+        "name": "REC_03_ORDER_SIGN",
         "containerId": "",
         "created": "2022-08-08T19:42:27.507Z",
-        "sortNum": 32500
+        "sortNum": 32500,
+        "settings": {}
       },
       {
         "_id": "e18914b8-fe97-4ccb-ad2e-b817ba45af55",
-        "name": "REC_04_PATIENT_VIEW",
+        "name": "REC_03_PATIENT_VIEW",
         "containerId": "",
         "created": "2022-08-08T19:42:27.508Z",
-        "sortNum": 35000
+        "sortNum": 35000,
+        "settings": {}
       },
       {
         "_id": "b0fbf830-156e-4743-b074-8c4523410667",
-        "name": "REC_05",
+        "name": "REC_04_05",
         "containerId": "",
         "created": "2022-08-08T19:42:27.509Z",
-        "sortNum": 50000
+        "sortNum": 50000,
+        "settings": {}
       },
       {
         "_id": "83de11e6-fee3-49e2-afc5-402fe6a28c69",
         "name": "REC_06",
         "containerId": "",
         "created": "2022-08-08T19:42:27.510Z",
-        "sortNum": 60000
+        "sortNum": 60000,
+        "settings": {}
       },
       {
         "_id": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
         "name": "REC_07",
         "containerId": "",
         "created": "2022-08-08T19:42:27.511Z",
-        "sortNum": 70000
+        "sortNum": 70000,
+        "settings": {}
       },
       {
         "_id": "e71241b7-96da-4029-b97f-a9c476554d5b",
         "name": "REC_08",
         "containerId": "",
         "created": "2022-08-08T19:42:27.512Z",
-        "sortNum": 80000
+        "sortNum": 80000,
+        "settings": {}
       },
       {
         "_id": "3f2e1468-e24b-4dea-847d-1a6e5d7805ad",
         "name": "REC_09",
         "containerId": "",
         "created": "2022-08-08T19:42:27.513Z",
-        "sortNum": 90000
+        "sortNum": 90000,
+        "settings": {}
       },
       {
         "_id": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
@@ -97,44 +98,23 @@
         "name": "REC_11_ORDER_SELECT",
         "containerId": "",
         "created": "2022-08-08T19:42:27.517Z",
-        "sortNum": 110000
+        "sortNum": 110000,
+        "settings": {}
       },
       {
         "_id": "e6c8fc77-40f7-4fb2-8f4c-ee80f263dba0",
         "name": "REC_11_PATIENT_VIEW",
         "containerId": "",
         "created": "2022-08-08T19:42:27.518Z",
-        "sortNum": 115000
+        "sortNum": 115000,
+        "settings": {}
       },
       {
         "_id": "f853d5cc-f89d-4fdf-a254-2758b52160ec",
         "name": "REC_12",
         "containerId": "",
         "created": "2022-08-08T19:42:27.519Z",
-        "sortNum": 120000
-      },
-      {
-        "_id": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
-        "name": "OPIOID_REVIEW_USEFUL",
-        "containerId": "",
-        "created": "2022-08-24T22:24:44.633Z",
-        "sortNum": 130000,
-        "settings": {}
-      },
-      {
-        "_id": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
-        "name": "OPIOID_NAIVE",
-        "containerId": "",
-        "created": "2022-08-25T01:07:01.578Z",
-        "sortNum": 140000,
-        "settings": {}
-      },
-      {
-        "_id": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
-        "name": "ACTIVE_CANCER_TREATMENT",
-        "containerId": "",
-        "created": "2022-08-25T04:38:03.696Z",
-        "sortNum": 150000,
+        "sortNum": 120000,
         "settings": {}
       }
     ],

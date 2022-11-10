@@ -79,14 +79,7 @@
   		<tr><th>Resource</th><th>Type</th><th>Description</th></tr>
   	</thead>
   	<tbody>
-    <tr>
-      <td>
-        <!-- TODO: change this to stable branch url once v2016 is released -->
-        <a href="https://raw.githubusercontent.com/cqframework/opioid-cds-r4/master/bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json">opioidcds-rec10-patientview-bundle</a>
-      </td>
-      <td>Bundle</td>
-      <td>All Required Content for Recommendation #10</td>
-    </tr>
+  		<tr><td><a href="Bundle-opioidcds-10-patient-view-bundle.html">opioidcds-10-patient-view-bundle</a></td><td>Bundle</td><td>All Required Content for Recommendation #10</td></tr>
   	</tbody>
   </table>
 
@@ -146,8 +139,8 @@
       {
         "hook": "patient-view",
         "name": "PlanDefinition_Recommendation_10_Patient_View",
-        "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #10 (patient-view)",
-        "description": "When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
+        "title": "PlanDefinition - CDC 2022 Opioid Prescribing Guideline Recommendation #10 (patient-view)",
+        "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
         "id": "opioidcds-10-patient-view",
         "prefetch": {
           "item1": "Patient?_id={{context.patientId}}",
@@ -204,8 +197,8 @@
                     "indicator": "warning",
                     "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
                     "source": {
-                        "label": "CDC 2016 Guideline for prescribing opioids for chronic pain",
-                        "url": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+                        "label": "CDC 2022 guideline for prescribing opioids for subacute or chronic pain",
+                        "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
                     },
                     "suggestions": [
                         {
@@ -248,7 +241,7 @@
   <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
   <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/cqf-ruler-r4/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p>
   <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cqf-ruler-r4/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there.</p>
-  <p>Now the sandbox is configured to use the CDS Hooks service that you created above. The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you’re going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-illicit-drugs.json file above and then PUT that to the FHIR server created above. </p>
+  <p>Now the sandbox is configured to use the CDS Hooks service that you created above. The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you're going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-illicit-drugs.json file above and then PUT that to the FHIR server created above. </p>
   <div class="example">
     <pre class="http">
   PUT http://localhost:8080/cqf-ruler-r4/fhir/Patient/example-rec-10-no-screenings

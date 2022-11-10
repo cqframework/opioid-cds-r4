@@ -1,27 +1,27 @@
-library OpioidCDSREC09 version '0.1.1'
+library OpioidCDSREC09 version '2022.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include OpioidCDSCommon version '0.1.1' called Common
-include OpioidCDSCommonConfig version '0.1.1' called Config
-include OpioidCDSRoutines version '0.1.1' called Routines
+include OpioidCDSCommon version '2022.1.0' called Common
+include OpioidCDSCommonConfig version '2022.1.0' called Config
+include OpioidCDSRoutines version '2022.1.0' called Routines
 
 /*
 **
 **  Recommendation #9
-**    Clinicians should review the patient’s history of controlled substance
+**    Clinicians should review the patient's history of controlled substance
 **    prescriptions using state prescription drug monitoring program (PDMP) data
 **    to determine whether the patient is receiving opioid dosages or dangerous
 **    combinations that put him or her at high risk for overdose. Clinicians
-**    should review PDMP data when starting opioid therapy for chronic pain
-**    and periodically during opioid therapy for chronic pain, ranging from
+**    should review PDMP data when starting opioid therapy for subacute or chronic pain
+**    and periodically during opioid therapy for subacute or chronic pain, ranging from
 **    every prescription to every 3 months
 **    (recommendation category: A, evidence type: 4).
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating chronic pain.
+**    Prescription is for treating subacute or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
 **      Patient does not have findings indicating limited life expectancy
@@ -48,7 +48,7 @@ define "Look Back 90 Days":
 
 define "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
-    where Routines."Is Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
+    where Routines."Is Subacute or Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
 
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
@@ -76,7 +76,6 @@ define "PDMP Data Not Reviewed in Past 90 Days":
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and not Common."Patient Age Less Than 18"  
     and Routines."Is Opioid Review Useful?"
     and "PDMP Data Not Reviewed in Past 90 Days"
 
@@ -101,5 +100,5 @@ define "Get Detail":
   if "Is Recommendation Applicable?"
     then 'Medication requests(s): '
       + Combine(("Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
-           return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
+           return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')
   else null

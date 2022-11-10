@@ -2,7 +2,7 @@
    <id value="example-opioidcds"></id>
    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
       <extension url="dateLastUpdated">
-         <valueDateTime value="2022-09-26"></valueDateTime>
+         <valueDateTime value="2022-10-10"></valueDateTime>
       </extension>
       <extension url="frequency">
          <valueDuration>
@@ -25,7 +25,7 @@
    <subject>
       <reference value="Patient/example-opioidcds"></reference>
    </subject>
-   <authoredOn value="2022-09-26"></authoredOn>
+   <authoredOn value="2022-10-10"></authoredOn>
    <reasonCode>
       <coding>
          <system value="http://snomed.info/sct"></system>
