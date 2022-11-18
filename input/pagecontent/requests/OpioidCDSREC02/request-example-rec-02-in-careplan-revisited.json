@@ -122,7 +122,7 @@
         "birthDate": "2002-10-10"
       
       },
-    
+      "item2": {
         "resourceType": "CarePlan",
         "id": "example-rec-02-careplan-revisited",
         "meta": {
@@ -168,7 +168,7 @@
         "author": {
           "reference": "Practitioner/example"
         }
-      
+      }
     ,
     "item3": null,
     "item4": null,
