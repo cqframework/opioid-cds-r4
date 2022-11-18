@@ -101,11 +101,7 @@
     }
   },
   "prefetch": {
-    "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
+   "item1": {
         "resourceType": "Patient",
         "id": "example-rec-01-true-make-recommendations",
         "extension": [
@@ -129,8 +125,8 @@
           }
         ],
         "birthDate": "2002-10-10"
-      }
-    },
+      
+      },
     "item3": null,
     "item4": null,
     "item5": null,

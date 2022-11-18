@@ -95,11 +95,7 @@
   "prefetch": {
     "item1": null,
     "item2": null,
-    "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
+    
         "resourceType": "Patient",
         "id": "example-rec-07-risk-assessment",
         "extension": [
@@ -124,8 +120,8 @@
         ],
         "gender": "male",
         "birthDate": "2002-10-10"
-      }
-    },
+      
+    ,
     "item4": {
       "response": {
         "status": "200 OK"

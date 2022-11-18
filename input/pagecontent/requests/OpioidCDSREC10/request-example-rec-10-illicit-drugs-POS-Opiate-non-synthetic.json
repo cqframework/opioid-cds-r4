@@ -107,21 +107,13 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-non-synthetic-drug",
         "gender": "female",
         "birthDate": "1982-01-07"
-      }
+      
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -372,16 +364,12 @@
             }
           }
         ]
-      }
-    },
+      
+      },
     "item3": null,
     "item4": null,
     "item5": null,
     "item6": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-non-synthetic-drug-prefetch-3",
         "extension": [
@@ -467,13 +455,9 @@
             "code": "d"
           }
         }
-      }
-    },
-    "item7": {
-      "response": {
-        "status": "200 OK"
+      
       },
-      "resource": {
+    "item7": {
         "resourceType": "Encounter",
         "id": "example-rec-10-non-synthetic-drug-prefetch",
         "extension": [
@@ -504,8 +488,8 @@
           "start": "2022-07-12",
           "end": "2022-07-12"
         }
-      }
-    },
+      
+      },
     "item8": null,
     "item9": null
   }

@@ -104,10 +104,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-03-preexisting-long-acting-opioid-prefetch",
         "extension": [
@@ -190,14 +186,10 @@
             "code": "d"
           }
         }
-      }
-    },
-    "item2": null,
-    "item3": {
-      "response": {
-        "status": "200 OK"
+      
       },
-      "resource": {
+    "item2": null,
+    
         "resourceType": "Patient",
         "id": "example-rec-03-preexisting-long-acting-opioid",
         "extension": [
@@ -222,8 +214,8 @@
         ],
         "gender": "male",
         "birthDate": "2002-10-10"
-      }
-    },
+      
+    ,
     "item4": null,
     "item5": null,
     "item6": null,

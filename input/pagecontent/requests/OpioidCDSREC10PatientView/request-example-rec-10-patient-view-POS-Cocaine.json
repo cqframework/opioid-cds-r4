@@ -9,10 +9,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-patient-view-POS-Cocaine-drugs",
         "extension": [
@@ -46,13 +42,10 @@
         ],
         "gender": "female",
         "birthDate": "1982-06-21"
-      }
-    },
-    "item2": {
-      "response": {
-        "status": "200 OK"
+      
       },
-      "resource": {
+    "item2": {
+      
         "resourceType": "Bundle",
         "entry": [
           {
@@ -234,13 +227,10 @@
             }
           }
         ]
-      }
+      
     },
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
+      
         "resourceType": "Bundle",
         "entry": [
           {
@@ -488,7 +478,7 @@
             }
           }
         ]
-      }
+      
     },
     "item4": null
   }
