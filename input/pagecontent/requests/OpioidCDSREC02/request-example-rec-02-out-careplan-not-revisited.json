@@ -97,6 +97,7 @@
   },
   "prefetch": {
     "item1": {
+      
         "resourceType": "Patient",
         "id": "example-rec-02-careplan-not-revisited",
         "extension": [
@@ -121,8 +122,9 @@
         ],
         "birthDate": "2002-09-26"
       
-      },
-    
+    },
+    "item2": {
+     
         "resourceType": "CarePlan",
         "id": "example-rec-02-careplan-not-revisited",
         "extension": [
@@ -166,7 +168,7 @@
           "reference": "Practitioner/example"
         }
       
-    ,
+    },
     "item3": null,
     "item4": null,
     "item5": null,
