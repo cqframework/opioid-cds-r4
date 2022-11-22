@@ -38,11 +38,14 @@ define "Opioid Use Disorder Lookback Period":
 define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
   Config."Evidence Based Treatment Criteria For Opioid Use Disorder"
     and not (
-      exists (
-        [MedicationRequest: Common."Buprenorphine and methadone medications"] MR
-          where MR.status in { 'active', 'completed' }
-            and date from MR.authoredOn during day of "Opioid Use Disorder Lookback Period"
-      )
+        if Config."Can the implementing EHR support queries for past medications by date range?" then
+          exists (
+            [MedicationRequest: Common."Buprenorphine and methadone medications"] MR
+              where MR.status in { 'active', 'completed' }
+                and date from MR.authoredOn during day of "Opioid Use Disorder Lookback Period"
+          )
+        else
+            true
     /* update 2022 removes "behavioral therapy condition"
       or exists (
         [Procedure: Common."Substance misuse behavioral counseling"] P

@@ -35,7 +35,7 @@ define "Opioid Naive Dispense Condition Is Enabled":
 define "Hospice Findings Exclusion Enabled":
   false
 
-// Past Medications
+// Subroutine 2 - Past Medications
 define "Can the implementing EHR support queries for past medications by date range?":
     true
 
