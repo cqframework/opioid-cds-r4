@@ -1,16 +1,1 @@
-{
-  "resourceType": "PractitionerRole",
-  "id": "oncology-specialist",
-  "active": true,
-  "period": {
-    "start": "2021-11-24",
-    "end": "2023-11-24"
-  },
-  "specialty": [ {
-    "coding": [ {
-      "system": "http://nucc.org/provider-taxonomy",
-      "code": "207RX0202X",
-      "display": "Medical Oncology"
-    } ]
-  } ]
-}
+{"resourceType":"PractitionerRole","id":"oncology-specialist","active":true,"period":{"start":"2021-11-24","end":"2023-11-24"},"specialty":[{"coding":[{"system":"http://nucc.org/provider-taxonomy","code":"207RX0202X","display":"Medical Oncology"}]}]}
