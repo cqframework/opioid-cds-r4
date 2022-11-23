@@ -68,7 +68,7 @@ define "Opioid Other Than Synthetic Ordered In Last 12 Months":
           and MR.medication is Reference or (MR.medication in "Opioid analgesics with ambulatory misuse potential"
           and not (MR.medication in "Non-synthetic opioid medications"))
    else
-    false
+    {}
 
 define "Active Ambulatory Opioid Rx":
     if Config."Can the implementing EHR support queries for past medications by date range?" then
@@ -78,7 +78,7 @@ define "Active Ambulatory Opioid Rx":
         where date from Rx.authoredOn 2 years or less on or before Today()
           and Rx.medication in "Opioid analgesics with ambulatory misuse potential"
     else
-        false
+        {}
 
 define "Active Ambulatory Benzodiazepine Rx":
     if Config."Can the implementing EHR support queries for past medications by date range?" then
@@ -88,7 +88,7 @@ define "Active Ambulatory Benzodiazepine Rx":
         where date from Rx.authoredOn 2 years or less on or before Today()
           and Rx.medication in "Benzodiazepine medications"
     else
-        false
+        {}
 
 define "Active Ambulatory Naloxone Rx":
     if Config."Can the implementing EHR support queries for past medications by date range?" then
@@ -98,7 +98,7 @@ define "Active Ambulatory Naloxone Rx":
         where date from Rx.authoredOn 2 years or less on or before Today()
           and Rx.medication in "Naloxone medications"
     else
-        false
+        {}
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
