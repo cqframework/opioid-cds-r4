@@ -36,10 +36,7 @@
       
       },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
+      
         "resourceType": "MedicationRequest",
         "id": "example-rec-03-not-long-acting-opioid-prefetch",
         "extension": [
@@ -125,7 +122,7 @@
             "code": "d"
           }
         }
-      }
+      
     },
     "item3": null,
     "item4": null,

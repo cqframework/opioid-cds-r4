@@ -95,7 +95,7 @@
   "prefetch": {
     "item1": null,
     "item2": null,
-    
+    "item3": {
         "resourceType": "Patient",
         "id": "example-rec-07-risk-assessment",
         "extension": [
@@ -121,12 +121,9 @@
         "gender": "male",
         "birthDate": "2002-10-10"
       
-    ,
-    "item4": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item4": {
+      
         "resourceType": "Procedure",
         "id": "example-rec-07-risk-assessment-prefetch",
         "extension": [
@@ -166,7 +163,7 @@
           "start": "2022-08-29",
           "end": "2022-08-29"
         }
-      }
+      
     },
     "item5": null,
     "item6": null,

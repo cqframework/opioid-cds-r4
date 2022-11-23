@@ -124,10 +124,7 @@
       
     },
     "item4": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
+      
         "resourceType": "Procedure",
         "id": "example-rec-07-risk-assessment-prefetch",
         "extension": [
@@ -167,7 +164,7 @@
           "start": "2022-08-29",
           "end": "2022-08-29"
         }
-      }
+      
     },
     "item5": null,
     "item6": null,
