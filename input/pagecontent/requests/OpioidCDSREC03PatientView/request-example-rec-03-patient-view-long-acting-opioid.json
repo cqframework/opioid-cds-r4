@@ -21,7 +21,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-10-10"
+                "valueDateTime": "2022-11-28"
               },
               {
                 "url": "frequency",
@@ -36,7 +36,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "2002-10-10"
+        "birthDate": "2002-11-28"
       }
     },
     "item2": {
@@ -52,7 +52,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-10-10"
+                "valueDateTime": "2022-11-28"
               },
               {
                 "url": "frequency",
@@ -90,7 +90,7 @@
         "subject": {
           "reference": "Patient/example-rec-03-long-acting-opioid"
         },
-        "authoredOn": "2022-07-10",
+        "authoredOn": "2022-08-28",
         "dosageInstruction": [
           {
             "timing": {
@@ -115,8 +115,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-07-10T00:00:00-06:00",
-            "end": "2022-10-10T00:00:00-06:00"
+            "start": "2022-08-28T00:00:00-06:00",
+            "end": "2022-11-28T00:00:00-07:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {

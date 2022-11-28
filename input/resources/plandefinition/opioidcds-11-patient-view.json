@@ -20,24 +20,12 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|2022.1.0"
     }, {
       "type": "depends-on",
-      "display": "Library FHIRHelpers",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
-    }, {
-      "type": "depends-on",
       "display": "Library Routines",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2022.1.0"
     }, {
       "type": "depends-on",
-      "display": "Value set Community",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Benzodiazepine medications",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Opioid analgesics with ambulatory misuse potential",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Value set Encounter Diagnosis Condition Category",
@@ -97,27 +85,6 @@
       "type": "string"
     } ],
     "dataRequirement": [ {
-      "type": "Medication",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-      "mustSupport": [ "id" ],
-      "codeFilter": [ {
-        "path": "id"
-      } ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "authoredOn", "medication" ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "authoredOn", "medication" ]
-    }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
       "mustSupport": [ "category" ],
@@ -208,7 +175,7 @@
       "valueString": "Active Ambulatory Benzodiazepine Rx"
     }, {
       "url": "statement",
-      "valueString": "define \"Active Ambulatory Benzodiazepine Rx\":\n  (\n    \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n  ) Rx\n    where date from Rx.authoredOn 2 years or less on or before Today()\n      and Rx.medication in \"Benzodiazepine medications\""
+      "valueString": "define \"Active Ambulatory Benzodiazepine Rx\":\n    if Config.\"Can the implementing EHR support queries for past medications by date range?\" then\n      (\n        \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n      ) Rx\n        where date from Rx.authoredOn 2 years or less on or before Today()\n          and Rx.medication in \"Benzodiazepine medications\"\n    else\n         List<FHIR.MedicationRequest>{}"
     }, {
       "url": "displaySequence",
       "valueInteger": 1
@@ -223,7 +190,7 @@
       "valueString": "Active Ambulatory Opioid Rx"
     }, {
       "url": "statement",
-      "valueString": "define \"Active Ambulatory Opioid Rx\":\n  (\n    \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n  ) Rx\n    where date from Rx.authoredOn 2 years or less on or before Today()\n      and Rx.medication in \"Opioid analgesics with ambulatory misuse potential\""
+      "valueString": "define \"Active Ambulatory Opioid Rx\":\n    if Config.\"Can the implementing EHR support queries for past medications by date range?\" then\n      (\n        \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n      ) Rx\n        where date from Rx.authoredOn 2 years or less on or before Today()\n          and Rx.medication in \"Opioid analgesics with ambulatory misuse potential\"\n    else\n        List<FHIR.MedicationRequest>{}"
     }, {
       "url": "displaySequence",
       "valueInteger": 2
@@ -537,7 +504,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2022-11-02",
+  "date": "2022-11-28",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Concurrently prescribing opioid medications with benzodiazepines increases the risk of harm for the patient.",
   "useContext": [ {
