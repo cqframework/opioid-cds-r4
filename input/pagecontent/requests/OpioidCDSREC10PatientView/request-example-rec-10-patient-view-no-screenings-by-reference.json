@@ -21,7 +21,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-10-10"
+                "valueDateTime": "2022-11-28"
               },
               {
                 "url": "frequency",
@@ -36,7 +36,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1982-06-21"
+        "birthDate": "1982-08-09"
       }
     },
     "item2": {
@@ -57,7 +57,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-10-10"
+                      "valueDateTime": "2022-11-28"
                     },
                     {
                       "url": "frequency",
@@ -93,7 +93,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-no-screenings-context"
               },
-              "authoredOn": "2022-10-10",
+              "authoredOn": "2022-11-28",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -118,8 +118,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2022-10-10T00:00:00-06:00",
-                  "end": "2023-01-09T00:00:00-07:00"
+                  "start": "2022-11-28T00:00:00-07:00",
+                  "end": "2023-02-27T00:00:00-07:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
@@ -141,7 +141,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2022-10-10"
+                      "valueDateTime": "2022-11-28"
                     },
                     {
                       "url": "frequency",
@@ -177,7 +177,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-no-screenings-prefetch"
               },
-              "authoredOn": "2022-07-12",
+              "authoredOn": "2022-08-30",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -202,8 +202,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2022-07-12T00:00:00-06:00",
-                  "end": "2022-10-10T00:00:00-06:00"
+                  "start": "2022-08-30T00:00:00-06:00",
+                  "end": "2022-11-28T00:00:00-07:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
