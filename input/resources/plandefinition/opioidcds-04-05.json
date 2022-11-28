@@ -189,13 +189,6 @@
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
       "mustSupport": [ "status", "intent", "authoredOn", "code" ]
     }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "authoredOn", "medication" ]
-    }, {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
       "mustSupport": [ "code", "status", "status.value" ],
@@ -480,7 +473,7 @@
       "valueString": "Active Ambulatory Opioid Rx"
     }, {
       "url": "statement",
-      "valueString": "define \"Active Ambulatory Opioid Rx\":\n  (\n    \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n  ) Rx\n    where date from Rx.authoredOn 2 years or less on or before Today()\n      and Rx.medication in \"Opioid analgesics with ambulatory misuse potential\""
+      "valueString": "define \"Active Ambulatory Opioid Rx\":\n    if Config.\"Can the implementing EHR support queries for past medications by date range?\" then\n      (\n        \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n      ) Rx\n        where date from Rx.authoredOn 2 years or less on or before Today()\n          and Rx.medication in \"Opioid analgesics with ambulatory misuse potential\"\n    else\n        List<FHIR.MedicationRequest>{}"
     }, {
       "url": "displaySequence",
       "valueInteger": 16
@@ -644,7 +637,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2022-11-02",
+  "date": "2022-11-28",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When opioids are started, providers should prescribe the lowest effective dosage.",
   "useContext": [ {

@@ -82,10 +82,6 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
   }, {
     "type": "depends-on",
-    "display": "Value set Community",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
-  }, {
-    "type": "depends-on",
     "display": "Value set Opioid analgesics with ambulatory misuse potential",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
   } ],
@@ -272,24 +268,6 @@
       "path": "type",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit"
     } ]
-  }, {
-    "type": "Medication",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-    "mustSupport": [ "id" ],
-    "codeFilter": [ {
-      "path": "id"
-    } ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
   }, {
     "type": "MedicationDispense",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationDispense" ],

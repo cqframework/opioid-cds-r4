@@ -37,7 +37,7 @@ define "Hospice Findings Exclusion Enabled":
 
 // Subroutine 2 - Past Medications
 define "Can the implementing EHR support queries for past medications by date range?":
-    true
+  true
 
 // Recommendation 2
 define "Opioid Treatment Plan Verification Enabled":
