@@ -43,11 +43,11 @@
       "code": "US"
     } ]
   } ],
-  "purpose": "Identification of urine drug tests where rusults can be used when considering pain management therapy",
+  "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
   "copyright": "© CDC 2016+.",
   "compose": {
     "include": [ {
-      "valueSet": [ "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-illicit-drug-urine-screening" ]
+      "valueSet": [ "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening" ]
     }, {
       "valueSet": [ "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening" ]
     } ]
