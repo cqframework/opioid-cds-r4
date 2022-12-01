@@ -106,3 +106,9 @@ WARNING: PlanDefinition/opioidcds-12-patient-view: PlanDefinition.action[0].docu
 INFORMATION: Encounter/cancer-diagnosis: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: Encounter/oncologist-participant: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 
+# Markdown warning on config text passed in
+INFORMATION: ValueSet/non-synthetic-opioid-medications: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: ValueSet/opioid-analgesics-with-ambulatory-misuse-potential: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: ValueSet/benzodiazepine-medications: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: ValueSet/fentanyl-type-medications: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+
