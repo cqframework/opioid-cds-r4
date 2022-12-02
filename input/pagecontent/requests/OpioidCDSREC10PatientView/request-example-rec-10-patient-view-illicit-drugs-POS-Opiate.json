@@ -9,10 +9,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate",
         "extension": [
@@ -37,13 +33,8 @@
         ],
         "gender": "female",
         "birthDate": "1982-06-07"
-      }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -294,17 +285,12 @@
             }
           }
         ]
-      }
     },
     "item3": null,
     "item4": null,
     "item5": null,
     "item6": null,
     "item7": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-encounter",
         "extension": [
@@ -335,15 +321,10 @@
           "start": "2022-06-28",
           "end": "2022-06-28"
         }
-      }
     },
     "item8": null,
     "item9": null,
     "item10": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-patient-view-illicit-drugs-POS-Opiate-medreq2",
         "extension": [
@@ -429,7 +410,6 @@
             "code": "d"
           }
         }
-      }
     }
   }
 }
