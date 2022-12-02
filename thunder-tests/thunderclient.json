@@ -1268,8 +1268,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1356,8 +1356,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1394,8 +1394,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1432,8 +1432,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1470,8 +1470,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1558,8 +1558,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1596,8 +1596,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1634,8 +1634,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1672,8 +1672,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1710,8 +1710,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1748,8 +1748,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1786,8 +1786,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1824,8 +1824,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1862,8 +1862,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1950,8 +1950,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -1988,8 +1988,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -2026,8 +2026,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -2064,8 +2064,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -2102,8 +2102,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -2140,8 +2140,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -2178,8 +2178,8 @@
       },
       {
         "type": "json-query",
-        "custom": "json.cards.length",
-        "action": "equal",
+        "custom": "json.cards",
+        "action": "count",
         "value": "0"
       }
     ]
@@ -2223,8 +2223,18 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "<br/>*Positive for Cocaine: <br/>2022-04-22<br/>*Positive for PCP: <br/>2022-05-23<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug."
+        "action": "contains",
+        "value": "*Positive for Cocaine: "
+      },
+      {      "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "Positive for PCP:"
+      },
+      {      "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "result may be false positive result or indicate patient is occasional user"
       },
       {
         "type": "json-query",
