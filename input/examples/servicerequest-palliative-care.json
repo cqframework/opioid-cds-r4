@@ -1,1 +1,32 @@
-{"resourceType":"ServiceRequest","id":"palliative-care","extension":[{"url":"http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller","extension":[{"url":"dateLastUpdated","valueDateTime":"2022-11-18"},{"url":"frequency","valueDuration":{"value":30.0,"unit":"days","system":"http://unitsofmeasure.org","code":"d"}}]}],"status":"active","intent":"order","code":{"coding":[{"system":"http://snomed.info/sct","code":"103735009","display":"Palliative care"}]},"subject":{"reference":"Patient/example-opioidcds"},"authoredOn":"2022-10-18"}
+{
+  "resourceType": "ServiceRequest",
+  "id": "palliative-care",
+  "extension": [ {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+    "extension": [ {
+      "url": "dateLastUpdated",
+      "valueDateTime": "2022-11-28"
+    }, {
+      "url": "frequency",
+      "valueDuration": {
+        "value": 30.0,
+        "unit": "days",
+        "system": "http://unitsofmeasure.org",
+        "code": "d"
+      }
+    } ]
+  } ],
+  "status": "active",
+  "intent": "order",
+  "code": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "103735009",
+      "display": "Palliative care"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/example-opioidcds"
+  },
+  "authoredOn": "2022-10-28"
+}

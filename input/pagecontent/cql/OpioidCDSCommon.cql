@@ -62,31 +62,43 @@ context Patient
 // TODO: Capture process decisions for long-term opioid use
 
 define "Opioid Other Than Synthetic Ordered In Last 12 Months":
-  [MedicationRequest: status in "Active MedicationRequest"] MR
-      where date from MR.authoredOn 1 year or less on or before Today()
-      and MR.medication is Reference or (MR.medication in "Opioid analgesics with ambulatory misuse potential"
-      and not (MR.medication in "Non-synthetic opioid medications"))
+    if Config."Can the implementing EHR support queries for past medications by date range?" then
+      [MedicationRequest: status in "Active MedicationRequest"] MR
+          where date from MR.authoredOn 1 year or less on or before Today()
+          and MR.medication is Reference or (MR.medication in "Opioid analgesics with ambulatory misuse potential"
+          and not (MR.medication in "Non-synthetic opioid medications"))
+   else
+    List<FHIR.MedicationRequest>{}
 
 define "Active Ambulatory Opioid Rx":
-  (
-    "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
-  ) Rx
-    where date from Rx.authoredOn 2 years or less on or before Today()
-      and Rx.medication in "Opioid analgesics with ambulatory misuse potential"
+    if Config."Can the implementing EHR support queries for past medications by date range?" then
+      (
+        "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
+      ) Rx
+        where date from Rx.authoredOn 2 years or less on or before Today()
+          and Rx.medication in "Opioid analgesics with ambulatory misuse potential"
+    else
+        List<FHIR.MedicationRequest>{}
 
 define "Active Ambulatory Benzodiazepine Rx":
-  (
-    "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
-  ) Rx
-    where date from Rx.authoredOn 2 years or less on or before Today()
-      and Rx.medication in "Benzodiazepine medications"
+    if Config."Can the implementing EHR support queries for past medications by date range?" then
+      (
+        "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
+      ) Rx
+        where date from Rx.authoredOn 2 years or less on or before Today()
+          and Rx.medication in "Benzodiazepine medications"
+    else
+         List<FHIR.MedicationRequest>{}
 
 define "Active Ambulatory Naloxone Rx":
-  (
-    "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
-  ) Rx
-    where date from Rx.authoredOn 2 years or less on or before Today()
-      and Rx.medication in "Naloxone medications"
+    if Config."Can the implementing EHR support queries for past medications by date range?" then
+      (
+        "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
+      ) Rx
+        where date from Rx.authoredOn 2 years or less on or before Today()
+          and Rx.medication in "Naloxone medications"
+    else
+        List<FHIR.MedicationRequest>{}
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx

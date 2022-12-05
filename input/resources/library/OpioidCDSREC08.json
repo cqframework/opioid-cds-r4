@@ -94,10 +94,6 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
   }, {
     "type": "depends-on",
-    "display": "Value set Benzodiazepine medications",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications"
-  }, {
-    "type": "depends-on",
     "display": "Value set Substance misuse behavioral counseling",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling"
   }, {
@@ -128,10 +124,6 @@
     "type": "depends-on",
     "display": "Value set Therapies indicating end of life care",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Naloxone medications",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications"
   }, {
     "type": "depends-on",
     "display": "Value set Conditions likely terminal for opioid prescribing",
@@ -261,20 +253,6 @@
       "path": "id"
     } ]
   }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
-  }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
     "mustSupport": [ "category" ],
@@ -314,13 +292,6 @@
     "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
     "mustSupport": [ "status", "intent", "authoredOn", "code" ]
   }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
-  }, {
     "type": "Procedure",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
     "mustSupport": [ "code", "status", "status.value" ],
@@ -336,18 +307,6 @@
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
     "mustSupport": [ "period", "period.start", "status", "status.value" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
-  }, {
-    "type": "MedicationRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "authoredOn", "medication" ]
   } ],
   "content": [ {
     "contentType": "text/cql",

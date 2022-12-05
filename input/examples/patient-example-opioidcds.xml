@@ -1,1 +1,31 @@
-<Patient xmlns="http://hl7.org/fhir"><id value="example-opioidcds"></id><extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller"><extension url="dateLastUpdated"><valueDateTime value="2022-11-18"></valueDateTime></extension><extension url="frequency"><valueDuration><value value="30.0"></value><unit value="days"></unit><system value="http://unitsofmeasure.org"></system><code value="d"></code></valueDuration></extension></extension><name><family value="example"></family><given value="opioidcds"></given></name><gender value="male"></gender><birthDate value="1982-07-30"></birthDate><address><use value="home"></use><type value="postal"></type><line value="751 E Apple Drive"></line><city value="Novi"></city><district value="Oakland County"></district><state value="MI"></state><postalCode value="48376"></postalCode></address></Patient>
+<Patient xmlns="http://hl7.org/fhir">
+   <id value="example-opioidcds"></id>
+   <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
+      <extension url="dateLastUpdated">
+         <valueDateTime value="2022-11-28"></valueDateTime>
+      </extension>
+      <extension url="frequency">
+         <valueDuration>
+            <value value="30.0"></value>
+            <unit value="days"></unit>
+            <system value="http://unitsofmeasure.org"></system>
+            <code value="d"></code>
+         </valueDuration>
+      </extension>
+   </extension>
+   <name>
+      <family value="example"></family>
+      <given value="opioidcds"></given>
+   </name>
+   <gender value="male"></gender>
+   <birthDate value="1982-08-09"></birthDate>
+   <address>
+      <use value="home"></use>
+      <type value="postal"></type>
+      <line value="751 E Apple Drive"></line>
+      <city value="Novi"></city>
+      <district value="Oakland County"></district>
+      <state value="MI"></state>
+      <postalCode value="48376"></postalCode>
+   </address>
+</Patient>
