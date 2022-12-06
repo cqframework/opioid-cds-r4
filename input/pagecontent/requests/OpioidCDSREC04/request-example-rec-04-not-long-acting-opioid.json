@@ -106,6 +106,10 @@
     "item1": null,
     "item2": null,
     "item3": {
+      "response": {
+        "status": "200 OK"
+      },
+      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-04-not-long-acting-opioid",
         "extension": [
@@ -130,6 +134,7 @@
         ],
         "gender": "male",
         "birthDate": "2002-09-26"
+      }
     },
     "item4": null,
     "item5": null,
