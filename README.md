@@ -54,5 +54,5 @@ You can view the latest development of the IG by going to the following location
 #### v2016
 [https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/](https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/v2016/)
 
-#### v2022
+#### v2022 (Master Branch)
 [https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/master/](https://build.fhir.org/ig/cqframework/opioid-cds-r4/branches/master/)
