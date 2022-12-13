@@ -1,8 +1,11 @@
 <Observation xmlns="http://hl7.org/fhir">
    <id value="example-opioidcds"></id>
+   <meta>
+      <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-observation"></profile>
+   </meta>
    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
       <extension url="dateLastUpdated">
-         <valueDateTime value="2022-09-26"></valueDateTime>
+         <valueDateTime value="2022-12-13"></valueDateTime>
       </extension>
       <extension url="frequency">
          <valueDuration>
@@ -23,7 +26,7 @@
    <subject>
       <reference value="Patient/example-opioidcds"></reference>
    </subject>
-   <effectiveDateTime value="2022-09-26"></effectiveDateTime>
+   <effectiveDateTime value="2022-12-13"></effectiveDateTime>
    <interpretation>
       <coding>
          <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"></system>

@@ -5,7 +5,7 @@
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
     "extension": [ {
       "url": "dateLastUpdated",
-      "valueDateTime": "2022-09-26"
+      "valueDateTime": "2022-12-13"
     }, {
       "url": "frequency",
       "valueDuration": {
@@ -25,6 +25,7 @@
   "type": [ {
     "coding": [ {
       "system": "http://www.ama-assn.org/go/cpt",
+      "version": "2021",
       "code": "99203",
       "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and low level of medical decision making. When using time for code selection, 30-44 minutes of total time is spent on the date of the encounter."
     } ]
@@ -33,8 +34,8 @@
     "reference": "Patient/example-opioidcds"
   },
   "period": {
-    "start": "2022-05-27",
-    "end": "2022-05-27"
+    "start": "2022-08-13",
+    "end": "2022-08-13"
   },
   "diagnosis": [ {
     "condition": {

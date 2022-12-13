@@ -79,3 +79,39 @@ ERROR: output/Library-opioidcds-11_effective-data-requirements.html#/html/body/d
 ERROR: output/Library-opioidcds-12-patient-view_effective-data-requirements.html#/html/body/div/div/div/div/div/ul/li/a at Line 147, column 8: The link 'Library-opioidcds-12-patient-view_effective-data-requirements.xml.html' for "XML" cannot be resolved
 ERROR: output/Library-opioidcds-12-patient-view_effective-data-requirements.html#/html/body/div/div/div/div/div/ul/li/a at Line 154, column 8: The link 'Library-opioidcds-12-patient-view_effective-data-requirements.json.html' for "JSON" cannot be resolved
 ERROR: output/Library-opioidcds-12-patient-view_effective-data-requirements.html#/html/body/div/div/div/div/div/ul/li/a at Line 161, column 8: The link 'Library-opioidcds-12-patient-view_effective-data-requirements.ttl.html' for "TTL" cannot be resolved
+
+# extension Attachments have data and/or url, or else SHOULD have either contentType and/or language caused from attachment with just URL
+WARNING: PlanDefinition/opioidcds-01: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-02: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-03: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-04: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-04-patient-view: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-05: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-06: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-07: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-08: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-08-order-sign: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-09: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-09: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-10: PlanDefinition.action[0].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[0].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[1].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-10-patient-view: PlanDefinition.action[0].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-10-patient-view: PlanDefinition.action[1].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-11: PlanDefinition.action[0].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-11-patient-view: PlanDefinition.action[0].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+WARNING: PlanDefinition/opioidcds-12-patient-view: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
+
+# profile warning - will be addressed (likely by removal) during the next publication cycle
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/cdc-requestgroup-action-indicator.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+
+# type codeable concept with reference to system http://www.ama-assn.org/go/cpt not validated
+INFORMATION: Encounter/cancer-diagnosis: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
+INFORMATION: Encounter/oncologist-participant: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
+
+# Markdown warning on config text passed in
+INFORMATION: ValueSet/non-synthetic-opioid-medications: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: ValueSet/opioid-analgesics-with-ambulatory-misuse-potential: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: ValueSet/benzodiazepine-medications: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: ValueSet/fentanyl-type-medications: ValueSet.extension[0].value.ofType(markdown): The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+

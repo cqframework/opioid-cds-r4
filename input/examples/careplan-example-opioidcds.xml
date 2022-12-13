@@ -1,5 +1,8 @@
 <CarePlan xmlns="http://hl7.org/fhir">
    <id value="example-opioidcds"></id>
+   <meta>
+      <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-careplan"></profile>
+   </meta>
    <status value="active"></status>
    <intent value="proposal"></intent>
    <subject>

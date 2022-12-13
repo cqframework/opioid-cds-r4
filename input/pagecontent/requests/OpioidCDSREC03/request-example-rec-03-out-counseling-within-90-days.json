@@ -19,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-10-06"
+                    "valueDateTime": "2022-12-13"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-03-false-no-recommendations-context"
             },
-            "authoredOn": "2022-10-06",
+            "authoredOn": "2022-12-13",
             "dosageInstruction": [
               {
                 "timing": {
@@ -102,7 +102,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-12-13"
               },
               {
                 "url": "frequency",
@@ -116,7 +116,7 @@
             ]
           }
         ],
-        "birthDate": "2002-09-26"
+        "birthDate": "2002-12-13"
       }
     },
     "item2": {
@@ -132,7 +132,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-09-26"
+                "valueDateTime": "2022-12-13"
               },
               {
                 "url": "frequency",
@@ -160,8 +160,8 @@
           "reference": "Patient/example-rec-03-false-no-recommendations"
         },
         "performedPeriod": {
-          "start": "2022-07-28",
-          "end": "2022-07-28"
+          "start": "2022-10-14",
+          "end": "2022-10-14"
         }
       }
     },

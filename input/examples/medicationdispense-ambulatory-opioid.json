@@ -5,7 +5,7 @@
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
     "extension": [ {
       "url": "dateLastUpdated",
-      "valueDateTime": "2022-09-26"
+      "valueDateTime": "2022-12-13"
     }, {
       "url": "frequency",
       "valueDuration": {
@@ -17,13 +17,6 @@
     } ]
   } ],
   "status": "completed",
-  "category": {
-    "coding": [ {
-      "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-      "code": "community",
-      "display": "Community"
-    } ]
-  },
   "medicationCodeableConcept": {
     "coding": [ {
       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
@@ -34,7 +27,7 @@
   "subject": {
     "reference": "Patient/example-opioidcds"
   },
-  "whenHandedOver": "2022-08-26",
+  "whenHandedOver": "2022-11-12",
   "dosageInstruction": [ {
     "timing": {
       "repeat": {

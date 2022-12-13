@@ -5,7 +5,7 @@
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
     "extension": [ {
       "url": "dateLastUpdated",
-      "valueDateTime": "2022-09-26"
+      "valueDateTime": "2022-12-13"
     }, {
       "url": "frequency",
       "valueDuration": {
@@ -37,7 +37,7 @@
       "coding": [ {
         "system": "http://nucc.org/provider-taxonomy",
         "code": "207RX0202X",
-        "display": "Medical Oncology"
+        "display": "Medical Oncology Physician"
       } ]
     } ],
     "individual": {
@@ -45,7 +45,7 @@
     }
   } ],
   "period": {
-    "start": "2022-04-26",
-    "end": "2022-04-26"
+    "start": "2022-07-13",
+    "end": "2022-07-13"
   }
 }
