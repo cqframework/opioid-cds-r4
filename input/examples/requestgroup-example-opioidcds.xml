@@ -1,8 +1,14 @@
 <RequestGroup xmlns="http://hl7.org/fhir">
    <id value="example-opioidcds"></id>
+   <meta>
+      <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup" />
+   </meta>
    <status value="active"></status>
    <intent value="proposal"></intent>
    <action>
+      <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup-action-indicator">
+         <valueCode value="warning"></valueCode>
+      </extension>
       <selectionBehavior value="any"></selectionBehavior>
       <action>
          <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup-action-indicator">

@@ -102,6 +102,9 @@ WARNING: PlanDefinition/opioidcds-11: PlanDefinition.action[0].documentation[1].
 WARNING: PlanDefinition/opioidcds-11-patient-view: PlanDefinition.action[0].documentation[1].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
 WARNING: PlanDefinition/opioidcds-12-patient-view: PlanDefinition.action[0].documentation[0].document: Attachments have data and/or url, or else SHOULD have either contentType and/or language
 
+# profile warning - will be addressed (likely by removal) during the next publication cycle
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/cdc-requestgroup-action-indicator.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+
 # type codeable concept with reference to system http://www.ama-assn.org/go/cpt not validated
 INFORMATION: Encounter/cancer-diagnosis: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: Encounter/oncologist-participant: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated

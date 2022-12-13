@@ -1,5 +1,8 @@
 <MedicationRequest xmlns="http://hl7.org/fhir">
    <id value="example-opioidcds"></id>
+   <meta>
+      <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-medicationrequest" />
+   </meta>
    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
       <extension url="dateLastUpdated">
          <valueDateTime value="2022-09-26"></valueDateTime>
