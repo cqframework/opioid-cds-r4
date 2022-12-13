@@ -463,6 +463,10 @@
           }
         } ]
       }
+    }, {
+      "type": "documentation",
+      "display": "Cautions for MME calculation results",
+      "url": "https://fhir.org/guides/cdc/opioid-mme-r4/mme-calculator.html#cautions"
     } ],
     "trigger": [ {
       "type": "named-event",
