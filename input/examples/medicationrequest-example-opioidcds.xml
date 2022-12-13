@@ -1,11 +1,11 @@
 <MedicationRequest xmlns="http://hl7.org/fhir">
    <id value="example-opioidcds"></id>
    <meta>
-      <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-medicationrequest" />
+      <profile value="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-medicationrequest"></profile>
    </meta>
    <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller">
       <extension url="dateLastUpdated">
-         <valueDateTime value="2022-09-26"></valueDateTime>
+         <valueDateTime value="2022-12-13"></valueDateTime>
       </extension>
       <extension url="frequency">
          <valueDuration>
@@ -28,7 +28,7 @@
    <subject>
       <reference value="Patient/example-opioidcds"></reference>
    </subject>
-   <authoredOn value="2022-09-26"></authoredOn>
+   <authoredOn value="2022-12-13"></authoredOn>
    <reasonCode>
       <coding>
          <system value="http://snomed.info/sct"></system>
