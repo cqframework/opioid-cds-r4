@@ -1,7 +1,7 @@
 ### Introduction
 
-This implementation guide provides resources and discussion in support of applying the Centers
-for Disease Control and Prevention (CDC) 2016 Opioid Guideline:
+This implementation guide provides resources and discussion in support of applying the 2016 Centers
+for Disease Control and Prevention (CDC) Guideline:
 
 [2016 CDC Guideline for Prescribing Opioids for Chronic Pain](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm)
 
@@ -14,7 +14,7 @@ the U.S. Office of the National Coordinator for Health Information Technology (O
 standards for clinical decision support and electronic clinical quality measurement, as well as a joint effort by
 the Centers for Disease Control and Prevention (CDC) and the Office of the National Coordinator for Health IT (ONC)
 focused on improving processes for the development of standardized, shareable, computable decision support artifacts
-using the CDC 2016 Opioid Guideline as a model case.
+using the CDC 2016 CDC Guideline as a model case.
 
 Feedback and contributions are welcome and can be submitted using the New Issue link in the footer of every page. Discussions on the
 use of this IG as well as other CQF projects take place regularly on the <a href="https://confluence.hl7.org/display/CDS/CPGonFHIR">CPG-on-FHIR calls</a>, a subworkgroup of the HL7 Clinical Decision Support Workgroup.
@@ -22,18 +22,18 @@ use of this IG as well as other CQF projects take place regularly on the <a href
 ### Scope
 
 This implementation guide includes support for the following 2016 CDC Guideline recommendations:
-* [2016 Opioid Guideline Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration](recommendation-01.html)
-* [2016 Opioid Guideline Recommendation #2 - Opioid Therapy Goals Discussion](recommendation-02.html)
-* [2016 Opioid Guideline Recommendation #3 - Opioid Therapy Risk/Benefit Discussion](recommendation-03.html)
-* [2016 Opioid Guideline Recommendation #4 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-04-order-sign.html)
-* [2016 Opioid Guideline Recommendation #5 - Lowest Effective Dose](recommendation-05.html)
-* [2016 Opioid Guideline Recommendation #6 - Prescribe Lowest Effective Dose and Duration](recommendation-06.html)
-* [2016 Opioid Guideline Recommendation #7 - Opioid Therapy Risk Assessment](recommendation-07.html)
-* [2016 Opioid Guideline Recommendation #8 - Naloxone Consideration](recommendation-08.html)
-* [2016 Opioid Guideline Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions](recommendation-09.html)
-* [2016 Opioid Guideline Recommendation #10 - Urine Drug Testing](recommendation-10-order-sign.html)
-* [2016 Opioid Guideline Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11-order-select.html)
-* [2016 Opioid Guideline Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)  
+* [2016 CDC Guideline Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration](recommendation-01.html)
+* [2016 CDC Guideline Recommendation #2 - Opioid Therapy Goals Discussion](recommendation-02.html)
+* [2016 CDC Guideline Recommendation #3 - Opioid Therapy Risk/Benefit Discussion](recommendation-03.html)
+* [2016 CDC Guideline Recommendation #4 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-04-order-sign.html)
+* [2016 CDC Guideline Recommendation #5 - Lowest Effective Dose](recommendation-05.html)
+* [2016 CDC Guideline Recommendation #6 - Prescribe Lowest Effective Dose and Duration](recommendation-06.html)
+* [2016 CDC Guideline Recommendation #7 - Opioid Therapy Risk Assessment](recommendation-07.html)
+* [2016 CDC Guideline Recommendation #8 - Naloxone Consideration](recommendation-08.html)
+* [2016 CDC Guideline Recommendation #9 - Consider Patient’s History of Controlled Substance Prescriptions](recommendation-09.html)
+* [2016 CDC Guideline Recommendation #10 - Urine Drug Testing](recommendation-10-order-sign.html)
+* [2016 CDC Guideline Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11-order-select.html)
+* [2016 CDC Guideline Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)  
 
 ### Getting Started
 
@@ -66,5 +66,5 @@ service, refer to the [Service Documentation](service-documentation.html).
 > **Caution**: Tapentadol is a mu-opioid receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of mu-opioid receptor agonist activity, but it is unknown if this drug is associated with overdose in the same dose-dependent manner as observed with medications that are solely mu-opioid receptor agonists.
 
 > **Extra Caution**:
-> * Methadone: the conversion factor increases at higher doses
+> * Methadone: the conversion factor increases at higher doses (Note: this caution is specific to the 2016 CDC Guideline - graduated Methadone conversion factors are not present in the 2022 CDC Clinical Practice Guideline)
 > * Fentanyl: dosed in mcg/hr instead of mg/day, and absorption is affected by heat and other factors.

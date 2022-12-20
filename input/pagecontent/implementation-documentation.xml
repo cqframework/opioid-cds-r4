@@ -485,7 +485,7 @@
 
   <p>
     The $apply operation, in general, applies a PlanDefinition to a specific context.
-    In the context of the CDC 2016 Opioid Guideline, the application of the PlanDefinition
+    In the context of the CDC 2016 CDC Guideline, the application of the PlanDefinition
     is depicted in the following diagram:
   </p>
 
@@ -495,7 +495,7 @@
 
   <p>
     As shown in the flowchart, the $apply operation begins by parsing the input parameters.
-    Then the <a href="Library-OpioidCDSREC05.json.html">CDC 2016 Opioid Guideline
+    Then the <a href="Library-OpioidCDSREC05.json.html">CDC 2016 CDC Guideline
       library</a> is serialized into a library object. The next step is to resolve data
     providers for FHIR STU3 and OMTK. OMTK, or Opioid Management Terminology Knowledge,
     is a library that provides MME conversion factors and terminology information for the

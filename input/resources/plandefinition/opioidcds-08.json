@@ -863,6 +863,10 @@
           }
         } ]
       }
+    }, {
+      "type": "documentation",
+      "display": "Cautions for MME calculation results",
+      "url": "http://fhir.org/guides/cdc/opioid-cds-r4/branches/v2016/#morphine-milligram-equivalent-mme-calculation-cautions"
     } ],
     "trigger": [ {
       "type": "named-event",
