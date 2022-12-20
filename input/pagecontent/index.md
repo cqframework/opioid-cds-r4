@@ -52,6 +52,19 @@ For a detailed description of how to implement the functionality with a Java-bas
 service, refer to the [Service Documentation](service-documentation.html).
 
 ### Trigger Overview
-![Trigger Overview Image](assets/images/trigger-overview.png "Trigger Overview image") 
- 
+<div>
+    <img src="assets/images/trigger-overview.png" alt="Trigger Overview image">
+</div>
+<br />
 
+### Morphine Milligram Equivalent (MME) Calculation Cautions
+
+> **Caution**: Do not use the calculated dose in MMEs to determine dosage for converting one opioid to another--the new opioid should be dosed lower to avoid unintentional overdose caused by incomplete cross-tolerance and individual differences in opioid pharmacokinetics. Consult the medication label.
+
+> **Caution**: Dosage thresholds in the 2016 CDC Guideline are based on overdose risk when opioids are prescribed for pain and should not guide dosing of medication treatment for opioid use disorder (i.e., medication-assisted treatment [MAT]).
+
+> **Caution**: Tapentadol is a mu-opioid receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of mu-opioid receptor agonist activity, but it is unknown if this drug is associated with overdose in the same dose-dependent manner as observed with medications that are solely mu-opioid receptor agonists.
+
+> **Extra Caution**:
+> * Methadone: the conversion factor increases at higher doses
+> * Fentanyl: dosed in mcg/hr instead of mg/day, and absorption is affected by heat and other factors.
