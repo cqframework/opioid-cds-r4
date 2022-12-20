@@ -82,10 +82,10 @@
       <tbody>
         <tr>
           <td>
-            <a href="PlanDefinition-opioidcds-04.html">2016 Opioid Guideline Recommendation #4 Order Sign</a>
+            <a href="PlanDefinition-opioidcds-04.html">2016 CDC Guideline Recommendation #4 Order Sign</a>
           </td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for 2016 Opioid Guideline Recommendation #4 Order Sign</td>
+          <td>Event-Condition-Action rule that implements behavior for 2016 CDC Guideline Recommendation #4 Order Sign</td>
         </tr>
         <tr>
           <td><a href="Library-OpioidCDSREC04.html">Recommendation #4 Order Sign - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td>
