@@ -1,7 +1,7 @@
 ### Introduction
 
-This implementation guide provides resources and discussion in support of applying the Centers
-for Disease Control and Prevention (CDC) 2016 Opioid Guideline:
+This implementation guide provides resources and discussion in support of applying the 2016 Centers
+for Disease Control and Prevention (CDC) Guideline:
 
 [2016 CDC Guideline for Prescribing Opioids for Chronic Pain](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm)
 
@@ -14,7 +14,7 @@ the U.S. Office of the National Coordinator for Health Information Technology (O
 standards for clinical decision support and electronic clinical quality measurement, as well as a joint effort by
 the Centers for Disease Control and Prevention (CDC) and the Office of the National Coordinator for Health IT (ONC)
 focused on improving processes for the development of standardized, shareable, computable decision support artifacts
-using the CDC 2016 Opioid Guideline as a model case.
+using the CDC 2016 CDC Guideline as a model case.
 
 Feedback and contributions are welcome and can be submitted using the New Issue link in the footer of every page. Discussions on the
 use of this IG as well as other CQF projects take place regularly on the <a href="https://confluence.hl7.org/display/CDS/CPGonFHIR">CPG-on-FHIR calls</a>, a subworkgroup of the HL7 Clinical Decision Support Workgroup.
