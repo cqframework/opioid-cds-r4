@@ -59,12 +59,37 @@ service, refer to the [Service Documentation](service-documentation.html).
 
 ### Morphine Milligram Equivalent (MME) Calculation Cautions
 
-> **Caution**: Do not use the calculated dose in MMEs to determine dosage for converting one opioid to another--the new opioid should be dosed lower to avoid unintentional overdose caused by incomplete cross-tolerance and individual differences in opioid pharmacokinetics. Consult the medication label.
+> **Caution**: All doses are in mg/day except for fentanyl, which is mcg/hr. 
 
-> **Caution**: Dosage thresholds in the 2016 CDC Guideline are based on overdose risk when opioids are prescribed for pain and should not guide dosing of medication treatment for opioid use disorder (i.e., medication-assisted treatment [MAT]).
+> **Caution**: Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. 
 
-> **Caution**: Tapentadol is a mu-opioid receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of mu-opioid receptor agonist activity, but it is unknown if this drug is associated with overdose in the same dose-dependent manner as observed with medications that are solely mu-opioid receptor agonists.
+> **Caution**: Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications.
 
-> **Extra Caution**:
-> * Methadone: the conversion factor increases at higher doses (Note: this caution is specific to the 2016 CDC Guideline - graduated Methadone conversion factors are not present in the 2022 CDC Clinical Practice Guideline)
-> * Fentanyl: dosed in mcg/hr instead of mg/day, and absorption is affected by heat and other factors.
+> **Caution**: Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. 
+
+> **Caution**: Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. 
+
+> **Caution**: Buprenorphine products approved for the treatment of pain are not included in the table because of their partial µ-receptor agonist activity and resultant ceiling effects compared with full µ-receptor agonists. 
+
+> **Caution**: These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder.
+
+#### Morphine milligram equivalent doses for commonly prescribed opioids for pain management table
+
+| Opioid                           | Conversion Factor |
+|----------------------------------|:-----------------:|
+| Codeine                          | 0.15 |
+| Fentanyl transdermal (in mcg/hr) | 2.4 |
+| Hydrocodone                      | 1.0 |
+| Hydromorphone                    | 5.0 |
+| Methadone                        | 4.7 |
+| Morphine                         | 1.0 |
+| Oxycodone                        | 1.5 |
+| Oxymorphone                      | 3.0 |
+| Tapentadol [^1]                  | 0.4 |
+| Tramadol [^2]                    | 0.2 |
+{: .grid }
+
+[^1]: Tapentadol is a µ-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.
+
+[^2]: Tramadol is a µ-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.
+
