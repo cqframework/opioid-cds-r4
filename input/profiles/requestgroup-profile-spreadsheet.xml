@@ -20,11 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17440</WindowHeight>
-  <WindowWidth>28040</WindowWidth>
-  <WindowTopX>2780</WindowTopX>
-  <WindowTopY>1560</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowHeight>21120</WindowHeight>
+  <WindowWidth>32767</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>480</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -40,7 +40,7 @@
    <Protection/>
   </Style>
   <Style ss:ID="s62" ss:Name="Hyperlink">
-   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#0000FF"
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
     ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63" ss:Name="Normal 2">
@@ -268,7 +268,7 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
    </Borders>
-   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s91">
@@ -666,7 +666,7 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Font ss:FontName="Calibri" ss:Size="11" ss:Bold="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s133">
@@ -1256,7 +1256,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>150</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2795,7 +2794,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3474,7 +3474,8 @@
     <Cell ss:StyleID="s135"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s135"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s135"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Indicator value for CDS Hooks responses</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4460,12 +4461,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4473,12 +4475,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
