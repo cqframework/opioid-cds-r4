@@ -241,3 +241,45 @@ v: {
   "system" : "http://loinc.org"
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "80764-4"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:22394d8b-19f2-45ec-9dcd-0bfb748c2ac2",
+    "timestamp" : "2023-03-01T16:13:15.893Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://loinc.org|2.73"
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "code" : "80764-4",
+      "display" : "Pain medicine Plan of care note"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
