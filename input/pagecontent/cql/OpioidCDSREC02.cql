@@ -102,12 +102,13 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs.'
+    then 'Maximize Nonopioid Therapies as Appropriate'
   else null
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
-    then 'Medication requests(s): '
+  then 
+    'For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the CDC 2022 Clinical Prescribing Guideline for nonopioid therapy recommendations. Nonopioid Pharmacological Therapy Back pain chronic, moderate to severe Fibromyalgia Hip or knee osteoarthritis pain chronic Neuropathic pain syndromes Temporomandibular disorder Nonpharmacologic Treatments Back pain chronic Back pain low back, chronic Fibromyalgia Headache tension Knee osteoarthritis pain chronic Neck pain Temporomandibular disorder'
       + Combine(("Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
            return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
   else null

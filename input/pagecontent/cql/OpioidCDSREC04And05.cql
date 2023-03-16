@@ -84,14 +84,11 @@ define "Get Indicator":
 define "Get Summary":
   if "Is Recommendation Applicable?"
     then
-      'High risk for opioid overdose - '
-        + case when "Taper Now"
-           then 'taper now'
-           else 'consider tapering'
-         end
+      'Calibrate to Lowest Opioid Dose Needed for Expected Results and Exercise Care When Changing Opioid Dosages'
   else null
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
-    then'Total morphine milligram equivalent (MME) is ' + ToString("Total MME") + '. Taper to less than 50.'
+    then
+    'When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage. For guidance in determining the lowest effective opioid dosage, see Recommendation 4 of the CDC 2022 Clinical Practice Guideline For patients who have received opioid therapy for longer durations of time, if tapering, consider working closely with the patient to gradually taper dosages no more than 10 percent per month For a tapering calculator, go to https://agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html For more guidance regarding tapering, please see Recommendation 5 of the CDC Clinical Practice Guideline Prescribing Guideline MME Calculator Cautions 1 All doses are in mg/day except for fentanyl, which is mcg/hr. 2 Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. 3 Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. 4 Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. 5 Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. 6 Buprenorphine products approved for the treatment of pain are not included in the table because of their partial u-receptor agonist activity and resultant ceiling effects compared with full u-receptor agonists. 7 These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder. T: Tapentadol is a u-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists. S: Tramadol is a u-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists.'
   else null

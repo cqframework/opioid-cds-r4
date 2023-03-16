@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2022-11-28"
+                    "valueDateTime": "2023-03-14"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-07-sixtytwo-of-past-ninety-days-context"
             },
-            "authoredOn": "2022-11-28",
+            "authoredOn": "2023-03-14",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,8 +76,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2022-11-28T00:00:00-07:00",
-                "end": "2023-02-28T00:00:00-07:00"
+                "start": "2023-03-14T00:00:00-06:00",
+                "end": "2023-06-14T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
@@ -106,7 +106,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-11-28"
+                "valueDateTime": "2023-03-14"
               },
               {
                 "url": "frequency",
@@ -144,7 +144,7 @@
         "subject": {
           "reference": "Patient/example-rec-07-sixtytwo-of-past-ninety-days"
         },
-        "authoredOn": "2022-08-28",
+        "authoredOn": "2022-12-12",
         "dosageInstruction": [
           {
             "timing": {
@@ -159,8 +159,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-08-28T00:00:00-06:00",
-            "end": "2022-11-28T00:00:00-07:00"
+            "start": "2022-12-12T00:00:00-07:00",
+            "end": "2023-03-14T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 1,
           "expectedSupplyDuration": {
@@ -185,7 +185,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-11-28"
+                "valueDateTime": "2023-03-14"
               },
               {
                 "url": "frequency",
@@ -215,8 +215,8 @@
           "reference": "Patient/example-rec-07-sixtytwo-of-past-ninety-days"
         },
         "period": {
-          "start": "2022-08-28",
-          "end": "2022-08-28"
+          "start": "2022-12-12",
+          "end": "2022-12-12"
         }
       }
     },
@@ -233,7 +233,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2022-11-28"
+                "valueDateTime": "2023-03-14"
               },
               {
                 "url": "frequency",
@@ -248,7 +248,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "2002-11-28"
+        "birthDate": "2003-03-14"
       }
     },
     "item4": null,

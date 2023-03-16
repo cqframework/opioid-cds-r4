@@ -83,6 +83,6 @@ define "Get Detail":
   if "Is Recommendation Applicable?"
     then
       if "Patient Is Being Prescribed Benzodiazepine"
-        then 'The benzodiazepine prescription request is concurrent with an active opioid prescription'
+        then 'Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications. When co-prescribing risks outweigh benefits, consult Recommendation 11 of the 2022 CDC Clinical Practice Guideline for further guidance. For patients being treated for opioid use disorder who are also taking benzodiazepines or other medications that depress the central nervous system, the CDC recommends not withholding buprenorphine or methadone. If the decision is made to taper benzodiazepine medications, the CDC recommends tapering benzodiazepines gradually prior to discontinuation.'
       else 'The opioid prescription request is concurrent with an active benzodiazepine prescription'
   else null

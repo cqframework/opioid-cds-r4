@@ -766,13 +766,15 @@
       }
     } ],
     "action": [ {
-      "description": "Will prescribe a lower dosage"
+      "description": "Document - Will prescribe a lower dose"
     }, {
-      "description": "Benefits outweigh risks, snooze 3 months"
+      "description": "Document - Will calibrate a gradual change in dosage"
     }, {
-      "description": "Active pain, snooze 1 month"
+      "description": "Snooze* - Benefits outweigh risks, snooze 3 months"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Snooze* - Short term benefits outweigh risks, snooze 1 month"
+    }, {
+      "description": "Snooze* - N/A add comment, snooze 3 months"
     } ]
   } ]
 }

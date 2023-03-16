@@ -65,12 +65,12 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids.'
+    then 'When Initiating Opioid Therapy, Utilize Immediate Release Opioids'
   else null
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
-    then 'The following medication requests(s) release rates should be re-evaluated: '
+    then 'Recommend prescribing immediate release opioids instead of extended release or long-acting opioids For guidance regarding prescribing extended release/ long-acting opioids, see Recommendation 3 of the 2022 CDC Clinical Practice Guideline'
       + Combine(("Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
            return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')
   else null

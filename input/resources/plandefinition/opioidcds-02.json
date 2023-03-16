@@ -696,15 +696,15 @@
       }
     } ],
     "action": [ {
-      "description": "Create treatment plan with goals for opioid use"
+      "description": "Document - Collaborated with patient to identify treatment goals"
     }, {
-      "description": "Update (edit) opioid treatment plan"
+      "description": "Snooze* - Attempting alternate therapy, snooze 3 months"
     }, {
-      "description": "Review opioid treatment plan"
+      "description": "Order - Select alternative therapies from order select"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Snooze* - N/A see comment, snooze 3 months"
     }, {
-      "description": "Taper / Discontinue opioid"
+      "description": "Remove - Will remove triggering medication order"
     } ]
   } ]
 }

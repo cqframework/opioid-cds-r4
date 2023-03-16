@@ -75,12 +75,12 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Recommend limit therapy to <= 3 days to maximum of <= 7 days. When prescribing opioids for acute pain, CDC recommends prescribing no greater quantity than needed for the expected duration of severe pain'
+    then 'When Treating Acute Pain, Prescribe No Greater Quantity Than Needed'
   else null
 
   define "Get Detail":
     if "Is Recommendation Applicable?"
-      then 'Medication requests(s): '
+      then 'Consider a shorter duration for opioid therapy. For guidance regarding prescribing opioids for acute pain, see Recommendation 6 of the CDC 2022 Clinical Practice Guideline.'
         + Combine(("Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
              return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')
     else null

@@ -358,7 +358,7 @@
     "method": "POST",
     "sortNum": 21250,
     "created": "2022-08-08T19:42:27.536Z",
-    "modified": "2022-10-12T18:20:58.620Z",
+    "modified": "2023-03-14T21:00:31.082Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -383,19 +383,25 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs."
+        "value": "Consider Nonopioid Treatment Options for Acute Pain"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Medication requests(s): <Unable to determine medication name>"
+        "action": "contains",
+        "value": "For many types of acute pain, clinicians should maximize the use of nonpharmacologic (for example, physical therapy) and nonopioid pharmacologic therapies (for example, NSAIDs), as appropriate for the specific condition and patient and only consider opioid therapy for acute pain if benefits are anticipated to outweigh risks to the patient. Before prescribing opioid therapy for acute pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy."
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "The 2022 CDC Clinical Practice Guideline Recommendation #1 provides recommendations for non-opioid therapy options for common pain conditions."
       }
     ]
   },
@@ -458,7 +464,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.538Z",
-    "modified": "2022-08-19T04:23:50.719Z",
+    "modified": "2023-03-14T16:54:16.572Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -483,7 +489,7 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently."
+        "value": "Regularly Evaluate the Benefits and Risks of Opioid Therapy"
       },
       {
         "type": "json-query",
@@ -514,7 +520,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.539Z",
-    "modified": "2022-10-11T17:45:35.382Z",
+    "modified": "2023-03-14T17:01:16.487Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -545,7 +551,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d."
+        "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone. For guidance regarding assessing opioid therapy risks, see Recommendation 8 of the 2022 CDC Clinical Practice Guideline. For more information about prescribing naloxone see https://prescribetoprevent.org. MME Calculator Cautions 1 All doses are in mg/day except for fentanyl, which is mcg/hr. 2 Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. 3 Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. 4 Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. 5 Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. 6 Buprenorphine products approved for the treatment of pain are not included in the table because of their partial u-receptor agonist activity and resultant ceiling effects compared with full u-receptor agonists. 7 These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder. - Tapentadol is a u-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists. - Tramadol is a u-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists.Average MME 180.0 '{MME}/d' ≥ 50 mg/d."
       },
       {
         "type": "json-query",
@@ -564,7 +570,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.540Z",
-    "modified": "2022-08-18T23:51:22.061Z",
+    "modified": "2023-03-14T16:57:37.165Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -595,7 +601,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "The benzodiazepine prescription request is concurrent with an active opioid prescription"
+        "value": "Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications. When co-prescribing risks outweigh benefits, consult Recommendation 11 of the 2022 CDC Clinical Practice Guideline for further guidance. For patients being treated for opioid use disorder who are also taking benzodiazepines or other medications that depress the central nervous system, the CDC recommends not withholding buprenorphine or methadone. If the decision is made to taper benzodiazepine medications, the CDC recommends tapering benzodiazepines gradually prior to discontinuation."
       },
       {
         "type": "json-query",
@@ -614,7 +620,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.546Z",
-    "modified": "2022-11-02T04:09:45.495Z",
+    "modified": "2023-03-14T16:39:37.244Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -639,13 +645,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids."
+        "value": "When Initiating Opioid Therapy, Utilize Immediate Release Opioids"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "The following medication requests(s) release rates should be re-evaluated: <Unable to determine medication name>"
+        "value": "Recommend prescribing immediate release opioids instead of extended release or long-acting opioids For guidance regarding prescribing extended release/ long-acting opioids, see Recommendation 3 of the 2022 CDC Clinical Practice Guideline<Unable to determine medication name>"
       },
       {
         "type": "json-query",
@@ -664,7 +670,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.547Z",
-    "modified": "2022-11-02T19:57:03.815Z",
+    "modified": "2023-03-14T16:41:05.583Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -689,13 +695,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "High risk for opioid overdose - taper now"
+        "value": "Calibrate to Lowest Opioid Dose Needed for Expected Results and Exercise Care When Changing Opioid Dosages"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Total morphine milligram equivalent (MME) is 180.0 '{MME}/d'. Taper to less than 50."
+        "value": "When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage. For guidance in determining the lowest effective opioid dosage, see Recommendation 4 of the CDC 2022 Clinical Practice Guideline For patients who have received opioid therapy for longer durations of time, if tapering, consider working closely with the patient to gradually taper dosages no more than 10 percent per month For a tapering calculator, go to https://agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html For more guidance regarding tapering, please see Recommendation 5 of the CDC Clinical Practice Guideline Prescribing Guideline MME Calculator Cautions 1 All doses are in mg/day except for fentanyl, which is mcg/hr. 2 Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. 3 Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. 4 Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. 5 Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. 6 Buprenorphine products approved for the treatment of pain are not included in the table because of their partial u-receptor agonist activity and resultant ceiling effects compared with full u-receptor agonists. 7 These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder. T: Tapentadol is a u-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists. S: Tramadol is a u-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists."
       },
       {
         "type": "json-query",
@@ -714,7 +720,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.548Z",
-    "modified": "2022-10-12T18:38:21.492Z",
+    "modified": "2023-03-14T16:59:43.508Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -738,13 +744,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend limit therapy to <= 3 days to maximum of <= 7 days. When prescribing opioids for acute pain, CDC recommends prescribing no greater quantity than needed for the expected duration of severe pain"
+        "value": "When Treating Acute Pain, Prescribe No Greater Quantity Than Needed"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Medication requests(s): oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
+        "value": "Consider a shorter duration for opioid therapy. For guidance regarding prescribing opioids for acute pain, see Recommendation 6 of the CDC 2022 Clinical Practice Guideline.oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
       },
       {
         "type": "json-query",
@@ -763,7 +769,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.549Z",
-    "modified": "2022-10-11T17:55:00.011Z",
+    "modified": "2023-03-14T16:57:03.897Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -800,7 +806,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Medication requests(s): Suboxone 2 MG / 0.5 MG Sublingual Film"
+        "value": "Review PDMP data for this patient before completing an opioid order. For guidance about utilizing PDMP information to improve patient safety, see Recommendation 9 of the 2022 CDC Clinical Practice Guideline. CDC advises not to dismiss patients from your practice on the basis of PDMP information.Suboxone 2 MG / 0.5 MG Sublingual Film"
       }
     ]
   },
@@ -1013,7 +1019,7 @@
     "method": "POST",
     "sortNum": 26250,
     "created": "2022-08-08T19:42:27.554Z",
-    "modified": "2022-10-11T17:46:33.289Z",
+    "modified": "2023-03-14T17:01:52.561Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1044,7 +1050,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d, concurrent use of benzodiazepine."
+        "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone. For guidance regarding assessing opioid therapy risks, see Recommendation 8 of the 2022 CDC Clinical Practice Guideline. For more information about prescribing naloxone see https://prescribetoprevent.org. MME Calculator Cautions 1 All doses are in mg/day except for fentanyl, which is mcg/hr. 2 Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. 3 Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. 4 Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. 5 Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. 6 Buprenorphine products approved for the treatment of pain are not included in the table because of their partial u-receptor agonist activity and resultant ceiling effects compared with full u-receptor agonists. 7 These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder. - Tapentadol is a u-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists. - Tramadol is a u-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists.Average MME 180.0 '{MME}/d' ≥ 50 mg/d, concurrent use of benzodiazepine."
       },
       {
         "type": "json-query",
@@ -1063,7 +1069,7 @@
     "method": "POST",
     "sortNum": 27500,
     "created": "2022-08-08T19:42:27.557Z",
-    "modified": "2022-08-19T04:50:32.434Z",
+    "modified": "2023-03-14T16:54:42.350Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1088,13 +1094,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently."
+        "value": "Regularly Evaluate the Benefits and Risks of Opioid Therapy"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "No evaluation for benefits and harms associated with opioid therapy has been performed for the patient in the past 3 months"
+        "value": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients. For additional guidance regarding opioid therapy patient consultations, see Recommendation 7 of the 2022 CDC Clinical Practice Guideline."
       },
       {
         "type": "json-query",
@@ -1169,7 +1175,7 @@
     "method": "POST",
     "sortNum": 28750,
     "created": "2022-08-08T19:42:27.559Z",
-    "modified": "2022-10-11T17:46:59.840Z",
+    "modified": "2023-03-14T17:02:13.472Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1200,7 +1206,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d, history of alcohol or drug abuse."
+        "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone. For guidance regarding assessing opioid therapy risks, see Recommendation 8 of the 2022 CDC Clinical Practice Guideline. For more information about prescribing naloxone see https://prescribetoprevent.org. MME Calculator Cautions 1 All doses are in mg/day except for fentanyl, which is mcg/hr. 2 Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. 3 Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. 4 Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. 5 Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. 6 Buprenorphine products approved for the treatment of pain are not included in the table because of their partial u-receptor agonist activity and resultant ceiling effects compared with full u-receptor agonists. 7 These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder. - Tapentadol is a u-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists. - Tramadol is a u-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of u-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely u-receptor agonists.Average MME 180.0 '{MME}/d' ≥ 50 mg/d, history of alcohol or drug abuse."
       },
       {
         "type": "json-query",
@@ -1801,7 +1807,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-08-08T19:42:27.598Z",
-    "modified": "2022-10-11T17:14:29.631Z",
+    "modified": "2023-03-14T16:31:04.238Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1826,13 +1832,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs."
+        "value": "Maximize Nonopioid Therapies as Appropriate"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "equal",
-        "value": "Medication requests(s): <Unable to determine medication name>"
+        "value": "For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the CDC 2022 Clinical Prescribing Guideline for nonopioid therapy recommendations. Nonopioid Pharmacological Therapy Back pain chronic, moderate to severe Fibromyalgia Hip or knee osteoarthritis pain chronic Neuropathic pain syndromes Temporomandibular disorder Nonpharmacologic Treatments Back pain chronic Back pain low back, chronic Fibromyalgia Headache tension Knee osteoarthritis pain chronic Neck pain Temporomandibular disorder<Unable to determine medication name>"
       },
       {
         "type": "json-query",

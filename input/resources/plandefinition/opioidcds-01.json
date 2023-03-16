@@ -614,15 +614,15 @@
       }
     } ],
     "action": [ {
-      "description": "Document reason for opioid use"
+      "description": "Document - Record reason for opioid therapy"
     }, {
-      "description": "Attempted alternate therapy, snooze 3 months"
+      "description": "Snooze* - Attempt alternative therapy, snooze 3 months"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Order - Select alternative therapies from order set"
     }, {
-      "description": "Select from order set for alternative therapies"
+      "description": "Snooze* - N/A see comment, snooze 3 months"
     }, {
-      "description": "Remove triggering medication"
+      "description": "Remove - Will remove triggering medication order"
     } ]
   } ]
 }
