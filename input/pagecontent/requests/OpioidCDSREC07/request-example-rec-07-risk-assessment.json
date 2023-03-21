@@ -96,9 +96,30 @@
     "item1": null,
     "item2": null,
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
+      "resourceType": "Patient",
+      "id": "example-rec-07-risk-assessment",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2023-03-20"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "gender": "male",
+      "birthDate": "2003-03-20",
       "resource": {
         "resourceType": "Patient",
         "id": "example-rec-07-risk-assessment",
@@ -127,8 +148,44 @@
       }
     },
     "item4": {
-      "response": {
-        "status": "200 OK"
+      "resourceType": "Procedure",
+      "id": "example-rec-07-risk-assessment-prefetch",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2023-03-20"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "completed",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "268525008",
+            "display": "High risk drug monitoring (regime/therapy)"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/example-rec-07-risk-assessment"
+      },
+      "performedPeriod": {
+        "start": "2023-02-06",
+        "end": "2023-02-06"
       },
       "resource": {
         "resourceType": "Procedure",

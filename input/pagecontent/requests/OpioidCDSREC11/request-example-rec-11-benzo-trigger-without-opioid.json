@@ -107,9 +107,30 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
+      "resourceType": "Patient",
+      "id": "example-rec-11-benzo-trigger-without-opioid",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2023-03-20"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "gender": "female",
+      "birthDate": "2003-03-20",
       "resource": {
         "resourceType": "Patient",
         "id": "example-rec-11-benzo-trigger-without-opioid",

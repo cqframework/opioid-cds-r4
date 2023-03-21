@@ -97,9 +97,29 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
+      "resourceType": "Patient",
+      "id": "example-rec-02-careplan-not-revisited",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2023-03-20"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "birthDate": "2003-03-06",
       "resource": {
         "resourceType": "Patient",
         "id": "example-rec-02-careplan-not-revisited",
@@ -127,8 +147,47 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
+      "resourceType": "CarePlan",
+      "id": "example-rec-02-careplan-not-revisited",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2023-03-20"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "active",
+      "intent": "plan",
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "80764-4",
+              "display": "Pain medicine Plan of care note"
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "reference": "Patient/example-rec-02-careplan-not-revisited"
+      },
+      "created": "2022-11-05",
+      "author": {
+        "reference": "Practitioner/example"
       },
       "resource": {
         "resourceType": "CarePlan",

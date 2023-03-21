@@ -91,9 +91,29 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
+      "resourceType": "Patient",
+      "id": "example-rec-09-true-return-recommendations",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2023-03-20"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "birthDate": "2003-03-20",
       "resource": {
         "resourceType": "Patient",
         "id": "example-rec-09-true-return-recommendations",
@@ -121,8 +141,44 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
+      "resourceType": "Procedure",
+      "id": "ea2465c9-5a50-4e24-83dd-7a6e7957c253",
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+          "extension": [
+            {
+              "url": "dateLastUpdated",
+              "valueDateTime": "2023-03-20"
+            },
+            {
+              "url": "frequency",
+              "valueDuration": {
+                "value": 30.0,
+                "unit": "days",
+                "system": "http://unitsofmeasure.org",
+                "code": "d"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "completed",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "461651000124104",
+            "display": "Review of prescription drug monitoring program record done (situation)"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/example-rec-09-true-return-recommendations"
+      },
+      "performedPeriod": {
+        "start": "2018-11-18",
+        "end": "2018-11-18"
       },
       "resource": {
         "resourceType": "Procedure",
