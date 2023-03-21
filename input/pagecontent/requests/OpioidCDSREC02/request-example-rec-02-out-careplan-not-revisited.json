@@ -19,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-03-14"
+                    "valueDateTime": "2023-03-21"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-02-careplan-not-revisited-context"
             },
-            "authoredOn": "2022-11-11",
+            "authoredOn": "2022-11-18",
             "recorder": {
               "reference": "Practitioner/example"
             },
@@ -79,8 +79,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-01-26T00:00:00-07:00",
-                "end": "2023-04-28T00:00:00-06:00"
+                "start": "2023-02-02T00:00:00-07:00",
+                "end": "2023-05-05T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {

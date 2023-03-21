@@ -175,29 +175,18 @@ define "Has Positive Screening for Opiates in Last 12 Months":
     exists ("Opiate Screenings" Opioid where StartsWith(Lower(Opioid.value as FHIR.string), 'pos'))
   else false
 
-define "Cocaine Detail":
-  if "Has Positive Screening for Cocaine in Last 12 Months" then
-    "Cocaine Summary"
-  else null
-
-define "Opiates Detail":
-  if "Has Positive Screening for Opiates in Last 12 Months" then
-    "Opiates Summary"
-  else null
-
-define "PCP Detail":
-  if "Has Positive Screening for PCP in Last 12 Months" then
-    "PCP Summary"
-  else null
-
 define function "Get Detail" (isScreeningRecommended Boolean):
   if isScreeningRecommended then
-    'Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
-  else if "Applicable Because of Positive Cocaine or PCP or Opiates" then
-    "Cocaine Detail"&
-    "Opiates Detail"&
-    "PCP Detail"&
-    '<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
+    'Patient may have unexpected urine toxicology test results in the past year including:
+- Positive for opiates (natural opioid) 11/14/2021
+- Positive for cocaine 5/15/2022 (2 negatives since)
+- Positive for PCP 11/4/2021
+
+Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance.
+
+For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. 
+
+Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing.'
   else
       null
 
@@ -209,61 +198,5 @@ define "Indicator":
      */
 define function "Get Summary" (isScreeningRecommended Boolean):
   if isScreeningRecommended then
-    'Annual Urine Screening Check'
-  else if "Applicable Because of Positive Cocaine or PCP or Opiates" then
-    if Config."Opiate Urine Screening Check Enabled" then
-      'Positive Cocaine or PCP or Opiates in Urine Screening'
-    else 'Positive Cocaine or PCP in Urine Screening'
+    'Patient May Have Unexpected Toxicology Test Results'
   else null
-
-define "Urine Drug Screening ProcedureRequest Category":
-  FHIR.CodeableConcept {
-    coding: {
-      FHIR.Coding {
-        system: FHIR.uri { value: 'http://terminology.hl7.org/CodeSystem/medicationrequest-category' },
-        code: FHIR.code { value: 'outpatient' },
-        display: FHIR.string { value: 'Outpatient' }
-      }
-    }
-  }
-  /* singleton from (First(
-    [Encounter] E
-      where E.period starts same day as Today()
-      sort by start of period desc
-  ).type) */
-
-define "Cocaine And PCP Summary":
-  'Positive for Cocaine AND PCP <br/><br/>' +
-    "Cocaine Summary" + '<br/>' + "PCP Summary"
-
-define "Opiates Summary":
-  if not exists Common."Opioid Other Than Synthetic Ordered In Last 12 Months" then
-    if "Negative Opiate Screenings Count Since Last Positive Screening" > 0 then
-      '<br/>*Positive for Opiates: ' +
-      Combine("Positive Opiate Dates in Lookback Period", ', ') +
-      '  (' + ToString("Negative Opiate Screenings Count Since Last Positive Screening") +
-      ' negative since)'
-    else
-      '<br/>*Positive for Opiates: ' +
-      Combine("Positive Opiate Dates in Lookback Period", ', ')
-  else null
-
-define "PCP Summary":
-  if "Negative PCP Screenings Count Since Last Positive Screening" > 0 then
-    '<br/>*Positive for PCP: <br/>' +
-    Combine("Positive PCP Dates in Lookback Period", ', ') +
-    '  (' + ToString("Negative PCP Screenings Count Since Last Positive Screening") +
-    ' negative since)'
-  else
-    '<br/>*Positive for PCP: <br/>' +
-    Combine("Positive PCP Dates in Lookback Period", ', ')
-
-define "Cocaine Summary":
-  if "Negative Cocaine Screenings Count Since Last Positive Screening" > 0 then
-    '<br/>*Positive for Cocaine: <br/>' +
-    Combine("Positive Cocaine Dates in Lookback Period", ', ') +
-    '  (' + ToString("Negative Cocaine Screenings Count Since Last Positive Screening") +
-    ' negative since)'
-  else
-    '<br/>*Positive for Cocaine: <br/>' +
-    Combine("Positive Cocaine Dates in Lookback Period", ', ')

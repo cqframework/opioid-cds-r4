@@ -98,7 +98,7 @@ define "Get Summary":
 define "Get Detail":
   if "Is Recommendation Applicable?"
     then
-      if Common."Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
-        then 'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients. For additional guidance regarding opioid therapy patient consultations, see Recommendation 7 of the 2022 CDC Clinical Practice Guideline.'
-      else 'No evaluation for benefits and harms has been performed for the patient starting opioid therapy'
+      'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.
+
+[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=for%20%3E1%20month.)-,Recommendation%207,-Clinicians%20should%20evaluate)'
   else null

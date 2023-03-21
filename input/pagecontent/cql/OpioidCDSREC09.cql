@@ -98,7 +98,9 @@ define "Get Summary":
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
-    then 'Review PDMP data for this patient before completing an opioid order. For guidance about utilizing PDMP information to improve patient safety, see Recommendation 9 of the 2022 CDC Clinical Practice Guideline. CDC advises not to dismiss patients from your practice on the basis of PDMP information.'
-      + Combine(("Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
-           return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')
+    then 'Review PDMP data for this patient before completing an opioid order
+
+[Recommendation 9 of the 2022 CDC Clinical Practice Guideline provides guidance about utilizing PDMP information to improve patient safety](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20take,see%20Recommendation%2010).)
+
+[CDC advises not to dismiss patients from your practice on the basis of PDMP information](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20not%20dismiss,Recommendations%208%20and%2012%5D).)'
   else null

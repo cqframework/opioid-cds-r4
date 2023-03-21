@@ -80,7 +80,7 @@ define "Get Summary":
 
   define "Get Detail":
     if "Is Recommendation Applicable?"
-      then 'Consider a shorter duration for opioid therapy. For guidance regarding prescribing opioids for acute pain, see Recommendation 6 of the CDC 2022 Clinical Practice Guideline.'
-        + Combine(("Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" M
-             return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')
+      then 'Consider a shorter duration for opioid therapy
+
+[For guidance regarding prescribing opioids for acute pain see Recommendation 6 of the CDC 2022 Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm)'
     else null
