@@ -1,1 +1,28 @@
-<RequestGroup xmlns="http://hl7.org/fhir"><id value="example-opioidcds"></id><status value="active"></status><intent value="proposal"></intent><action><selectionBehavior value="any"></selectionBehavior><action><extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup-action-indicator"><valueCode value="warning"></valueCode></extension><title value="High risk for opioid overdose - taper now"></title><description value="Total morphine milligram equivalent (MME) is 179.99999820mg/d. Taper to less than 50."></description><documentation><type value="documentation"></type><display value="CDC 2022 guideline for prescribing opioids for subacute or chronic pain"></display><url value="https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"></url></documentation><documentation><type value="documentation"></type><display value="MME Conversion Tables"></display><url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"></url></documentation><resource><reference value="ActivityDefinition/opioidcds-risk-assessment-request"></reference></resource></action></action></RequestGroup>
+<RequestGroup xmlns="http://hl7.org/fhir">
+   <id value="example-opioidcds"></id>
+   <status value="active"></status>
+   <intent value="proposal"></intent>
+   <action>
+      <selectionBehavior value="any"></selectionBehavior>
+      <action>
+         <extension url="http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup-action-indicator">
+            <valueCode value="warning"></valueCode>
+         </extension>
+         <title value="High risk for opioid overdose - taper now"></title>
+         <description value="Total morphine milligram equivalent (MME) is 179.99999820mg/d. Taper to less than 50."></description>
+         <documentation>
+            <type value="documentation"></type>
+            <display value="CDC 2022 guideline for prescribing opioids for subacute or chronic pain"></display>
+            <url value="https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"></url>
+         </documentation>
+         <documentation>
+            <type value="documentation"></type>
+            <display value="MME Conversion Tables"></display>
+            <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"></url>
+         </documentation>
+         <resource>
+            <reference value="ActivityDefinition/opioidcds-risk-assessment-request"></reference>
+         </resource>
+      </action>
+   </action>
+</RequestGroup>

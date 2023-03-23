@@ -470,7 +470,7 @@
       "valueString": "Get Detail"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'Medication requests(s): '\n      + Combine((\"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" M\n           return Coalesce(M.medication.text, M.medication.coding[0].display, '<Unable to determine medication name>')), ', ')\n  else null"
+      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'Review PDMP data for this patient before completing an opioid order\n\n[Recommendation 9 of the 2022 CDC Clinical Practice Guideline provides guidance about utilizing PDMP information to improve patient safety](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20take,see%20Recommendation%2010).)\n\n[CDC advises not to dismiss patients from your practice on the basis of PDMP information](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20not%20dismiss,Recommendations%208%20and%2012%5D).)'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 19
@@ -514,7 +514,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-03-20",
+  "date": "2023-03-23",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should review PDMP data when starting opioid therapy for subacute or chronic pain and periodically during opioid therapy for chronic pain.",
   "useContext": [ {

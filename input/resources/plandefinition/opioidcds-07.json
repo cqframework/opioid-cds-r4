@@ -213,7 +213,7 @@
       "valueString": "Get Summary"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently.'\n  else null"
+      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'Regularly Evaluate the Benefits and Risks of Opioid Therapy'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 0
@@ -633,7 +633,7 @@
       "valueString": "Get Detail"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n      if Common.\"Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months\"\n        then 'No evaluation for benefits and harms associated with opioid therapy has been performed for the patient in the past 3 months'\n      else 'No evaluation for benefits and harms has been performed for the patient starting opioid therapy'\n  else null"
+      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.\n\n[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=for%20%3E1%20month.)-,Recommendation%207,-Clinicians%20should%20evaluate)'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 28
@@ -677,7 +677,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-03-20",
+  "date": "2023-03-23",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should evaluate benefits and harms with patients within 1 to 4 weeks of starting opioid therapy for subacute or chronic pain or of dose escalation. Clinicians should evaluate benefits and harms of continued therapy with patients every 3 months or more frequently.",
   "useContext": [ {

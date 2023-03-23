@@ -762,7 +762,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.550Z",
-    "modified": "2023-03-21T19:38:00.316Z",
+    "modified": "2023-03-23T19:26:02.983Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -793,37 +793,13 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Patient may have unexpected urine toxicology test results in the past year including:"
+        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "- Positive for opiates (natural opioid) 11/14/2021"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "- Positive for cocaine 5/15/2022 (2 negatives since)"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "- Positive for PCP 11/4/2021"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance."
       }
     ]
   },
@@ -836,7 +812,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.551Z",
-    "modified": "2023-03-21T19:42:01.724Z",
+    "modified": "2023-03-23T19:27:21.344Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -867,37 +843,13 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Patient may have unexpected urine toxicology test results in the past year including:"
+        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "- Positive for opiates (natural opioid) 11/14/2021"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "- Positive for cocaine 5/15/2022 (2 negatives since)"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "- Positive for PCP 11/4/2021"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].detail",
-        "action": "contains",
-        "value": "Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance."
       }
     ]
   },
@@ -1072,7 +1024,7 @@
     "method": "POST",
     "sortNum": 27500,
     "created": "2022-08-08T19:42:27.557Z",
-    "modified": "2023-03-14T16:54:42.350Z",
+    "modified": "2023-03-23T18:29:26.489Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1102,8 +1054,8 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients. For additional guidance regarding opioid therapy patient consultations, see Recommendation 7 of the 2022 CDC Clinical Practice Guideline."
+        "action": "contains",
+        "value": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients."
       },
       {
         "type": "json-query",
@@ -1784,7 +1736,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-08-08T19:42:27.598Z",
-    "modified": "2023-03-14T16:31:04.238Z",
+    "modified": "2023-03-23T18:27:29.756Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1814,8 +1766,8 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the CDC 2022 Clinical Prescribing Guideline for nonopioid therapy recommendations. Nonopioid Pharmacological Therapy Back pain chronic, moderate to severe Fibromyalgia Hip or knee osteoarthritis pain chronic Neuropathic pain syndromes Temporomandibular disorder Nonpharmacologic Treatments Back pain chronic Back pain low back, chronic Fibromyalgia Headache tension Knee osteoarthritis pain chronic Neck pain Temporomandibular disorder<Unable to determine medication name>"
+        "action": "contains",
+        "value": "For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the CDC 2022 Clinical Prescribing Guideline for nonopioid therapy recommendations."
       },
       {
         "type": "json-query",
@@ -2062,7 +2014,7 @@
     "method": "POST",
     "sortNum": 32500,
     "created": "2022-08-19T06:23:02.556Z",
-    "modified": "2022-10-11T18:15:54.698Z",
+    "modified": "2023-03-23T19:25:14.085Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -2105,7 +2057,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446."
+        "value": "Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
       },
       {
         "type": "json-query",

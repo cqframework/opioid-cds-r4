@@ -233,7 +233,7 @@
       "valueString": "Get Summary"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'High risk for opioid overdose - '\n        + case when \"Taper Now\"\n           then 'taper now'\n           else 'consider tapering'\n         end\n  else null"
+      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'Calibrate to Lowest Opioid Dose Needed for Expected Results and Exercise Care When Changing Opioid Dosages'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 0
@@ -593,7 +593,7 @@
       "valueString": "Get Detail"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then'Total morphine milligram equivalent (MME) is ' + ToString(\"Total MME\") + '. Taper to less than 50.'\n  else null"
+      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n    'When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage.\n\n[For guidance in determining the lowest effective opioid dosage, see Recommendation 4 of the CDC 2022 Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=lowest%20effective%20dosage.-,For%20patients%20not%20already%20taking%20opioids%2C%20the%20lowest%20effective%20dose%20can,intended%20to%20be%20guideposts%20to%20help%20inform%20clinician%2Dpatient%20decision%2Dmaking.,-Supporting%20Rationale)\n\n[For patients who have received opioid therapy for longer durations of time, if tapering, consider working closely with the patient to gradually taper dosages (no more than 10% per month)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=When%20patients%20have%20been%20taking%20opioids%20for%20longer%20durations%20(e.g.%2C%20for%20%E2%89%A51%20year)%2C%20tapers%20of%2010%25%20per%20month%20or%20slower%20are%20likely%20to%20be%20better%20tolerated%20than%20more%20rapid%20tapers.)\n\nFor a tapering calculator, go to [https://agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html](https://www.agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html)\n\n[For more guidance regarding tapering, please see Recommendation 5 of the CDC Clinical Practice Guideline Prescribing Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=When%20benefits%20(including,6%20and%207).)\n\n**MME Calculator Cautions**\n1) All doses are in mg/day except for fentanyl, which is mcg/hr. \n2) Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. \n3) Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. \n4) Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. \n5) Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. \n6) Buprenorphine products approved for the treatment of pain are not included in the table because of their partial µ-receptor agonist activity and resultant ceiling effects compared with full µ-receptor agonists. \n7) These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder.\n† Tapentadol is a µ-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.\n§ Tramadol is a µ-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 24
@@ -637,7 +637,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-03-20",
+  "date": "2023-03-23",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When opioids are started, providers should prescribe the lowest effective dosage.",
   "useContext": [ {
