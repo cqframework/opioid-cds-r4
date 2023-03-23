@@ -92,13 +92,13 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently.'
+    then 'Regularly Evaluate the Benefits and Risks of Opioid Therapy'
   else null
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
     then
-      if Common."Prescribed Opioids for 21 or more of 30 Days for each of the past 3 Months"
-        then 'No evaluation for benefits and harms associated with opioid therapy has been performed for the patient in the past 3 months'
-      else 'No evaluation for benefits and harms has been performed for the patient starting opioid therapy'
+      'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.
+
+[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=for%20%3E1%20month.)-,Recommendation%207,-Clinicians%20should%20evaluate)'
   else null

@@ -75,31 +75,6 @@
     "tests": []
   },
   {
-    "_id": "7ded9d5d-cc5f-4a46-b182-65e000b6bbf9",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "e18914b8-fe97-4ccb-ad2e-b817ba45af55",
-    "name": "LOAD_ARTIFACT_BUNDLE",
-    "url": "{{fhirServer}}",
-    "method": "POST",
-    "sortNum": 10000,
-    "created": "2022-08-08T19:42:27.510Z",
-    "modified": "2022-11-02T04:04:34.976Z",
-    "headers": [
-      {
-        "name": "Content-Type",
-        "value": "application/json"
-      }
-    ],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "../bundles/plandefinition/opioidcds-03-patient-view/opioidcds-03-patient-view-bundle.json"
-    },
-    "tests": []
-  },
-  {
     "_id": "669d1ff8-d643-4221-b4c7-4d1ec4c30f5d",
     "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
     "containerId": "b0fbf830-156e-4743-b074-8c4523410667",
@@ -358,7 +333,7 @@
     "method": "POST",
     "sortNum": 21250,
     "created": "2022-08-08T19:42:27.536Z",
-    "modified": "2022-10-12T18:20:58.620Z",
+    "modified": "2023-03-14T21:00:31.082Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -383,69 +358,25 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs."
+        "value": "Consider Nonopioid Treatment Options for Acute Pain"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Medication requests(s): <Unable to determine medication name>"
+        "action": "contains",
+        "value": "For many types of acute pain, clinicians should maximize the use of nonpharmacologic (for example, physical therapy) and nonopioid pharmacologic therapies (for example, NSAIDs), as appropriate for the specific condition and patient and only consider opioid therapy for acute pain if benefits are anticipated to outweigh risks to the patient. Before prescribing opioid therapy for acute pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy."
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
-      }
-    ]
-  },
-  {
-    "_id": "416d5ce7-5805-4a63-8b94-03efecec6b6b",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "e18914b8-fe97-4ccb-ad2e-b817ba45af55",
-    "name": "REQUEST_RETURN_RECOMMENDATION_LAO",
-    "url": "{{cdsHooksServer}}/opioidcds-03-patient-view",
-    "method": "POST",
-    "sortNum": 22500,
-    "created": "2022-08-08T19:42:27.537Z",
-    "modified": "2022-11-02T04:08:04.799Z",
-    "headers": [
-      {
-        "name": "Content-Type",
-        "value": "application/json"
-      }
-    ],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "../input/pagecontent/requests/OpioidCDSREC03PatientView/request-example-rec-03-patient-view-long-acting-opioid.json"
-    },
-    "tests": [
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "200"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].summary",
-        "action": "equal",
-        "value": "Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids."
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "The following medication requests(s) release rates should be re-evaluated: <Unable to determine medication name>"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards[0].indicator",
-        "action": "equal",
-        "value": "warning"
+        "action": "contains",
+        "value": "The 2022 CDC Clinical Practice Guideline Recommendation #1 provides recommendations for non-opioid therapy options for common pain conditions."
       }
     ]
   },
@@ -458,7 +389,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.538Z",
-    "modified": "2022-08-19T04:23:50.719Z",
+    "modified": "2023-03-21T19:27:53.757Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -483,13 +414,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently."
+        "value": "Regularly Evaluate the Benefits and Risks of Opioid Therapy"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "No evaluation for benefits and harms has been performed for the patient starting opioid therapy"
+        "action": "contains",
+        "value": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients."
       },
       {
         "type": "json-query",
@@ -514,7 +445,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.539Z",
-    "modified": "2022-10-11T17:45:35.382Z",
+    "modified": "2023-03-21T19:31:14.629Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -544,14 +475,26 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d."
+        "action": "contains",
+        "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "For more information about prescribing naloxone see"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "**MME Calculator Cautions**"
       }
     ]
   },
@@ -564,7 +507,7 @@
     "method": "POST",
     "sortNum": 22500,
     "created": "2022-08-08T19:42:27.540Z",
-    "modified": "2022-08-18T23:51:22.061Z",
+    "modified": "2023-03-21T19:42:58.595Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -594,8 +537,8 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "The benzodiazepine prescription request is concurrent with an active opioid prescription"
+        "action": "contains",
+        "value": "Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications."
       },
       {
         "type": "json-query",
@@ -614,7 +557,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.546Z",
-    "modified": "2022-11-02T04:09:45.495Z",
+    "modified": "2023-03-21T19:23:56.274Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -639,13 +582,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids."
+        "value": "When Initiating Opioid Therapy, Utilize Immediate Release Opioids"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "The following medication requests(s) release rates should be re-evaluated: <Unable to determine medication name>"
+        "action": "contains",
+        "value": "Recommend prescribing immediate release opioids instead of extended release or long-acting opioids"
       },
       {
         "type": "json-query",
@@ -664,7 +607,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.547Z",
-    "modified": "2022-11-02T19:57:03.815Z",
+    "modified": "2023-03-21T19:26:02.592Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -689,19 +632,25 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "High risk for opioid overdose - taper now"
+        "value": "Calibrate to Lowest Opioid Dose Needed for Expected Results and Exercise Care When Changing Opioid Dosages"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Total morphine milligram equivalent (MME) is 180.0 '{MME}/d'. Taper to less than 50."
+        "action": "contains",
+        "value": "When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage."
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "**MME Calculator Cautions**"
       }
     ]
   },
@@ -714,7 +663,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.548Z",
-    "modified": "2022-10-12T18:38:21.492Z",
+    "modified": "2023-03-21T19:27:21.501Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -738,13 +687,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Recommend limit therapy to <= 3 days to maximum of <= 7 days. When prescribing opioids for acute pain, CDC recommends prescribing no greater quantity than needed for the expected duration of severe pain"
+        "value": "When Treating Acute Pain, Prescribe No Greater Quantity Than Needed"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Medication requests(s): oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet"
+        "action": "contains",
+        "value": "Consider a shorter duration for opioid therapy"
       },
       {
         "type": "json-query",
@@ -763,7 +712,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.549Z",
-    "modified": "2022-10-11T17:55:00.011Z",
+    "modified": "2023-03-21T19:34:14.225Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -799,8 +748,8 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Medication requests(s): Suboxone 2 MG / 0.5 MG Sublingual Film"
+        "action": "contains",
+        "value": "Review PDMP data for this patient before completing an opioid order"
       }
     ]
   },
@@ -813,7 +762,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.550Z",
-    "modified": "2022-10-12T18:41:27.137Z",
+    "modified": "2023-03-23T19:26:02.983Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -838,13 +787,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Annual Urine Screening Check"
+        "value": "Patient May Have Unexpected Toxicology Test Results"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months."
+        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
       },
       {
         "type": "json-query",
@@ -863,7 +812,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.551Z",
-    "modified": "2022-10-30T22:26:42.066Z",
+    "modified": "2023-03-23T19:27:21.344Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -888,13 +837,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Annual Urine Screening Check"
+        "value": "Patient May Have Unexpected Toxicology Test Results"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446."
+        "action": "contains",
+        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
       },
       {
         "type": "json-query",
@@ -1013,7 +962,7 @@
     "method": "POST",
     "sortNum": 26250,
     "created": "2022-08-08T19:42:27.554Z",
-    "modified": "2022-10-11T17:46:33.289Z",
+    "modified": "2023-03-21T19:32:36.627Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1043,14 +992,26 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d, concurrent use of benzodiazepine."
+        "action": "contains",
+        "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "For more information about prescribing naloxone see "
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "**MME Calculator Cautions**"
       }
     ]
   },
@@ -1063,7 +1024,7 @@
     "method": "POST",
     "sortNum": 27500,
     "created": "2022-08-08T19:42:27.557Z",
-    "modified": "2022-08-19T04:50:32.434Z",
+    "modified": "2023-03-23T18:29:26.489Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1088,13 +1049,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Patients on opioid therapy should be evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently."
+        "value": "Regularly Evaluate the Benefits and Risks of Opioid Therapy"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "No evaluation for benefits and harms associated with opioid therapy has been performed for the patient in the past 3 months"
+        "action": "contains",
+        "value": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients."
       },
       {
         "type": "json-query",
@@ -1119,7 +1080,7 @@
     "method": "POST",
     "sortNum": 27500,
     "created": "2022-08-08T19:42:27.558Z",
-    "modified": "2022-08-18T23:48:28.500Z",
+    "modified": "2023-03-21T19:43:11.581Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1149,8 +1110,8 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "The opioid prescription request is concurrent with an active benzodiazepine prescription"
+        "action": "contains",
+        "value": "Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications."
       },
       {
         "type": "json-query",
@@ -1169,7 +1130,7 @@
     "method": "POST",
     "sortNum": 28750,
     "created": "2022-08-08T19:42:27.559Z",
-    "modified": "2022-10-11T17:46:59.840Z",
+    "modified": "2023-03-21T19:33:28.562Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1199,14 +1160,26 @@
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Consider offering naloxone given following risk factor(s) for opioid overdose: Average MME (180.0 '{MME}/d') ≥ 50 mg/d, history of alcohol or drug abuse."
+        "action": "contains",
+        "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].indicator",
         "action": "equal",
         "value": "warning"
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "For more information about prescribing naloxone see "
+      },
+      {
+        "type": "json-query",
+        "custom": "json.cards[0].detail",
+        "action": "contains",
+        "value": "**MME Calculator Cautions**"
       }
     ]
   },
@@ -1232,44 +1205,6 @@
       "raw": "",
       "form": [],
       "binary": "../input/pagecontent/requests/OpioidCDSREC02/request-example-rec-02-in-careplan-revisited.json"
-    },
-    "tests": [
-      {
-        "type": "res-code",
-        "custom": "",
-        "action": "equal",
-        "value": "200"
-      },
-      {
-        "type": "json-query",
-        "custom": "json.cards",
-        "action": "count",
-        "value": "0"
-      }
-    ]
-  },
-  {
-    "_id": "e015296e-39b0-4a39-b1c2-4098c70142fe",
-    "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
-    "containerId": "e18914b8-fe97-4ccb-ad2e-b817ba45af55",
-    "name": "REQUEST_RETURN_NO_RECOMMENDATION_NLAO",
-    "url": "{{cdsHooksServer}}/opioidcds-03-patient-view",
-    "method": "POST",
-    "sortNum": 35000,
-    "created": "2022-08-08T19:42:27.575Z",
-    "modified": "2022-11-02T04:08:46.338Z",
-    "headers": [
-      {
-        "name": "Content-Type",
-        "value": "application/json"
-      }
-    ],
-    "params": [],
-    "body": {
-      "type": "binary",
-      "raw": "",
-      "form": [],
-      "binary": "../input/pagecontent/requests/OpioidCDSREC03PatientView/request-example-rec-03-patient-view-not-long-acting-opioid.json"
     },
     "tests": [
       {
@@ -1801,7 +1736,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-08-08T19:42:27.598Z",
-    "modified": "2022-10-11T17:14:29.631Z",
+    "modified": "2023-03-23T18:27:29.756Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -1826,13 +1761,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "For many types of acute pain, consider nonopioid alternatives, e.g., physical therapy, NSAIDs."
+        "value": "Maximize Nonopioid Therapies as Appropriate"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
-        "action": "equal",
-        "value": "Medication requests(s): <Unable to determine medication name>"
+        "action": "contains",
+        "value": "For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the CDC 2022 Clinical Prescribing Guideline for nonopioid therapy recommendations."
       },
       {
         "type": "json-query",
@@ -2079,7 +2014,7 @@
     "method": "POST",
     "sortNum": 32500,
     "created": "2022-08-19T06:23:02.556Z",
-    "modified": "2022-10-11T18:15:54.698Z",
+    "modified": "2023-03-23T19:25:14.085Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -2122,7 +2057,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446."
+        "value": "Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
       },
       {
         "type": "json-query",

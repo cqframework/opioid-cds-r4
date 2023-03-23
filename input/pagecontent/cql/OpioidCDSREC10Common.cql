@@ -192,12 +192,13 @@ define "PCP Detail":
 
 define function "Get Detail" (isScreeningRecommended Boolean):
   if isScreeningRecommended then
-    'Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
+    'Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing.'
   else if "Applicable Because of Positive Cocaine or PCP or Opiates" then
-    "Cocaine Detail"&
-    "Opiates Detail"&
-    "PCP Detail"&
-    '<br/>Note: result may be false positive result or indicate patient is occasional user or addicted to the illicit drug. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.'
+    'Patient may have unexpected urine toxicology test results in the past year, including:<br/>'
+    & "Cocaine Detail"
+    & "Opiates Detail"
+    & "PCP Detail"
+    & '<br/>Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing.'
   else
       null
 
@@ -209,7 +210,7 @@ define "Indicator":
      */
 define function "Get Summary" (isScreeningRecommended Boolean):
   if isScreeningRecommended then
-    'Annual Urine Screening Check'
+    'Patient May Have Unexpected Toxicology Test Results'
   else if "Applicable Because of Positive Cocaine or PCP or Opiates" then
     if Config."Opiate Urine Screening Check Enabled" then
       'Positive Cocaine or PCP or Opiates in Urine Screening'

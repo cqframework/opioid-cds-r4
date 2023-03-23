@@ -19,17 +19,17 @@
   <packageId value="fhir.cdc.opioid-cds-r4" />
   <fhirVersion value="4.0.1" />
   <dependsOn>
-    <uri value="http://hl7.org/fhir/uv/cpg" />
+    <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg" />
     <packageId value="hl7.fhir.uv.cpg" />
     <version value="1.0.0" />
   </dependsOn>
   <dependsOn>
-    <uri value="http://hl7.fhir.us.cqfmeasures" />
+    <uri value="http://hl7.org/fhir/us/cqfmeasures/ImplementationGuide/hl7.fhir.us.cqfmeasures" />
     <packageId value="hl7.fhir.us.cqfmeasures" />
     <version value="3.0.0" />
   </dependsOn>
   <dependsOn>
-    <uri value="http://fhir.org/guides/cdc/opioid-mme-r4" />
+    <uri value="http://fhir.org/guides/cdc/opioid-mme-r4/ImplementationGuide/fhir.cdc.opioid-mme-r4" />
     <packageId value="fhir.cdc.opioid-mme-r4" />
     <version value="3.0.0" />
   </dependsOn>
@@ -328,16 +328,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC03PatientView" />
-        <display value="Recommendation 3 (patient-view) Logic Library" />
-      </reference>
-      <name value="OpioidCDSREC03PatientViewLibrary" />
-      <description value="Logic Library for Recommendation #3 (patient-view) - Opioid Immediate Release Form When Starting Opioid Therapy" />
-      <exampleBoolean value="false" />
-      <groupingId value="recommendation-libraries" />
-    </resource>
-    <resource>
-      <reference>
         <reference value="Library/OpioidCDSREC04And05" />
         <display value="Recommendations 4 and 5 (order-select) Logic Library" />
       </reference>
@@ -584,21 +574,11 @@
       </page>
       <page>
         <nameUrl value="recommendation-03-order-sign.html" />
-        <title value="Recommendation #3 Order Sign Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
+        <title value="Recommendation #3 - Opioid Immediate Release Form When Starting Opioid Therapy" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-03-cql.html" />
-          <title value="OpioidCDS Recommendation 03 Order Sign - CQL Source" />
-          <generation value="html" />
-        </page>
-      </page>
-      <page>
-        <nameUrl value="recommendation-03-patient-view.html" />
-        <title value="Recommendation #3 Patient View Variation - Opioid Immediate Release Form When Starting Opioid Therapy" />
-        <generation value="html" />
-        <page>
-          <nameUrl value="opioidcds-recommendation-03-patient-view-cql.html" />
-          <title value="OpioidCDS Recommendation 03 Patient View - CQL Source" />
+          <title value="OpioidCDS Recommendation 03 - CQL Source" />
           <generation value="html" />
         </page>
       </page>

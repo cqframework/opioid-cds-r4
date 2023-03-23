@@ -54,9 +54,6 @@ define "Is Perform Drug Screen Recommendation Applicable?":
 define "Applicable Because of Positive Cocaine or PCP or Opiates":
   Rec10Common."Applicable Because of Positive Cocaine or PCP or Opiates"
 
-define "Urine Drug Screening ProcedureRequest Category":
-  Rec10Common."Urine Drug Screening ProcedureRequest Category"
-
 define "Detail":
   Rec10Common."Get Detail" ("Is Perform Drug Screen Recommendation Applicable?")
 

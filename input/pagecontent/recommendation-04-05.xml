@@ -1,21 +1,47 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec05"> </a>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
+  <a name="rec05"> </a>
+  <p> Recommendations #4 &amp; #5 (<a
+      href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022
+    Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 91-101 lines
+    2141-2393): </p>
   <p>
-    Recommendations #4 &amp; #5 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 91-101 lines 2141-2393):
+    <strong>4: When opioids are initiated for opioid-naïve patients with acute, subacute, or chronic
+      pain, clinicians should prescribe the lowest effective dosage. If opioids are continued for
+      subacute or chronic pain, clinicians should use caution when prescribing opioids at any
+      dosage, should carefully evaluate individual benefits and risks when considering increasing
+      dosage, and should avoid increasing dosage above levels likely to yield diminishing returns in
+      benefits relative to risks to patients (recommendation category: A; evidence type: 3)</strong>
   </p>
   <p>
-    <strong>When opioids are started or continuing opioid therapy, clinicians should prescribe the lowest effective dosage. 
-      Clinicians should use caution when prescribing opioids at any dosage, should carefully reassess evidence of individual 
-      benefits and risks when considering increasing dosage to ≥ 50 morphine milligram equivalents (MME)/day 
-      (recommendation #4 category: A, evidence type: 3) (recommendation #5 category: B, evidence type: 4).    </strong>
+    <strong>5: For patients already receiving opioid therapy, clinicians should carefully weigh
+      benefits and risks and exercise care when changing opioid dosage. If benefits outweigh risks
+      of continued opioid therapy, clinicians should work closely with patients to optimize
+      nonopioid therapies while continuing opioid therapy. If benefits do not outweigh risks of
+      continued opioid therapy, clinicians should optimize other therapies and work closely with
+      patients to gradually taper to lower dosages or, if warranted based on the individual
+      circumstances of the patient, appropriately taper and discontinue opioids. Unless there are
+      indications of a life-threatening issue such as warning signs of impending overdose (e.g.,
+      confusion, sedation, or slurred speech), opioid therapy should not be discontinued abruptly,
+      and clinicians should not rapidly reduce opioid dosages from higher dosages (recommendation
+      category: B; evidence type: 4).</strong>
   </p>
 
   <div class="toc-container">
     <p class="toc-title">Contents</p>
     <ul id="toc-list">
-      <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
-      <li><a href="#content">Content</a></li>
-      <li><a href="#example-data-requests">Example Data/Requests</a></li>
+      <li>
+        <a href="#functional-description">Functional Description</a>
+      </li>
+      <li>
+        <a href="#opioid-review-useful">Opioid Review Useful</a>
+      </li>
+      <li>
+        <a href="#content">Content</a>
+      </li>
+      <li>
+        <a href="#example-data-requests">Example Data/Requests</a>
+      </li>
     </ul>
   </div>
 
@@ -23,32 +49,30 @@
     <summary class="tree-nav__item-title">
       <a name="functional-description"> </a>
       <h3 class="title">Functional Description</h3>
-    </summary>
-
-    {% include recommendation04-05-functional-description.html %}
-
-    <img src="assets/images/Recommendation04-05-flow.png" style="max-width: 100%;" />
-    <p></p>
-    {% include recommendation04-05-data-elements.html %}
-  </details>
+    </summary> {% include
+    recommendation04-05-functional-description.html %} <img
+      src="assets/images/Recommendation04-05-flow.png" style="max-width: 100%;" />
+    <p></p> {% include
+    recommendation04-05-data-elements.html %} </details>
   <p></p>
-  <a href="PlanDefinition-opioidcds-04-05.html#effective-data-requirements">Effective Data Requirements</a>
+  <a href="PlanDefinition-opioidcds-04-05.html#effective-data-requirements">Effective Data
+    Requirements</a>
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
       <a name="opioid-review-useful"> </a>
       <h3 class="title">Opioid Review Useful</h3>
-    </summary>
-    {% include opioid-review-useful-definitions.html %}
-  </details>
+    </summary> {% include
+    opioid-review-useful-definitions.html %} </details>
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
       <a name="content"> </a>
       <h3 class="title">Content</h3>
     </summary>
-    
-    <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
+
+    <p>The following artifacts formalize the description of the logic and behavior defined by this
+      recommendation.</p>
 
     <table class="list">
       <thead>
@@ -60,17 +84,27 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-04-05.html">CDC 2022 Opioid Prescribing Guideline Recommendation #4 and #5</a></td>
-          <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #5</td>
+          <td>
+            <a href="PlanDefinition-opioidcds-04-05.html">CDC 2022 Opioid Prescribing Guideline
+        Recommendation #4 and #5</a>
+          </td>
+          <td>
+            <a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a>
+          </td>
+          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing
+        Guideline Recommendation #5</td>
         </tr>
         <tr>
-          <td><a href="Library-OpioidCDSREC04And05.html">Recommendations #4 and #5 - lowest effective dosage</a></td>
-          <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
-          <td>CQL Library that provides logic for evaluating whether a prescription exceeds the MME of 50 mg/day</td>
-        </tr>
-        {% include common-libraries.html %}
-      </tbody>
+          <td>
+            <a href="Library-OpioidCDSREC04And05.html">Recommendations #4 and #5 - lowest effective
+        dosage</a>
+          </td>
+          <td>
+            <a href="{{site.data.fhir.path}}library.html">Library</a>
+          </td>
+          <td>CQL Library that provides logic for evaluating whether a prescription exceeds the MME
+        of 50 mg/day</td>
+        </tr> {% include common-libraries.html %} </tbody>
     </table>
   </details>
   <p></p>
@@ -82,19 +116,42 @@
     <table class="grid">
       <thead>
         <tr>
-          <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
+          <th>Description</th>
+          <th>CDS Hooks Request</th>
+          <th>Expected Response</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075 MG/HR Transdermal System (RXNorm 197696) one patch per day for 30 days. This will trigger the message "High risk for opioid overdose - taper now" It will then link to the "MME Conversation Tables" "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"</td>
-          <td><a href="requests/OpioidCDSREC04_05/request-example-rec-04-05-mme-greater-than-fifty.json">Request JSON</a></td>
-          <td><a href="responses/OpioidCDSREC04_05/response-example-rec-04-05-mme-greater-than-fifty.json">Response JSON</a></td>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed 72 HR Fentanyl 0.075
+            MG/HR Transdermal System (RXNorm 197696) one patch per day for 30 days. This will
+            trigger the message "High risk for opioid overdose - taper now" It will then link to the
+            "MME Conversation Tables"
+            "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"</td>
+          <td>
+            <a
+              href="requests/OpioidCDSREC04_05/request-example-rec-04-05-mme-greater-than-fifty.json">Request
+              JSON</a>
+          </td>
+          <td>
+            <a
+              href="responses/OpioidCDSREC04_05/response-example-rec-04-05-mme-greater-than-fifty.json">Response
+              JSON</a>
+          </td>
         </tr>
         <tr>
-          <td class="col-7">Patient is 18 or older. Patient has been prescribed Morphine Sulfate 10 MG (RXNorm 892495) one tablet per day for 30 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
-          <td><a href="requests/OpioidCDSREC04_05/request-example-rec-04-05-mme-less-than-fifty.json">Request JSON</a></td>
-          <td><a href="responses/OpioidCDSREC04_05/response-example-rec-04-05-mme-less-than-fifty.json">Response JSON</a></td>
+          <td class="col-7">Patient is 18 or older. Patient has been prescribed Morphine Sulfate 10
+            MG (RXNorm 892495) one tablet per day for 30 days. The patient will be excluded and no
+            message will be triggered - an empty set of cards will be returned.</td>
+          <td>
+            <a href="requests/OpioidCDSREC04_05/request-example-rec-04-05-mme-less-than-fifty.json">Request
+              JSON</a>
+          </td>
+          <td>
+            <a
+              href="responses/OpioidCDSREC04_05/response-example-rec-04-05-mme-less-than-fifty.json">Response
+              JSON</a>
+          </td>
         </tr>
       </tbody>
     </table>

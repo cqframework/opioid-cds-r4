@@ -568,7 +568,7 @@
       "valueString": "Inclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and (\n      \"On Benzodiazepine\"\n        or \"Total MME\" >= 50 '{MME}/d'\n        or \"Has Substance Abuse History\"\n    )"
+      "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and (\n      \"On Benzodiazepine\"\n        or \"Total MME\" >= 50 '{MME}/d'\n        or \"Has Substance Abuse History\"\n        // Need Concept for Diagnosed with a sleep-disordered breathing condition?\n    )"
     }, {
       "url": "displaySequence",
       "valueInteger": 21
@@ -703,7 +703,7 @@
       "valueString": "Get Detail"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'Consider offering naloxone given following risk factor(s) for opioid overdose: '\n        + if \"Detail List\" is not null and \"Detail List\" != ''\n         then \"Detail List\" + '.'\n        else 'N/A.'\n  else null"
+      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone\n\nFor more information about prescribing naloxone see \nhttps://prescribetoprevent.org\n\n**MME Calculator Cautions**\n1) All doses are in mg/day except for fentanyl, which is mcg/hr. \n2) Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. \n3) Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. \n4) Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. \n5) Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. \n6) Buprenorphine products approved for the treatment of pain are not included in the table because of their partial µ-receptor agonist activity and resultant ceiling effects compared with full µ-receptor agonists. \n7) These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder.\n† Tapentadol is a µ-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.\n§ Tramadol is a µ-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 30
@@ -747,7 +747,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-03-20",
+  "date": "2023-03-23",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should incorporate into the management plan strategies to mitigate risk, including considering offering naloxone when factors that increase risk for opioid overdose, such as history of overdose, history of substance use disorder, higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are present.",
   "useContext": [ {
@@ -876,11 +876,11 @@
       }
     } ],
     "action": [ {
-      "description": "Will offer Naloxone medications"
+      "description": "Order - Order naxalone"
     }, {
-      "description": "Benefits outweigh risks, snooze 3 months"
+      "description": "Document - Risk mitigation strategy implemented, snooze 3 months"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Snooze* - N/A see comment, snooze 3 months"
     } ]
   } ]
 }

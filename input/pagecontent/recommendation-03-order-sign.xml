@@ -3,16 +3,8 @@
     Recommendation #3 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Page 91 line 2141):
   </p>
   <p>
-    <strong>When starting opioid therapy for acute, subacute, or chronic pain, clinicians should prescribe immediate-release 
-      opioids instead of extended-release/long-acting (ER/LA) opioids (recommendation category: A, evidence type: 4).</strong>
+    <strong>When starting opioid therapy for acute, subacute, or chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release and long-acting (ER/LA) opioids (recommendation category: A; evidence type: 4).</strong>
   </p>
-
-  {% include multiple-variation-note.html %}
-
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#">Order Sign</a></li>
-    <li><a href="recommendation-03-patient-view.html">Patient View</a></li>
-  </ul>
 
   <div class="toc-container">
     <p class="toc-title">Contents</p>
@@ -74,14 +66,14 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-03.html">CDC 2022 Opioid Prescribing Guideline Recommendation #3 Order Sign</a></td>
+          <td><a href="PlanDefinition-opioidcds-03.html">CDC 2022 Opioid Prescribing Guideline Recommendation #3</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #3 Order Sign</td>
+          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #3</td>
         </tr>
         <tr>
-          <td><a href="Library-OpioidCDSREC03.html">Recommendation #3 Order Sign - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td>
+          <td><a href="Library-OpioidCDSREC03.html">Recommendation #3 - prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids</a></td>
           <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
-          <td>Defines the data requirements to support evaluation of recommendation #3 Order Sign</td>
+          <td>Defines the data requirements to support evaluation of recommendation #3</td>
         </tr>
         {% include common-libraries.html %}
       </tbody>

@@ -82,7 +82,11 @@ define "Get Summary":
 define "Get Detail":
   if "Is Recommendation Applicable?"
     then
-      if "Patient Is Being Prescribed Benzodiazepine"
-        then 'The benzodiazepine prescription request is concurrent with an active opioid prescription'
-      else 'The opioid prescription request is concurrent with an active benzodiazepine prescription'
+      'Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications.
+
+When co-prescribing risks outweigh benefits, consult the [2022 CDC Clinical Practice Guideline Recommendation 11](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%203).-,Implementation%20Considerations,-Although%20in%20some) for further guidance.
+
+[For patients being treated for opioid use disorder who are also taking benzodiazepines or other medications that depress the central nervous system, the CDC recommends not withholding buprenorphine or methadone](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=gabapentin%20and%20pregabalin).-,Buprenorphine%20or%20methadone%20for%20opioid%20use%20disorder%20should%20not%20be%20withheld%20from%20patients%20taking%20benzodiazepines%20or%20other%20medications%20that%20depress%20the%20central%20nervous%20system.,-Clinicians%20should%20check).
+
+If the decision is made to taper benzodiazepine medications, [the CDC recommends tapering benzodiazepines gradually prior to discontinuation](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20taper%20benzodiazepines%20gradually%20before%20discontinuation%20because%20abrupt%20withdrawal%20can%20be%20associated%20with%20rebound%20anxiety%2C%20hallucinations%2C%20seizures%2C%20delirium%20tremens%2C%20and%2C%20rarely%2C%20death.%20The%20rate%20of%20tapering%20should%20be%20individualized).'
   else null

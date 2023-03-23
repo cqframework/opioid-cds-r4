@@ -185,7 +185,7 @@
       "valueString": "Get Summary"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids.'\n  else null"
+      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'When Initiating Opioid Therapy, Utilize Immediate Release Opioids'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 0
@@ -515,7 +515,7 @@
       "valueString": "Get Detail"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'The following medication requests(s) release rates should be re-evaluated: '\n      + Combine((\"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" M\n           return Coalesce(M.medication.text, '<Unable to determine medication name>')), ', ')\n  else null"
+      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'Recommend prescribing immediate release opioids instead of extended release or long-acting opioids\n\n[For guidance regarding prescribing extended release/ long-acting opioids, see Recommendation 3 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,to%20educate%20their%20patients%20about%20its%20use%20should%20consider%20prescribing%20it.,-Supporting%20Rationale)'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 22
@@ -559,7 +559,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-03-20",
+  "date": "2023-03-23",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When starting opioid therapy for subacute or chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids.",
   "useContext": [ {
@@ -688,11 +688,11 @@
       }
     } ],
     "action": [ {
-      "description": "Will prescribe immediate release opioid analgesic with ambulatory misuse potential"
+      "description": "Document - Will prescribe immediate release opioid"
     }, {
-      "description": "Benefits outweigh risks, snooze 3 months"
+      "description": "Snooze* - Benefits outweigh risks, snooze 3 months"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Snooze* N/A see comment, snooze 3 months"
     } ]
   } ]
 }
