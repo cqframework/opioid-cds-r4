@@ -21,7 +21,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-14"
+                "valueDateTime": "2023-03-20"
               },
               {
                 "url": "frequency",
@@ -45,7 +45,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1982-11-23"
+        "birthDate": "1982-11-29"
       }
     },
     "item2": {
@@ -65,7 +65,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-14"
+                      "valueDateTime": "2023-03-20"
                     },
                     {
                       "url": "frequency",
@@ -106,7 +106,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-encounter"
               },
-              "authoredOn": "2022-12-14",
+              "authoredOn": "2022-12-20",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -131,8 +131,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2022-12-14T00:00:00-07:00",
-                  "end": "2023-03-14T00:00:00-06:00"
+                  "start": "2022-12-20T00:00:00-07:00",
+                  "end": "2023-03-20T00:00:00-06:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
@@ -154,7 +154,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-14"
+                      "valueDateTime": "2023-03-20"
                     },
                     {
                       "url": "frequency",
@@ -195,7 +195,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-POS-PCP-drugs-encounter"
               },
-              "authoredOn": "2023-03-14",
+              "authoredOn": "2023-03-20",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -220,8 +220,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2023-03-14T00:00:00-06:00",
-                  "end": "2023-06-13T00:00:00-06:00"
+                  "start": "2023-03-20T00:00:00-06:00",
+                  "end": "2023-06-19T00:00:00-06:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
@@ -253,7 +253,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-14"
+                      "valueDateTime": "2023-03-20"
                     },
                     {
                       "url": "frequency",
@@ -290,7 +290,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-10-08",
+              "effectiveDateTime": "2022-10-14",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -314,7 +314,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-14"
+                      "valueDateTime": "2023-03-20"
                     },
                     {
                       "url": "frequency",
@@ -351,7 +351,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-10-17",
+              "effectiveDateTime": "2022-10-23",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -375,7 +375,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-14"
+                      "valueDateTime": "2023-03-20"
                     },
                     {
                       "url": "frequency",
@@ -412,7 +412,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-12-18",
+              "effectiveDateTime": "2022-12-24",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -436,7 +436,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-14"
+                      "valueDateTime": "2023-03-20"
                     },
                     {
                       "url": "frequency",
@@ -473,7 +473,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-11-08",
+              "effectiveDateTime": "2022-11-14",
               "valueString": "POS",
               "interpretation": [
                 {

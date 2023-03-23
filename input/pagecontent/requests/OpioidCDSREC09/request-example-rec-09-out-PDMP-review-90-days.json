@@ -19,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-03-14"
+                    "valueDateTime": "2023-03-20"
                   },
                   {
                     "url": "frequency",
@@ -58,7 +58,7 @@
             "subject": {
               "reference": "Patient/example-rec-09-false-due-to-PDMP-review-within-90-days"
             },
-            "authoredOn": "2023-03-14",
+            "authoredOn": "2023-03-20",
             "dosageInstruction": [
               {
                 "timing": {
@@ -73,8 +73,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-03-14T00:00:00-06:00",
-                "end": "2023-06-14T00:00:00-06:00"
+                "start": "2023-03-20T00:00:00-06:00",
+                "end": "2023-06-20T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
@@ -103,7 +103,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-14"
+                "valueDateTime": "2023-03-20"
               },
               {
                 "url": "frequency",
@@ -117,7 +117,7 @@
             ]
           }
         ],
-        "birthDate": "2003-03-14"
+        "birthDate": "2003-03-20"
       }
     },
     "item2": {
@@ -133,7 +133,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-14"
+                "valueDateTime": "2023-03-20"
               },
               {
                 "url": "frequency",
@@ -161,8 +161,8 @@
           "reference": "Patient/example-rec-09-false-due-to-PDMP-review-within-90-days"
         },
         "performedPeriod": {
-          "start": "2023-01-12",
-          "end": "2023-01-12"
+          "start": "2023-01-18",
+          "end": "2023-01-18"
         }
       }
     }

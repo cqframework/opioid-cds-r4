@@ -49,7 +49,10 @@ For a detailed description of how to implement the functionality with a Java-bas
 service, refer to the [Service Documentation](service-documentation.html).
 
 ### Trigger Overview
-![Trigger Overview Image](assets/images/trigger-overview.png "Trigger Overview image") 
+<div>
+    <img src="assets/images/trigger-overview.png" alt="Trigger Overview image">
+</div>
+<br />
  
 ### Morphine Milligram Equivalent (MME) Calculation Cautions
 
