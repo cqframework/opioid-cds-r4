@@ -1,6 +1,6 @@
 # Opioid Prescribing Support Implementation Guide (FHIR R4 (4.0.1))
 
-This project is a joint effort by the Centers for Disease Control and Prevention (CDC) and the Office of the National Coordinator for Health IT (ONC) focused on improving processes for the development of standardized, shareable, computable decision support artifacts using the [CDC 2022 Opioid Prescribing Guideline](https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm) as a model case.
+This project is a joint effort by the Centers for Disease Control and Prevention (CDC) and the Office of the National Coordinator for Health IT (ONC) focused on improving processes for the development of standardized, shareable, computable decision support artifacts using the [2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm) as a model case.
 
 The current draft of the implementation guide is available [here](http://build.fhir.org/ig/cqframework/opioid-cds-r4/). The draft is in the final stages of cleanup before publishing the initial 1.0 release.
 
@@ -8,7 +8,7 @@ The guide is published under a Creative Commons [license](LICENSE.md).
 
 ## Change Management and Roadmap
 
-The guide currently includes artifacts to support all 12 recommendations contained in the Opioid Guideline. Next steps for this project include additional testing and piloting of the existing artifacts, as well as potential development of additional recommendations.
+The guide currently includes artifacts to support all 12 recommendations contained in the 2022 CDC Clinical Practice Guideline. Next steps for this project include additional testing and piloting of the existing artifacts, as well as potential development of additional recommendations.
 
 Feedback and issues can be submitted via the [issues](issues) page, and will be incorporated into subsequent releases as time and resources allow.
 

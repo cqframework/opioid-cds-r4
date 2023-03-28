@@ -92,13 +92,13 @@ define "Get Detail":
     then
     'When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage.
 
-[For guidance in determining the lowest effective opioid dosage, see Recommendation 4 of the CDC 2022 Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=lowest%20effective%20dosage.-,For%20patients%20not%20already%20taking%20opioids%2C%20the%20lowest%20effective%20dose%20can,intended%20to%20be%20guideposts%20to%20help%20inform%20clinician%2Dpatient%20decision%2Dmaking.,-Supporting%20Rationale)
+[For guidance in determining the lowest effective opioid dosage, see Recommendation 4 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=lowest%20effective%20dosage.-,For%20patients%20not%20already%20taking%20opioids%2C%20the%20lowest%20effective%20dose%20can,intended%20to%20be%20guideposts%20to%20help%20inform%20clinician%2Dpatient%20decision%2Dmaking.,-Supporting%20Rationale)
 
 [For patients who have received opioid therapy for longer durations of time, if tapering, consider working closely with the patient to gradually taper dosages (no more than 10% per month)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=When%20patients%20have%20been%20taking%20opioids%20for%20longer%20durations%20(e.g.%2C%20for%20%E2%89%A51%20year)%2C%20tapers%20of%2010%25%20per%20month%20or%20slower%20are%20likely%20to%20be%20better%20tolerated%20than%20more%20rapid%20tapers.)
 
 For a tapering calculator, go to [https://agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html](https://www.agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html)
 
-[For more guidance regarding tapering, please see Recommendation 5 of the CDC Clinical Practice Guideline Prescribing Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=When%20benefits%20(including,6%20and%207).)
+[For more guidance regarding tapering, please see Recommendation 5 of the 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=When%20benefits%20(including,6%20and%207).)
 
 **MME Calculator Cautions**
 1) All doses are in mg/day except for fentanyl, which is mcg/hr. 
