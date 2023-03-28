@@ -80,7 +80,7 @@ define "Urine Drug Screening Request":
       authoredOn: FHIR.dateTime { value: Now() },
       reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: "Detail" } } }
       // doesn't really work, need a relatedArtifact here...
-      //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids' } } }
+      //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Introduction:~:text=9%2C%20Implementation%20Considerations).-,Recommendation,-10' } } }
     }
 
 define function ToCoding(code System.Code):
