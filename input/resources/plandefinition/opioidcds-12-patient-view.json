@@ -433,8 +433,8 @@
           "valueCodeableConcept": {
             "coding": [ {
               "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "moderate",
-              "display": "Moderate quality"
+              "code": "high",
+              "display": "High quality"
             } ]
           }
         } ]

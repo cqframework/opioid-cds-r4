@@ -564,8 +564,8 @@
           "valueCodeableConcept": {
             "coding": [ {
               "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "strong",
-              "display": "Strong"
+              "code": "weak",
+              "display": "Weak"
             } ]
           }
         }, {
