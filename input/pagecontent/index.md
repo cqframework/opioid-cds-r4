@@ -3,7 +3,7 @@
 This implementation guide provides resources and discussion in support of applying the Centers
 for Disease Control and Prevention (CDC) 2022 Opioid Prescribing Guideline:
 
-[CDC 2022 guideline for prescribing opioids for subacute or chronic pain](https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids)
+[2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm)
 
 This implementation guide was developed based on work initially done as part of the
 <a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">Clinical Quality Framework (CQF)</a>
