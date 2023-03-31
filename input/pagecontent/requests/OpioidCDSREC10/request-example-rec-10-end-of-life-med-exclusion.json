@@ -107,10 +107,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-end-of-life-med-exclusion",
         "extension": [
@@ -135,16 +131,11 @@
         ],
         "gender": "female",
         "birthDate": "1982-11-29"
-      }
     },
     "item2": null,
     "item3": null,
     "item4": null,
     "item5": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Condition",
         "id": "EndOfLifeCondition",
         "extension": [
@@ -201,7 +192,6 @@
           "reference": "Patient/example-rec-10-end-of-life-med-exclusion"
         },
         "recordedDate": "2023-01-19"
-      }
     },
     "item6": null,
     "item7": null,

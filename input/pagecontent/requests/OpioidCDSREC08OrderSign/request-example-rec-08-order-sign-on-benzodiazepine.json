@@ -103,10 +103,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-08-order-sign-on-benzodiazepine",
         "extension": [
@@ -131,13 +127,8 @@
         ],
         "gender": "female",
         "birthDate": "1982-11-29"
-      }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-08-order-sign-on-benzodiazepine-context",
         "extension": [
@@ -222,7 +213,6 @@
             "code": "d"
           }
         }
-      }
     },
     "item3": null,
     "item4": null,

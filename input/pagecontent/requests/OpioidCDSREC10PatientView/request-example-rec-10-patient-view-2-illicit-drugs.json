@@ -49,10 +49,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -234,13 +230,8 @@
             }
           }
         ]
-      }
     },
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -489,7 +480,6 @@
             }
           }
         ]
-      }
     },
     "item4": null
   }

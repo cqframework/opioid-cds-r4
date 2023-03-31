@@ -107,10 +107,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-2-illicit-drugs",
         "extension": [
@@ -135,13 +131,8 @@
         ],
         "gender": "female",
         "birthDate": "1982-11-29"
-      }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -370,13 +361,8 @@
             }
           }
         ]
-      }
     },
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-10-2-illicit-drugs-prefetch",
         "extension": [
@@ -407,7 +393,6 @@
           "start": "2022-12-20",
           "end": "2022-12-20"
         }
-      }
     },
     "item4": null,
     "item5": null,
@@ -416,10 +401,6 @@
     "item8": null,
     "item9": null,
     "item10": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-2-illicit-drugs-prefetch",
         "extension": [
@@ -507,5 +488,4 @@
         }
       }
     }
-  }
 }
