@@ -94,10 +94,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-07-seven-of-past-ten-days-prefetch",
         "extension": [
@@ -170,13 +166,8 @@
             "code": "d"
           }
         }
-      }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-07-seven-of-past-ten-days-prefetch",
         "extension": [
@@ -218,13 +209,8 @@
           "start": "2023-03-13",
           "end": "2023-03-13"
         }
-      }
     },
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-07-seven-of-past-ten-days",
         "extension": [
@@ -248,8 +234,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "2003-03-23"
-      }
+        "birthDate": "2002-12-13"
     },
     "item4": null,
     "item5": null,
