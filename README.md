@@ -1,4 +1,4 @@
-# Opioid Prescribing Support Implementation Guide (FHIR R4 (4.0.1))
+# Clinical Practice Guideline for Prescribing Opioids Implementation Guide (FHIR R4 (4.0.1))
 
 This project is a joint effort by the Centers for Disease Control and Prevention (CDC) and the Office of the National Coordinator for Health IT (ONC) focused on improving processes for the development of standardized, shareable, computable decision support artifacts using the [2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm) as a model case.
 
@@ -16,7 +16,7 @@ Contributions must follow the commit policy defined [here](/commit_policy.md)
 
 ## Repository and Build Information
 
-This repository contains the source for the Opioid Prescribing Support Implementation Guide, and uses the [FHIR Implementation Guide publisher](http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation) to produce a FHIR Implementation Guide.
+This repository contains the source for the Clinical Practice Guideline for Prescribing Opioids Implementation Guide, and uses the [FHIR Implementation Guide publisher](http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation) to produce a FHIR Implementation Guide.
 
 Commits to this repository will automatically trigger a new build of the IG, which will then be published to the following location:
 

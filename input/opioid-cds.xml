@@ -4,7 +4,7 @@
   <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/fhir.cdc.opioid-cds-r4" />
   <version value="2022.1.0" />
   <name value="Opioid_CDC" />
-  <title value="Opioid Prescribing Support Implementation Guide" />
+  <title value="Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
   <status value="active" />
   <experimental value="false" />
   <date value="2017-02-06" />
@@ -15,7 +15,7 @@
       <value value="https://www.cdc.gov" />
     </telecom>
   </contact>
-  <description value="Opioid Prescribing Support Implementation Guide" />
+  <description value="Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
   <packageId value="fhir.cdc.opioid-cds-r4" />
   <fhirVersion value="4.0.1" />
   <dependsOn>
