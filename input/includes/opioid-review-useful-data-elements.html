@@ -5,35 +5,80 @@
     <td>No</td>
     <td>Calculate age from date of birth; exclude patients with age less than 18 years at the time of the prescription</td>
     <td>Date of birth</td>
+    <td><a href="http://hl7.org/fhir/R4/patient.html">Patient</a></td>
+    <td><a href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate">Patient.birthDate</a></td>
   </tr>
   <tr>
     <td>Evidence of sickle cell disease?</td>
     <td>No</td>
     <td>Look for patients with a diagnosis or problem list entry indicating sickle cell disease</td>
     <td>Sickle cell disease condition</td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns.html">Condition Problems and Health Concerns (US Core)</a>
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.category">Condition.category</a>,       
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.code">Condition.code</a>, and
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.clinicalStatus">Condition.clinicalStatus</a>
+    </td>
   </tr>
   <tr>
     <td>Limited life expectancy conditions present?</td>
     <td>No</td>
     <td>Look for documented findings consistent with those listed in the limited life expectancy value set (terminal illness, bad prognosis, pre-terminal)</td>
     <td>Limited life expectancy conditions</td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns.html">Condition Problems and Health Concerns (US Core)</a>
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.category">Condition.category</a> and     
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.code">Condition.code</a>  
+     </td>
   </tr>
   <tr>
     <td>Order for therapies indicating end of life care in past 90 days?</td>
     <td>No</td>
     <td>Look for patients with an existing order for therapies indicating end of life care written within past 90 days</td>
     <td>Therapies indicating end of life care</td>
+    <td><a href="http://hl7.org/fhir/R4/servicerequest.html">ServiceRequest</a></td>
+    <td><a href="http://hl7.org/fhir/R4/servicerequest-definitions.html#ServiceRequest.status">ServiceRequest.status</a>, 
+      <a href="http://hl7.org/fhir/R4/servicerequest-definitions.html#ServiceRequest.intent">ServiceRequest.intent</a>, 
+      <a href="http://hl7.org/fhir/R4/servicerequest-definitions.html#ServiceRequest.authoredOn">ServiceRequest.authoredOn</a>, and 
+      <a href="http://hl7.org/fhir/R4/servicerequest-definitions.html#ServiceRequest.code">ServiceRequest.code</a>
+    </td>
   </tr>
   <tr>
     <td>Active cancer treatment?</td>
     <td>No</td>
     <td>See Active Cancer Treatment sub-routine</td>
     <td>See Active Cancer Treatment sub-routine</td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns.html">Condition Problems and Health Concerns (US Core)</a>, and 
+      <a href="http://hl7.org/fhir/R4/practitionerRole.html">PractitionerRole</a>
+      </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.category">Condition.category</a>,       
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.code">Condition.code</a>, 
+      <a href="http://hl7.org/fhir/R4/encounter-definitions.html#Encounter.class">Encounter.class</a>,
+      <a href="http://hl7.org/fhir/R4/encounter-definitions.html#Encounter.period">Encounter.period.start</a>,
+      <a href="http://hl7.org/fhir/R4/encounter-definitions.html#Encounter.diagnosis">Encounter.diagnosis</a>,
+      <a href="http://hl7.org/fhir/R4/encounter-definitions.html#Encounter.participant.type">Encounter.participant.type</a>,
+      <a href="http://hl7.org/fhir/R4/encounter-definitions.html#Encounter.participant.individual">Encounter.participant.individual</a>, and
+      <a href="http://hl7.org/fhir/R4/practitionerrole-definitions.html#PractitionerRole.specialty">PractitionerRole.specialty</a>
+      </td>
   </tr>
   <tr>
     <td>Conditions Likely Terminal for opioid prescribing present?</td>
     <td>No</td>
     <td>Look for patients with <em>active</em> conditions in the value set end-of-life-conditions</td>
     <td>Conditions likely terminal for opioid prescribing</td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns.html">Condition Problems and Health Concerns (US Core)</a>
+      </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.category">Condition.category</a>,       
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.code">Condition.code</a>, and
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.clinicalStatus">Condition.clinicalStatus</a>
+      </td>
   </tr>
 </table>
