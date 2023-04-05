@@ -13,11 +13,31 @@
       &#8226; the treatment plan should have been created or reviewed within the past 90 days by the <b>same individual</b> who is writing the new prescription.
     </td>
     <td>Pain treatment plan</td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/careplan.html">CarePlan</a>
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.category">CarePlan.category</a>,
+      <a href="http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.status">CarePlan.status</a>,
+      <a href="http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.created">CarePlan.created</a>,
+      <a href="https://hl7.org/fhir/R4/resource.html#Meta">CarePlan.lastUpdated</a>,
+      <a href="http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.author">CarePlan.author</a>,
+
+    </td>
   </tr>
   <tr>
     <td>Pain management procedure in past 90 days?</td>
     <td>No</td>
     <td>Look for a pain management procedure (including the procedure to review a pain management treatment plan) that occurred within the past 90 days (including the day of the visit).</td>
     <td>Pain management procedure</td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/procedure.html">Procedure</a>, and
+      <a href="http://hl7.org/fhir/R4/medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_">Procedure.performed</a>,
+      <a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer.actor">Procedure.performer.actor</a>, and
+      <a href="https://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.recorder">MedicationRequest.recorder</a>
+    </td>
   </tr>
 </table>
