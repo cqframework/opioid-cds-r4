@@ -6,6 +6,15 @@
     <td>Yes</td>
     <td>Order for opioid analgesics with ambulatory misuse potential</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      <td><a href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration">MedicationRequest.dispenseRequest.expectedSupplyDuration</a></td>
+      <td><a href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.medication_x_">MedicationRequest.medication</a></td>
+      <td><a href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a></td>
+
+    </td>
   </tr>
   {% include data-elements-opioid-review-useful.html %}
   <tr>
@@ -15,11 +24,20 @@
       dose assumes the maximum dose the patient may take any given day if a range is present. Ideally, dispensed data 
       could be used to determine the medication dispensed to the patient</td>
     <td></td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/medicationrequest.html">MedicationRequest.medication.coding.code</a>
+      <a href="https://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction">MedicationRequest.dosageInstruction</a>
+    </td>
   </tr>
   <tr>
     <td>MME&ge;50?</td>
     <td>Yes</td>
     <td>MME result is &ge; 50</td>
+    <td></td>
+    <td></td>
     <td></td>
   </tr>
 </table>
