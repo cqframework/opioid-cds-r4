@@ -6,6 +6,13 @@
     <td>Yes</td>
     <td>Trigger based on a new prescription (order) for opioids in the relevant value set - ideally the prescription should be selected prior to being committed to the system</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      <a href="https://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.medication_x_">MedicationRequest.medication.code</a>
+      <a href="https://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.catgegory</a>
+    </td>
   </tr>
   {% include data-elements-acute-pain.html %}
   {% include data-elements-opioid-review-useful.html %}
@@ -14,5 +21,12 @@
     <td>Yes</td>
     <td>Determine if the new prescription (order) has an intended duration of &gt; 7 days</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td>
+      <a href="http://hl7.org/fhir/R4/medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      <a href="https://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.medication_x_">MedicationRequest.medication.coding.code</a>
+      <a href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration">MedicationRequest.dispenseRequest.expectedSupplyDuration</a>
+    </td>
   </tr>
 </table>
