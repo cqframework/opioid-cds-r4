@@ -633,7 +633,7 @@
       "valueString": "Get Detail"
     }, {
       "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.\n\n[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=for%20%3E1%20month.)-,Recommendation%207,-Clinicians%20should%20evaluate)'\n  else null"
+      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then\n      'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.\n\n[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7)'\n  else null"
     }, {
       "url": "displaySequence",
       "valueInteger": 28
@@ -732,9 +732,9 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
     }
   }, {
     "type": "documentation",

@@ -100,5 +100,5 @@ define "Get Detail":
     then
       'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.
 
-[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=for%20%3E1%20month.)-,Recommendation%207,-Clinicians%20should%20evaluate)'
+[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7)'
   else null

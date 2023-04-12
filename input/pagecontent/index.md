@@ -3,7 +3,7 @@
 This implementation guide provides resources and discussion in support of applying the Centers
 for Disease Control and Prevention (CDC) 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain:
 
-[2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids)
+[2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm)
 
 This implementation guide was developed based on work initially done as part of the
 <a href="https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework">Clinical Quality Framework (CQF)</a>
@@ -50,7 +50,10 @@ service, refer to the [Service Documentation](service-documentation.html).
 
 ### Trigger Overview
 <div>
+<figure>
     <img src="assets/images/trigger-overview.png" alt="Trigger Overview image">
+    <figurecaption><br/>Orange shapes represent preferred trigger approaches. Items with clear/white centers are available (developed in earlier pilot testing prior to EHR support for order based hooks) for implementation at sites without preferred trigger capabilities in existing software for CDS Hooks.</figurecaption>
+</figure>
 </div>
 <br />
  

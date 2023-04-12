@@ -563,9 +563,9 @@
     "documentation": [ {
       "type": "documentation",
       "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-      "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
       "document": {
-        "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
+        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
       }
     }, {
       "type": "documentation",
@@ -575,8 +575,8 @@
           "valueCodeableConcept": {
             "coding": [ {
               "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "strong",
-              "display": "Strong"
+              "code": "weak",
+              "display": "Weak"
             } ]
           }
         }, {
