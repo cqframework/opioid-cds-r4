@@ -8,18 +8,32 @@
     <td>No</td>
     <td>Look for an existing prescription (order) for opioid that is in the value set for opioid with ambulatory <br />misuse potential authored within the past 90 days (excluding the last 24 hours)</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a></td>
+    <td>MedicationRequest.medication, MedicationRequest.category, MedicationRequest.authoredOn</td>
   </tr>
   <tr>
     <td>Opioid analgesics with ambulatory misuse potential reported as being taken excluding the last 24 hours?*</td>
     <td>No</td>
     <td>Look for evidence of active medication on the medication list that is in the value set for opioid with <br />ambulatory care misuse potential (excluding the last 24 hours)</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td><a href="https://hl7.org/fhir/R4/medicationstatement.html">MedicationStatement</a></td>
+    <td>
+      <a href="https://hl7.org/fhir/R4/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication, </a>
+      <a href="https://hl7.org/fhir/R4/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status, and </a>
+      <a href="https://hl7.org/fhir/R4/medicationstatement-definitions.html#MedicationStatement.effective_x_">MedicationStatement.effective</a>
+    </td>
   </tr>
   <tr>
     <td>Opioid analgesics with ambulatory misuse potential dispensing event in past 90 days excluding the last 24 hours?*</td>
     <td>No</td>
     <td>Look for evidence of a dispensing event for medication that is in the value set for opioid with ambulatory <br />use potential occurring within the past 90 days (excluding the last 24 hours)</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td><a href="https://hl7.org/fhir/R4/medicationdispense.html">MedicationDispense</a></td>
+    <td>
+      <a href="https://hl7.org/fhir/R4/medicationdispense-definitions.html#MedicationDispense.medication_x_">MedicationDispense.medication, </a>
+      <a href="https://hl7.org/fhir/R4/medicationdispense-definitions.html#MedicationDispense.status">MedicationDispense.status, and </a>
+      <a href="https://hl7.org/fhir/R4/medicationdispense-definitions.html#MedicationDispense.whenHandedOver">MedicationDispense.whenHandedOver</a>
+    </td>
   </tr>
   <tfoot>
     <tr>
