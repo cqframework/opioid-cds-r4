@@ -6,17 +6,41 @@
     <td>Yes</td>
     <td>Age greater than or equal to 18 years</td>
     <td></td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-patient.html">Patient (US Core)</a>
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-patient-definitions.html#Patient.birthDate">Patient.birthDate</a>
+    </td>
   </tr>
   <tr>
     <td>Presence of diagnosis of opioid misuse disorders in past 90 days?</td>
     <td>Yes</td>
     <td>Look for an active condition of opioid misuse disorder</td>
     <td>Opioid misuse disorders</td>
+    <td>      
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns.html">Condition Problems and Health Concerns (US Core)</a>, and 
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.category">Condition.category</a>,       
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.code">Condition.code</a>,  
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.clinicalStatus">Condition.clinicalStatus</a>, and 
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.recordedDate">Condition.recordedDate</a> 
+    </td>
   </tr>
   <tr>
     <td>Active order for buprenorphine or methadone medications?</td>
     <td>No</td>
     <td>An active prescription (order) for buprenorphine or methadone medications</td>
     <td>Buprenorphine and methadone medications</td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a>
+    </td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication</a>, 
+      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a>, 
+      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.status">MedicationRequest.status</a>, and
+      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a>
+    </td>
   </tr>
 </table>

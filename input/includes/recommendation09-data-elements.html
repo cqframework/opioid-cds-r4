@@ -6,6 +6,13 @@
     <td>Yes</td>
     <td>Order for opioid analgesics with ambulatory misuse potential</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a>
+    </td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication</a>
+      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a>
+    </td>
   </tr>
   {% include data-elements-opioid-review-useful.html %}
   <tr>
@@ -15,11 +22,27 @@
       interval for review based on local practice / regulation) [Evidence for the PDMP review procedure may potentially originate in
       a PDMP Smart App that provides the code once PDMP review procedure has been completed]</td>
     <td>PDMP review procedure</td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure.html">Procedure (US Core)</a>
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure-definitions.html#Procedure.code">Procedure.code</a>,       
+      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure-definitions.html#Procedure.status">Procedure.status</a>, and 
+      <a href="https://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure-definitions.html#Procedure.performed[x]">Procedure.performed</a>
+    </td>
   </tr>
   <tr>
     <td>PDMP data reviewed finding in past 90 days?</td>
     <td>No</td>
     <td>Documentation (i.e., a finding that PDMP review has occurred) in last 90 days (may need to modify time interval for review based on local practice / regulation)</td>
     <td>PDMP data reviewed finding</td>
+    <td>
+      <a href="StructureDefinition-cdc-observation.html">Observation (CDC)</a>
+    </td>
+    <td>
+      <a href="StructureDefinition-cdc-observation-definitions.html#Observation.status">Observation.status</a>,  
+      <a href="StructureDefinition-cdc-observation-definitions.html#Observation.code">Observation.code</a>, and          
+      <a href="StructureDefinition-cdc-observation-definitions.html#Observation.effective[x]">Observation.effective</a>
+    </td>
   </tr>
 </table>
