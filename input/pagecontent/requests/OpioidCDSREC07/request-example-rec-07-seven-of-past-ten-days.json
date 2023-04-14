@@ -166,13 +166,8 @@
             "code": "d"
           }
         }
-      }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-07-seven-of-past-ten-days-prefetch",
         "extension": [
