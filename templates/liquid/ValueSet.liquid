@@ -84,7 +84,6 @@
           <td style="padding-left: 4px;">
             {% for extension in ValueSet.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/valueset-rules-text') %}
                 <pre><code>{{extension.value.escape('html')}}</code></pre>
-                <!--Markdown rendering TBD-->
               {% endfor %}
           </td>
         </tr>
@@ -119,7 +118,7 @@
           </td>
         </tr>
         {% endif %}
-<!--TBD contact value set author-->
+<!--TBD contact value set author extension-->
  {% if ValueSet.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability').exists() %}
         <tr>
           <th scope="row"><b>CPG Knowledge Capability (Extension): </b></th>
@@ -173,12 +172,24 @@
             <td style="padding-left: 4px;">{{ValueSet.jurisdiction.first().coding.first().code}}</td>
         </tr>
         {% endif %}
-        <!--ValueSet.immutable TBD-->
+        {% if ValueSet.immutable.exists() %}
+        <tr>
+            <th scope="row"><b>Immutable: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.immutable}}</td>
+        </tr>
+        {% endif %}
         {% if ValueSet.purpose.exists() %}
         <tr>
             <th scope="row"><b>Purpose: </b></th>
             <td style="padding-left: 4px;">{{ValueSet.purpose}}</td>
         </tr>
         {% endif %}
+        {% if ValueSet.copyright.exists() %}
+        <tr>
+            <th scope="row"><b>Copyright: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.copyright}}</td>
+        </tr>
+        {% endif %}
+                <!--ValueSet.expansion TBD-->
     </table>
 </div>
