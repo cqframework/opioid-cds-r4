@@ -6,5 +6,107 @@
             <td style="padding-left: 4px;">{{ValueSet.id}}</td>
         </tr>
         {% endif %}
+        {% if ValueSet.url.exists() %}
+        <tr>
+            <th scope="row"><b>Url: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.url}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.version.exists() %}
+        <tr>
+            <th scope="row"><b>Version: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.version}}</td>
+        </tr>
+        {% endif %}
+        {% for identifier in ValueSet.identifier %}
+        <tr>
+            <th scope="row"><b>Identifier: </b></th>
+            <td style="padding-left: 4px;">
+                {% if identifier.type.exists() %}
+                <p style="margin-bottom: 5px;">
+                    <b>type: </b> <span>{{identifier.type.value}}</span>
+                </p>
+                {% endif %}
+                {% if identifier.value.exists() %}
+                <p style="margin-bottom: 5px;">
+                    <b>value: </b> <span>{{identifier.value}}</span>
+                </p>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        {% if ValueSet.name.exists() %}
+        <tr>
+            <th scope="row"><b>Name: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.name}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.title.exists() %}
+        <tr>
+            <th scope="row"><b>Title: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.title}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.status.exists() %}
+        <tr>
+            <th scope="row"><b>Status: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.status.value}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.experimental.exists() %}
+        <tr>
+            <th scope="row"><b>Experimental: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.experimental.value}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.date.exists() %}
+        <tr>
+            <th scope="row"><b>Date: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.date}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.publisher.exists() %}
+        <tr>
+            <th scope="row"><b>Publisher: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.publisher}}</td>
+        </tr>
+        {% endif %}
+        <!--ValueSet.contact details TBD-->
+        {% if ValueSet.description.exists() %}
+        <tr>
+            <th scope="row"><b>Description: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.description.escape('html')}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.useContext.exists() %}
+        <tr>
+            <th scope="row"><b>Use Context: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    <tr><th><b>code</b></th><th><b>value</b></th><th><b>display</b></th></tr>
+                    {% for useContext in ValueSet.useContext %}
+                      <tr>
+                        <td>{{useContext.code.code}}</td>
+                        <td>{{(useContext.value as CodeableConcept).coding.first().code}}</td>
+                        <td>{{(useContext.value as CodeableConcept).coding.first().display}}</td>
+                      </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.jurisdiction.exists() %}
+        <tr>
+            <th scope="row"><b>Jurisdiction: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.jurisdiction.first().coding.first().code}}</td>
+        </tr>
+        {% endif %}
+        <!--ValueSet.immutable TBD-->
+        {% if ValueSet.purpose.exists() %}
+        <tr>
+            <th scope="row"><b>Purpose: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.purpose}}</td>
+        </tr>
+        {% endif %}
     </table>
 </div>
