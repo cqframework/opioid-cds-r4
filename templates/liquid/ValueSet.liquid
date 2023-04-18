@@ -78,6 +78,78 @@
             <td style="padding-left: 4px;">{{ValueSet.description.escape('html')}}</td>
         </tr>
         {% endif %}
+        {% if ValueSet.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/valueset-rules-text').exists() %}
+        <tr>
+          <th scope="row"><b>Rules Text (Extension): </b></th>
+          <td style="padding-left: 4px;">
+            {% for extension in ValueSet.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/valueset-rules-text') %}
+                <pre><code>{{extension.value.escape('html')}}</code></pre>
+                <!--Markdown rendering TBD-->
+              {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.extension.where(url = 'http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus').exists() %}
+        <tr>
+          <th scope="row"><b>Clinical Focus (Extension): </b></th>
+          <td style="padding-left: 4px;">
+            {% for extension in ValueSet.extension.where(url = 'http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus') %}
+                {{extension.value}}
+              {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.extension.where(url = 'http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope').exists() %}
+        <tr>
+          <th scope="row"><b>Clinical Focus (Extension): </b></th>
+          <td style="padding-left: 4px;">
+            {% for extension in ValueSet.extension.where(url = 'http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope') %}
+                {{extension.value}}
+              {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.extension.where(url = 'http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria').exists() %}
+        <tr>
+          <th scope="row"><b>Inclusion Criteria (Extension): </b></th>
+          <td style="padding-left: 4px;">
+            {% for extension in ValueSet.extension.where(url = 'http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria') %}
+                {{extension.value}}
+              {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+<!--TBD contact value set author-->
+ {% if ValueSet.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability').exists() %}
+        <tr>
+          <th scope="row"><b>CPG Knowledge Capability (Extension): </b></th>
+          <td style="padding-left: 4px;">
+            {% for extension in ValueSet.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability') %}
+                {{extension.value}}
+              {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel').exists() %}
+        <tr>
+          <th scope="row"><b>CPG Knowledge Representation Level (Extension): </b></th>
+          <td style="padding-left: 4px;">
+            {% for extension in ValueSet.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel') %}
+                {{extension.value}}
+              {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning').exists() %}
+        <tr>
+          <th scope="row"><b>CPG Knowledge Representation Level (Extension): </b></th>
+          <td style="padding-left: 4px;">
+            {% for extension in ValueSet.extension.where(url = 'http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning') %}
+                {{extension.value}}
+              {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
         {% if ValueSet.useContext.exists() %}
         <tr>
             <th scope="row"><b>Use Context: </b></th>
