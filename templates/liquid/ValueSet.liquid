@@ -1,0 +1,10 @@
+<div>
+    <table class="grid dict">
+        {% if ValueSet.id.exists() %}
+        <tr>
+            <th scope="row"><b>Id: </b></th>
+            <td style="padding-left: 4px;">{{ValueSet.id}}</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>
