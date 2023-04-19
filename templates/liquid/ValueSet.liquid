@@ -190,6 +190,32 @@
             <td style="padding-left: 4px;">{{ValueSet.copyright}}</td>
         </tr>
         {% endif %}
-                <!--ValueSet.expansion TBD-->
+        {% if ValueSet.expansion.timestamp.exists() %}
+        <tr>
+            <th scope="row"><b>Expansion Timestamp: </b></th>
+            <td style="padding-left: 4px;">{{expansion.timestamp}}</td>
+        </tr>
+        {% endif %}
+        {% if ValueSet.expansion.contains.exists() %}
+                <tr>
+<th scope="row"><b>Expansion Contains: </b></th>
+                <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                <tr>
+                            <th><b>Code</b></th><th><b>System</b></th><th><b>Version</b></th><th><b>Display</b></th>
+                    </tr>
+                    {% for expansionContains in ValueSet.expansion.contains %}
+                            <tr>
+                                    <td>{{expansionContains.code}}</td>
+                                    <td>{{expansionContains.system}}</td>
+                                    <td>{{expansionContains.version}}</td>
+                                    <td>{{expansionContains.display}}</td>
+                            </tr>
+                        
+                    {% endfor %}
+                    </table>
+                </td>
+                </tr>
+                {% endif %}
     </table>
 </div>
