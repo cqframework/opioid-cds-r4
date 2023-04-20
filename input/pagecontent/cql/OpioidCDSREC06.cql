@@ -82,5 +82,5 @@ define "Get Summary":
     if "Is Recommendation Applicable?"
       then 'Consider a shorter duration for opioid therapy
 
-[For guidance regarding prescribing opioids for acute pain see Recommendation 6 of the CDC 2022 Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm)'
+[For guidance regarding prescribing opioids for acute pain see Recommendation 6 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm)'
     else null

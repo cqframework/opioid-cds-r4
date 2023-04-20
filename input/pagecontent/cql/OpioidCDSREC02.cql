@@ -108,7 +108,7 @@ define "Get Summary":
 define "Get Detail":
   if "Is Recommendation Applicable?"
   then 
-    'For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the CDC 2022 Clinical Prescribing Guideline for nonopioid therapy recommendations.
+    'For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the 2022 CDC Clinical Practice Guideline for nonopioid therapy recommendations.
     
 **Nonopioid Pharmacological Therapy**
 
