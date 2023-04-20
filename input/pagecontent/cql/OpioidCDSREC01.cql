@@ -27,7 +27,7 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 **      Patient is not undergoing active cancer treatment:
 **        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
 **    Patient is opioid naive:
-**      No indication of opioid use in the past 90 days from a prescription, self report, or a dispensing event
+**      No indication of opioid use in the past 90 days from a prescription, self report (for future implementation), or a dispensing event (for future implementation)
 **  Then
 **    Recommend the use of nonpharmacologic therapy and nonopioid pharmacologic therapy as an alternative. Potential actions include:
 **      Document reason for opioid use

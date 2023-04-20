@@ -23,7 +23,7 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 **        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
 **      Patient does not have conditions likely terminal for opioid prescribing present
 **    Patient is opioid naive:
-**      No indication of opioid use in the past 90 days from a prescription, self report, or a dispensing event
+**      No indication of opioid use in the past 90 days from a prescription, self report (for future implementation), or a dispensing event (for future implementation)
 **  Then
 **    Recommend use of immediate release opioids:
 **      Will prescribe immediate release opioid analgesic with ambulatory misuse potential
