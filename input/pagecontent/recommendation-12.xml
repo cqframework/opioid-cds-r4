@@ -30,7 +30,7 @@
     <a href="PlanDefinition-opioidcds-12-patient-view.html#effective-data-requirements">Effective Data Requirements</a>
 
     <a name="rationale-for-treatment"> </a>
-    <h4>Rationale for Medication-Assisted Treatment</h4>
+    <h4>Rationale for Medication-Assisted Treatment or Behavioral Therapy</h4>
     
     <table class="list" style="margin-top: 2em; margin-bottom: 2em">
       <thead>
@@ -67,17 +67,36 @@
             </ul>
           </td>
         </tr>
-       <tr>
-          <td>Not Receiving Evidence-Based Treatment for Opioid Use Disorder</td>
+        <tr>
+          <td>Opioid metabolites in urine drug screening</td>
           <td>
             <ul>
-              <li>Evidence of an ordered medication for opioid use disorder treatment in the last 90 days </li>
-              <li>Status <i>active</i> or <i>completed</i></li>
+              <li>Urine drug screening tests - need to evaluate ALL urine screening tests and not just the first one found performed in last 90 days</li>
+              <li>Evidence of positive result from screening tests</li>
             </ul>
           </td>
           <td>
             <ul>
-              <li>Buprenorphine and methadone medications</li>
+              <li>Urine drug screening tests (perhaps a LOINC panel)</li>
+              <!--QUESTION TO CDC: What represents a positive result for each screening test including what might be a false positive, a cross-reactant or a false negative - perhaps consider LOINC normative responses or something else?-->
+              <li>Consider this element a FUTURE option</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>MME >= 90</td>
+          <td>
+            <ul>
+              <li>Calculate per Recommendation 5</li>
+              <li>Consider whether the correct result should be >= 50 due to the potential for over-use. Also, consider whether the preferred assessment should be <b>MME</b> (i.e., maximum morphine equivalents that may be taken any given day of a
+                prescription duration), or <b>AME</b> (i.e., average morphine equivalents for all days within the prescription duration).</li>
+              <li>Dispensed data will require AME since the sig (if present) is not structured.</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>No new value sets except in the situation where dispensed drug is used (i.e., NDC codes) instead of prescribed.</li>
+              <!--QUESTION TO CDC: Consider use of MME Vs. AME and threshold value-->
             </ul>
           </td>
         </tr>
