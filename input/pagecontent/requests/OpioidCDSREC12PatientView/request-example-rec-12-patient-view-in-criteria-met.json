@@ -51,12 +51,12 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-04-19"
               },
               {
                 "url": "frequency",
                 "valueDuration": {
-                  "value": 30.0,
+                  "value": 1.0,
                   "unit": "days",
                   "system": "http://unitsofmeasure.org",
                   "code": "d"
@@ -97,7 +97,7 @@
         "subject": {
           "reference": "Patient/example-rec-12-criteria-valid"
         },
-        "recordedDate": "2023-01-18"
+        "recordedDate": "2023-02-17"
       }
     },
     "item4": null,

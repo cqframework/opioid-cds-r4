@@ -4,7 +4,7 @@
   <url value="http://fhir.org/guides/cdc/opioid-cds/ImplementationGuide/fhir.cdc.opioid-cds-r4" />
   <version value="2022.1.0" />
   <name value="Opioid_CDC" />
-  <title value="Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
+  <title value="2022 CDC Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
   <status value="active" />
   <experimental value="false" />
   <date value="2017-02-06" />
@@ -15,7 +15,7 @@
       <value value="https://www.cdc.gov" />
     </telecom>
   </contact>
-  <description value="Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
+  <description value="2022 CDC Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
   <packageId value="fhir.cdc.opioid-cds-r4" />
   <fhirVersion value="4.0.1" />
   <dependsOn>
@@ -299,90 +299,90 @@
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC01" />
-        <display value="Recommendation 1 (order-select) Logic Library" />
+        <display value="Recommendation 1 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC01Library" />
-      <description value="Logic Library for Recommendation #1 (order-select) - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
+      <description value="Logic Library for Recommendation #1 (order-sign) - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC02" />
-        <display value="Recommendation 2 (order-select) Logic Library" />
+        <display value="Recommendation 2 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC02Library" />
-      <description value="Logic Library for Recommendation #2 (order-select) - Opioid Therapy Goals Discussion" />
+      <description value="Logic Library for Recommendation #2 (order-sign) - Opioid Therapy Goals Discussion" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC03" />
-        <display value="Recommendation 3 (order-select) Logic Library" />
+        <display value="Recommendation 3 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC03Library" />
-      <description value="Logic Library for Recommendation #3 (order-select) - Opioid Immediate Release Form When Starting Opioid Therapy" />
+      <description value="Logic Library for Recommendation #3 (order-sign) - Opioid Immediate Release Form When Starting Opioid Therapy" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC04And05" />
-        <display value="Recommendations 4 and 5 (order-select) Logic Library" />
+        <display value="Recommendations 4 and 5 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC04And05Library" />
-      <description value="Logic Library for Recommendations #4 and #5 (order-select) - Lowest Effective Dose" />
+      <description value="Logic Library for Recommendations #4 and #5 (order-sign) - Lowest Effective Dose" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC06" />
-        <display value="Recommendation 6 (order-select) Logic Library" />
+        <display value="Recommendation 6 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC06Library" />
-      <description value="Logic Library for Recommendation #6 (order-select) - Prescribe Lowest Effective Dose and Duration" />
+      <description value="Logic Library for Recommendation #6 (order-sign) - Prescribe Lowest Effective Dose and Duration" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC07" />
-        <display value="Recommendation 7 (order-select) Logic Library" />
+        <display value="Recommendation 7 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC07Library" />
-      <description value="Logic Library for Recommendation #7 (order-select) - Opioid Therapy Risk Assessment" />
+      <description value="Logic Library for Recommendation #7 (order-sign) - Opioid Therapy Risk Assessment" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC08" />
-        <display value="Recommendation 8 (order-select) Logic Library" />
+        <display value="Recommendation 8 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC08Library" />
-      <description value="Logic Library for Recommendation #8 (order-select) - Naloxone Consideration" />
+      <description value="Logic Library for Recommendation #8 (order-sign) - Naloxone Consideration" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC09" />
-        <display value="Recommendation 9 (order-select) Logic Library" />
+        <display value="Recommendation 9 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC09Library" />
-      <description value="Logic Library for Recommendation #9 (order-select) - Consider Patient's History of Controlled Substance Prescriptions" />
+      <description value="Logic Library for Recommendation #9 (order-sign) - Consider Patient's History of Controlled Substance Prescriptions" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
     <resource>
       <reference>
         <reference value="Library/OpioidCDSREC10" />
-        <display value="Recommendation 10 (order-select) Logic Library" />
+        <display value="Recommendation 10 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC10Library" />
-      <description value="Logic Library for Recommendation #10 (order-select) - Urine Drug Testing" />
+      <description value="Logic Library for Recommendation #10 (order-sign) - Urine Drug Testing" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>

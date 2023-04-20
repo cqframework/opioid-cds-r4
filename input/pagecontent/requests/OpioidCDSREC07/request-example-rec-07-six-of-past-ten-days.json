@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-03-23"
+                    "valueDateTime": "2023-04-19"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-07-six-of-past-ten-days-context"
             },
-            "authoredOn": "2023-03-08",
+            "authoredOn": "2023-04-04",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,8 +76,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-03-23T00:00:00-06:00",
-                "end": "2023-06-23T00:00:00-06:00"
+                "start": "2023-04-19T00:00:00-06:00",
+                "end": "2023-07-20T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
