@@ -32,6 +32,13 @@ The HL7 IG Publisher is committed to this repository to make building as easy as
 
     java -jar "org.hl7.fhir.publisher.jar" -ig ig.json
 
+### Local Testing and the Date Roller
+This project uses a Thunder Client test suite for local testing. The [Visual Studio Plugin for Thunder Client](https://www.thunderclient.com) enables simple execution of the test suite. Please note that there are two preconditions before running the tests (also see the [testing](https://github.com/cqframework/opioid-cds-r4/blob/master/commit_policy.md#testing) section of the commit policy for more information):
+1. A [CQF-Ruler](https://github.com/cqframework/cqf-ruler) instance must be running and properly configured in the environment of the Thunder Client test suite (the default is localhost:8080). 
+2. The test data must be periodically updated to maintain time-sensitive evaluation. The CQF tooling project offers a convenient solution for maintaining time-sensitive data, called the [date roller functionality](https://github.com/cqframework/cqf-tooling/tree/master/tooling/src/main/java/org/opencds/cqf/tooling/dateroller). Within this IG, one can execute the date roller by the [_refreshTestData.sh](https://github.com/cqframework/opioid-cds-r4/blob/master/_refreshTestData.sh) or the [_refreshTestData.bat](https://github.com/cqframework/opioid-cds-r4/blob/master/_refreshTestData.bat) script. All test data resources that require a frequent change in specified dates, contain an extension to indicate and configure the date roller functionality. One example of such an extension within this IG can be found [here](https://github.com/cqframework/opioid-cds-r4/blob/master/input/pagecontent/requests/OpioidCDSREC01/request-example-rec-01-in-outpatient-opioid.json#L16).
+
+If a resource in a xml or json file has the [date roller extension](http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller) and if the current date is greater than the valueDuration set in that extension (i.e. 30 days) that resource will have its date, period, dateTimeType, etc. fields changed according to the relation of the date in that field to the dateLastUpdated value in the extension. This also applies to cds hook request test data. If the extension is not present, that resource is skipped. If the current date is not more than the duration from the lastUpdated date, that resource is skipped.
+
 ## Release and Branching
 
 This repository will leverage a branching strategy to maintain multiple versions of the CDC opioid recommendations (currently 2016 and 2022) and their respective IG's. This will use semantic versioning on releases to make it clear which version of the recommendations the release is for.
