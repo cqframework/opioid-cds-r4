@@ -10,30 +10,30 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 /*
 **
 **  Recommendation #9
-**    Clinicians should review the patient's history of controlled substance
-**    prescriptions using state prescription drug monitoring program (PDMP) data
-**    to determine whether the patient is receiving opioid dosages or dangerous
-**    combinations that put him or her at high risk for overdose. Clinicians
-**    should review PDMP data when starting opioid therapy for subacute or chronic pain
-**    and periodically during opioid therapy for subacute or chronic pain, ranging from
-**    every prescription to every 3 months
-**    (recommendation category: A, evidence type: 4).
+**    When prescribing initial opioid therapy for acute, subacute, or chronic pain, and periodically 
+**    during opioid therapy for chronic pain, clinicians should review the patient’s history of 
+**    controlled substance prescriptions using state prescription drug monitoring program (PDMP) data 
+**    to determine whether the patient is receiving opioid dosages or combinations that put the patient 
+**    at high risk for overdose (recommendation category: B; evidence type: 4).
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating subacute or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
-**    PDMP data has not been reviewed in the past 90 days
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
+**    PDMP data has not been reviewed in the past 90 days or
+**    PDMP review procedure has not been performed in the past 90 days
 **  Then
-**    Recommend offering naloxone medications
-**      Recommend launch of SMART-APP to search PDMP data for this patient
-**      Document PDMP data reviewed; snooze 3 months
-**      N/A - see comment, snooze 3 months
+**    Before Ordering Opioids, Review PDMP Data:
+**      Access Data - Launch app to review PDMP data
+**      Document - PDMP data reviewed, snooze 3 months
+**      Snooze - N/A see comment, snooze 3 months
 **
 */
 

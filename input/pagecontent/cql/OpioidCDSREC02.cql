@@ -10,33 +10,38 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 /*
 **
 **  Recommendation #2
-**    Before starting opioid therapy for subacute or chronic pain, clinicians should establish
-**    treatment goals with all patients, including realistic goals for pain and
-**    function, and should consider how opioid therapy will be discontinued if
-**    benefits do not outweigh risks. Clinicians should continue opioid therapy
-**    only if there is clinically meaningful improvement in pain and function
-**    that outweighs risks to patient safety
-**    (recommendation category: A, evidence type: 4).
+**    Nonopioid therapies are preferred for subacute and chronic pain. Clinicians should maximize 
+**    use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific 
+**    condition and patient and only consider initiating opioid therapy if expected benefits for 
+**    pain and function are anticipated to outweigh risks to the patient. Before starting opioid 
+**    therapy for subacute or chronic pain, clinicians should discuss with patients the realistic 
+**    benefits and known risks of opioid therapy, should work with patients to establish treatment 
+**    goals for pain and function, and should consider how opioid therapy will be discontinued if 
+**    benefits do not outweigh risks (recommendation category: A; evidence type: 2).
 **
 **  When
 **    Provider is prescribing an opioid with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating subacute or chronic pain.
+**    Prescription is for treating subacute and/or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
 **    Patient is opioid naive:
-**      No indication of opioid use in the past 90 days from a prescription, self report, or a dispensing event
-**    Patient does not have an opioid treatment plan that was created, edited, or reviewed by the prescribing physician in the past 90 days
+**      No indication of opioid use in the past 90 days from a prescription, self report (for future implementation), or a dispensing event (for future implementation)
+**    Pain management procedure in past 90 days is not present and
+**    Pain treatment plan created, edited, or reviewed by the prescribing physician in past 90 days is not present
 **  Then
-**    Recommend creation, review or update of an opioid treatment plan. Potential actions include:
-**      Create treatment plan with goals for opioid use
-**      Update patient's opioid treatment plan
-**      Review patient's opioid treatment plan
-**      N/A - see comment, snooze 3 months
-**      Taper / Discontinue opioid
+**    Maximize Nonopioid Therapies as Appropriate:
+**      Document - Collaborated with patient to identify treatment goals
+**      Snooze - Attempting alternate therapy, snooze 3 months
+**      Order - Select alternative therapies from order select
+**      Snooze - N/A see comment, snooze 3 months
+**      Remove - Will remove triggering medication order
 **
 */
 
