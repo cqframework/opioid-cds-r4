@@ -42,26 +42,22 @@
       </thead>
       <tbody>
         <tr>
-          <td>Presence of diagnosis of opioid use disorder</td>
-          <td>Existing <i>active</i> diagnosis of opioid use disorder</td>
-          <td>
-            <ul>
-              <li>Opioid use disorder value set</li>
-            </ul>
-          </td>
+          <td>Presence of diagnosis of opioid misuse disorder</td>
+          <td>Existing <i>active</i> diagnosis of opioid misuse disorder</td>
+          <td>Opioid misuse disorders value set</td>
         </tr>
         <tr>
-          <td>Positive result from opioid use disorder evaluation tool</td>
+          <td>Positive result from opioid misuse disorder evaluation tool</td>
           <td>
             <ul>
-              <li>Evidence of positive result from opioid use disorder evaluation tool</li>
+              <li>Evidence of positive result from opioid misuse disorder evaluation tool</li>
               <li>Timing - within 90 days</li>
             </ul>
           </td>
           <td>
             <ul>
-              <li>Value set for opioid use disorder evaluation tool(s) - LOINC pan</li>
-              <li>Result options for such opioid use disorder evaluation tool(s) - perhaps LOINC normative responses that differentiate positive from negative results.</li>
+              <li>Value set for opioid misuse disorders evaluation tool(s) - LOINC pan</li>
+              <li>Result options for such opioid misuse disorder evaluation tool(s) - perhaps LOINC normative responses that differentiate positive from negative results.</li>
               <!--QUESTION TO CDC: Do opioid use disorder evaluation tools exist and, if so, how can we be sure we have a comprehensive list of such tools (represented by LOINC), and determine what represents a positive result from each?-->
               <li>Consider this element a FUTURE option</li>
             </ul>
@@ -71,15 +67,11 @@
           <td>Not Receiving Evidence-Based Treatment for Opioid Use Disorder</td>
           <td>
             <ul>
-              <li>Evidence of an ordered medication for opioid use disorder treatment in the last 90 days </li>
+              <li>Evidence of an ordered medication for opioid misuse disorder treatment in the last 90 days </li>
               <li>Status <i>active</i> or <i>completed</i></li>
             </ul>
           </td>
-          <td>
-            <ul>
-              <li>Buprenorphine and methadone medications</li>
-            </ul>
-          </td>
+          <td>Buprenorphine and methadone medications</td>
         </tr>
       </tbody>
     </table>
