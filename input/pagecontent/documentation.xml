@@ -31,7 +31,7 @@
   <table class="grid">
     <thead>
       <tr>
-        <th>Recommendation #</th>
+        <th>Recommendation</th>
         <th>Pilot Site</th>
         <th>Test Period</th>
         <th>Version Tested</th>
@@ -45,8 +45,8 @@
         <td>4</td>
         <td>Yale</td>
         <td>2020</td>
-        <td>patient view</td>
-        <td>will alert when there is extended release prescribed instead of immediate release</td>
+        <td>patient-view</td>
+        <td>Alert when there is extended release prescribed instead of immediate release</td>
         <td></td>
         <td></td>
       </tr>
@@ -54,8 +54,8 @@
         <td>10</td>
         <td>Yale</td>
         <td>2020</td>
-        <td>patient view</td>
-        <td>will alert when there has been no UDS for patient in past year</td>
+        <td>patient-view</td>
+        <td>Alert when there has been no UDS for patient in past year</td>
         <td></td>
         <td></td>
       </tr>
@@ -63,8 +63,8 @@
         <td>11</td>
         <td>Yale</td>
         <td>2020</td>
-        <td>patient view</td>
-        <td>will alert when co-prescribing with benzos</td>
+        <td>patient-view</td>
+        <td>Alert when co-prescribing with benzos</td>
         <td></td>
         <td></td>
       </tr>
@@ -72,8 +72,8 @@
         <td>12</td>
         <td>Yale</td>
         <td>2020</td>
-        <td>patient view</td>
-        <td>alert is triggered when patient has been diagnosis for OUD</td>
+        <td>patient-view</td>
+        <td>Alert is triggered when patient has been diagnosis for OUD</td>
         <td></td>
         <td></td>
       </tr>
@@ -81,8 +81,8 @@
         <td>10</td>
         <td>Duke</td>
         <td>2020</td>
-        <td>patient view</td>
-        <td>will alert when there has been no UDS for patient in past year</td>
+        <td>patient-view</td>
+        <td>Alert when there has been no UDS for patient in past year</td>
         <td></td>
         <td></td>
       </tr>
@@ -90,8 +90,8 @@
         <td>11</td>
         <td>Duke</td>
         <td>2020</td>
-        <td>patient view</td>
-        <td>will alert when co-prescribing with benzos</td>
+        <td>patient-view</td>
+        <td>Alert when co-prescribing with benzos</td>
         <td></td>
         <td></td>
       </tr>
@@ -100,7 +100,7 @@
         <td>Yale</td>
         <td>2021</td>
         <td>order-sign </td>
-        <td>will alert when there has been no UDS for patient in past year</td>
+        <td>Will alert when there has been no UDS for patient in past year</td>
         <td></td>
         <td></td>
       </tr>
@@ -118,7 +118,7 @@
         <td>Duke</td>
         <td>2021</td>
         <td>order-sign</td>
-        <td>If a patient has not had a UDS , then the alert recommends a UDS. If the patient did have a UDS in the past year, and tested positive for cocaine or PCP an alert was issued.</td>
+        <td>If a patient has not had a UDS, then the alert recommends a UDS. If the patient did have a UDS in the past year and tested positive for cocaine or PCP an alert was issued.</td>
         <td></td>
         <td>When Duke configured the BPA to create a UDS order (as opposed to using a suggestion card), it resulted in a loop when the user accepted the alert. Accepting the alert resulted in an order-sign event that triggered the CDS service. The only way to break the alert was to decline the recommendation. This was not an issue at Yale. </td>
       </tr>
@@ -127,8 +127,8 @@
         <td>Colorado</td>
         <td>2022</td>
         <td>order-sign</td>
-        <td>The MME calculation was disabled in the version of Rec 8  that was integration tested. The test case that was validated was co-prescribing with a benzo. This produce an alert recommending naloxone.</td>
-        <td>Integration testing was conducted for one use case - co-prescribing with a benzo. Other recommendation conditions such as history of SUD and daily MME >=50 we not validated. An MME calculation was not conducted as part of this testing. </td>
+        <td>The MME calculation was disabled in the version of Rec 8 that was integration tested. The test case that was validated was co-prescribing with a benzo. This produce an alert recommending naloxone.</td>
+        <td>Integration testing was conducted for one use case - co-prescribing with a benzo. Other recommendation conditions such as history of SUD and daily MME &gt;=50 we not validated. An MME calculation was not conducted as part of this testing. </td>
         <td></td>
       </tr>
       <tr>
