@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-04-19"
+                    "valueDateTime": "2023-05-01"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-10-order-sign-no-screenings-context"
             },
-            "authoredOn": "2022-12-17",
+            "authoredOn": "2022-12-29",
             "dosageInstruction": [
               {
                 "timing": {
@@ -86,8 +86,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-04-19T00:00:00-06:00",
-                "end": "2023-07-20T00:00:00-06:00"
+                "start": "2023-05-01T00:00:00-06:00",
+                "end": "2023-08-01T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {
@@ -116,7 +116,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -131,7 +131,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "2003-03-20"
+        "birthDate": "2003-05-01"
       }
     },
     "item2": null,
@@ -152,7 +152,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -171,8 +171,8 @@
           "reference": "Patient/example-rec-10-order-sign-no-screenings"
         },
         "period": {
-          "start": "2022-12-20",
-          "end": "2022-12-20"
+          "start": "2023-01-31",
+          "end": "2023-01-31"
         }
       }
     },
@@ -191,7 +191,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -232,7 +232,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-order-sign-no-screenings-prefetch"
         },
-        "authoredOn": "2022-11-17",
+        "authoredOn": "2022-12-29",
         "dosageInstruction": [
           {
             "timing": {
@@ -257,8 +257,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-12-20T00:00:00-07:00",
-            "end": "2023-03-20T00:00:00-06:00"
+            "start": "2023-01-31T00:00:00-07:00",
+            "end": "2023-05-01T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {

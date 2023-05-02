@@ -5,7 +5,7 @@
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
     "extension": [ {
       "url": "dateLastUpdated",
-      "valueDateTime": "2023-03-20"
+      "valueDateTime": "2023-05-01"
     }, {
       "url": "frequency",
       "valueDuration": {
@@ -45,7 +45,7 @@
     }
   } ],
   "period": {
-    "start": "2022-10-18",
-    "end": "2022-10-18"
+    "start": "2022-11-29",
+    "end": "2022-11-29"
   }
 }
