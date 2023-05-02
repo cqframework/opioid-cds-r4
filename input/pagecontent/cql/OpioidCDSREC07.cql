@@ -10,29 +10,29 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 /*
 **
 **  Recommendation #7
-**    Clinicians should evaluate benefits and harms with patients within 1 to 4
-**    weeks of starting opioid therapy for subacute or chronic pain or of dose escalation.
-**    Clinicians should evaluate benefits and harms of continued therapy with
-**    patients every 3 months or more frequently. If benefits do not outweigh
-**    harms of continued opioid therapy, clinicians should optimize other
-**    therapies and work with patients to taper opioids to lower dosages or to
-**    taper and discontinue opioids (recommendation category: A, evidence type: 4)
+**    Clinicians should evaluate benefits and risks with patients within 1-4 weeks of starting 
+**    opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should 
+**    regularly reevaluate benefits and risks of continued opioid therapy with patients 
+**    (recommendation category: A; evidence type: 4).
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating subacure or chronic pain.
+**    Prescription is for treating subacute and/or chronic pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
-**    Patient has not undergone an opioid misuse assessment procedure in the last 90 days
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
+**    Opioid risk benefit assessment has not been performed in the past 90 days
 **  Then
-**    Recommend performing opioid misuse assessment
-**      Will schedule opioid misuse assessment
-**      Benefits outweigh risks, snooze 3 months
-**      N/A - see comment, snooze 3 months
+**    Regularly Evaluate the Benefits and Risks of Opioid Therapy:
+**      Document - Conducted benefit and risk assessment
+**      Snooze - Conducted assessment, snooze 3 months
+**      Snooze - N/A see comment, snooze 3 months
 **
 */
 

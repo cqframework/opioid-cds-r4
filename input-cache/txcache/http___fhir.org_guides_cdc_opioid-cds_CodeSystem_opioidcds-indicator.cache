@@ -23,11 +23,29 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
+      "concept" : [{
+        "code" : "info",
+        "display" : "Information"
+      },
+      {
+        "code" : "warning",
+        "display" : "Warning"
+      },
+      {
+        "code" : "hard-stop",
+        "display" : "Hard Stop"
+      }]
+    }]
+  },
   "expansion" : {
-    "identifier" : "urn:uuid:897766db-92c0-4d66-92ab-9654151df568",
-    "timestamp" : "2023-04-19T20:40:05.667Z",
+    "identifier" : "urn:uuid:1f330377-81c0-4907-8427-043926d53e64",
+    "timestamp" : "2023-05-02T02:08:54.130Z",
+    "total" : 3,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -41,28 +59,16 @@ e: {
       "valueUri" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator|2022.1.0"
     }],
     "contains" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Indicates that the workflow result is informational"
-      }],
       "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
       "code" : "info",
       "display" : "Information"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Indicates that the workflow result is a warning"
-      }],
       "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
       "code" : "warning",
       "display" : "Warning"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Indicates that the workflow should not be allowed to proceed"
-      }],
       "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
       "code" : "hard-stop",
       "display" : "Hard Stop"

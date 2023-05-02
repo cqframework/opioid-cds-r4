@@ -10,31 +10,34 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 /*
 **
 **  Recommendation #1
-**    Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred
-**    for acute pain. Clinicians should consider opioid therapy only if expected
-**    benefits for both pain and function are anticipated to outweigh risks to the
-**    patient. If opioids are used, they should be combined with nonpharmacologic
-**    therapy and nonopioid pharmacologic therapy, as appropriate
-**    (recommendation category: A, evidence type: 3).
+**    Nonopioid therapies are at least as effective as opioids for many common types of acute pain. 
+**    Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as 
+**    appropriate for the specific condition and patient and only consider opioid therapy for acute 
+**    pain if benefits are anticipated to outweigh risks to the patient. Before prescribing opioid 
+**    therapy for acute pain, clinicians should discuss with patients the realistic benefits and 
+**    known risks of opioid therapy (recommendation category: B; evidence type: 3).
 **
 **  When
-**    Prescription is for treating acute pain
-**    Provider is prescribing an opioid with ambulatory misuse potential
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating acute pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
 **    Patient is opioid naive:
 **      No indication of opioid use in the past 90 days from a prescription, self report (for future implementation), or a dispensing event (for future implementation)
 **  Then
-**    Recommend the use of nonpharmacologic therapy and nonopioid pharmacologic therapy as an alternative. Potential actions include:
-**      Document reason for opioid use
-**      Document that alternative therapy was attempted, snooze 3 months
-**      N/A - see comment, snooze 3 months
-**      Select from order set for alternative therapies
-**      Remove triggering medication
+**    Consider Nonopioid Treatment Options for Acute Pain:
+**      Document - Record reason for opioid therapy
+**      Snooze - Attempt alternative therapy, snooze 3 months
+**      Order - Select alternative therapies from order set
+**      Snooze - N/A see comment, snooze 3 months
+**      Remove - Will remove triggering medication order
 **
 */
 

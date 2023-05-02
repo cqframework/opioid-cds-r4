@@ -10,24 +10,28 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 /*
 **
 **  Recommendation #11
-**    Clinicians should avoid prescribing opioid pain medication and benzodiazepines
-**    concurrently whenever possible (recommendation category: A, evidence type: 3)
+**    When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits 
+**    and risks of toxicology testing to assess for prescribed medications as well as other prescribed 
+**    and nonprescribed controlled substances (recommendation category: B; evidence type: 4).
 **
 **  When
-**    Provider is prescribing an opioid analgesic with ambulatory misuse potential
-**    Provider is prescribing a benzodiazepine medication or other central nervous system depressants
+**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting or
+**    Provider is prescribing a benzodiazepine or other central nervous system depressant medication
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
-**    Patient prescribed opioid analgesic with ambulatory misuse potential and benzodiazepine  or other central nervous system depressants medication concurrently
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
+**    Patient prescribed opioid analgesic with ambulatory misuse potential and benzodiazepine or other central nervous system depressant medication concurrently
 **  Then
-**    Recommend to avoid prescribing opioid pain medication and benzodiazepine  or other central nervous system depressants concurrently
-**      Will revise
-**      Benefits outweigh risks, snooze 3 months
-**      N/A - see comment, snooze 3 months
+**    Use particular caution when prescribing opioid pain medication and benzodiazepines concurrently:
+**      Document - Will modify prescription
+**      Snooze - Benefits outweigh risks, snooze 3 months
+**      Snooze - N/A see comment, snooze 3 months
 **
 */
 

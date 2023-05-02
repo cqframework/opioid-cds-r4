@@ -10,28 +10,28 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 /*
 **
 **  Recommendation #6
-**    Long-term opioid use often begins with treatment of acute pain. When opioids
-**    are used for acute pain, clinicians should prescribe the lowest effective
-**    dose of immediate-release opioids and should prescribe no greater quantity
-**    than needed for the expected duration of pain severe enough to require
-**    opioids. Three days or less will often be sufficient; more than seven days
-**    will rarely be needed (recommendation category: A, evidence type: 4).
+**    When opioids are needed for acute pain, clinicians should prescribe no greater quantity than 
+**    needed for the expected duration of pain severe enough to require opioids 
+**    (recommendation category: A; evidence type: 4).
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating acute pain.
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
-**    Prescription is for treating acute pain.
-**    Prescription is for more than 7 days or for an extended release opioid
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
+**    Prescription is for more than 7 days
 **  Then
-**    Recommend limiting therapy to no more than 3 days with an absolute maximum of 7 days and limit to immediate release opioids. Potential actions include:
-**      Change order to ≤ 7 days
-**      Document reason for not limiting therapy; snooze 3 months
-**      N/A - see comment; snooze 3 months
+**    When Treating Acute Pain, Prescribe No Greater Quantity Than Needed:
+**      Document - Will adjust opioid order
+**      Snooze - Benefits of opioid therapy duration outweigh risks, snooze 3 months
+**      Snooze - N/A see comment, snooze 3 months
 **
 */
 
