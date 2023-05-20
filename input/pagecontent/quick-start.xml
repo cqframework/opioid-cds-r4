@@ -79,9 +79,8 @@
   		<tr><th>Resource</th><th>Type</th><th>Description</th></tr>
   	</thead>
   	<tbody>
-  		<tr><td><a href="requests/Bundle-opioidcds-10-patient-view-bundle.html">opioidcds-10-patient-view-bundle</a></td><td>Bundle</td><td>All Required Content for Recommendation #10</td></tr>
-  	  <tr><td><a href="requests/somelink.html">quickstart-medications-bundle</a></td><td>Bundle</td><td>Test data for Quick Start test case</td></tr>
-  	  <tr><td><a href="requests/someotherlink.html">terminology-bundle</a></td><td>Bundle</td><td>All Value sets referenced by the CQL in the Opioid Logic recommendations</td></tr>
+  		<tr><td><a href="requests/QuickStart/opioidcds-10-patient-view-bundle.json">opioidcds-10-patient-view-bundle</a></td><td>Bundle</td><td>All Required Content for Recommendation #10</td></tr>
+  	  <tr><td><a href="requests/QuickStart/quickstart-medications-bundle.json">quickstart-medications-bundle</a></td><td>Bundle</td><td>Test data for Quick Start test case</td></tr>
     </tbody>
   </table>
 
@@ -138,19 +137,23 @@
     <pre class="json">
   {
     "services": [
-      {
-        "hook": "patient-view",
-        "name": "PlanDefinition_Recommendation_10_Patient_View",
-        "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #10 (patient-view)",
-        "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
-        "id": "opioidcds-10-patient-view",
-        "prefetch": {
-          "item1": "Patient?_id={{context.patientId}}",
-          "item2": "MedicationRequest?patient={{context.patientId}}&amp;medication=http%3A%2F%2Fwww.nlm.nih.gov%2Fresearch%2Fumls%2Frxnorm|994277,snipped for brevity",
-          "item3": "Observation?patient={{context.patientId}}&amp;code=http%3A%2F%2Floinc.org|12478-4,snipped for brevity",
-          "item4": "Observation?patient={{context.patientId}}&amp;code=http%3A%2F%2Floinc.org|50542-0,snipped for brevity"
+        {
+            "hook": "patient-view",
+            "name": "PlanDefinition_Recommendation_10_Patient_View",
+            "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #10 (patient-view)",
+            "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
+            "id": "opioidcds-10-patient-view",
+            "prefetch": {
+                "item1": "Patient?_id=Patient/{{context.patientId}}",
+                "item2": "Condition?patient=Patient/{{context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+                "item3": "Condition?patient=Patient/{{context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "item4": "Condition?patient=Patient/{{context.patientId}}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
+                "item5": "ServiceRequest?patient=Patient/{{context.patientId}}",
+                "item6": "Observation?subject=Patient/{{context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
+                "item7": "Procedure?patient=Patient/{{context.patientId}}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
+                "item8": "Encounter?patient=Patient/{{context.patientId}}"
+            }
         }
-      }
     ]
   }
     </pre>
@@ -175,11 +178,10 @@
     "hookInstance": "a172a2ce-38e7-4a21-a411-522cf481d5d1",
     "fhirServer": "http://localhost:8080/fhir",
     "hook": "patient-view",
-    "applyCql": true,
     "context": {
       "userId": "Practitioner/example",
-      "patientId": "Patient/example-rec-10-no-screenings",
-      "encounterId": "Encounter/example-rec-10-no-screenings-context"
+      "patientId": "Patient/example-rec-10-patient-view-no-screenings",
+      "encounterId": "Encounter/example-rec-10-patient-view-no-screenings-context"
     },
     "prefetch": {
       "item1": "snipped for brevity, see the full example at the above link",
@@ -254,11 +256,11 @@
     <pre class="json">
       {
         "resourceType": "Patient",
-        "id": "example-rec-10-no-screenings",
+        "id": "example-rec-10-patient-view-no-screenings",
         "gender": "female",
-        "birthDate": "1982-01-07"
+        "birthDate": "2003-05-01"
       }
     </pre>
   </div>
-  <p>Now set the Patient context in the sandbox to this new patient. To set the Patient context in the CDS Hooks Sandbox go to Settings and then select "Change Patient" and set the ID to "example-rec-10-no-screenings". </p>
+  <p>Now set the Patient context in the sandbox to this new patient. To set the Patient context in the CDS Hooks Sandbox go to Settings and then select "Change Patient" and set the ID to "example-rec-10-patient-view-no-screenings". </p>
 </div>
