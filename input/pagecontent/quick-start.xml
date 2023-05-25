@@ -248,7 +248,7 @@
   <p>Now the sandbox is configured to use the CDS Hooks service that you created above. The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you're going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-no-screenings.json file above and then PUT that to the FHIR server created above. </p>
   <div class="example">
     <pre class="http">
-  PUT http://localhost:8080/fhir/Patient/example-rec-10-no-screenings
+  PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings
     </pre>
   </div>
   <p>The patient resource JSON:</p>
@@ -257,8 +257,16 @@
       {
         "resourceType": "Patient",
         "id": "example-rec-10-patient-view-no-screenings",
+        "name": [
+          {
+            "family": "Smith",
+            "given": [
+              "Jane"
+            ]
+          }
+        ],
         "gender": "female",
-        "birthDate": "2003-05-01"
+        "birthDate": "1983-01-10"
       }
     </pre>
   </div>
