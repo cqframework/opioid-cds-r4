@@ -69,7 +69,7 @@
 
   <p>The next step is to load the content, i.e., the artifacts published in this implementation guide that
     define the recommendation. For convenience, the resources for recommendation #10, patient-view
-    have all been added to the 'opioidcds-rec10-patientview-bundle'. The test data for this particular
+    have all been added to the 'opioidcds-10-patient-view-bundle' (see below). The test data for this particular
     quick start test case consists of two Medication resources that also need to be posted to the FHIR server.
     These represent the patient's Medication history, the 'quickstart-medications-bundle' contains those resources. These
     two bundles should be POSTed to the base URL of the server:</p>
@@ -195,47 +195,21 @@
   <div class="example">
     <pre class="json">
       {
-            "cards": [
-                {
-                    "summary": "Annual Urine Screening Check",
-                    "indicator": "warning",
-                    "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
-                    "source": {
-                        "label": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-                        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
-                    },
-                    "suggestions": [
-                        {
-                            "label": "Order Urine Screening",
-                            "actions": [
-                                {
-                                    "type": "create",
-                                    "description": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
-                                    "resource": {
-                                        "resourceType": "ProcedureRequest",
-                                        "id": "29c794f0-b3e3-47d1-975c-ff0cd6de494b",
-                                        "status": "draft",
-                                        "intent": "order",
-                                        "code": {
-                                            "coding": [
-                                                {
-                                                    "system": "http://snomed.info/sct",
-                                                    "code": "310627008",
-                                                    "display": "Urine drug screening (procedure)"
-                                                }
-                                            ]
-                                        },
-                                        "subject": {
-                                            "reference": "Patient/example-rec-10-no-screenings"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }  </pre>
+  "cards": [
+    {
+      "summary": "Annual Urine Screening Check",
+      "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.",
+      "indicator": "warning",
+      "source": {
+        "label": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
+        "uri": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
+        "icon": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      },
+      "links": []
+    }
+  ]
+}
+  </pre>
   </div>
 
   <a name="api-request-and-response-cds-hooks-client"> </a>
@@ -243,9 +217,9 @@
 
   <p>The <a href="http://sandbox.cds-hooks.org" target="_blank">CDS Hooks Sandbox</a> is a web application that provides a user-friendly GUI for constructing, viewing and submitting CDS Hooks requests and viewing the responses both in raw JSON format and also in an html representation that is meant to be representative of how it might be presented in a consuming EHR system. The sandbox can be configured to run against the local CDS Hooks service instance created above.</p>
   <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
-  <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p>
-  <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there.</p>
-  <p>Now the sandbox is configured to use the CDS Hooks service that you created above. The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you're going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-no-screenings.json file above and then PUT that to the FHIR server created above. </p>
+  <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there. Now the sandbox is configured to use the CDS Hooks service that you created above.</p>
+  <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p> 
+  <p>The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you're going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-no-screenings.json file above and then PUT that to the FHIR server created above. </p>
   <div class="example">
     <pre class="http">
   PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings
@@ -255,20 +229,21 @@
   <div class="example">
     <pre class="json">
       {
-        "resourceType": "Patient",
-        "id": "example-rec-10-patient-view-no-screenings",
-        "name": [
-          {
-            "family": "Smith",
-            "given": [
-              "Jane"
-            ]
-          }
-        ],
-        "gender": "female",
-        "birthDate": "1983-01-10"
-      }
+  "resourceType": "Patient",
+  "id": "example-rec-10-patient-view-no-screenings",
+  "name": [
+    {
+      "family": "Smith",
+      "given": [
+        "Jane"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1983-01-10"
+}
     </pre>
   </div>
-  <p>Now set the Patient context in the sandbox to this new patient. To set the Patient context in the CDS Hooks Sandbox go to Settings and then select "Change Patient" and set the ID to "example-rec-10-patient-view-no-screenings". </p>
+  <p>Now set the Patient context in the sandbox to this new patient. If not prompted as part of adding the FHIR server, go to Settings and then select "Change Patient" and set the ID to "example-rec-10-patient-view-no-screenings". </p>
+  <p>Please note, that for a basic set up of local servers, the window to the CDS sandbox might need to be opened with CORS disabled for all functions to work properly.</p>
 </div>
