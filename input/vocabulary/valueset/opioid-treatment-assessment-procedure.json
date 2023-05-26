@@ -1,0 +1,142 @@
+{
+  "resourceType": "ValueSet",
+  "id": "opioid-treatment-assessment-procedure",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+  },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueContactDetail": {
+      "name": "MD Partners, Inc.",
+      "telecom": [ {
+        "system": "email",
+        "value": "info@mdpartners.com"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "computable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "structured"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+    "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueContactDetail": {
+      "name": "MD Partners, Inc.",
+      "telecom": [ {
+        "system": "email",
+        "value": "info@mdpartners.com"
+      } ]
+    }
+  } ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-treatment-assessment-procedure",
+  "name": "opioid_treatment_assessment_procedure",
+  "title": "Opioid treatment assessment procedure",
+  "status": "active",
+  "experimental": true,
+  "date": "2023-05-25T18:08:12-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "contact": [ {
+    "name": "Centers for Disease Control and Prevention (CDC)",
+    "telecom": [ {
+      "system": "url",
+      "value": "https://www.cdc.gov"
+    } ]
+  } ],
+  "description": "Broad set of concepts that may represent a procedure to assess the risk of opioid abuse occurring by a patient",
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    } ]
+  } ],
+  "purpose": "Risk assessment to occur when considering opioid therapy",
+  "copyright": "© CDC 2016+.",
+  "compose": {
+    "include": [ {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "filter": [ {
+        "property": "concept",
+        "op": "is-a",
+        "value": "454111000124101"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "filter": [ {
+        "property": "concept",
+        "op": "is-a",
+        "value": "408941008"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "concept": [ {
+        "code": "460831000124102"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "concept": [ {
+        "code": "866024000"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "concept": [ {
+        "code": "459741000124104"
+      } ]
+    } ]
+  },
+  "expansion": {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
+      "valueBoolean": true
+    } ],
+    "identifier": "urn:uuid:343fd58e-d2cb-47fe-a479-e45163e95aa9",
+    "timestamp": "2023-05-26T00:30:09.634Z",
+    "parameter": [ {
+      "name": "version",
+      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+    } ],
+    "contains": [ {
+      "system": "http://snomed.info/sct",
+      "code": "454111000124101",
+      "display": "Assessment of risk for drug therapy problem (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "454281000124100",
+      "display": "Assessment of risk for opioid abuse (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "408941008",
+      "display": "Drug abuse prevention (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "426928008",
+      "display": "Prevention of opioid abuse (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "460831000124102",
+      "display": "Counseling about opioid safety (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "866024000",
+      "display": "Assessment of risk for accidental opioid overdose (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "459741000124104",
+      "display": "Assessment using risk index for overdose or serious opioid-induced respiratory depression scale (procedure)"
+    } ]
+  }
+}
