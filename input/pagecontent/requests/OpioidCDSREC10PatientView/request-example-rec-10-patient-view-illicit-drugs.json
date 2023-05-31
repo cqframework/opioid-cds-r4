@@ -49,10 +49,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -234,13 +230,8 @@
             }
           }
         ]
-      }
-    },
-    "item3": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item3": {
         "resourceType": "Observation",
         "id": "example-rec-10-illicit-drugs-prefetch",
         "extension": [
@@ -291,4 +282,3 @@
     },
     "item4": null
   }
-}

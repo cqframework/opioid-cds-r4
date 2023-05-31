@@ -104,10 +104,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-order-sign-no-screenings",
         "extension": [
@@ -132,18 +128,13 @@
         ],
         "gender": "female",
         "birthDate": "2002-12-13"
-      }
-    },
+      },
     "item2": null,
     "item3": null,
     "item4": null,
     "item5": null,
     "item6": null,
     "item7": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-10-order-sign-no-screenings-prefetch",
         "extension": [
@@ -174,15 +165,10 @@
           "start": "2022-09-14",
           "end": "2022-09-14"
         }
-      }
-    },
+      },
     "item8": null,
     "item9": null,
     "item10": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-order-sign-no-screenings-prefetch",
         "extension": [
@@ -271,4 +257,3 @@
       }
     }
   }
-}

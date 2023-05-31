@@ -40,10 +40,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "type": "searchset",
         "entry": [
@@ -216,8 +212,7 @@
             }
           }
         ]
-      }
-    },
+      },
     "item3": null,
     "item4": null
   }

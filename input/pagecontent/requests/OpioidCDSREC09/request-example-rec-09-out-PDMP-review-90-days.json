@@ -91,10 +91,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-09-false-due-to-PDMP-review-within-90-days",
         "extension": [
@@ -118,13 +114,8 @@
           }
         ],
         "birthDate": "2002-12-13"
-      }
-    },
-    "item2": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item2": {
         "resourceType": "Procedure",
         "id": "d2e1e4f3-9117-46c3-a8ee-125c58674997",
         "extension": [
@@ -167,4 +158,3 @@
       }
     }
   }
-}

@@ -39,10 +39,6 @@
     },
     "item2": null,
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Condition",
         "id": "example-rec-12-criteria-invalid",
         "extension": [
@@ -98,13 +94,8 @@
           "reference": "Patient/example-rec-12-criteria-invalid"
         },
         "recordedDate": "2022-10-13"
-      }
-    },
-    "item4": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item4": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-12-criteria-invalid",
         "extension": [
@@ -189,8 +180,7 @@
             "code": "d"
           }
         }
-      }
-    },
+      },
     "item5": null
   }
 }

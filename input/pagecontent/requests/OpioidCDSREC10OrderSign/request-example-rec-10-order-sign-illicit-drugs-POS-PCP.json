@@ -104,10 +104,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-2-illicit-POS-PCP-drugs",
         "extension": [
@@ -132,18 +128,13 @@
         ],
         "gender": "female",
         "birthDate": "1982-08-24"
-      }
-    },
+      },
     "item2": null,
     "item3": null,
     "item4": null,
     "item5": null,
     "item6": null,
     "item7": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch",
         "extension": [
@@ -174,13 +165,8 @@
           "start": "2022-09-14",
           "end": "2022-09-14"
         }
-      }
-    },
-    "item8": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item8": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -429,14 +415,9 @@
             }
           }
         ]
-      }
-    },
+      },
     "item9": null,
     "item10": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-2-illicit-POS-PCP-drugs-prefetch-3",
         "extension": [
@@ -525,4 +506,3 @@
       }
     }
   }
-}
