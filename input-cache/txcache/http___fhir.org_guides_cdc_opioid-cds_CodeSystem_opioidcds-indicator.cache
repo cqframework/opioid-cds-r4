@@ -24,27 +24,9 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "status" : "active",
-  "compose" : {
-    "inactive" : true,
-    "include" : [{
-      "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
-      "concept" : [{
-        "code" : "info",
-        "display" : "Information"
-      },
-      {
-        "code" : "warning",
-        "display" : "Warning"
-      },
-      {
-        "code" : "hard-stop",
-        "display" : "Hard Stop"
-      }]
-    }]
-  },
   "expansion" : {
-    "identifier" : "urn:uuid:1f330377-81c0-4907-8427-043926d53e64",
-    "timestamp" : "2023-05-02T02:08:54.130Z",
+    "identifier" : "urn:uuid:1f004c26-bafb-46cd-836d-8e9495af1e84",
+    "timestamp" : "2023-05-26T20:04:22.199Z",
     "total" : 3,
     "parameter" : [{
       "name" : "limitedExpansion",
