@@ -144,14 +144,14 @@
             "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
             "id": "opioidcds-10-patient-view",
             "prefetch": {
-                "item1": "Patient?_id=Patient/{context.patientId}",
-                "item2": "Condition?patient=Patient/{context.patientId}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
-                "item3": "Condition?patient=Patient/{context.patientId}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
-                "item4": "Condition?patient=Patient/{context.patientId}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
-                "item5": "ServiceRequest?patient=Patient/{context.patientId}",
-                "item6": "Observation?subject=Patient/{context.patientId}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
-                "item7": "Procedure?patient=Patient/{context.patientId}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
-                "item8": "Encounter?patient=Patient/{context.patientId}&amp;"
+                "item1": "Patient?_id=Patient/{{'{{'}}context.patientId}}",
+                "item2": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+                "item3": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "item4": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
+                "item5": "ServiceRequest?patient=Patient/{{'{{'}}context.patientId}}",
+                "item6": "Observation?subject=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
+                "item7": "Procedure?patient=Patient/{{'{{'}}context.patientId}}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
+                "item8": "Encounter?patient=Patient/{{'{{'}}context.patientId}}&amp;"
             }
         }
     ]
