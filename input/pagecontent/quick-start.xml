@@ -73,7 +73,7 @@
     <a name="fhir-transaction"> </a>
     <h4>As a FHIR Transaction</h4>
     After running the script <code>sh _refresh.sh</code>, a bundle containing the resources and requests for all required artifacts is created and can be found as
-     <a href="../bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json">a generated bundle</a> in <code>bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json</code>. This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server transaction processing, this will post all the content resources as
+     <a href="../bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json">a generated bundle</a> in <code>bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json</code>. This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server transaction processing, this will post all the content resources as
     a single transaction.
 
     <div class="example">
