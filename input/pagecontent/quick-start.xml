@@ -65,35 +65,30 @@
   </div>
 
   <a name="content-load"> </a>
-  <h3>Loading Content</h3>
+  <h3>Loading Logic Content</h3>
 
   <p>The next step is to load the content, i.e., the artifacts published in this implementation guide that
-    define the recommendation. For convenience, the resources for recommendation #10, patient-view
-    have all been added to the 'opioidcds-rec10-patientview-bundle' (see below). The test data for this particular
-    quick start test case consists of two Medication resources that also need to be posted to the FHIR server.
-    These represent the patient's Medication history, the 'quickstart-medications-bundle' contains those resources. These
-    two bundles should be POSTed to the base URL of the server:</p>
+    define the recommendation. There is two way that the those artifacts can be published to the server. </p>
+    
+    <a name="fhir-transaction"> </a>
+    <h4>As a FHIR Transaction</h4>
+    After running the script <code>sh _refresh.sh</code>, a bundle containing the resources and requests for all required artifacts is created and can be found as
+     <a href="../bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json">a generated bundle</a> in <code>bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json</code>. This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server transaction processing, this will post all the content resources as
+    a single transaction.
 
-  <table class="list">
-  	<thead>
-  		<tr><th>Resource</th><th>Type</th><th>Description</th></tr>
-  	</thead>
-  	<tbody>
-    <tr><td><a href="requests/QuickStart/opioidcds-10-patient-view-bundle.json">opioidcds-rec10-patientview-bundle</a></td><td>Bundle</td><td>All Required Content for Recommendation #10</td></tr>
-  	  <tr><td><a href="requests/QuickStart/quickstart-medications-bundle.json">quickstart-medications-bundle</a></td><td>Bundle</td><td>Test data for Quick Start test case</td></tr>
-    </tbody>
-  </table>
-
-  <div class="example">
+    <div class="example">
     <pre class="http">
   POST http://localhost:8080/fhir
     </pre>
   </div>
+    
+    <a name="individual-resources"> </a>
+    <h4>As Individual Resources</h4>
+Because this content is published as FHIR resources, each of the resources
+    can be loaded individually rather than as part of the bundle above by POSTing
+    or PUTing the single resources to the FHIR server.
 
-  <p>Following normal FHIR server transaction processing, this will post all the content resources as
-    a single transaction.</p>
-
-  <p>The resources contained in these bundles are:</p>
+  <p>The resources that are required for this example are all contained in the big bundle above:</p>
 
   <table class="list">
     <thead>
@@ -111,10 +106,6 @@
       <tr><td><a href="terminology.html">Terminologies</a></td><td>ValueSet</td><td>Value sets referenced by the CQL in the Opioid Logic recommendations</td></tr>
     </tbody>
   </table>
-
-  <p>Because this content is published as FHIR resources, each of the resources
-    can be loaded individually rather than as part of the bundles above by POSTing
-    or PUTing them to the FHIR server, just like any other FHIR resource:</p>
 
   <div class="example">
     <pre class="http">
@@ -217,10 +208,7 @@
   <h4>CDS Hooks Sandbox</h4>
 
   <p>The <a href="http://sandbox.cds-hooks.org" target="_blank">CDS Hooks Sandbox</a> is a web application that provides a user-friendly GUI for constructing, viewing and submitting CDS Hooks requests and viewing the responses both in raw JSON format and also in an html representation that is meant to be representative of how it might be presented in a consuming EHR system. The sandbox can be configured to run against the local CDS Hooks service instance created above.</p>
-  <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
-  <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there. Now the sandbox is configured to use the CDS Hooks service that you created above.</p>
-  <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p> 
-  <p>The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you're going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-no-screenings.json file above and then PUT that to the FHIR server created above. </p>
+  <p>As a first step, we will need to set up our FHIR server with some test data. As a minmal example, a Patient with two MedicationRequest resources will be posted to the server.</p>
   <div class="example">
     <pre class="http">
   PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings
@@ -243,8 +231,25 @@
   "gender": "female",
   "birthDate": "1983-01-10"
 }
+</pre>
+</div>
+ <div class="example">
+    <pre class="http">
+  POST http://localhost:8080/fhir/MedicationRequest
     </pre>
   </div>
-  <p>Now set the Patient context in the sandbox to this new patient. If not prompted as part of adding the FHIR server, go to Settings and then select "Change Patient" and set the ID to "example-rec-10-patient-view-no-screenings". </p>
+  <p><a href="../input/examples/medicationrequest-rec10-patientview-quickstart-1.json">The JSON of MedicationRequest 1</a></p>
+
+  <div class="example">
+    <pre class="http">
+  POST http://localhost:8080/fhir/MedicationRequest
+    </pre>
+  </div>
+  <p><a href="../input/examples/medicationrequest-rec10-patientview-quickstart-2.json">The JSON of MedicationRequest 2</a></p>
+
+  <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
+  <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there. Now the sandbox is configured to use the CDS Hooks service that you created above.</p>
+  <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p> 
+  <p>The next step is to query a Patient resource via the Sandbox. For that, set the Patient context in the sandbox to our new patient. If not prompted as part of adding the FHIR server, go to Settings and then select "Change Patient" and set the ID to "example-rec-10-patient-view-no-screenings". </p>
   <p>Please note, that for a basic set up of local servers, the window to the CDS sandbox might need to be opened with CORS disabled for all functions to work properly.</p>
 </div>
