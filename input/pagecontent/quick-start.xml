@@ -68,27 +68,19 @@
   <h3>Loading Logic Content</h3>
 
   <p>The next step is to load the content, i.e., the artifacts published in this implementation guide that
-    define the recommendation. There is two way that the those artifacts can be published to the server. </p>
-    
-    <a name="fhir-transaction"> </a>
-    <h4>As a FHIR Transaction</h4>
-    After running the script <code>sh _refresh.sh</code>, a bundle containing the resources and requests for all required artifacts is created and can be found as
-     <a href="../bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json">a generated bundle</a> in <code>bundles/plandefinition/OpioidCDSREC10PatientView/OpioidCDSREC10PatientView-bundle.json</code>. This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server transaction processing, this will post all the content resources as
-    a single transaction.
-
+    define the recommendation. After running the script <code>sh _refresh.sh</code> for this 
+    implementation guide, a bundle containing the resources and requests for all required artifacts
+     is created and can be found as a generated bundle in 
+     <code>bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json</code>. 
+     This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server transaction processing, this will post all the content resources including the required terminology as
+    a single transaction.</p>
     <div class="example">
     <pre class="http">
   POST http://localhost:8080/fhir
     </pre>
   </div>
     
-    <a name="individual-resources"> </a>
-    <h4>As Individual Resources</h4>
-Because this content is published as FHIR resources, each of the resources
-    can be loaded individually rather than as part of the bundle above by POSTing
-    or PUTing the single resources to the FHIR server.
-
-  <p>The resources that are required for this example are all contained in the big bundle above:</p>
+  <p>The following resources that are required for this example are all contained in the big bundle above:</p>
 
   <table class="list">
     <thead>
@@ -102,18 +94,8 @@ Because this content is published as FHIR resources, each of the resources
       <tr><td><a href="Library-OpioidCDSRoutines.html">OpioidCDS_Routines</a></td><td>Library</td><td>Opioid Routines Library</td></tr>
       <tr><td><a href="Library-OMTKLogicMK2020.html">OMTKLogic</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Logic Library</td></tr>
       <tr><td><a href="Library-OMTKData2020.html">OMTKData</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Data Library</td></tr>
-
-      <tr><td><a href="terminology.html">Terminologies</a></td><td>ValueSet</td><td>Value sets referenced by the CQL in the Opioid Logic recommendations</td></tr>
     </tbody>
   </table>
-
-  <div class="example">
-    <pre class="http">
-  PUT http://localhost:8080/fhir/PlanDefinition/opioidcds-10-patient-view
-    </pre>
-  </div>
-
-  <p>With the body of the PUT request set to be the XML (or JSON) for the resource.</p>
 
   <p>Once the content has been loaded, the CDS Hooks discovery endpoint will list the recommendations as
     available services to be called:</p>
@@ -126,23 +108,24 @@ Because this content is published as FHIR resources, each of the resources
 
   <div class="example">
     <pre class="json">
-  {
+ {
     "services": [
         {
             "hook": "patient-view",
             "name": "PlanDefinition_Recommendation_10_Patient_View",
-            "title": "PlanDefinition - CDC Opioid Prescribing Guideline Recommendation #10 (patient-view)",
-            "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
+            "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #10 (patient-view)",
+            "description": "When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
             "id": "opioidcds-10-patient-view",
             "prefetch": {
                 "item1": "Patient?_id=Patient/{{'{{'}}context.patientId}}",
-                "item2": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
-                "item3": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
-                "item4": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
-                "item5": "ServiceRequest?patient=Patient/{{'{{'}}context.patientId}}",
-                "item6": "Observation?subject=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
-                "item7": "Procedure?patient=Patient/{{'{{'}}context.patientId}}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
-                "item8": "Encounter?patient=Patient/{{'{{'}}context.patientId}}&amp;"
+                "item2": "MedicationRequest?subject=Patient/{{'{{'}}context.patientId}}",
+                "item3": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+                "item4": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "item5": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
+                "item6": "ServiceRequest?patient=Patient/{{'{{'}}context.patientId}}",
+                "item7": "Observation?subject=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
+                "item8": "Procedure?patient=Patient/{{'{{'}}context.patientId}}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
+                "item9": "Encounter?patient=Patient/{{'{{'}}context.patientId}}"
             }
         }
     ]
@@ -189,13 +172,13 @@ Because this content is published as FHIR resources, each of the resources
       {
     "cards": [
         {
-            "summary": "Patient May Have Unexpected Toxicology Test Results",
-            "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing.",
+            "summary": "Annual Urine Screening Check",
+            "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
             "indicator": "warning",
             "source": {
-                "label": "CDC guideline for prescribing opioids for chronic pain",
-                "uri": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids",
-                "icon": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
+                "label": "CDC 2016 Guideline for prescribing opioids for chronic pain",
+                "uri": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm",
+                "icon": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
             },
             "links": []
         }
