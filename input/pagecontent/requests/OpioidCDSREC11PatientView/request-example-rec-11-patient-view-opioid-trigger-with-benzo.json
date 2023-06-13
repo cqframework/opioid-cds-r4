@@ -17,7 +17,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -32,7 +32,8 @@
           }
         ],
         "gender": "female",
-        "birthDate": "2003-03-20"
+        "birthDate": "2003-05-01"
+      }
     },
     "item2": {
         "resourceType": "MedicationRequest",
@@ -43,7 +44,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -84,7 +85,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-11-opioid-trigger-with-benzo-prefetch"
         },
-        "authoredOn": "2023-02-17",
+        "authoredOn": "2023-03-31",
         "dosageInstruction": [
           {
             "timing": {
@@ -109,8 +110,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2023-02-17T00:00:00-07:00",
-            "end": "2023-05-20T00:00:00-06:00"
+            "start": "2023-03-31T00:00:00-06:00",
+            "end": "2023-07-01T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
@@ -130,7 +131,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -171,7 +172,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-11-opioid-trigger-with-benzo-context"
         },
-        "authoredOn": "2023-03-20",
+        "authoredOn": "2023-05-01",
         "dosageInstruction": [
           {
             "timing": {
@@ -196,8 +197,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2023-03-20T00:00:00-06:00",
-            "end": "2023-06-20T00:00:00-06:00"
+            "start": "2023-05-01T00:00:00-06:00",
+            "end": "2023-08-01T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {

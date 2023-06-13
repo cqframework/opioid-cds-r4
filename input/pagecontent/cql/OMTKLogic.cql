@@ -2,13 +2,11 @@ library OMTKLogic version '3.0.0'
 
 /*
 This library provides functionality for calculating Morphine Milligram
-Equivalents (MME) for opioid medications, as described in the CDC 2022 Opioid
-Prescribing Guideline.
+Equivalents (MME) for opioid medications, as described in the 2022 CDC Clinical Practice Guideline.
 
 The functionality in this library was developed based on the Java-based
 implementation described [here](http://build.fhir.org/ig/cqframework/opioid-cds-r4/service-documentation.html#solution-component-3-core-logic-processing-java-class),
-as well as the MME conversion calculation published as part of the CDC 2022 Opioid
-Prescribing Guideline.
+as well as the MME conversion calculation published as part of the 2022 CDC Clinical Practice Guideline.
 
 Note that the logic in this library (and specifically the conversion factors captured here)
 are based on the 2016 version of the publication available from the CDC here:

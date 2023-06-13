@@ -12,3 +12,38 @@ v: {
   "error" : "The display \"Medical Oncology\" is not a valid display for the code {http://nucc.org/provider-taxonomy}207RX0202X - should be one of ['Medical Oncology Physician'] (from http://tx.fhir.org/r4)"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://nucc.org/provider-taxonomy",
+  "code" : "207RX0202X",
+  "display" : "Medical Oncology"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Wrong Display Name 'Medical Oncology' for http://nucc.org/provider-taxonomy#207RX0202X - should be 'Medical Oncology Physician' (for the language(s) '--') (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://nucc.org/provider-taxonomy",
+  "code" : "207RX0202X",
+  "display" : "Medical Oncology Physician"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Medical Oncology Physician",
+  "code" : "207RX0202X",
+  "system" : "http://nucc.org/provider-taxonomy",
+  "version" : "22.0"
+}
+-------------------------------------------------------------------------------------

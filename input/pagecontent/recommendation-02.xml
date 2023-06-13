@@ -1,9 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p>
-    Recommendation #2 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - page 75 line 1729):
+    Recommendation #2 (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation2" target="_blank">2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain</a>):
   </p>
   <p>
-    <strong>Nonopioid therapies are preferred for subacute and chronic pain. Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific condition and patient and only consider initiating opioid therapy if expected benefits for pain and function are anticipated to outweigh risks to the patient. Before starting opioid therapy for subacute or chronic pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy, should work with patients to establish treatment goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm?s_cid=rr7103a1.htm_w#B3_down">recommendation category: A; evidence type: 2</a>).</strong>
+    <strong>Nonopioid therapies are preferred for subacute and chronic pain. Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific condition and patient and only consider initiating opioid therapy if expected benefits for pain and function are anticipated to outweigh risks to the patient. Before starting opioid therapy for subacute or chronic pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy, should work with patients to establish treatment goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks 
+    (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of">recommendation category</a>: A; 
+    <a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of">evidence type</a>: 2).</strong>
   </p>
 
   <div class="toc-container">
@@ -75,9 +77,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-02.html">CDC 2022 Opioid Prescribing Guideline Recommendation #2</a></td>
+          <td><a href="PlanDefinition-opioidcds-02.html">2022 CDC Clinical Practice Guideline Recommendation #2</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #2</td>
+          <td>Event-Condition-Action rule that implements behavior for 2022 CDC Clinical Practice Guideline Recommendation #2</td>
         </tr>
         <tr>
           <td><a href="Library-OpioidCDSREC02.html">Recommendation #2 - Opioid Therapy Goals Discussion</a></td>

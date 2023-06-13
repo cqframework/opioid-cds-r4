@@ -12,26 +12,58 @@ code "Urine Drug Screening": '310627008' from Common.SNOMED display 'Urine drug 
 
 /*
 **  Recommendation #10
-**    When prescribing opioids for subacute or chronic pain, providers should use urine drug
-**    testing before starting opioid therapy and consider urine drug testing at
-**    least annually to assess for prescribed medications as well as other controlled
-**    prescription drugs and illicit drugs (recommendation category: B, evidence type: 4)
+**    When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits 
+**    and risks of toxicology testing to assess for prescribed medications as well as other prescribed 
+**    and nonprescribed controlled substances (recommendation category: B; evidence type: 4).
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Prescription is for treating subacute or chronic pain.
+**    There exists an opioid analgesic with ambulatory misuse potential in the outpatient setting:
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
-**    Urine drug screening has not been performed in last 12 months
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
+**    Nonopioid drug urine screening has not been performed in last 12 months or
+**    Opioid drug urine screening has not been performed in last 12 months
 **  Then
-**    Recommend urine drug screening
-**      Will perform urine screening
-**      Not for subacute or chronic pain management, snooze 3 months
-**      N/A - see comment, snooze 3 months
+**    Consider the benefits and risks of conducting a urine toxicology screen:
+**      Document - Order toxicology screen
+**      Document risks outweigh benefits
+**      Snooze - N/A see comment, snooze 3 months
+**  When
+**    There exists an opioid analgesic with ambulatory misuse potential in the outpatient setting
+**    Prescription is for treating subacute and/or chronic pain.
+**    Opioid review is useful for this patient:
+**      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
+**      Patient does not have findings indicating limited life expectancy
+**      Patient does not have orders for therapies indicating end of life care
+**      Patient is not undergoing active cancer treatment:
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
+**    Nonopioid drug urine screening has been performed in last 12 months and
+**    Opioid drug urine screening has been performed in last 12 months and
+**    Positive result for synthetic opioid in the past year and not currently prescribed synthetic opioid or
+**    Positive result for phencyclidine(PCP) in the past year or
+**    Positive result for fentanyl in the past year and not currently prescribed fentanyl or
+**    Positive result for cocaine in the past year or
+**    Positive result for amphetamine in the past year and not currently prescribed amphetamine or
+**    Positive result for tetrahydrocannabinol (THC) in the past year and not currently prescribed tetrahydrocannabinol (THC) or
+**    Positive result for opiate in the past year and not currently prescribed natural opiate or
+**    Positive result for alcohol in the past year or
+**    Positive result for methadone in the past year and not currently prescribed methadone
+**  Then
+**    Patient may have unexpected toxicology test results:
+**      Document - Will repeat urine drug screening more frequently
+**      Document - Will assess patient for substance use disorder
+**      Snooze - Patient's test results were expected, snooze for 3 months
+**      Snooze - N/A snooze for 3 months
 **
 */
 
@@ -80,7 +112,7 @@ define "Urine Drug Screening Request":
       authoredOn: FHIR.dateTime { value: Now() },
       reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: "Detail" } } }
       // doesn't really work, need a relatedArtifact here...
-      //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm#10_When_prescribing_opioids' } } }
+      //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10' } } }
     }
 
 define function ToCoding(code System.Code):

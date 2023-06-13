@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-03-23"
+                    "valueDateTime": "2023-05-01"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-03-preexisting-long-acting-opioid-context"
             },
-            "authoredOn": "2023-03-23",
+            "authoredOn": "2023-05-01",
             "dosageInstruction": [
               {
                 "timing": {
@@ -86,8 +86,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-03-23T00:00:00-06:00",
-                "end": "2023-06-23T00:00:00-06:00"
+                "start": "2023-05-01T00:00:00-06:00",
+                "end": "2023-08-01T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {
@@ -112,7 +112,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -150,7 +150,7 @@
         "subject": {
           "reference": "Patient/example-rec-03-preexisting-long-acting-opioid"
         },
-        "authoredOn": "2023-02-17",
+        "authoredOn": "2023-03-31",
         "dosageInstruction": [
           {
             "timing": {
@@ -175,8 +175,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2023-02-17T00:00:00-07:00",
-            "end": "2023-05-20T00:00:00-06:00"
+            "start": "2023-03-31T00:00:00-06:00",
+            "end": "2023-07-01T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
@@ -197,7 +197,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -212,7 +212,8 @@
           }
         ],
         "gender": "male",
-        "birthDate": "2002-12-13"
+        "birthDate": "2003-05-01"
+      }
     },
     "item4": null,
     "item5": null,

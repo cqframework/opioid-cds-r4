@@ -1,9 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd"><a name="rec11"> </a>
   <p>
-    Recommendations #11 (<a href="https://downloads.regulations.gov/CDC-2022-0024-0002/content.pdf" target="_blank">2022 Draft CDC Clinical Practice Guideline for Prescribing Opioids</a> - Pages 145 lines 3579):
+    Recommendations #11 (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation11" target="_blank">2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain</a>):
   </p>
   <p>
-    <strong>Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently and consider whether benefits outweigh risks of concurrent prescribing of opioids and other central nervous system depressants (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm?s_cid=rr7103a1.htm_w#B3_down">recommendation category: B; evidence type: 3</a>).</strong>
+    <strong>Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently and consider whether benefits outweigh risks of concurrent prescribing of opioids and other central nervous system depressants 
+    (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of">recommendation category</a>: B; 
+    <a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of">evidence type</a>: 3).</strong>
   </p>
 
   {% include multiple-variation-note.html %}
@@ -64,9 +66,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-11-patient-view.html">CDC 2022 Opioid Prescribing Guideline Recommendation #11 Patient View</a></td>
+          <td><a href="PlanDefinition-opioidcds-11-patient-view.html">2022 CDC Clinical Practice Guideline Recommendation #11 Patient View</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #11 Patient View</td>
+          <td>Event-Condition-Action rule that implements behavior for 2022 CDC Clinical Practice Guideline Recommendation #11 Patient View</td>
         </tr>
         <tr>
           <td><a href="Library-OpioidCDSREC11PatientView.html">Recommendation #11 Patient View - concurrent opioid pain medication and benzodiazepines or other central nervous system depressant prescriptions</a></td>

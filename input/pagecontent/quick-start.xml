@@ -139,7 +139,7 @@
       {
         "hook": "patient-view",
         "name": "PlanDefinition_Recommendation_10_Patient_View",
-        "title": "PlanDefinition - CDC 2022 Opioid Prescribing Guideline Recommendation #10 (patient-view)",
+        "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #10 (patient-view)",
         "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
         "id": "opioidcds-10-patient-view",
         "prefetch": {
@@ -197,8 +197,8 @@
                     "indicator": "warning",
                     "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
                     "source": {
-                        "label": "CDC 2022 guideline for prescribing opioids for subacute or chronic pain",
-                        "url": "https://www.federalregister.gov/documents/2022/02/10/2022-02802/proposed-2022-cdc-clinical-practice-guideline-for-prescribing-opioids"
+                        "label": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
+                        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
                     },
                     "suggestions": [
                         {

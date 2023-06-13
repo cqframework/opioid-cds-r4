@@ -21,7 +21,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -45,7 +45,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1982-12-05"
+        "birthDate": "1983-01-16"
       }
     },
     "item2": {
@@ -61,7 +61,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -102,7 +102,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-2-illicit-drugs-encounter"
               },
-              "authoredOn": "2022-12-20",
+              "authoredOn": "2023-01-31",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -127,8 +127,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2022-12-20T00:00:00-07:00",
-                  "end": "2023-03-20T00:00:00-06:00"
+                  "start": "2023-01-31T00:00:00-07:00",
+                  "end": "2023-05-01T00:00:00-06:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
@@ -150,7 +150,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -191,7 +191,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-2-illicit-drugs-encounter"
               },
-              "authoredOn": "2023-03-20",
+              "authoredOn": "2023-05-01",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -216,8 +216,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2023-03-20T00:00:00-06:00",
-                  "end": "2023-06-19T00:00:00-06:00"
+                  "start": "2023-05-01T00:00:00-06:00",
+                  "end": "2023-07-31T00:00:00-06:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
@@ -244,7 +244,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -281,7 +281,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-2-illicit-drugs"
               },
-              "effectiveDateTime": "2022-10-20",
+              "effectiveDateTime": "2022-12-01",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -305,7 +305,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -342,7 +342,7 @@
               "subject": {
                 "reference": "Patient/xexample-rec-10-patient-view-2-illicit-drugs"
               },
-              "effectiveDateTime": "2022-12-30",
+              "effectiveDateTime": "2023-02-10",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -366,7 +366,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -404,7 +404,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-2-illicit-drugs"
               },
-              "effectiveDateTime": "2022-09-29",
+              "effectiveDateTime": "2022-11-10",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -428,7 +428,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -465,7 +465,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-2-illicit-drugs"
               },
-              "effectiveDateTime": "2022-11-20",
+              "effectiveDateTime": "2023-01-01",
               "valueString": "POS",
               "interpretation": [
                 {

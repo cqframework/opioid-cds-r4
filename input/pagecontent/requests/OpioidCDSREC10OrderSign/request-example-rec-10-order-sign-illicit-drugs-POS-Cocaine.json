@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-03-20"
+                    "valueDateTime": "2023-05-01"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-10-order-sign-illicit-POS-Cocaine-drugs-context"
             },
-            "authoredOn": "2023-03-20",
+            "authoredOn": "2023-05-01",
             "dosageInstruction": [
               {
                 "timing": {
@@ -84,8 +84,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-03-20T00:00:00-06:00",
-                "end": "2023-06-19T00:00:00-06:00"
+                "start": "2023-05-01T00:00:00-06:00",
+                "end": "2023-07-31T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {
@@ -110,7 +110,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -125,7 +125,8 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1982-11-29"
+        "birthDate": "1983-01-10"
+      }
     },
     "item2": null,
     "item3": null,
@@ -141,7 +142,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -160,8 +161,8 @@
           "reference": "Patient/example-rec-10-order-sign-illicit-POS-Cocaine-drugs"
         },
         "period": {
-          "start": "2022-12-20",
-          "end": "2022-12-20"
+          "start": "2023-01-31",
+          "end": "2023-01-31"
         }
     },
     "item8": {
@@ -177,7 +178,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -214,7 +215,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-order-sign-illicit-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2022-09-13",
+              "effectiveDateTime": "2022-10-25",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -238,7 +239,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -275,7 +276,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-order-sign-illicit-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2022-09-23",
+              "effectiveDateTime": "2022-11-04",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -299,7 +300,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -336,7 +337,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-order-sign-illicit-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2022-10-23",
+              "effectiveDateTime": "2022-12-04",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -360,7 +361,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-03-20"
+                      "valueDateTime": "2023-05-01"
                     },
                     {
                       "url": "frequency",
@@ -397,7 +398,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-order-sign-illicit-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2022-10-15",
+              "effectiveDateTime": "2022-11-26",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -423,7 +424,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -464,7 +465,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-order-sign-illicit-POS-Cocaine-drugs-context"
         },
-        "authoredOn": "2022-12-20",
+        "authoredOn": "2023-01-31",
         "dosageInstruction": [
           {
             "timing": {
@@ -487,8 +488,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2022-12-20T00:00:00-07:00",
-            "end": "2023-03-20T00:00:00-06:00"
+            "start": "2023-01-31T00:00:00-07:00",
+            "end": "2023-05-01T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {
