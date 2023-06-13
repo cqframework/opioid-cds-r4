@@ -1,0 +1,92 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "example-rec-10-patient-view-no-screenings-prefetch",
+  "meta": {
+    "profile": [
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-medicationrequest"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+      "extension": [
+        {
+          "url": "dateLastUpdated",
+          "valueDateTime": "2022-12-13"
+        },
+        {
+          "url": "frequency",
+          "valueDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      ]
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code": "community"
+        }
+      ]
+    }
+  ],
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049502",
+        "display": "12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example-rec-10-patient-view-no-screenings"
+  },
+  "encounter": {
+    "reference": "Encounter/example-rec-10-patient-view-no-screenings-prefetch"
+  },
+  "authoredOn": "2022-09-14",
+  "dosageInstruction": [
+    {
+      "timing": {
+        "repeat": {
+          "frequency": 3,
+          "period": 1,
+          "periodUnit": "d"
+        }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+        {
+          "doseQuantity": {
+            "value": 1,
+            "unit": "tablet",
+            "system": "http://unitsofmeasure.org",
+            "code": "{tablet}"
+          }
+        }
+      ]
+    }
+  ],
+  "dispenseRequest": {
+    "validityPeriod": {
+      "start": "2022-09-14T00:00:00-06:00",
+      "end": "2022-12-13T00:00:00-07:00"
+    },
+    "numberOfRepeatsAllowed": 3,
+    "expectedSupplyDuration": {
+      "value": 30,
+      "unit": "days",
+      "system": "http://unitsofmeasure.org",
+      "code": "d"
+    }
+  }
+}

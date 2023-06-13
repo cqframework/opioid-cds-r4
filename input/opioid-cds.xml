@@ -100,6 +100,24 @@
     </resource>
     <resource>
       <reference>
+        <reference value="Encounter/example-rec-10-patient-view-no-screenings-context" />
+      </reference>
+      <name value="Recommendation 10 Patient View Context Encounter Example" />
+      <description
+        value="Recommendation 10 Patient View Context Example for quick start documentation" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Encounter/example-rec-10-patient-view-no-screenings-prefetch" />
+      </reference>
+      <name value="Recommendation 10 Patient View Prefetch Encounter Example" />
+      <description
+        value="Recommendation 10 Patient View Prefetch Example for quick start documentation" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
         <reference value="MedicationDispense/ambulatory-opioid" />
       </reference>
       <name value="Ambulatory Opioid MedicationDispense" />
@@ -124,6 +142,24 @@
     </resource>
     <resource>
       <reference>
+        <reference value="MedicationRequest/example-rec-10-patient-view-no-screenings-context" />
+      </reference>
+      <name value="Recommendation 10 Patient View Context MedicationRequest Example" />
+      <description
+        value="Recommendation 10 Patient View Context Example for quick start documentation" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/example-rec-10-patient-view-no-screenings-prefetch" />
+      </reference>
+      <name value="Recommendation 10 Patient View Prefetch MedicationRequest Example" />
+      <description
+        value="Recommendation 10 Patient View Prefetch Example for quick start documentation" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
         <reference value="Observation/example-opioidcds" />
       </reference>
       <name value="OpioidCDS Observation" />
@@ -136,6 +172,15 @@
       </reference>
       <name value="OpioidCDS Patient" />
       <description value="Patient Example" />
+      <exampleBoolean value="true" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Patient/example-rec-10-patient-view-no-screenings" />
+      </reference>
+      <name value="Recommendation 10 Patient View Prefetch Patient Example" />
+      <description
+        value="Recommendation 10 Patient View Prefetch Example for quick start documentation" />
       <exampleBoolean value="true" />
     </resource>
     <resource>
