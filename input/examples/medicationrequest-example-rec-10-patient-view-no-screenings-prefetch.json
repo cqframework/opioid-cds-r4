@@ -1,6 +1,11 @@
 {
   "resourceType": "MedicationRequest",
   "id": "example-rec-10-patient-view-no-screenings-prefetch",
+  "meta": {
+    "profile": [
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-medicationrequest"
+    ]
+  },
   "extension": [
     {
       "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",

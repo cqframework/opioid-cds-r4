@@ -23,11 +23,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:3cfcf421-cfb8-4e67-93e3-c7cb57efc6a3",
-    "timestamp" : "2023-03-22T16:57:40.309Z",
+    "identifier" : "urn:uuid:f35a22e3-9c4d-484d-a158-cd3422833890",
+    "timestamp" : "2023-06-13T21:42:36.167Z",
+    "total" : 3,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -41,28 +41,16 @@ e: {
       "valueUri" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator|2016.4.0"
     }],
     "contains" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Indicates that the workflow result is informational"
-      }],
       "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
       "code" : "info",
       "display" : "Information"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Indicates that the workflow result is a warning"
-      }],
       "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
       "code" : "warning",
       "display" : "Warning"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "Indicates that the workflow should not be allowed to proceed"
-      }],
       "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-indicator",
       "code" : "hard-stop",
       "display" : "Hard Stop"

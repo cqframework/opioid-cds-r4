@@ -208,3 +208,7 @@ Data Elements table style
 p#publish-box::before {
   content: "This Opioid Prescribing Support Implementation Guide is tied to the 2016 CDC Guideline for Prescribing Opioids for Chronic Pain (2016 CDC Guideline). ";
 }
+
+pre {
+  margin: 0 0 0px;
+}

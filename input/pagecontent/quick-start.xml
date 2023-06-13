@@ -10,7 +10,7 @@
     guidance artifacts published in this implementation guide. In other words, the "Clinical Reasoning Implementation"
     depicted in the diagram below:</p>
 
-  <img src="assets/images/ClinicalReasoningApproach.png"/>
+  <img src="assets/images/ClinicalReasoningApproach.png" />
 
   <a name="api-request-and-response-http-client"> </a>
   <h3>API Requests/Responses Via HTTP Client</h3>
@@ -25,7 +25,8 @@
   <a name="service"> </a>
   <h3>CDS Hooks Service</h3>
 
-  <p>The first step is to stand up an instance of the CQF Ruler, a reference implementation of the FHIR
+  <p>The first step is to stand up an instance of the <a
+      href="https://github.com/cqframework/cqf-ruler">CQF Ruler</a>, a reference implementation of the FHIR
     Clinical Reasoning module and CDS Hooks. Follow the instructions on the
     <a href="https://github.com/DBCG/cqf-ruler/wiki/Deployment" target="_blank">Deployment</a> page
     of the CQF Ruler wiki to start a local CQF Ruler service.</p>
@@ -34,11 +35,10 @@
     the service is running, issue a couple basic queries:</p>
 
   <div class="example">
-    <pre class="http">
-  GET http://localhost:8080/fhir/Library
-
-  GET http://localhost:8080/fhir/PlanDefinition
-    </pre>
+    <pre class="http"><span class="copy-text">GET http://localhost:8080/fhir/Library <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/Library" data-original-title="Click to copy URL"></button></span></pre>
+  </div>
+  <div class="example">
+    <pre class="http"><span class="copy-text">GET http://localhost:8080/fhir/PlanDefinition <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/PlanDefinition" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <p>For a newly instantiated CQF Ruler, both of these queries should return 0 results, indicating there is no content
@@ -48,39 +48,36 @@
     issue the following query:</p>
 
   <div class="example">
-    <pre class="http">
-  GET http://localhost:8080/cds-services
-    </pre>
+    <pre class="http"><span class="copy-text">GET http://localhost:8080/cds-services <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/cds-services" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <p>For a newly instantiated CQF Ruler, this will also return an empty list, indicating there are no services
     configured.</p>
 
   <div class="example">
-    <pre class="json">
-  {
-      "services": []
-  }
-    </pre>
+<pre class="json">{
+  "services": []
+}</pre>
   </div>
 
   <a name="content-load"> </a>
   <h3>Loading Logic Content</h3>
 
-  <p>The next step is to load the content, i.e., the artifacts published in this implementation guide that
-    define the recommendation. After running the script <code>sh _refresh.sh</code> for this 
-    implementation guide, a bundle containing the resources and requests for all required artifacts
-     is created and can be found as a generated bundle in 
-     <code>bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json</code>. 
-     This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server transaction processing, this will post all the content resources including the required terminology as
-    a single transaction.</p>
-    <div class="example">
-    <pre class="http">
-  POST http://localhost:8080/fhir
-    </pre>
+  <p>The next step is to load the content, i.e., the artifacts published in this implementation
+    guide that define the recommendation. After running the <code>_refresh[.bat or .sh]</code>
+    script (located at the base of this project repository) for this implementation guide, a bundle
+    containing the resources and requests for all required artifacts is created and can be found as
+    a generated bundle in <code>
+    bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json</code>.
+    This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server
+    transaction processing, this will post all the content resources including the required
+    terminology as a single transaction.</p>
+
+  <div class="example">
+    <pre class="http"><span class="copy-text">POST http://localhost:8080/fhir <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir" data-original-title="Click to copy URL"></button></span></pre>
   </div>
     
-  <p>The following resources that are required for this example are all contained in the big bundle above:</p>
+  <p>The following resources that are required for this example are all contained in generated bundle above:</p>
 
   <table class="list">
     <thead>
@@ -101,36 +98,32 @@
     available services to be called:</p>
 
   <div class="example">
-    <pre class="http">
-  GET http://localhost:8080/cds-services
-    </pre>
+    <pre class="http"><span class="copy-text">GET http://localhost:8080/cds-services <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/cds-services" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <div class="example">
-    <pre class="json">
- {
-    "services": [
-        {
-            "hook": "patient-view",
-            "name": "PlanDefinition_Recommendation_10_Patient_View",
-            "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #10 (patient-view)",
-            "description": "When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
-            "id": "opioidcds-10-patient-view",
-            "prefetch": {
-                "item1": "Patient?_id=Patient/{{'{{'}}context.patientId}}",
-                "item2": "MedicationRequest?subject=Patient/{{'{{'}}context.patientId}}",
-                "item3": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
-                "item4": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
-                "item5": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
-                "item6": "ServiceRequest?patient=Patient/{{'{{'}}context.patientId}}",
-                "item7": "Observation?subject=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
-                "item8": "Procedure?patient=Patient/{{'{{'}}context.patientId}}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
-                "item9": "Encounter?patient=Patient/{{'{{'}}context.patientId}}"
-            }
-        }
-    ]
-}
-    </pre>
+<pre class="json">{
+  "services": [
+    {
+      "hook": "patient-view",
+      "name": "PlanDefinition_Recommendation_10_Patient_View",
+      "title": "PlanDefinition - CDC 2016 Opioid Prescribing Guideline Recommendation #10 (patient-view)",
+      "description": "When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
+      "id": "opioidcds-10-patient-view",
+      "prefetch": {
+        "item1": "Patient?_id=Patient/{{'{{'}}context.patientId}}",
+        "item2": "MedicationRequest?subject=Patient/{{'{{'}}context.patientId}}",
+        "item3": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+        "item4": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+        "item5": "Condition?patient=Patient/{{'{{'}}context.patientId}}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
+        "item6": "ServiceRequest?patient=Patient/{{'{{'}}context.patientId}}",
+        "item7": "Observation?subject=Patient/{{'{{'}}context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
+        "item8": "Procedure?patient=Patient/{{'{{'}}context.patientId}}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
+        "item9": "Encounter?patient=Patient/{{'{{'}}context.patientId}}"
+      }
+    }
+  ]
+}</pre>
   </div>
 
   <a name="request-and-response"> </a>
@@ -139,52 +132,47 @@
   <p>Now that the content is loaded, the service will respond to CDS Hooks requests. For example, POST the following request to the recommendation #10 service:</p>
 
   <div class="example">
-    <pre class="http">
-  POST http://localhost:8080/cds-services/opioidcds-10-patient-view
-    </pre>
+    <pre class="http"><span class="copy-text">POST http://localhost:8080/cds-services/opioidcds-10-patient-view <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/cds-services/opioidcds-10-patient-view" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <a href="requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json">request-example-rec-10-patient-view-no-screenings.json</a>
 
   <div class="example">
-    <pre class="json">
-  {
-    "hookInstance": "a172a2ce-38e7-4a21-a411-522cf481d5d1",
-    "fhirServer": "http://localhost:8080/fhir",
-    "hook": "patient-view",
-    "applyCql": true,
-    "context": {
-      "userId": "Practitioner/example",
-      "patientId": "Patient/example-rec-10-no-screenings",
-      "encounterId": "Encounter/example-rec-10-no-screenings-context"
-    },
-    "prefetch": {
-      "item1": "snipped for brevity, see the full example at the above link",
-      "item2": "snipped for brevity, see the full example at the above link"
-    }
-  }  </pre>
+<pre class="json">{
+  "hookInstance": "a172a2ce-38e7-4a21-a411-522cf481d5d1",
+  "fhirServer": "http://localhost:8080/fhir",
+  "hook": "patient-view",
+  "applyCql": true,
+  "context": {
+    "userId": "Practitioner/example",
+    "patientId": "Patient/example-rec-10-no-screenings",
+    "encounterId": "Encounter/example-rec-10-no-screenings-context"
+  },
+  "prefetch": {
+    "item1": "snipped for brevity, see the full example at the above link",
+    "item2": "snipped for brevity, see the full example at the above link"
+  }
+}</pre>
   </div>
 
   <p>This POST results in the following CDS Hooks response:</p>
 
   <div class="example">
-    <pre class="json">
-      {
-    "cards": [
-        {
-            "summary": "Annual Urine Screening Check",
-            "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
-            "indicator": "warning",
-            "source": {
-                "label": "CDC 2016 Guideline for prescribing opioids for chronic pain",
-                "uri": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm",
-                "icon": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
-            },
-            "links": []
-        }
-    ]
-}
-       </pre>
+<pre class="json">{
+  "cards": [
+    {
+      "summary": "Annual Urine Screening Check",
+      "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months.",
+      "indicator": "warning",
+      "source": {
+        "label": "CDC 2016 Guideline for prescribing opioids for chronic pain",
+        "uri": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm",
+        "icon": "https://www.cdc.gov/mmwr/volumes/65/rr/rr6501e1.htm?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fmmwr%2Fvolumes%2F65%2Frr%2Frr6501e1er.htm"
+      },
+      "links": []
+    }
+  ]
+}</pre>
   </div>
 
   <a name="api-request-and-response-cds-hooks-client"> </a>
@@ -192,43 +180,24 @@
 
   <p>The <a href="http://sandbox.cds-hooks.org" target="_blank">CDS Hooks Sandbox</a> is a web application that provides a user-friendly GUI for constructing, viewing and submitting CDS Hooks requests and viewing the responses both in raw JSON format and also in an html representation that is meant to be representative of how it might be presented in a consuming EHR system. The sandbox can be configured to run against the local CDS Hooks service instance created above.</p>
   <p>As a first step, we will need to set up our FHIR server with some test data. As a minmal example, a Patient with two MedicationRequest resources will be posted to the server.</p>
-  <div class="example">
-    <pre class="http">
-  PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings
-    </pre>
-  </div>
-  <p>The patient resource JSON:</p>
-  <div class="example">
-    <pre class="json">
-      {
-  "resourceType": "Patient",
-  "id": "example-rec-10-patient-view-no-screenings",
-  "name": [
-    {
-      "family": "Smith",
-      "given": [
-        "Jane"
-      ]
-    }
-  ],
-  "gender": "female",
-  "birthDate": "1983-01-10"
-}
-</pre>
-</div>
- <div class="example">
-    <pre class="http">
-  POST http://localhost:8080/fhir/MedicationRequest
-    </pre>
-  </div>
-  <p><a href="../input/examples/medicationrequest-rec10-patientview-quickstart-1.json">The JSON of MedicationRequest 1</a></p>
 
   <div class="example">
-    <pre class="http">
-  POST http://localhost:8080/fhir/MedicationRequest
-    </pre>
+    <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings" data-original-title="Click to copy URL"></button></span></pre>
   </div>
-  <p><a href="../input/examples/medicationrequest-rec10-patientview-quickstart-2.json">The JSON of MedicationRequest 2</a></p>
+  
+  <p><a href="patient-example-rec-10-patient-view-no-screenings.json">The Patient resource JSON</a></p>
+
+  <div class="example">
+    <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-context <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-context" data-original-title="Click to copy URL"></button></span></pre>
+  </div>
+
+  <p><a href="medicationrequest-example-rec-10-patient-view-no-screenings-context.json">The context MedicationRequest resource JSON</a></p>
+
+  <div class="example">
+    <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-prefetch <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-prefetch" data-original-title="Click to copy URL"></button></span></pre>
+  </div>
+
+  <p><a href="medicationrequest-example-rec-10-patient-view-no-screenings-prefetch.json">The preftech MedicationRequest resource JSON</a></p>
 
   <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
   <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there. Now the sandbox is configured to use the CDS Hooks service that you created above.</p>
