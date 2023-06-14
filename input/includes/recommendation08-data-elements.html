@@ -6,10 +6,9 @@
     <td>Yes</td>
     <td>Order for opioid analgesics with ambulatory misuse potential</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
-    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a></td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
     <td>
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication</a>, and 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a>
+      MedicationRequest.medication, and MedicationRequest.category
     </td>
   </tr>
   {% include data-elements-opioid-review-useful.html %}
@@ -18,10 +17,9 @@
     <td>Yes</td>
     <td>Find evidence of naloxone medication prescription (an active medication order for naloxone)</td>
     <td>Naloxone medications</td>
-    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a></td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
     <td>
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication</a>, and 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a>
+      MedicationRequest.medication, and MedicationRequest.authoredOn
     </td>
   </tr>
   <tr>
@@ -29,11 +27,9 @@
     <td>Yes</td>
     <td>Find evidence of benzodiazepine prescription (an active medication order for benzodiazepine or other central nervous system depressant medications)</td>
     <td>Benzodiazepine or other central nervous system depressant medications</td>
-    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a></td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
     <td>
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication</a>, 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a>, and 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a>
+      MedicationRequest.medication, MedicationRequest.category, and MedicationRequest.authoredOn
     </td>
   </tr>
   <tr>
@@ -41,12 +37,9 @@
     <td>Yes</td>
     <td>Determine MME from existing active prescriptions (<a href="recommendation-04-05.html">recommendation 4 & 5</a>), or future scope; dispensed medications, or patient-reported medications</td>
     <td></td>
-    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a></td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
     <td>
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication</a>, 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a>, 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a>, and 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.dosageInstruction">MedicationRequest.dosageInstruction</a>
+      MedicationRequest.medication, MedicationRequest.category, MedicationRequest.authoredOn, and MedicationRequest.dosageInstruction
     </td>  </tr>
   <tr>
     <td>History of conditions documenting substance use disorder?</td>
@@ -54,13 +47,11 @@
     <td>Find evidence of conditions documenting substance use in the problem list or past medical history, including history of overdose</td>
     <td>Conditions documenting substance misuse disorder</td>
     <td>      
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns.html">Condition Problems and Health Concerns (US Core)</a>, and 
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure.html">Procedure (US Core)</a>
+      <a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-condition">Condition</a>, and 
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure">Procedure</a>
     </td>
     <td>
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.code">Condition.code</a>, 
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-condition-problems-health-concerns-definitions.html#Condition.category">Condition.category</a>, and 
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure-definitions.html#Procedure.code">Procedure.code</a>
+      Condition.code, Condition.category, and Procedure.code
     </td>
   </tr>
   <tr>
