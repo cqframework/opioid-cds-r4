@@ -3,7 +3,9 @@
     Recommendations #10 (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10" target="_blank">2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain</a>):
   </p>
   <p>
-    <strong>When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm?s_cid=rr7103a1.htm_w#B3_down">recommendation category: B; evidence type: 4</a>).</strong>
+    <strong>When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances 
+    (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of">recommendation category</a>: B; 
+    <a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of">evidence type</a>: 4).</strong>
   </p>
 
   {% include multiple-variation-note.html %}
@@ -73,9 +75,9 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-10-patient-view.html">CDC 2022 Opioid Prescribing Guideline Recommendation #10 Patient View</a></td>
+          <td><a href="PlanDefinition-opioidcds-10-patient-view.html">2022 CDC Clinical Practice Guideline Recommendation #10 Patient View</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing Guideline Recommendation #10 Patient View</td>
+          <td>Event-Condition-Action rule that implements behavior for 2022 CDC Clinical Practice Guideline Recommendation #10 Patient View</td>
         </tr>
         <tr>
           <td><a href="Library-OpioidCDSREC10PatientView.html">Recommendation #10 Patient View - urine drug testing when prescribing opioids for subacute or chronic pain</a></td>

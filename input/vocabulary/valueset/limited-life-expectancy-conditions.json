@@ -1,0 +1,140 @@
+{
+  "resourceType": "ValueSet",
+  "id": "limited-life-expectancy-conditions",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+  },
+  "extension": [ {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+    "valueString": "A finding that documents a terminal prognosis"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+    "valueString": "Condition"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+    "valueString": "Specific terminal condition findings that do not indicate the clinical disease at cause."
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+    "valueString": "Actual disease-specific conditions"
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueContactDetail": {
+      "name": "MD Partners, Inc.",
+      "telecom": [ {
+        "system": "email",
+        "value": "info@mdpartners.com"
+      } ]
+    }
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "computable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "structured"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+    "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+    "valueContactDetail": {
+      "name": "MD Partners, Inc.",
+      "telecom": [ {
+        "system": "email",
+        "value": "info@mdpartners.com"
+      } ]
+    }
+  } ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
+  "name": "limited_life_expectancy_conditions",
+  "title": "Limited life expectancy conditions",
+  "status": "active",
+  "experimental": true,
+  "date": "2023-05-25T18:08:12-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "contact": [ {
+    "name": "Centers for Disease Control and Prevention (CDC)",
+    "telecom": [ {
+      "system": "url",
+      "value": "https://www.cdc.gov"
+    } ]
+  } ],
+  "description": "A finding that documents a terminal prognosis",
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    } ]
+  } ],
+  "purpose": "Provide terminology for conditions to be used as exclusions for opioid use recommendations",
+  "copyright": "© CDC 2016+.",
+  "compose": {
+    "include": [ {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "filter": [ {
+        "property": "concept",
+        "op": "is-a",
+        "value": "300936002"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "filter": [ {
+        "property": "concept",
+        "op": "is-a",
+        "value": "170969009"
+      } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "http://snomed.info/sct/731000124108",
+      "filter": [ {
+        "property": "concept",
+        "op": "is-a",
+        "value": "27143004"
+      } ]
+    } ]
+  },
+  "expansion": {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
+      "valueBoolean": true
+    } ],
+    "identifier": "urn:uuid:177fae44-0dc7-491e-8883-14d98bdacee7",
+    "timestamp": "2023-05-26T00:29:00.587Z",
+    "parameter": [ {
+      "name": "version",
+      "valueUri": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+    } ],
+    "contains": [ {
+      "system": "http://snomed.info/sct",
+      "code": "300936002",
+      "display": "Terminal illness (finding)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "111947009",
+      "display": "Functional disorder present, condition terminal (finding)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "162607003",
+      "display": "Terminal illness - early stage (finding)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "162608008",
+      "display": "Terminal illness - late stage (finding)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "170969009",
+      "display": "Prognosis bad (finding)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "code": "27143004",
+      "display": "Patient status determination, pre-terminal (finding)"
+    } ]
+  }
+}

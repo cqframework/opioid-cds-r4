@@ -13,33 +13,33 @@ include MMECalculator version '3.0.0' called MMECalculator
 /*
 **
 **  Recommendation #8
-**    Before starting and periodically during continuation of opioid therapy,
-**    clinicians should evaluate risk factors for opioid-related harms. Clinicians
-**    should incorporate into the management plan strategies to mitigate risk,
-**    including considering offering naloxone when factors that increase risk for
-**    opioid overdose, such as history of overdose, history of substance use disorder,
-**    higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are
-**    present (recommendation category: A, evidence type: 4)
+**    Before starting and periodically during continuation of opioid therapy, clinicians should 
+**    evaluate risk for opioid-related harms and discuss risk with patients. Clinicians should 
+**    work with patients to incorporate into the management plan strategies to mitigate risk, 
+**    including offering naloxone (recommendation category: A; evidence type: 4).
 **
 **  When
-**    Provider is prescribing an opioid analgesic with ambulatory misuse potential
-**    Prescription is for treating chronic pain.
+**    Order for opioid analgesics with ambulatory misuse potential:
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
-**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer
+**        Patient has had at least 2 office visits within the past 12 months with an oncology specialist present, or
+**        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
+**      Patient does not have conditions likely terminal for opioid prescribing present
 **    Patient is not currently prescribed naloxone medications
 **    Factors that increase risk for opioid overdose are present:
-**      Concurrent benzodiazepine use
-**      High opioid dosages (MME/day >= 50)
-**      History of substance abuse
+**      Currently receiving benzodiazepine or other central nervous system depressant medications, or
+**      High opioid dosages (MME/day >= 50), or
+**      History of substance use disorder, or
+**      Diagnosed with sleep-disordered breathing condition
 **  Then
-**    Recommend offering naloxone medications
-**      Will offer naloxone medications
-**      Benefits outweigh risks, snooze 3 months
-**      N/A - see comment, snooze 3 months
+**    Incorporate Risk Mitigation Strategies Into Opioid Therapy:
+**      Order - Order naxalone
+**      Document - Risk mitigation strategy implemented, snooze 3 months
+**      Snooze - N/A see comment, snooze 3 months
 **
 */
 

@@ -9,22 +9,20 @@ include OpioidCDSCommonConfig version '2022.1.0' called Config
 /*
 **
 **  Recommendation #12
-**    Clinicians should offer or arrange evidence-based treatment (usually
-**    medication-assisted treatment with buprenorphine or methadone) for patients with opioid use disorder
-**    (recommendation category: A, evidence type: 2)
+**    Clinicians should offer or arrange treatment with evidence-based medications to treat patients 
+**    with opioid use disorder. Detoxification on its own, without medications for opioid use disorder, 
+**    is not recommended for opioid use disorder because of increased risks for resuming drug use, 
+**    overdose, and overdose death (recommendation category: A; evidence type: 1).
 **
 **  When
-**    Patient is 18 years and older and not receiving evidence-based treatment for
-**      opioid use disorder, which may include medication treatment with buprenorphine
-**      or methadone
-Removed with 2022 update, or opioid-specific behavioral counseling
+**    Patient is 18 years or older
 **    Patient has a diagnosis of opioid use disorder in the past 90 days
+**    No active order for buprenorphine or methadone medication
 **  Then
-**    Recommend opioid agonist or partial agonist treatment with methadone maintenance
-**    therapy, buprenorphine therapy, and/or behavioral therapy. Potential actions include:
-**      Order methadone or buprenorphine
-** Removed with 2022 update      Refer to qualified treatment provider (i.e. substance disorder specialist)
-**      N/A - see comment; snooze 3 months
+**    Offer evidence-based medications to treat patients with opioid use disorder:
+**      Document - Will order medication to treat opioid use disorder
+**      Refer - Will refer patient to SUD specialist
+**      Snooze - N/A see comment, snooze 3 months
 **
 */
 
