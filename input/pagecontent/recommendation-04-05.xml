@@ -9,7 +9,9 @@
       subacute or chronic pain, clinicians should use caution when prescribing opioids at any
       dosage, should carefully evaluate individual benefits and risks when considering increasing
       dosage, and should avoid increasing dosage above levels likely to yield diminishing returns in
-      benefits relative to risks to patients (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm?s_cid=rr7103a1.htm_w#B3_down">recommendation category: A; evidence type: 3</a>)</strong>
+      benefits relative to risks to patients 
+      (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of">recommendation category</a>: A; 
+    <a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of">evidence type</a>: 3).</strong>
   </p>
   <p>
     <strong>5: For patients already receiving opioid therapy, clinicians should carefully weigh
@@ -21,8 +23,9 @@
       circumstances of the patient, appropriately taper and discontinue opioids. Unless there are
       indications of a life-threatening issue such as warning signs of impending overdose (e.g.,
       confusion, sedation, or slurred speech), opioid therapy should not be discontinued abruptly,
-      and clinicians should not rapidly reduce opioid dosages from higher dosages (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm?s_cid=rr7103a1.htm_w#B3_down">recommendation
-      category: B; evidence type: 4</a>).</strong>
+      and clinicians should not rapidly reduce opioid dosages from higher dosages 
+      (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of">recommendation category</a>: B; 
+    <a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of">evidence type</a>: 4).</strong>
   </p>
 
   <div class="toc-container">
@@ -83,14 +86,13 @@
       <tbody>
         <tr>
           <td>
-            <a href="PlanDefinition-opioidcds-04-05.html">CDC 2022 Opioid Prescribing Guideline
+            <a href="PlanDefinition-opioidcds-04-05.html">2022 CDC Clinical Practice Guideline
         Recommendation #4 and #5</a>
           </td>
           <td>
             <a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a>
           </td>
-          <td>Event-Condition-Action rule that implements behavior for CDC 2022 Opioid Prescribing
-        Guideline Recommendation #5</td>
+          <td>Event-Condition-Action rule that implements behavior for 2022 CDC Clinical Practice Guideline #5</td>
         </tr>
         <tr>
           <td>

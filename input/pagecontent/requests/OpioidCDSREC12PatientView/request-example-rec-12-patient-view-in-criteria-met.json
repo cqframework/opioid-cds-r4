@@ -20,7 +20,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
@@ -34,7 +34,7 @@
             ]
           }
         ],
-        "birthDate": "2003-03-20"
+        "birthDate": "2003-05-01"
       }
     },
     "item2": null,
@@ -51,12 +51,12 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-03-20"
+                "valueDateTime": "2023-05-01"
               },
               {
                 "url": "frequency",
                 "valueDuration": {
-                  "value": 30.0,
+                  "value": 1.0,
                   "unit": "days",
                   "system": "http://unitsofmeasure.org",
                   "code": "d"
@@ -97,7 +97,7 @@
         "subject": {
           "reference": "Patient/example-rec-12-criteria-valid"
         },
-        "recordedDate": "2023-01-18"
+        "recordedDate": "2023-03-01"
       }
     },
     "item4": null,

@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
   <p>
-    This documentation is provided as a resource for developers interested in implementing the CDC 2022 Opioid Prescribing Guideline.
+    This documentation is provided as a resource for developers interested in implementing the 2022 CDC Clinical Practice Guideline.
     It is assumed that the developer will have a basic understanding of CQL, FHIR, a FHIR API (like HAPI), and the CDS Hooks API.
   </p>
 
@@ -36,14 +36,14 @@
   <p>If spinning up a FHIR server is beyond the scope of your implementation, there are several <a href="http://wiki.hl7.org/index.php?title=Publicly_Available_FHIR_Servers_for_testing">publicly available FHIR servers</a>. However, be forewarned that
     these servers may or may not have the operations implemented that will be discussed in this guide.</p>
 
-  <p>The following flowchart provides a summary of the operations required to implement the Opioid Guideline:</p>
+  <p>The following flowchart provides a summary of the operations required to implement the 2022 CDC Clinical Practice Guideline:</p>
 
   <img src="assets/images/OpioidGuidanceFlowchart.png" />
 
   <p></p>
 
   <p>
-    As depicted in the flowchart, the Opioid Guideline is triggered by a CDS Hooks request issued by the EHR. More precisely, the request would be triggered by a user within the EHR authoring a new prescription for a medication containing opioid
+    As depicted in the flowchart, the 2022 CDC Clinical Practice Guideline is triggered by a CDS Hooks request issued by the EHR. More precisely, the request would be triggered by a user within the EHR authoring a new prescription for a medication containing opioid
     ingredients. In a production environment, this request would be in real-time, which carries performance requirements that will be discussed later in this documentation.
   </p>
 
@@ -277,7 +277,7 @@
   <h4 class="self-link-parent">MedicationOrder to MedicationRequest</h4>
 
   <p>
-    Regarding the Opioid Guideline order-select service, the conversion from DSTU2 to STU3 is rather simple. The medicationCodeableConcept, status, and dosageInstruction are the only attributes that are accessed in this service. Therefore, they are
+    Regarding the 2022 CDC Clinical Practice Guideline order-select service, the conversion from DSTU2 to STU3 is rather simple. The medicationCodeableConcept, status, and dosageInstruction are the only attributes that are accessed in this service. Therefore, they are
     the only attributes that need to be converted. However, depth of conversion is implementation-specific. For example, if your implementation returns a suggestion, which is a modified resource that conforms to certain requirements, then you would
     want to convert all the attributes to prevent data loss. If your service is returning info cards on the other hand, then attributes that aren't used by the service can be excluded.
   </p>
@@ -472,7 +472,7 @@
 
   <p>
     Most of the standard $apply parameters will not be used. In fact the only
-    standard parameter that will be used for the opioid guideline is the required
+    standard parameter that will be used for the 2022 CDC Clinical Practice Guideline is the required
     patient ID parameter. In addition, the PlanDefinition that this implementation
     applies needs access to the context and prefetch resources from the CDS Hooks request.
     Therefore, this particular instance of the $apply operation will need to add
@@ -485,7 +485,7 @@
 
   <p>
     The $apply operation, in general, applies a PlanDefinition to a specific context.
-    In the context of the CDC 2022 Opioid Guideline, the application of the PlanDefinition
+    In the context of the 2022 CDC Clinical Practice Guideline, the application of the PlanDefinition
     is depicted in the following diagram:
   </p>
 
@@ -495,7 +495,7 @@
 
   <p>
     As shown in the flowchart, the $apply operation begins by parsing the input parameters.
-    Then the <a href="Library-OpioidCDSREC04_05.json.html">CDC 2022 Opioid Guideline
+    Then the <a href="Library-OpioidCDSREC04_05.json.html">2022 CDC Clinical Practice Guideline
       library</a> is serialized into a library object. The next step is to resolve data
     providers for FHIR STU3 and OMTK. OMTK, or Opioid Management Terminology Knowledge,
     is a library that provides MME conversion factors and terminology information for the
@@ -505,9 +505,9 @@
     If the PlanDefinition condition is applicable and has an expression reference,
     set the library "Orders" parameter to the list of MedictionRequest resources
     (context and prefetch) and evaluate the expression. If the expression evaluates
-    to true, the context prescription violates the opioid guideline by exceeding
+    to true, the context prescription violates the 2022 CDC Clinical Practice Guideline by exceeding
     the suggested MME and a warning should be returned to the author. If the expression
-    evaluates to false, then the presription is in accordance with the opioid guideline.
+    evaluates to false, then the presription is in accordance with the 2022 CDC Clinical Practice Guideline.
     No matter the outcome of the expression, a CarePlan resource must be constructed and
     returned, which is left to the developer to format (see the example link above for an
     example).

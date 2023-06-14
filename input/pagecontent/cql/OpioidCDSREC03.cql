@@ -9,13 +9,15 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 
 /*
 **  Recommendation #3
-**    Prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids
+**    When starting opioid therapy for acute, subacute, or chronic pain, clinicians should 
+**    prescribe immediate-release opioids instead of extended-release and long-acting (ER/LA) 
+**    opioids (recommendation category: A; evidence type: 4).
 **
 **  When
-**    Provider is prescribing an extended release opioid with ambulatory misuse potential
-**    Prescription is for treating chronic pain.
+**    Provider is prescribing an extended release opioid analgesic with ambulatory misuse potential in the outpatient setting
 **    Opioid review is useful for this patient:
 **      Patient is 18 or over
+**      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
 **      Patient does not have orders for therapies indicating end of life care
 **      Patient is not undergoing active cancer treatment:
@@ -23,12 +25,12 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 **        Patient has had at least 2 office visits within the past 12 months with a CDC malignant cancer condition diagnosis
 **      Patient does not have conditions likely terminal for opioid prescribing present
 **    Patient is opioid naive:
-**      No indication of opioid use in the past 90 days from a prescription, self report, or a dispensing event
+**      No indication of opioid use in the past 90 days from a prescription, self report (for future implementation), or a dispensing event (for future implementation)
 **  Then
-**    Recommend use of immediate release opioids:
-**      Will prescribe immediate release opioid analgesic with ambulatory misuse potential
-**      Benefits outweigh risks, snooze 3 months
-**      N/A - see comment, snooze 3 months
+**    When Initiating Opioid Therapy, Utilize Immediate Release Opioids:
+**      Document - Will prescribe immediate release opioid
+**      Snooze - Benefits outweigh risks, snooze 3 months
+**      Snooze - N/A see comment, snooze 3 months
 **
 */
 
