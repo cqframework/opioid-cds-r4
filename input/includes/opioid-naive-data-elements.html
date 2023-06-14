@@ -8,39 +8,28 @@
     <td>No</td>
     <td>Look for an existing prescription (order) for opioid that is in the value set for opioid with ambulatory <br />misuse potential authored within the past 90 days (excluding the last 24 hours)</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
-    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a></td>
-    <td>
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication</a>, 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a>, and 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a>
-    </td>  </tr>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
+    <td>MedicationRequest.medication, MedicationRequest.category, and MedicationRequest.authoredOn</td>
+  </tr>
   <tr>
     <td>Opioid analgesics with ambulatory misuse potential reported as being taken excluding the last 24 hours?*</td>
     <td>No</td>
     <td>Look for evidence of active medication on the medication list that is in the value set for opioid with <br />ambulatory care misuse potential (excluding the last 24 hours)</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
-    <td><a href="https://hl7.org/fhir/R4/medicationstatement.html">MedicationStatement</a></td>
-    <td>
-      <a href="https://hl7.org/fhir/R4/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a>, 
-      <a href="https://hl7.org/fhir/R4/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a>, and 
-      <a href="https://hl7.org/fhir/R4/medicationstatement-definitions.html#MedicationStatement.effective_x_">MedicationStatement.effective</a>
-    </td>
+    <td><a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-medicationstatement">MedicationStatement</a></td>
+    <td>MedicationStatement.medication, MedicationStatement.status, and MedicationStatement.effective</td>
   </tr>
   <tr>
     <td>Opioid analgesics with ambulatory misuse potential dispensing event in past 90 days excluding the last 24 hours?*</td>
     <td>No</td>
     <td>Look for evidence of a dispensing event for medication that is in the value set for opioid with ambulatory <br />use potential occurring within the past 90 days (excluding the last 24 hours)</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
-    <td><a href="https://hl7.org/fhir/R4/medicationdispense.html">MedicationDispense</a></td>
-    <td>
-      <a href="https://hl7.org/fhir/R4/medicationdispense-definitions.html#MedicationDispense.medication_x_">MedicationDispense.medication</a>, 
-      <a href="https://hl7.org/fhir/R4/medicationdispense-definitions.html#MedicationDispense.status">MedicationDispense.status</a>, and 
-      <a href="https://hl7.org/fhir/R4/medicationdispense-definitions.html#MedicationDispense.whenHandedOver">MedicationDispense.whenHandedOver</a>
-    </td>
+    <td><a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-medicationdispense">MedicationDispense</a></td>
+    <td>MedicationDispense.medication, MedicationDispense.status, and MedicationDispense.whenHandedOver</td>
   </tr>
   <tfoot>
     <tr>
-      <td>* Future consideration: Current algorithm addresses only orders (prescriptions). <br />
+      <td colspan="100%">* Future consideration: Current algorithm addresses only orders (prescriptions). <br />
       
       1 - Implement one global configuration point to set all past medication queries at each particular site: “Can the
       implementing EHR support queries for past medications by date range? Yes or No”. An evaluation to determine if a patient

@@ -13,17 +13,8 @@
       &#8226; the treatment plan should have been created or reviewed within the past 90 days by the <b>same individual</b> who is writing the new prescription.
     </td>
     <td>Pain treatment plan</td>
-    <td>
-      <a href="StructureDefinition-cdc-careplan.html">CarePlan (CDC)</a>
-    </td>
-    <td>
-      <a href="StructureDefinition-cdc-careplan-definitions.html#CarePlan.category">CarePlan.category</a>, 
-      <a href="StructureDefinition-cdc-careplan-definitions.html#CarePlan.status">CarePlan.status</a>, 
-      <a href="StructureDefinition-cdc-careplan-definitions.html#CarePlan.created">CarePlan.created</a>, 
-      <a href="https://hl7.org/fhir/R4/resource.html#Meta">CarePlan.lastUpdated</a>, and 
-      <a href="StructureDefinition-cdc-careplan-definitions.html#CarePlan.author">CarePlan.author</a>
-
-    </td>
+    <td><a href="StructureDefinition-cdc-careplan.html">CarePlan</a></td>
+    <td>CarePlan.category, CarePlan.status, CarePlan.created, CarePlan.lastUpdated, and CarePlan.author</td>
   </tr>
   <tr>
     <td>Pain management procedure in past 90 days?</td>
@@ -31,13 +22,9 @@
     <td>Look for a pain management procedure (including the procedure to review a pain management treatment plan) that occurred within the past 90 days (including the day of the visit).</td>
     <td>Pain management procedure</td>
     <td>
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure.html">Procedure (US Core)</a>, and
-      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest (CDC)</a>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure">Procedure</a> and 
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a>
     </td>
-    <td>
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure-definitions.html#Procedure.performed[x]">Procedure.performed</a>, 
-      <a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-procedure-definitions.html#Procedure.performer.actor">Procedure.performer.actor</a>, and 
-      <a href="StructureDefinition-cdc-medicationrequest-definitions.html#MedicationRequest.recorder">MedicationRequest.recorder</a>
-    </td>
+    <td>Procedure.performed, Procedure.performer.actor, and MedicationRequest.recorder</td>
   </tr>
 </table>
