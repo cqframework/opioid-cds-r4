@@ -10,7 +10,7 @@ include OpioidCDSCommonConfig version '2022.1.0' called Config
 context Patient
 
 define "Lookback Year":
-  Interval[Today() - 12 months - 1 days, Today() - 1 day]
+  Interval[Today() - 12 months - 1 days, Today()]
 
 define "Applicable Because of Positive Cocaine or PCP or Opiates":
   if exists (Common."Opioid Other Than Synthetic Ordered In Last 12 Months") then
