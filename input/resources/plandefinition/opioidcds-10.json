@@ -116,12 +116,6 @@
       "max": "1",
       "type": "string"
     }, {
-      "name": "Indicator",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
-    }, {
       "name": "Applicable Because of Positive Cocaine or PCP or Opiates",
       "use": "out",
       "min": 0,
@@ -447,7 +441,7 @@
       "valueString": "Lookback Year"
     }, {
       "url": "statement",
-      "valueString": "define \"Lookback Year\":\n  Interval[Today() - 12 months - 1 days, Today() - 1 day]"
+      "valueString": "define \"Lookback Year\":\n  Interval[Today() - 12 months - 1 days, Today()]"
     }, {
       "url": "displaySequence",
       "valueInteger": 12
@@ -654,43 +648,13 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Indicator"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Indicator\":\n  'warning'"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 26
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10"
-    }, {
-      "url": "name",
-      "valueString": "Indicator"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Indicator\":\n  Rec10Common.\"Indicator\""
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 27
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
-    }, {
-      "url": "name",
       "valueString": "Applicable Because of Positive Cocaine or PCP or Opiates"
     }, {
       "url": "statement",
       "valueString": "define \"Applicable Because of Positive Cocaine or PCP or Opiates\":\n  if exists (Common.\"Opioid Other Than Synthetic Ordered In Last 12 Months\") then\n    \"Has Positive Screening for Cocaine in Last 12 Months\"\n    or \"Has Positive Screening for PCP in Last 12 Months\"\n  else\n    \"Has Positive Screening for Cocaine in Last 12 Months\"\n      or \"Has Positive Screening for PCP in Last 12 Months\"\n      or\n        if Config.\"Opiate Urine Screening Check Enabled\" then\n          \"Has Positive Screening for Opiates in Last 12 Months\"\n        else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 28
+      "valueInteger": 26
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -705,7 +669,7 @@
       "valueString": "define \"Applicable Because of Positive Cocaine or PCP or Opiates\":\n  Rec10Common.\"Applicable Because of Positive Cocaine or PCP or Opiates\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 29
+      "valueInteger": 27
     } ]
   }, {
     "id": "effective-data-requirements",
@@ -731,7 +695,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-06-14",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
   "useContext": [ {

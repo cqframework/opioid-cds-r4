@@ -21,7 +21,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-05-01"
+                    "valueDateTime": "2023-06-14"
                   },
                   {
                     "url": "frequency",
@@ -62,7 +62,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-08-order-sign-mme-greater-than-fifty-context"
             },
-            "authoredOn": "2023-05-01",
+            "authoredOn": "2023-06-14",
             "dosageInstruction": [
               {
                 "timing": {
@@ -132,8 +132,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-05-01T00:00:00-06:00",
-                "end": "2023-07-31T00:00:00-06:00"
+                "start": "2023-06-14T00:00:00-06:00",
+                "end": "2023-09-13T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "quantity": {

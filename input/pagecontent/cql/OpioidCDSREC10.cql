@@ -89,8 +89,5 @@ define "Applicable Because of Positive Cocaine or PCP or Opiates":
 define "Detail":
   Rec10Common."Get Detail" ("Is Perform Drug Screen Recommendation Applicable?")
 
-define "Indicator":
-  Rec10Common."Indicator"
-
 define "Summary":
   Rec10Common."Get Summary" ("Is Perform Drug Screen Recommendation Applicable?")

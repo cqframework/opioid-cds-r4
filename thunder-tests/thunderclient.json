@@ -762,7 +762,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.550Z",
-    "modified": "2023-03-23T19:26:02.983Z",
+    "modified": "2023-06-15T05:10:45.472Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -787,13 +787,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Patient May Have Unexpected Toxicology Test Results"
+        "value": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
+        "value": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.<br /><br />For guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10)."
       },
       {
         "type": "json-query",
@@ -812,7 +812,7 @@
     "method": "POST",
     "sortNum": 25000,
     "created": "2022-08-08T19:42:27.551Z",
-    "modified": "2023-03-23T19:27:21.344Z",
+    "modified": "2023-06-15T05:59:55.160Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -837,13 +837,13 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "equal",
-        "value": "Patient May Have Unexpected Toxicology Test Results"
+        "value": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen"
       },
       {
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
+        "value": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.<br /><br />For guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10)."
       },
       {
         "type": "json-query",
@@ -2014,7 +2014,7 @@
     "method": "POST",
     "sortNum": 32500,
     "created": "2022-08-19T06:23:02.556Z",
-    "modified": "2023-03-23T19:25:14.085Z",
+    "modified": "2023-06-15T05:31:51.793Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -2039,7 +2039,7 @@
         "type": "json-query",
         "custom": "json.cards[0].summary",
         "action": "contains",
-        "value": "Positive Cocaine or PCP or Opiates in Urine Screening"
+        "value": "Patient May Have Unexpected Toxicology Test Results"
       },
       {
         "type": "json-query",
@@ -2057,7 +2057,7 @@
         "type": "json-query",
         "custom": "json.cards[0].detail",
         "action": "contains",
-        "value": "Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing."
+        "value": "Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. For guidance regarding evaluating and addressing unexpected toxicology test results, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10)"
       },
       {
         "type": "json-query",

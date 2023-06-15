@@ -19,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-05-01"
+                    "valueDateTime": "2023-06-14"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-02-careplan-not-revisited-context"
             },
-            "authoredOn": "2022-12-29",
+            "authoredOn": "2023-02-11",
             "recorder": {
               "reference": "Practitioner/example"
             },
@@ -79,8 +79,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-03-15T00:00:00-06:00",
-                "end": "2023-06-15T00:00:00-06:00"
+                "start": "2023-04-28T00:00:00-06:00",
+                "end": "2023-07-29T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 1,
               "expectedSupplyDuration": {
@@ -109,7 +109,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -123,7 +123,7 @@
             ]
           }
         ],
-        "birthDate": "2003-04-17"
+        "birthDate": "2003-05-31"
       }
     },
     "item2": {
@@ -139,7 +139,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -169,7 +169,7 @@
         "subject": {
           "reference": "Patient/example-rec-02-careplan-not-revisited"
         },
-        "created": "2022-12-17",
+        "created": "2023-01-30",
         "author": {
           "reference": "Practitioner/example"
         }
