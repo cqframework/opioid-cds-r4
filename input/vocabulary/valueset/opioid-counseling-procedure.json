@@ -42,7 +42,7 @@
   "name": "opioid_counseling_procedure",
   "title": "Opioid counseling procedure",
   "status": "active",
-  "experimental": true,
+  "experimental": false,
   "date": "2023-05-25T18:08:12-06:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "contact": [ {
@@ -52,7 +52,7 @@
       "value": "https://www.cdc.gov"
     } ]
   } ],
-  "description": "Procedure for couseling on opioid use",
+  "description": "Procedure for counseling on opioid use",
   "jurisdiction": [ {
     "coding": [ {
       "system": "urn:iso:std:iso:3166",
