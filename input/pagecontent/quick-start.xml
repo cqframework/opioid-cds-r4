@@ -25,7 +25,7 @@
   <a name="service"> </a>
   <h3>CDS Hooks Service</h3>
 
-  <p>The first step is to stand up an instance of the CQF Ruler, a reference implementation of the FHIR
+  <p>The first step is to stand up an instance of the <a href="https://github.com/cqframework/cqf-ruler">CQF Ruler</a>, a reference implementation of the FHIR
     Clinical Reasoning module and CDS Hooks. Follow the instructions on the
     <a href="https://github.com/DBCG/cqf-ruler/wiki/Deployment" target="_blank">Deployment</a> page
     of the CQF Ruler wiki to start a local CQF Ruler service.</p>
@@ -34,11 +34,10 @@
     the service is running, issue a couple basic queries:</p>
 
   <div class="example">
-    <pre class="http">
-  GET http://localhost:8080/fhir/Library
-
-  GET http://localhost:8080/fhir/PlanDefinition
-    </pre>
+    <pre class="http"><span class="copy-text">GET http://localhost:8080/fhir/Library <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/Library" data-original-title="Click to copy URL"></button></span></pre>
+   </div>
+   <div class="example">
+     <pre class="http"><span class="copy-text">GET http://localhost:8080/fhir/PlanDefinition <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/PlanDefinition" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <p>For a newly instantiated CQF Ruler, both of these queries should return 0 results, indicating there is no content
@@ -48,52 +47,36 @@
     issue the following query:</p>
 
   <div class="example">
-    <pre class="http">
-  GET http://localhost:8080/cds-services
-    </pre>
+    <pre class="http"><span class="copy-text">GET http://localhost:8080/cds-services <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/cds-services" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <p>For a newly instantiated CQF Ruler, this will also return an empty list, indicating there are no services
     configured.</p>
 
   <div class="example">
-    <pre class="json">
-  {
-      "services": []
-  }
-    </pre>
+    <pre class="json">{
+   "services": []
+ }</pre>
   </div>
 
   <a name="content-load"> </a>
-  <h3>Loading Content</h3>
+   <h3>Loading Logic Content</h3>
 
-  <p>The next step is to load the content, i.e., the artifacts published in this implementation guide that
-    define the recommendation. For convenience, the resources for recommendation #10, patient-view
-    have all been added to the 'opioidcds-10-patient-view-bundle' (see below). The test data for this particular
-    quick start test case consists of two Medication resources that also need to be posted to the FHIR server.
-    These represent the patient's Medication history, the 'quickstart-medications-bundle' contains those resources. These
-    two bundles should be POSTed to the base URL of the server:</p>
-
-  <table class="list">
-  	<thead>
-  		<tr><th>Resource</th><th>Type</th><th>Description</th></tr>
-  	</thead>
-  	<tbody>
-  		<tr><td><a href="requests/QuickStart/opioidcds-10-patient-view-bundle.json">opioidcds-10-patient-view-bundle</a></td><td>Bundle</td><td>All Required Content for Recommendation #10</td></tr>
-  	  <tr><td><a href="requests/QuickStart/quickstart-medications-bundle.json">quickstart-medications-bundle</a></td><td>Bundle</td><td>Test data for Quick Start test case</td></tr>
-    </tbody>
-  </table>
+   <p>The next step is to load the content, i.e., the artifacts published in this implementation
+     guide that define the recommendation. After running the <code>_refresh[.bat or .sh]</code>
+     script (located at the base of this project repository) for this implementation guide, a bundle
+     containing the resources and requests for all required artifacts is created and can be found as
+     a generated bundle in <code>
+     bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json</code>.
+     This Bundle can be POSTed to the base URL of the FHIR server. Following normal FHIR server
+     transaction processing, this will post all the content resources including the required
+     terminology as a single transaction.</p>
 
   <div class="example">
-    <pre class="http">
-  POST http://localhost:8080/fhir
-    </pre>
+    <pre class="http"><span class="copy-text">POST http://localhost:8080/fhir <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
-  <p>Following normal FHIR server transaction processing, this will post all the content resources as
-    a single transaction.</p>
-
-  <p>The resources contained in these bundles are:</p>
+  <p>The following resources that are required for this example are all contained in generated bundle above:</p>
 
   <table class="list">
     <thead>
@@ -107,30 +90,14 @@
       <tr><td><a href="Library-OpioidCDSRoutines.html">OpioidCDS_Routines</a></td><td>Library</td><td>Opioid Routines Library</td></tr>
       <tr><td><a href="Library-OMTKLogicMK2020.html">OMTKLogic</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Logic Library</td></tr>
       <tr><td><a href="Library-OMTKData2020.html">OMTKData</a></td><td>Library</td><td>Opioid Management Terminology Knowledge (OMTK) Data Library</td></tr>
-
-      <tr><td><a href="terminology.html">Terminologies</a></td><td>ValueSet</td><td>Value sets referenced by the CQL in the Opioid Logic recommendations</td></tr>
     </tbody>
   </table>
-
-  <p>Because this content is published as FHIR resources, each of the resources
-    can be loaded individually rather than as part of the bundles above by POSTing
-    or PUTing them to the FHIR server, just like any other FHIR resource:</p>
-
-  <div class="example">
-    <pre class="http">
-  PUT http://localhost:8080/fhir/PlanDefinition/opioidcds-10-patient-view
-    </pre>
-  </div>
-
-  <p>With the body of the PUT request set to be the XML (or JSON) for the resource.</p>
 
   <p>Once the content has been loaded, the CDS Hooks discovery endpoint will list the recommendations as
     available services to be called:</p>
 
   <div class="example">
-    <pre class="http">
-  GET http://localhost:8080/cds-services
-    </pre>
+    <pre class="http"><span class="copy-text">GET http://localhost:8080/cds-services <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/cds-services" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <div class="example">
@@ -144,18 +111,18 @@
             "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
             "id": "opioidcds-10-patient-view",
             "prefetch": {
-                "item1": "Patient?_id=Patient/{context.patientId}",
-                "item2": "Condition?patient=Patient/{context.patientId}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
-                "item3": "Condition?patient=Patient/{context.patientId}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
-                "item4": "Condition?patient=Patient/{context.patientId}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
-                "item5": "ServiceRequest?patient=Patient/{context.patientId}",
-                "item6": "Observation?subject=Patient/{context.patientId}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
-                "item7": "Procedure?patient=Patient/{context.patientId}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
-                "item8": "Encounter?patient=Patient/{context.patientId}"
+                "item1": "Patient?_id=Patient/{{context.patientId}}",
+                "item2": "Condition?patient=Patient/{{context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis",
+                "item3": "Condition?patient=Patient/{{context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/condition-category|problem-list-item",
+                "item4": "Condition?patient=Patient/{{context.patientId}}&amp;category=http://hl7.org/fhir/us/core/CodeSystem/condition-category|health-concern",
+                "item5": "ServiceRequest?patient=Patient/{{context.patientId}}",
+                "item6": "Observation?subject=Patient/{{context.patientId}}&amp;category=http://terminology.hl7.org/CodeSystem/observation-category|laboratory",
+                "item7": "Procedure?patient=Patient/{{context.patientId}}&amp;code=http://snomed.info/sct|306205009,http://snomed.info/sct|305336008,http://snomed.info/sct|183919006,http://snomed.info/sct|428371000124100,http://snomed.info/sct|183920000,http://snomed.info/sct|183921001",
+                "item8": "Encounter?patient=Patient/{{context.patientId}}"
             }
         }
     ]
-  }
+}
     </pre>
   </div>
 
@@ -165,29 +132,26 @@
   <p>Now that the content is loaded, the service will respond to CDS Hooks requests. For example, POST the following request to the recommendation #10 service:</p>
 
   <div class="example">
-    <pre class="http">
-  POST http://localhost:8080/cds-services/opioidcds-10-patient-view
-    </pre>
+    <pre class="http"><span class="copy-text">POST http://localhost:8080/cds-services/opioidcds-10-patient-view <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/cds-services/opioidcds-10-patient-view" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
   <a href="requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json">request-example-rec-10-patient-view-no-screenings.json</a>
 
   <div class="example">
-    <pre class="json">
-  {
-    "hookInstance": "a172a2ce-38e7-4a21-a411-522cf481d5d1",
-    "fhirServer": "http://localhost:8080/fhir",
-    "hook": "patient-view",
-    "context": {
-      "userId": "Practitioner/example",
-      "patientId": "Patient/example-rec-10-patient-view-no-screenings",
-      "encounterId": "Encounter/example-rec-10-patient-view-no-screenings-context"
-    },
-    "prefetch": {
-      "item1": "snipped for brevity, see the full example at the above link",
-      "item2": "snipped for brevity, see the full example at the above link"
-    }
-  }  </pre>
+    <pre class="json">{
+      "hookInstance": "a172a2ce-38e7-4a21-a411-522cf481d5d1",
+      "fhirServer": "http://localhost:8080/fhir",
+      "hook": "patient-view",
+      "context": {
+        "userId": "Practitioner/example",
+        "patientId": "Patient/example-rec-10-patient-view-no-screenings",
+        "encounterId": "Encounter/example-rec-10-patient-view-no-screenings-context"
+      },
+      "prefetch": {
+        "item1": "snipped for brevity, see the full example at the above link",
+        "item2": "snipped for brevity, see the full example at the above link"
+      }
+    }</pre>
   </div>
 
   <p>This POST results in the following CDS Hooks response:</p>
@@ -195,55 +159,47 @@
   <div class="example">
     <pre class="json">
       {
-  "cards": [
-    {
-      "summary": "Annual Urine Screening Check",
-      "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months. For guidance on counseling patients regarding the purpose of urine toxicology test, review the draft CDC 2022 Opioid Prescribing Guideline Recommendation 10 page 140 lines 3441 – 3446.",
-      "indicator": "warning",
-      "source": {
-        "label": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-        "uri": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
-        "icon": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
-      },
-      "links": []
-    }
-  ]
-}
-  </pre>
+        "cards": [
+            {
+                "summary": "Patient May Have Unexpected Toxicology Test Results",
+                "detail": "Patients on opioid therapy should have a urine drug test performed every 12 months. Consult [2022 CDC Clinical Practice Guideline Recommendation 10](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should) for more guidance regarding toxicology testing.",
+                "indicator": "warning",
+                "source": {
+                    "label": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
+                    "uri": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
+                    "icon": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+                },
+                "links": []
+            }
+        ]
+      }
+    </pre>
   </div>
 
   <a name="api-request-and-response-cds-hooks-client"> </a>
   <h4>CDS Hooks Sandbox</h4>
 
   <p>The <a href="http://sandbox.cds-hooks.org" target="_blank">CDS Hooks Sandbox</a> is a web application that provides a user-friendly GUI for constructing, viewing and submitting CDS Hooks requests and viewing the responses both in raw JSON format and also in an html representation that is meant to be representative of how it might be presented in a consuming EHR system. The sandbox can be configured to run against the local CDS Hooks service instance created above.</p>
-  <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
-  <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there. Now the sandbox is configured to use the CDS Hooks service that you created above.</p>
-  <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p> 
-  <p>The next step is to push a Patient resource to that service that we can then use to query via the Sandbox. To do this, you're going to want to copy the JSON representation of a Patient resource from the request-example-rec-10-patient-view-no-screenings.json file above and then PUT that to the FHIR server created above. </p>
+  <p>As a first step, we will need to set up our FHIR server with some test data. As a minmal example, a Patient with two MedicationRequest resources will be posted to the server.</p>
+
+   <div class="example">
+     <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings" data-original-title="Click to copy URL"></button></span></pre>
+   </div>
+
+   <p><a href="patient-example-rec-10-patient-view-no-screenings.json">The Patient resource JSON</a></p>
+
   <div class="example">
-    <pre class="http">
-  PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings
-    </pre>
+    <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-context <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-context" data-original-title="Click to copy URL"></button></span></pre>
   </div>
-  <p>The patient resource JSON:</p>
+  <p><a href="medicationrequest-example-rec-10-patient-view-no-screenings-context.json">The context MedicationRequest resource JSON</a></p>
   <div class="example">
-    <pre class="json">
-      {
-  "resourceType": "Patient",
-  "id": "example-rec-10-patient-view-no-screenings",
-  "name": [
-    {
-      "family": "Smith",
-      "given": [
-        "Jane"
-      ]
-    }
-  ],
-  "gender": "female",
-  "birthDate": "1983-01-10"
-}
-    </pre>
+  <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-prefetch <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-prefetch" data-original-title="Click to copy URL"></button></span></pre>
   </div>
-  <p>Now set the Patient context in the sandbox to this new patient. If not prompted as part of adding the FHIR server, go to Settings and then select "Change Patient" and set the ID to "example-rec-10-patient-view-no-screenings". </p>
-  <p>Please note, that for a basic set up of local servers, the window to the CDS sandbox might need to be opened with CORS disabled for all functions to work properly.</p>
-</div>
+  <p><a href="medicationrequest-example-rec-10-patient-view-no-screenings-prefetch.json">The preftech MedicationRequest resource JSON</a></p>
+
+   <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
+   <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there. Now the sandbox is configured to use the CDS Hooks service that you created above.</p>
+   <p>Set the <code>FHIR Server URL</code> to <code>http://localhost:8080/fhir</code>. If you're not prompted for this at startup, then in Settings go to <code>Change FHIR Server</code> and set the <code>FHIR Server URL</code> there.</p> 
+   <p>The next step is to query a Patient resource via the Sandbox. For that, set the Patient context in the sandbox to our new patient. If not prompted as part of adding the FHIR server, go to Settings and then select "Change Patient" and set the ID to "example-rec-10-patient-view-no-screenings". </p>
+   <p>Please note, that for a basic set up of local servers, the window to the CDS sandbox might need to be opened with CORS disabled for all functions to work properly.</p>
+ </div>
