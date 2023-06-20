@@ -23,7 +23,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-06-14"
+                    "valueDateTime": "2023-06-19"
                   },
                   {
                     "url": "frequency",
@@ -64,7 +64,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-11-benzo-trigger-with-opioid-context"
             },
-            "authoredOn": "2023-06-14",
+            "authoredOn": "2023-06-19",
             "dosageInstruction": [
               {
                 "timing": {
@@ -89,8 +89,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-06-14T00:00:00-06:00",
-                "end": "2023-09-14T00:00:00-06:00"
+                "start": "2023-06-19T00:00:00-06:00",
+                "end": "2023-09-19T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {

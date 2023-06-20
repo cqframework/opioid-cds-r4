@@ -19,7 +19,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-06-14"
+                    "valueDateTime": "2023-06-19"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-06-in-criteria-met-context"
             },
-            "authoredOn": "2023-06-14",
+            "authoredOn": "2023-06-19",
             "dosageInstruction": [
               {
                 "timing": {
@@ -76,8 +76,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-06-14T00:00:00-06:00",
-                "end": "2023-09-13T00:00:00-06:00"
+                "start": "2023-06-19T00:00:00-06:00",
+                "end": "2023-09-18T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 0,
               "expectedSupplyDuration": {

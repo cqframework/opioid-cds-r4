@@ -8,54 +8,92 @@ include OpioidCDSCommonConfig version '2022.1.0' called Config
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
+codesystem "Condition Category": 'http://terminology.hl7.org/CodeSystem/condition-category'
+codesystem "Condition Clinical Status": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+codesystem "MedicationRequest Category": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
+codesystem "MedicationRequest Status": 'http://hl7.org/fhir/CodeSystem/medicationrequest-status'
+codesystem "Observation Category": 'http://terminology.hl7.org/CodeSystem/observation-category'
+codesystem "US Core Condition Category": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 
-// Expression-based
-valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
-valueset "Extended release opioid with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
-valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
-valueset "Non-synthetic opioid medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+// Medications
+valueset "Amphetamine Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications'
+valueset "Benzodiazepine Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
+valueset "Buprenorphine and Methadone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
+valueset "CNS Depressant Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cns-depressant-medications'
+valueset "Extended Release Opioid with Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
+valueset "Fentanyl Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-medications'
+valueset "Methadone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications'
+valueset "Naloxone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
+valueset "Nonopioid CNS Depressant Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-cns-depressant-medications'
+valueset "Nonsynthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+valueset "Opioid Analgesics with Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
+valueset "Synthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications'
 
-// Enumerated-compose
-valueset "Limited life expectancy conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions'
-valueset "Therapies indicating end of life care": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care'
-valueset "Conditions likely terminal for opioid prescribing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing'
-valueset "CDC malignant cancer conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions'
-valueset "Oncology specialty designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations'
-valueset "Opioid misuse disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders'
-valueset "Substance misuse behavioral counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling'
-valueset "Conditions documenting substance misuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-substance-misuse'
+// Procedures/Treatments/Counseling/Therapies
+valueset "Hospice Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
+valueset "Opioid Counseling Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure'
+valueset "Opioid Misuse Assessment Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
+valueset "Opioid Treatment Assessment Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-treatment-assessment-procedure'
+valueset "Pain Management Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure'
+valueset "Pain Treatment Plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan'
+valueset "PDMP Review Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
+valueset "Substance Misuse Behavioral Counseling": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling'
+valueset "Therapies Indicating End of Life Care": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care'
+
+// Conditions/Diagnoses/Disorders/Diseases
+valueset "CDC Malignant Cancer Conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions'
+valueset "Conditions Documenting Sleep Disordered Breathing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-sleep-disordered-breathing'
+valueset "Conditions Documenting Substance Misuse": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-substance-misuse'
+valueset "Conditions Likely Terminal for Opioid Prescribing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing'
+valueset "Limited Life Expectancy Conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions'
+valueset "Opioid Misuse Disorders": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders'
+valueset "Sickle Cell Diseases": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/sickle-cell-diseases'
+
+// Drug urine screenings
+valueset "Alcohol Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/alcohol-drug-urine-screening-tests'
+valueset "Amphetamine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-drug-urine-screening-tests'
+valueset "Cannabinoid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests'
+valueset "Cocaine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests'
+valueset "Fentanyl Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests'
+valueset "General Opiate Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/general-opiate-urine-drug-screening-tests'
+valueset "Methadone Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests'
+valueset "Nonopioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening-tests'
+valueset "Opiate-specific Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opiate-specific-urine-drug-screening-tests'
+valueset "Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
+valueset "PCP Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests'
+valueset "Synthetic Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests'
+
+// Misc
+// Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
+valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' 
+valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
 // Harvested from VSAC - OID: 2.16.840.1.113883.3.464.1003.101.12.1001
 // Reviewed with Terminology, 2020-02-05 - Value set name in VSAC is "Office Visit", need to verify suitability
 valueset "Office Visit": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit'
-valueset "Opioid counseling procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure'
-/* Existing sets for first six recs */
-valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
-valueset "Non-opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening'
-valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
-valueset "Opioid misuse assessment procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
-valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
-valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
-valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
-valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
-valueset "Observation Category Laboratory": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory'
-valueset "Observation Category Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-procedure'
-valueset "Pain treatment plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan'
-valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure'
-valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
-valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
-valueset "Cocaine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests'
-valueset "PCP Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests'
+valueset "Oncology Specialty Designations (NUCC)": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations'
+valueset "PDMP Data Reviewed Finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
 
-valueset "Community": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community'
-valueset "Active Condition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active'
-valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active'
-/* valueset "US Core Condition Categories": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-categories' */
-valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
-valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
-valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
-valueset "Sickle Cell Diseases": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/sickle-cell-diseases'
+// Single code value sets -- see codes 
+// valueset "Community": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community'
+// valueset "Active Condition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active'
+// valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active'
+// valueset "US Core Condition Categories": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-categories' 
+// valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
+// valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
+// valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
+// valueset "Observation Category Laboratory": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory'
+// valueset "Observation Category Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-procedure'
 
 // TODO: code "Nonpharmacologic therapy and nonopioid pharmocologic": 'TODO' from "TODO"
+
+code "Active Condition": 'active' from "Condition Clinical Status"
+code "Active MedicationRequest": 'active' from "MedicationRequest Status"
+code "Community": 'community' from "MedicationRequest Category"
+code "Encounter Diagnosis Condition Category": 'encounter-diagnosis' from "Condition Category"
+code "Problem List Condition Category": 'problem-list-item' from "Condition Category"
+code "Observation Category Laboratory": 'laboratory' from "Observation Category"
+code "Observation Category Procedure": 'procedure' from "Observation Category"
+code "US Core Health Concern Condition Category": 'Health Concern' from "US Core Condition Category"
 
 context Patient
 
@@ -65,8 +103,8 @@ define "Opioid Other Than Synthetic Ordered In Last 12 Months":
     if Config."Can the implementing EHR support queries for past medications by date range?" then
       [MedicationRequest: status in "Active MedicationRequest"] MR
           where date from MR.authoredOn 1 year or less on or before Today()
-          and MR.medication is Reference or (MR.medication in "Opioid analgesics with ambulatory misuse potential"
-          and not (MR.medication in "Non-synthetic opioid medications"))
+          and MR.medication is Reference or (MR.medication in "Opioid Analgesics with Ambulatory Misuse Potential"
+          and not (MR.medication in "Nonsynthetic Opioid Medications"))
    else
     List<FHIR.MedicationRequest>{}
 
@@ -76,7 +114,7 @@ define "Active Ambulatory Opioid Rx":
         "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
       ) Rx
         where date from Rx.authoredOn 2 years or less on or before Today()
-          and Rx.medication in "Opioid analgesics with ambulatory misuse potential"
+          and Rx.medication in "Opioid Analgesics with Ambulatory Misuse Potential"
     else
         List<FHIR.MedicationRequest>{}
 
@@ -86,7 +124,7 @@ define "Active Ambulatory Benzodiazepine Rx":
         "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
       ) Rx
         where date from Rx.authoredOn 2 years or less on or before Today()
-          and Rx.medication in "Benzodiazepine medications"
+          and Rx.medication in "Benzodiazepine Medications"
     else
          List<FHIR.MedicationRequest>{}
 
@@ -96,24 +134,24 @@ define "Active Ambulatory Naloxone Rx":
         "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
       ) Rx
         where date from Rx.authoredOn 2 years or less on or before Today()
-          and Rx.medication in "Naloxone medications"
+          and Rx.medication in "Naloxone Medications"
     else
         List<FHIR.MedicationRequest>{}
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
     where Rx.status.value = 'active'
-      and Rx.category in "Community"
+      and exists(Rx.category Category where Category ~ "Community")
 
 define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value List<MedicationRequest>):
   ("Get MedicationRequest Medication as Code"(value)) Rx
-    where Rx.medication in "Opioid analgesics with ambulatory misuse potential" 
-      and Rx.category in "Community"
+    where Rx.medication in "Opioid Analgesics with Ambulatory Misuse Potential" 
+      and exists(Rx.category Category where Category ~ "Community")
 
 define function "Is Benzodiazepine?"(value List<MedicationRequest>):
   ("Get MedicationRequest Medication as Code"(value)) Rx
-    where Rx.medication in "Benzodiazepine medications" 
-      and Rx.category in "Community"
+    where Rx.medication in "Benzodiazepine Medications" 
+      and exists(Rx.category Category where Category ~ "Community")
 
 define function "Get MedicationRequest Medication as Code"(value List<MedicationRequest>):
   value Rx
@@ -154,25 +192,25 @@ define "US Core-Categorized Conditions":
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
     "US Core-Categorized Conditions" C
-      where C.code in "Conditions likely terminal for opioid prescribing"
-        and C.clinicalStatus in "Active Condition"
+      where C.code in "Conditions Likely Terminal for Opioid Prescribing"
+        and C.clinicalStatus ~ "Active Condition"
   )
   union
   (
     "US Core-Categorized Conditions" C
-      where C.code in "Limited life expectancy conditions"
-        and C.clinicalStatus in "Active Condition"
+      where C.code in "Limited Life Expectancy Conditions"
+        and C.clinicalStatus ~ "Active Condition"
   )
 
 define "Admitted/Referred/Discharged to Hospice Care":
   (
-    [Procedure: code in "Hospice Procedure Codes"] P
+    [Procedure: code in "Hospice Procedure"] P
       where P.status.value in { 'in-progress', 'completed' }
   )
   union
   (
     "Service Requests" SR
-      where SR.code in "Hospice Procedure Codes"
+      where SR.code in "Hospice Procedure"
         and SR.status.value in { 'active', 'completed' }
   )
   union
@@ -253,7 +291,7 @@ define function "Days on Opioids during Period"(period Interval<Date>):
   Sum(
     (
       collapse (
-        [MedicationRequest: "Opioid analgesics with ambulatory misuse potential"] OpioidPrescription
+        [MedicationRequest: "Opioid Analgesics with Ambulatory Misuse Potential"] OpioidPrescription
         return "Prescription Relevant Period"( OpioidPrescription ) intersect period
       )
     ) OpioidUseInterval
@@ -317,7 +355,7 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
 define "Positive Sickle Cell Condition":
     "US Core-Categorized Conditions" C
     where C.code in "Sickle Cell Diseases"
-        and C.clinicalStatus in "Active Condition"
+        and C.clinicalStatus ~ "Active Condition"
 
  define "Service Requests":
    [ServiceRequest] SR

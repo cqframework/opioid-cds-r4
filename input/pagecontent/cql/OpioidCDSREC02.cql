@@ -69,7 +69,7 @@ define "No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days
     )
 
 define "Opioid Treatment Plan Creation or Update in Past 90 Days":
-  [CarePlan: category in Common."Pain treatment plan"] PainTreatmentPlan
+  [CarePlan: category in Common."Pain Treatment Plan"] PainTreatmentPlan
     where PainTreatmentPlan.status in { 'active', 'completed' }
       and (
         FHIRHelpers.ToDateTime( PainTreatmentPlan.created ) during day of "Treatment Plan Lookback Period"
@@ -82,7 +82,7 @@ define "Opioid Treatment Plan Creation or Update in Past 90 Days":
 
 define "Had Opioid Treatment Plan Reviewed in Past 90 Days":
   exists (
-    [Procedure: Common."Pain management procedure"] PainManagementProcedure
+    [Procedure: Common."Pain Management Procedure"] PainManagementProcedure
       where PainManagementProcedure.performed during day of "Treatment Plan Lookback Period"
         and exists (
           PainManagementProcedure.performer Performer

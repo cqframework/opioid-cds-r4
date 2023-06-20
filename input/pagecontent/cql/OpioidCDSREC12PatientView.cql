@@ -38,7 +38,7 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
     and not (
         if Config."Can the implementing EHR support queries for past medications by date range?" then
           exists (
-            [MedicationRequest: Common."Buprenorphine and methadone medications"] MR
+            [MedicationRequest: Common."Buprenorphine and Methadone Medications"] MR
               where MR.status in { 'active', 'completed' }
                 and date from MR.authoredOn during day of "Opioid Use Disorder Lookback Period"
           )
@@ -64,8 +64,8 @@ define "Not Receiving Evidence-Based Treatment for Opioid Use Disorder":
 define "Presence of Diagnosis of Opioid Use Disorder":
   exists (
     Common."US Core-Categorized Conditions" C
-      where C.code in Common."Opioid misuse disorders"
-        and C.clinicalStatus in Common."Active Condition"
+      where C.code in Common."Opioid Misuse Disorders"
+        and C.clinicalStatus ~ Common."Active Condition"
         and date from C.recordedDate during day of "Opioid Use Disorder Lookback Period"
     )
 

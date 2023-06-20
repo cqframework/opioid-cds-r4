@@ -43,7 +43,17 @@ v: {
 v: {
   "display" : "Medical Oncology Physician",
   "code" : "207RX0202X",
+  "system" : "http://nucc.org/provider-taxonomy"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
   "system" : "http://nucc.org/provider-taxonomy",
-  "version" : "22.0"
+  "code" : "207RX0202X",
+  "display" : "Medical Oncology Physician"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "Local Error: Unable to resolve system http://nucc.org/provider-taxonomy. Server Error: Attempt to use Terminology server when no Terminology server is available",
+  "class" : "SERVER_ERROR"
 }
 -------------------------------------------------------------------------------------

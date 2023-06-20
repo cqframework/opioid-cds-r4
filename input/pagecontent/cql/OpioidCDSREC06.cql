@@ -52,7 +52,7 @@ define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Pote
 define "Order is for Long-Acting Opioid":
   exists (
     "Acute Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" AmbulatoryOpioidPrescription
-      where AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
+      where AmbulatoryOpioidPrescription.medication in Common."Extended Release Opioid with Ambulatory Misuse Potential"
         or Common.GetDurationInDays( AmbulatoryOpioidPrescription.dispenseRequest.expectedSupplyDuration ) > 7 days
   )
 

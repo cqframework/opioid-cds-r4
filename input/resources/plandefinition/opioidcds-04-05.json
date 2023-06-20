@@ -60,6 +60,22 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
+      "display": "Code system MedicationRequest Category",
+      "resource": "http://terminology.hl7.org/CodeSystem/medicationrequest-category"
+    }, {
+      "type": "depends-on",
+      "display": "Code system Condition Category",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-category"
+    }, {
+      "type": "depends-on",
+      "display": "Code system US Core Condition Category",
+      "resource": "http://hl7.org/fhir/us/core/CodeSystem/condition-category"
+    }, {
+      "type": "depends-on",
+      "display": "Code system Condition Clinical Status",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+    }, {
+      "type": "depends-on",
       "display": "Code system Usage Context Type",
       "resource": "http://terminology.hl7.org/CodeSystem/usage-context-type"
     }, {
@@ -68,43 +84,23 @@
       "resource": "http://fhir.org/guides/cdc/opioid-mme-r4/CodeSystem/CDCMMEUsageContextCodes"
     }, {
       "type": "depends-on",
-      "display": "Value set Opioid analgesics with ambulatory misuse potential",
+      "display": "Value set Opioid Analgesics with Ambulatory Misuse Potential",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
     }, {
       "type": "depends-on",
-      "display": "Value set Community",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Encounter Diagnosis Condition Category",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Problem List Condition Category",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
-    }, {
-      "type": "depends-on",
-      "display": "Value set US Core Health Concern Condition Category",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Limited life expectancy conditions",
+      "display": "Value set Limited Life Expectancy Conditions",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
     }, {
       "type": "depends-on",
-      "display": "Value set Active Condition",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Therapies indicating end of life care",
+      "display": "Value set Therapies Indicating End of Life Care",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     }, {
       "type": "depends-on",
-      "display": "Value set Conditions likely terminal for opioid prescribing",
+      "display": "Value set Conditions Likely Terminal for Opioid Prescribing",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
     }, {
       "type": "depends-on",
-      "display": "Value set Hospice Procedure Codes",
+      "display": "Value set Hospice Procedure",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
     } ],
     "parameter": [ {
@@ -163,7 +159,10 @@
       "mustSupport": [ "category" ],
       "codeFilter": [ {
         "path": "category",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+        "code": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis"
+        } ]
       } ]
     }, {
       "type": "Condition",
@@ -171,7 +170,10 @@
       "mustSupport": [ "category" ],
       "codeFilter": [ {
         "path": "category",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+        "code": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+        } ]
       } ]
     }, {
       "type": "Condition",
@@ -179,7 +181,10 @@
       "mustSupport": [ "category" ],
       "codeFilter": [ {
         "path": "category",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+        "code": [ {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/condition-category",
+          "code": "Health Concern"
+        } ]
       } ]
     }, {
       "type": "ServiceRequest",
@@ -323,7 +328,7 @@
       "valueString": "Conditions Indicating End Of Life Present"
     }, {
       "url": "statement",
-      "valueString": "define \"Conditions Indicating End Of Life Present\":\n  exists (\n    Common.\"US Core-Categorized Conditions\" LLEC\n      where LLEC.code in Common.\"Limited life expectancy conditions\"\n        and LLEC.clinicalStatus in Common.\"Active Condition\"\n  )"
+      "valueString": "define \"Conditions Indicating End Of Life Present\":\n  exists (\n    Common.\"US Core-Categorized Conditions\" LLEC\n      where LLEC.code in Common.\"Limited Life Expectancy Conditions\"\n        and LLEC.clinicalStatus ~ Common.\"Active Condition\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 6
@@ -368,7 +373,7 @@
       "valueString": "Order For Palliative Care In Past 90 Days"
     }, {
       "url": "statement",
-      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
+      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies Indicating End of Life Care\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 9
@@ -398,7 +403,7 @@
       "valueString": "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
     }, {
       "url": "statement",
-      "valueString": "define \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions likely terminal for opioid prescribing\"\n          and EOLC.clinicalStatus in Common.\"Active Condition\"\n    )\n  else\n    false"
+      "valueString": "define \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions Likely Terminal for Opioid Prescribing\"\n          and EOLC.clinicalStatus ~ Common.\"Active Condition\"\n    )\n  else\n    false"
     }, {
       "url": "displaySequence",
       "valueInteger": 11
@@ -473,7 +478,7 @@
       "valueString": "Active Ambulatory Opioid Rx"
     }, {
       "url": "statement",
-      "valueString": "define \"Active Ambulatory Opioid Rx\":\n    if Config.\"Can the implementing EHR support queries for past medications by date range?\" then\n      (\n        \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n      ) Rx\n        where date from Rx.authoredOn 2 years or less on or before Today()\n          and Rx.medication in \"Opioid analgesics with ambulatory misuse potential\"\n    else\n        List<FHIR.MedicationRequest>{}"
+      "valueString": "define \"Active Ambulatory Opioid Rx\":\n    if Config.\"Can the implementing EHR support queries for past medications by date range?\" then\n      (\n        \"Get MedicationRequest Medication as Code\"(\"Get Active Ambulatory Medication Requests\"([MedicationRequest]))\n      ) Rx\n        where date from Rx.authoredOn 2 years or less on or before Today()\n          and Rx.medication in \"Opioid Analgesics with Ambulatory Misuse Potential\"\n    else\n        List<FHIR.MedicationRequest>{}"
     }, {
       "url": "displaySequence",
       "valueInteger": 16
@@ -518,7 +523,7 @@
       "valueString": "Conditions Indicating End of Life or With Limited Life Expectancy"
     }, {
       "url": "statement",
-      "valueString": "define \"Conditions Indicating End of Life or With Limited Life Expectancy\":\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Conditions likely terminal for opioid prescribing\"\n        and C.clinicalStatus in \"Active Condition\"\n  )\n  union\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Limited life expectancy conditions\"\n        and C.clinicalStatus in \"Active Condition\"\n  )"
+      "valueString": "define \"Conditions Indicating End of Life or With Limited Life Expectancy\":\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Conditions Likely Terminal for Opioid Prescribing\"\n        and C.clinicalStatus ~ \"Active Condition\"\n  )\n  union\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Limited Life Expectancy Conditions\"\n        and C.clinicalStatus ~ \"Active Condition\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 19
@@ -533,7 +538,7 @@
       "valueString": "Admitted/Referred/Discharged to Hospice Care"
     }, {
       "url": "statement",
-      "valueString": "define \"Admitted/Referred/Discharged to Hospice Care\":\n  (\n    [Procedure: code in \"Hospice Procedure Codes\"] P\n      where P.status.value in { 'in-progress', 'completed' }\n  )\n  union\n  (\n    \"Service Requests\" SR\n      where SR.code in \"Hospice Procedure Codes\"\n        and SR.status.value in { 'active', 'completed' }\n  )\n  union\n  (\n    if (Config.\"Hospice Findings Exclusion Enabled\") then\n      [Observation: code in \"Hospice Finding Codes\"] O\n        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })\n    else\n      {}\n  )\n  union\n  (\n    [Encounter] E\n      where date from E.period.start 1 year or less on or before Today()\n        and (\n          if E.hospitalization.dischargeDisposition.coding is null\n              or not exists (E.hospitalization.dischargeDisposition.coding)\n            then false\n          else E.hospitalization.dischargeDisposition in \"Hospice Disposition\"\n        )\n        and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }\n  )"
+      "valueString": "define \"Admitted/Referred/Discharged to Hospice Care\":\n  (\n    [Procedure: code in \"Hospice Procedure\"] P\n      where P.status.value in { 'in-progress', 'completed' }\n  )\n  union\n  (\n    \"Service Requests\" SR\n      where SR.code in \"Hospice Procedure\"\n        and SR.status.value in { 'active', 'completed' }\n  )\n  union\n  (\n    if (Config.\"Hospice Findings Exclusion Enabled\") then\n      [Observation: code in \"Hospice Finding Codes\"] O\n        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })\n    else\n      {}\n  )\n  union\n  (\n    [Encounter] E\n      where date from E.period.start 1 year or less on or before Today()\n        and (\n          if E.hospitalization.dischargeDisposition.coding is null\n              or not exists (E.hospitalization.dischargeDisposition.coding)\n            then false\n          else E.hospitalization.dischargeDisposition in \"Hospice Disposition\"\n        )\n        and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 20
@@ -637,7 +642,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-06-14",
+  "date": "2023-06-19",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When opioids are started, providers should prescribe the lowest effective dosage.",
   "useContext": [ {
