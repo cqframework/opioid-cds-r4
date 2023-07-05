@@ -138,24 +138,8 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests"
   }, {
     "type": "depends-on",
-    "display": "Value set Synthetic Opioid Medications",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications"
-  }, {
-    "type": "depends-on",
     "display": "Value set Fentanyl Urine Tests",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Fentanyl Medications",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-medications"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Amphetamine Medications",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Methadone Medications",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications"
   } ],
   "parameter": [ {
     "name": "ContextPrescriptions",

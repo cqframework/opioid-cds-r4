@@ -26,46 +26,13 @@ define "Applicable Because of Unexpected Results":
     or HasPositiveScreeningInLast12Months("PCP Screenings", true)
     or HasPositiveScreeningInLast12Months("Cannabinoid Screenings", true)
     or HasPositiveScreeningInLast12Months("Nonopioid Screenings", true)
-    or 
-      (
-        HasPositiveScreeningInLast12Months("Opiate Screenings", Config."Opiate Urine Screening Check Enabled")
-        and not exists (
-          "Medications Prescribed Within Past Year" PastMeds 
-            where PastMeds.medication in Common."Opioid Analgesics with Ambulatory Misuse Potential"
-        )
-      )
-    or 
-      (
-        HasPositiveScreeningInLast12Months("Synthetic Opioid Screenings", Config."Opiate Urine Screening Check Enabled")
-        and not exists (
-          "Medications Prescribed Within Past Year" PastMeds 
-            where PastMeds.medication in Common."Synthetic Opioid Medications"
-        ) 
-      )
-    or 
-      (
-        HasPositiveScreeningInLast12Months("Fentanyl Screenings", Config."Opiate Urine Screening Check Enabled")
-        and not exists (
-          "Medications Prescribed Within Past Year" PastMeds 
-            where PastMeds.medication in Common."Fentanyl Medications"
-        ) 
-      )
-    or 
-      (
-        HasPositiveScreeningInLast12Months("Amphetamine Screenings", true)
-        and not exists (
-          "Medications Prescribed Within Past Year" PastMeds 
-            where PastMeds.medication in Common."Amphetamine Medications"
-        )
-      )
-    or 
-      (
-        HasPositiveScreeningInLast12Months("Methadone Screenings", true)
-        and not exists (
-          "Medications Prescribed Within Past Year" PastMeds 
-            where PastMeds.medication in Common."Methadone Medications"
-        ) 
-      )
+    // TODO: Ensure the following are unexpected 
+    //   - meaning the patient wasn't prescribed a medication with these ingredients before the lab took place
+    or HasPositiveScreeningInLast12Months("Opiate Screenings", Config."Opiate Urine Screening Check Enabled")
+    or HasPositiveScreeningInLast12Months("Synthetic Opioid Screenings", Config."Opiate Urine Screening Check Enabled")
+    or HasPositiveScreeningInLast12Months("Fentanyl Screenings", Config."Opiate Urine Screening Check Enabled")
+    or HasPositiveScreeningInLast12Months("Amphetamine Screenings", true)
+    or HasPositiveScreeningInLast12Months("Methadone Screenings", true)
 
 define "Inclusion Criteria":
   Routines."Is Opioid Review Useful?"

@@ -104,32 +104,12 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
     }, {
       "type": "depends-on",
-      "display": "Value set Opioid Analgesics with Ambulatory Misuse Potential",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential"
-    }, {
-      "type": "depends-on",
       "display": "Value set Synthetic Opioid Urine Tests",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests"
     }, {
       "type": "depends-on",
-      "display": "Value set Synthetic Opioid Medications",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications"
-    }, {
-      "type": "depends-on",
       "display": "Value set Fentanyl Urine Tests",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Fentanyl Medications",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-medications"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Amphetamine Medications",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Methadone Medications",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications"
     } ],
     "parameter": [ {
       "name": "Is Perform Drug Screen Recommendation Applicable?",
@@ -1059,28 +1039,13 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Medications Prescribed Within Past Year"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Medications Prescribed Within Past Year\":\n  if Config.\"Can the implementing EHR support queries for past medications by date range?\" \n    then\n      (Common.\"Get MedicationRequest Medication as Code\"([MedicationRequest])) MR\n        where date from MR.authoredOn during \"Lookback Year\"\n  else\n    List<FHIR.MedicationRequest>{}"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 32
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
-    }, {
-      "url": "name",
       "valueString": "Synthetic Opioid Screenings"
     }, {
       "url": "statement",
       "valueString": "define \"Synthetic Opioid Screenings\":\n  GetRelevantScreenings(\"Laboratory Observations\" LabObservations\n    where (LabObservations.code in Common.\"Synthetic Opioid Urine Tests\")\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 33
+      "valueInteger": 32
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1095,7 +1060,7 @@
       "valueString": "define \"Fentanyl Screenings\":\n  GetRelevantScreenings(\"Laboratory Observations\" LabObservations\n    where (LabObservations.code in Common.\"Fentanyl Urine Tests\")\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 34
+      "valueInteger": 33
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1107,10 +1072,10 @@
       "valueString": "Applicable Because of Unexpected Results"
     }, {
       "url": "statement",
-      "valueString": "define \"Applicable Because of Unexpected Results\":\n  HasPositiveScreeningInLast12Months(\"Alcohol Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"Cocaine Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"PCP Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"Cannabinoid Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"Nonopioid Screenings\", true)\n    or \n      (\n        HasPositiveScreeningInLast12Months(\"Opiate Screenings\", Config.\"Opiate Urine Screening Check Enabled\")\n        and not exists (\n          \"Medications Prescribed Within Past Year\" PastMeds \n            where PastMeds.medication in Common.\"Opioid Analgesics with Ambulatory Misuse Potential\"\n        )\n      )\n    or \n      (\n        HasPositiveScreeningInLast12Months(\"Synthetic Opioid Screenings\", Config.\"Opiate Urine Screening Check Enabled\")\n        and not exists (\n          \"Medications Prescribed Within Past Year\" PastMeds \n            where PastMeds.medication in Common.\"Synthetic Opioid Medications\"\n        ) \n      )\n    or \n      (\n        HasPositiveScreeningInLast12Months(\"Fentanyl Screenings\", Config.\"Opiate Urine Screening Check Enabled\")\n        and not exists (\n          \"Medications Prescribed Within Past Year\" PastMeds \n            where PastMeds.medication in Common.\"Fentanyl Medications\"\n        ) \n      )\n    or \n      (\n        HasPositiveScreeningInLast12Months(\"Amphetamine Screenings\", true)\n        and not exists (\n          \"Medications Prescribed Within Past Year\" PastMeds \n            where PastMeds.medication in Common.\"Amphetamine Medications\"\n        )\n      )\n    or \n      (\n        HasPositiveScreeningInLast12Months(\"Methadone Screenings\", true)\n        and not exists (\n          \"Medications Prescribed Within Past Year\" PastMeds \n            where PastMeds.medication in Common.\"Methadone Medications\"\n        ) \n      )"
+      "valueString": "define \"Applicable Because of Unexpected Results\":\n  HasPositiveScreeningInLast12Months(\"Alcohol Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"Cocaine Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"PCP Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"Cannabinoid Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"Nonopioid Screenings\", true)\n    // TODO: Ensure the following are unexpected \n    //   - meaning the patient wasn't prescribed a medication with these ingredients before the lab took place\n    or HasPositiveScreeningInLast12Months(\"Opiate Screenings\", Config.\"Opiate Urine Screening Check Enabled\")\n    or HasPositiveScreeningInLast12Months(\"Synthetic Opioid Screenings\", Config.\"Opiate Urine Screening Check Enabled\")\n    or HasPositiveScreeningInLast12Months(\"Fentanyl Screenings\", Config.\"Opiate Urine Screening Check Enabled\")\n    or HasPositiveScreeningInLast12Months(\"Amphetamine Screenings\", true)\n    or HasPositiveScreeningInLast12Months(\"Methadone Screenings\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 35
+      "valueInteger": 34
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1125,7 +1090,7 @@
       "valueString": "define \"Applicable Because of Unexpected Results\":\n  Rec10Common.\"Applicable Because of Unexpected Results\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 36
+      "valueInteger": 35
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1140,7 +1105,7 @@
       "valueString": "define \"Detail\":\n  Rec10Common.\"Get Detail\" (\"Is Perform Drug Screen Recommendation Applicable?\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 37
+      "valueInteger": 36
     } ]
   }, {
     "id": "effective-data-requirements",
@@ -1166,7 +1131,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-06-19",
+  "date": "2023-07-05",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
   "useContext": [ {
