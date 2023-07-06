@@ -193,19 +193,15 @@ define "Urine Drug Screening ProcedureRequest Category":
       }
     }
   }
-  /* singleton from (First(
-    [Encounter] E
-      where E.period starts same day as Today()
-      sort by start of period desc
-  ).type) */
 
 define function GetUnexpectedResultsReport(Screenings List<FHIR.Observation>, Type String):
   if Length(Screenings) = 0 then null
-  else if GetNegativeScreeningsCount(Screenings) > 0 then
-    '<br />*Positive for ' + Type + ': ' +
-    Combine(GetPositiveDates(Screenings), ', ') +
-    '  (' + ToString(GetNegativeScreeningsCount(Screenings)) +
-    ' negative since)'
-  else
-    '<br />*Positive for ' + Type + ': ' +
+  else if GetNegativeScreeningsCount(Screenings) > 0 
+    then '<br />*Positive for ' + Type + ': ' +
+      Combine(GetPositiveDates(Screenings), ', ') +
+      '  (' + ToString(GetNegativeScreeningsCount(Screenings)) +
+      ' negative since)'   
+  else if exists GetPositiveScreenings(Screenings)
+    then '<br />*Positive for ' + Type + ': ' +
     Combine(GetPositiveDates(Screenings), ', ')
+  else null
