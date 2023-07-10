@@ -28,12 +28,8 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10Common|2022.1.0"
     }, {
       "type": "depends-on",
-      "display": "Library Routines",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2022.1.0"
-    }, {
-      "type": "depends-on",
       "display": "Library FHIRHelpers",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+      "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Library Config",
@@ -195,7 +191,20 @@
     }, {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-      "mustSupport": [ "status", "intent", "authoredOn", "code" ]
+      "mustSupport": [ "status", "intent", "authoredOn", "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+      } ],
+      "dateFilter": [ {
+        "path": "authoredOn",
+        "valuePeriod": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/uv/crmi-analysisException",
+            "valueString": "Error attempting to determine filter value: toFhirValue not implemented for ToDateTime"
+          } ]
+        }
+      } ]
     }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
@@ -217,6 +226,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -228,6 +240,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -239,6 +254,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -250,6 +268,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -261,6 +282,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -272,6 +296,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/alcohol-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -283,6 +310,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Procedure",
@@ -295,21 +325,23 @@
     }, {
       "type": "ServiceRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-      "mustSupport": [ "code", "status", "status.value" ]
+      "mustSupport": [ "code", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+      } ]
     }, {
       "type": "Encounter",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-      "mustSupport": [ "period", "period.start", "status", "status.value" ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "category", "code" ],
-      "codeFilter": [ {
-        "path": "category",
-        "code": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-          "code": "laboratory"
-        } ]
+      "mustSupport": [ "period", "period.start", "status", "status.value" ],
+      "dateFilter": [ {
+        "path": "period.start",
+        "valuePeriod": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/uv/crmi-analysisException",
+            "valueString": "Error attempting to determine filter value: toFhirValue not implemented for Subtract"
+          } ]
+        }
       } ]
     }, {
       "type": "Observation",
@@ -321,6 +353,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
       } ]
     }, {
       "type": "Observation",
@@ -332,6 +367,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -343,6 +381,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -354,6 +395,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -365,6 +409,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -376,6 +423,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -387,6 +437,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -398,6 +451,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -409,6 +465,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/alcohol-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -420,6 +479,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -431,6 +493,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
       } ]
     }, {
       "type": "Observation",
@@ -442,6 +507,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -453,6 +521,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -464,6 +535,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/alcohol-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -475,6 +549,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -486,6 +563,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -497,6 +577,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -508,6 +591,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -519,6 +605,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
       } ]
     }, {
       "type": "Observation",
@@ -530,6 +619,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -541,6 +633,9 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests"
       } ]
     }, {
       "type": "Observation",
@@ -552,6 +647,23 @@
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
           "code": "laboratory"
         } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-drug-urine-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "category", "code" ],
+      "codeFilter": [ {
+        "path": "category",
+        "code": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
+      }, {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests"
       } ]
     } ]
   } ],
@@ -1166,7 +1278,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-06-19",
+  "date": "2023-07-10",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
   "useContext": [ {

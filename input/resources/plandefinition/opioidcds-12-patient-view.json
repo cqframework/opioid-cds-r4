@@ -25,7 +25,7 @@
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+      "resource": "http://fhir.org/guides/cqf/common/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Code system Condition Category",
@@ -357,7 +357,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-06-19",
+  "date": "2023-07-10",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Arrange evidence-based treatment (usually medication-assisted treatment with buprenorphine or methadone in combination with behavioral therapies) for patients with opioid use disorder.",
   "useContext": [ {

@@ -15,9 +15,15 @@
       <value value="https://www.cdc.gov" />
     </telecom>
   </contact>
-  <description value="2022 CDC Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
+  <description
+    value="2022 CDC Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
   <packageId value="fhir.cdc.opioid-cds-r4" />
   <fhirVersion value="4.0.1" />
+  <dependsOn>
+    <uri value="http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common" />
+    <packageId value="fhir.cqf.common" />
+    <version value="4.0.1" />
+  </dependsOn>
   <dependsOn>
     <uri value="http://hl7.org/fhir/uv/cpg/ImplementationGuide/hl7.fhir.uv.cpg" />
     <packageId value="hl7.fhir.uv.cpg" />

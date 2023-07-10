@@ -45,7 +45,7 @@ All conversion factors supplied in these supplements are in 'mg/d'.
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.1'
+include fhir.cqf.common.FHIRHelpers version '4.0.1'
 include CDCMMEClinicalConversionFactors version '3.0.0' called CDCMMEClinicalConversionFactors
 
 codesystem "Usage Context Type": 'http://terminology.hl7.org/CodeSystem/usage-context-type'
