@@ -10,13 +10,16 @@ include OpioidCDSCommonConfig version '2022.1.0' called Config
 context Patient
 
 define "Lookback Year":
-  Interval[Today() - 12 months - 1 days, Today()]
+  Interval[Today() - 12 months - 1 day, Today()]
+
+define "Lookback Year Excluding Today":
+  Interval[Today() - 12 months - 1 day, Today() - 1 day]
 
 define "Medications Prescribed Within Past Year":
   if Config."Can the implementing EHR support queries for past medications by date range?" 
     then
-      (Common."Get MedicationRequest Medication as Code"([MedicationRequest])) MR
-        where date from MR.authoredOn during "Lookback Year"
+      (Common."Get MedicationRequest Medication as Code"([MedicationRequest: Common."All Medications"])) MR
+        where date from MR.authoredOn during "Lookback Year Excluding Today"
   else
     List<FHIR.MedicationRequest>{}
 
@@ -42,82 +45,57 @@ define "Exclusion Criteria":
   Common."End of Life Assessment"
 
 define "Patient had Urine Screening in Last 12 Months":
-  (
-    exists    ( "Nonopioid Screenings" )
-    or exists ( "Cocaine Screenings" )
-    or exists ( "PCP Screenings" )
-    or exists ( "Amphetamine Screenings" )
-    or exists ( "Cannabinoid Screenings" )
-    or exists ( "Alcohol Screenings" )
-    or exists ( "Methadone Screenings" )
-  )
-  or
-    if Config."Opiate Urine Screening Check Enabled" 
-      then (
-        exists    ( "Opiate Screenings" )
-        or exists ( "Synthetic Opioid Screenings" )
-        or exists ( "Fentanyl Screenings" )
-      )
-    else
-      false
+  exists "Laboratory Observations"
 
 define "Laboratory Observations":
-  [Observation: "category" in Common."Observation Category Laboratory"]
+  [Observation: Common."All Screenings"] Labs
+    where exists(Labs.category Category where Category ~ Common."Observation Category Laboratory")
+      and date from Labs.effective in day of "Lookback Year"
+      and not (Labs.status in { 'unknown', 'entered-in-error', 'cancelled' })
+
+define "Opioid Screenings":
+  "Laboratory Observations" LabObservations
+    where (LabObservations.code in Common."Opioid Urine Tests")
 
 define "Nonopioid Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Nonopioid Urine Tests")
-  )
 
 define "Opiate Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
-    where (LabObservations.code in Common."Opioid Urine Tests")
-  )
+  "Laboratory Observations" LabObservations
+    where (LabObservations.code in Common."Opiate-specific Urine Tests")
 
 define "Cocaine Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Cocaine Urine Tests")
-  )
 
 define "PCP Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."PCP Urine Tests")
-  )
 
 define "Synthetic Opioid Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Synthetic Opioid Urine Tests")
-  )
 
 define "Fentanyl Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Fentanyl Urine Tests")
-  )
 
 define "Amphetamine Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Amphetamine Urine Tests")
-  )
 
 define "Cannabinoid Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Cannabinoid Urine Tests")
-  )
 
 define "Alcohol Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Alcohol Urine Tests")
-  )
 
 define "Methadone Screenings":
-  GetRelevantScreenings("Laboratory Observations" LabObservations
+  "Laboratory Observations" LabObservations
     where (LabObservations.code in Common."Methadone Urine Tests")
-  )
-
-define function "GetRelevantScreenings" (obsList List<Observation>):
-  obsList LabObservations
-     where date from LabObservations.effective in day of "Lookback Year"
-       and not (LabObservations.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
 
 // Returns a text representation of a dateTime using the CQL `ToString` function.
 // @param d - a FHIR dateTime to get text for
@@ -131,10 +109,6 @@ define function GetPositiveScreenings(Screenings List<FHIR.Observation>):
 define function GetNegativeScreenings(Screenings List<FHIR.Observation>):
   Screenings Screen where StartsWith(Lower(Screen.value as FHIR.string), 'neg')
 
-/*
-  borrowed from CDS4CPM CDS_Connect_Commons_for_FHIRv400
-  Should this go into OpioidCDSCommon?
-*/
 define function "MostRecent" (ObsList List<Observation>):
   Last(ObsList O sort by Coalesce(
     (effective as FHIR.dateTime).value,
@@ -183,25 +157,27 @@ define function "Get Summary" (isScreeningRecommended Boolean):
     then 'Patient May Have Unexpected Toxicology Test Results'
   else null
 
-define "Urine Drug Screening ProcedureRequest Category":
-  FHIR.CodeableConcept {
-    coding: {
-      FHIR.Coding {
-        system: FHIR.uri { value: 'http://terminology.hl7.org/CodeSystem/medicationrequest-category' },
-        code: FHIR.code { value: 'outpatient' },
-        display: FHIR.string { value: 'Outpatient' }
-      }
-    }
-  }
+// define function GetUnexpectedResultsReport(Screenings List<FHIR.Observation>, Type String):
+//   if Length(Screenings) = 0 then null
+//   else if GetNegativeScreeningsCount(Screenings) > 0 
+//     then '<br />*Positive for ' + Type + ': ' +
+//       Combine(GetPositiveDates(Screenings), ', ') +
+//       '  (' + ToString(GetNegativeScreeningsCount(Screenings)) +
+//       ' negative since)'   
+//   else if exists GetPositiveScreenings(Screenings)
+//     then '<br />*Positive for ' + Type + ': ' +
+//     Combine(GetPositiveDates(Screenings), ', ')
+//   else null
 
 define function GetUnexpectedResultsReport(Screenings List<FHIR.Observation>, Type String):
   if Length(Screenings) = 0 then null
-  else if GetNegativeScreeningsCount(Screenings) > 0 
-    then '<br />*Positive for ' + Type + ': ' +
-      Combine(GetPositiveDates(Screenings), ', ') +
-      '  (' + ToString(GetNegativeScreeningsCount(Screenings)) +
-      ' negative since)'   
   else if exists GetPositiveScreenings(Screenings)
     then '<br />*Positive for ' + Type + ': ' +
-    Combine(GetPositiveDates(Screenings), ', ')
+    Combine(GetPositiveDates(Screenings), ', ') +
+      (
+        if GetNegativeScreeningsCount(Screenings) > 0
+          then '  (' + ToString(GetNegativeScreeningsCount(Screenings)) +
+          ' negative since)'
+        else ''
+      )
   else null

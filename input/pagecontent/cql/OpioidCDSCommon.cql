@@ -28,6 +28,7 @@ valueset "Nonopioid CNS Depressant Medications": 'http://fhir.org/guides/cdc/opi
 valueset "Nonsynthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
 valueset "Opioid Analgesics with Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
 valueset "Synthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications'
+valueset "All Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-medications'
 
 // Procedures/Treatments/Counseling/Therapies
 valueset "Hospice Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
@@ -62,6 +63,7 @@ valueset "Opiate-specific Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/V
 valueset "Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
 valueset "PCP Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests'
 valueset "Synthetic Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests'
+valueset "All Screenings": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings'
 
 // Misc
 // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15

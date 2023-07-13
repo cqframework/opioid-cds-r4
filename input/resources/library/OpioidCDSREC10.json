@@ -94,32 +94,8 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
   }, {
     "type": "depends-on",
-    "display": "Value set Nonopioid Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Cocaine Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set PCP Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Amphetamine Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-drug-urine-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Cannabinoid Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Alcohol Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/alcohol-drug-urine-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Methadone Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests"
+    "display": "Value set All Screenings",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
   }, {
     "type": "depends-on",
     "display": "Value set Conditions Likely Terminal for Opioid Prescribing",
@@ -130,8 +106,28 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
   }, {
     "type": "depends-on",
-    "display": "Value set Opioid Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
+    "display": "Value set Alcohol Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/alcohol-drug-urine-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Cocaine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set PCP Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Cannabinoid Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Nonopioid Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Opiate-specific Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opiate-specific-urine-drug-screening-tests"
   }, {
     "type": "depends-on",
     "display": "Value set Synthetic Opioid Urine Tests",
@@ -140,6 +136,14 @@
     "type": "depends-on",
     "display": "Value set Fentanyl Urine Tests",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Amphetamine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-drug-urine-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Methadone Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests"
   } ],
   "parameter": [ {
     "name": "ContextPrescriptions",
@@ -243,90 +247,10 @@
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Procedure",
@@ -347,255 +271,170 @@
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "category", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "code": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-        "code": "laboratory"
-      } ]
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
     } ]
   } ],
   "content": [ {
