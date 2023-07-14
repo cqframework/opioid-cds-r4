@@ -15,10 +15,11 @@ define "Lookback Year":
 define "Lookback Year Excluding Today":
   Interval[Today() - 12 months - 1 day, Today() - 1 day]
 
+// TODO: break this up to only search for relevant Meds
 define "Medications Prescribed Within Past Year":
   if Config."Can the implementing EHR support queries for past medications by date range?" 
     then
-      (Common."Get MedicationRequest Medication as Code"([MedicationRequest: Common."All Medications"])) MR
+      (Common."Get MedicationRequest Medication as Code"([MedicationRequest])) MR
         where date from MR.authoredOn during "Lookback Year Excluding Today"
   else
     List<FHIR.MedicationRequest>{}
@@ -47,10 +48,10 @@ define "Exclusion Criteria":
 define "Patient had Urine Screening in Last 12 Months":
   exists "Laboratory Observations"
 
+// TODO: break this up to only search for relevant Labs
 define "Laboratory Observations":
-  [Observation: Common."All Screenings"] Labs
-    where exists(Labs.category Category where Category ~ Common."Observation Category Laboratory")
-      and date from Labs.effective in day of "Lookback Year"
+  [Observation: "category" in Common."Observation Category Laboratory"] Labs
+    where date from Labs.effective in day of "Lookback Year"
       and not (Labs.status in { 'unknown', 'entered-in-error', 'cancelled' })
 
 define "Opioid Screenings":

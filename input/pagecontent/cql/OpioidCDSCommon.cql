@@ -28,6 +28,7 @@ valueset "Nonopioid CNS Depressant Medications": 'http://fhir.org/guides/cdc/opi
 valueset "Nonsynthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
 valueset "Opioid Analgesics with Ambulatory Misuse Potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
 valueset "Synthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications'
+// Note that this valueset is very large and should be used with caution - some systems cannot handle search queries where it is expanded and included in the query
 valueset "All Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-medications'
 
 // Procedures/Treatments/Counseling/Therapies
@@ -63,6 +64,7 @@ valueset "Opiate-specific Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/V
 valueset "Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
 valueset "PCP Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests'
 valueset "Synthetic Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests'
+// Note that this valueset is very large and should be used with caution - some systems cannot handle search queries where it is expanded and included in the query
 valueset "All Screenings": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings'
 
 // Misc

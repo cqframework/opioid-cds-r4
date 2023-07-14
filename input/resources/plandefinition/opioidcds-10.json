@@ -68,10 +68,6 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
     }, {
       "type": "depends-on",
-      "display": "Value set All Screenings",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
-    }, {
-      "type": "depends-on",
       "display": "Value set Conditions Likely Terminal for Opioid Prescribing",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
     }, {
@@ -154,10 +150,13 @@
     }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "category", "effective", "status" ],
+      "mustSupport": [ "category", "effective", "status" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
+        "path": "category",
+        "code": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
       } ]
     }, {
       "type": "Procedure",
@@ -178,10 +177,13 @@
     }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "category", "effective", "status" ],
+      "mustSupport": [ "category", "effective", "status" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-screenings"
+        "path": "category",
+        "code": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory"
+        } ]
       } ]
     } ]
   } ],
@@ -407,7 +409,7 @@
       "valueString": "Laboratory Observations"
     }, {
       "url": "statement",
-      "valueString": "define \"Laboratory Observations\":\n  [Observation: Common.\"All Screenings\"] Labs\n    where exists(Labs.category Category where Category ~ Common.\"Observation Category Laboratory\")\n      and date from Labs.effective in day of \"Lookback Year\"\n      and not (Labs.status in { 'unknown', 'entered-in-error', 'cancelled' })"
+      "valueString": "// TODO: break this up to only search for relevant Labs\ndefine \"Laboratory Observations\":\n  [Observation: \"category\" in Common.\"Observation Category Laboratory\"] Labs\n    where date from Labs.effective in day of \"Lookback Year\"\n      and not (Labs.status in { 'unknown', 'entered-in-error', 'cancelled' })"
     }, {
       "url": "displaySequence",
       "valueInteger": 13
@@ -571,7 +573,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-07-12",
+  "date": "2023-07-14",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
   "useContext": [ {
