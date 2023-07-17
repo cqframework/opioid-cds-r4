@@ -12,11 +12,14 @@ context Patient
 define "Lookback Year":
   Interval[Today() - 12 months - 1 days, Today()]
 
+define "Lookback Year Excluding Today":
+  Interval[Today() - 12 months - 1 days, Today()]
+
 define "Medications Prescribed Within Past Year":
   if Config."Can the implementing EHR support queries for past medications by date range?" 
     then
       (Common."Get MedicationRequest Medication as Code"([MedicationRequest])) MR
-        where date from MR.authoredOn during "Lookback Year"
+        where date from MR.authoredOn during "Lookback Year Excluding Today"
   else
     List<FHIR.MedicationRequest>{}
 
@@ -71,7 +74,7 @@ define "Nonopioid Screenings":
 
 define "Opiate Screenings":
   GetRelevantScreenings("Laboratory Observations" LabObservations
-    where (LabObservations.code in Common."Opioid Urine Tests")
+    where (LabObservations.code in Common."Opiate-specific Urine Tests")
   )
 
 define "Cocaine Screenings":

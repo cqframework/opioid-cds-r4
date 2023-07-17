@@ -130,8 +130,8 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
   }, {
     "type": "depends-on",
-    "display": "Value set Opioid Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
+    "display": "Value set Opiate-specific Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opiate-specific-urine-drug-screening-tests"
   }, {
     "type": "depends-on",
     "display": "Value set Synthetic Opioid Urine Tests",

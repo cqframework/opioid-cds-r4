@@ -100,8 +100,8 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
     }, {
       "type": "depends-on",
-      "display": "Value set Opioid Urine Tests",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
+      "display": "Value set Opiate-specific Urine Tests",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opiate-specific-urine-drug-screening-tests"
     }, {
       "type": "depends-on",
       "display": "Value set Synthetic Opioid Urine Tests",
@@ -1012,7 +1012,7 @@
       "valueString": "Opiate Screenings"
     }, {
       "url": "statement",
-      "valueString": "define \"Opiate Screenings\":\n  GetRelevantScreenings(\"Laboratory Observations\" LabObservations\n    where (LabObservations.code in Common.\"Opioid Urine Tests\")\n  )"
+      "valueString": "define \"Opiate Screenings\":\n  GetRelevantScreenings(\"Laboratory Observations\" LabObservations\n    where (LabObservations.code in Common.\"Opiate-specific Urine Tests\")\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 30
@@ -1131,7 +1131,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-07-05",
+  "date": "2023-07-16",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
   "useContext": [ {
