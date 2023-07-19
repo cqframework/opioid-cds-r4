@@ -43,7 +43,7 @@ context Patient
 define "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
   ( Common."Is Opioid Analgesic with Ambulatory Misuse Potential?"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription
     where Routines."Is Subacute or Chronic Pain Prescription?"( AmbulatoryOpioidPrescription )
-      and AmbulatoryOpioidPrescription.medication in Common."Extended release opioid with ambulatory misuse potential"
+      and AmbulatoryOpioidPrescription.medication in Common."Extended Release Opioid with Ambulatory Misuse Potential"
 
 define "Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )

@@ -1,0 +1,2938 @@
+{
+    "_id": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+    "colName": "OpioidCDSR4_Test_Suite",
+    "created": "2022-08-08T19:42:27.502Z",
+    "sortNum": 10000,
+    "folders": [
+        {
+            "_id": "6e0fdd9a-ae7e-4932-bc09-1f242c051283",
+            "name": "REC_01",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.504Z",
+            "sortNum": 10000,
+            "settings": {}
+        },
+        {
+            "_id": "c517211f-b05c-4072-a59b-d7e07258eba9",
+            "name": "REC_02",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.505Z",
+            "sortNum": 20000,
+            "settings": {}
+        },
+        {
+            "_id": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
+            "name": "REC_03",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.507Z",
+            "sortNum": 32500,
+            "settings": {}
+        },
+        {
+            "_id": "b0fbf830-156e-4743-b074-8c4523410667",
+            "name": "REC_04_05",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.509Z",
+            "sortNum": 50000,
+            "settings": {}
+        },
+        {
+            "_id": "83de11e6-fee3-49e2-afc5-402fe6a28c69",
+            "name": "REC_06",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.510Z",
+            "sortNum": 60000,
+            "settings": {}
+        },
+        {
+            "_id": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "REC_07",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.511Z",
+            "sortNum": 70000,
+            "settings": {}
+        },
+        {
+            "_id": "e71241b7-96da-4029-b97f-a9c476554d5b",
+            "name": "REC_08",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.512Z",
+            "sortNum": 80000,
+            "settings": {}
+        },
+        {
+            "_id": "3f2e1468-e24b-4dea-847d-1a6e5d7805ad",
+            "name": "REC_09",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.513Z",
+            "sortNum": 90000,
+            "settings": {}
+        },
+        {
+            "_id": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
+            "name": "REC_10_ORDER_SIGN",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.515Z",
+            "sortNum": 92500
+        },
+        {
+            "_id": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
+            "name": "REC_10_PATIENT_VIEW",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.516Z",
+            "sortNum": 95000
+        },
+        {
+            "_id": "a751f548-6e07-445a-b289-fe435b4e4591",
+            "name": "REC_11_ORDER_SELECT",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.517Z",
+            "sortNum": 110000,
+            "settings": {}
+        },
+        {
+            "_id": "e6c8fc77-40f7-4fb2-8f4c-ee80f263dba0",
+            "name": "REC_11_PATIENT_VIEW",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.518Z",
+            "sortNum": 115000,
+            "settings": {}
+        },
+        {
+            "_id": "f853d5cc-f89d-4fdf-a254-2758b52160ec",
+            "name": "REC_12",
+            "containerId": "",
+            "created": "2022-08-08T19:42:27.519Z",
+            "sortNum": 120000,
+            "settings": {}
+        }
+    ],
+    "requests": [
+        {
+            "_id": "f87554a1-5c92-4c1c-bc25-6636e7372bd3",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6e0fdd9a-ae7e-4932-bc09-1f242c051283",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.506Z",
+            "modified": "2022-08-17T23:39:46.232Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-01/opioidcds-01-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c167dbe1-6cfa-449b-afec-316830eebf91",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "c517211f-b05c-4072-a59b-d7e07258eba9",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.507Z",
+            "modified": "2022-08-18T17:55:38.997Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-02/opioidcds-02-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "44d08977-c826-41b3-b6bf-59464503cbfe",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.509Z",
+            "modified": "2022-11-02T04:04:37.732Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-03/opioidcds-03-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "669d1ff8-d643-4221-b4c7-4d1ec4c30f5d",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "b0fbf830-156e-4743-b074-8c4523410667",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.511Z",
+            "modified": "2022-11-02T19:56:35.474Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-04-05/opioidcds-04-05-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d0792f23-8c09-4423-bbe0-66dc2ae91942",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "83de11e6-fee3-49e2-afc5-402fe6a28c69",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.512Z",
+            "modified": "2022-08-19T01:59:47.314Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-06/opioidcds-06-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4213b8d7-5445-470e-8e36-c6dc3e3761c1",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.513Z",
+            "modified": "2022-08-19T02:13:24.347Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-07/opioidcds-07-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d2bb7740-e8a9-4a01-abc9-04d4fb7fdc43",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.514Z",
+            "modified": "2022-08-19T05:09:36.589Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-08-order-sign/opioidcds-08-order-sign-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b9a21fca-9985-4ea2-9999-364672d0c9c5",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "3f2e1468-e24b-4dea-847d-1a6e5d7805ad",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.515Z",
+            "modified": "2022-08-19T05:43:04.056Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-09/opioidcds-09-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "07b32584-53a5-43db-a75b-64a0af63e5ba",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.516Z",
+            "modified": "2022-08-19T06:20:49.908Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-10-order-sign/opioidcds-10-order-sign-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "65428631-1101-4e89-b700-79e820293daf",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.517Z",
+            "modified": "2022-08-19T06:41:12.336Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-10-patient-view/opioidcds-10-patient-view-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "fba320ec-9401-47ee-8f58-e3e4376b8c85",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "a751f548-6e07-445a-b289-fe435b4e4591",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.518Z",
+            "modified": "2022-08-18T23:15:12.142Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-11/opioidcds-11-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0254a216-db28-429c-aad8-236462a86da2",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e6c8fc77-40f7-4fb2-8f4c-ee80f263dba0",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.519Z",
+            "modified": "2022-08-19T00:06:20.615Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-11-patient-view/opioidcds-11-patient-view-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "61664115-80c1-4bcd-b6ab-d81a749c46b7",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "f853d5cc-f89d-4fdf-a254-2758b52160ec",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-08T19:42:27.520Z",
+            "modified": "2022-08-19T05:59:07.493Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c2c3035f-afd4-40e9-9b78-76e5b11517e4",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6e0fdd9a-ae7e-4932-bc09-1f242c051283",
+            "name": "REQUEST_RETURN_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-01",
+            "method": "POST",
+            "sortNum": 21250,
+            "created": "2022-08-08T19:42:27.536Z",
+            "modified": "2023-03-14T21:00:31.082Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC01/request-example-rec-01-in-outpatient-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Consider Nonopioid Treatment Options for Acute Pain"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "For many types of acute pain, clinicians should maximize the use of nonpharmacologic (for example, physical therapy) and nonopioid pharmacologic therapies (for example, NSAIDs), as appropriate for the specific condition and patient and only consider opioid therapy for acute pain if benefits are anticipated to outweigh risks to the patient. Before prescribing opioid therapy for acute pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "The 2022 CDC Clinical Practice Guideline Recommendation #1 provides recommendations for non-opioid therapy options for common pain conditions."
+                }
+            ]
+        },
+        {
+            "_id": "59b236d3-de06-4761-abb0-e47be6b70d6b",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "REQUEST_RETURN_RECOMMENDATION_7OF10",
+            "url": "{{cdsHooksServer}}/opioidcds-07",
+            "method": "POST",
+            "sortNum": 22500,
+            "created": "2022-08-08T19:42:27.538Z",
+            "modified": "2023-03-21T19:27:53.757Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-seven-of-past-ten-days.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Regularly Evaluate the Benefits and Risks of Opioid Therapy"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].suggestions[0].actions[0].resource.resourceType",
+                    "action": "equal",
+                    "value": "ServiceRequest"
+                }
+            ]
+        },
+        {
+            "_id": "b58520cd-5326-41bd-bf4a-0d723ef670dd",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
+            "name": "REQUEST_RETURN_RECOMMENDATION_MMEGT50",
+            "url": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+            "method": "POST",
+            "sortNum": 22500,
+            "created": "2022-08-08T19:42:27.539Z",
+            "modified": "2023-03-21T19:31:14.629Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-mme-greater-than-fifty.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "For more information about prescribing naloxone see"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "**MME Calculator Cautions**"
+                }
+            ]
+        },
+        {
+            "_id": "52ae2d1b-b5ff-46be-98bb-41ceac4bc3fa",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "a751f548-6e07-445a-b289-fe435b4e4591",
+            "name": "REQUEST_RETURN_RECOMMENDATION_BWO",
+            "url": "{{cdsHooksServer}}/opioidcds-11",
+            "method": "POST",
+            "sortNum": 22500,
+            "created": "2022-08-08T19:42:27.540Z",
+            "modified": "2023-03-21T19:42:58.595Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-with-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Avoid prescribing opioid pain medication and benzodiazepine concurrently whenever possible."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "574e61d4-cb85-4dda-b73a-715a3d957dac",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
+            "name": "REQUEST_RETURN_RECOMMENDATION_LAO",
+            "url": "{{cdsHooksServer}}/opioidcds-03",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.546Z",
+            "modified": "2023-03-21T19:23:56.274Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC03/request-example-rec-03-long-acting-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "When Initiating Opioid Therapy, Utilize Immediate Release Opioids"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Recommend prescribing immediate release opioids instead of extended release or long-acting opioids"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "ba3d3fef-a25b-4af8-81ff-2815611174af",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "b0fbf830-156e-4743-b074-8c4523410667",
+            "name": "REQUEST_RETURN_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-04-05",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.547Z",
+            "modified": "2023-03-21T19:26:02.592Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC04_05/request-example-rec-04-05-mme-greater-than-fifty.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Calibrate to Lowest Opioid Dose Needed for Expected Results and Exercise Care When Changing Opioid Dosages"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "**MME Calculator Cautions**"
+                }
+            ]
+        },
+        {
+            "_id": "9ec4493a-4410-45c7-8dca-5b5ed884a540",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "83de11e6-fee3-49e2-afc5-402fe6a28c69",
+            "name": "REQUEST_RETURN_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-06",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.548Z",
+            "modified": "2023-03-21T19:27:21.501Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"hookInstance\": \"c7107fd7-7be4-4837-9892-2f31b3224ffe\",\n  \"fhirServer\": \"http://localhost:8080/fhir\",\n  \"hook\": \"order-sign\",\n  \"context\": {\n    \"userId\": \"Practitioner/example\",\n    \"patientId\": \"Patient/example-rec-06-with-extended-release-for-27-days\",\n    \"draftOrders\": {\n      \"resourceType\": \"Bundle\",\n      \"type\": \"collection\",\n      \"entry\": [\n        {\n          \"resource\": {\n            \"resourceType\": \"MedicationRequest\",\n            \"id\": \"15fa9928-4f72-4ee3-ac61-1412d9fa446b\",\n            \"extension\": [\n              {\n                \"url\": \"http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller\",\n                \"extension\": [\n                  {\n                    \"url\": \"dateLastUpdated\",\n                    \"valueDateTime\": \"2022-10-10\"\n                  },\n                  {\n                    \"url\": \"frequency\",\n                    \"valueDuration\": {\n                      \"value\": 30.0,\n                      \"unit\": \"days\",\n                      \"system\": \"http://unitsofmeasure.org\",\n                      \"code\": \"d\"\n                    }\n                  }\n                ]\n              }\n            ],\n            \"status\": \"active\",\n            \"intent\": \"order\",\n            \"category\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/medicationrequest-category\",\n                    \"code\": \"community\",\n                    \"display\": \"Community\"\n                  }\n                ]\n              }\n            ],\n            \"medicationCodeableConcept\": {\n              \"coding\": [\n                {\n                  \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\",\n                  \"code\": \"1049502\",\n                  \"display\": \"oxyCODONE HCl 10 MG 12HR Extended Release Oral Tablet\"\n                }\n              ]\n            },\n            \"subject\": {\n              \"reference\": \"Patient/example-rec-06-with-extended-release-for-27-days\"\n            },\n            \"encounter\": {\n              \"reference\": \"Encounter/example-rec-06-out-extended-release-27-day-context\"\n            },\n            \"authoredOn\": \"2022-06-09\",\n            \"dosageInstruction\": [\n              {\n                \"timing\": {\n                  \"repeat\": {\n                    \"frequency\": 1,\n                    \"period\": 1.0,\n                    \"periodUnit\": \"d\"\n                  }\n                },\n                \"asNeededBoolean\": false\n              }\n            ],\n            \"dispenseRequest\": {\n              \"validityPeriod\": {\n                \"start\": \"2022-10-10T00:00:00-06:00\",\n                \"end\": \"2023-01-10T00:00:00-07:00\"\n              },\n              \"numberOfRepeatsAllowed\": 1,\n              \"expectedSupplyDuration\": {\n                \"value\": 27.0,\n                \"unit\": \"days\",\n                \"system\": \"http://unitsofmeasure.org\",\n                \"code\": \"d\"\n              }\n            }\n          }\n        }\n      ]\n    }\n  },\n  \"prefetch\": {\n    \"item1\": {\n      \"response\": {\n        \"status\": \"200 OK\"\n      },\n      \"resource\": {\n        \"resourceType\": \"Patient\",\n        \"id\": \"example-rec-06-with-extended-release-for-27-days\",\n        \"extension\": [\n          {\n            \"url\": \"http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller\",\n            \"extension\": [\n              {\n                \"url\": \"dateLastUpdated\",\n                \"valueDateTime\": \"2022-10-10\"\n              },\n              {\n                \"url\": \"frequency\",\n                \"valueDuration\": {\n                  \"value\": 30.0,\n                  \"unit\": \"days\",\n                  \"system\": \"http://unitsofmeasure.org\",\n                  \"code\": \"d\"\n                }\n              }\n            ]\n          }\n        ],\n        \"birthDate\": \"2002-10-10\"\n      }\n    }\n  }\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "When Treating Acute Pain, Prescribe No Greater Quantity Than Needed"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Consider a shorter duration for opioid therapy"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "277cd1e8-ff4f-41fc-a27b-c6df5ae869d4",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "3f2e1468-e24b-4dea-847d-1a6e5d7805ad",
+            "name": "REQUEST_RETURN_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-09",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.549Z",
+            "modified": "2023-03-21T19:34:14.225Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC09/request-example-rec-09-in-criteria-met.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Notify: PDMP data for this patient has not been reviewed in the past 90 days."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Review PDMP data for this patient before completing an opioid order"
+                }
+            ]
+        },
+        {
+            "_id": "7da36078-290b-4fdc-86da-fd7e480ece9f",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
+            "name": "REQUEST_RETURN_RECOMMENDATION_NO_SCREEN",
+            "url": "{{cdsHooksServer}}/opioidcds-10-order-sign",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.550Z",
+            "modified": "2023-06-15T05:10:45.472Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-no-screenings.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.<br /><br />For guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10)."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "92a005e1-7157-4d78-84cd-125a2b308b0b",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
+            "name": "REQUEST_RETURN_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-10-patient-view",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.551Z",
+            "modified": "2023-06-15T05:59:55.160Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-no-screenings.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.<br /><br />For guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10)."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "7de6bd8e-5701-4ee6-9e82-1ed61fa35b76",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e6c8fc77-40f7-4fb2-8f4c-ee80f263dba0",
+            "name": "REQUEST_RETURN_RECOMMENDATION_BWO",
+            "url": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.552Z",
+            "modified": "2022-08-19T00:07:50.789Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-benzo-trigger-with-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Patient has active prescriptions for opioid pain medication and benzodiazepines"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "equal",
+                    "value": "Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "8fee184a-34de-4e68-905d-3ff6edd81ae6",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "f853d5cc-f89d-4fdf-a254-2758b52160ec",
+            "name": "REQUEST_RETURN_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-12-patient-view",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2022-08-08T19:42:27.553Z",
+            "modified": "2022-10-12T18:49:38.013Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC12PatientView/request-example-rec-12-patient-view-in-criteria-met.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "equal",
+                    "value": "Checking if the trigger prescription meets the inclusion criteria for recommendation #12 workflow."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "4527870f-a679-49c2-a09c-791f067704c9",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
+            "name": "REQUEST_RETURN_RECOMMENDATION_ONBENZO",
+            "url": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+            "method": "POST",
+            "sortNum": 26250,
+            "created": "2022-08-08T19:42:27.554Z",
+            "modified": "2023-03-21T19:32:36.627Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-on-benzodiazepine.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "For more information about prescribing naloxone see "
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "**MME Calculator Cautions**"
+                }
+            ]
+        },
+        {
+            "_id": "661f04d5-6177-4c6f-9231-38facc3858bd",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "REQUEST_RETURN_RECOMMENDATION_63OF90",
+            "url": "{{cdsHooksServer}}/opioidcds-07",
+            "method": "POST",
+            "sortNum": 27500,
+            "created": "2022-08-08T19:42:27.557Z",
+            "modified": "2023-03-23T18:29:26.489Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-sixtythree-of-past-ninety-days.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Regularly Evaluate the Benefits and Risks of Opioid Therapy"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].suggestions[0].actions[0].resource.resourceType",
+                    "action": "equal",
+                    "value": "ServiceRequest"
+                }
+            ]
+        },
+        {
+            "_id": "50b9f93e-455b-4c66-97dc-dfd252618db2",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "a751f548-6e07-445a-b289-fe435b4e4591",
+            "name": "REQUEST_RETURN_RECOMMENDATION_OWB",
+            "url": "{{cdsHooksServer}}/opioidcds-11",
+            "method": "POST",
+            "sortNum": 27500,
+            "created": "2022-08-08T19:42:27.558Z",
+            "modified": "2023-03-21T19:43:11.581Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-with-benzo.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Avoid prescribing opioid pain medication and benzodiazepine concurrently whenever possible."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "3debcd38-1e02-4a49-9842-1a9c85e272ce",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
+            "name": "REQUEST_RETURN_RECOMMENDATION_SA",
+            "url": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+            "method": "POST",
+            "sortNum": 28750,
+            "created": "2022-08-08T19:42:27.559Z",
+            "modified": "2023-03-21T19:33:28.562Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-substance-abuse.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "For more information about prescribing naloxone see "
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "**MME Calculator Cautions**"
+                }
+            ]
+        },
+        {
+            "_id": "d1e4c13f-3f47-44cc-9e38-642f2f7c7a20",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "c517211f-b05c-4072-a59b-d7e07258eba9",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-02",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2022-08-08T19:42:27.560Z",
+            "modified": "2022-08-18T18:15:20.957Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC02/request-example-rec-02-in-careplan-revisited.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "4e49bf75-0ae5-4923-a60b-3c82678bad53",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_EOLE",
+            "url": "{{cdsHooksServer}}/opioidcds-07",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2022-08-08T19:42:27.576Z",
+            "modified": "2022-08-19T02:14:33.689Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-end-of-life-exclusion.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "db06b613-678d-46e2-ab0b-1f61c24ca355",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_MMELT50",
+            "url": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2022-08-08T19:42:27.577Z",
+            "modified": "2022-08-19T05:16:36.980Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-mme-less-than-fifty.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "57d1d45f-0bd5-4653-bf99-7264bcbdb743",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "a751f548-6e07-445a-b289-fe435b4e4591",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_BWOO",
+            "url": "{{cdsHooksServer}}/opioidcds-11",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2022-08-08T19:42:27.578Z",
+            "modified": "2022-08-18T23:49:40.520Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-benzo-trigger-without-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "d0ef4bad-584c-478a-ac7c-af76ff9d7d8b",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e6c8fc77-40f7-4fb2-8f4c-ee80f263dba0",
+            "name": "REQUEST_RETURN_RECOMMENDATION_OWB",
+            "url": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2022-08-08T19:42:27.579Z",
+            "modified": "2022-08-19T00:35:46.834Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-opioid-trigger-with-benzo.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Patient has active prescriptions for opioid pain medication and benzodiazepines"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "equal",
+                    "value": "Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "7fb65aec-200c-4f6c-896f-bebe69470216",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6e0fdd9a-ae7e-4932-bc09-1f242c051283",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-01",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2022-08-08T19:42:27.580Z",
+            "modified": "2022-08-18T17:19:11.441Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC01/request-example-rec-01-out-inpatient-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "a8ce9277-d070-414b-a06a-295d3a15ea97",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "b0fbf830-156e-4743-b074-8c4523410667",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-04-05",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2022-08-08T19:42:27.589Z",
+            "modified": "2022-11-02T19:57:28.454Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC04_05/request-example-rec-04-05-mme-less-than-fifty.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "49b537ab-d029-4816-847e-f9f6925213b5",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "83de11e6-fee3-49e2-afc5-402fe6a28c69",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-06",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2022-08-08T19:42:27.590Z",
+            "modified": "2022-08-19T02:09:05.941Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC06/request-example-rec-06-in-criteria-met.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "e59e5d06-2742-4ffa-8ae6-8252a98dc9dd",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "3f2e1468-e24b-4dea-847d-1a6e5d7805ad",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-09",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2022-08-08T19:42:27.591Z",
+            "modified": "2022-08-19T05:51:47.740Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC09/request-example-rec-09-out-PDMP-review-90-days.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "83a94d8b-f81f-4f96-a781-ac03a9fa723e",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e5bfaa3a-364c-4d60-b893-084fd9adcc66",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-10-patient-view",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2022-08-08T19:42:27.593Z",
+            "modified": "2022-08-19T06:52:16.977Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC10PatientView/request-example-rec-10-patient-view-end-of-life-med-exclusion.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "efb1a5ff-be14-415d-8b9b-2b15f82f3240",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "f853d5cc-f89d-4fdf-a254-2758b52160ec",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-12-patient-view",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2022-08-08T19:42:27.594Z",
+            "modified": "2022-08-19T06:11:40.719Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC12PatientView/request-example-rec-12-patient-view-out-opioid-misuse.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "a6fb3d2a-de40-4c16-bbe6-219240cf6d93",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_NLAO",
+            "url": "{{cdsHooksServer}}/opioidcds-03",
+            "method": "POST",
+            "sortNum": 45000,
+            "created": "2022-08-08T19:42:27.595Z",
+            "modified": "2022-11-02T04:10:28.412Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC03/request-example-rec-03-not-long-acting-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "ec005e4f-f271-43da-860f-cdc75f2e5586",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_RA",
+            "url": "{{cdsHooksServer}}/opioidcds-07",
+            "method": "POST",
+            "sortNum": 45000,
+            "created": "2022-08-08T19:42:27.596Z",
+            "modified": "2022-08-19T02:18:38.167Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-risk-assessment.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "fec9233f-e865-4364-8b3a-b90a8e91d001",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e6c8fc77-40f7-4fb2-8f4c-ee80f263dba0",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_BWOO",
+            "url": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+            "method": "POST",
+            "sortNum": 45000,
+            "created": "2022-08-08T19:42:27.597Z",
+            "modified": "2022-08-19T00:37:38.308Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-benzo-trigger-without-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "460ccd3e-63a5-40d1-b0c6-4dd88a1c474c",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "c517211f-b05c-4072-a59b-d7e07258eba9",
+            "name": "REQUEST_RETURN_RECOMMENDATION",
+            "url": "{{cdsHooksServer}}/opioidcds-02",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2022-08-08T19:42:27.598Z",
+            "modified": "2023-04-03T07:32:03.337Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC02/request-example-rec-02-out-careplan-not-revisited.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Maximize Nonopioid Therapies as Appropriate"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the 2022 CDC Clinical Practice Guideline for nonopioid therapy recommendations."
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "694d27b1-4284-4711-b4a4-608023bea78f",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e71241b7-96da-4029-b97f-a9c476554d5b",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_ONNALOX",
+            "url": "{{cdsHooksServer}}/opioidcds-08-order-sign",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-08T19:42:27.604Z",
+            "modified": "2022-08-19T05:29:32.021Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC08OrderSign/request-example-rec-08-order-sign-on-naloxone.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "cfef4767-2df4-42f2-945d-a28b54808c8e",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "a751f548-6e07-445a-b289-fe435b4e4591",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_OWOB",
+            "url": "{{cdsHooksServer}}/opioidcds-11",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-08T19:42:27.605Z",
+            "modified": "2022-08-18T23:35:36.196Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11/request-example-rec-11-opioid-trigger-without-benzo.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "ddb3a7b5-eb5c-402f-9824-f6b52f6e956a",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_6OF10",
+            "url": "{{cdsHooksServer}}/opioidcds-07",
+            "method": "POST",
+            "sortNum": 55000,
+            "created": "2022-08-08T19:42:27.606Z",
+            "modified": "2022-08-19T04:28:27.623Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-six-of-past-ten-days.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "ed511944-ff88-47bf-aed2-a0537b5f64f9",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "fbf51d41-cce6-4673-92f0-b54fc6b3172e",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_PELOA",
+            "url": "{{cdsHooksServer}}/opioidcds-03",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2022-08-08T19:42:27.608Z",
+            "modified": "2022-11-02T04:10:55.455Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC03/request-example-rec-03-preexisting-long-acting-opioid.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "4b37a3a6-e811-4382-8555-93b30101cc00",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "e6c8fc77-40f7-4fb2-8f4c-ee80f263dba0",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_OWOB",
+            "url": "{{cdsHooksServer}}/opioidcds-11-patient-view",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2022-08-08T19:42:27.609Z",
+            "modified": "2022-08-19T00:38:41.800Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC11PatientView/request-example-rec-11-patient-view-opioid-trigger-without-benzo.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "2805d5d6-eab6-46de-a346-76c44680825b",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "80178ff3-77a4-433a-b421-44fb9fcd11ac",
+            "name": "REQUEST_RETURN_NO_RECOMMENDATION_62OF90",
+            "url": "{{cdsHooksServer}}/opioidcds-07",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2022-08-08T19:42:27.610Z",
+            "modified": "2022-08-19T04:56:44.890Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC07/request-example-rec-07-sixtytwo-of-past-ninety-days.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards",
+                    "action": "count",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "_id": "074a3868-044d-4bf6-9f5c-234e81a9bc66",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
+            "name": "REQUEST_RETURN_RECOMMENDATION_ILLICIT_DRUGS",
+            "url": "{{cdsHooksServer}}/opioidcds-10-order-sign",
+            "method": "POST",
+            "sortNum": 32500,
+            "created": "2022-08-19T06:23:02.556Z",
+            "modified": "2023-06-15T05:31:51.793Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-illicit-drugs.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "contains",
+                    "value": "Patient May Have Unexpected Toxicology Test Results"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Positive for Cocaine:"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Positive for PCP:"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. For guidance regarding evaluating and addressing unexpected toxicology test results, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10)"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        },
+        {
+            "_id": "4ef86cec-7277-418a-a2bc-c3414aae9b3d",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "LOAD_PATIENT",
+            "url": "{{fhirServer}}/Patient/example-opioidcds",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2022-08-24T22:25:27.789Z",
+            "modified": "2022-08-24T22:38:32.869Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/xml"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/patient-example-opioidcds.xml"
+            },
+            "tests": []
+        },
+        {
+            "_id": "92ef2e64-f014-453d-ae21-f09ad0ac8de8",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "LOAD_END_OF_LIFE_CONDITION",
+            "url": "{{fhirServer}}/Condition/end-of-life",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2022-08-24T22:37:33.659Z",
+            "modified": "2022-08-24T22:38:54.805Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/condition-end-of-life.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0ea649a4-102f-4fb2-9ec7-607e0f634fea",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "TEST_END_OF_LIFE_CONDITION",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2022-08-24T22:40:00.321Z",
+            "modified": "2022-08-24T23:56:45.723Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Conditions Indicating End Of Life Present\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "d9e0d5dd-c0ac-4f0f-aa78-ca3b54bd3cf2",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 78750,
+            "created": "2022-08-24T23:42:40.484Z",
+            "modified": "2022-08-24T23:42:47.503Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6addb9a3-832b-4604-ac61-80499e161e6d",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "LOAD_PALLIATIVE_CARE_ORDER",
+            "url": "{{fhirServer}}/ServiceRequest/palliative-care",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2022-08-25T00:00:51.875Z",
+            "modified": "2022-08-25T00:02:15.085Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/servicerequest-palliative-care.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "964e4e5a-708d-480a-9078-f6d4dd3c5685",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "TEST_PALLIATIVE_CARE",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2022-08-25T00:02:38.825Z",
+            "modified": "2022-08-25T00:03:33.298Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Order For Palliative Care In Past 90 Days\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "22514eb9-f204-4d18-a09e-b15417e3d87d",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "LOAD_TERMINAL_CONDITION",
+            "url": "{{fhirServer}}/Condition/terminal",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2022-08-25T00:31:48.137Z",
+            "modified": "2022-08-25T00:32:48.265Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/condition-terminal.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "81cb4c94-b612-4bcb-8371-d784b24c5859",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "TEST_TERMINAL_CONDITION",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2022-08-25T00:34:07.080Z",
+            "modified": "2022-08-25T00:35:12.685Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "745cccb7-d7b7-4d68-9f48-01a1f930f2b6",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-25T03:29:35.968Z",
+            "modified": "2022-08-25T03:29:40.370Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6d57a4a4-e8a0-41b4-a4ca-5d38cd7dbced",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+            "name": "LOAD_PATIENT",
+            "url": "{{fhirServer}}/Patient/example-opioidcds",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2022-08-25T03:30:06.436Z",
+            "modified": "2022-08-25T03:30:16.356Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/xml"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/patient-example-opioidcds.xml"
+            },
+            "tests": []
+        },
+        {
+            "_id": "06ba754e-31b6-4256-a735-50b1d66c9311",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+            "name": "LOAD_AMBULATORY_OPIOID_REQUEST",
+            "url": "{{fhirServer}}/MedicationRequest/ambulatory-opioid",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2022-08-25T03:31:28.386Z",
+            "modified": "2022-08-25T03:32:45.484Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/medicationrequest-ambulatory-opioid.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "12a2be8a-9950-4a79-bcb2-39e60c68e2ef",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+            "name": "LOAD_AMBULATORY_OPIOID_DISPENSE",
+            "url": "{{fhirServer}}/MedicationDispense/ambulatory-opioid",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2022-08-25T03:33:00.335Z",
+            "modified": "2022-08-25T03:33:39.370Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/medicationdispense-ambulatory-opioid.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "95c537e1-1b7a-4415-a580-855576177152",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+            "name": "TEST_AMBULATORY_OPIOID_REQUEST",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2022-08-25T03:33:57.367Z",
+            "modified": "2022-08-25T03:34:58.386Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "d1f45cfa-aec8-4fce-8fe3-c808efe90742",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+            "name": "TEST_AMBULATORY_OPIOID_DISPENSE",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2022-08-25T03:35:05.999Z",
+            "modified": "2022-08-25T03:35:43.215Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "32f662da-cad4-4577-b6c6-762d067a0f02",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "LOAD_ARTIFACT_BUNDLE",
+            "url": "{{fhirServer}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-08-25T04:38:12.446Z",
+            "modified": "2022-08-25T04:38:15.577Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../bundles/plandefinition/opioidcds-12-patient-view/opioidcds-12-patient-view-bundle.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "548d8a1e-945c-4b46-91b8-aacd5dc38918",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "LOAD_PATIENT",
+            "url": "{{fhirServer}}/Patient/example-opioidcds",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2022-08-25T04:38:30.030Z",
+            "modified": "2022-08-25T04:38:32.577Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/xml"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/patient-example-opioidcds.xml"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4d4e6fd3-d404-4e8f-bc0b-c5b562262eeb",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "LOAD_CANCER_CONDITION",
+            "url": "{{fhirServer}}/Condition/cancer-diagnosis",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2022-08-25T04:38:49.143Z",
+            "modified": "2022-08-25T04:40:31.298Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/condition-cancer-diagnosis.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7c4161a4-3298-42a5-ae08-5087d46e4724",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "LOAD_DIAGNOSIS_ENCOUNTER",
+            "url": "{{fhirServer}}/Encounter/oncologist-participant",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2022-08-25T04:41:01.744Z",
+            "modified": "2022-08-25T04:42:23.615Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/encounter-oncologist-participant.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4bfab388-3298-426c-997d-5e615a9911ed",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "LOAD_PARTICIPANT_ENCOUNTER",
+            "url": "{{fhirServer}}/Encounter/cancer-diagnosis",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2022-08-25T04:41:43.443Z",
+            "modified": "2022-08-25T04:41:43.443Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/encounter-cancer-diagnosis.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9b396325-00d1-4a85-ad1c-8c783bf18c40",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "LOAD_ONCOLOGY_PRACTITIONERROLE",
+            "url": "{{fhirServer}}/PractitionerRole/oncology-specialist",
+            "method": "PUT",
+            "sortNum": 25000,
+            "created": "2022-08-25T04:42:36.209Z",
+            "modified": "2022-08-25T04:43:49.341Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/examples/practitionerrole-oncology-specialist.json"
+            },
+            "tests": []
+        },
+        {
+            "_id": "5d3d9342-09c0-4740-8e71-f2837e6f1eae",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "TEST_TWO_ENCOUNTERS_CANCER_DIAGNOSIS",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2022-08-25T04:44:42.109Z",
+            "modified": "2022-08-25T04:45:55.271Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "b0f32b0f-1e4f-42ad-86df-218edbdc9265",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "2e12781e-7c26-4545-b6f4-0e5882a961ab",
+            "name": "TEST_IS_ACTIVE_CANCER_TREATMENT",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2022-08-25T04:46:54.862Z",
+            "modified": "2022-08-25T04:47:38.339Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Is Active Cancer Treatment?\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "f88de369-fdbb-4538-9d9d-78b6de7bc9c5",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "24e364da-f7cd-47a1-8003-4b86eec7f1d2",
+            "name": "TEST_IS_OPIOID_NAIVE",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2022-08-25T04:48:21.374Z",
+            "modified": "2022-08-25T04:50:16.093Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Is Opioid Naive?\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "false"
+                }
+            ]
+        },
+        {
+            "_id": "a9169d4c-de7c-46c0-8c61-32481b9e9fcc",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "6b849f0d-6272-4bd3-b62b-dc05112ce8ff",
+            "name": "TEST_IS_OPIOID_REVIEW_USEFUL",
+            "url": "{{fhirServer}}/Library/OpioidCDSRoutines/$evaluate",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2022-08-25T04:49:12.292Z",
+            "modified": "2022-08-25T04:49:56.307Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [\n    {\n      \"name\": \"subject\",\n      \"valueString\": \"Patient/example-opioidcds\"\n    },\n    {\n      \"name\": \"expression\",\n      \"valueString\": \"Is Opioid Review Useful?\"\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.parameter[0].valueBoolean",
+                    "action": "equal",
+                    "value": "false"
+                }
+            ]
+        },
+        {
+            "_id": "9dbb3f7d-73c0-4955-9459-c0dda26269d9",
+            "colId": "87cdc0d4-49a8-40dc-a0fb-af86eb2a3ee1",
+            "containerId": "7af2c44c-048f-40b1-93e7-6a59bb2dd18d",
+            "name": "REQUEST_RETURN_RECOMMENDATION_FENTANYL",
+            "url": "{{cdsHooksServer}}/opioidcds-10-order-sign",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2023-07-05T16:30:10.011Z",
+            "modified": "2023-07-05T16:34:32.293Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "binary",
+                "raw": "",
+                "form": [],
+                "binary": "../input/pagecontent/requests/OpioidCDSREC10OrderSign/request-example-rec-10-order-sign-fentanyl.json"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].summary",
+                    "action": "equal",
+                    "value": "Patient May Have Unexpected Toxicology Test Results"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].detail",
+                    "action": "contains",
+                    "value": "Positive for Fentanyl"
+                },
+                {
+                    "type": "json-query",
+                    "custom": "json.cards[0].indicator",
+                    "action": "equal",
+                    "value": "warning"
+                }
+            ]
+        }
+    ]
+}

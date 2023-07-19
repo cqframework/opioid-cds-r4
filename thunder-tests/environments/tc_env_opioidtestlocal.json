@@ -1,0 +1,18 @@
+{
+    "_id": "62c62fdf-1554-4d64-a55a-153870b236dd",
+    "name": "OPIOID_TEST_LOCAL",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-08-17T23:29:44.876Z",
+    "modified": "2022-08-19T19:22:35.285Z",
+    "data": [
+        {
+            "name": "fhirServer",
+            "value": "http://localhost:8080/fhir"
+        },
+        {
+            "name": "cdsHooksServer",
+            "value": "http://localhost:8080/cds-services"
+        }
+    ]
+}

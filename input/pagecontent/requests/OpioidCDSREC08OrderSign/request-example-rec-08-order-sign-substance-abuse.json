@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-05-01"
+                    "valueDateTime": "2023-06-14"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-08-order-sign-substance-abuse-context"
             },
-            "authoredOn": "2023-05-01",
+            "authoredOn": "2023-06-14",
             "dosageInstruction": [
               {
                 "timing": {
@@ -85,8 +85,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-05-01T00:00:00-06:00",
-                "end": "2023-07-31T00:00:00-06:00"
+                "start": "2023-06-14T00:00:00-06:00",
+                "end": "2023-09-13T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "quantity": {
@@ -121,7 +121,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -136,7 +136,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1983-01-10"
+        "birthDate": "1983-02-23"
       }
     },
     "item2": {
@@ -152,7 +152,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -171,8 +171,8 @@
           "reference": "Patient/example-rec-08-order-sign-substance-abuse"
         },
         "period": {
-          "start": "2023-04-17",
-          "end": "2023-04-17"
+          "start": "2023-05-31",
+          "end": "2023-05-31"
         }
       }
     },
@@ -189,7 +189,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",

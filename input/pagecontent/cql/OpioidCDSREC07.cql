@@ -59,7 +59,7 @@ define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Pote
   exists( "Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
 define "Opioid Risk Assessment in Past 90 Days":
-  [Procedure: Common."Opioid misuse assessment procedure"] riskAssessment
+  [Procedure: Common."Opioid Misuse Assessment Procedure"] riskAssessment
     where start of (riskAssessment.performed as FHIR.Period) in day of "Risk Assessment Interval"
 
 define "Prescribed Opioids for 7 of Past 10 Days with an Encounter":

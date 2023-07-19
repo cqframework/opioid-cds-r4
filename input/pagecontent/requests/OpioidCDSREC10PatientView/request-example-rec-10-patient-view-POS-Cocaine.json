@@ -21,7 +21,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -45,7 +45,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1983-01-10"
+        "birthDate": "1983-02-23"
       }
     },
     "item2": {
@@ -65,7 +65,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -106,7 +106,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-POS-Cocaine-drugs-prefetch"
               },
-              "authoredOn": "2023-01-31",
+              "authoredOn": "2023-03-16",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -131,8 +131,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2023-01-31T00:00:00-07:00",
-                  "end": "2023-05-01T00:00:00-06:00"
+                  "start": "2023-03-16T00:00:00-06:00",
+                  "end": "2023-06-14T00:00:00-06:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
@@ -154,7 +154,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -195,7 +195,7 @@
               "encounter": {
                 "reference": "Encounter/example-rec-10-patient-view-POS-Cocaine-drugs-context"
               },
-              "authoredOn": "2023-05-01",
+              "authoredOn": "2023-06-14",
               "dosageInstruction": [
                 {
                   "timing": {
@@ -220,8 +220,8 @@
               ],
               "dispenseRequest": {
                 "validityPeriod": {
-                  "start": "2023-05-01T00:00:00-06:00",
-                  "end": "2023-07-31T00:00:00-06:00"
+                  "start": "2023-06-14T00:00:00-06:00",
+                  "end": "2023-09-13T00:00:00-06:00"
                 },
                 "numberOfRepeatsAllowed": 3,
                 "expectedSupplyDuration": {
@@ -253,7 +253,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -290,7 +290,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2023-01-25",
+              "effectiveDateTime": "2023-03-10",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -314,7 +314,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -351,7 +351,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2023-03-04",
+              "effectiveDateTime": "2023-04-17",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -375,7 +375,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -412,7 +412,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2023-04-03",
+              "effectiveDateTime": "2023-05-17",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -436,7 +436,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -473,7 +473,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-patient-view-POS-Cocaine-drugs"
               },
-              "effectiveDateTime": "2022-11-25",
+              "effectiveDateTime": "2023-01-08",
               "valueString": "POS",
               "interpretation": [
                 {

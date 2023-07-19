@@ -20,7 +20,7 @@
                 "extension": [
                   {
                     "url": "dateLastUpdated",
-                    "valueDateTime": "2023-05-01"
+                    "valueDateTime": "2023-06-14"
                   },
                   {
                     "url": "frequency",
@@ -61,7 +61,7 @@
             "encounter": {
               "reference": "Encounter/example-rec-10-2-illicit-POS-PCP-drugs-context"
             },
-            "authoredOn": "2023-05-01",
+            "authoredOn": "2023-06-14",
             "dosageInstruction": [
               {
                 "timing": {
@@ -86,8 +86,8 @@
             ],
             "dispenseRequest": {
               "validityPeriod": {
-                "start": "2023-05-01T00:00:00-06:00",
-                "end": "2023-07-31T00:00:00-06:00"
+                "start": "2023-06-14T00:00:00-06:00",
+                "end": "2023-09-13T00:00:00-06:00"
               },
               "numberOfRepeatsAllowed": 3,
               "expectedSupplyDuration": {
@@ -116,7 +116,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -131,7 +131,7 @@
           }
         ],
         "gender": "female",
-        "birthDate": "1983-01-10"
+        "birthDate": "1983-02-23"
       }
     },
     "item2": null,
@@ -152,7 +152,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -171,8 +171,8 @@
           "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
         },
         "period": {
-          "start": "2023-01-31",
-          "end": "2023-01-31"
+          "start": "2023-03-16",
+          "end": "2023-03-16"
         }
       }
     },
@@ -193,7 +193,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -230,7 +230,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-10-25",
+              "effectiveDateTime": "2022-12-08",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -254,7 +254,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -291,7 +291,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-11-04",
+              "effectiveDateTime": "2022-12-18",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -315,7 +315,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -352,7 +352,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-12-04",
+              "effectiveDateTime": "2023-01-17",
               "valueString": "NEG",
               "interpretation": [
                 {
@@ -376,7 +376,7 @@
                   "extension": [
                     {
                       "url": "dateLastUpdated",
-                      "valueDateTime": "2023-05-01"
+                      "valueDateTime": "2023-06-14"
                     },
                     {
                       "url": "frequency",
@@ -413,7 +413,7 @@
               "subject": {
                 "reference": "Patient/example-rec-10-2-illicit-POS-PCP-drugs"
               },
-              "effectiveDateTime": "2022-11-26",
+              "effectiveDateTime": "2023-01-09",
               "valueString": "POS",
               "interpretation": [
                 {
@@ -444,7 +444,7 @@
             "extension": [
               {
                 "url": "dateLastUpdated",
-                "valueDateTime": "2023-05-01"
+                "valueDateTime": "2023-06-14"
               },
               {
                 "url": "frequency",
@@ -485,7 +485,7 @@
         "encounter": {
           "reference": "Encounter/example-rec-10-2-illicit-POS-PCP-drugs-prefetch"
         },
-        "authoredOn": "2023-05-01",
+        "authoredOn": "2023-06-14",
         "dosageInstruction": [
           {
             "timing": {
@@ -510,8 +510,8 @@
         ],
         "dispenseRequest": {
           "validityPeriod": {
-            "start": "2023-01-31T00:00:00-07:00",
-            "end": "2023-05-01T00:00:00-06:00"
+            "start": "2023-03-16T00:00:00-06:00",
+            "end": "2023-06-14T00:00:00-06:00"
           },
           "numberOfRepeatsAllowed": 3,
           "expectedSupplyDuration": {

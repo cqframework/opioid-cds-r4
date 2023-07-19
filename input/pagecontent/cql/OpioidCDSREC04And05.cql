@@ -5,9 +5,8 @@ using FHIR version '4.0.1'
 include OpioidCDSCommon version '2022.1.0' called Common
 include OpioidCDSCommonConfig version '2022.1.0' called Config
 include OpioidCDSRoutines version '2022.1.0' called Routines
-/*include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
- */
 include MMECalculator version '3.0.0' called MMECalculator
+//include fhir.cdc."opioid-mme-r4".MMECalculator version '3.0.0' called MMECalculator
 
 /*
 **

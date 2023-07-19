@@ -69,8 +69,8 @@ define "Condition Positive for Sickle Cell":
 define "Conditions Indicating End Of Life Present":
   exists (
     Common."US Core-Categorized Conditions" LLEC
-      where LLEC.code in Common."Limited life expectancy conditions"
-        and LLEC.clinicalStatus in Common."Active Condition"
+      where LLEC.code in Common."Limited Life Expectancy Conditions"
+        and LLEC.clinicalStatus ~ Common."Active Condition"
   )
 
 define "Order For Palliative Care In Past 90 Days":
@@ -79,15 +79,15 @@ define "Order For Palliative Care In Past 90 Days":
     where SR.status in { 'active', 'completed'}
       and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}
       and FHIRHelpers.ToDateTime(SR.authoredOn) during day of "Palliative Care Lookback Period"
-      and SR.code in Common."Therapies indicating end of life care"
+      and SR.code in Common."Therapies Indicating End of Life Care"
   )
 
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
   if (Config."End-Stage Disease Criteria Enabled") then
     exists (
       Common."US Core-Categorized Conditions" EOLC
-        where EOLC.code in Common."Conditions likely terminal for opioid prescribing"
-          and EOLC.clinicalStatus in Common."Active Condition"
+        where EOLC.code in Common."Conditions Likely Terminal for Opioid Prescribing"
+          and EOLC.clinicalStatus ~ Common."Active Condition"
     )
   else
     false
@@ -158,7 +158,7 @@ define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
         and exists ("Reports of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days") */
 
 define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
-    [MedicationDispense: Common."Opioid analgesics with ambulatory misuse potential"] OpioidDispense
+    [MedicationDispense: Common."Opioid Analgesics with Ambulatory Misuse Potential"] OpioidDispense
         where OpioidDispense.whenHandedOver during day of "Prescription/Dispense Inclusion Period"
             and OpioidDispense.status = 'completed'
 
@@ -210,10 +210,10 @@ define "Is Active Cancer Treatment?":
 
 define "Active Cancer Diagnoses":
   Common."US Core-Categorized Conditions" C
-    where C.code in Common."CDC malignant cancer conditions"
+    where C.code in Common."CDC Malignant Cancer Conditions"
 
 define "Oncologist Practitioner Roles":
-  [PractitionerRole: specialty in Common."Oncology specialty designations (NUCC)"] PractitionerRole
+  [PractitionerRole: specialty in Common."Oncology Specialty Designations (NUCC)"] PractitionerRole
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
   [Encounter: Common."Office Visit"] Encounter
@@ -226,7 +226,7 @@ define "Encounters with Cancer Diagnosis During Encounter Period":
         )
         or exists (
           Encounter.participant EncounterParticipant
-            where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
+            where EncounterParticipant.type in Common."Oncology Specialty Designations (NUCC)"
               or (
                 if (Config."Active Cancer Treatment PractitionerRole Specialty Is Enabled") then
                   exists (
