@@ -132,6 +132,16 @@ define "Active Ambulatory Benzodiazepine Rx":
     else
          List<FHIR.MedicationRequest>{}
 
+define "Active Ambulatory Central Nervous System Depressant Rx":
+  if Config."Can the implementing EHR support queries for past medications by date range?" then
+      (
+        "Get MedicationRequest Medication as Code"("Get Active Ambulatory Medication Requests"([MedicationRequest]))
+      ) Rx
+        where date from Rx.authoredOn 2 years or less on or before Today()
+          and Rx.medication in "CNS Depressant Medications"
+    else
+         List<FHIR.MedicationRequest>{}
+
 define "Active Ambulatory Naloxone Rx":
     if Config."Can the implementing EHR support queries for past medications by date range?" then
       (
@@ -156,6 +166,11 @@ define function "Is Benzodiazepine?"(value List<MedicationRequest>):
   ("Get MedicationRequest Medication as Code"(value)) Rx
     where Rx.medication in "Benzodiazepine Medications" 
       and exists(Rx.category Category where Category ~ "Community")
+
+define function "Is Central Nervous System Depressant?"(value List<MedicationRequest>):
+  ("Get MedicationRequest Medication as Code"(value)) Rx
+      where Rx.medication in "CNS Depressant Medications" 
+        and exists(Rx.category Category where Category ~ "Community")
 
 define function "Get MedicationRequest Medication as Code"(value List<MedicationRequest>):
   value Rx

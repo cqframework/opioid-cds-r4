@@ -47,21 +47,33 @@ define "Opioid Analgesic with Ambulatory Misuse Potential Prescriptions":
 define "Benzodiazepine Prescriptions":
   Common."Is Benzodiazepine?"( ContextPrescriptions )
 
+define "Central Nervous System Depressants":
+  Common."Is Central Nervous System Depressant?"( ContextPrescriptions )
+
 define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential":
   exists( "Opioid Analgesic with Ambulatory Misuse Potential Prescriptions" )
 
 define "Patient Is Being Prescribed Benzodiazepine":
   exists( "Benzodiazepine Prescriptions" )
 
+define "Patient Is Being Prescribed Central Nervous System Depressant":
+  exists( "Central Nervous System Depressants" )  
+
 define "Inclusion Criteria":
   (
     (
       "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-        and exists Common."Active Ambulatory Benzodiazepine Rx"
+        and (
+          exists ( Common."Active Ambulatory Benzodiazepine Rx" )
+            or exists ( Common."Active Ambulatory Central Nervous System Depressant Rx" )
+        )
     )
       or (
-        "Patient Is Being Prescribed Benzodiazepine"
-          and exists Common."Active Ambulatory Opioid Rx"
+        (
+          "Patient Is Being Prescribed Benzodiazepine"
+            or "Patient Is Being Prescribed Central Nervous System Depressant"
+          )
+            and exists Common."Active Ambulatory Opioid Rx"
       )
   )
     and Routines."Is Opioid Review Useful?"
@@ -80,7 +92,7 @@ define "Get Indicator":
 
 define "Get Summary":
   if "Is Recommendation Applicable?"
-    then 'Avoid prescribing opioid pain medication and benzodiazepine concurrently whenever possible.'
+    then 'Avoid prescribing opioid pain medication and benzodiazepine or other central nervous system depressant concurrently whenever possible.'
   else null
 
 define "Get Detail":

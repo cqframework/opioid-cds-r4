@@ -41,11 +41,14 @@ context Patient
 
 define "Inclusion Criteria":
   (
-    exists (Common."Active Ambulatory Benzodiazepine Rx")
+    (
+      exists (Common."Active Ambulatory Benzodiazepine Rx")
+        or exists (Common."Active Ambulatory Central Nervous System Depressant Rx")
+    )
       and exists (Common."Active Ambulatory Opioid Rx")
   )
     and not Common."Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
+    and Routines."Is Opioid Review Useful?"    
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
@@ -66,7 +69,7 @@ define "Get Summary":
 
 define "Get Detail":
   if "Is Recommendation Applicable?"
-    then 'Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible'
+    then 'Avoid prescribing opioid pain medication and benzodiazepine or other central nervous system depressant concurrently whenever possible.'          
   else null
 
 // Detected Issue - Avoid prescribing opioid pain medication and benzodiazepines concurrently
