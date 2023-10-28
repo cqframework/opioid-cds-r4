@@ -9,10 +9,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-11-opioid-trigger-with-benzo",
         "extension": [
@@ -40,10 +36,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-11-opioid-trigger-with-benzo-prefetch",
         "extension": [
@@ -129,13 +121,8 @@
             "code": "d"
           }
         }
-      }
     },
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-11-opioid-trigger-with-benzo-context",
         "extension": [
@@ -223,5 +210,4 @@
         }
       }
     }
-  }
 }

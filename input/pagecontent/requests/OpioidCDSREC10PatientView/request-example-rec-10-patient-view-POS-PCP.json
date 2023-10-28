@@ -9,10 +9,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-patient-view-POS-PCP-drugs",
         "extension": [
@@ -49,10 +45,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -234,13 +226,8 @@
             }
           }
         ]
-      }
     },
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -488,7 +475,6 @@
             }
           }
         ]
-      }
     },
     "item4": null
   }

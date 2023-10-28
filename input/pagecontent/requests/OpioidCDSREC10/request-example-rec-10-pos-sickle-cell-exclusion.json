@@ -99,10 +99,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-pos-sickle-cell-exclusion",
         "extension": [
@@ -133,10 +129,6 @@
     "item3": null,
     "item4": null,
     "item5": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Condition",
         "id": "example-pos-sickle-cell-exclusion-condition",
         "extension": [
@@ -197,5 +189,5 @@
     "item7": null,
     "item8": null,
     "item9": null
-  }
+}
 }

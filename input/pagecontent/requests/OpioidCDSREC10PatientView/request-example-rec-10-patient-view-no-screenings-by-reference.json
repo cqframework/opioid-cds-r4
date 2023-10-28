@@ -9,10 +9,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-no-screenings",
         "extension": [
@@ -40,10 +36,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "type": "searchset",
         "entry": [
@@ -216,7 +208,6 @@
             }
           }
         ]
-      }
     },
     "item3": null,
     "item4": null

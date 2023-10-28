@@ -139,10 +139,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-08-order-sign",
         "extension": [
@@ -171,10 +167,6 @@
     },
     "item2": null,
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Condition",
         "id": "example-rec-08-order-sign",
         "extension": [
@@ -244,7 +236,6 @@
         "recorder": {
           "reference": "Practitioner/example-rec-08-order-sign"
         }
-      }
     },
     "item4": null,
     "item5": null,

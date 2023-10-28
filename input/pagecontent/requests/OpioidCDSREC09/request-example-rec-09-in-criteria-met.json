@@ -91,10 +91,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-09-true-return-recommendations",
         "extension": [
@@ -121,10 +117,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Procedure",
         "id": "ea2465c9-5a50-4e24-83dd-7a6e7957c253",
         "extension": [
@@ -164,7 +156,6 @@
           "start": "2018-12-30",
           "end": "2018-12-30"
         }
-      }
     }
   }
 }

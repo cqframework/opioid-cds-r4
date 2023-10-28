@@ -97,10 +97,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-02-careplan-not-revisited",
         "extension": [
@@ -127,10 +123,6 @@
       }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "CarePlan",
         "id": "example-rec-02-careplan-not-revisited",
         "extension": [
@@ -173,7 +165,6 @@
         "author": {
           "reference": "Practitioner/example"
         }
-      }
     },
     "item3": null,
     "item4": null,

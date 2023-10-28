@@ -102,10 +102,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-10-order-sign-illicit-POS-Cocaine-drugs",
         "extension": [
@@ -138,10 +134,6 @@
     "item5": null,
     "item6": null,
     "item7": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-10-order-sign-illicit-POS-Cocaine-drugs-prefetch",
         "extension": [
@@ -172,13 +164,8 @@
           "start": "2023-01-31",
           "end": "2023-01-31"
         }
-      }
     },
     "item8": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Bundle",
         "entry": [
           {
@@ -426,14 +413,9 @@
             }
           }
         ]
-      }
     },
     "item9": null,
     "item10": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-10-order-sign-illicit-POS-Cocaine-drugs-prefetch-5",
         "extension": [
@@ -519,5 +501,4 @@
         }
       }
     }
-  }
 }

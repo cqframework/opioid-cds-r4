@@ -94,10 +94,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-07-sixtytwo-of-past-ninety-days-prefetch",
         "extension": [
@@ -170,13 +166,8 @@
             "code": "d"
           }
         }
-      }
     },
     "item2": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Encounter",
         "id": "example-rec-07-sixtytwo-of-past-ninety-days-prefetch",
         "extension": [
@@ -218,13 +209,8 @@
           "start": "2023-01-29",
           "end": "2023-01-29"
         }
-      }
     },
     "item3": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-07-sixtytwo-of-past-ninety-days",
         "extension": [
