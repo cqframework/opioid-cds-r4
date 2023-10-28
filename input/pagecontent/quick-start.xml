@@ -185,19 +185,19 @@
     <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/Patient/example-rec-10-patient-view-no-screenings" data-original-title="Click to copy URL"></button></span></pre>
   </div>
   
-  <p><a href="patient-example-rec-10-patient-view-no-screenings.json">The Patient resource JSON</a></p>
+  <p><a href="Patient-example-rec-10-patient-view-no-screenings.json">The Patient resource JSON</a></p>
 
   <div class="example">
     <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-context <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-context" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
-  <p><a href="medicationrequest-example-rec-10-patient-view-no-screenings-context.json">The context MedicationRequest resource JSON</a></p>
+  <p><a href="MedicationRequest-example-rec-10-patient-view-no-screenings-context.json">The context MedicationRequest resource JSON</a></p>
 
   <div class="example">
     <pre class="http"><span class="copy-text">PUT http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-prefetch <button title="" class="btn-copy" data-clipboard-text="http://localhost:8080/fhir/MedicationRequest/example-rec-10-patient-view-no-screenings-prefetch" data-original-title="Click to copy URL"></button></span></pre>
   </div>
 
-  <p><a href="medicationrequest-example-rec-10-patient-view-no-screenings-prefetch.json">The preftech MedicationRequest resource JSON</a></p>
+  <p><a href="MedicationRequest-example-rec-10-patient-view-no-screenings-prefetch.json">The preftech MedicationRequest resource JSON</a></p>
 
   <p>To configure the sandbox to work with this local CDS Hooks service instance, the following settings need to be set:</p>
   <p>Set the <code>Discovery Endpoint URL</code> to <code>http://localhost:8080/cds-services</code>. If you're not prompted for this at startups, then in Settings go to <code>Add CDS Services</code> and set the <code>Discovery Endpoint URL</code> there. Now the sandbox is configured to use the CDS Hooks service that you created above.</p>
