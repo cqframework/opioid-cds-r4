@@ -6,6 +6,10 @@
     <td>Yes</td>
     <td>Order for opioid analgesics with ambulatory misuse potential</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
+    <td>
+      MedicationRequest.medication, and MedicationRequest.category
+    </td>
   </tr>
   {% include data-elements-opioid-review-useful.html %}
   <tr>
@@ -13,29 +17,49 @@
     <td>Yes</td>
     <td>Find evidence of naloxone medication prescription (an active medication order for naloxone)</td>
     <td>Naloxone medications</td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
+    <td>
+      MedicationRequest.medication, and MedicationRequest.authoredOn
+    </td>
   </tr>
   <tr>
     <td>Currently receiving benzodiazepine or other central nervous system depressant medications?</td>
     <td>Yes</td>
     <td>Find evidence of benzodiazepine prescription (an active medication order for benzodiazepine or other central nervous system depressant medications)</td>
     <td>Benzodiazepine or other central nervous system depressant medications</td>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
+    <td>
+      MedicationRequest.medication, MedicationRequest.category, and MedicationRequest.authoredOn
+    </td>
   </tr>
   <tr>
     <td>MME (morphine milligram equivalents &gt; 50)</td>
     <td>Yes</td>
     <td>Determine MME from existing active prescriptions (<a href="recommendation-04-05.html">recommendation 4 & 5</a>), or future scope; dispensed medications, or patient-reported medications</td>
     <td></td>
-  </tr>
+    <td><a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a></td>
+    <td>
+      MedicationRequest.medication, MedicationRequest.category, MedicationRequest.authoredOn, and MedicationRequest.dosageInstruction
+    </td>  </tr>
   <tr>
     <td>History of conditions documenting substance use disorder?</td>
     <td>Yes</td>
     <td>Find evidence of conditions documenting substance use in the problem list or past medical history, including history of overdose</td>
     <td>Conditions documenting substance misuse disorder</td>
+    <td>      
+      <a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-condition">Condition</a>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure">Procedure</a>
+    </td>
+    <td>
+      Condition.code, Condition.category, and Procedure.code
+    </td>
   </tr>
   <tr>
     <td>Diagnosis with a sleep-disordered breathing condition?</td>
     <td>Yes</td>
     <td>Find documentation of an active sleep-disordered breathing condition</td>
     <td>Conditions documenting sleep-disordered breathing</td>
+    <td>TBD</td>
+    <td>TBD</td>
   </tr>
 </table>

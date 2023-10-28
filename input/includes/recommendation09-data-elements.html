@@ -6,6 +6,12 @@
     <td>Yes</td>
     <td>Order for opioid analgesics with ambulatory misuse potential</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      MedicationRequest.medication, and MedicationRequest.category
+    </td>
   </tr>
   {% include data-elements-opioid-review-useful.html %}
   <tr>
@@ -15,11 +21,23 @@
       interval for review based on local practice / regulation) [Evidence for the PDMP review procedure may potentially originate in
       a PDMP Smart App that provides the code once PDMP review procedure has been completed]</td>
     <td>PDMP review procedure</td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure">Procedure</a>
+    </td>
+    <td>
+      Procedure.code, Procedure.status, and Procedure.performed
+    </td>
   </tr>
   <tr>
     <td>PDMP data reviewed finding in past 90 days?</td>
     <td>No</td>
     <td>Documentation (i.e., a finding that PDMP review has occurred) in last 90 days (may need to modify time interval for review based on local practice / regulation)</td>
     <td>PDMP data reviewed finding</td>
+    <td>
+      <a href="StructureDefinition-cdc-observation.html">Observation</a>
+    </td>
+    <td>
+      Observation.status, Observation.code, and Observation.effective
+    </td>
   </tr>
 </table>

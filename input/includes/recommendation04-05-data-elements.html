@@ -6,6 +6,12 @@
     <td>Yes</td>
     <td>Order for opioid analgesics with ambulatory misuse potential</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+MedicationRequest.dispenseRequest.expectedSupplyDuration, MedicationRequest.medication, and MedicationRequest.category
+    </td>
   </tr>
   {% include data-elements-opioid-review-useful.html %}
   <tr>
@@ -15,11 +21,19 @@
       dose assumes the maximum dose the patient may take any given day if a range is present. Ideally, dispensed data 
       could be used to determine the medication dispensed to the patient</td>
     <td></td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      MedicationRequest.medication.coding.code and MedicationRequest.dosageInstruction
+    </td>
   </tr>
   <tr>
     <td>MME&ge;50?</td>
     <td>Yes</td>
     <td>MME result is &ge; 50</td>
+    <td></td>
+    <td></td>
     <td></td>
   </tr>
 </table>

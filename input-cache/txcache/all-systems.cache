@@ -7,7 +7,11 @@
 v: {
   "display" : "United States of America",
   "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
+  "system" : "urn:iso:std:iso:3166",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -17,7 +21,11 @@ v: {
 v: {
   "display" : "United States of America",
   "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
+  "system" : "urn:iso:std:iso:3166",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -26,7 +34,11 @@ v: {
 v: {
   "display" : "text/cql",
   "code" : "text/cql",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -35,7 +47,11 @@ v: {
 v: {
   "display" : "application/elm+xml",
   "code" : "application/elm+xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -44,7 +60,11 @@ v: {
 v: {
   "display" : "application/elm+json",
   "code" : "application/elm+json",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -53,7 +73,11 @@ v: {
 v: {
   "display" : "application/xml",
   "code" : "application/xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -62,7 +86,11 @@ v: {
 v: {
   "display" : "天",
   "code" : "d",
-  "system" : "http://unitsofmeasure.org"
+  "system" : "http://unitsofmeasure.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -78,7 +106,11 @@ v: {
 v: {
   "display" : "text/cql",
   "code" : "text/cql",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -94,7 +126,11 @@ v: {
 v: {
   "display" : "application/elm+xml",
   "code" : "application/elm+xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -110,7 +146,11 @@ v: {
 v: {
   "display" : "application/elm+json",
   "code" : "application/elm+json",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -126,7 +166,11 @@ v: {
 v: {
   "display" : "application/xml",
   "code" : "application/xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -226,7 +270,11 @@ v: {
 v: {
   "display" : "天",
   "code" : "d",
-  "system" : "http://unitsofmeasure.org"
+  "system" : "http://unitsofmeasure.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -237,7 +285,11 @@ v: {
 v: {
   "display" : "United States of America",
   "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
+  "system" : "urn:iso:std:iso:3166",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -247,7 +299,11 @@ v: {
 v: {
   "display" : "United States of America",
   "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
+  "system" : "urn:iso:std:iso:3166",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -256,7 +312,11 @@ v: {
 v: {
   "display" : "text/cql.identifier",
   "code" : "text/cql.identifier",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -273,7 +333,11 @@ v: {
   "display" : "United States of America",
   "code" : "US",
   "system" : "urn:iso:std:iso:3166",
-  "version" : "2018"
+  "version" : "2018",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -291,7 +355,11 @@ v: {
   "display" : "United States of America",
   "code" : "US",
   "system" : "urn:iso:std:iso:3166",
-  "version" : "2018"
+  "version" : "2018",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -306,7 +374,11 @@ v: {
 v: {
   "display" : "text/cql",
   "code" : "text/cql",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -321,7 +393,11 @@ v: {
 v: {
   "display" : "application/elm+xml",
   "code" : "application/elm+xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -336,7 +412,11 @@ v: {
 v: {
   "display" : "application/elm+json",
   "code" : "application/elm+json",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -351,7 +431,11 @@ v: {
 v: {
   "display" : "application/xml",
   "code" : "application/xml",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -366,7 +450,11 @@ v: {
 v: {
   "display" : "text/cql.identifier",
   "code" : "text/cql.identifier",
-  "system" : "urn:ietf:bcp:13"
+  "system" : "urn:ietf:bcp:13",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -382,6 +470,176 @@ v: {
   "display" : "day",
   "code" : "d",
   "system" : "http://unitsofmeasure.org",
-  "version" : "2.0.1"
+  "version" : "2.0.1",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:3166",
+  "code" : "US"
+}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "United States of America",
+  "code" : "US",
+  "system" : "urn:iso:std:iso:3166",
+  "version" : "2018",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "urn:iso:std:iso:3166",
+  "code" : "US",
+  "display" : "United States of America"
+}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "United States of America",
+  "code" : "US",
+  "system" : "urn:iso:std:iso:3166",
+  "version" : "2018",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "text/cql"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "text/cql",
+  "code" : "text/cql",
+  "system" : "urn:ietf:bcp:13",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "application/elm+xml"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "application/elm+xml",
+  "code" : "application/elm+xml",
+  "system" : "urn:ietf:bcp:13",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "application/elm+json"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "application/elm+json",
+  "code" : "application/elm+json",
+  "system" : "urn:ietf:bcp:13",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "application/xml"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "application/xml",
+  "code" : "application/xml",
+  "system" : "urn:ietf:bcp:13",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "text/cql.identifier"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "text/cql.identifier",
+  "code" : "text/cql.identifier",
+  "system" : "urn:ietf:bcp:13",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "d"
+}, "url": "http://hl7.org/fhir/ValueSet/units-of-time", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "day",
+  "code" : "d",
+  "system" : "http://unitsofmeasure.org",
+  "version" : "2.0.1",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------

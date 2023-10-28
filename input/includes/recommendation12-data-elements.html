@@ -6,17 +6,35 @@
     <td>Yes</td>
     <td>Age greater than or equal to 18 years</td>
     <td></td>
+    <td>
+      <a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-patient">Patient</a>
+    </td>
+    <td>
+      Patient.birthDate
+    </td>
   </tr>
   <tr>
     <td>Presence of diagnosis of opioid misuse disorders in past 90 days?</td>
     <td>Yes</td>
     <td>Look for an active condition of opioid misuse disorder</td>
     <td>Opioid misuse disorders</td>
+    <td>      
+      <a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-condition">Condition</a> 
+    </td>
+    <td>
+      Condition.category, Condition.code, Condition.clinicalStatus, and Condition.recordedDate
+    </td>
   </tr>
   <tr>
     <td>Active order for buprenorphine or methadone medications?</td>
     <td>No</td>
     <td>An active prescription (order) for buprenorphine or methadone medications</td>
     <td>Buprenorphine and methadone medications</td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>
+      MedicationRequest.medication, MedicationRequest.category, MedicationRequest.status, and MedicationRequest.authoredOn
+    </td>
   </tr>
 </table>
