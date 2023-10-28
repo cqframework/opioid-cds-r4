@@ -6,7 +6,11 @@
 v: {
   "display" : "Methamphetamine [Presence] in Urine",
   "code" : "3779-6",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -16,7 +20,11 @@ v: {
 v: {
   "display" : "Pain medicine Plan of care note",
   "code" : "80764-4",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -27,7 +35,11 @@ v: {
 v: {
   "display" : "oxyCODONE [Presence] in Urine",
   "code" : "10998-3",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -38,7 +50,11 @@ v: {
 v: {
   "display" : "Atropine [Presence] in Urine",
   "code" : "14184-6",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -48,7 +64,11 @@ v: {
 v: {
   "display" : "Methamphetamine [Presence] in Urine",
   "code" : "3779-6",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -59,7 +79,11 @@ v: {
 v: {
   "display" : "Codeine [Presence] in Urine",
   "code" : "3507-1",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -70,7 +94,11 @@ v: {
 v: {
   "display" : "Tetrahydrocannabinol [Presence] in Urine",
   "code" : "3426-4",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -80,7 +108,11 @@ v: {
 v: {
   "display" : "Narcotics and opioids",
   "code" : "LP18149-2",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -90,7 +122,11 @@ v: {
 v: {
   "display" : "Drug and Toxicology Panels",
   "code" : "LP29683-7",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -99,7 +135,11 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "severity" : "error",
-  "error" : "The code \"*opioid*\" is not valid in the system http://loinc.org; The code provided (http://loinc.org#*opioid*) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+  "error" : "The code \"*opioid*\" is not valid in the system http://loinc.org; The code provided (http://loinc.org#*opioid*) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -108,7 +148,11 @@ v: {
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "severity" : "error",
-  "error" : "The code \"*opiates*\" is not valid in the system http://loinc.org; The code provided (http://loinc.org#*opiates*) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)"
+  "error" : "The code \"*opiates*\" is not valid in the system http://loinc.org; The code provided (http://loinc.org#*opiates*) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -118,7 +162,11 @@ v: {
 v: {
   "display" : "fentaNYL and Norfentanyl panel | Urine | Drug and Toxicology Panels",
   "code" : "LP392077-6",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -128,7 +176,11 @@ v: {
 v: {
   "display" : "OxyCODONE and metabolites panel | Urine | Drug and Toxicology Panels",
   "code" : "LP419316-7",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -138,7 +190,11 @@ v: {
 v: {
   "display" : "OxyMORphone and Noroxymorphone panel | Urine | Drug and Toxicology Panels",
   "code" : "LP419317-5",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -148,7 +204,11 @@ v: {
 v: {
   "display" : "Synthetic opioids panel | Urine | Drug and Toxicology Panels",
   "code" : "LP417172-6",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -158,7 +218,11 @@ v: {
 v: {
   "display" : "Controlled substances and drugs of abuse",
   "code" : "LP31448-1",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -168,7 +232,11 @@ v: {
 v: {
   "display" : "Barbiturates",
   "code" : "LP14546-3",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -178,7 +246,11 @@ v: {
 v: {
   "display" : "Tranquilizers",
   "code" : "LP30812-9",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -188,7 +260,11 @@ v: {
 v: {
   "display" : "Acetaminophen",
   "code" : "LP14712-1",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -198,7 +274,11 @@ v: {
 v: {
   "display" : "Psychiatric drugs",
   "code" : "LP31449-9",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -208,7 +288,11 @@ v: {
 v: {
   "display" : "Hypnotics",
   "code" : "LP30810-3",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -218,7 +302,11 @@ v: {
 v: {
   "display" : "Salicylates",
   "code" : "LP16276-5",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -228,7 +316,11 @@ v: {
 v: {
   "display" : "traMADol",
   "code" : "LP18112-0",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -238,7 +330,11 @@ v: {
 v: {
   "display" : "Anorexic",
   "code" : "LP31467-1",
-  "system" : "http://loinc.org"
+  "system" : "http://loinc.org",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -297,7 +393,11 @@ v: {
   "display" : "Methamphetamine [Presence] in Urine",
   "code" : "3779-6",
   "system" : "http://loinc.org",
-  "version" : "2.74"
+  "version" : "2.74",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -314,6 +414,53 @@ v: {
   "display" : "Methamphetamine [Presence] in Urine",
   "code" : "3779-6",
   "system" : "http://loinc.org",
-  "version" : "2.74"
+  "version" : "2.74",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "3779-6"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "3779-6",
+  "system" : "http://loinc.org",
+  "version" : "2.74",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "3779-6"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Methamphetamine [Presence] in Urine",
+  "code" : "3779-6",
+  "system" : "http://loinc.org",
+  "version" : "2.74",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
 }
 -------------------------------------------------------------------------------------
