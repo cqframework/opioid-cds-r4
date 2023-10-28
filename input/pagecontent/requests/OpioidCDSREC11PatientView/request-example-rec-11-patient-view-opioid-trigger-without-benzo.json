@@ -9,10 +9,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-11-opioid-trigger-without-benzo",
         "extension": [
@@ -37,13 +33,8 @@
         ],
         "gender": "female",
         "birthDate": "2002-12-13"
-      }
-    },
-    "item2": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item2": {
         "resourceType": "MedicationRequest",
         "id": "example-rec-11-opioid-trigger-without-benzo-context",
         "extension": [
@@ -129,8 +120,7 @@
             "code": "d"
           }
         }
-      }
-    },
+      },
     "item3": null
   }
 }

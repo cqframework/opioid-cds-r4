@@ -109,10 +109,6 @@
   },
   "prefetch": {
     "item1": {
-      "response": {
-        "status": "200 OK"
-      },
-      "resource": {
         "resourceType": "Patient",
         "id": "example-rec-08-order-sign-substance-abuse",
         "extension": [
@@ -137,13 +133,8 @@
         ],
         "gender": "female",
         "birthDate": "1982-08-24"
-      }
-    },
-    "item2": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item2": {
         "resourceType": "Encounter",
         "id": "example-rec-08-order-sign-substance-abuse-prefetch",
         "extension": [
@@ -174,13 +165,8 @@
           "start": "2022-11-29",
           "end": "2022-11-29"
         }
-      }
-    },
-    "item3": {
-      "response": {
-        "status": "200 OK"
       },
-      "resource": {
+    "item3": {
         "resourceType": "Condition",
         "id": "example-rec-08-order-sign-substance-abuse-condition",
         "extension": [
@@ -238,4 +224,3 @@
       }
     }
   }
-}
