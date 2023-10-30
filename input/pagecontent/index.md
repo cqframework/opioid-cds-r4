@@ -92,3 +92,19 @@ service, refer to the [Service Documentation](service-documentation.html).
 [^1]: Tapentadol is a µ-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.
 
 [^2]: Tramadol is a µ-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.
+
+### Intellectual Property
+
+{% include ip-statements.xhtml %}
+
+### Cross Version Analysis
+
+{% include cross-version-analysis.xhtml %}
+
+### Dependencies
+
+{% include dependency-table.xhtml %}
+
+### Globals
+
+{% include globals-table.xhtml %}

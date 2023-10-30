@@ -2,9 +2,7 @@
   "resourceType": "ValueSet",
   "id": "observation-category-procedure",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset"
-    ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [
     {
@@ -21,11 +19,11 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-procedure",
-  "name": "Valueset_observation-category-procedure",
-  "version": "0.0.1",
-  "title": "ValueSet - Observation Category Procedure",
+  "name": "OBSERVATION_CATEGORY_PROCEDURE",
+  "title": "Observation Category Procedure",
   "status": "active",
   "experimental": false,
+  "date": "2023-05-25T18:08:12-06:00",
   "publisher": "Alphora",
   "description": "Procedure Observation Category",
   "expansion": {

@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "oncology-specialty-designations",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -51,7 +51,7 @@
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oncology-specialty-designations",
-  "name": "oncology_specialty_designations",
+  "name": "ONCOLOGY_SPECIALTY_DESIGNATIONS",
   "title": "Oncology specialty designations (NUCC)",
   "status": "active",
   "experimental": false,

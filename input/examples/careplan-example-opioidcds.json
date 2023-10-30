@@ -1,0 +1,21 @@
+{
+  "resourceType": "CarePlan",
+  "id": "example-opioidcds",
+  "meta": {
+    "profile": [
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-careplan"
+    ]
+  },
+  "status": "active",
+  "intent": "proposal",
+  "subject": {
+    "reference": "Patient/example-opioidcds"
+  },
+  "activity": [
+    {
+      "reference": {
+        "reference": "RequestGroup/example-opioidcds"
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+   "resourceType": "MedicationRequest",
+   "id": "example-opioidcds",
+   "meta": {
+      "profile": [
+         "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-medicationrequest"
+      ]
+   },
+   "extension": [
+      {
+         "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+         "extension": [
+            {
+               "url": "dateLastUpdated",
+               "valueDateTime": "2023-05-01"
+            },
+            {
+               "url": "frequency",
+               "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+               }
+            }
+         ]
+      }
+   ],
+   "status": "active",
+   "intent": "order",
+   "medicationCodeableConcept": {
+      "coding": [
+         {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "197696",
+            "display": "72 HR Fentanyl 0.075 MG/HR Transdermal System"
+         }
+      ]
+   },
+   "subject": {
+      "reference": "Patient/example-opioidcds"
+   },
+   "authoredOn": "2023-05-01",
+   "reasonCode": [
+      {
+         "coding": [
+            {
+               "system": "http://snomed.info/sct",
+               "code": "82423001",
+               "display": "Chronic pain"
+            }
+         ]
+      }
+   ],
+   "dosageInstruction": [
+      {
+         "timing": {
+            "repeat": {
+               "durationUnit": "d",
+               "frequency": 1,
+               "period": 3,
+               "periodUnit": "d"
+            }
+         },
+         "asNeededBoolean": false,
+         "doseAndRate": [
+            {
+               "type": {
+                  "coding": [
+                     {
+                        "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                        "code": "ordered",
+                        "display": "Ordered"
+                     }
+                  ]
+               },
+               "doseQuantity": {
+                  "value": 1,
+                  "unit": "patch"
+               }
+            }
+         ]
+      }
+   ],
+   "dispenseRequest": {
+      "quantity": {
+         "value": 10,
+         "unit": "patch"
+      }
+   }
+}

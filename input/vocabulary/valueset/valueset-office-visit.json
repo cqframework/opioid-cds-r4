@@ -2,9 +2,7 @@
   "resourceType": "ValueSet",
   "id": "office-visit",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset"
-    ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
@@ -18,10 +16,11 @@
   } ],
   "version": "0.2.0",
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit",
-  "name": "office_visit",
-  "title": "ValueSet - Office Visit",
+  "name": "OFFICE_VISIT",
+  "title": "Office Visit",
   "status": "active",
   "experimental": false,
+  "date": "2023-05-25T18:08:12-06:00",
   "publisher": "NLM",
   "description": "Codes specifying outpatient encounters",
   "purpose": "Codes specifying outpatient encounters",

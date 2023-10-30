@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "cdc-malignant-cancer-conditions",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -51,7 +51,7 @@
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions",
-  "name": "cdc_malignant_cancer_conditions",
+  "name": "CDC_MALIGNANT_CANCER_CONDITIONS",
   "title": "CDC malignant cancer conditions",
   "status": "active",
   "experimental": false,

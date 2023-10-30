@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "opioid-counseling-procedure",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
@@ -39,7 +39,7 @@
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure",
-  "name": "opioid_counseling_procedure",
+  "name": "OPIOID_COUNSELING_PROCEDURE",
   "title": "Opioid counseling procedure",
   "status": "active",
   "experimental": false,

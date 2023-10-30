@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "therapies-indicating-end-of-life-care",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -51,7 +51,7 @@
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care",
-  "name": "therapies_indicating_end_of_life_care",
+  "name": "THERAPIES_INDICATING_END_OF_LIFE_CARE",
   "title": "Therapies indicating end of life care",
   "status": "active",
   "experimental": false,

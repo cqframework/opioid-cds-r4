@@ -2,9 +2,11 @@
   <p>The following are examples for the 2022 CDC Clinical Practice Guideline:</p>
 
   {% include list-simple-careplans.xhtml %}
+  {% include list-simple-conditions.xhtml %}
   {% include list-simple-encounters.xhtml %}
   {% include list-simple-medicationrequests.xhtml %}
   {% include list-simple-observations.xhtml %}
   {% include list-simple-patients.xhtml %}
   {% include list-simple-requestgroups.xhtml %}
+  {% include list-simple-servicerequests.xhtml %}
 </div>

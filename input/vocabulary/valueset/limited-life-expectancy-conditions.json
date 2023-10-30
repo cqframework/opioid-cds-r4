@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "limited-life-expectancy-conditions",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -51,7 +51,7 @@
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions",
-  "name": "limited_life_expectancy_conditions",
+  "name": "LIMITED_LIFE_EXPECTANCY_CONDITIONS",
   "title": "Limited life expectancy conditions",
   "status": "active",
   "experimental": false,

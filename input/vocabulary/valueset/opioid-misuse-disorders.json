@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "opioid-misuse-disorders",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -51,7 +51,7 @@
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-disorders",
-  "name": "opioid_misuse_disorders",
+  "name": "OPIOID_MISUSE_DISORDERS",
   "title": "Opioid misuse disorders",
   "status": "active",
   "experimental": false,

@@ -2,7 +2,7 @@
   "resourceType": "ValueSet",
   "id": "conditions-likely-terminal-for-opioid-prescribing",
   "meta": {
-    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [ {
     "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
@@ -51,7 +51,7 @@
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing",
-  "name": "conditions_likely_terminal_for_opioid_prescribing",
+  "name": "CONDITIONS_LIKELY_TERMINAL_FOR_OPIOID_PRESCRIBING",
   "title": "Conditions likely terminal for opioid prescribing",
   "status": "active",
   "experimental": false,

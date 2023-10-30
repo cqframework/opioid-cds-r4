@@ -183,6 +183,16 @@
       <description value="Declares the DateLastUpdated and Frequency arguments to be used by the Data Date Roller for maintaining/rolling test data dates to keep them from going stale." />
       <exampleBoolean value="false" />
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/effectiveDataRequirements" />
+        <display value="Effective Data Requirements Extension" />
+      </reference>
+      <name value="EffectiveDataRequirement Extension" />
+      <description
+        value="A module definition library that contains the effective data requirements for the PlanDefinition (i.e. the calculated data requirements for the expressions referenced by the PlanDefinition structure)." />
+      <exampleBoolean value="false" />
+    </resource>
     <!-- Libraries -->
     <!-- Common Libraries-->
     <resource>
@@ -525,26 +535,6 @@
       <page>
         <nameUrl value="quick-start.html" />
         <title value="2022 CDC Clinical Practice Guideline - Quick Start" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="extensions.html" />
-        <title value="2022 CDC Clinical Practice Guideline - Extensions" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="operations.html" />
-        <title value="2022 CDC Clinical Practice Guideline - Operations" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="registry.html" />
-        <title value="Conformance Resource Registry" />
-        <generation value="html" />
-      </page>
-      <page>
-        <nameUrl value="services.html" />
-        <title value="2022 CDC Clinical Practice Guideline - Services" />
         <generation value="html" />
       </page>
       <page>

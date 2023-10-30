@@ -1,0 +1,57 @@
+{
+   "resourceType": "Observation",
+   "id": "example-opioidcds",
+   "meta": {
+      "profile": [
+         "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-observation"
+      ]
+   },
+   "extension": [
+      {
+         "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",
+         "extension": [
+            {
+               "url": "dateLastUpdated",
+               "valueDateTime": "2023-05-01"
+            },
+            {
+               "url": "frequency",
+               "valueDuration": {
+                  "value": 30.0,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+               }
+            }
+         ]
+      }
+   ],
+   "status": "final",
+   "code": {
+      "coding": [
+         {
+            "system": "http://loinc.org",
+            "code": "3779-6"
+         }
+      ]
+   },
+   "subject": {
+      "reference": "Patient/example-opioidcds"
+   },
+   "effectiveDateTime": "2023-05-01",
+   "performer": [
+      {
+         "reference": "PractitionerRole/oncology-specialist"
+      }
+   ],
+   "interpretation": [
+      {
+         "coding": [
+            {
+               "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+               "code": "POS"
+            }
+         ]
+      }
+   ]
+}

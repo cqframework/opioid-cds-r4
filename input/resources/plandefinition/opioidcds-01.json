@@ -464,7 +464,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -577,7 +577,8 @@
               "display": "Low quality"
             } ]
           }
-        } ]
+        } ],
+        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation1:~:text=of%20opioid%20therapy-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%203)."
       }
     } ],
     "trigger": [ {

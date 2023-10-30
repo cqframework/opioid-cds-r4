@@ -2,9 +2,7 @@
   "resourceType": "ValueSet",
   "id": "condition-encounter-diagnosis-category",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset"
-    ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [
     {
@@ -21,11 +19,11 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category",
-  "name": "Valueset_encounter_diagnosis_condition_categories",
-  "version": "0.0.1",
-  "title": "ValueSet - Encounter Diagnosis Condition Categories",
+  "name": "ENCOUNTER_DIAGNOSIS_CONDITION_CATEGORY",
+  "title": "Encounter Diagnosis Condition Category",
   "status": "active",
   "experimental": false,
+  "date": "2023-05-25T18:08:12-06:00",
   "publisher": "Alphora",
   "description": "Encounter Diagnosis condition category.",
   "expansion": {

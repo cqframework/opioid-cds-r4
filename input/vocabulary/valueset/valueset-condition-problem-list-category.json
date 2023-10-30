@@ -2,9 +2,7 @@
   "resourceType": "ValueSet",
   "id": "condition-problem-list-category",
   "meta": {
-    "profile": [
-      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset"
-    ]
+    "profile": [ "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
   },
   "extension": [
     {
@@ -21,11 +19,11 @@
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category",
-  "name": "Valueset_problem_list_condition_category",
-  "version": "0.0.1",
-  "title": "ValueSet - Problem List Condition Category",
+  "name": "PROBLEM_LIST_CONDITION_CATEGORY",
+  "title": "Problem List Condition Category",
   "status": "active",
   "experimental": false,
+  "date": "2023-05-25T18:08:12-06:00",
   "publisher": "Alphora",
   "description": "Problem list condition category.",
   "expansion": {

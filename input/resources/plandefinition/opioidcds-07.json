@@ -655,7 +655,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -769,7 +769,8 @@
               "display": "Very Low quality"
             } ]
           }
-        } ]
+        } ],
+        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7:~:text=therapy%20with%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%204).,-Implementation%20Considerations"
       }
     } ],
     "trigger": [ {
