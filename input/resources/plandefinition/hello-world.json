@@ -1,0 +1,117 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "hello-world",
+  "contained": [ {
+    "resourceType": "Library",
+    "id": "effective-data-requirements",
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "parameter": [ {
+      "name": "Main Action Condition Expression Is True",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    } ]
+  } ],
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "HelloWorld"
+    }, {
+      "url": "name",
+      "valueString": "Main Action Condition Expression Is True"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Main Action Condition Expression Is True\":\n  true"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 0
+    } ]
+  }, {
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  } ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/hello-world",
+  "identifier": [ {
+    "use": "official",
+    "value": "cdc-opioid-guidance"
+  } ],
+  "version": "2022.1.0",
+  "name": "HELLO_WORLD",
+  "title": "PlanDefinition - Hello World example to test CDS Service deployment",
+  "type": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+      "code": "eca-rule",
+      "display": "ECA Rule"
+    } ]
+  },
+  "status": "draft",
+  "experimental": true,
+  "date": "2023-11-20",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "contact": [ {
+    "telecom": [ {
+      "system": "url",
+      "value": "https://www.cdc.gov"
+    } ]
+  } ],
+  "description": "Example CDS service used for testing purposes",
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US",
+      "display": "United States of America"
+    } ]
+  } ],
+  "purpose": "Example CDS service used for testing purposes",
+  "usage": "Example CDS service used for testing purposes",
+  "copyright": "© CDC 2016+.",
+  "topic": [ {
+    "text": "Testing"
+  } ],
+  "author": [ {
+    "name": "Kensaku Kawamoto, MD, PhD, MHS"
+  }, {
+    "name": "Bryn Rhodes"
+  }, {
+    "name": "Floyd Eisenberg, MD, MPH"
+  }, {
+    "name": "Robert McClure, MD, MPH"
+  } ],
+  "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/HelloWorld" ],
+  "action": [ {
+    "title": "Hello World!",
+    "description": "The CDS Service is alive and communicating successfully!",
+    "priority": "routine",
+    "trigger": [ {
+      "type": "named-event",
+      "name": "patient-view"
+    } ],
+    "condition": [ {
+      "kind": "applicability",
+      "expression": {
+        "description": "Call the conditional expression for the action",
+        "language": "text/cql.identifier",
+        "expression": "Main Action Condition Expression Is True"
+      }
+    } ],
+    "groupingBehavior": "visual-group",
+    "selectionBehavior": "any"
+  } ]
+}

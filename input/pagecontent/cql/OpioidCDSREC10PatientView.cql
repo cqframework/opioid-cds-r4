@@ -83,17 +83,11 @@ define "Is Perform Drug Screen Recommendation Applicable?":
     and Rec10Common."Inclusion Criteria"
     and not Rec10Common."Exclusion Criteria"
 
-define "Applicable Because of Positive Cocaine or PCP or Opiates":
-  Rec10Common."Applicable Because of Positive Cocaine or PCP or Opiates"
+define "Applicable Because of Unexpected Results":
+  Rec10Common."Applicable Because of Unexpected Results"
 
 define "Detail":
-  Rec10Common."Get Detail" ("Is Perform Drug Screen Recommendation Applicable?")
-
-define "Indicator":
-  Rec10Common."Indicator"
-
-define "Summary":
-  Rec10Common."Get Summary" ("Is Perform Drug Screen Recommendation Applicable?")
+  Rec10Common."Get Unexpected Details Table"
 
 // Service Request - Urine Screening
 // Detected Issue - Opioids found in urine screening
@@ -109,8 +103,7 @@ define "Urine Drug Screening Request":
       code: FHIR.CodeableConcept { coding: { ToCoding("Urine Drug Screening") } },
       subject: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
       occurrence: FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 7 days } },
-      authoredOn: FHIR.dateTime { value: Now() },
-      reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: "Detail" } } }
+      authoredOn: FHIR.dateTime { value: Now() }
       // doesn't really work, need a relatedArtifact here...
       //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10' } } }
     }

@@ -9,12 +9,6 @@ include OpioidCDSCommonConfig version '2022.1.0' called Config
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED": 'http://snomed.info/sct'
 
-// Expression-based
-valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
-valueset "Extended release opioid with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
-valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
-valueset "Non-synthetic opioid medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
-
 // Enumerated-compose
 valueset "Limited life expectancy conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions'
 valueset "Therapies indicating end of life care": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care'
@@ -29,11 +23,7 @@ valueset "Conditions documenting substance misuse": 'http://fhir.org/guides/cdc/
 valueset "Office Visit": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit'
 valueset "Opioid counseling procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure'
 /* Existing sets for first six recs */
-valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
-valueset "Non-opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening'
-valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
 valueset "Opioid misuse assessment procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
-valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
 valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
 valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
@@ -43,13 +33,38 @@ valueset "Pain treatment plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/
 valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure'
 valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
 valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
+valueset "Conditions Documenting Sleep Disordered Breathing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-sleep-disordered-breathing'
+
+// Rx
+valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
+valueset "Extended release opioid with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
+valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
+valueset "Non-synthetic opioid medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
+valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
+valueset "Fentanyl Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-medications'
+valueset "Amphetamine Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications'
+valueset "Methadone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications'
+valueset "Opiate Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+valueset "Synthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications'
+valueset "CNS Depressant Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cns-depressant-medications'
+
+// UDS
+valueset "All Drug Urine Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests'
+valueset "Non-opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening'
+valueset "Opiate Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opiate-specific-urine-drug-screening-tests'
+valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
 valueset "Cocaine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests'
 valueset "PCP Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests'
+valueset "Fentanyl Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests'
+valueset "Amphetamine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-drug-urine-screening-tests'
+valueset "Cannabinoid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests'
+valueset "Methadone Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests'
+valueset "Synthetic Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests'
 
 valueset "Community": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community'
 valueset "Active Condition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active'
 valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active'
-/* valueset "US Core Condition Categories": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-categories' */
 valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
 valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
 valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
@@ -90,6 +105,17 @@ define "Active Ambulatory Benzodiazepine Rx":
     else
          List<FHIR.MedicationRequest>{}
 
+define "Active Ambulatory Benzodiazepine or CNS Depressant Rx":
+    if Config."Can the implementing EHR support queries for past medications by date range?" then
+      (
+        "Get MedicationRequest Medication as Code"("Active Medication List")
+      ) Rx
+        where date from Rx.authoredOn 2 years or less on or before Today()
+          and Rx.medication in "Benzodiazepine medications"
+          or  Rx.medication in "CNS Depressant Medications"
+    else
+         List<FHIR.MedicationRequest>{}
+
 define "Active Ambulatory Naloxone Rx":
     if Config."Can the implementing EHR support queries for past medications by date range?" then
       (
@@ -99,6 +125,10 @@ define "Active Ambulatory Naloxone Rx":
           and Rx.medication in "Naloxone medications"
     else
         List<FHIR.MedicationRequest>{}
+
+define "Active Medication List":
+  [MedicationRequest: status in { 'active' }] ActiveMeds
+    where ActiveMeds.category in "Community"
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
@@ -113,6 +143,12 @@ define function "Is Opioid Analgesic with Ambulatory Misuse Potential?"(value Li
 define function "Is Benzodiazepine?"(value List<MedicationRequest>):
   ("Get MedicationRequest Medication as Code"(value)) Rx
     where Rx.medication in "Benzodiazepine medications" 
+      and Rx.category in "Community"
+
+define function "Is Benzodiazepine or CNS Depressant?"(value List<MedicationRequest>):
+  ("Get MedicationRequest Medication as Code"(value)) Rx
+    where Rx.medication in "Benzodiazepine medications"
+      or Rx.medication in "CNS Depressant Medications"
       and Rx.category in "Community"
 
 define function "Get MedicationRequest Medication as Code"(value List<MedicationRequest>):
@@ -332,3 +368,6 @@ define "Patient Age Less Than 18":
     AgeInYearsAt(Today()) < 18
   else
     false
+
+define "Style Header":
+  '<style>\r\n  .alert-body {\r\n    width: 670px;\r\n    font-family: segoe-ui, sans-serif;\r\n    background-color: #FEFFF1;\r\n  }\r\n\r\n  .details-table {\r\n    border-collapse:collapse;\r\n    border-style: ridge;\r\n    background-color: #FEFFF1;\r\n    padding: 2px;\r\n  }\r\n\r\n  .details-caption {\r\n    border-style: ridge;\r\n    border-bottom: none;\r\n    background-color: #FEFFF1;\r\n    padding: 2px;\r\n  }\r\n\r\n  .details-table-header {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n  }\r\n\r\n  .details-table-cell {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n  }\r\n\r\n  .details-table-footer-cell {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n    font-size: small;\r\n  }\r\n\r\n  .details-table-cell-unexpected {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n    color: red;\r\n    font-weight: bold;\r\n  }\r\n\r\n  .details-summary {\r\n    list-style-type: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    color: blue;\r\n    font-size: small;\r\n  }\r\n\r\n  [open] .details-summary {\r\n    position: absolute;\r\n    bottom: -1.5em;\r\n    left: 0;\r\n  }\r\n\r\n  .details-summary::before {\r\n    content: \"...show more\";\r\n  }\r\n\r\n  [open] .details-summary::before {\r\n    content: \"show less\";\r\n  }\r\n\r\n  .details-details {\r\n    display: inline;\r\n  }\r\n\r\n  .more-text {\r\n    position: relative;\r\n    margin-bottom: 2em;\r\n  }\r\n<\/style>'

@@ -388,10 +388,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC10" />
+        <reference value="Library/OpioidCDSREC10OrderSign" />
         <display value="Recommendation 10 (order-sign) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC10Library" />
+      <name value="OpioidCDSREC10OrderSignLibrary" />
       <description value="Logic Library for Recommendation #10 (order-sign) - Urine Drug Testing" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
@@ -408,10 +408,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC11" />
+        <reference value="Library/OpioidCDSREC11OrderSelect" />
         <display value="Recommendation 11 (order-select) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC11Library" />
+      <name value="OpioidCDSREC11OrderSelectLibrary" />
       <description value="Logic Library for Recommendation #11 (order-select) - Concurrent Use of Opioids and Benzodiazepines" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
@@ -627,7 +627,7 @@
         <title value="Recommendation #10 Order Sign Variation - Urine Drug Testing" />
         <generation value="html" />
         <page>
-          <nameUrl value="opioidcds-recommendation-10-cql.html" />
+          <nameUrl value="opioidcds-recommendation-10-order-sign-cql.html" />
           <title value="OpioidCDS Recommendation 10 Order Sign - CQL Source" />
           <generation value="html" />
         </page>
@@ -647,7 +647,7 @@
         <title value="Recommendation #11 Order Select Variation - Concurrent Use of Opioids and Benzodiazepines" />
         <generation value="html" />
         <page>
-          <nameUrl value="opioidcds-recommendation-11-cql.html" />
+          <nameUrl value="opioidcds-recommendation-11-order-select-cql.html" />
           <title value="OpioidCDS Recommendation 11 Order Select - CQL Source" />
           <generation value="html" />
         </page>

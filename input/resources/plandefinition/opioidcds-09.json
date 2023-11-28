@@ -176,6 +176,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -492,7 +498,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -503,8 +509,8 @@
     "value": "cdc-opioid-guidance"
   } ],
   "version": "2022.1.0",
-  "name": "CDC_opioid_09",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #9",
+  "name": "PlanDefinition_Recommendation_09_Order_Sign",
+  "title": "Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -514,9 +520,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Clinicians should review PDMP data when starting opioid therapy for subacute or chronic pain and periodically during opioid therapy for chronic pain.",
+  "description": "When prescribing initial opioid therapy for acute, subacute, or chronic pain, and periodically during opioid therapy for chronic pain, clinicians should review the patient's history of controlled substance prescriptions using state prescription drug monitoring program (PDMP) data to determine whether the patient is receiving opioid dosages or combinations that put the patient at high risk for overdose.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -543,6 +549,28 @@
         "display": "Chronic pain (finding)"
       } ]
     }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "http://snomed.info/sct",
+        "code": "274663001",
+        "display": "Acute pain (finding)"
+      } ]
+    }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "text": "Subacute pain"
+    }
   } ],
   "jurisdiction": [ {
     "coding": [ {
@@ -551,8 +579,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Clinicians should review PDMP data when starting opioid therapy for chronic pain and periodically during opioid therapy for chronic pain.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "At a minimum, during long-term opioid therapy, PDMP data should be reviewed before an initial opioid prescription and then every 3 months or more frequently.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -571,15 +599,19 @@
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
     "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC09" ],
   "action": [ {
-    "title": "Current Order is for Opioid With Ambulatory Misuse Potential.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #9 workflow.",
+    "title": "Before Ordering Opioids, Review PDMP Data",
+    "description": "Review PDMP data for this patient before completing an opioid order.\r\n\r\nFor guidance about utilizing PDMP information to improve patient safety, see [Recommendation 9 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Clinicians%20should%20take,see%20Recommendation%2010).).\r\n\r\n[CDC advises not to dismiss patients from your practice on the basis of PDMP information](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Clinicians%20should%20not%20dismiss,Recommendations%208%20and%2012%5D).)",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation9:~:text=risk%20for%20overdose-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -610,32 +642,13 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the current Order is for Opioid With Ambulatory Misuse Potential.",
+        "description": "Check whether the current order is for an opioid with ambulatory misuse potential, if an opioid review is appropriate or there exists evidence of a prescription drug monitoring program (PDMP) review procedure or finding occurred in the past 90 days.",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
       "description": "Access Data - Launch app to review PDMP data"
     }, {

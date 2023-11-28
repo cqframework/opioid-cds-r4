@@ -119,6 +119,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -330,7 +336,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -342,7 +348,7 @@
   } ],
   "version": "2022.1.0",
   "name": "PlanDefinition_Recommendation_12_Patient_View",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #12 (patient-view)",
+  "title": "Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder (patient-view)",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -352,9 +358,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Arrange evidence-based treatment (usually medication-assisted treatment with buprenorphine or methadone in combination with behavioral therapies) for patients with opioid use disorder.",
+  "description": "Clinicians should offer or arrange treatment with evidence-based medications to treat patients with opioid use disorder. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks for resuming drug use, overdose, and overdose death.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -364,21 +370,8 @@
     "valueCodeableConcept": {
       "coding": [ {
         "system": "http://snomed.info/sct",
-        "code": "182888003",
-        "display": "Medication requested (situation)"
-      } ]
-    }
-  }, {
-    "code": {
-      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
-      "code": "focus",
-      "display": "Clinical Focus"
-    },
-    "valueCodeableConcept": {
-      "coding": [ {
-        "system": "http://snomed.info/sct",
-        "code": "82423001",
-        "display": "Chronic pain (finding)"
+        "code": "5602001",
+        "display": "Opioid abuse (disorder)"
       } ]
     }
   } ],
@@ -389,8 +382,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Clinicians should offer or arrange evidence-based treatment (usually medication-assisted treatment with buprenorphine or methadone) for patients with opioid use disorder.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "Medication treatment of opioid use disorder has been associated with reduced risk for overdose and overall deaths. Identification of opioid use disorder represents an opportunity for a clinician to initiate potentially life-saving interventions, and the clinician should collaborate with the patient regarding their safety to increase the likelihood of successful treatment.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -409,15 +402,19 @@
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
     "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC12PatientView" ],
   "action": [ {
-    "title": "Current patient is 18 or older and recieving evidence-based treatment for Opioid Misuse Disorders.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #12 workflow.",
+    "title": "Offer Evidence-based Medications to Treat Patients with Opioid Use Disorder",
+    "description": "For patients diagnosed with opioid use disorder, consider opioid agonist or partial agonist treatment with methadone or buprenorphine maintenance therapy. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks of resuming drug use, overdose, and overdose death. \r\n\r\nFor guidance regarding diagnosing and treating opioid use disorder, see [Recommendation 12 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Implementation%20Considerations,-Although%20stigma%20can).\r\n\r\n[CDC recommends against releasing patients from care due to diagnosis of opioid use disorder](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=opioid%20use%20disorder.-,Clinicians%20should%20not%20dismiss%20patients%20from%20their%20practice%20because%20of%20opioid%20use%20disorder%20because%20this%20can%20adversely%20affect%20patient%20safety.,-Medication%20treatment%20of).\r\n\r\n[MME conversion factors should not be applied to dosage decisions related to the management of opioid use disorder](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=These%20conversion%20factors%20should%20not%20be%20applied%20to%20dosage%20decisions%20related%20to%20the%20management%20of%20opioid%20use%20disorder.).\r\n\r\n[Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Do%20not%20use%20the,variability%20in%20opioid%20pharmacokinetics.). Consult the FDA approved product labeling for specific guidance on medications.",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation12:~:text=and%20overdose%20death-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%201).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -448,36 +445,19 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the current patient is 18 or older and recieving evidence-based treatment for Opioid Misuse Disorders.",
+        "description": "Check whether the patient is 18 or older with an active condition of opioid misuse disorder and doesn't have an active prescription (order) for buprenorphine or methadone medications.",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
-      "description": "Will order methadone or buprenorphine"
+      "description": "Document - Will order medication to treat opioid use disorder"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Refer - Will refer patient to SUD specialist"
+    }, {
+      "description": "Snooze* - N/A see comments, snooze 3 months"
     } ]
   } ]
 }

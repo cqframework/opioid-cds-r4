@@ -151,6 +151,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -482,7 +488,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -494,7 +500,7 @@
   } ],
   "version": "2022.1.0",
   "name": "PlanDefinition_Recommendation_11_Patient_View",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #11 (patient-view)",
+  "title": "Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines (patient-view)",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -504,9 +510,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Concurrently prescribing opioid medications with benzodiazepines increases the risk of harm for the patient.",
+  "description": "Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently and consider whether benefits outweigh risks of concurrent prescribing of opioids and other central nervous system depressants.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -541,8 +547,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Clinicians should avoid prescribing opioid pain medication and benzodiazepines or other central nervous system depressant concurrently whenever possible.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently. In addition, clinicians should consider whether benefits outweigh risks for concurrent use of opioids with other central nervous system depressants.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -556,19 +562,24 @@
   }, {
     "name": "Robert McClure, MD, MPH"
   } ],
+  "relatedArtifact": [ {
+    "type": "documentation",
+    "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
+    "document": {
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
+    }
+  } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC11PatientView" ],
   "action": [ {
-    "title": "Existing patient has concurrent opioid and benzodiazepine prescriptions.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #11 workflow.",
+    "title": "Use Particular Caution When Prescribing Opioid Pain Medication and Benzodiazepines or Other CNS Depressants Concurrently",
+    "description": "Consider whether the benefits outweigh the risks of concurrently prescribing opioids and benzodiazepines, or other central nervous system depressant medications.\r\n\r\nWhen co-prescribing risks outweigh benefits, consult [Recommendation 11 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=evidence%20type%3A%203).-,Implementation%20Considerations,-Although%20in%20some) for further guidance.\r\n\r\n[For patients being treated for opioid use disorder who are also taking benzodiazepines or other medications that depress the central nervous system, the CDC recommends not withholding buprenorphine or methadone](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=gabapentin%20and%20pregabalin).-,Buprenorphine%20or%20methadone%20for%20opioid%20use%20disorder%20should%20not%20be%20withheld%20from%20patients%20taking%20benzodiazepines%20or%20other%20medications%20that%20depress%20the%20central%20nervous%20system.,-Clinicians%20should%20check).\r\n\r\nIf the decision is made to taper benzodiazepine medications, [the CDC recommends tapering benzodiazepines gradually prior to discontinuation](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Clinicians%20should%20taper%20benzodiazepines%20gradually%20before%20discontinuation%20because%20abrupt%20withdrawal%20can%20be%20associated%20with%20rebound%20anxiety%2C%20hallucinations%2C%20seizures%2C%20delirium%20tremens%2C%20and%2C%20rarely%2C%20death.%20The%20rate%20of%20tapering%20should%20be%20individualized).",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
-      "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
-      "document": {
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
-      }
-    }, {
-      "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation11:~:text=nervous%20system%20depressants-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%203).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -599,38 +610,19 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the existing patient is using opioids concurrently with benzodiazepines.",
+        "description": "Check whether the patient is using opioids concurrently with benzodiazepines or other central nervous system depressants and if an opioid review is appropriate.",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
-      "description": "Will revise"
+      "description": "Document - Will modify prescription"
     }, {
-      "description": "Benefits outweigh risks, snooze 3 months"
+      "description": "Snooze* - Benefits outweigh risks, snooze 3 months"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Snooze* - N/A see comments, snooze 3 months"
     } ]
   } ]
 }

@@ -244,6 +244,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -725,7 +731,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -736,8 +742,8 @@
     "value": "cdc-opioid-guidance"
   } ],
   "version": "2022.1.0",
-  "name": "CDC_opioid_08",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #8",
+  "name": "PlanDefinition_Recommendation_08_Order_Sign",
+  "title": "Recommendation #8 - Naloxone Consideration",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -747,9 +753,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Clinicians should incorporate into the management plan strategies to mitigate risk, including considering offering naloxone when factors that increase risk for opioid overdose, such as history of overdose, history of substance use disorder, higher opioid dosages (≥50 MME/day), or concurrent benzodiazepine use, are present.",
+  "description": "Before starting and periodically during continuation of opioid therapy, clinicians should evaluate risk for opioid-related harms and discuss risk with patients. Clinicians should work with patients to incorporate into the management plan strategies to mitigate risk, including offering naloxone.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -776,6 +782,15 @@
         "display": "Chronic pain (finding)"
       } ]
     }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "text": "Subacute pain"
+    }
   } ],
   "jurisdiction": [ {
     "coding": [ {
@@ -784,8 +799,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Before starting and periodically during continuation of opioid therapy, clinicians should evaluate risk factors for opioid-related harms.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "Clinicians should offer naloxone when prescribing opioids, particularly to patients at increased risk for overdose, including patients with a history of overdose, patients with a history of substance use disorder, patients with sleep-disordered breathing, patients taking higher dosages of opioids (e.g., ≥50 MME/day), patients taking benzodiazepines with opioids (see Recommendation 11), and patients at risk for returning to a high dose to which they have lost tolerance.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -804,22 +819,27 @@
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
     "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   }, {
     "type": "documentation",
     "display": "MME Conversion Tables",
-    "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf",
     "document": {
-      "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/opioids/providers/prescribing/pdf/calculating-total-daily-dose.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC08" ],
   "action": [ {
-    "title": "Existing patient exhibits risk factors for opioid-related harms.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #8 workflow.",
+    "title": "Incorporate Risk Mitigation Strategies Into Opioid Therapy",
+    "description": "Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone.\r\n\r\nFor guidance regarding assessing opioid therapy risks, see [Recommendation 8 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation8)\r\n\r\nFor more information about prescribing naloxone see https:\/\/prescribetoprevent.org\r\n\r\n**MME Calculator Cautions**\r\n1) All doses are in mg\/day except for fentanyl, which is mcg\/hr. \r\n2) Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. \r\n3) Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. \r\n4) Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. \r\n5) Use particular caution with transdermal fentanyl because it is dosed in mcg\/hr instead of mg\/day, and its absorption is affected by heat and other factors. \r\n6) Buprenorphine products approved for the treatment of pain are not included in the table because of their partial \u00B5-receptor agonist activity and resultant ceiling effects compared with full \u00B5-receptor agonists. \r\n7) These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder.\r\n- Tapentadol is a \u00B5-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of \u00B5-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely \u00B5-receptor agonists.\r\n- Tramadol is a \u00B5-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of \u00B5-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely \u00B5-receptor agonists.",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation8:~:text=including%20offering%20naloxone-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -845,39 +865,20 @@
     } ],
     "trigger": [ {
       "type": "named-event",
-      "name": "order-select"
+      "name": "order-sign"
     } ],
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day.",
+        "description": "Check whether the current order is for an opioid with ambulatory misuse potential, if an opioid review is appropriate, there is an active order for nalaxone, the patient exhibits risk factors for opioid-related harms; such as receiving benzodiazepine or other central nervous system depressant medications, a history of substance abuse, an average MME greater than 50 mg/day, and/or an active sleep-disordered breathing condition.",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
-      "description": "Order - Order naxalone"
+      "description": "Order - Order Naloxone"
     }, {
       "description": "Document - Risk mitigation strategy implemented, snooze 3 months"
     }, {

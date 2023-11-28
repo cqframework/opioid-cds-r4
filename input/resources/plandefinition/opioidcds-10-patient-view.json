@@ -237,6 +237,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -703,7 +709,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -715,7 +721,7 @@
   } ],
   "version": "2022.1.0",
   "name": "PlanDefinition_Recommendation_10_Patient_View",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #10 (patient-view)",
+  "title": "Recommendation #10 - Urine Drug Testing (patient-view)",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -725,23 +731,10 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "When prescribing opioids for subacute or chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs.",
+  "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
-    "code": {
-      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
-      "code": "focus",
-      "display": "Clinical Focus"
-    },
-    "valueCodeableConcept": {
-      "coding": [ {
-        "system": "http://snomed.info/sct",
-        "code": "182888003",
-        "display": "Medication requested (situation)"
-      } ]
-    }
-  }, {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
       "code": "focus",
@@ -754,6 +747,15 @@
         "display": "Chronic pain (finding)"
       } ]
     }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "text": "Subacute pain"
+    }
   } ],
   "jurisdiction": [ {
     "coding": [ {
@@ -762,8 +764,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Providers should be aware if patients are taking other prescription drugs or illicit drugs that might increase their risk of an overdose.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "Before starting opioids and periodically (at least annually) during opioid therapy, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed opioids and other prescription and nonprescription controlled substances that increase risk for overdose when combined with opioids, including nonprescribed and illicit opioids and benzodiazepines.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -777,20 +779,25 @@
   }, {
     "name": "Robert McClure, MD, MPH"
   } ],
+  "relatedArtifact": [ {
+    "type": "documentation",
+    "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
+    "document": {
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
+    }
+  } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10PatientView" ],
   "action": [ {
-    "prefix": "Order Urine Screening",
-    "title": "Annual Urine Screening Check",
-    "description": "Patient has not had a urine screening in the past 12 months",
+    "prefix": "1.",
+    "title": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen",
+    "description": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.\r\n\r\nFor guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should).",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
-      "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
-      "document": {
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
-      }
-    }, {
-      "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10:~:text=nonprescribed%20controlled%20substances-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -854,25 +861,20 @@
       }
     } ],
     "action": [ {
-      "description": "Will perform urine screening"
+      "description": "Document - Ordered toxicology screen"
     }, {
-      "description": "Not for chronic pain management. Snooze 3 months"
+      "description": "Document - Risks outweigh benefits"
     }, {
-      "description": "N/A - see comment, snooze 3 months"
+      "description": "Snooze* - N/A see comment, snooze 3 months"
     } ]
   }, {
-    "prefix": "1.",
-    "title": "Tested Positive for Cocaine, Opiates, or PCP",
-    "description": "Urine screening showed positive for cocaine, opiates or PCP",
+    "prefix": "2.",
+    "title": "Patient May Have Unexpected Toxicology Test Results",
+    "description": "Patient may have unexpected urine toxicology test results in the past year",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
-      "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
-      "document": {
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
-      }
-    }, {
-      "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10:~:text=nonprescribed%20controlled%20substances-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -905,42 +907,24 @@
       "expression": {
         "description": "Urine screening tested positive for cocaine, opiates or PCP",
         "language": "text/cql.identifier",
-        "expression": "Applicable Because of Positive Cocaine or PCP or Opiates"
+        "expression": "Applicable Because of Unexpected Results"
       }
     } ],
-    "type": {
-      "coding": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/action-type",
-        "code": "create",
-        "display": "Create"
-      } ]
-    },
-    "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request",
     "dynamicValue": [ {
       "path": "action.description",
       "expression": {
         "language": "text/cql.identifier",
         "expression": "Detail"
       }
-    }, {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Summary"
-      }
-    }, {
-      "path": "action.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Indicator"
-      }
     } ],
     "action": [ {
-      "description": "Will repeat urine drug screen more frequently"
+      "description": "Document - Will repeat urine drug screen more frequently"
     }, {
-      "description": "Will assess patient for substance abuse disorder"
+      "description": "Document - Will assess patient for substance use disorder"
     }, {
-      "description": "Will access CDS quality improvement and care coordination for prescribing opioids for chronic pain https://www.cdc.gov/drugoverdose/pdf/prescribing/CDC-DUIP-QualityImprovementAndCareCoordination-508.pdf"
+      "description": "Snooze* - Patient's test results were expected, snooze for 3 months"
+    }, {
+      "description": "Snooze* - N/A snooze for 3 months"
     } ]
   } ]
 }

@@ -224,6 +224,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -615,7 +621,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -626,8 +632,8 @@
     "value": "cdc-opioid-guidance"
   } ],
   "version": "2022.1.0",
-  "name": "CDC_opioid_04_05",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendations #4 and #5",
+  "name": "PlanDefinition_Recommendation_04_05_Order_Sign",
+  "title": "Recommendations #4 and #5 - Lowest Effective Dose",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -637,9 +643,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "When opioids are started, providers should prescribe the lowest effective dosage.",
+  "description": "Recommendation 4: When opioids are initiated for opioid-naïve patients with acute, subacute, or chronic pain, clinicians should prescribe the lowest effective dosage. If opioids are continued for subacute or chronic pain, clinicians should use caution when prescribing opioids at any dosage, should carefully evaluate individual benefits and risks when considering increasing dosage, and should avoid increasing dosage above levels likely to yield diminishing returns in benefits relative to risks to patients. Recommendation 5: For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage. If benefits outweigh risks of continued opioid therapy, clinicians should work closely with patients to optimize nonopioid therapies while continuing opioid therapy. If benefits do not outweigh risks of continued opioid therapy, clinicians should optimize other therapies and work closely with patients to gradually taper to lower dosages or, if warranted based on the individual circumstances of the patient, appropriately taper and discontinue opioids. Unless there are indications of a life-threatening issue such as warning signs of impending overdose (e.g., confusion, sedation, or slurred speech), opioid therapy should not be discontinued abruptly, and clinicians should not rapidly reduce opioid dosages from higher dosages.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -666,6 +672,28 @@
         "display": "Chronic pain (finding)"
       } ]
     }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "http://snomed.info/sct",
+        "code": "274663001",
+        "display": "Acute pain (finding)"
+      } ]
+    }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "text": "Subacute pain"
+    }
   } ],
   "jurisdiction": [ {
     "coding": [ {
@@ -674,8 +702,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Providers should use caution when prescribing opioids at any dosage, should carefully reassess evidence of individual benefits and risks when considering increasing dosage to ≥50 morphine milligram equivalents (MME)/day, and should avoid increasing dosage to ≥90 MME/day or carefully justify a decision to titrate dosage to >90 MME/day",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "The recommendations related to opioid dosages are not intended to be used as an inflexible, rigid standard of care; rather, they are intended to be guideposts to help inform clinician-patient decision-making. Risks of opioid use, including risk for overdose and overdose death, increase continuously with dosage, and there is no single dosage threshold below which risks are eliminated. Therefore, the recommendation language emphasizes that clinicians should avoid increasing dosage above levels likely to yield diminishing returns in benefits relative to risks to patients rather than emphasizing a single specific numeric threshold. Further, these recommendations apply specifically to starting opioids or to increasing opioid dosages, and a different set of benefits and risks applies to reducing opioid dosages.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -694,23 +722,28 @@
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
     "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   }, {
     "type": "documentation",
     "display": "MME Conversion Tables",
-    "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf",
     "document": {
-      "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/opioids/providers/prescribing/pdf/calculating-total-daily-dose.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC04And05" ],
   "action": [ {
-    "title": "High risk for opioid overdose.",
-    "description": "Total morphine milligram equivalent (MME) exceeds recommended amount. Taper to less than 50.",
+    "title": "Calibrate to Lowest Opioid Dose Needed for Expected Results and Exercise Care When Changing Opioid Dosages",
+    "description": "When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage.\r\n\r\n[For guidance in determining the lowest effective opioid dosage, see Recommendation 4 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation4)\r\n\r\n[For patients who have received opioid therapy for longer durations of time, if tapering, consider working closely with the patient to gradually taper dosages (no more than 10% per month)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=When%20patients%20have%20been%20taking%20opioids%20for%20longer%20durations%20(e.g.%2C%20for%20%E2%89%A51%20year)%2C%20tapers%20of%2010%25%20per%20month%20or%20slower%20are%20likely%20to%20be%20better%20tolerated%20than%20more%20rapid%20tapers.)\r\n\r\nFor a tapering calculator, go to [https:\/\/agencymeddirectors.wa.gov\/Calculator\/TaperDoseCalculator.html](https:\/\/www.agencymeddirectors.wa.gov\/Calculator\/TaperDoseCalculator.html)\r\n\r\n[For more guidance regarding tapering, please see Recommendation 5 of the 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation5).)\r\n\r\n**MME Calculator Cautions**\r\n1) All doses are in mg\/day except for fentanyl, which is mcg\/hr. \r\n2) Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. \r\n3) Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. \r\n4) Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. \r\n5) Use particular caution with transdermal fentanyl because it is dosed in mcg\/hr instead of mg\/day, and its absorption is affected by heat and other factors. \r\n6) Buprenorphine products approved for the treatment of pain are not included in the table because of their partial \u00B5-receptor agonist activity and resultant ceiling effects compared with full \u00B5-receptor agonists. \r\n7) These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder.\r\n- Tapentadol is a \u00B5-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of \u00B5-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely \u00B5-receptor agonists.\r\n- Tramadol is a \u00B5-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of \u00B5-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely \u00B5-receptor agonists.",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
       "label": "Recommendation 4",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation4:~:text=risks%20to%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%203).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -736,6 +769,7 @@
     }, {
       "type": "documentation",
       "label": "Recommendation 5",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation5:~:text=from%20higher%20dosages-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -766,32 +800,13 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Is total MME >= 50?",
+        "description": "Check whether the current order is for an opioid with ambulatory misuse potential, the calculated MME result for the order and other active opioid medications for the patient is greater than or equal to 50 and if an opioid review is appropriate for the patient",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
       "description": "Document - Will prescribe a lower dose"
     }, {

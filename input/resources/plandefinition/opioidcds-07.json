@@ -204,6 +204,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -655,7 +661,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -666,8 +672,8 @@
     "value": "cdc-opioid-guidance"
   } ],
   "version": "2022.1.0",
-  "name": "CDC_opioid_07",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #7",
+  "name": "PlanDefinition_Recommendation_07_Order_Sign",
+  "title": "Recommendation #7 - Opioid Therapy Risk Assessment",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -677,9 +683,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Clinicians should evaluate benefits and harms with patients within 1 to 4 weeks of starting opioid therapy for subacute or chronic pain or of dose escalation. Clinicians should evaluate benefits and harms of continued therapy with patients every 3 months or more frequently.",
+  "description": "Clinicians should evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should regularly reevaluate benefits and risks of continued opioid therapy with patients.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -706,6 +712,15 @@
         "display": "Chronic pain (finding)"
       } ]
     }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "text": "Subacute pain"
+    }
   } ],
   "jurisdiction": [ {
     "coding": [ {
@@ -714,8 +729,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "If benefits do not outweigh harms of continued opioid therapy, clinicians should optimize other therapies and work with patients to taper opioids to lower dosages or to taper and discontinue opioids.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "In addition to evaluating benefits and risks of opioids before starting opioid therapy (see Recommendation 2), clinicians should evaluate patients to assess benefits and risks of opioids within 1-4 weeks of starting long-term opioid therapy or of dosage escalation.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -734,22 +749,27 @@
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
     "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   }, {
     "type": "documentation",
     "display": "MME Conversion Tables",
-    "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf",
     "document": {
-      "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/opioids/providers/prescribing/pdf/calculating-total-daily-dose.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC07" ],
   "action": [ {
-    "title": "Existing patient should be evaluated for risk of continued opioid therapy.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #7 workflow.",
+    "title": "Regularly Evaluate the Benefits and Risks of Opioid Therapy",
+    "description": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.\r\n\r\nFor additional guidance regarding opioid therapy patient consultations, see [Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation7)",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7:~:text=therapy%20with%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -780,7 +800,7 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the existing patient, without an end of life condition or risk assessment in the past 90 days, has taken an opioid-with-abuse-potential for 7 of the past 10 days or 63 of the past 90 days.",
+        "description": "Check whether the patient has a current order is for an opioid with ambulatory misuse potential for subacute or chronic pain, a risk assessment has been performed in the past 90 days, has taken an opioid with abuse potential for 7 of the past 10 days or 63 of the past 90 days and if an opioid review is appropriate.",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
@@ -795,25 +815,6 @@
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
     "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-risk-assessment-request",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
       "description": "Document - Conducted benefit and risk assessment"
     }, {

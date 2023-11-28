@@ -59,20 +59,3 @@ define "Exclusion Criteria":
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
-
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'When Initiating Opioid Therapy, Utilize Immediate Release Opioids'
-  else null
-
-define "Get Detail":
-  if "Is Recommendation Applicable?"
-    then 'Recommend prescribing immediate release opioids instead of extended release or long-acting opioids
-
-[For guidance regarding prescribing extended release/ long-acting opioids, see Recommendation 3 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,to%20educate%20their%20patients%20about%20its%20use%20should%20consider%20prescribing%20it.,-Supporting%20Rationale)'
-  else null

@@ -148,6 +148,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -464,7 +470,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -475,8 +481,8 @@
     "value": "cdc-opioid-guidance"
   } ],
   "version": "2022.1.0",
-  "name": "CDC_opioid_01",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #1",
+  "name": "PlanDefinition_Recommendation_01_Order_Sign",
+  "title": "Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -486,7 +492,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "contact": [ {
     "telecom": [ {
@@ -494,7 +500,7 @@
       "value": "https://www.cdc.gov"
     } ]
   } ],
-  "description": "Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for subacute or chronic pain.",
+  "description": "Nonopioid therapies are at least as effective as opioids for many common types of acute pain. Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific condition and patient and only consider opioid therapy for acute pain if benefits are anticipated to outweigh risks to the patient. Before prescribing opioid therapy for acute pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -517,8 +523,8 @@
     "valueCodeableConcept": {
       "coding": [ {
         "system": "http://snomed.info/sct",
-        "code": "82423001",
-        "display": "Chronic pain (finding)"
+        "code": "274663001",
+        "display": "Acute pain (finding)"
       } ]
     }
   } ],
@@ -549,15 +555,19 @@
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
     "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC01" ],
   "action": [ {
-    "title": "Current Order is for Opioid With Ambulatory Misuse Potential.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #1 workflow.",
+    "title": "Consider Nonopioid Treatment Options for Acute Pain",
+    "description": "For many types of acute pain, clinicians should maximize the use of nonpharmacologic (for example, physical therapy) and nonopioid pharmacologic therapies (for example, NSAIDs), as appropriate for the specific condition and patient and only consider opioid therapy for acute pain if benefits are anticipated to outweigh risks to the patient. Before prescribing opioid therapy for acute pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy.\r\n\r\n[Recommendation 1 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation1) provides nonopioid therapy options for common acute pain conditions.\r\n\r\n**Nonopioid Pharmacological Therapy**\r\n- [Dental pain (acute)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=The%20American%20Dental%20Association%20(ADA)%20recommends%20NSAIDs%20as%20first%2Dline%20treatment%20for%20acute%20dental%20pain%20management)\r\n- [Dental pain (surgical)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=NSAIDs%20have%20been%20found%20to%20be%20more%20effective%20than%20opioids%20for%20surgical%20dental%20pain)\r\n- [Kidney stone pain (acute)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=For%20acute%20kidney%20stone%20pain%2C%20NSAIDs%20are%20at%20least%20as%20effective%20as%20opioids%20(124%E2%80%93127)%2C%20can%20decrease%20the%20ureteral%20smooth%20muscle%20tone%20and%20ureteral%20spasm%20(128)%20causing%20kidney%20stone%20pain%2C%20and%20are%20preferred%20for%20kidney%20stone%20pain%20if%20not%20contraindicated.)\r\n- [Low back pain (acute)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=NSAIDs%20have%20been%20found%20to%20be%20more%20effective%20than%20opioids%20for%20surgical%20dental%20pain%20and%20kidney%20stone%20pain%20and%20similarly%20effective%20to%20opioids%20for%20low%20back%20pain)\r\n- [Migraine pain (episodic)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=For%20episodic%20migraine%2C%20triptans%2C%20NSAIDs%2C%20antiemetics%2C%20dihydroergotamine%2C%20calcitonin%20gene%2Drelated%20peptide%20antagonists%20(gepants)%2C%20and%20lasmiditan%20are%20associated%20with%20improved%20pain%20and%20function%20with%20usually%20mild%20and%20transient%20adverse%20events)\r\n- [Musculoskeletal pain](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=A%20systematic%20review%20found%20that%20for%20musculoskeletal%20injuries%20such%20as%20sprains%2C%20whiplash%2C%20and%20muscle%20strains%2C%20topical%20NSAIDs%20provided%20the%20greatest%20benefit%2Dharm%20ratio%2C%20followed%20by%20oral%20NSAIDs%20or%20acetaminophen%20with%20or%20without%20diclofenac)\r\n- [Postpartum pain](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=Pain%20Management%20for%20Pregnant%20and%20Postpartum%20Persons)\r\n\r\n**Nonpharmacologic Treatments**\r\n- [Back pain (acute)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=The%20American%20College%20of%20Physicians%20(ACP)%20recommends%20nonpharmacologic%20treatment%20with%20superficial%20heat%2C%20massage%2C%20acupuncture%2C%20or%20spinal%20manipulation%20as%20a%20cornerstone%20of%20treatment%20for%20acute%20low%20back%20pain)\r\n- [Migraine pain (episodic)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=remote%20electrical%20neuromodulation%20for%20acute%20pain%20related%20to%20episodic%20migraine)\r\n- [Musculoskeletal pain](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=acupressure%20for%20acute%20musculoskeletal%20pain)\r\n- [Postoperative pain](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm?s_cid=rr7103a1_w#:~:text=massage%20for%20postoperative%20pain)",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation1:~:text=of%20opioid%20therapy-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%203).",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -588,32 +598,13 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the current Order is for Opioid With Ambulatory Misuse Potential.",
+        "description": "Check whether the current order is for an opioid with ambulatory misuse potential, the patient is opioid naive and if an opioid review is appropriate for the patient",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
       "description": "Document - Record reason for opioid therapy"
     }, {

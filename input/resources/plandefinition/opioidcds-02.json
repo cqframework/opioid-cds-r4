@@ -176,6 +176,12 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -552,7 +558,7 @@
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -563,8 +569,8 @@
     "value": "cdc-opioid-guidance"
   } ],
   "version": "2022.1.0",
-  "name": "CDC_opioid_02",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #2",
+  "name": "PlanDefinition_Recommendation_02_Order_Sign",
+  "title": "Recommendation #2 - Opioid Therapy Goals Discussion",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -574,9 +580,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2023-11-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Nonpharmacologic therapy and nonopioid pharmacologic therapy are preferred for chronic pain.",
+  "description": "Nonopioid therapies are preferred for subacute and chronic pain. Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific condition and patient and only consider initiating opioid therapy if expected benefits for pain and function are anticipated to outweigh risks to the patient. Before starting opioid therapy for subacute or chronic pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy, should work with patients to establish treatment goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -603,6 +609,15 @@
         "display": "Chronic pain (finding)"
       } ]
     }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "text": "Subacute pain"
+    }
   } ],
   "jurisdiction": [ {
     "coding": [ {
@@ -611,8 +626,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Clinicians should continue opioid therapy only if there is clinically meaningful improvement in pain and function that outweighs risks to patient safety.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "Before starting opioid therapy for subacute or chronic pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy, should work with patients to establish treatment goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -631,15 +646,19 @@
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
     "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC02" ],
   "action": [ {
-    "title": "Current Order is for Opioid With Ambulatory Misuse Potential.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #2 workflow.",
+    "title": "Maximize Nonopioid Therapies as Appropriate",
+    "description": "For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate.\r\n\r\n[Recommendation 2 of the CDC 2022 Clinical Prescribing Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation2) provides nonopioid therapy recommendations for common subacute and acute pain conditions.\r\n\r\n**Nonopioid Pharmacological Therapy**\r\n- [Back pain (chronic, moderate to severe)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=For%20moderate%20to%20severe%20chronic%20back%20pain%20or%20hip%20or%20knee%20osteoarthritis%20pain%2C%20a%20nonopioid%20strategy%20starting%20with%20acetaminophen%20or%20NSAIDs%20results%20in%20improved%20pain%20intensity%20with%20fewer%20side%20effects%20compared%20with%20a%20strategy%20starting%20with%20opioids%20(74))\r\n- [Fibromyalgia](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=In%20patients%20with%20fibromyalgia%2C%20multiple,effectiveness%20is%20limited%20(8).)\r\n- [Hip or knee osteoarthritis pain (chronic)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=or%20hip%20or%20knee%20osteoarthritis%20pain%2C%20a%20nonopioid%20strategy%20starting%20with%20acetaminophen%20or%20NSAIDs%20results%20in%20improved%20pain%20intensity%20with%20fewer%20side%20effects%20compared%20with%20a%20strategy%20starting%20with%20opioids%20(74).)\r\n- [Neuropathic pain syndromes](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Tricyclic%20antidepressants%2C%20SNRI%20antidepressants%2C%20selected%20anticonvulsants%2C%20or%20transdermal%20lidocaine%20are%20recommended%20for%20neuropathic%20pain%20syndromes%20(e.g.%2C%20diabetic%20neuropathy%20or%20postherpetic%20neuralgia)%20(156).)\r\n- [Temporomandibular disorder](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=For%20temporomandibular%20disorder%20pain%20that%20is%20not%20sufficiently%20improved%20with%20nonpharmacologic%20interventions%2C%20NSAIDs%20can%20be%20effective%20(179%2C180).)\r\n\r\n**Nonpharmacologic Treatments**\r\n- [Back pain (chronic)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Clinicians%20should%20recommend%20appropriate%20noninvasive%20nonpharmacologic%20approaches%20to%20help%20manage%20chronic%20pain%2C%20such%20as%20exercise%20(e.g.%2C%20aerobic%2C%20aquatic%2C%20or%20resistance%20exercises)%20or%20exercise%20therapy%20(a%20prominent%20modality%20in%20physical%20therapy)%20for%20back%20pain)\r\n- [Back pain (low back, chronic)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=loss%20for%20knee%20osteoarthritis%3B%20manual%20therapies%20for%20hip%20osteoarthritis%3B-,psychological%20therapy%2C%20spinal%20manipulation%2C%20low%2Dlevel%20laser%20therapy%2C%20massage%2C%20mindfulness%2Dbased%20stress%20reduction%2C%20yoga%2C%20acupuncture%2C%20and%20multidisciplinary%20rehabilitation%20for%20low%20back%20pain,-%3B%20mind%2Dbody%20practices%20(e.g.%2C%20yoga%2C%20tai%20chi%2C%20or)\r\n- [Fibromyalgia](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=massage%2C%20and%20acupuncture%20for%20neck%20pain%3B%20cognitive-,behavioral%20therapy%2C%20myofascial%20release%20massage%2C%20mindfulness%20practices%2C%20tai%20chi%2C%20qigong%2C%20acupuncture%2C%20and%20multidisciplinary%20rehabilitation%20for%20fibromyalgia,-%3B%20and%20spinal%20manipulation%20for%20tension%20headache%20()\r\n- [Headache (tension)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=and%20spinal%20manipulation%20for%20tension%20headache.)\r\n- [Knee osteoarthritis pain (chronic)](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Many%20noninvasive%20nonpharmacologic,for%20hip%20osteoarthritis%3B)\r\n- [Neck pain](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=mind%2Dbody%20practices%20(e.g.%2C%20yoga%2C%20tai%20chi%2C%20or%20qigong)%2C%20massage%2C%20and%20acupuncture%20for%20neck%20pain%3B)\r\n- [Temporomandibular disorder](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=For%20temporomandibular%20disorder%20pain%2C%20patient%20education%20and%20self%2Dcare%20can%20be%20effective%2C%20as%20can%20occlusal%20splints%20for%20some%20patients%20and%20biobehavioral%20therapy%20for%20prevention%20of%20disabling%20symptoms%20(172%2C173).)",
+    "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation2:~:text=not%20outweigh%20risks-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%202).,-Implementation%20Considerations",
       "document": {
         "extension": [ {
           "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
@@ -670,32 +689,13 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the current Order is for Opioid With Ambulatory Misuse Potential.",
+        "description": "Check whether the current order is for an opioid with ambulatory misuse potential, a pain treatment plan has been established or edited within the past 90 days, a pain management procedure occurred within the past 90 days, the patient is opioid naive and if an opioid review is appropriate for the patient",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
       "description": "Document - Collaborated with patient to identify treatment goals"
     }, {
