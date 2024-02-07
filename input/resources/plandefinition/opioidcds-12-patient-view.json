@@ -48,29 +48,11 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
     } ],
     "parameter": [ {
-      "name": "Get Summary",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
-    }, {
       "name": "Is Recommendation Applicable?",
       "use": "out",
       "min": 0,
       "max": "1",
       "type": "boolean"
-    }, {
-      "name": "Get Detail",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "Any"
-    }, {
-      "name": "Get Indicator",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
     } ],
     "dataRequirement": [ {
       "type": "Patient",
@@ -128,21 +110,6 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC12PatientView"
-    }, {
-      "url": "name",
-      "valueString": "Get Summary"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine'/* and/or behavioral therapy' */\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 0
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
       "valueString": "OpioidCDSCommonConfig"
     }, {
       "url": "name",
@@ -152,7 +119,7 @@
       "valueString": "// Opioid Review Useful\ndefine \"Age Less than 18 Years Is Enabled\":\n  true"
     }, {
       "url": "displaySequence",
-      "valueInteger": 1
+      "valueInteger": 0
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -167,7 +134,7 @@
       "valueString": "define \"Patient 18 or Older?\":\n  Config.\"Age Less than 18 Years Is Enabled\"\n    and AgeInYears() >= 18"
     }, {
       "url": "displaySequence",
-      "valueInteger": 2
+      "valueInteger": 1
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -182,7 +149,7 @@
       "valueString": "// Recommendation 12\ndefine \"Evidence Based Treatment Criteria For Opioid Use Disorder\":\n  true"
     }, {
       "url": "displaySequence",
-      "valueInteger": 3
+      "valueInteger": 2
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -197,7 +164,7 @@
       "valueString": "define \"Not Receiving Evidence-Based Treatment for Opioid Use Disorder\":\n  Config.\"Evidence Based Treatment Criteria For Opioid Use Disorder\"\n    and not (\n        if Config.\"Can the implementing EHR support queries for past medications by date range?\" then\n          exists (\n            [MedicationRequest: Common.\"Buprenorphine and methadone medications\"] MR\n              where MR.status in { 'active', 'completed' }\n                and date from MR.authoredOn during day of \"Opioid Use Disorder Lookback Period\"\n          )\n        else\n            true\n    /* update 2022 removes \"behavioral therapy condition\"\n      or exists (\n        [Procedure: Common.\"Substance misuse behavioral counseling\"] P\n          where P.status ~ 'completed'\n            and (\n              case\n                when P.performed is FHIR.dateTime then\n                  Interval[FHIRHelpers.ToDateTime(P.performed as FHIR.dateTime), FHIRHelpers.ToDateTime(P.performed as FHIR.dateTime)]\n                when P.performed is FHIR.Period then\n                  FHIRHelpers.ToInterval(P.performed as FHIR.Period)\n                else\n                  null as Interval<DateTime>\n                end\n            ) during day of \"Opioid Use Disorder Lookback Period\"\n      )*/\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 4
+      "valueInteger": 3
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -212,7 +179,7 @@
       "valueString": "// 3. Medications indicating end of life\n    /* or exists (\n      \"Medications Indicating End of Life\"\n    ) */\ndefine \"US Core-Categorized Conditions\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"]\n    union [Condition: category in \"Problem List Condition Category\"]\n    union [Condition: category in \"US Core Health Concern Condition Category\"]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 5
+      "valueInteger": 4
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -227,7 +194,7 @@
       "valueString": "define \"Opioid Use Disorder Lookback Period\":\n  Interval[Today() - 90 days, Today()]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 6
+      "valueInteger": 5
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -242,7 +209,7 @@
       "valueString": "define \"Presence of Diagnosis of Opioid Use Disorder\":\n  exists (\n    Common.\"US Core-Categorized Conditions\" C\n      where C.code in Common.\"Opioid misuse disorders\"\n        and C.clinicalStatus in Common.\"Active Condition\"\n        and date from C.recordedDate during day of \"Opioid Use Disorder Lookback Period\"\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 7
+      "valueInteger": 6
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -257,7 +224,7 @@
       "valueString": "define \"Positive Result from Opioid Use Disorder Evaluation Tool\":\n  true"
     }, {
       "url": "displaySequence",
-      "valueInteger": 8
+      "valueInteger": 7
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -272,7 +239,7 @@
       "valueString": "define \"Inclusion Criteria\":\n  Common.\"Patient 18 or Older?\"\n    and \"Not Receiving Evidence-Based Treatment for Opioid Use Disorder\"\n    and \"Presence of Diagnosis of Opioid Use Disorder\"\n    and \"Positive Result from Opioid Use Disorder Evaluation Tool\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 9
+      "valueInteger": 8
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -287,7 +254,7 @@
       "valueString": "define \"Exclusion Criteria\":\n  false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 10
+      "valueInteger": 9
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -302,44 +269,8 @@
       "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\"\n    and not \"Exclusion Criteria\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 11
+      "valueInteger": 10
     } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC12PatientView"
-    }, {
-      "url": "name",
-      "valueString": "Get Detail"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then null\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 12
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC12PatientView"
-    }, {
-      "url": "name",
-      "valueString": "Get Indicator"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Indicator\":\n  if \"Is Recommendation Applicable?\"\n    then 'warning'\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 13
-    } ]
-  }, {
-    "id": "effective-data-requirements",
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
-    "valueReference": {
-      "reference": "#effective-data-requirements"
-    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-12-patient-view",
   "identifier": [ {
@@ -358,7 +289,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-11-20",
+  "date": "2024-02-05",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should offer or arrange treatment with evidence-based medications to treat patients with opioid use disorder. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks for resuming drug use, overdose, and overdose death.",
   "useContext": [ {
@@ -400,7 +331,7 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf",
     "document": {
       "contentType": "application/pdf",
       "language": "en-US",
@@ -410,7 +341,7 @@
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC12PatientView" ],
   "action": [ {
     "title": "Offer Evidence-based Medications to Treat Patients with Opioid Use Disorder",
-    "description": "For patients diagnosed with opioid use disorder, consider opioid agonist or partial agonist treatment with methadone or buprenorphine maintenance therapy. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks of resuming drug use, overdose, and overdose death. \r\n\r\nFor guidance regarding diagnosing and treating opioid use disorder, see [Recommendation 12 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Implementation%20Considerations,-Although%20stigma%20can).\r\n\r\n[CDC recommends against releasing patients from care due to diagnosis of opioid use disorder](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=opioid%20use%20disorder.-,Clinicians%20should%20not%20dismiss%20patients%20from%20their%20practice%20because%20of%20opioid%20use%20disorder%20because%20this%20can%20adversely%20affect%20patient%20safety.,-Medication%20treatment%20of).\r\n\r\n[MME conversion factors should not be applied to dosage decisions related to the management of opioid use disorder](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=These%20conversion%20factors%20should%20not%20be%20applied%20to%20dosage%20decisions%20related%20to%20the%20management%20of%20opioid%20use%20disorder.).\r\n\r\n[Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#:~:text=Do%20not%20use%20the,variability%20in%20opioid%20pharmacokinetics.). Consult the FDA approved product labeling for specific guidance on medications.",
+    "description": "For patients diagnosed with opioid use disorder, consider opioid agonist or partial agonist treatment with methadone or buprenorphine maintenance therapy. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks of resuming drug use, overdose, and overdose death. \r\n\r\nFor guidance regarding diagnosing and treating opioid use disorder, see [Recommendation 12 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Implementation%20Considerations,-Although%20stigma%20can).\r\n\r\n[CDC recommends against releasing patients from care due to diagnosis of opioid use disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=opioid%20use%20disorder.-,Clinicians%20should%20not%20dismiss%20patients%20from%20their%20practice%20because%20of%20opioid%20use%20disorder%20because%20this%20can%20adversely%20affect%20patient%20safety.,-Medication%20treatment%20of).\r\n\r\n[MME conversion factors should not be applied to dosage decisions related to the management of opioid use disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=These%20conversion%20factors%20should%20not%20be%20applied%20to%20dosage%20decisions%20related%20to%20the%20management%20of%20opioid%20use%20disorder.).\r\n\r\n[Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Do%20not%20use%20the,variability%20in%20opioid%20pharmacokinetics.). Consult the FDA approved product labeling for specific guidance on medications.",
     "priority": "urgent",
     "documentation": [ {
       "type": "documentation",

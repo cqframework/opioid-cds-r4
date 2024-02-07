@@ -9,11 +9,10 @@
     "valueCode": "cds"
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-configurationEndpoint",
-    "extension": [ {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-supportPost",
-      "valueBoolean": true
-    } ],
     "valueUri": "http://example.com/fhir"
+  }, {
+    "url" : "http://hl7.org/fhir/StructureDefinition/cqf-endpointSupportsPost",
+    "valueBoolean" : true
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-configurationFor",
     "valueCanonical": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-order-sign"
@@ -100,19 +99,16 @@
     } ],
     "type": "Observation",
     "codeFilter": [ {
-      "path": "category",
       "searchParam": "category",
       "code": [ {
         "system": "http://terminology.hl7.org/CodeSystem/observation-category",
         "code": "laboratory"
       } ]
     }, {
-      "path": "code",
       "searchParam": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
     } ],
     "dateFilter": [ {
-      "path": "effective",
       "searchParam": "date",
       "valueDuration": {
         "value": 1,
@@ -154,14 +150,12 @@
     } ],
     "type": "MedicationRequest",
     "codeFilter": [ {
-      "path": "category",
       "searchParam": "category",
       "code": [ {
         "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
         "code": "community"
       } ]
     }, {
-      "path": "status",
       "searchParam": "status",
       "code": [ {
         "code": "active"
@@ -200,7 +194,6 @@
     } ],
     "type": "Condition",
     "codeFilter": [ {
-      "path": "category",
       "searchParam": "category",
       "code": [ {
         "system": "http://terminology.hl7.org/CodeSystem/condition-category",
@@ -213,7 +206,6 @@
         "code": "problem-list-item"
       } ]
     }, {
-      "path": "clinicalStatus",
       "searchParam": "clinical-status",
       "code": [ {
         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
@@ -252,7 +244,6 @@
     } ],
     "type": "Encounter",
     "dateFilter": [ {
-      "path": "effective",
       "searchParam": "date",
       "valueDuration": {
         "value": 1,
@@ -294,7 +285,6 @@
     } ],
     "type": "ServiceRequest",
     "codeFilter": [ {
-      "path": "status",
       "searchParam": "status",
       "code": [ {
         "code": "active"

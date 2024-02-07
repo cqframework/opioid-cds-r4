@@ -78,29 +78,11 @@
       "max": "*",
       "type": "MedicationRequest"
     }, {
-      "name": "Get Summary",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
-    }, {
       "name": "Is Recommendation Applicable?",
       "use": "out",
       "min": 0,
       "max": "1",
       "type": "boolean"
-    }, {
-      "name": "Get Detail",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
-    }, {
-      "name": "Get Indicator",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
     } ],
     "dataRequirement": [ {
       "type": "Medication",
@@ -188,28 +170,13 @@
       "valueString": "OpioidCDSREC03"
     }, {
       "url": "name",
-      "valueString": "Get Summary"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'When Initiating Opioid Therapy, Utilize Immediate Release Opioids'\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 0
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
-    }, {
-      "url": "name",
       "valueString": "Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions"
     }, {
       "url": "statement",
       "valueString": "define \"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  ( Common.\"Is Opioid Analgesic with Ambulatory Misuse Potential?\"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription\n    where Routines.\"Is Subacute or Chronic Pain Prescription?\"( AmbulatoryOpioidPrescription )\n      and AmbulatoryOpioidPrescription.medication in Common.\"Extended release opioid with ambulatory misuse potential\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 1
+      "valueInteger": 0
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -224,7 +191,7 @@
       "valueString": "define \"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential\":\n  exists( \"Chronic Pain Extended Release Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 2
+      "valueInteger": 1
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -239,7 +206,7 @@
       "valueString": "define \"Patient Age Less Than 18\":\n  if (Config.\"Age Less than 18 Years Is Enabled\") then\n    AgeInYearsAt(Today()) < 18\n  else\n    false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 3
+      "valueInteger": 2
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -254,7 +221,7 @@
       "valueString": "define \"Condition Positive for Sickle Cell\":\n      if (Config.\"Sickle Cell Check Enabled\") then\n        exists(\n            Common.\"Positive Sickle Cell Condition\"\n        )  else\n        false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 4
+      "valueInteger": 3
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -269,7 +236,7 @@
       "valueString": "// 3. Medications indicating end of life\n    /* or exists (\n      \"Medications Indicating End of Life\"\n    ) */\ndefine \"US Core-Categorized Conditions\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"]\n    union [Condition: category in \"Problem List Condition Category\"]\n    union [Condition: category in \"US Core Health Concern Condition Category\"]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 5
+      "valueInteger": 4
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -284,7 +251,7 @@
       "valueString": "define \"Conditions Indicating End Of Life Present\":\n  exists (\n    Common.\"US Core-Categorized Conditions\" LLEC\n      where LLEC.code in Common.\"Limited life expectancy conditions\"\n        and LLEC.clinicalStatus in Common.\"Active Condition\"\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 6
+      "valueInteger": 5
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -299,7 +266,7 @@
       "valueString": "define \"Service Requests\":\n   [ServiceRequest] SR\n    return SR"
     }, {
       "url": "displaySequence",
-      "valueInteger": 7
+      "valueInteger": 6
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -314,7 +281,7 @@
       "valueString": "/*\n**  Routine #1\n**  Opioid Review Useful Routine\n**\n**  Definition              | Answer to Proceed   | Details                                      | Data (Terminology) Requirement\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Age < 18 years?         | No                  | Calculate age from date of birth; exclude    | Date of birth\n**                          |                     | patients with age less than 18 years at the  |\n**                          |                     | time of the prescription                     |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Evidence of             | No                  | Look for documented findings consistent      | Sickle cell disease conditions\n**  sickle cell disease?    |                     | with those listed in the sickle cell         |\n**                          |                     | value set                                    |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Limited life            | No                  | Look for documented findings consistent      | Limited life expectancy conditions\n**  expectancy conditions   |                     | with those listed in the limited life        |\n**  present?                |                     | expectancy value set (terminal illness, bad  |\n**                          |                     | prognosis, pre-terminal)                     |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Order for therapies     | No                  | Look for patients with an existing order for | Therapies indicating end of life care\n**  indicating end of life  |                     | therapies indicating end of life care        |\n**  care in past 90 days?   |                     | written within past 90 days                  |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Active cancer           | No                  | See sub-routine 3                            | See sub-routine 3\n**  treatment?              |                     |                                              |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Conditions Likely       | No                  | Look for patients with active conditions in  | Conditions likely terminal for opioid\n**  Terminal for opioid     |                     | the value set end-of-life-conditions         | prescribing\n**  prescribing present?    |                     |                                              |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**\n*/\ndefine \"Palliative Care Lookback Period\":\n  Interval[Today() - 90 days, Today()]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 8
+      "valueInteger": 7
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -329,7 +296,7 @@
       "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 9
+      "valueInteger": 8
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -344,7 +311,7 @@
       "valueString": "define \"Is Active Cancer Treatment?\":\n  if (Config.\"Active Cancer Treatment Encounters Condition Is Enabled\") then\n      \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n    else\n      false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 10
+      "valueInteger": 9
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -359,7 +326,7 @@
       "valueString": "define \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions likely terminal for opioid prescribing\"\n          and EOLC.clinicalStatus in Common.\"Active Condition\"\n    )\n  else\n    false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 11
+      "valueInteger": 10
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -374,7 +341,7 @@
       "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Conditions Indicating End Of Life Present\"\n    and not \"Order For Palliative Care In Past 90 Days\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 12
+      "valueInteger": 11
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -389,7 +356,7 @@
       "valueString": "define \"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\":\n    if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n      exists (\"Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    else\n      false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 13
+      "valueInteger": 12
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -404,7 +371,7 @@
       "valueString": "define \"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\":\n  if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n    exists (\"Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")\n  else\n    false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 14
+      "valueInteger": 13
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -419,7 +386,7 @@
       "valueString": "// NOTE: MedicationStatement-dependent logic comment out due to bug in Publisher not supporting MedicationStatement in AllTypes.\ndefine \"Is Opioid Naive?\":\n    not (\"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    /* and not (\"Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days\") */\n    and not (\"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 15
+      "valueInteger": 14
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -434,7 +401,7 @@
       "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Extended Release Opioid Analgesic with Ambulatory Misuse Potential\"\n      and Routines.\"Is Opioid Review Useful?\"\n      and Routines.\"Is Opioid Naive?\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 16
+      "valueInteger": 15
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -449,7 +416,7 @@
       "valueString": "define \"Conditions Indicating End of Life or With Limited Life Expectancy\":\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Conditions likely terminal for opioid prescribing\"\n        and C.clinicalStatus in \"Active Condition\"\n  )\n  union\n  (\n    \"US Core-Categorized Conditions\" C\n      where C.code in \"Limited life expectancy conditions\"\n        and C.clinicalStatus in \"Active Condition\"\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 17
+      "valueInteger": 16
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -464,7 +431,7 @@
       "valueString": "define \"Admitted/Referred/Discharged to Hospice Care\":\n  (\n    [Procedure: code in \"Hospice Procedure Codes\"] P\n      where P.status.value in { 'in-progress', 'completed' }\n  )\n  union\n  (\n    \"Service Requests\" SR\n      where SR.code in \"Hospice Procedure Codes\"\n        and SR.status.value in { 'active', 'completed' }\n  )\n  union\n  (\n    if (Config.\"Hospice Findings Exclusion Enabled\") then\n      [Observation: code in \"Hospice Finding Codes\"] O\n        where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })\n    else\n      {}\n  )\n  union\n  (\n    [Encounter] E\n      where date from E.period.start 1 year or less on or before Today()\n        and (\n          if E.hospitalization.dischargeDisposition.coding is null\n              or not exists (E.hospitalization.dischargeDisposition.coding)\n            then false\n          else E.hospitalization.dischargeDisposition in \"Hospice Disposition\"\n        )\n        and E.status.value in { 'planned', 'arrived', 'in-progress', 'finished', 'onleave' }\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 18
+      "valueInteger": 17
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -479,7 +446,7 @@
       "valueString": "define \"End of Life Assessment\":\n    // 1. Conditions indicating end of life or with limited life expectancy\n    exists (\n      \"Conditions Indicating End of Life or With Limited Life Expectancy\"\n    )\n    // 2. Admitted/referred/discharged to hospice care\n    or exists (\n      \"Admitted/Referred/Discharged to Hospice Care\"\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 19
+      "valueInteger": 18
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -494,7 +461,7 @@
       "valueString": "define \"Exclusion Criteria\":\n  Common.\"End of Life Assessment\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 20
+      "valueInteger": 19
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -509,44 +476,8 @@
       "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\"\n    and not \"Exclusion Criteria\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 21
+      "valueInteger": 20
     } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
-    }, {
-      "url": "name",
-      "valueString": "Get Detail"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'Recommend prescribing immediate release opioids instead of extended release or long-acting opioids\n\n[For guidance regarding prescribing extended release/ long-acting opioids, see Recommendation 3 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,to%20educate%20their%20patients%20about%20its%20use%20should%20consider%20prescribing%20it.,-Supporting%20Rationale)'\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 22
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC03"
-    }, {
-      "url": "name",
-      "valueString": "Get Indicator"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Indicator\":\n  if \"Is Recommendation Applicable?\"\n    then 'warning'\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 23
-    } ]
-  }, {
-    "id": "effective-data-requirements",
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
-    "valueReference": {
-      "reference": "#effective-data-requirements"
-    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-03",
   "identifier": [ {
@@ -565,7 +496,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-11-20",
+  "date": "2024-02-05",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When starting opioid therapy for acute, subacute, or chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release and long-acting (ER/LA) opioids.",
   "useContext": [ {
@@ -642,7 +573,7 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf",
     "document": {
       "contentType": "application/pdf",
       "language": "en-US",
@@ -659,7 +590,7 @@
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC03" ],
   "action": [ {
     "title": "When Initiating Opioid Therapy, Utilize Immediate Release Opioids",
-    "description": "Recommend prescribing immediate release opioids instead of extended-release or long-acting opioids\r\n\r\n[For guidance regarding prescribing extended release\/ long-acting opioids, see Recommendation 3 of the 2022 CDC Clinical Practice Guideline](https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation3).",
+    "description": "Recommend prescribing immediate release opioids instead of extended-release or long-acting opioids\r\n\r\n[For guidance regarding prescribing extended release/ long-acting opioids, see Recommendation 3 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation3).",
     "priority": "urgent",
     "documentation": [ {
       "type": "documentation",
