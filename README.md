@@ -44,7 +44,6 @@ Any release for 2022 version will be v2022.#.# and any that are 2016 will be v20
 
 Note: that the "v" prefix is only used in the branch and tag names in git. The actual version will be "2016.#.#"
 
-
 ![branching](diagrams/Branching.svg)
 
 ### IG Publishing
