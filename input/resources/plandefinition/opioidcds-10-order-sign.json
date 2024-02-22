@@ -548,6 +548,11 @@
       "reference": "#effective-data-requirements"
     }
   }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
@@ -1142,7 +1147,7 @@
       "valueString": "Style Header"
     }, {
       "url": "statement",
-      "valueString": "define \"Style Header\":\n  '<style>\\r\\n  .alert-body {\\r\\n    width: 670px;\\r\\n    font-family: segoe-ui, sans-serif;\\r\\n    background-color: #FEFFF1;\\r\\n  }\\r\\n\\r\\n  .details-table {\\r\\n    border-collapse:collapse;\\r\\n    border-style: ridge;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-caption {\\r\\n    border-style: ridge;\\r\\n    border-bottom: none;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-table-header {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-footer-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    font-size: small;\\r\\n  }\\r\\n\\r\\n  .details-table-cell-unexpected {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    color: red;\\r\\n    font-weight: bold;\\r\\n  }\\r\\n\\r\\n  .details-summary {\\r\\n    list-style-type: none;\\r\\n    outline: none;\\r\\n    cursor: pointer;\\r\\n    color: blue;\\r\\n    font-size: small;\\r\\n  }\\r\\n\\r\\n  [open] .details-summary {\\r\\n    position: absolute;\\r\\n    bottom: -1.5em;\\r\\n    left: 0;\\r\\n  }\\r\\n\\r\\n  .details-summary::before {\\r\\n    content: \\\"...show more\\\";\\r\\n  }\\r\\n\\r\\n  [open] .details-summary::before {\\r\\n    content: \\\"show less\\\";\\r\\n  }\\r\\n\\r\\n  .details-details {\\r\\n    display: inline;\\r\\n  }\\r\\n\\r\\n  .more-text {\\r\\n    position: relative;\\r\\n    margin-bottom: 2em;\\r\\n  }\\r\\n<\\/style>'"
+      "valueString": "define \"Style Header\":\n  '<style>\\r\\n  .alert-body {\\r\\n    width: 670px;\\r\\n    font-family: segoe-ui, sans-serif;\\r\\n    background-color: #FEFFF1;\\r\\n  }\\r\\n\\r\\n  .details-table {\\r\\n    border-collapse:collapse;\\r\\n    border-style: ridge;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-caption {\\r\\n    border-style: ridge;\\r\\n    border-bottom: none;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-table-header {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-footer-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    font-size: small;\\r\\n  }\\r\\n\\r\\n  .details-table-cell-unexpected {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    color: red;\\r\\n    font-weight: bold;\\r\\n  }\\r\\n\\r\\n  .more-text {\\r\\n    position: relative;\\r\\n    margin-bottom: 2em;\\r\\n  }\\r\\n  \\r\\n  .more {\\r\\n    display:none;\\r\\n  }\\r\\n\\r\\n  #box .show-more:checked + .more {\\r\\n    display:block;\\r\\n  }\\r\\n<\\/style>'"
     }, {
       "url": "displaySequence",
       "valueInteger": 39
@@ -1322,7 +1327,7 @@
       "valueString": "Details More Info"
     }, {
       "url": "statement",
-      "valueString": "define \"Details More Info\":\n  '<div class=\\\"more-text\\\">Note on false positives<details class=\\\"details-details\\\"><summary class=\\\"details-summary\\\"><\\/summary><br\\/><br\\/>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\\/><br\\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836\\\">http:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836<\\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\\/><br\\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/www.cdc.gov\\/mmwr\\/volumes\\/71\\/rr\\/rr7103a1.htm#Recommendation10\\\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\\/a>.<\\/details><\\/div>'"
+      "valueString": "define \"Details More Info\":\n  '<div id=\\\"box\\\">\\r\\n  <p>Note on false positives...<\\/p>\\r\\n  <input type=\\\"checkbox\\\" class=\\\"show-more\\\"> Show more\\r\\n  <div class=\\\"more\\\">\\r\\n    <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\\/><br\\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836\\\">http:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836<\\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\\/><br\\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/www.cdc.gov\\/mmwr\\/volumes\\/71\\/rr\\/rr7103a1.htm#Recommendation10\\\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\\/a>.<\\/p>\\r\\n  <\\/div>\\r\\n<\\/div>'"
     }, {
       "url": "displaySequence",
       "valueInteger": 51
@@ -1373,9 +1378,10 @@
       "valueInteger": 54
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
-      "reference": "Device/cqf-tooling"
+      "reference": "#effective-data-requirements"
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-order-sign",
@@ -1395,7 +1401,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-02-05",
+  "date": "2024-02-21",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
@@ -1470,7 +1476,7 @@
   "action": [ {
     "prefix": "1.",
     "title": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen",
-    "description": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.\r\n\r\nFor guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should).",
+    "description": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.\r\n\r\nFor guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10).",
     "priority": "urgent",
     "documentation": [ {
       "type": "documentation",

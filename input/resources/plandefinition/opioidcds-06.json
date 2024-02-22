@@ -379,6 +379,12 @@
       "url": "displaySequence",
       "valueInteger": 15
     } ]
+  }, {
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-06",
   "identifier": [ {
@@ -397,7 +403,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-02-05",
+  "date": "2024-02-21",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When opioids are needed for acute pain, clinicians should prescribe no greater quantity than needed for the expected duration of pain severe enough to require opioids.",
   "useContext": [ {
