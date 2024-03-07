@@ -51,10 +51,7 @@ define "Patient had Urine Screening in Last 12 Months":
   exists ("All Opioid or Non-opioid Screenings in Past Year")
 
 define "All Opioid or Non-opioid Screenings in Past Year":
-  [Observation: Common."All Drug Urine Screening"] AllLabs
-    where AllLabs.category in Common."Observation Category Laboratory"
-      and date from AllLabs.effective in day of "Lookback Year"
-      and not ( AllLabs.status.value in { 'unknown', 'entered-in-error', 'cancelled' } )
+  [Observation] 
 
 define "Normalize Active Prescriptions":
   Common."Get MedicationRequest Medication as Code"(Common."Active Medication List")
@@ -121,10 +118,11 @@ define "Cannabinoid Screenings":
   "All Opioid or Non-opioid Screenings in Past Year" AllLabs
     where AllLabs.code in Common."Cannabinoid Urine Tests"
 
-define function "GetRelevantScreenings" (obsList List<Observation>):
+define function "GetRelevantScreenings" (obsList List<FHIR.Observation>):
   obsList LabObservations
      where date from LabObservations.effective in day of "Lookback Year"
        and not (LabObservations.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
+       and StartsWith(Lower(LabObservations.value as FHIR.string), 'pos')
 
 // Returns a text representation of a dateTime using the CQL `ToString` function.
 // @param d - a FHIR dateTime to get text for
@@ -156,31 +154,31 @@ define function GetNegativeScreeningsCount(Screenings List<FHIR.Observation>):
       where DateTimeText(N.effective) > DateTimeText("MostRecent"(GetPositiveScreenings(Screenings)).effective)
   )
 
-define function GetPositiveDates(Screenings List<FHIR.Observation>):
-  (GetPositiveScreenings(Screenings)) PositiveScreenings
-    return DateTimeText(PositiveScreenings.effective)
+// define function GetPositiveDates(Screenings List<FHIR.Observation>):
+//   (GetPositiveScreenings(Screenings)) PositiveScreenings
+//     return DateTimeText(PositiveScreenings.effective)
 
 define function HasPositiveScreeningInLast12Months(Screenings List<FHIR.Observation>, Enabled Boolean):
   if Enabled
     then exists(Screenings Screen where StartsWith(Lower(Screen.value as FHIR.string), 'pos'))
   else false
 
-define function "Get Detail" (isScreeningRecommended Boolean):
-  if isScreeningRecommended
-    then 'Consider the Benefits and Risks of Conducting a Urine Toxicology Screen'
-  else if "Applicable Because of Unexpected Results" 
-    then 'Patient may have unexpected urine toxicology test results in the past year, including:'
-      & GetUnexpectedResultsReport("Cocaine Screenings", 'Cocaine')
-      & GetUnexpectedResultsReport("Opiate Screenings", 'Opiates')
-      & GetUnexpectedResultsReport("PCP Screenings", 'PCP')
-      & GetUnexpectedResultsReport("Fentanyl Screenings", 'Fentanyl')
-      & GetUnexpectedResultsReport("Amphetamine Screenings", 'Amphetamines')
-      & GetUnexpectedResultsReport("Cannabinoid Screenings", 'Cannabinoids')
-      & GetUnexpectedResultsReport("Synthetic Opioid Screenings", 'Synthetic Opioids')
-      & GetUnexpectedResultsReport("Methadone Screenings", 'Methadone')
-      & '<br /><br />Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. For guidance regarding evaluating and addressing unexpected toxicology test results, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10).'
-  else
-      null
+// define function "Get Detail" (isScreeningRecommended Boolean):
+//   if isScreeningRecommended
+//     then 'Consider the Benefits and Risks of Conducting a Urine Toxicology Screen'
+//   else if "Applicable Because of Unexpected Results" 
+//     then 'Patient may have unexpected urine toxicology test results in the past year, including:'
+//       & GetUnexpectedResultsReport("Cocaine Screenings", 'Cocaine')
+//       & GetUnexpectedResultsReport("Opiate Screenings", 'Opiates')
+//       & GetUnexpectedResultsReport("PCP Screenings", 'PCP')
+//       & GetUnexpectedResultsReport("Fentanyl Screenings", 'Fentanyl')
+//       & GetUnexpectedResultsReport("Amphetamine Screenings", 'Amphetamines')
+//       & GetUnexpectedResultsReport("Cannabinoid Screenings", 'Cannabinoids')
+//       & GetUnexpectedResultsReport("Synthetic Opioid Screenings", 'Synthetic Opioids')
+//       & GetUnexpectedResultsReport("Methadone Screenings", 'Methadone')
+//       & '<br /><br />Note: Positive results may be false positives or could indicate the patient is an occasional user or addicted to the substance. For a review regarding interpreting possible false positive urine toxicology results, see https://pubmed.ncbi.nlm.nih.gov/24986836/. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies. For guidance regarding evaluating and addressing unexpected toxicology test results, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10).'
+//   else
+//       null
 
 define function "Get Summary" (isScreeningRecommended Boolean):
   if isScreeningRecommended
@@ -189,113 +187,283 @@ define function "Get Summary" (isScreeningRecommended Boolean):
     then 'Patient May Have Unexpected Toxicology Test Results'
   else null
 
-define function GetUnexpectedResultsReport(Screenings List<FHIR.Observation>, Type String):
-  if Length(Screenings) = 0 then null
-  else if exists GetPositiveScreenings(Screenings)
-    then '<br />*Positive for ' + Type + ': ' +
-    Combine(GetPositiveDates(Screenings), ', ') +
-      (
-        if GetNegativeScreeningsCount(Screenings) > 0
-          then '  (' + ToString(GetNegativeScreeningsCount(Screenings)) +
-          ' negative since)'
-        else ''
-      )
-  else null
+// define function GetUnexpectedResultsReport(Screenings List<FHIR.Observation>, Type String):
+//   if Length(Screenings) = 0 then null
+//   else if exists GetPositiveScreenings(Screenings)
+//     then '<br />*Positive for ' + Type + ': ' +
+//     Combine(GetPositiveDates(Screenings), ', ') +
+//       (
+//         if GetNegativeScreeningsCount(Screenings) > 0
+//           then '  (' + ToString(GetNegativeScreeningsCount(Screenings)) +
+//           ' negative since)'
+//         else ''
+//       )
+//   else null
+
+// define "Positive Dates List":
+//   distinct (
+//     "Positive Screenings List" Screenings
+//       return Screenings.date
+//   )
+
+// define "Details Table Info":
+//   {
+//     ingredient: 'Cocaine',
+//     screenings: (
+//       ("GetRelevantScreenings"("Cocaine Screenings")) PositiveCocaineScreenInPastYear
+//         return {
+//           date: date from FHIRHelpers.ToDateTime(PositiveCocaineScreenInPastYear.effective as FHIR.dateTime),
+//           detailedIdentifier: PositiveCocaineScreenInPastYear.code.coding.display
+//         }
+//     ) X sort by date desc
+//   }
 
 define "Positive Dates List":
-  distinct ("Positive Screenings List" Screenings
-    return Screenings.date)
+  (distinct flatten (
+   "Details Table Info" Info
+      return Info.screenings.date
+  )) X sort desc
+
+define "Details Table Info":
+  {
+    BuildDetailsInfo('Amphetamine', "GetRelevantScreenings"("Amphetamine Screenings")),
+    BuildDetailsInfo('Cannabinoid', "GetRelevantScreenings"("Cannabinoid Screenings")),
+    BuildDetailsInfo('Cocaine', "GetRelevantScreenings"("Cocaine Screenings")),
+    BuildDetailsInfo('Fentanyl', "GetRelevantScreenings"("Fentanyl Screenings")),
+    BuildDetailsInfo('Methadone', "GetRelevantScreenings"("Methadone Screenings")),
+    BuildDetailsInfo('Opiate', "GetRelevantScreenings"("Opiate Screenings")),
+    BuildDetailsInfo('PCP', "GetRelevantScreenings"("PCP Screenings")),
+    BuildDetailsInfo('Synthetic Opioid', "GetRelevantScreenings"("Synthetic Opioid Screenings"))
+  }
+
+define function BuildDetailsInfo(SimpleIngredientIdentifier String, PositiveScreeningsInPastYear List<FHIR.Observation>):
+  {
+    ingredient: SimpleIngredientIdentifier,
+    screenings: (
+      PositiveScreeningsInPastYear Screening
+        return {
+          date: date from FHIRHelpers.ToDateTime(Screening.effective as FHIR.dateTime),
+          detailedIdentifier: Screening.code.coding.display
+        }
+    ) X sort by date desc
+  }
+
+// define "Random Symbols":
+//   {'⌀', '∀', '∞', '∃', '∇', '^', '∫', '∝'}
+
+define "Unexpected Rows":
+  "Details Table Info" Info
+    let count: IndexOf("Details Table Info", Info)
+    return all (
+      "Table Row Start" + "Table Cell Normal Start" + Info.ingredient + "Table Cell End" +
+      Combine(
+        "Positive Dates List" positiveDate
+          return all (
+            if Info.screenings.date contains positiveDate
+              then "Table Cell Unexpected Start" + 'pos' + "Table Cell End"
+            else "Table Cell Normal Start" + 'neg' + "Table Cell End"
+          )
+      )
+      + "Table Row End"
+    )
+
+// define "Table Footer Start":
+//   if Count = 0 then '' else '<tfoot>'
+
+// define "Table Footer Rows":
+//   "Details Table Info" Info
+//     let count: 0
+//     return (
+//       if exists (Info.screenings.detailedIdentifier)
+//         then '<tr>' + '<td>' + ToString(count+1) + '- ' + Info.screenings.detailedIdentifier.value
+//       else ''
+//     )
+
+// define "Table Footer":
+//   "Details Table Info" Info
+//     let count: 0
+//     return (
+//       if Count = 0
+//         then ''
+//       else (
+//         if exists (Info.screenings.detailedIdentifier)
+//           then '<tfoot>' + Info.screenings.detailedIdentifier
+//       )
+//     )
+
+// define "Positive Dates List":
+//   (distinct flatten (
+//     "Positive Screenings List" Screenings
+//       return Screenings.dates
+//   )) X sort asc
+
+define function GetPositiveDates(Screenings List<Observation>):
+  Screenings Screening
+    where StartsWith(Lower(Screening.value as FHIR.string), 'pos')
+    return (date from FHIRHelpers.ToDateTime(Screening.effective as FHIR.dateTime)) sort asc
+
+define "Positive Cocaine Screenings": GetPositiveDates("Cocaine Screenings")
+
+define "Positive PCP Screenings": GetPositiveDates("PCP Screenings")
+
+define "Positive Cannabinoid Screenings": GetPositiveDates("Cannabinoid Screenings")
+
+define "Positive Amphetamine Screenings": GetPositiveDates("Amphetamine Screenings")
+
+define "Positive Methadone Screenings": GetPositiveDates("Methadone Screenings")
+
+define "Positive Opiate Screenings": 
+  if Config."Opiate Urine Screening Check Enabled" 
+    then GetPositiveDates("Opiate Screenings")
+  else null
+
+define "Positive Synthetic Opioid Screenings": 
+  if Config."Opiate Urine Screening Check Enabled" 
+    then GetPositiveDates("Synthetic Opioid Screenings")
+  else null
+
+define "Positive Fentanyl Screenings": 
+  if Config."Opiate Urine Screening Check Enabled" 
+    then GetPositiveDates("Fentanyl Screenings")
+  else null
 
 define "Positive Screenings List":
-  (
-    (
-    "Cocaine Screenings" CocaineScreening
-      where StartsWith(Lower(CocaineScreening.value as FHIR.string), 'pos')
-      return {
+  {
+    ( {
         ingredient: 'Cocaine',
-        date: date from FHIRHelpers.ToDateTime(CocaineScreening.effective as FHIR.dateTime)
-      }
-    ) union (
-      "PCP Screenings" PCPScreening
-        where StartsWith(Lower(PCPScreening.value as FHIR.string), 'pos')
-        return {
-          ingredient: 'PCP',
-          date: date from FHIRHelpers.ToDateTime(PCPScreening.effective as FHIR.dateTime)
-        }
-    ) union (
-      "Cannabinoid Screenings" THCScreening
-        where StartsWith(Lower(THCScreening.value as FHIR.string), 'pos')
-        return {
-          ingredient: 'Cannabinoid',
-          date: date from FHIRHelpers.ToDateTime(THCScreening.effective as FHIR.dateTime)
-        }
-    ) union (
-      if Config."Opiate Urine Screening Check Enabled" 
-        then (
-          "Opiate Screenings" OpiateScreening
-            where StartsWith(Lower(OpiateScreening.value as FHIR.string), 'pos')
-            return {
-              ingredient: 'Opiate',
-              date: date from FHIRHelpers.ToDateTime(OpiateScreening.effective as FHIR.dateTime)
-            }
-        )
-      else null
-    ) union (
-      if Config."Opiate Urine Screening Check Enabled" 
-        then (
-          "Synthetic Opioid Screenings" SyntheticOpioidScreening
-            where StartsWith(Lower(SyntheticOpioidScreening.value as FHIR.string), 'pos')
-            return {
-              ingredient: 'Synthetic Opioid',
-              date: date from FHIRHelpers.ToDateTime(SyntheticOpioidScreening.effective as FHIR.dateTime)
-            }
-        )
-      else null
-    ) union (
-      if Config."Opiate Urine Screening Check Enabled" 
-        then (
-          "Fentanyl Screenings" FentanylScreening
-            where StartsWith(Lower(FentanylScreening.value as FHIR.string), 'pos')
-            return {
-              ingredient: 'Fentanyl',
-              date: date from FHIRHelpers.ToDateTime(FentanylScreening.effective as FHIR.dateTime)
-            }
-        )
-      else null
-    ) union (
-      "Amphetamine Screenings" AmphetamineScreening
-        where StartsWith(Lower(AmphetamineScreening.value as FHIR.string), 'pos')
-        return {
-          ingredient: 'Amphetamine',
-          date: date from FHIRHelpers.ToDateTime(AmphetamineScreening.effective as FHIR.dateTime)
-        }
-    ) union (
-      "Methadone Screenings" MethadoneScreening
-        where StartsWith(Lower(MethadoneScreening.value as FHIR.string), 'pos')
-        return {
-          ingredient: 'Methadone',
-          date: date from FHIRHelpers.ToDateTime(MethadoneScreening.effective as FHIR.dateTime)
-        }
-    )
-  ) X sort by date
-  
+        dates: "Positive Cocaine Screenings"
+      } ), ( {
+        ingredient: 'PCP',
+        dates: "Positive PCP Screenings"
+      } ), ( {
+        ingredient: 'Cannabinoid',
+        dates: "Positive Cannabinoid Screenings"
+      } ), ( {
+        ingredient: 'Amphetamine',
+        dates: "Positive Amphetamine Screenings"
+      } ), ( {
+        ingredient: 'Methadone',
+        dates: "Positive Methadone Screenings"
+      } ), ( {
+        ingredient: 'Opiate',
+        dates: "Positive Opiate Screenings"
+      } ), ( {
+        ingredient: 'Synthetic Opioid',
+        dates: "Positive Synthetic Opioid Screenings"
+      } ), ( {
+        ingredient: 'Fentanyl',
+        dates: "Positive Fentanyl Screenings"
+      } )
+  }
+
+// define "Unexpected Rows":
+//   "Positive Screenings List" Screenings
+//     return all (
+//       "Table Row Start" + "Table Cell Normal Start" + Screenings.ingredient + "Table Cell End" +
+//       Combine(
+//         "Positive Dates List" positiveDate
+//           return all (
+//             if Screenings.dates contains positiveDate
+//               then "Table Cell Unexpected Start" + 'pos' + "Table Cell End"
+//             else "Table Cell Normal Start" + 'neg' + "Table Cell End"
+//           )
+//       )
+//       + "Table Row End"
+//     )
+
+// define "Positive Screenings List":
+//   (
+//     (
+//     "Cocaine Screenings" CocaineScreening
+//       where StartsWith(Lower(CocaineScreening.value as FHIR.string), 'pos')
+//       return {
+//         ingredient: 'Cocaine',
+//         date: date from FHIRHelpers.ToDateTime(CocaineScreening.effective as FHIR.dateTime)
+//       }
+//     ) union (
+//       "PCP Screenings" PCPScreening
+//         where StartsWith(Lower(PCPScreening.value as FHIR.string), 'pos')
+//         return {
+//           ingredient: 'PCP',
+//           date: date from FHIRHelpers.ToDateTime(PCPScreening.effective as FHIR.dateTime)
+//         }
+//     ) union (
+//       "Cannabinoid Screenings" THCScreening
+//         where StartsWith(Lower(THCScreening.value as FHIR.string), 'pos')
+//         return {
+//           ingredient: 'Cannabinoid',
+//           date: date from FHIRHelpers.ToDateTime(THCScreening.effective as FHIR.dateTime)
+//         }
+//     ) union (
+//       if Config."Opiate Urine Screening Check Enabled" 
+//         then (
+//           "Opiate Screenings" OpiateScreening
+//             where StartsWith(Lower(OpiateScreening.value as FHIR.string), 'pos')
+//             return {
+//               ingredient: 'Opiate',
+//               date: date from FHIRHelpers.ToDateTime(OpiateScreening.effective as FHIR.dateTime)
+//             }
+//         )
+//       else null
+//     ) union (
+//       if Config."Opiate Urine Screening Check Enabled" 
+//         then (
+//           "Synthetic Opioid Screenings" SyntheticOpioidScreening
+//             where StartsWith(Lower(SyntheticOpioidScreening.value as FHIR.string), 'pos')
+//             return {
+//               ingredient: 'Synthetic Opioid',
+//               date: date from FHIRHelpers.ToDateTime(SyntheticOpioidScreening.effective as FHIR.dateTime)
+//             }
+//         )
+//       else null
+//     ) union (
+//       if Config."Opiate Urine Screening Check Enabled" 
+//         then (
+//           "Fentanyl Screenings" FentanylScreening
+//             where StartsWith(Lower(FentanylScreening.value as FHIR.string), 'pos')
+//             return {
+//               ingredient: 'Fentanyl',
+//               date: date from FHIRHelpers.ToDateTime(FentanylScreening.effective as FHIR.dateTime)
+//             }
+//         )
+//       else null
+//     ) union (
+//       "Amphetamine Screenings" AmphetamineScreening
+//         where StartsWith(Lower(AmphetamineScreening.value as FHIR.string), 'pos')
+//         return {
+//           ingredient: 'Amphetamine',
+//           date: date from FHIRHelpers.ToDateTime(AmphetamineScreening.effective as FHIR.dateTime)
+//         }
+//     ) union (
+//       "Methadone Screenings" MethadoneScreening
+//         where StartsWith(Lower(MethadoneScreening.value as FHIR.string), 'pos')
+//         return {
+//           ingredient: 'Methadone',
+//           date: date from FHIRHelpers.ToDateTime(MethadoneScreening.effective as FHIR.dateTime)
+//         }
+//     )
+//   ) X sort by date
+
 define "Get Unexpected Details Table":
   Common."Style Header" + "Unexpected Div Start" + "Table Start" + Combine("Table Columns") + "Table Row End" + Combine("Unexpected Rows") + "Table End" + "Details More Info" + "Unexpected Div End"
 
-define "Unexpected Rows":
-  "Positive Screenings List" Screenings
-    return (
-      "Table Row Start" + "Table Cell Normal Start" + Screenings.ingredient + "Table Cell End"
-      + (
-        (IndexOf("Positive Dates List", Screenings.date)) Idx 
-          return (
-            if Idx = -1
-              then "Table Cell Normal Start" + 'neg' + "Table Cell End"
-            else "Table Cell Unexpected Start" + 'pos' + "Table Cell End"
-          )
-      ) + "Table Row End"
-    )
-    
+// define "Get Unexpected Details Table":
+//   Common."Style Header" + "Unexpected Div Start" + "Table Start" + Combine("Table Columns") + "Table Row End" + Combine("Unexpected Rows") + "Table End" + "Details More Info" + "Unexpected Div End"
+
+// define "Unexpected Rows":
+//   "Positive Screenings List" Screenings
+//     return (
+//       "Table Row Start" + "Table Cell Normal Start" + Screenings.ingredient + "Table Cell End"
+//       + (
+//         (IndexOf("Positive Dates List", Screenings.date)) Idx 
+//           return (
+//             if Idx = -1
+//               then "Table Cell Normal Start" + 'neg' + "Table Cell End"
+//             else "Table Cell Unexpected Start" + 'pos' + "Table Cell End"
+//           )
+//       ) + "Table Row End"
+//     )
+
 define "Table Cell End":
   '<\/td>'
 
@@ -315,8 +483,13 @@ define "Table Columns":
   "Positive Dates List" Dates
     return '<th class=\"details-table-header\">' + ToString(Dates) + '<\/th>'
 
+// define "Table Columns":
+//   "Positive Dates List" Dates
+//     return '<th class=\"details-table-header\">' + ToString(Dates) + '<\/th>'
+
 define "Unexpected Div Start":
   '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year, including:<\/p><\/div>'
+
 define "Unexpected Div End":
   '</div>'
 
@@ -328,3 +501,15 @@ define "Table End":
 
 define "Details More Info":
   '<div id=\"box\">\r\n  <p>Note on false positives...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n    <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p>\r\n  <\/div>\r\n<\/div>'
+
+/* 
+
+The details table should provide the following information:
+  * Unexpected results
+    * Includes positive toxicology results for an unprescribed medication from the following list: Amphetamine, Cannabinoid, Cocaine, Fentanyl, Methadone, Opiate, PCP, Synthetic Opioid
+    * Includes negative toxicology results for prescribed medications where the lab falls within the expected supply duration for a medication (detect diversion and/or misuse)
+    * The unexpected result will be displayed in bold red text with either an "*" or "**" with a footnote explaining the asterisk meaning
+      * "*" denotes positive toxicology results for unprescribed medications
+      * "**" denotes negative toxicology results for prescribed medications
+
+*/
