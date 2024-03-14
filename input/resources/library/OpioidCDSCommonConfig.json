@@ -5,6 +5,56 @@
     "status": "generated",
     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">library-OpioidCDSCommonConfig</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"> logic-library </td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">2022.1.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library OpioidCDSCommonConfig version '2022.1.0'\n\n// Opioid Review Useful\ndefine &quot;Age Less than 18 Years Is Enabled&quot;:\n  true\n\n// Opioid Review Useful\ndefine &quot;End-Stage Disease Criteria Enabled&quot;:\n  true\n\n// Active Cancer Treatment\ndefine &quot;Active Cancer Treatment Encounters Condition Is Enabled&quot;:\n  true\n\n// Opioid Naive\ndefine &quot;Opioid Naive Prescription Condition Is Enabled&quot;:\n  true\n\n// Opioid Naive\ndefine &quot;Opioid Naive Report Condition Is Enabled&quot;:\n  true\n\n// Opioid Naive\ndefine &quot;Opioid Naive Dispense Condition Is Enabled&quot;:\n  true\n\n// Recommendation 2\ndefine &quot;Opioid Treatment Plan Verification Enabled&quot;:\n  true\n\n// Recommendation 3\ndefine &quot;Opioid Harms &amp; Risks Discussion in Past 90 Days Criteria Enabled&quot;:\n  true\n\n// Recommendation 6\ndefine &quot;Order is to Treat Acute Pain Enabled&quot;:\n  true\n\n// Recommendation 8\ndefine &quot;Evidence of Naloxone Enabled&quot;:\n  true\n\n// Recommendation 9\ndefine &quot;PDMP Data Not Reviewed in Past 90 Days Criteria Enabled&quot;:\n  true\n\n// Recommendation 12\ndefine &quot;Evidence Based Treatment Criteria For Opioid Use Disorder&quot;:\n  true\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
   },
+  "contained": [ {
+    "resourceType": "Parameters",
+    "id": "options",
+    "parameter": [ {
+      "name": "translatorVersion",
+      "valueString": "3.5.1"
+    }, {
+      "name": "option",
+      "valueString": "EnableAnnotations"
+    }, {
+      "name": "option",
+      "valueString": "EnableLocators"
+    }, {
+      "name": "option",
+      "valueString": "DisableListDemotion"
+    }, {
+      "name": "option",
+      "valueString": "DisableListPromotion"
+    }, {
+      "name": "format",
+      "valueString": "JSON"
+    }, {
+      "name": "format",
+      "valueString": "XML"
+    }, {
+      "name": "analyzeDataRequirements",
+      "valueBoolean": false
+    }, {
+      "name": "collapseDataRequirements",
+      "valueBoolean": false
+    }, {
+      "name": "compatibilityLevel",
+      "valueString": "1.5"
+    }, {
+      "name": "enableCqlOnly",
+      "valueBoolean": false
+    }, {
+      "name": "errorLevel",
+      "valueString": "Info"
+    }, {
+      "name": "signatureLevel",
+      "valueString": "None"
+    }, {
+      "name": "validateUnits",
+      "valueBoolean": true
+    }, {
+      "name": "verifyOnly",
+      "valueBoolean": false
+    } ]
+  } ],
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
@@ -14,6 +64,11 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
       "reference": "Device/cqf-tooling"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions",
+    "valueReference": {
+      "reference": "#options"
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommonConfig",

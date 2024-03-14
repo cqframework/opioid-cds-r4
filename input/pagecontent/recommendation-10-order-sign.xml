@@ -39,7 +39,7 @@
     {% include recommendation10-data-elements-order-sign.html %}
   </details>
   <p></p>
-  <a href="PlanDefinition-opioidcds-10.html#effective-data-requirements">Effective Data Requirements</a>
+  <a href="PlanDefinition-opioidcds-10-order-sign.html#effective-data-requirements">Effective Data Requirements</a>
   <p></p>
   <details class="tree-nav__item is-expandable">
     <summary class="tree-nav__item-title">
@@ -75,12 +75,12 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="PlanDefinition-opioidcds-10.html">2022 CDC Clinical Practice Guideline Recommendation #10 Order Sign</a></td>
+          <td><a href="PlanDefinition-opioidcds-10-order-sign.html">2022 CDC Clinical Practice Guideline Recommendation #10 Order Sign</a></td>
           <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
           <td>Event-Condition-Action rule that implements behavior for 2022 CDC Clinical Practice Guideline Recommendation #10 Order Sign</td>
         </tr>
         <tr>Sign
-          <td><a href="Library-OpioidCDSREC10.html">Recommendation #10 Order Sign - urine drug testing when prescribing opioids for subacute or chronic pain</a></td>
+          <td><a href="Library-OpioidCDSREC10OrderSign.html">Recommendation #10 Order Sign - urine drug testing when prescribing opioids for subacute or chronic pain</a></td>
           <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
           <td>Defines the data requirements to support evaluation of recommendation #10 Order Sign</td>
         </tr>

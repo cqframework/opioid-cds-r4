@@ -1,6 +1,6 @@
 #!/bin/bash
 #DO NOT EDIT WITH WINDOWS
-tooling_jar=tooling-cli-2.4.0-SNAPSHOT.jar
+tooling_jar=tooling-cli-2.5.0.jar
 # tooling_jar=tooling-1.4.1-SNAPSHOT-jar-with-dependencies.jar
 input_cache_path=$PWD/input-cache
 patient_data_bundles=$PWD/input/examples

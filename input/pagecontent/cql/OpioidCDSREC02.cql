@@ -99,36 +99,3 @@ define "Inclusion Criteria":
 
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
-
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'Maximize Nonopioid Therapies as Appropriate'
-  else null
-
-define "Get Detail":
-  if "Is Recommendation Applicable?"
-  then 
-    'For many types of subacute and chronic pain, consider maximizing the use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate. Consult Recommendation 2 of the 2022 CDC Clinical Practice Guideline for nonopioid therapy recommendations.
-    
-**Nonopioid Pharmacological Therapy**
-
-- [Back pain (chronic, moderate to severe)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=For%20moderate%20to%20severe%20chronic%20back%20pain%20or%20hip%20or%20knee%20osteoarthritis%20pain%2C%20a%20nonopioid%20strategy%20starting%20with%20acetaminophen%20or%20NSAIDs%20results%20in%20improved%20pain%20intensity%20with%20fewer%20side%20effects%20compared%20with%20a%20strategy%20starting%20with%20opioids%20(74))
-- [Fibromyalgia](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=In%20patients%20with%20fibromyalgia%2C%20multiple,effectiveness%20is%20limited%20(8).)
-- [Hip or knee osteoarthritis pain (chronic)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=or%20hip%20or%20knee%20osteoarthritis%20pain%2C%20a%20nonopioid%20strategy%20starting%20with%20acetaminophen%20or%20NSAIDs%20results%20in%20improved%20pain%20intensity%20with%20fewer%20side%20effects%20compared%20with%20a%20strategy%20starting%20with%20opioids%20(74).)
-- [Neuropathic pain syndromes](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Tricyclic%20antidepressants%2C%20SNRI%20antidepressants%2C%20selected%20anticonvulsants%2C%20or%20transdermal%20lidocaine%20are%20recommended%20for%20neuropathic%20pain%20syndromes%20(e.g.%2C%20diabetic%20neuropathy%20or%20postherpetic%20neuralgia)%20(156).)
-- [Temporomandibular disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=For%20temporomandibular%20disorder%20pain%20that%20is%20not%20sufficiently%20improved%20with%20nonpharmacologic%20interventions%2C%20NSAIDs%20can%20be%20effective%20(179%2C180).)
-
-**Nonpharmacologic Treatments**
-- [Back pain (chronic)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20recommend%20appropriate%20noninvasive%20nonpharmacologic%20approaches%20to%20help%20manage%20chronic%20pain%2C%20such%20as%20exercise%20(e.g.%2C%20aerobic%2C%20aquatic%2C%20or%20resistance%20exercises)%20or%20exercise%20therapy%20(a%20prominent%20modality%20in%20physical%20therapy)%20for%20back%20pain)
-- [Back pain (low back, chronic)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=loss%20for%20knee%20osteoarthritis%3B%20manual%20therapies%20for%20hip%20osteoarthritis%3B-,psychological%20therapy%2C%20spinal%20manipulation%2C%20low%2Dlevel%20laser%20therapy%2C%20massage%2C%20mindfulness%2Dbased%20stress%20reduction%2C%20yoga%2C%20acupuncture%2C%20and%20multidisciplinary%20rehabilitation%20for%20low%20back%20pain,-%3B%20mind%2Dbody%20practices%20(e.g.%2C%20yoga%2C%20tai%20chi%2C%20or)
-- [Fibromyalgia](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=massage%2C%20and%20acupuncture%20for%20neck%20pain%3B%20cognitive-,behavioral%20therapy%2C%20myofascial%20release%20massage%2C%20mindfulness%20practices%2C%20tai%20chi%2C%20qigong%2C%20acupuncture%2C%20and%20multidisciplinary%20rehabilitation%20for%20fibromyalgia,-%3B%20and%20spinal%20manipulation%20for%20tension%20headache%20()
-- [Headache (tension)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=and%20spinal%20manipulation%20for%20tension%20headache.)
-- [Knee osteoarthritis pain (chronic)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Many%20noninvasive%20nonpharmacologic,for%20hip%20osteoarthritis%3B)
-- [Neck pain](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=mind%2Dbody%20practices%20(e.g.%2C%20yoga%2C%20tai%20chi%2C%20or%20qigong)%2C%20massage%2C%20and%20acupuncture%20for%20neck%20pain%3B)
-- [Temporomandibular disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=For%20temporomandibular%20disorder%20pain%2C%20patient%20education%20and%20self%2Dcare%20can%20be%20effective%2C%20as%20can%20occlusal%20splints%20for%20some%20patients%20and%20biobehavioral%20therapy%20for%20prevention%20of%20disabling%20symptoms%20(172%2C173).)'
-  else null

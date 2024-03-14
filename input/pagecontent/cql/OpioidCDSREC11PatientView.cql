@@ -10,9 +10,9 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 /*
 **
 **  Recommendation #11
-**    When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits 
-**    and risks of toxicology testing to assess for prescribed medications as well as other prescribed 
-**    and nonprescribed controlled substances (recommendation category: B; evidence type: 4).
+**    Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently 
+**    and consider whether benefits outweigh risks of concurrent prescribing of opioids and other central nervous system 
+**    depressants  (recommendation category: B; evidence type: 3).
 **
 **  When
 **    There exists an active opioid analgesic with ambulatory misuse potential in the outpatient setting or
@@ -41,11 +41,9 @@ context Patient
 
 define "Inclusion Criteria":
   (
-    exists (Common."Active Ambulatory Benzodiazepine Rx")
+    exists (Common."Active Ambulatory Benzodiazepine or CNS Depressant Rx")
       and exists (Common."Active Ambulatory Opioid Rx")
-  )
-    and not Common."Patient Age Less Than 18"
-    and Routines."Is Opioid Review Useful?"
+  ) and Routines."Is Opioid Review Useful?"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
@@ -54,36 +52,21 @@ define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'Patient has active prescriptions for opioid pain medication and benzodiazepines'
-  else null
-
-define "Get Detail":
-  if "Is Recommendation Applicable?"
-    then 'Avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible'
-  else null
-
 // Detected Issue - Avoid prescribing opioid pain medication and benzodiazepines concurrently
 
-define "Concurrent Benzodiazepine Prescription Issue":
-  DetectedIssue {
-    //identifier:,
-    status: FHIR.DetectedIssueStatus { value: 'preliminary' },
-    code: FHIR.CodeableConcept { text: FHIR.string { value: "Get Summary" } },
-    severity: FHIR.DetectedIssueSeverity { value: 'moderate' },
-    patient: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
-    identified: FHIR.dateTime { value: Now() },
-    // TODO: Device representation...
-    // author:,
-    implicated:
-      (Common."Active Ambulatory Benzodiazepine Rx" union Common."Active Ambulatory Opioid Rx") M
-        return FHIR.Reference { reference: FHIR.string { value: 'MedicationRequest/' + M.id } },
-    detail: FHIR.string { value: "Get Detail" },
-    reference: FHIR.uri { value: 'http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-11-patient-view'}
-  }
+// define "Concurrent Benzodiazepine Prescription Issue":
+//   DetectedIssue {
+//     //identifier:,
+//     status: FHIR.DetectedIssueStatus { value: 'preliminary' },
+//     code: FHIR.CodeableConcept { text: FHIR.string { value: "Get Summary" } },
+//     severity: FHIR.DetectedIssueSeverity { value: 'moderate' },
+//     patient: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
+//     identified: FHIR.dateTime { value: Now() },
+//     // TODO: Device representation...
+//     // author:,
+//     implicated:
+//       (Common."Active Ambulatory Benzodiazepine Rx" union Common."Active Ambulatory Opioid Rx") M
+//         return FHIR.Reference { reference: FHIR.string { value: 'MedicationRequest/' + M.id } },
+//     detail: FHIR.string { value: "Get Detail" },
+//     reference: FHIR.uri { value: 'http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-11-patient-view'}
+//   }

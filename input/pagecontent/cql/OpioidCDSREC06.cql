@@ -67,20 +67,3 @@ define "Exclusion Criteria":
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
-
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'When Treating Acute Pain, Prescribe No Greater Quantity Than Needed'
-  else null
-
-  define "Get Detail":
-    if "Is Recommendation Applicable?"
-      then 'Consider a shorter duration for opioid therapy
-
-[For guidance regarding prescribing opioids for acute pain see Recommendation 6 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm)'
-    else null
