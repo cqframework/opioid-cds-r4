@@ -176,6 +176,20 @@ define testUnexpectedRows7:
       + "Table Row End"
     )
 
+define BoolList1: {'neg', 'neg', 'pos', 'neg'}
+define BoolList2: {'neg', 'neg', 'neg', 'pos'}
+
+define ConditionalTest:
+  BoolList1 B1
+    with BoolList2 B2
+      such that B1 = 'pos' or B2 = 'pos'
+        return all {
+          'pos'
+        }
+
+define IntersectTest:
+  {'Codeine [Presence] in Urine', 'Codeine [Presence] in Urine', 'Benzoylecgonine [Presence] in Urine by Confirmatory method'} intersect {'Codeine [Presence] in Urine'}
+
 define "Table Cell Unexpected Start":
   '<td class=\"details-table-cell-unexpected\">'
 

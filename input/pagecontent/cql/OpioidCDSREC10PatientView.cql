@@ -85,10 +85,10 @@ define "Is Perform Drug Screen Recommendation Applicable?":
 
 define "Applicable Because of Unexpected Results":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and Rec10Common."Applicable Because of Unexpected Results"
+    and Rec10Common."Inclusion Criteria For Unexpected Results"
 
 define "Detail":
-  Rec10Common."Get Unexpected Details Table"
+  Rec10Common."Get HTML Details"
 
 // Service Request - Urine Screening
 // Detected Issue - Opioids found in urine screening

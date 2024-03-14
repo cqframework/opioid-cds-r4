@@ -296,8 +296,6 @@ define function "Days on Opioids during Period"(period Interval<Date>):
       return days between start of OpioidUseInterval and end of OpioidUseInterval
   )
 
-
-
 define function GetDurationInDays(value FHIR.Duration):
   if value is null then null
   else
