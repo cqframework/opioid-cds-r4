@@ -59,7 +59,7 @@ define "All Opioid or Non-opioid Screenings in Past Year":
     [Observation: Common."All Drug Urine Screening"] Lab
       where date from Lab.effective in day of "Lookback Year"
         and not (Lab.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
-  ) X sort by effective desc
+  ) X sort by date from FHIRHelpers.ToDateTime(effective as FHIR.dateTime) desc
 
 /*
 @description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS with unexpected results in the past year
@@ -112,7 +112,7 @@ define "Unexpected Negative Results On Latest UDS":
 // HTML Details Response
 
 define "Get HTML Details":
-  Common."Style Header" + "Unexpected Div Start" + "Unexpected Div Details Text" + "Details Table" + "Details More Info" + "Div End"
+  Common."Style Header" + "Unexpected Div Start" + "Unexpected Div Details Text" + "Details More Info" + "Div End"
 
 // Labs and Active Med Expressions
 
@@ -213,23 +213,25 @@ define "All Positive Labs In Past Year":
     union "PCP Screenings" union "Synthetic Opioid Screenings"
 
 define "Positive Lab Dates In Past Year":
-  "All Positive Labs In Past Year" Lab
-    return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)
+  (
+    "All Positive Labs In Past Year" Lab
+      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)
+  ) X sort desc
 
 // Lab Details Structures
 
-define "Unexpected Negative Details":
-  if "Unexpected Negative Results On Latest UDS"
-    then (
-      (First("All Opioid or Non-opioid Screenings in Past Year")) MostRecentLab
-        return {
-          LabDetailsTuple("Fentanyl Simple Identifier", MostRecentLab), 
-          LabDetailsTuple("Opiate Simple Identifier", MostRecentLab),
-          LabDetailsTuple("Opioid Simple Identifier", MostRecentLab), 
-          LabDetailsTuple("Synthetic Opioid Simple Identifier", MostRecentLab)
-        }
-    )
-  else null
+// define "Unexpected Negative Details":
+//   if "Unexpected Negative Results On Latest UDS"
+//     then (
+//       (First("All Opioid or Non-opioid Screenings in Past Year")) MostRecentLab
+//         return {
+//           LabDetailsTuple("Fentanyl Simple Identifier", null), 
+//           LabDetailsTuple("Opiate Simple Identifier", null),
+//           LabDetailsTuple("Opioid Simple Identifier", null), 
+//           LabDetailsTuple("Synthetic Opioid Simple Identifier", null)
+//         }
+//     )
+//   else {}
 
 define "Unexpected Positive Details":
   (
@@ -258,27 +260,40 @@ define "Unexpected Positive Details":
       return LabDetailsTuple("Synthetic Opioid Simple Identifier", SyntheticOpioidScreening)
   )
 
+define "Unexpected Positive Details Combined":
+  {
+    LabDetailsTupleCombined("Amphetamine Simple Identifier", "Amphetamine Screenings"),
+    LabDetailsTupleCombined("Cannabinoid Simple Identifier", "Cannabinoid Screenings"),
+    LabDetailsTupleCombined("Cocaine Simple Identifier", "Cocaine Screenings"),
+    LabDetailsTupleCombined("Fentanyl Simple Identifier", "Fentanyl Screenings"),
+    LabDetailsTupleCombined("Methadone Simple Identifier", "Methadone Screenings"),
+    LabDetailsTupleCombined("Opiate Simple Identifier", "Opiate Screenings"),
+    LabDetailsTupleCombined("PCP Simple Identifier", "PCP Screenings"),
+    LabDetailsTupleCombined("Synthetic Opioid Simple Identifier", "Synthetic Opioid Screenings")
+  }
+
 define "Lab Details":
-  "Unexpected Negative Details" union "Unexpected Positive Details"
+  //"Unexpected Negative Details" union 
+  "Unexpected Positive Details"
 
 // Details Plain-Text Logic 
 
 define "Unexpected Negative Details Text":
   if "Unexpected Negative Results On Latest UDS"
-    then 'Negative Lab results for Opioids on ' + 
+    then '<p>Negative Lab results for Opioids (possible diversion) on ' + 
       ToString(
         date from FHIRHelpers.ToDateTime((First("All Opioid or Non-opioid Screenings in Past Year")).effective as FHIR.dateTime)
-      ) + ' despite the presence of Opioid medications on the active med list'
+      ) + ' despite the presence of Opioid medications on the active med list<\/p>'
   else ''
 
 define "Unexpected Positive Details Text":
   "Unexpected Positive Details" Details
     return (
-      'Positive for ' + Details.ingredient + (
+      '<p>Positive for ' + Details.ingredient + (
         if Details.detailedIdentifier is not null and Details.detailedIdentifier != '' 
           then '(' + Details.detailedIdentifier + ')' 
         else ''
-      ) + ' on ' + ToString(Details.date)
+      ) + ' on ' + ToString(Details.date) + '<\/p>'
     )
 
 define "Details Text":
@@ -302,8 +317,22 @@ define "Details Table":
   "Table Start" + Combine("Table Headers") + Combine("Unexpected Details Table Rows") + "Table End"
 
 define "Unexpected Details Table Rows":
-  "Ingredient List" Ingredient
-    return '<tr>' + GetExpectedColumn(Ingredient) + Combine(GetDetailColumns(Ingredient)) + '<\/tr>'
+  "Lab Details" Details
+      let Count: IndexOf("Lab Details", Details) + 1
+        return '<tr>' + GetExpectedColumn(Details.ingredient) 
+          + Combine(
+            distinct ("Unexpected Positive Details Combined" CombinedDetails 
+              return (
+                if Details.ingredient = CombinedDetails.ingredient
+                  then ResolveDetailColumns(Count, CombinedDetails)
+                else ''
+              ))
+          ) + '<\/tr>'
+
+// define "Unexpected Details Table Rows":
+//   "Lab Details" Details
+//     let Count: IndexOf("Lab Details", Details) + 1
+//     return '<tr>' + GetExpectedColumn(Details.ingredient) + Combine(ResolveDetailColumns(Count, Details)) + '<\/tr>'
 
 // define "Unexpected Positive Details Table":
 //   "Lab Details" Detail
@@ -347,7 +376,7 @@ define "Normalize Active Prescriptions":
 
 define "All Negative":
   "Positive Lab Dates In Past Year" PositiveDate
-    return GetExpectedColumn('neg')
+    return all GetExpectedColumn('neg')
 
 define "Unexpected Div Start":
   '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year, including:<\/p><\/div>'
@@ -367,7 +396,9 @@ define "Table Headers":
     return '<th class=\"details-table-header\">' + ToString(PositiveDate) + '<\/th>'
 
 define "Details More Info":
-  '<div id=\"box\">\r\n  <p>Note on false positives...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n    <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p>\r\n  <\/div>\r\n<\/div>'
+  '<div id=\"box\">\r\n  <p>Note on false positives and tabular data...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n'
+     + "Details Table"
+     +'<p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p>\r\n  <\/div>\r\n<\/div>'
 
 // Functions
 
@@ -376,6 +407,18 @@ define function GetPositiveLabsInPastYear(Labs List<FHIR.Observation>, Enabled B
     then Labs Lab
      where StartsWith(Lower(Lab.value as FHIR.string), 'pos')
   else null
+
+define function LabDetailsTupleCombined(Ingredient String, Labs List<FHIR.Observation>):
+  {
+    ingredient: Ingredient,
+    info: (
+      Labs Lab
+        return {
+          date: date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime),
+          detailedIdentifier: if exists (Lab.code.coding) then Lab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
+        }
+    )
+  }
 
 define function LabDetailsTuple(Ingredient String, Lab FHIR.Observation):
   {
@@ -403,21 +446,45 @@ define function GetExpectedColumn(Content String):
 //         )
 //     ) + '</tr>'
 
-define function GetDetailColumns(Ingredient String):
-  if not ("Lab Details".ingredient contains Ingredient)
-    then "All Negative"
-  else ResolveDetailColumns(Ingredient)
+// define function GetDetailColumns(Ingredient String):
+//   if not ("Lab Details".ingredient contains Ingredient)
+//     then "All Negative"
+//   else ResolveDetailColumns(Ingredient)
 
-define function ResolveDetailColumns(Ingredient String):
-  "Lab Details" Detail
-    let Count: IndexOf("Lab Details", Detail)
-    return Combine(
-      "Positive Lab Dates In Past Year" PositiveDate
-        return (
-          if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and IndexOf("Positive Lab Dates In Past Year", PositiveDate) = 0
-            then GetUnexpectedColumn('neg', '*')
-          else if Detail.ingredient = Ingredient and Detail.date same day as PositiveDate
-            then GetUnexpectedColumn('pos', ToString(Count))
-          else GetExpectedColumn('neg')
-        )
+define function ResolveDetailColumns(Count Integer, Detail Tuple{ingredient String, info List<Tuple{date Date, detailedIdentifier String}>}):
+  "Positive Lab Dates In Past Year" PositiveDate
+    return all (
+      if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and First("Positive Lab Dates In Past Year") = PositiveDate
+        then GetUnexpectedColumn('neg', '*')
+      else if Detail.info.date contains PositiveDate
+        then GetUnexpectedColumn('pos', ToString(Count))
+      else 
+        GetExpectedColumn('neg')
     )
+
+// define function ResolveDetailColumns(Count Integer, Detail Tuple{ingredient String, date Date, detailedIdentifier String}):
+//   "Positive Lab Dates In Past Year" PositiveDate
+//     return all (
+//       if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and First("Positive Lab Dates In Past Year") = PositiveDate
+//         then GetUnexpectedColumn('neg', '*')
+//       else if Detail.date same day as PositiveDate
+//         then GetUnexpectedColumn('pos', ToString(Count))
+//       else 
+//         GetExpectedColumn('neg')
+//     )
+
+// define function ResolveDetailColumns(Ingredient String):
+//   "Lab Details" Detail
+//     let Count: IndexOf("Lab Details", Detail) + 1
+//     return all Combine(
+//       "Positive Lab Dates In Past Year" PositiveDate
+//         return all (
+//           if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and First("Positive Lab Dates In Past Year") = PositiveDate
+//             then GetUnexpectedColumn('neg', '*')
+//           else if Detail.ingredient = Ingredient and Detail.date same day as PositiveDate
+//             then GetUnexpectedColumn('pos', ToString(Count))
+//           else if Detail.ingredient = Ingredient 
+//             then GetExpectedColumn('neg')
+//           else ''
+//         )
+//     )

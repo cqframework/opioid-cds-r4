@@ -870,7 +870,7 @@
       "valueString": "Normalize Active Prescriptions"
     }, {
       "url": "statement",
-      "valueString": "// define \"Unexpected Positive Details Table\":\n//   \"Lab Details\" Detail\n//     let Count: IndexOf(\"Lab Details\", Detail)\n//     return (\n//       case Detail.ingredient\n//         when \"Fentanyl Simple Identifier\"\n//           then if \"Unexpected Negative Results On Latest UDS\"\n//             then GetDetailsTableRow(\"Fentanyl Simple Identifier\", Detail, Count, true)\n//           else GetDetailsTableRow(\"Fentanyl Simple Identifier\", Detail, Count, false)\n//         when \"Opiate Simple Identifier\"\n//           then if \"Unexpected Negative Results On Latest UDS\"\n//             then GetDetailsTableRow(\"Opiate Simple Identifier\", Detail, Count, true)\n//           else GetDetailsTableRow(\"Opiate Simple Identifier\", Detail, Count, false)\n//         when \"Opioid Simple Identifier\"\n//           then if \"Unexpected Negative Results On Latest UDS\"\n//             then GetDetailsTableRow(\"Opioid Simple Identifier\", Detail, Count, true)\n//           else GetDetailsTableRow(\"Opioid Simple Identifier\", Detail, Count, false)\n//         when \"Synthetic Opioid Simple Identifier\"\n//           then if \"Unexpected Negative Results On Latest UDS\"\n//             then GetDetailsTableRow(\"Synthetic Opioid Simple Identifier\", Detail, Count, true)\n//           else GetDetailsTableRow(\"Synthetic Opioid Simple Identifier\", Detail, Count, false)\n//         when \"Amphetamine Simple Identifier\"\n//           then GetDetailsTableRow(\"Amphetamine Simple Identifier\", Detail, Count, false)\n//         when \"Cannabinoid Simple Identifier\"\n//           then GetDetailsTableRow(\"Cannabinoid Simple Identifier\", Detail, Count, false)\n//         when \"Cocaine Simple Identifier\"\n//           then GetDetailsTableRow(\"Cocaine Simple Identifier\", Detail, Count, false)\n//         when \"Methadone Simple Identifier\"\n//           then GetDetailsTableRow(\"Methadone Simple Identifier\", Detail, Count, false)\n//         when \"PCP Simple Identifier\"\n//           then GetDetailsTableRow(\"PCP Simple Identifier\", Detail, Count, false)\n//         else ''\n//       end\n//     )\n\n// Helpers\ndefine \"Normalize Active Prescriptions\":\n  Common.\"Get MedicationRequest Medication as Code\"(Common.\"Active Medication List\")"
+      "valueString": "// Helpers\ndefine \"Normalize Active Prescriptions\":\n  Common.\"Get MedicationRequest Medication as Code\"(Common.\"Active Medication List\")"
     }, {
       "url": "displaySequence",
       "valueInteger": 27
@@ -1242,10 +1242,10 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Unexpected Positive Details"
+      "valueString": "Unexpected Positive Details Combined"
     }, {
       "url": "statement",
-      "valueString": "// Lab Details Structures\n\n// define \"Unexpected Negative Details\":\n//   if \"Unexpected Negative Results On Latest UDS\"\n//     then (\n//       (First(\"All Opioid or Non-opioid Screenings in Past Year\")) MostRecentLab\n//         return {\n//           LabDetailsTuple(\"Fentanyl Simple Identifier\", null), \n//           LabDetailsTuple(\"Opiate Simple Identifier\", null),\n//           LabDetailsTuple(\"Opioid Simple Identifier\", null), \n//           LabDetailsTuple(\"Synthetic Opioid Simple Identifier\", null)\n//         }\n//     )\n//   else {}\ndefine \"Unexpected Positive Details\":\n  (\n    \"Amphetamine Screenings\" AmphetamineScreening\n      return LabDetailsTuple(\"Amphetamine Simple Identifier\", AmphetamineScreening)\n  ) union (\n    \"Cannabinoid Screenings\" CannabinoidScreening\n      return LabDetailsTuple(\"Cannabinoid Simple Identifier\", CannabinoidScreening)\n  ) union (\n    \"Cocaine Screenings\" CocaineScreening\n      return LabDetailsTuple(\"Cocaine Simple Identifier\", CocaineScreening)\n  ) union (\n    \"Fentanyl Screenings\" FentanylScreening\n      return LabDetailsTuple(\"Fentanyl Simple Identifier\", FentanylScreening)\n  ) union (\n    \"Methadone Screenings\" MethadoneScreening\n      return LabDetailsTuple(\"Methadone Simple Identifier\", MethadoneScreening)\n  ) union (\n    \"Opiate Screenings\" OpiateScreening\n      return LabDetailsTuple(\"Opiate Simple Identifier\", OpiateScreening)\n  ) union (\n    \"PCP Screenings\" PCPScreening\n      return LabDetailsTuple(\"PCP Simple Identifier\", PCPScreening)\n  ) union (\n    \"Synthetic Opioid Screenings\" SyntheticOpioidScreening\n      return LabDetailsTuple(\"Synthetic Opioid Simple Identifier\", SyntheticOpioidScreening)\n  )"
+      "valueString": "define \"Unexpected Positive Details Combined\":\n  {\n    LabDetailsTupleCombined(\"Amphetamine Simple Identifier\", \"Amphetamine Screenings\"),\n    LabDetailsTupleCombined(\"Cannabinoid Simple Identifier\", \"Cannabinoid Screenings\"),\n    LabDetailsTupleCombined(\"Cocaine Simple Identifier\", \"Cocaine Screenings\"),\n    LabDetailsTupleCombined(\"Fentanyl Simple Identifier\", \"Fentanyl Screenings\"),\n    LabDetailsTupleCombined(\"Methadone Simple Identifier\", \"Methadone Screenings\"),\n    LabDetailsTupleCombined(\"Opiate Simple Identifier\", \"Opiate Screenings\"),\n    LabDetailsTupleCombined(\"PCP Simple Identifier\", \"PCP Screenings\"),\n    LabDetailsTupleCombined(\"Synthetic Opioid Simple Identifier\", \"Synthetic Opioid Screenings\")\n  }"
     }, {
       "url": "displaySequence",
       "valueInteger": 52
@@ -1260,7 +1260,7 @@
       "valueString": "Unexpected Positive Details Text"
     }, {
       "url": "statement",
-      "valueString": "define \"Unexpected Positive Details Text\":\n  \"Unexpected Positive Details\" Details\n    return (\n      '<p>Positive for ' + Details.ingredient + (\n        if Details.detailedIdentifier is not null and Details.detailedIdentifier != '' \n          then '(' + Details.detailedIdentifier + ')' \n        else ''\n      ) + ' on ' + ToString(Details.date) + '<\\/p>'\n    )"
+      "valueString": "define \"Unexpected Positive Details Text\":\n  \"Unexpected Positive Details Combined\" Details\n    return (\n      if Details.info is not null and First(Details.info).detailedIdentifier is not null and First(Details.info).date is not null\n        then '<p>Positive for ' + Details.ingredient + '(' + First(Details.info).detailedIdentifier + ')' + ' on ' + ToString(First(Details.info).date) + '<\\/p>'\n      else ''\n    )"
     }, {
       "url": "displaySequence",
       "valueInteger": 53
@@ -1362,10 +1362,10 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Lab Details"
+      "valueString": "Unexpected Details Table Rows"
     }, {
       "url": "statement",
-      "valueString": "define \"Lab Details\":\n  //\"Unexpected Negative Details\" union \n  \"Unexpected Positive Details\""
+      "valueString": "define \"Unexpected Details Table Rows\":\n  \"Unexpected Positive Details Combined\" Details\n      let Row: IndexOf(\"Unexpected Positive Details Combined\", Details) + 1\n        return '<tr>' + GetExpectedColumn(Details.ingredient) \n          + Combine(ResolveDetailColumns(Row, Details)) + '<\\/tr>'"
     }, {
       "url": "displaySequence",
       "valueInteger": 60
@@ -1377,10 +1377,10 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Unexpected Details Table Rows"
+      "valueString": "Unexpected Details Footer Rows"
     }, {
       "url": "statement",
-      "valueString": "define \"Unexpected Details Table Rows\":\n  \"Lab Details\" Details\n    let Count: IndexOf(\"Lab Details\", Details) + 1\n    return '<tr>' + GetExpectedColumn(Details.ingredient) + Combine(ResolveDetailColumns(Count, Details)) + '<\\/tr>'"
+      "valueString": "define \"Unexpected Details Footer Rows\":\n  \"Unexpected Positive Details Combined\" Details\n      let Row: IndexOf(\"Unexpected Positive Details Combined\", Details) + 1\n        return Combine(ResolveDetailFooterRows(Row, Details))"
     }, {
       "url": "displaySequence",
       "valueInteger": 61
@@ -1410,7 +1410,7 @@
       "valueString": "Details Table"
     }, {
       "url": "statement",
-      "valueString": "// Details Table Logic\n/*\n  | Urine Toxicology Results                 | - Title\n  -------------------------------------------------------\n  | Substance  | Date 1    | Date 2    | ... | - Header\n  | SubstanceA | pos^1/neg | pos^2/neg | ... | - Row A\n  | SubstanceB | pos^3/neg | pos^4/neg | ... | - Row B\n  | ... |\n  -------------------------------------------------------\n  | 1 - SubstanceA Detailed Identifier       | - Footer\n  | 2 - SubstanceB Detailed Identifier       |\n  | ... |\n*/\ndefine \"Details Table\": \n  \"Table Start\" + Combine(\"Table Headers\") + Combine(\"Unexpected Details Table Rows\") + \"Table End\""
+      "valueString": "// Details Table Logic\n/*\n  | Urine Toxicology Results                 | - Title\n  -------------------------------------------------------\n  | Substance  | Date 1    | Date 2    | ... | - Header\n  | SubstanceA | pos^11/neg | pos^12/neg | ... | - Row A\n  | SubstanceB | pos^21/neg | pos^22/neg | ... | - Row B\n  | ... |\n  -------------------------------------------------------\n  | 1 - SubstanceA Detailed Identifier       | - Footer\n  | 2 - SubstanceB Detailed Identifier       |\n  | ... |\n*/\ndefine \"Details Table\": \n  \"Table Start\" + Combine(\"Table Headers\") \n    + '<tbody>' + Combine(\"Unexpected Details Table Rows\") + '</tbody>' \n    + '<tfoot>' + (if \"Unexpected Negative Results On Latest UDS\" then '<tr>' + '<td class=\\\"details-table-cell\\\"' + ' colspan=' + ToString(Length(\"Positive Lab Dates In Past Year\") + 1) + '>*- ' + \"Diversion Footer Content\" + '<\\/td>' + '<\\/tr>' else '') + Combine(\"Unexpected Details Footer Rows\") + '<\\/tfoot>' \n  + \"Table End\""
     }, {
       "url": "displaySequence",
       "valueInteger": 63
@@ -1499,7 +1499,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-03-13",
+  "date": "2024-03-18",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
