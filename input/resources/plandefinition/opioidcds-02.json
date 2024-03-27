@@ -60,10 +60,6 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
     }, {
       "type": "depends-on",
-      "display": "Value set Therapies indicating end of life care",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-    }, {
-      "type": "depends-on",
       "display": "Value set Pain treatment plan",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan"
     }, {
@@ -115,13 +111,6 @@
         "path": "category",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
       } ]
-    }, {
-      "type": "ServiceRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
-    }, {
-      "type": "ServiceRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-      "mustSupport": [ "status", "intent", "authoredOn", "code" ]
     }, {
       "type": "CarePlan",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/CarePlan" ],
@@ -257,51 +246,6 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
-    }, {
-      "url": "name",
-      "valueString": "Service Requests"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Service Requests\":\n   [ServiceRequest] SR\n    return SR"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 6
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSRoutines"
-    }, {
-      "url": "name",
-      "valueString": "Palliative Care Lookback Period"
-    }, {
-      "url": "statement",
-      "valueString": "/*\n**  Routine #1\n**  Opioid Review Useful Routine\n**\n**  Definition              | Answer to Proceed   | Details                                      | Data (Terminology) Requirement\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Age < 18 years?         | No                  | Calculate age from date of birth; exclude    | Date of birth\n**                          |                     | patients with age less than 18 years at the  |\n**                          |                     | time of the prescription                     |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Evidence of             | No                  | Look for documented findings consistent      | Sickle cell disease conditions\n**  sickle cell disease?    |                     | with those listed in the sickle cell         |\n**                          |                     | value set                                    |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Limited life            | No                  | Look for documented findings consistent      | Limited life expectancy conditions\n**  expectancy conditions   |                     | with those listed in the limited life        |\n**  present?                |                     | expectancy value set (terminal illness, bad  |\n**                          |                     | prognosis, pre-terminal)                     |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Order for therapies     | No                  | Look for patients with an existing order for | Therapies indicating end of life care\n**  indicating end of life  |                     | therapies indicating end of life care        |\n**  care in past 90 days?   |                     | written within past 90 days                  |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Active cancer           | No                  | See sub-routine 3                            | See sub-routine 3\n**  treatment?              |                     |                                              |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Conditions Likely       | No                  | Look for patients with active conditions in  | Conditions likely terminal for opioid\n**  Terminal for opioid     |                     | the value set end-of-life-conditions         | prescribing\n**  prescribing present?    |                     |                                              |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**\n*/\ndefine \"Palliative Care Lookback Period\":\n  Interval[Today() - 90 days, Today()]"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 7
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSRoutines"
-    }, {
-      "url": "name",
-      "valueString": "Order For Palliative Care In Past 90 Days"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 8
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
       "valueString": "OpioidCDSRoutines"
     }, {
       "url": "name",
@@ -311,7 +255,7 @@
       "valueString": "define \"Is Active Cancer Treatment?\":\n  if (Config.\"Active Cancer Treatment Encounters Condition Is Enabled\") then\n      \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n    else\n      false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 9
+      "valueInteger": 6
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -326,7 +270,7 @@
       "valueString": "define \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions likely terminal for opioid prescribing\"\n          and EOLC.clinicalStatus in Common.\"Active Condition\"\n    )\n  else\n    false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 10
+      "valueInteger": 7
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -338,10 +282,10 @@
       "valueString": "Is Opioid Review Useful?"
     }, {
       "url": "statement",
-      "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Conditions Indicating End Of Life Present\"\n    and not \"Order For Palliative Care In Past 90 Days\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\""
+      "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Conditions Indicating End Of Life Present\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 11
+      "valueInteger": 8
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -356,7 +300,7 @@
       "valueString": "define \"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\":\n    if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n      exists (\"Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    else\n      false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 12
+      "valueInteger": 9
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -371,7 +315,7 @@
       "valueString": "define \"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\":\n  if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n    exists (\"Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")\n  else\n    false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 13
+      "valueInteger": 10
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -386,7 +330,7 @@
       "valueString": "// NOTE: MedicationStatement-dependent logic comment out due to bug in Publisher not supporting MedicationStatement in AllTypes.\ndefine \"Is Opioid Naive?\":\n    not (\"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    /* and not (\"Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days\") */\n    and not (\"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 14
+      "valueInteger": 11
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -401,7 +345,7 @@
       "valueString": "// Recommendation 2\ndefine \"Opioid Treatment Plan Verification Enabled\":\n  true"
     }, {
       "url": "displaySequence",
-      "valueInteger": 15
+      "valueInteger": 12
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -416,7 +360,7 @@
       "valueString": "define \"Treatment Plan Lookback Period\":\n  Interval[Today() - 90 days, Today()]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 16
+      "valueInteger": 13
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -431,7 +375,7 @@
       "valueString": "define \"Opioid Treatment Plan Creation or Update in Past 90 Days\":\n  [CarePlan: category in Common.\"Pain treatment plan\"] PainTreatmentPlan\n    where PainTreatmentPlan.status in { 'active', 'completed' }\n      and (\n        FHIRHelpers.ToDateTime( PainTreatmentPlan.created ) during day of \"Treatment Plan Lookback Period\"\n          or PainTreatmentPlan.meta.lastUpdated during day of \"Treatment Plan Lookback Period\"\n      )\n      and exists(\n        \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\".recorder Recorder\n          where Recorder ~ PainTreatmentPlan.author\n      )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 17
+      "valueInteger": 14
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -446,7 +390,7 @@
       "valueString": "define \"Had Opioid Treatment Plan Reviewed in Past 90 Days\":\n  exists (\n    [Procedure: Common.\"Pain management procedure\"] PainManagementProcedure\n      where PainManagementProcedure.performed during day of \"Treatment Plan Lookback Period\"\n        and exists (\n          PainManagementProcedure.performer Performer\n            with \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" ChronicPainScript\n            such that Performer.actor ~ ChronicPainScript.recorder\n        )\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 18
+      "valueInteger": 15
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -461,7 +405,7 @@
       "valueString": "define \"No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?\":\n  Config.\"Opioid Treatment Plan Verification Enabled\"\n    and not (\n      exists ( \"Opioid Treatment Plan Creation or Update in Past 90 Days\" )\n        or \"Had Opioid Treatment Plan Reviewed in Past 90 Days\"\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 19
+      "valueInteger": 16
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -476,7 +420,7 @@
       "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and Routines.\"Is Opioid Naive?\"\n    and \"No Opioid Treatment Plan Created, was Edited or Reviewed in Past 90 Days?\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 20
+      "valueInteger": 17
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -491,7 +435,7 @@
       "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 21
+      "valueInteger": 18
     } ]
   }, {
     "id": "effective-data-requirements",
@@ -517,7 +461,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-03-18",
+  "date": "2024-03-27",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Nonopioid therapies are preferred for subacute and chronic pain. Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific condition and patient and only consider initiating opioid therapy if expected benefits for pain and function are anticipated to outweigh risks to the patient. Before starting opioid therapy for subacute or chronic pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy, should work with patients to establish treatment goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks.",
   "useContext": [ {

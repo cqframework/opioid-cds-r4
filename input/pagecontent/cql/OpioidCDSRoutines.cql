@@ -48,7 +48,6 @@ define "Is Opioid Review Useful?":
   not "Patient Age Less Than 18"
     and not "Condition Positive for Sickle Cell"
     and not "Conditions Indicating End Of Life Present"
-    and not "Order For Palliative Care In Past 90 Days"
     and not "Is Active Cancer Treatment?"
     and not "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
 
@@ -71,15 +70,6 @@ define "Conditions Indicating End Of Life Present":
     Common."US Core-Categorized Conditions" LLEC
       where LLEC.code in Common."Limited life expectancy conditions"
         and LLEC.clinicalStatus in Common."Active Condition"
-  )
-
-define "Order For Palliative Care In Past 90 Days":
-  exists (
-    Common."Service Requests" SR
-    where SR.status in { 'active', 'completed'}
-      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}
-      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of "Palliative Care Lookback Period"
-      and SR.code in Common."Therapies indicating end of life care"
   )
 
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":

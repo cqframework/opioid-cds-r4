@@ -181,16 +181,8 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
   }, {
     "type": "depends-on",
-    "display": "Value set Therapies indicating end of life care",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-  }, {
-    "type": "depends-on",
     "display": "Value set Conditions likely terminal for opioid prescribing",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Hospice Procedure Codes",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
   } ],
   "parameter": [ {
     "name": "ContextPrescriptions",
@@ -319,25 +311,6 @@
       "path": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/substance-misuse-behavioral-counseling"
     } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "status", "intent", "authoredOn", "code" ]
-  }, {
-    "type": "Procedure",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-    "mustSupport": [ "code", "status", "status.value" ],
-    "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
-    } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "status", "status.value" ]
   }, {
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],

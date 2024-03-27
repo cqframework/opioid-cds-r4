@@ -11,8 +11,11 @@ context Patient
 
 // Constants
 
-define "Lookback Year":
+define "UDS Lookback Period":
   Interval[Today() - 12 months - 1 days, Today()]
+
+define "Rx Lookback Period":
+  Interval[Today() - 12 months - 31 days, Today()]
 
 define "Amphetamine Simple Identifier": 'Amphetamine'
 define "Cannabinoid Simple Identifier": 'Cannabinoid'
@@ -35,342 +38,292 @@ define "Ingredient List": "Opioid Ingredient List" union {
   "PCP Simple Identifier"
 }
 
-// Criteria Expressions
-// Scenarios:
-//   - Warning to conduct a UDS
-//   - Warning that unexpected results were found in UDS results
-//     - 3 flavors: 
-//       - Positive results for possible illicit drug use (i.e. Cocaine, PCP, Xylazine, and Cannabinoids)
-//       - Positive results for possible unprescribed Opioids and Amphetamines
-//       - Negative results for prescribed Opioids (diversion)
-
 /*
 @description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS performed in the past year
 */
-define "Inclusion Criteria":
+define "Inclusion Criteria For UDS Recommendation":
   Routines."Is Opioid Review Useful?"
-    and not exists ("All Opioid or Non-opioid Screenings in Past Year")
+    and not exists ("All Opioid or Non-opioid UDS in Lookback Period")
+
+define "Inclusion Criteria For Unexpected Results":
+  AnyTrue(
+    "Unexpected Details" Details
+      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
+  )
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
 
-define "All Opioid or Non-opioid Screenings in Past Year":
+define "All Opioid or Non-opioid UDS in Lookback Period":
   (
     [Observation: Common."All Drug Urine Screening"] Lab
-      where date from Lab.effective in day of "Lookback Year"
+      where date from Lab.effective in day of "UDS Lookback Period"
         and not (Lab.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
   ) X sort by date from FHIRHelpers.ToDateTime(effective as FHIR.dateTime) desc
 
-/*
-@description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS with unexpected results in the past year
-*/
-define "Inclusion Criteria For Unexpected Results":
-  Routines."Is Opioid Review Useful?"
-    and (
-      exists "Cocaine Screenings"
-        or exists "PCP Screenings"
-        or exists "Cannabinoid Screenings"
-        or (
-          exists "Opiate Screenings"
-            and not "Has Active Prescription for Opiate?"
-        )
-        or (
-          exists "Synthetic Opioid Screenings"
-            and not "Has Active Prescription for Synthetic Opioid?"
-        )
-        or (
-          exists "Fentanyl Screenings"
-            and not "Has Active Prescription for Fentanyl?"
-        )
-        or (
-          exists "Amphetamine Screenings"
-            and not "Has Active Prescription for Amphetamine?"
-        )
-        or (
-          exists "Methadone Screenings"
-            and not "Has Active Prescription for Methadone?"
-        )
-        or "Unexpected Negative Results On Latest UDS"
-    )
+// Amphetamines
+define "Amphetamine Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" Lab
+    where Lab.code in Common."Amphetamine Urine Tests"
 
-/*
-@description: Determines whether the patient has an active Opioid medication and latest UDS did not include results for Opioid medications.
-NOTE: In this context, Opioid medications also include Opiate, Synthetic Opioid and Fentanyl medications
-*/
-define "Unexpected Negative Results On Latest UDS":
-  exists ( "Active Opioid Medications" ) 
-    and not (
-      (First("All Opioid or Non-opioid Screenings in Past Year")) MostRecentLab
-        return AnyTrue({
-          (MostRecentLab.code in Common."Opiate Urine Tests"), 
-          (MostRecentLab.code in Common."Synthetic Opioid Urine Tests"),
-          (MostRecentLab.code in Common."Fentanyl Medications"),
-          (MostRecentLab.code in Common."Opioid drug urine screening")
-        })
-    )
+define "Positive Amphetamine Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Amphetamine Screenings In Lookback Period", true)
 
-// HTML Details Response
+define "Negative Amphetamine Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Amphetamine Screenings In Lookback Period"
 
-define "Get HTML Details":
-  Common."Style Header" + "Unexpected Div Start" + "Unexpected Div Details Text" + "Details More Info" + "Div End"
+define "Amphetamine Rx In Lookback Period":
+  "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Amphetamine Medications"
 
-// Labs and Active Med Expressions
+// Cannabinoids
+define "Cannabinoid Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" Lab
+    where Lab.code in Common."Cannabinoid Urine Tests"
 
-define "Has Active Prescription for Opioid?":
-  exists (
-    "Normalize Active Prescriptions" ActiveRx
-      where ActiveRx.medication in Common."Opioid analgesics with ambulatory misuse potential"
-  )
+define "Positive Cannabinoid Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Cannabinoid Screenings In Lookback Period", true)
 
-define "Fentanyl Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."Fentanyl Urine Tests", Config."Opiate Urine Screening Check Enabled"
-  )
+// Cocaine
+define "Cocaine Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" Lab
+    where Lab.code in Common."Cocaine Urine Tests"
 
-define "Has Active Prescription for Fentanyl?":
-  exists (
-    "Normalize Active Prescriptions" ActiveRx
-      where ActiveRx.medication in Common."Fentanyl Medications"
-  )
+define "Positive Cocaine Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Cocaine Screenings In Lookback Period", true)
 
-define "Amphetamine Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."Amphetamine Urine Tests", true
-  )
+// Fentanyl
+define "Fentanyl Screenings In Lookback Period":
+  if Config."Opiate Urine Screening Check Enabled"
+  then (
+    "All Opioid or Non-opioid UDS in Lookback Period" AllLabs
+      where AllLabs.code in Common."Fentanyl Urine Tests"
+  ) else null
 
-define "Has Active Prescription for Amphetamine?":
-  exists(
-    "Normalize Active Prescriptions" ActiveRx
-      where ActiveRx.medication in Common."Amphetamine Medications"
-  )
+define "Positive Fentanyl Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Fentanyl Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
-define "Methadone Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."Methadone Urine Tests", true
-  )
+define "Negative Fentanyl Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Fentanyl Screenings In Lookback Period"
 
-define "Has Active Prescription for Methadone?":
-  exists(
-    "Normalize Active Prescriptions" ActiveRx
-      where ActiveRx.medication in Common."Methadone Medications"
-  )
+define "Fentanyl Rx In Lookback Period":
+  "Normalize Rx In Lookback Period" Rx
+    where Rx.medication in Common."Fentanyl Medications"
 
-define "Opiate Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."Opiate Urine Tests", Config."Opiate Urine Screening Check Enabled"
-  )
+// Methadone
+define "Methadone Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" Lab
+    where Lab.code in Common."Methadone Urine Tests"
 
-define "Has Active Prescription for Opiate?":
-  exists(
-    "Normalize Active Prescriptions" ActiveRx
-      where ActiveRx.medication in Common."Opiate Medications"
-  )
+define "Positive Methadone Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Methadone Screenings In Lookback Period", true)
 
-define "Synthetic Opioid Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."Synthetic Opioid Urine Tests", Config."Opiate Urine Screening Check Enabled"
-  )
+define "Negative Methadone Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Methadone Screenings In Lookback Period"
 
-define "Has Active Prescription for Synthetic Opioid?":
-  exists(
-    "Normalize Active Prescriptions" ActiveRx
-      where ActiveRx.medication in Common."Synthetic Opioid Medications"
-  )
+define "Methadone Rx In Lookback Period":
+  "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Methadone Medications"
 
-define "Cocaine Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."Cocaine Urine Tests", true
-  )
+// Opiates
+define "Opiate Screenings In Lookback Period":
+  if Config."Opiate Urine Screening Check Enabled"
+    then (
+      "All Opioid or Non-opioid UDS in Lookback Period" Lab
+        where Lab.code in Common."Opiate Urine Tests"
+    ) else null
 
-define "PCP Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."PCP Urine Tests", true
-  )
+define "Positive Opiate Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Opiate Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
-define "Cannabinoid Screenings":
-  GetPositiveLabsInPastYear(
-    "All Opioid or Non-opioid Screenings in Past Year" AllLabs
-      where AllLabs.code in Common."Cannabinoid Urine Tests", true
-  )
+define "Negative Opiate Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Opiate Screenings In Lookback Period"
 
-define "Active Opioid Medications":
-  "Normalize Active Prescriptions" ActiveRx
-      where ActiveRx.medication in Common."Fentanyl Medications"
-        or ActiveRx.medication in Common."Opiate Medications"
-        or ActiveRx.medication in Common."Synthetic Opioid Medications"
-        or ActiveRx.medication in Common."Opioid analgesics with ambulatory misuse potential"
+define "Opiate Rx In Lookback Period":
+  "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Opiate Medications"
 
-define "All Positive Labs In Past Year":
-  "Amphetamine Screenings" union "Cannabinoid Screenings" union "Cocaine Screenings" 
-    union "Fentanyl Screenings" union "Methadone Screenings" union "Opiate Screenings" 
-    union "PCP Screenings" union "Synthetic Opioid Screenings"
+// Opioids
+// TODO: This logic will likely need some tuning to prevent collisions with other opioid substances (Fentanyl, Methadone, Opiates, and Synthetic Opioids)
+define "Opioid Screenings In Lookback Period":
+  if Config."Opiate Urine Screening Check Enabled"
+    then (
+      "All Opioid or Non-opioid UDS in Lookback Period" Lab
+        where Lab.code in Common."Opioid drug urine screening"
+    ) else null
 
-define "Positive Lab Dates In Past Year":
-  (
-    "All Positive Labs In Past Year" Lab
-      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)
-  ) X sort desc
+define "Positive Opioid Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Opioid Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
-// Lab Details Structures
+define "Negative Opioid Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Opioid Screenings In Lookback Period"
 
-define "Unexpected Positive Details":
-  (
-    "Amphetamine Screenings" AmphetamineScreening
-      return LabDetailsTuple("Amphetamine Simple Identifier", AmphetamineScreening)
-  ) union (
-    "Cannabinoid Screenings" CannabinoidScreening
-      return LabDetailsTuple("Cannabinoid Simple Identifier", CannabinoidScreening)
-  ) union (
-    "Cocaine Screenings" CocaineScreening
-      return LabDetailsTuple("Cocaine Simple Identifier", CocaineScreening)
-  ) union (
-    "Fentanyl Screenings" FentanylScreening
-      return LabDetailsTuple("Fentanyl Simple Identifier", FentanylScreening)
-  ) union (
-    "Methadone Screenings" MethadoneScreening
-      return LabDetailsTuple("Methadone Simple Identifier", MethadoneScreening)
-  ) union (
-    "Opiate Screenings" OpiateScreening
-      return LabDetailsTuple("Opiate Simple Identifier", OpiateScreening)
-  ) union (
-    "PCP Screenings" PCPScreening
-      return LabDetailsTuple("PCP Simple Identifier", PCPScreening)
-  ) union (
-    "Synthetic Opioid Screenings" SyntheticOpioidScreening
-      return LabDetailsTuple("Synthetic Opioid Simple Identifier", SyntheticOpioidScreening)
-  )
+define "Opioid Rx In Lookback Period":
+  "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Opioid analgesics with ambulatory misuse potential"
 
-define "Unexpected Positive Details Combined":
-  {
-    LabDetailsTupleCombined("Amphetamine Simple Identifier", "Amphetamine Screenings"),
-    LabDetailsTupleCombined("Cannabinoid Simple Identifier", "Cannabinoid Screenings"),
-    LabDetailsTupleCombined("Cocaine Simple Identifier", "Cocaine Screenings"),
-    LabDetailsTupleCombined("Fentanyl Simple Identifier", "Fentanyl Screenings"),
-    LabDetailsTupleCombined("Methadone Simple Identifier", "Methadone Screenings"),
-    LabDetailsTupleCombined("Opiate Simple Identifier", "Opiate Screenings"),
-    LabDetailsTupleCombined("PCP Simple Identifier", "PCP Screenings"),
-    LabDetailsTupleCombined("Synthetic Opioid Simple Identifier", "Synthetic Opioid Screenings")
-  }
+// PCP
+define "PCP Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" AllLabs
+    where AllLabs.code in Common."PCP Urine Tests"
 
-// Details Plain-Text Logic 
+define "Positive PCP Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("PCP Screenings In Lookback Period", true)
 
-define "Unexpected Negative Details Text":
-  if "Unexpected Negative Results On Latest UDS"
-    then '<p>Negative Lab results for Opioids (possible diversion) on ' + 
-      ToString(
-        date from FHIRHelpers.ToDateTime((First("All Opioid or Non-opioid Screenings in Past Year")).effective as FHIR.dateTime)
-      ) + ' despite the presence of Opioid medications on the active med list<\/p>'
-  else ''
+// Synthetic Opioids
+define "Synthetic Opioid Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" Lab
+    where Lab.code in Common."Synthetic Opioid Urine Tests"
 
-define "Unexpected Positive Details Text":
-  "Unexpected Positive Details Combined" Details
-    return (
-      if Details.info is not null and First(Details.info).detailedIdentifier is not null and First(Details.info).date is not null
-        then '<p>Positive for ' + Details.ingredient + '(' + First(Details.info).detailedIdentifier + ')' + ' on ' + ToString(First(Details.info).date) + '<\/p>'
-      else ''
-    )
+define "Positive Synthetic Opioid Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Synthetic Opioid Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
-define "Details Text":
-  "Unexpected Negative Details Text" + Combine("Unexpected Positive Details Text", '\n')
+define "Negative Synthetic Opioid Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Synthetic Opioid Screenings In Lookback Period"
 
-// Details Table Logic
-/*
-  | Urine Toxicology Results                 | - Title
-  -------------------------------------------------------
-  | Substance  | Date 1    | Date 2    | ... | - Header
-  | SubstanceA | pos^11/neg | pos^12/neg | ... | - Row A
-  | SubstanceB | pos^21/neg | pos^22/neg | ... | - Row B
-  | ... |
-  -------------------------------------------------------
-  | 1 - SubstanceA Detailed Identifier       | - Footer
-  | 2 - SubstanceB Detailed Identifier       |
-  | ... |
-*/
-
-define "Details Table": 
-  "Table Start" + Combine("Table Headers") 
-    + '<tbody>' + Combine("Unexpected Details Table Rows") + '</tbody>' 
-    + '<tfoot>' + (if "Unexpected Negative Results On Latest UDS" then '<tr>' + '<td class=\"details-table-cell\"' + ' colspan=' + ToString(Length("Positive Lab Dates In Past Year") + 1) + '>*- ' + "Diversion Footer Content" + '<\/td>' + '<\/tr>' else '') + Combine("Unexpected Details Footer Rows") + '<\/tfoot>' 
-  + "Table End"
-
-define "Unexpected Details Table Rows":
-  "Unexpected Positive Details Combined" Details
-      let Row: IndexOf("Unexpected Positive Details Combined", Details) + 1
-        return '<tr>' + GetExpectedColumn(Details.ingredient) 
-          + Combine(ResolveDetailColumns(Row, Details)) + '<\/tr>'
-
-define "Unexpected Details Footer Rows":
-  "Unexpected Positive Details Combined" Details
-      let Row: IndexOf("Unexpected Positive Details Combined", Details) + 1
-        return Combine(ResolveDetailFooterRows(Row, Details)) 
+define "Synthetic Opioid Rx In Lookback Period":
+  "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Synthetic Opioid Medications"
 
 // Helpers  
 
-define "Normalize Active Prescriptions":
-  Common."Get MedicationRequest Medication as Code"(Common."Active Medication List")
+define "All Positive Labs In Lookback Period":
+  "Amphetamine Screenings In Lookback Period" union "Cannabinoid Screenings In Lookback Period" 
+    union "Cocaine Screenings In Lookback Period" union "Fentanyl Screenings In Lookback Period" 
+    union "Methadone Screenings In Lookback Period" union "Opiate Screenings In Lookback Period" 
+    union "PCP Screenings In Lookback Period" union "Synthetic Opioid Screenings In Lookback Period"
 
-define "All Negative":
-  "Positive Lab Dates In Past Year" PositiveDate
-    return all GetExpectedColumn('neg')
+define "All Lab Dates in Lookback Period":
+  (
+    "All Opioid or Non-opioid UDS in Lookback Period" Lab
+      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)
+  ) X sort desc
+
+define "Positive Lab Dates In Lookback Period":
+  (
+    "All Positive Labs In Lookback Period" Lab
+      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)
+  ) X sort desc
+
+define "Normalize Rx In Lookback Period":
+  Common."Get MedicationRequest Medication as Code"(
+    [MedicationRequest: status in { 'active', 'completed', 'stopped' }] Rx
+      where Rx.category in Common."Community"
+        and Rx.intent = 'order'
+        and Rx.authoredOn.value in day of "Rx Lookback Period"
+  )
+
+// Details Logic
+
+define "Unexpected Details":
+  {
+    CreateDetailWithPossibleUnexpectedNegative(
+      "Amphetamine Simple Identifier", "Positive Amphetamine Screenings In Lookback Period", 
+      "Negative Amphetamine Screenings In Lookback Period", "Amphetamine Rx In Lookback Period"
+    ),
+    CreateDetailWithoutPossibleUnexpectedNegative(
+      "Cannabinoid Simple Identifier", "Positive Cannabinoid Screenings In Lookback Period"
+    ),
+    CreateDetailWithoutPossibleUnexpectedNegative(
+      "Cocaine Simple Identifier", "Positive Cocaine Screenings In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
+      "Fentanyl Simple Identifier", "Positive Fentanyl Screenings In Lookback Period", 
+      "Negative Fentanyl Screenings In Lookback Period", "Fentanyl Rx In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
+      "Methadone Simple Identifier", "Positive Methadone Screenings In Lookback Period", 
+      "Negative Methadone Screenings In Lookback Period", "Methadone Rx In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
+      "Opiate Simple Identifier", "Positive Opiate Screenings In Lookback Period", 
+      "Negative Opiate Screenings In Lookback Period", "Opiate Rx In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
+      "Opioid Simple Identifier", "Positive Opioid Screenings In Lookback Period", 
+      "Negative Opioid Screenings In Lookback Period", "Opioid Rx In Lookback Period"
+    ),
+    CreateDetailWithoutPossibleUnexpectedNegative(
+      "PCP Simple Identifier", "Positive PCP Screenings In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
+      "Synthetic Opioid Simple Identifier", "Positive Synthetic Opioid Screenings In Lookback Period", 
+      "Negative Synthetic Opioid Screenings In Lookback Period", "Synthetic Opioid Rx In Lookback Period"
+    )
+  }
+
+// HTML Generation
+
+define "Get HTML Details":
+  Common."Style Header" + "Unexpected Div Start" + "Details Table" + "Details More Info" + "Div End"
 
 define "Unexpected Div Start":
-  '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year, including:<\/p><\/div>'
+  '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year.<\/p><\/div>'
 
-define "Div End": '<\/div>'
-
-define "Unexpected Div Details Text": '<div>' + "Details Text" + '<\/div>'
+define "Details Table": 
+  "Table Start" + Combine("Table Headers") 
+    + '<tbody>' + Combine("Generate Table Rows") + '</tbody>' 
+    + '<tfoot>' + Combine("Generate Footer Rows") + '<\/tfoot>' 
+  + "Table End"
 
 define "Table Start":
   '<div><table class=\"details-table\"><caption class=\"details-caption\">Urine Toxicology Results<\/caption><tr><th class=\"details-table-header\">Substance<\/th>'
 
+define "Table Headers":
+  "All Lab Dates in Lookback Period" LabDate
+    return '<th class=\"details-table-header\">' + ToString(LabDate) + '<\/th>'
+
+define "Generate Table Rows":
+  "Unexpected Details" BOT
+    let row: ToString(IndexOf("Unexpected Details", BOT) + 1)
+    return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(
+      "All Lab Dates in Lookback Period" LabDate
+        let col: ToString(IndexOf("All Lab Dates in Lookback Period", LabDate) + 2)
+        return all (
+          if BOT.unexpectedPosDetails.date contains LabDate
+            then GetUnexpectedColumn('pos', row + col)
+          else if BOT.unexpectedNegDetails.udsDate contains LabDate
+            then GetUnexpectedColumn('neg', row + col)
+          else if BOT.posDates contains LabDate
+            then GetExpectedColumn('pos')
+          else GetExpectedColumn('neg')
+        )
+    ) + '<\/tr>'
+
+define "Generate Footer Rows":
+  "Unexpected Details" BOT
+      let row: ToString(IndexOf("Unexpected Details", BOT) + 1),
+      colspan: Length("All Lab Dates in Lookback Period") + 1
+      return Combine(
+        "All Lab Dates in Lookback Period" LabDate
+          let col: ToString(IndexOf("All Lab Dates in Lookback Period", LabDate) + 2)
+          return all (
+            if BOT.unexpectedPosDetails.date contains LabDate
+              then singleton from (
+                BOT.unexpectedPosDetails PosDetail
+                  where PosDetail.date = LabDate
+                    return '<tr>' + GetFooterColumn(colspan, row + col + ' - Possible unprescribed substance found: ' + PosDetail.udsDetail) + '<\/tr>'
+              )
+            else if BOT.unexpectedNegDetails.udsDate contains LabDate
+              then singleton from (
+                BOT.unexpectedNegDetails NegDetail
+                  where NegDetail.udsDate = LabDate
+                    return '<tr>' + GetFooterColumn(colspan, row + col + ' - Possible diversion found: prescribed ' + NegDetail.rxDetail + ' on ' + ToString(NegDetail.rxDate)) + '<\/tr>'
+              )
+            else ''
+          )
+      )
+
 define "Table End":
   '<\/table><\/div>'
 
-define "Table Headers":
-  "Positive Lab Dates In Past Year" PositiveDate
-    return '<th class=\"details-table-header\">' + ToString(PositiveDate) + '<\/th>'
-
 define "Details More Info":
-  '<div id=\"box\">\r\n  <p>Note on false positives and tabular data...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n'
-     + "Details Table"
-     +'<p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p>\r\n  <\/div>\r\n<\/div>'
+  '<div id=\"box\">\r\n  <p>Note on false positives...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n'
+     + '<p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p>\r\n  <\/div>\r\n<\/div>'
 
-define "Diversion Footer Content":
-  'Negative Lab results for Opioid substance despite the presence of Opioid medications on the active med list (possible diversion)'
+define "Div End": '<\/div>'
 
 // Functions
-
-define function GetPositiveLabsInPastYear(Labs List<FHIR.Observation>, Enabled Boolean):
-  if Enabled
-    then Labs Lab
-     where StartsWith(Lower(Lab.value as FHIR.string), 'pos')
-  else null
-
-define function LabDetailsTupleCombined(Ingredient String, Labs List<FHIR.Observation>):
-  {
-    ingredient: Ingredient,
-    info: (
-      Labs Lab
-        return {
-          date: date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime),
-          detailedIdentifier: if exists (Lab.code.coding) then Lab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
-        }
-    )
-  }
-
-define function LabDetailsTuple(Ingredient String, Lab FHIR.Observation):
-  {
-    ingredient: Ingredient,
-    date: date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime),
-    detailedIdentifier: Lab.code.coding[0].display.value
-  }
 
 define function GetUnexpectedColumn(Result String, Superscript String):
   '<td class=\"details-table-cell-unexpected\">' + Result + '<sup>' + Superscript + '<\/sup><\/td>'
@@ -378,34 +331,70 @@ define function GetUnexpectedColumn(Result String, Superscript String):
 define function GetExpectedColumn(Content String):
   '<td class=\"details-table-cell\">' + Content + '<\/td>'
 
-define function ResolveDetailColumns(Row Integer, Detail Tuple{ingredient String, info List<Tuple{date Date, detailedIdentifier String}>}):
-  "Positive Lab Dates In Past Year" PositiveDate
-    let Col: IndexOf("Positive Lab Dates In Past Year", PositiveDate) + 2
-    return all (
-      if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and First("Positive Lab Dates In Past Year") = PositiveDate
-        then GetUnexpectedColumn('neg', '*')
-      else if Detail.info.date contains PositiveDate
-        then GetUnexpectedColumn('pos', ToString(Row) + ToString(Col))
-      else 
-        GetExpectedColumn('neg')
-    )
+define function GetFooterColumn(colspan Integer, message String):
+  '<td class=\"details-table-cell\"' + ' colspan=' + ToString(colspan) + '>' + message + '<\/td>'
 
-define function ResolveDetailFooterRows(Row Integer, Detail Tuple{ingredient String, info List<Tuple{date Date, detailedIdentifier String}>}):
-  "Positive Lab Dates In Past Year" PositiveDate
-    let Col: IndexOf("Positive Lab Dates In Past Year", PositiveDate) + 2,
-    ColSpan: Length("Positive Lab Dates In Past Year") + 1
-    return (
-      if Detail.info.date contains PositiveDate
-        then Combine(
-          Detail.info Info
-            return (
-              if Info.date same day as PositiveDate
-                then '<tr>' + '<td class=\"details-table-cell\"' + ' colspan=' + ToString(ColSpan) + '>' + ToString(Row) + ToString(Col) + '- ' + Info.detailedIdentifier + '<\/td>' + '<\/tr>'
-              else ''
-            )
-        )
-      else ''
+define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>):
+  {
+    ingredient: TheSubstance,
+    posDates: (
+      ThePosLabs PosLab
+        return date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime)
+    ),
+    unexpectedPosDetails: (
+      ThePosLabs PosLab
+        with TheMeds Rx
+          such that not (Rx.authoredOn in day of Interval[PosLab.effective - 31 days, PosLab.effective - 1 days])
+            return {
+              date: date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime),
+              udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
+            }
+    ),
+    unexpectedNegDetails: (
+      from TheNegLabs NegLab,
+        TheMeds Rx
+          where (Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective - 1 days])
+            return {
+              udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
+              udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
+              rxDate: date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime),
+              rxDetail: if exists (Rx.medication.coding) then Rx.medication.coding[0].display.value else 'Unable to determine a detailed identifier'
+            }
     )
+  }
+
+define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>):
+  {
+    ingredient: TheSubstance,
+    posDates: (
+      ThePosLabs PosLab
+        return date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime)
+    ),
+    unexpectedPosDetails: (
+      ThePosLabs PosLab
+        return {
+          date: date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime),
+          udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
+        }
+    ),
+    unexpectedNegDetails: {
+      null as Tuple{udsDate System.Date, udsDetail System.String, rxDate System.Date, rxDetail System.String}
+    }
+  }
+
+define function GetPositiveLabsInLookbackPeriod(Labs List<FHIR.Observation>, Enabled Boolean):
+  if Enabled
+    then Labs Lab
+     where StartsWith(Lower(Lab.value as FHIR.string), 'pos')
+  else null
+
+define function HasRxInLookbackPeriod(Meds List<FHIR.MedicationRequest>, LookbackPeriod Interval<DateTime>):
+  AnyTrue(
+    Meds Rx return Rx.authoredOn in day of LookbackPeriod
+  )
+
+
+
 
 
 

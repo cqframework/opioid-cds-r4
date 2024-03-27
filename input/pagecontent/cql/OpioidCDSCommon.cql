@@ -26,7 +26,6 @@ valueset "Opioid counseling procedure": 'http://fhir.org/guides/cdc/opioid-cds/V
 valueset "Opioid misuse assessment procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
 valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
-valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
 valueset "Observation Category Laboratory": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory'
 valueset "Observation Category Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-procedure'
 valueset "Pain treatment plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan'
@@ -202,17 +201,6 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
 
 define "Admitted/Referred/Discharged to Hospice Care":
   (
-    [Procedure: code in "Hospice Procedure Codes"] P
-      where P.status.value in { 'in-progress', 'completed' }
-  )
-  union
-  (
-    "Service Requests" SR
-      where SR.code in "Hospice Procedure Codes"
-        and SR.status.value in { 'active', 'completed' }
-  )
-  union
-  (
     if (Config."Hospice Findings Exclusion Enabled") then
       [Observation: code in "Hospice Finding Codes"] O
         where not (O.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
@@ -352,10 +340,6 @@ define "Positive Sickle Cell Condition":
     "US Core-Categorized Conditions" C
     where C.code in "Sickle Cell Diseases"
         and C.clinicalStatus in "Active Condition"
-
- define "Service Requests":
-   [ServiceRequest] SR
-    return SR
 
 define "Patient 18 or Older?":
   Config."Age Less than 18 Years Is Enabled"

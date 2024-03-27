@@ -139,10 +139,6 @@
     "type": "depends-on",
     "display": "Value set Active Condition",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Therapies indicating end of life care",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
   } ],
   "parameter": [ {
     "name": "ContextPrescriptions",
@@ -249,13 +245,6 @@
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "status", "intent", "authoredOn", "code" ]
   } ],
   "content": [ {
     "contentType": "text/cql",

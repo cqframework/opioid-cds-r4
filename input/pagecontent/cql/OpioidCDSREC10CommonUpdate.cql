@@ -220,19 +220,6 @@ define "Positive Lab Dates In Past Year":
 
 // Lab Details Structures
 
-// define "Unexpected Negative Details":
-//   if "Unexpected Negative Results On Latest UDS"
-//     then (
-//       (First("All Opioid or Non-opioid Screenings in Past Year")) MostRecentLab
-//         return {
-//           LabDetailsTuple("Fentanyl Simple Identifier", null), 
-//           LabDetailsTuple("Opiate Simple Identifier", null),
-//           LabDetailsTuple("Opioid Simple Identifier", null), 
-//           LabDetailsTuple("Synthetic Opioid Simple Identifier", null)
-//         }
-//     )
-//   else {}
-
 define "Unexpected Positive Details":
   (
     "Amphetamine Screenings" AmphetamineScreening
@@ -272,10 +259,6 @@ define "Unexpected Positive Details Combined":
     LabDetailsTupleCombined("Synthetic Opioid Simple Identifier", "Synthetic Opioid Screenings")
   }
 
-define "Lab Details":
-  //"Unexpected Negative Details" union 
-  "Unexpected Positive Details"
-
 // Details Plain-Text Logic 
 
 define "Unexpected Negative Details Text":
@@ -287,13 +270,11 @@ define "Unexpected Negative Details Text":
   else ''
 
 define "Unexpected Positive Details Text":
-  "Unexpected Positive Details" Details
+  "Unexpected Positive Details Combined" Details
     return (
-      '<p>Positive for ' + Details.ingredient + (
-        if Details.detailedIdentifier is not null and Details.detailedIdentifier != '' 
-          then '(' + Details.detailedIdentifier + ')' 
-        else ''
-      ) + ' on ' + ToString(Details.date) + '<\/p>'
+      if Details.info is not null and First(Details.info).detailedIdentifier is not null and First(Details.info).date is not null
+        then '<p>Positive for ' + Details.ingredient + '(' + First(Details.info).detailedIdentifier + ')' + ' on ' + ToString(First(Details.info).date) + '<\/p>'
+      else ''
     )
 
 define "Details Text":
@@ -304,8 +285,8 @@ define "Details Text":
   | Urine Toxicology Results                 | - Title
   -------------------------------------------------------
   | Substance  | Date 1    | Date 2    | ... | - Header
-  | SubstanceA | pos^1/neg | pos^2/neg | ... | - Row A
-  | SubstanceB | pos^3/neg | pos^4/neg | ... | - Row B
+  | SubstanceA | pos^11/neg | pos^12/neg | ... | - Row A
+  | SubstanceB | pos^21/neg | pos^22/neg | ... | - Row B
   | ... |
   -------------------------------------------------------
   | 1 - SubstanceA Detailed Identifier       | - Footer
@@ -314,60 +295,21 @@ define "Details Text":
 */
 
 define "Details Table": 
-  "Table Start" + Combine("Table Headers") + Combine("Unexpected Details Table Rows") + "Table End"
+  "Table Start" + Combine("Table Headers") 
+    + '<tbody>' + Combine("Unexpected Details Table Rows") + '</tbody>' 
+    + '<tfoot>' + (if "Unexpected Negative Results On Latest UDS" then '<tr>' + '<td class=\"details-table-cell\"' + ' colspan=' + ToString(Length("Positive Lab Dates In Past Year") + 1) + '>*- ' + "Diversion Footer Content" + '<\/td>' + '<\/tr>' else '') + Combine("Unexpected Details Footer Rows") + '<\/tfoot>' 
+  + "Table End"
 
 define "Unexpected Details Table Rows":
-  "Lab Details" Details
-      let Count: IndexOf("Lab Details", Details) + 1
+  "Unexpected Positive Details Combined" Details
+      let Row: IndexOf("Unexpected Positive Details Combined", Details) + 1
         return '<tr>' + GetExpectedColumn(Details.ingredient) 
-          + Combine(
-            distinct ("Unexpected Positive Details Combined" CombinedDetails 
-              return (
-                if Details.ingredient = CombinedDetails.ingredient
-                  then ResolveDetailColumns(Count, CombinedDetails)
-                else ''
-              ))
-          ) + '<\/tr>'
+          + Combine(ResolveDetailColumns(Row, Details)) + '<\/tr>'
 
-// define "Unexpected Details Table Rows":
-//   "Lab Details" Details
-//     let Count: IndexOf("Lab Details", Details) + 1
-//     return '<tr>' + GetExpectedColumn(Details.ingredient) + Combine(ResolveDetailColumns(Count, Details)) + '<\/tr>'
-
-// define "Unexpected Positive Details Table":
-//   "Lab Details" Detail
-//     let Count: IndexOf("Lab Details", Detail)
-//     return (
-//       case Detail.ingredient
-//         when "Fentanyl Simple Identifier"
-//           then if "Unexpected Negative Results On Latest UDS"
-//             then GetDetailsTableRow("Fentanyl Simple Identifier", Detail, Count, true)
-//           else GetDetailsTableRow("Fentanyl Simple Identifier", Detail, Count, false)
-//         when "Opiate Simple Identifier"
-//           then if "Unexpected Negative Results On Latest UDS"
-//             then GetDetailsTableRow("Opiate Simple Identifier", Detail, Count, true)
-//           else GetDetailsTableRow("Opiate Simple Identifier", Detail, Count, false)
-//         when "Opioid Simple Identifier"
-//           then if "Unexpected Negative Results On Latest UDS"
-//             then GetDetailsTableRow("Opioid Simple Identifier", Detail, Count, true)
-//           else GetDetailsTableRow("Opioid Simple Identifier", Detail, Count, false)
-//         when "Synthetic Opioid Simple Identifier"
-//           then if "Unexpected Negative Results On Latest UDS"
-//             then GetDetailsTableRow("Synthetic Opioid Simple Identifier", Detail, Count, true)
-//           else GetDetailsTableRow("Synthetic Opioid Simple Identifier", Detail, Count, false)
-//         when "Amphetamine Simple Identifier"
-//           then GetDetailsTableRow("Amphetamine Simple Identifier", Detail, Count, false)
-//         when "Cannabinoid Simple Identifier"
-//           then GetDetailsTableRow("Cannabinoid Simple Identifier", Detail, Count, false)
-//         when "Cocaine Simple Identifier"
-//           then GetDetailsTableRow("Cocaine Simple Identifier", Detail, Count, false)
-//         when "Methadone Simple Identifier"
-//           then GetDetailsTableRow("Methadone Simple Identifier", Detail, Count, false)
-//         when "PCP Simple Identifier"
-//           then GetDetailsTableRow("PCP Simple Identifier", Detail, Count, false)
-//         else ''
-//       end
-//     )
+define "Unexpected Details Footer Rows":
+  "Unexpected Positive Details Combined" Details
+      let Row: IndexOf("Unexpected Positive Details Combined", Details) + 1
+        return Combine(ResolveDetailFooterRows(Row, Details)) 
 
 // Helpers  
 
@@ -399,6 +341,9 @@ define "Details More Info":
   '<div id=\"box\">\r\n  <p>Note on false positives and tabular data...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n'
      + "Details Table"
      +'<p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p>\r\n  <\/div>\r\n<\/div>'
+
+define "Diversion Footer Content":
+  'Negative Lab results for Opioid substance despite the presence of Opioid medications on the active med list (possible diversion)'
 
 // Functions
 
@@ -433,58 +378,31 @@ define function GetUnexpectedColumn(Result String, Superscript String):
 define function GetExpectedColumn(Content String):
   '<td class=\"details-table-cell\">' + Content + '<\/td>'
 
-// define function GetDetailsTableRow(Ingredient String, Detail Tuple{ingredient String, date Date, detailedIdentifier String}, Count Integer, UnexpectedNegative Boolean):
-//   GetExpectedColumn(Ingredient) +
-//     Combine(
-//       "Positive Lab Dates In Past Year" PositiveDate
-//         return (
-//           if UnexpectedNegative and IndexOf("Positive Lab Dates In Past Year", PositiveDate) = 0
-//             then GetUnexpectedColumn('neg', '*')
-//           else if Detail.date same day as PositiveDate
-//             then GetUnexpectedColumn('pos', ToString(Count))
-//           else GetExpectedColumn('neg')
-//         )
-//     ) + '</tr>'
-
-// define function GetDetailColumns(Ingredient String):
-//   if not ("Lab Details".ingredient contains Ingredient)
-//     then "All Negative"
-//   else ResolveDetailColumns(Ingredient)
-
-define function ResolveDetailColumns(Count Integer, Detail Tuple{ingredient String, info List<Tuple{date Date, detailedIdentifier String}>}):
+define function ResolveDetailColumns(Row Integer, Detail Tuple{ingredient String, info List<Tuple{date Date, detailedIdentifier String}>}):
   "Positive Lab Dates In Past Year" PositiveDate
+    let Col: IndexOf("Positive Lab Dates In Past Year", PositiveDate) + 2
     return all (
       if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and First("Positive Lab Dates In Past Year") = PositiveDate
         then GetUnexpectedColumn('neg', '*')
       else if Detail.info.date contains PositiveDate
-        then GetUnexpectedColumn('pos', ToString(Count))
+        then GetUnexpectedColumn('pos', ToString(Row) + ToString(Col))
       else 
         GetExpectedColumn('neg')
     )
 
-// define function ResolveDetailColumns(Count Integer, Detail Tuple{ingredient String, date Date, detailedIdentifier String}):
-//   "Positive Lab Dates In Past Year" PositiveDate
-//     return all (
-//       if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and First("Positive Lab Dates In Past Year") = PositiveDate
-//         then GetUnexpectedColumn('neg', '*')
-//       else if Detail.date same day as PositiveDate
-//         then GetUnexpectedColumn('pos', ToString(Count))
-//       else 
-//         GetExpectedColumn('neg')
-//     )
-
-// define function ResolveDetailColumns(Ingredient String):
-//   "Lab Details" Detail
-//     let Count: IndexOf("Lab Details", Detail) + 1
-//     return all Combine(
-//       "Positive Lab Dates In Past Year" PositiveDate
-//         return all (
-//           if Detail.ingredient in "Opioid Ingredient List" and "Unexpected Negative Results On Latest UDS" and First("Positive Lab Dates In Past Year") = PositiveDate
-//             then GetUnexpectedColumn('neg', '*')
-//           else if Detail.ingredient = Ingredient and Detail.date same day as PositiveDate
-//             then GetUnexpectedColumn('pos', ToString(Count))
-//           else if Detail.ingredient = Ingredient 
-//             then GetExpectedColumn('neg')
-//           else ''
-//         )
-//     )
+define function ResolveDetailFooterRows(Row Integer, Detail Tuple{ingredient String, info List<Tuple{date Date, detailedIdentifier String}>}):
+  "Positive Lab Dates In Past Year" PositiveDate
+    let Col: IndexOf("Positive Lab Dates In Past Year", PositiveDate) + 2,
+    ColSpan: Length("Positive Lab Dates In Past Year") + 1
+    return (
+      if Detail.info.date contains PositiveDate
+        then Combine(
+          Detail.info Info
+            return (
+              if Info.date same day as PositiveDate
+                then '<tr>' + '<td class=\"details-table-cell\"' + ' colspan=' + ToString(ColSpan) + '>' + ToString(Row) + ToString(Col) + '- ' + Info.detailedIdentifier + '<\/td>' + '<\/tr>'
+              else ''
+            )
+        )
+      else ''
+    )
