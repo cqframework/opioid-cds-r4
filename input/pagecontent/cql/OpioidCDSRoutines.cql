@@ -266,8 +266,7 @@ define function "Is Subacute or Chronic Pain Prescription?"(prescription FHIR.Me
     prescription.dispenseRequest is not null
       and prescription.dispenseRequest.expectedSupplyDuration is not null
       and (
-        Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) between 30 days and 60 days
-          or Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 60 days
+        Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28 days 
       )
   )
 

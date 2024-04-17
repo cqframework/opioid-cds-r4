@@ -1,0 +1,27 @@
+{
+  "resourceType": "Patient",
+  "id": "unexpected-negative",
+  "name": [
+    {
+      "family": "Doe",
+      "given": [
+        "John"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1955-05-05",
+  "address": [
+    {
+      "use": "home",
+      "type": "postal",
+      "line": [
+        "555 Nowhere Ave."
+      ],
+      "city": "Provo",
+      "district": "Utah County",
+      "state": "UT",
+      "postalCode": "84606"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "order-unexpected-negative",
+  "status": "active",
+  "intent": "order",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code": "community"
+        }
+      ]
+    }
+  ],
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049502",
+        "display": "12 HR oxycodone hydrochloride 10 MG Extended Release Oral Tablet"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/unexpected-negative"
+  },
+  "authoredOn": "2023-11-01",
+  "dosageInstruction": [
+    {
+      "timing": {
+        "event": [ "2023-11-01" ],
+        "repeat": {
+          "frequency": 3,
+          "period": 1.0,
+          "periodUnit": "d"
+        }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+        {
+          "doseQuantity": {
+            "value": 1.0,
+            "unit": "tablet"
+          }
+        }
+      ]
+    }
+  ],
+  "dispenseRequest": {
+    "validityPeriod": {
+      "start": "2023-11-01T00:00:00-06:00",
+      "end": "2024-02-01T00:00:00-06:00"
+    },
+    "numberOfRepeatsAllowed": 3,
+    "expectedSupplyDuration": {
+      "value": 35.0,
+      "unit": "days",
+      "system": "http://unitsofmeasure.org",
+      "code": "d"
+    }
+  }
+}

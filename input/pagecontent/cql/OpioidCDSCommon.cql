@@ -37,6 +37,7 @@ valueset "Conditions Documenting Sleep Disordered Breathing": 'http://fhir.org/g
 // Rx
 valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
 valueset "Extended release opioid with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
+valueset "Buprenorphine Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-medications'
 valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
 valueset "Non-synthetic opioid medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
 valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
@@ -45,6 +46,7 @@ valueset "Fentanyl Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet
 valueset "Amphetamine Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications'
 valueset "Methadone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications'
 valueset "Opiate Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+valueset "Oxycodone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-medications'
 valueset "Synthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications'
 valueset "CNS Depressant Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cns-depressant-medications'
 
@@ -60,6 +62,11 @@ valueset "Amphetamine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/Value
 valueset "Cannabinoid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests'
 valueset "Methadone Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-drug-urine-screening-tests'
 valueset "Synthetic Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests'
+valueset "Barbiturate Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-drug-urine-screening-tests'
+valueset "Benzodiazepine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-drug-urine-screening-tests'
+valueset "Buprenorphine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-drug-urine-screening-tests'
+valueset "Heroin Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/heroin-drug-urine-screening-tests'
+valueset "Oxycodone Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-drug-urine-screening-tests'
 
 valueset "Community": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community'
 valueset "Active Condition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active'

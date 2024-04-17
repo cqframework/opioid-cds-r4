@@ -1,0 +1,174 @@
+<MedicationRequest>
+  <id value="sw-ex1" />
+  <identifier>
+    <use value="usual" />
+    <system value="urn:oid:1.2.840.114350.1.13.301.3.7.2.798268" />
+    <value value="30450187" />
+  </identifier>
+  <status value="stopped" />
+  <intent value="order" />
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category" />
+      <code value="community" />
+      <display value="Community" />
+    </coding>
+    <text value="Community" />
+  </category>
+  <medicationReference>
+    <reference
+      value="Medication/eHFh3DNDVfv5RylMRogQ1JB4DkUVFIJLOo.I6b8dr98Xt0L.jmO7B-eBfY-BD0rzcyyACcrOXPWSCasOrTa8NwktDwitWBfT9oOG-O6Ks2nA3" />
+    <display value="fentaNYL (ACTIQ) lollipop" />
+  </medicationReference>
+  <subject>
+    <reference value="Patient/esUUeWv7UeLLYrwxFzI6-1g3" />
+    <display value="Willow, Stephanie" />
+  </subject>
+  <encounter>
+    <reference value="Encounter/elzfmX8gD.nfq-L4gBS---Q3" />
+    <identifier>
+      <use value="usual" />
+      <system value="urn:oid:1.2.840.114350.1.13.301.3.7.3.698084.8" />
+      <value value="80425568" />
+    </identifier>
+    <display value="Office Visit" />
+  </encounter>
+  <authoredOn value="2024-02-22" />
+  <requester>
+    <reference value="Practitioner/edVgNmZO8PsofzicgHOR39A3" />
+    <type value="Practitioner" />
+    <display value="Physician Family Medicine, MD" />
+  </requester>
+  <recorder>
+    <reference value="Practitioner/edVgNmZO8PsofzicgHOR39A3" />
+    <type value="Practitioner" />
+    <display value="Physician Family Medicine, MD" />
+  </recorder>
+  <reasonCode>
+    <coding>
+      <system value="http://snomed.info/sct" />
+      <code value="161891005" />
+      <display value="Backache (finding)" />
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/icd-9-cm/diagnosis" />
+      <code value="724.5" />
+      <display
+        value="Back pain, unspecified back location, unspecified back pain laterality, unspecified chronicity" />
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/icd-10-cm" />
+      <code value="M54.9" />
+      <display
+        value="Back pain, unspecified back location, unspecified back pain laterality, unspecified chronicity" />
+    </coding>
+    <text
+      value="Back pain, unspecified back location, unspecified back pain laterality, unspecified chronicity" />
+  </reasonCode>
+  <courseOfTherapyType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy" />
+      <code value="acute" />
+      <display value="Short course (acute) therapy" />
+    </coding>
+    <text value="Short course (acute) therapy" />
+  </courseOfTherapyType>
+  <dosageInstruction>
+    <text
+      value="Place 1,600 mcg inside cheek every 4 (four) hours as needed., Starting Thu 2/22/2024, Until Tue 2/27/2024, Print" />
+    <patientInstruction value="Place 1,600 mcg inside cheek every 4 (four) hours as needed." />
+    <timing>
+      <repeat>
+        <boundsPeriod>
+          <start value="2024-02-22" />
+          <end value="2024-02-27" />
+        </boundsPeriod>
+        <frequency value="1" />
+        <period value="4" />
+        <periodUnit value="h" />
+      </repeat>
+      <code>
+        <text value="every 4 (four) hours as needed" />
+      </code>
+    </timing>
+    <asNeededBoolean value="true" />
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct" />
+        <code value="54471007" />
+        <display value="Buccal route (qualifier value)" />
+      </coding>
+      <coding>
+        <system value="urn:oid:1.2.840.114350.1.13.301.3.7.4.798268.7025" />
+        <code value="1" />
+        <display value="Buccal" />
+      </coding>
+      <text value="Buccal" />
+    </route>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://epic.com/CodeSystem/dose-rate-type" />
+          <code value="calculated" />
+          <display value="calculated" />
+        </coding>
+        <text value="calculated" />
+      </type>
+      <doseQuantity>
+        <value value="1600" />
+        <unit value="mcg" />
+        <system value="http://unitsofmeasure.org" />
+        <code value="ug" />
+      </doseQuantity>
+    </doseAndRate>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://epic.com/CodeSystem/dose-rate-type" />
+          <code value="admin-amount" />
+          <display value="admin-amount" />
+        </coding>
+        <text value="admin-amount" />
+      </type>
+      <doseQuantity>
+        <value value="1600" />
+        <unit value="mcg" />
+        <system value="http://unitsofmeasure.org" />
+        <code value="ug" />
+      </doseQuantity>
+    </doseAndRate>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://epic.com/CodeSystem/dose-rate-type" />
+          <code value="ordered" />
+          <display value="ordered" />
+        </coding>
+        <text value="ordered" />
+      </type>
+      <doseQuantity>
+        <value value="1600" />
+        <unit value="mcg" />
+        <system value="http://unitsofmeasure.org" />
+        <code value="ug" />
+      </doseQuantity>
+    </doseAndRate>
+  </dosageInstruction>
+  <dispenseRequest>
+    <validityPeriod>
+      <start value="2024-02-22" />
+      <end value="2024-02-27" />
+    </validityPeriod>
+    <numberOfRepeatsAllowed value="0" />
+    <quantity>
+      <value value="30" />
+      <unit value="tablet" />
+    </quantity>
+    <expectedSupplyDuration>
+      <value value="5" />
+      <unit value="Day" />
+      <system value="http://unitsofmeasure.org" />
+      <code value="d" />
+    </expectedSupplyDuration>
+  </dispenseRequest>
+</MedicationRequest>
