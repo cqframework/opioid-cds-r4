@@ -63,6 +63,9 @@ define "PDMP Data Not Reviewed in Past 90 Days Criteria Enabled":
 define "Opiate Urine Screening Check Enabled":
   true
 
+define "Cannabinoid Urine Screening Check Enabled":
+  false
+
 // Recommendation 12
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":
   true

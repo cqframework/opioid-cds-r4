@@ -62,11 +62,26 @@ define "Positive Amphetamine Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Amphetamine Screenings In Lookback Period", true)
 
 define "Negative Amphetamine Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Amphetamine Screenings In Lookback Period"
+  GetNegativeLabsInLookbackPeriod("Amphetamine Screenings In Lookback Period", true)
 
 define "Amphetamine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
       where Rx.medication in Common."Amphetamine Medications"
+
+// Barbiturates
+define "Barbiturate Screenings In Lookback Period":
+  "All Opioid or Non-opioid UDS in Lookback Period" Lab
+    where Lab.code in Common."Barbiturate Urine Tests"
+
+define "Positive Barbiturate Screenings In Lookback Period":
+  GetPositiveLabsInLookbackPeriod("Barbiturate Screenings In Lookback Period", true)
+
+define "Negative Barbiturate Screenings In Lookback Period":
+  GetNegativeLabsInLookbackPeriod("Barbiturate Screenings In Lookback Period", true)
+
+define "Barbiturate Rx In Lookback Period":
+  "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Barbiturate Medications"
 
 // Benzodiazepines
 define "Benzodiazepine Screenings In Lookback Period":
@@ -77,7 +92,7 @@ define "Positive Benzodiazepine Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Benzodiazepine Screenings In Lookback Period", true)
 
 define "Negative Benzodiazepine Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Benzodiazepine Screenings In Lookback Period"
+  GetNegativeLabsInLookbackPeriod("Benzodiazepine Screenings In Lookback Period", true)
 
 define "Benzodiazepine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
@@ -92,7 +107,7 @@ define "Positive Buprenorphine Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Buprenorphine Screenings In Lookback Period", true)
 
 define "Negative Buprenorphine Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Buprenorphine Screenings In Lookback Period"
+  GetNegativeLabsInLookbackPeriod("Buprenorphine Screenings In Lookback Period", true)
 
 define "Buprenorphine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
@@ -100,11 +115,17 @@ define "Buprenorphine Rx In Lookback Period":
 
 // Cannabinoids
 define "Cannabinoid Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" Lab
-    where Lab.code in Common."Cannabinoid Urine Tests"
+  if Config."Cannabinoid Urine Screening Check Enabled"
+    then (
+      "All Opioid or Non-opioid UDS in Lookback Period" Lab
+        where Lab.code in Common."Cannabinoid Urine Tests"
+    ) else null
 
 define "Positive Cannabinoid Screenings In Lookback Period":
-  GetPositiveLabsInLookbackPeriod("Cannabinoid Screenings In Lookback Period", true)
+  GetPositiveLabsInLookbackPeriod("Cannabinoid Screenings In Lookback Period", Config."Cannabinoid Urine Screening Check Enabled")
+
+define "Negative Cannabinoid Screenings In Lookback Period":
+  GetNegativeLabsInLookbackPeriod("Cannabinoid Screenings In Lookback Period", Config."Cannabinoid Urine Screening Check Enabled")
 
 // Cocaine
 define "Cocaine Screenings In Lookback Period":
@@ -113,6 +134,9 @@ define "Cocaine Screenings In Lookback Period":
 
 define "Positive Cocaine Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Cocaine Screenings In Lookback Period", true)
+
+define "Negative Cocaine Screenings In Lookback Period":
+  GetNegativeLabsInLookbackPeriod("Cocaine Screenings In Lookback Period", true)
 
 // Fentanyl
 define "Fentanyl Screenings In Lookback Period":
@@ -126,7 +150,7 @@ define "Positive Fentanyl Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Fentanyl Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Negative Fentanyl Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Fentanyl Screenings In Lookback Period"
+  GetNegativeLabsInLookbackPeriod("Fentanyl Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Fentanyl Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
@@ -140,6 +164,9 @@ define "Heroin Screenings In Lookback Period":
 define "Positive Heroin Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Heroin Screenings In Lookback Period", true)
 
+define "Negative Heroin Screenings In Lookback Period":
+  GetNegativeLabsInLookbackPeriod("Heroin Screenings In Lookback Period", true)
+
 // Methadone
 define "Methadone Screenings In Lookback Period":
   "All Opioid or Non-opioid UDS in Lookback Period" Lab
@@ -149,7 +176,7 @@ define "Positive Methadone Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Methadone Screenings In Lookback Period", true)
 
 define "Negative Methadone Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Methadone Screenings In Lookback Period"
+  GetNegativeLabsInLookbackPeriod("Methadone Screenings In Lookback Period", true)
 
 define "Methadone Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
@@ -160,14 +187,14 @@ define "Opiate Screenings In Lookback Period":
   if Config."Opiate Urine Screening Check Enabled"
     then (
       "All Opioid or Non-opioid UDS in Lookback Period" Lab
-        where Lab.code in Common."Opiate Urine Tests"
+        where Lab.code in Common."General Opiate Urine Tests"
     ) else null
 
 define "Positive Opiate Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Opiate Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Negative Opiate Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Opiate Screenings In Lookback Period"
+  GetNegativeLabsInLookbackPeriod("Opiate Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Opiate Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
@@ -185,7 +212,7 @@ define "Positive Oxycodone Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("Oxycodone Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Negative Oxycodone Screenings In Lookback Period":
-  "All Opioid or Non-opioid UDS in Lookback Period" except "Positive Oxycodone Screenings In Lookback Period"
+  GetNegativeLabsInLookbackPeriod("Oxycodone Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Oxycodone Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
@@ -199,15 +226,18 @@ define "PCP Screenings In Lookback Period":
 define "Positive PCP Screenings In Lookback Period":
   GetPositiveLabsInLookbackPeriod("PCP Screenings In Lookback Period", true)
 
+define "Negative PCP Screenings In Lookback Period":
+  GetNegativeLabsInLookbackPeriod("PCP Screenings In Lookback Period", true)
+
 // Helpers  
 
 define "All Positive Labs In Lookback Period":
-  "Amphetamine Screenings In Lookback Period" union "Benzodiazepine Screenings In Lookback Period" 
-    union "Buprenorphine Screenings In Lookback Period" union "Cannabinoid Screenings In Lookback Period" 
-    union "Cocaine Screenings In Lookback Period" union "Fentanyl Screenings In Lookback Period" 
-    union "Heroin Screenings In Lookback Period" union "Methadone Screenings In Lookback Period" 
-    union "Opiate Screenings In Lookback Period" union "Oxycodone Screenings In Lookback Period"
-    union "PCP Screenings In Lookback Period" 
+  "Amphetamine Screenings In Lookback Period" union "Barbiturate Screenings In Lookback Period" 
+    union "Benzodiazepine Screenings In Lookback Period" union "Buprenorphine Screenings In Lookback Period" 
+    union "Cannabinoid Screenings In Lookback Period" union "Cocaine Screenings In Lookback Period" 
+    union "Fentanyl Screenings In Lookback Period" union "Heroin Screenings In Lookback Period" 
+    union "Methadone Screenings In Lookback Period" union "Opiate Screenings In Lookback Period"
+    union "Oxycodone Screenings In Lookback Period" union "PCP Screenings In Lookback Period" 
 
 define "All Lab Dates in Lookback Period":
   (
@@ -238,6 +268,10 @@ define "Unexpected Details":
       "Negative Amphetamine Screenings In Lookback Period", "Amphetamine Rx In Lookback Period"
     ),
     CreateDetailWithPossibleUnexpectedNegative(
+      "Barbiturate Simple Identifier", "Positive Barbiturate Screenings In Lookback Period", 
+      "Negative Barbiturate Screenings In Lookback Period", "Barbiturate Rx In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
       "Benzodiazepine Simple Identifier", "Positive Benzodiazepine Screenings In Lookback Period", 
       "Negative Benzodiazepine Screenings In Lookback Period", "Benzodiazepine Rx In Lookback Period"
     ),
@@ -246,17 +280,20 @@ define "Unexpected Details":
       "Negative Buprenorphine Screenings In Lookback Period", "Buprenorphine Rx In Lookback Period"
     ),
     CreateDetailWithoutPossibleUnexpectedNegative(
-      "Cannabinoid Simple Identifier", "Positive Cannabinoid Screenings In Lookback Period"
+      "Cannabinoid Simple Identifier", "Positive Cannabinoid Screenings In Lookback Period", 
+      "Negative Cannabinoid Screenings In Lookback Period"
     ),
     CreateDetailWithoutPossibleUnexpectedNegative(
-      "Cocaine Simple Identifier", "Positive Cocaine Screenings In Lookback Period"
+      "Cocaine Simple Identifier", "Positive Cocaine Screenings In Lookback Period", 
+      "Negative Cocaine Screenings In Lookback Period"
     ),
     CreateDetailWithPossibleUnexpectedNegative(
       "Fentanyl Simple Identifier", "Positive Fentanyl Screenings In Lookback Period", 
       "Negative Fentanyl Screenings In Lookback Period", "Fentanyl Rx In Lookback Period"
     ),
     CreateDetailWithoutPossibleUnexpectedNegative(
-      "Heroin Simple Identifier", "Positive Heroin Screenings In Lookback Period"
+      "Heroin Simple Identifier", "Positive Heroin Screenings In Lookback Period", 
+      "Negative Heroin Screenings In Lookback Period"
     ),
     CreateDetailWithPossibleUnexpectedNegative(
       "Methadone Simple Identifier", "Positive Methadone Screenings In Lookback Period", 
@@ -271,7 +308,8 @@ define "Unexpected Details":
       "Negative Oxycodone Screenings In Lookback Period", "Oxycodone Rx In Lookback Period"
     ),
     CreateDetailWithoutPossibleUnexpectedNegative(
-      "PCP Simple Identifier", "Positive PCP Screenings In Lookback Period"
+      "PCP Simple Identifier", "Positive PCP Screenings In Lookback Period", 
+      "Negative PCP Screenings In Lookback Period"
     )
   }
 
@@ -309,7 +347,9 @@ define "Generate Table Rows":
             then GetUnexpectedColumn('neg', row + ':' + col)
           else if BOT.posDates contains LabDate
             then GetExpectedColumn('pos')
-          else GetExpectedColumn('neg')
+          else if BOT.negDates contains LabDate
+            then GetExpectedColumn('neg')
+          else GetExpectedColumn('n/a')
         )
     ) + '<\/tr>'
 
@@ -363,6 +403,10 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
       ThePosLabs PosLab
         return date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime)
     ),
+    negDates: (
+      TheNegLabs NegLab
+        return date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime)
+    ),
     unexpectedPosDetails: (
       ThePosLabs PosLab
         with TheMeds Rx
@@ -385,12 +429,16 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     )
   }
 
-define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>):
+define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>):
   {
     ingredient: TheSubstance,
     posDates: (
       ThePosLabs PosLab
         return date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime)
+    ),
+    negDates: (
+      TheNegLabs NegLab
+        return date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime)
     ),
     unexpectedPosDetails: (
       ThePosLabs PosLab
@@ -408,4 +456,10 @@ define function GetPositiveLabsInLookbackPeriod(Labs List<FHIR.Observation>, Ena
   if Enabled
     then Labs Lab
      where StartsWith(Lower(Lab.value as FHIR.string), 'pos')
+  else null
+
+define function GetNegativeLabsInLookbackPeriod(Labs List<FHIR.Observation>, Enabled Boolean):
+  if Enabled
+    then Labs Lab
+     where StartsWith(Lower(Lab.value as FHIR.string), 'neg')
   else null

@@ -161,6 +161,14 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications"
   }, {
     "type": "depends-on",
+    "display": "Value set Barbiturate Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-drug-urine-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Barbiturate Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-medications"
+  }, {
+    "type": "depends-on",
     "display": "Value set Benzodiazepine Urine Tests",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-drug-urine-screening-tests"
   }, {
@@ -175,10 +183,6 @@
     "type": "depends-on",
     "display": "Value set Buprenorphine Medications",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-medications"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Cannabinoid Urine Tests",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-drug-urine-screening-tests"
   }, {
     "type": "depends-on",
     "display": "Value set Cocaine Urine Tests",
@@ -398,6 +402,20 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
     } ]
   }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "status", "category", "intent", "authoredOn", "authoredOn.value", "medication" ],
+    "codeFilter": [ {
+      "path": "status",
+      "code": [ {
+        "code": "active"
+      }, {
+        "code": "completed"
+      }, {
+        "code": "stopped"
+      } ]
+    } ]
+  }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
     "mustSupport": [ "code", "effective", "status", "status.value" ],
@@ -534,6 +552,14 @@
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
     } ]
   }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
     "mustSupport": [ "status", "category", "intent", "authoredOn", "authoredOn.value", "medication" ],
@@ -602,6 +628,76 @@
     "codeFilter": [ {
       "path": "code",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "Observation",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+    "mustSupport": [ "code", "effective", "status", "status.value" ],
+    "codeFilter": [ {
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+    } ]
+  }, {
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "status", "category", "intent", "authoredOn", "authoredOn.value", "medication" ],
+    "codeFilter": [ {
+      "path": "status",
+      "code": [ {
+        "code": "active"
+      }, {
+        "code": "completed"
+      }, {
+        "code": "stopped"
+      } ]
     } ]
   }, {
     "type": "MedicationRequest",
