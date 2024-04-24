@@ -429,7 +429,13 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
               rxDate: date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime),
-              rxDetail: if exists (Rx.medication.coding) then Rx.medication.coding[0].display.value else 'Unable to determine a detailed identifier'
+              rxDetail: 
+                if Rx.medication is FHIR.Reference 
+                  then Combine(
+                    [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] Med 
+                      return if Med.code.text is not null then Med.code.text else 'Unable to determine a detailed identifier'
+                  ) 
+                else if exists (Rx.medication.coding) then Rx.medication.coding[0].display.value else 'Unable to determine a detailed identifier'
             }
     )
   }
