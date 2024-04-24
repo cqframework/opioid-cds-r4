@@ -39,7 +39,7 @@ define "Inclusion Criteria For UDS Recommendation":
 
 define "Inclusion Criteria For Unexpected Results":
   AnyTrue(
-    "Unexpected Details" Details
+    "Remove Substances Without Positive or Negative Results" Details
       return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
   )
 
@@ -259,6 +259,11 @@ define "Normalize Rx In Lookback Period":
         and Rx.authoredOn.value in day of "Rx Lookback Period"
   )
 
+define "Remove Substances Without Positive or Negative Results":
+  "Unexpected Details" Details
+    where (Details.posDates is not null and Length(Details.posDates) != 0)
+      or (Details.negDates is not null and Length(Details.negDates) != 0)
+
 // Details Logic
 
 define "Unexpected Details":
@@ -335,8 +340,8 @@ define "Table Headers":
     return '<th class=\"details-table-header\">' + ToString(LabDate) + '<\/th>'
 
 define "Generate Table Rows":
-  "Unexpected Details" BOT
-    let row: ToString(IndexOf("Unexpected Details", BOT) + 1)
+  "Remove Substances Without Positive or Negative Results" BOT
+    let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1)
     return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(
       "All Lab Dates in Lookback Period" LabDate
         let col: ToString(IndexOf("All Lab Dates in Lookback Period", LabDate) + 2)
@@ -354,8 +359,8 @@ define "Generate Table Rows":
     ) + '<\/tr>'
 
 define "Generate Footer Rows":
-  "Unexpected Details" BOT
-      let row: ToString(IndexOf("Unexpected Details", BOT) + 1),
+  "Remove Substances Without Positive or Negative Results" BOT
+      let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1),
       colspan: Length("All Lab Dates in Lookback Period") + 1
       return Combine(
         "All Lab Dates in Lookback Period" LabDate
@@ -456,10 +461,10 @@ define function GetPositiveLabsInLookbackPeriod(Labs List<FHIR.Observation>, Ena
   if Enabled
     then Labs Lab
      where StartsWith(Lower(Lab.value as FHIR.string), 'pos')
-  else null
+  else {}
 
 define function GetNegativeLabsInLookbackPeriod(Labs List<FHIR.Observation>, Enabled Boolean):
   if Enabled
     then Labs Lab
      where StartsWith(Lower(Lab.value as FHIR.string), 'neg')
-  else null
+  else {}

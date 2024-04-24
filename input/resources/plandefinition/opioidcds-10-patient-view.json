@@ -1906,13 +1906,28 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Inclusion Criteria For Unexpected Results"
+      "valueString": "Remove Substances Without Positive or Negative Results"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria For Unexpected Results\":\n  AnyTrue(\n    \"Unexpected Details\" Details\n      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)\n  )"
+      "valueString": "define \"Remove Substances Without Positive or Negative Results\":\n  \"Unexpected Details\" Details\n    where (Details.posDates is not null and Length(Details.posDates) != 0)\n      or (Details.negDates is not null and Length(Details.negDates) != 0)"
     }, {
       "url": "displaySequence",
       "valueInteger": 79
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "Inclusion Criteria For Unexpected Results"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Inclusion Criteria For Unexpected Results\":\n  AnyTrue(\n    \"Remove Substances Without Positive or Negative Results\" Details\n      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)\n  )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 80
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1927,7 +1942,7 @@
       "valueString": "define \"Applicable Because of Unexpected Results\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Rec10Common.\"Inclusion Criteria For Unexpected Results\"\n    and not Rec10Common.\"Exclusion Criteria\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 80
+      "valueInteger": 81
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1942,7 +1957,7 @@
       "valueString": "define \"Style Header\":\n  '<style>\\r\\n  .alert-body {\\r\\n    width: 670px;\\r\\n    font-family: segoe-ui, sans-serif;\\r\\n    background-color: #FEFFF1;\\r\\n  }\\r\\n\\r\\n  .details-table {\\r\\n    border-collapse:collapse;\\r\\n    border-style: ridge;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-caption {\\r\\n    border-style: ridge;\\r\\n    border-bottom: none;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-table-header {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-footer-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    font-size: small;\\r\\n  }\\r\\n\\r\\n  .details-table-cell-unexpected {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    color: red;\\r\\n    font-weight: bold;\\r\\n  }\\r\\n\\r\\n  .more-text {\\r\\n    position: relative;\\r\\n    margin-bottom: 2em;\\r\\n  }\\r\\n  \\r\\n  .more {\\r\\n    display:none;\\r\\n  }\\r\\n\\r\\n  #box .show-more:checked + .more {\\r\\n    display:block;\\r\\n  }\\r\\n<\\/style>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 81
+      "valueInteger": 82
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1957,7 +1972,7 @@
       "valueString": "define \"Unexpected Div Start\":\n  '<div class=\\\"alert-body\\\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\\/strong> in the past year.<\\/p><\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 82
+      "valueInteger": 83
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1972,7 +1987,7 @@
       "valueString": "define \"Table Start\":\n  '<div><table class=\\\"details-table\\\"><caption class=\\\"details-caption\\\">Urine Toxicology Results<\\/caption><tr><th class=\\\"details-table-header\\\">Substance<\\/th>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 83
+      "valueInteger": 84
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1987,7 +2002,7 @@
       "valueString": "define \"All Lab Dates in Lookback Period\":\n  (\n    \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)\n  ) X sort desc"
     }, {
       "url": "displaySequence",
-      "valueInteger": 84
+      "valueInteger": 85
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2002,7 +2017,7 @@
       "valueString": "define \"Table Headers\":\n  \"All Lab Dates in Lookback Period\" LabDate\n    return '<th class=\\\"details-table-header\\\">' + ToString(LabDate) + '<\\/th>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 85
+      "valueInteger": 86
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2014,10 +2029,10 @@
       "valueString": "Generate Table Rows"
     }, {
       "url": "statement",
-      "valueString": "define \"Generate Table Rows\":\n  \"Unexpected Details\" BOT\n    let row: ToString(IndexOf(\"Unexpected Details\", BOT) + 1)\n    return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(\n      \"All Lab Dates in Lookback Period\" LabDate\n        let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n        return all (\n          if BOT.unexpectedPosDetails.date contains LabDate\n            then GetUnexpectedColumn('pos', row + ':' + col)\n          else if BOT.unexpectedNegDetails.udsDate contains LabDate\n            then GetUnexpectedColumn('neg', row + ':' + col)\n          else if BOT.posDates contains LabDate\n            then GetExpectedColumn('pos')\n          else if BOT.negDates contains LabDate\n            then GetExpectedColumn('neg')\n          else GetExpectedColumn('n/a')\n        )\n    ) + '<\\/tr>'"
+      "valueString": "define \"Generate Table Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n    let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1)\n    return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(\n      \"All Lab Dates in Lookback Period\" LabDate\n        let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n        return all (\n          if BOT.unexpectedPosDetails.date contains LabDate\n            then GetUnexpectedColumn('pos', row + ':' + col)\n          else if BOT.unexpectedNegDetails.udsDate contains LabDate\n            then GetUnexpectedColumn('neg', row + ':' + col)\n          else if BOT.posDates contains LabDate\n            then GetExpectedColumn('pos')\n          else if BOT.negDates contains LabDate\n            then GetExpectedColumn('neg')\n          else GetExpectedColumn('n/a')\n        )\n    ) + '<\\/tr>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 86
+      "valueInteger": 87
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2029,10 +2044,10 @@
       "valueString": "Generate Footer Rows"
     }, {
       "url": "statement",
-      "valueString": "define \"Generate Footer Rows\":\n  \"Unexpected Details\" BOT\n      let row: ToString(IndexOf(\"Unexpected Details\", BOT) + 1),\n      colspan: Length(\"All Lab Dates in Lookback Period\") + 1\n      return Combine(\n        \"All Lab Dates in Lookback Period\" LabDate\n          let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n          return all (\n            if BOT.unexpectedPosDetails.date contains LabDate\n              then singleton from (\n                BOT.unexpectedPosDetails PosDetail\n                  where PosDetail.date = LabDate\n                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unprescribed substance found: ' + PosDetail.udsDetail) + '<\\/tr>'\n              )\n            else if BOT.unexpectedNegDetails.udsDate contains LabDate\n              then singleton from (\n                BOT.unexpectedNegDetails NegDetail\n                  where NegDetail.udsDate = LabDate\n                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unexpected negative result found: prescribed ' + NegDetail.rxDetail + ' on ' + ToString(NegDetail.rxDate)) + '<\\/tr>'\n              )\n            else ''\n          )\n      )"
+      "valueString": "define \"Generate Footer Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n      let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1),\n      colspan: Length(\"All Lab Dates in Lookback Period\") + 1\n      return Combine(\n        \"All Lab Dates in Lookback Period\" LabDate\n          let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n          return all (\n            if BOT.unexpectedPosDetails.date contains LabDate\n              then singleton from (\n                BOT.unexpectedPosDetails PosDetail\n                  where PosDetail.date = LabDate\n                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unprescribed substance found: ' + PosDetail.udsDetail) + '<\\/tr>'\n              )\n            else if BOT.unexpectedNegDetails.udsDate contains LabDate\n              then singleton from (\n                BOT.unexpectedNegDetails NegDetail\n                  where NegDetail.udsDate = LabDate\n                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unexpected negative result found: prescribed ' + NegDetail.rxDetail + ' on ' + ToString(NegDetail.rxDate)) + '<\\/tr>'\n              )\n            else ''\n          )\n      )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 87
+      "valueInteger": 88
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2047,7 +2062,7 @@
       "valueString": "define \"Table End\":\n  '<\\/table><\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 88
+      "valueInteger": 89
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2062,7 +2077,7 @@
       "valueString": "define \"Details Table\": \n  \"Table Start\" + Combine(\"Table Headers\") \n    + '<tbody>' + Combine(\"Generate Table Rows\") + '</tbody>' \n    + '<tfoot>' + Combine(\"Generate Footer Rows\") + '<\\/tfoot>' \n  + \"Table End\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 89
+      "valueInteger": 90
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2077,7 +2092,7 @@
       "valueString": "define \"Details More Info\":\n  '<div id=\\\"box\\\">\\r\\n  <p>Note on false positives and unexpected negative results...<\\/p>\\r\\n  <input type=\\\"checkbox\\\" class=\\\"show-more\\\"> Show more\\r\\n  <div class=\\\"more\\\">\\r\\n  <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\\/><br\\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836\\\">http:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836<\\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\\/><br\\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/www.cdc.gov\\/mmwr\\/volumes\\/71\\/rr\\/rr7103a1.htm#Recommendation10\\\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\\/a>.<\\/p>\\r\\n  <p>An unexpectedly negative test may be due to diversion, intermittent use, aberrant drug use behavior, or other factors, including a false negative result. Clinicians should interpret this result in the context of the overall treatment plan.<\\/p>\\r\\n  <\\/div>\\r\\n<\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 90
+      "valueInteger": 91
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2092,7 +2107,7 @@
       "valueString": "define \"Div End\": '<\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 91
+      "valueInteger": 92
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2107,7 +2122,7 @@
       "valueString": "// HTML Generation\ndefine \"Get HTML Details\":\n  Common.\"Style Header\" + \"Unexpected Div Start\" + \"Details Table\" + \"Details More Info\" + \"Div End\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 92
+      "valueInteger": 93
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2122,7 +2137,7 @@
       "valueString": "define \"Detail\":\n  Rec10Common.\"Get HTML Details\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 93
+      "valueInteger": 94
     } ]
   }, {
     "id": "effective-data-requirements",
@@ -2148,7 +2163,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-04-22",
+  "date": "2024-04-24",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
