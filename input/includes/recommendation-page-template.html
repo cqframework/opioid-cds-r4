@@ -1,0 +1,58 @@
+{% assign cdc-guideline-url='https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm' %}
+{% assign ig-name='2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain' %}
+{% assign topic-anchor=include.topic | replace: ' ', '' %}
+{% assign recommendation-category-anchor=':~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of' %}
+{% assign evidence-type-anchor=':~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of' %}
+{% assign func-desc-anchor=include.func-desc | replace: '.html', '' %}
+{% assign data-elements-anchor=include.data-elements | replace: '.html', '' %}
+{% assign content-anchor=include.content-table | replace: '.html', '' %}
+{% assign test-data-anchor=include.test-data | replace: '.html', '' %}
+{% assign all-anchor=include.test-data | replace: 'test-data.html', 'all' %}
+
+<table class="colsi">
+  <tbody>
+    <tr><td><em>CDC Guideline</em>: <a href="{{ cdc-guideline-url }}" target="_blank">{{ ig-name }}</a></td></tr>
+    <tr><td><em>Recommendation Topic</em>: {{ include.topic }} (<a href="{{ cdc-guideline-url }}#{{ topic-anchor }}" target="_blank">Source</a>)</td></tr>
+    <tr><td><em>Recommendation Description</em>: {{ include.description }} (<a href="{{ cdc-guideline-url }}#Recommendation{{ include.recommendationNum }}" target="_blank">Source</a>)</td></tr>
+    <tr><td><a href="{{ cdc-guideline-url }}#{{ recommendation-category-anchor }}" target="_blank"><em>Recommendation Category</em></a>: {{ include.recommendation-category }}</td></tr>
+    <tr><td><a href="{{ cdc-guideline-url }}#{{ evidence-type-anchor }}" target="_blank"><em>Evidence Type</em></a>: {{ include.evidence-type }}</td></tr>
+  </tbody>
+</table>
+
+<img src="{{ include.flow-diagram }}" alt="Flow Diagram for the Recommendation" style="max-width: 100%;" />
+
+<p> </p>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#{{ func-desc-anchor }}">Functional Description</a></li>
+    <li><a data-toggle="tab" href="#{{ data-elements-anchor }}">Data Elements</a></li>
+    <li><a data-toggle="tab" href="#{{ content-anchor }}">Content</a></li>
+    <li><a data-toggle="tab" href="#{{ test-data-anchor }}">Test Data</a></li>
+    <li><a data-toggle="tab" href="#{{ all-anchor }}">All</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="{{ func-desc-anchor }}" class="tab-pane fade in active">
+      {% include {{ include.func-desc }} %}
+    </div>
+    <div id="{{ data-elements-anchor }}" class="tab-pane fade">
+      {% include {{ include.data-elements }} %}
+      <p> </p>
+    </div>
+    <div id="{{ content-anchor }}" class="tab-pane fade">
+      {% include {{ include.content-table }} %}
+    </div>
+    <div id="{{ test-data-anchor }}" class="tab-pane fade">
+      {% include {{ include.test-data }} %}
+    </div>
+    <div id="{{ all-anchor }}" class="tab-pane fade">
+      {% include {{ include.func-desc }} %}
+      <p> </p>
+      {% include {{ include.data-elements }} %}
+      <p> </p>
+      {% include {{ include.content-table }} %}
+      <p> </p>
+      {% include {{ include.test-data }} %}
+    </div>
+  </div>
+</div>

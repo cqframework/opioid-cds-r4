@@ -48,6 +48,7 @@
   "compose": {
     "include": [ {
       "system": "http://loinc.org",
+      "version": "2.74",
       "filter": [ {
         "property": "parent",
         "op": "=",
@@ -55,7 +56,7 @@
       }, {
         "property": "SYSTEM",
         "op": "=",
-        "value": "Urine"
+        "value": "LP7681-2"
       }, {
         "property": "CLASSTYPE",
         "op": "=",
@@ -70,7 +71,7 @@
       }, {
         "property": "SYSTEM",
         "op": "=",
-        "value": "Urine"
+        "value": "LP7681-2"
       }, {
         "property": "CLASSTYPE",
         "op": "=",
@@ -85,7 +86,7 @@
       }, {
         "property": "SYSTEM",
         "op": "=",
-        "value": "Urine"
+        "value": "LP7681-2"
       }, {
         "property": "CLASSTYPE",
         "op": "=",
@@ -100,7 +101,7 @@
       }, {
         "property": "SYSTEM",
         "op": "=",
-        "value": "Urine"
+        "value": "LP7681-2"
       }, {
         "property": "CLASSTYPE",
         "op": "=",

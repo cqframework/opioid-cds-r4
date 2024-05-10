@@ -1,0 +1,39 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
+  
+  {% include multiple-variation-note.html %}
+  
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#order-select">Recommendation 11 Order Select</a></li>
+      <li><a data-toggle="tab" href="#patient-view">Recommendation 11 Patient View</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="order-select" class="tab-pane fade in active">
+        {% include recommendation-page-template.html 
+          recommendationNum='11' 
+          topic='Selecting Opioids and Determining Opioid Dosages' 
+          description='When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.' 
+          recommendation-category='B' 
+          evidence-type='4' 
+          flow-diagram='assets/images/Recommendation11-order-select-flow.png'
+          func-desc='recommendation11-order-select-functional-description.html'
+          data-elements='recommendation11-order-select-data-elements.html'
+          content-table='recommendation11-order-select-content-table.html'
+          test-data='recommendation11-order-select-test-data.html' %}
+      </div>
+      <div id="patient-view" class="tab-pane fade">
+        {% include recommendation-page-template.html 
+          recommendationNum='11' 
+          topic='Selecting Opioids and Determining Opioid Dosages' 
+          description='When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.' 
+          recommendation-category='B' 
+          evidence-type='4' 
+          flow-diagram='assets/images/Recommendation11-patient-view-flow.png'
+          func-desc='recommendation11-patient-view-functional-description.html'
+          data-elements='recommendation11-patient-view-data-elements.html'
+          content-table='recommendation11-patient-view-content-table.html'
+          test-data='recommendation11-patient-view-test-data.html' %}
+      </div>
+    </div>
+  </div>
+</div>

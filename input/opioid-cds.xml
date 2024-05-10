@@ -33,6 +33,18 @@
     <packageId value="fhir.cdc.opioid-mme-r4" />
     <version value="3.0.0" />
   </dependsOn>
+  <!-- Using older version of the R4 extension pack here as the updated (v5.1.0) version contains R5 extension for cqf-strengthOfRecommendation and cqf-qualityOfEvidence -->
+  <dependsOn>
+    <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions" />
+    <packageId value="hl7.fhir.uv.extensions.r4" />
+    <version value="1.0.0" />
+  </dependsOn>
+  <!-- Needed for the auto-oid-root parameter -->
+  <dependsOn>
+    <uri value="http://hl7.org/fhir/tools/ImplementationGuide/hl7.fhir.uv.tools" />
+    <packageId value="hl7.fhir.uv.tools" />
+    <version value="0.2.0" />
+  </dependsOn>
   <definition>
     <grouping id="recommendation-artifact-packages">
       <name value="Recommendation Artifact Packages" />
@@ -180,7 +192,8 @@
         <display value="Data Date-Roller Extension" />
       </reference>
       <name value="DataDateRollerExtension" />
-      <description value="Declares the DateLastUpdated and Frequency arguments to be used by the Data Date Roller for maintaining/rolling test data dates to keep them from going stale." />
+      <description
+        value="Declares the DateLastUpdated and Frequency arguments to be used by the Data Date Roller for maintaining/rolling test data dates to keep them from going stale." />
       <exampleBoolean value="false" />
     </resource>
     <resource>
@@ -312,7 +325,8 @@
         <display value="Recommendation 1 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC01Library" />
-      <description value="Logic Library for Recommendation #1 (order-sign) - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
+      <description
+        value="Logic Library for Recommendation #1 (order-sign) - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -322,7 +336,8 @@
         <display value="Recommendation 2 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC02Library" />
-      <description value="Logic Library for Recommendation #2 (order-sign) - Opioid Therapy Goals Discussion" />
+      <description
+        value="Logic Library for Recommendation #2 (order-sign) - Opioid Therapy Goals Discussion" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -332,7 +347,8 @@
         <display value="Recommendation 3 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC03Library" />
-      <description value="Logic Library for Recommendation #3 (order-sign) - Opioid Immediate Release Form When Starting Opioid Therapy" />
+      <description
+        value="Logic Library for Recommendation #3 (order-sign) - Opioid Immediate Release Form When Starting Opioid Therapy" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -342,7 +358,8 @@
         <display value="Recommendations 4 and 5 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC04And05Library" />
-      <description value="Logic Library for Recommendations #4 and #5 (order-sign) - Lowest Effective Dose" />
+      <description
+        value="Logic Library for Recommendations #4 and #5 (order-sign) - Lowest Effective Dose" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -352,7 +369,8 @@
         <display value="Recommendation 6 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC06Library" />
-      <description value="Logic Library for Recommendation #6 (order-sign) - Prescribe Lowest Effective Dose and Duration" />
+      <description
+        value="Logic Library for Recommendation #6 (order-sign) - Prescribe Lowest Effective Dose and Duration" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -362,7 +380,8 @@
         <display value="Recommendation 7 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC07Library" />
-      <description value="Logic Library for Recommendation #7 (order-sign) - Opioid Therapy Risk Assessment" />
+      <description
+        value="Logic Library for Recommendation #7 (order-sign) - Opioid Therapy Risk Assessment" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -382,7 +401,8 @@
         <display value="Recommendation 9 (order-sign) Logic Library" />
       </reference>
       <name value="OpioidCDSREC09Library" />
-      <description value="Logic Library for Recommendation #9 (order-sign) - Consider Patient's History of Controlled Substance Prescriptions" />
+      <description
+        value="Logic Library for Recommendation #9 (order-sign) - Consider Patient's History of Controlled Substance Prescriptions" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -412,7 +432,8 @@
         <display value="Recommendation 11 (order-select) Logic Library" />
       </reference>
       <name value="OpioidCDSREC11Library" />
-      <description value="Logic Library for Recommendation #11 (order-select) - Concurrent Use of Opioids and Benzodiazepines" />
+      <description
+        value="Logic Library for Recommendation #11 (order-select) - Concurrent Use of Opioids and Benzodiazepines" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -422,7 +443,8 @@
         <display value="Recommendation 11 (patient-view) Logic Library" />
       </reference>
       <name value="OpioidCDSREC11PatientViewLibrary" />
-      <description value="Logic Library for Recommendation #11 (patient-view) - Concurrent Use of Opioids and Benzodiazepines" />
+      <description
+        value="Logic Library for Recommendation #11 (patient-view) - Concurrent Use of Opioids and Benzodiazepines" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -432,7 +454,8 @@
         <display value="Recommendation 12 (patient-view) Logic Library" />
       </reference>
       <name value="OpioidCDSREC12PatientViewLibrary" />
-      <description value="Logic Library for Recommendation #12 (patient-view) - Evidence-based Treatment for Patients with Opioid Use Disorder" />
+      <description
+        value="Logic Library for Recommendation #12 (patient-view) - Evidence-based Treatment for Patients with Opioid Use Disorder" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -528,6 +551,11 @@
         <generation value="html" />
       </page>
       <page>
+        <nameUrl value="subroutines.html" />
+        <title value="2022 CDC Clinical Practice Guideline - Subroutines" />
+        <generation value="markdown" />
+      </page>
+      <page>
         <nameUrl value="acute-pain.html" />
         <title value="2022 CDC Clinical Practice Guideline - Acute Pain" />
         <generation value="markdown" />
@@ -544,7 +572,8 @@
       </page>
       <page>
         <nameUrl value="recommendation-01.html" />
-        <title value="Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
+        <title
+          value="Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-01-cql.html" />
@@ -563,8 +592,9 @@
         </page>
       </page>
       <page>
-        <nameUrl value="recommendation-03-order-sign.html" />
-        <title value="Recommendation #3 - Opioid Immediate Release Form When Starting Opioid Therapy" />
+        <nameUrl value="recommendation-03.html" />
+        <title
+          value="Recommendation #3 - Opioid Immediate Release Form When Starting Opioid Therapy" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-03-cql.html" />
@@ -614,7 +644,8 @@
       </page>
       <page>
         <nameUrl value="recommendation-09.html" />
-        <title value="Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions" />
+        <title
+          value="Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-09-cql.html" />
@@ -623,19 +654,14 @@
         </page>
       </page>
       <page>
-        <nameUrl value="recommendation-10-order-sign.html" />
-        <title value="Recommendation #10 Order Sign Variation - Urine Drug Testing" />
+        <nameUrl value="recommendation-10.html" />
+        <title value="Recommendation #10 - Urine Drug Testing" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-10-cql.html" />
           <title value="OpioidCDS Recommendation 10 Order Sign - CQL Source" />
           <generation value="html" />
         </page>
-      </page>
-      <page>
-        <nameUrl value="recommendation-10-patient-view.html" />
-        <title value="Recommendation #10 Patient View Variation - Urine Drug Testing" />
-        <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-10-patient-view-cql.html" />
           <title value="OpioidCDS Recommendation 10 Patient View - CQL Source" />
@@ -643,19 +669,14 @@
         </page>
       </page>
       <page>
-        <nameUrl value="recommendation-11-order-select.html" />
-        <title value="Recommendation #11 Order Select Variation - Concurrent Use of Opioids and Benzodiazepines" />
+        <nameUrl value="recommendation-11.html" />
+        <title value="Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-11-cql.html" />
           <title value="OpioidCDS Recommendation 11 Order Select - CQL Source" />
           <generation value="html" />
         </page>
-      </page>
-      <page>
-        <nameUrl value="recommendation-11-patient-view.html" />
-        <title value="Recommendation #11 Patient View Variation - Concurrent Use of Opioids and Benzodiazepines" />
-        <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-11-patient-view-cql.html" />
           <title value="OpioidCDS Recommendation 11 Patient View - CQL Source" />
@@ -664,7 +685,8 @@
       </page>
       <page>
         <nameUrl value="recommendation-12.html" />
-        <title value="Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder" />
+        <title
+          value="Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder" />
         <generation value="html" />
         <page>
           <nameUrl value="opioidcds-recommendation-12-patient-view-cql.html" />
@@ -691,6 +713,21 @@
     <parameter>
       <code value="find-other-resources" />
       <value value="true" />
+    </parameter>
+    <!-- DO NOT use IG version for resources where the version is specified -->
+    <parameter>
+      <code value="apply-version" />
+      <value value="false" />
+    </parameter>
+    <!-- Use the IG verison for resources that do not provide a version -->
+    <parameter>
+      <code value="default-version" />
+      <value value="true" />
+    </parameter>
+    <!-- Using CDC OID - TODO: make sure this is appropriate -->
+    <parameter>
+      <code value="auto-oid-root" />
+      <value value="2.16.840.1.114222" />
     </parameter>
     <parameter>
       <code value="path-liquid" />

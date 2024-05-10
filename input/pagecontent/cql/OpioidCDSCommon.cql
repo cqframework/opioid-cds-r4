@@ -7,7 +7,7 @@ include OMTKLogicMK2020 version '2022.1.0' called OMTKLogic
 include OpioidCDSCommonConfig version '2022.1.0' called Config
 
 codesystem "LOINC": 'http://loinc.org'
-codesystem "SNOMED": 'http://snomed.info/sct'
+codesystem "SNOMED": 'http://snomed.info/sct/731000124108'
 
 // Expression-based
 valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
