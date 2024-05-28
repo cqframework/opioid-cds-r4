@@ -10,7 +10,7 @@
     guidance artifacts published in this implementation guide. In other words, the "Clinical Reasoning Implementation"
     depicted in the diagram below:</p>
 
-  <img src="assets/images/ClinicalReasoningApproach.png"/>
+  {% include img.html img="ClinicalReasoningApproach.png" caption="Clinical Reasoning Approach" %}
 
   <a name="api-request-and-response-http-client"> </a>
   <h3>API Requests/Responses Via HTTP Client</h3>

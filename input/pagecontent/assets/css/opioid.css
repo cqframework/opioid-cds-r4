@@ -7,7 +7,13 @@
 #hl7-nav {
   line-height: 50px;
   float: left;
-  margin-top: 16px;
+  margin-top: 0px !important;
+  color: #808080;
+}
+#family-nav {
+  line-height: 50px;
+  float: right;
+  margin-bottom: 8px;
   color: #808080;
 }
 #hl7-nav a {
@@ -37,12 +43,38 @@
   margin-left: 6px;
 }
 
+/* Fix for json, xml, and ttl code representation not filling and text overflowing the container */
+pre.json {
+  border: 1px solid #dcdcdc;
+  font-size: 11px;
+  background: #EFFFEF;
+  padding: 5px;
+  width: 100%;
+  overflow: scroll;
+}
+pre.xml {
+  border: 1px solid #dcdcdc;
+  font-size: 9pt;
+  padding: 5px;
+  background: #F0FFFF;
+  width: 100%;
+  overflow: scroll;
+}
+pre.rdf {
+  border: 1px solid #dcdcdc;
+  font-size: 11px;
+  background: #fdedff;
+  padding: 5px;
+  width: 100%;
+  overflow: scroll;
+}
+
 /* 
   Styles specific to this IG
 */
 
 /*
-Dropdown style
+Dropdown style - no longer used
 */
 
 summary {
@@ -119,7 +151,7 @@ summary::-webkit-details-marker {
 }
 
 /* 
-Ensure footer stays where it should
+Anchor footer to bottom of the view
 */
 
 body {
@@ -129,7 +161,6 @@ body {
 #segment-footer {
   position: absolute;
   bottom: 0;
-  height: 40px;
   min-width: 100%;
 }
 
@@ -137,8 +168,14 @@ body {
   padding-bottom: 40px;
 }
 
+/* Footer nav can cover content... Adding padding to ensure that doesn't happen */
+.col-12 {
+  width: 100%;
+  padding-bottom: 33px;
+}
+
 /* 
-Table of contents styles
+Table of contents styles - no longer used
 */
 
 .toc-container {

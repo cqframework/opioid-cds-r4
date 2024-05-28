@@ -22,14 +22,14 @@ use of this IG as well as other CQF projects take place regularly on the <a href
 This implementation guide includes support for the following guideline recommendations:
 * [Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration](recommendation-01.html)
 * [Recommendation #2 - Opioid Therapy Goals Discussion](recommendation-02.html)
-* [Recommendation #3 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-03-order-sign.html)
+* [Recommendation #3 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-03.html)
 * [Recommendations #4 and #5 - Lowest Effective Dose](recommendation-04-05.html)
 * [Recommendation #6 - Prescribe Lowest Effective Dose and Duration](recommendation-06.html)
 * [Recommendation #7 - Opioid Therapy Risk Assessment](recommendation-07.html)
 * [Recommendation #8 - Naloxone Consideration](recommendation-08.html)
 * [Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions](recommendation-09.html)
-* [Recommendation #10 - Urine Drug Testing](recommendation-10-order-sign.html)
-* [Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11-order-select.html)
+* [Recommendation #10 - Urine Drug Testing](recommendation-10.html)
+* [Recommendation #11 - Concurrent Use of Opioids and Benzodiazepines](recommendation-11.html)
 * [Recommendation #12 - Evidence-based Treatment for Patients with Opioid Use Disorder](recommendation-12.html)  
 
 ### Getting Started
@@ -49,12 +49,7 @@ For a detailed description of how to implement the functionality with a Java-bas
 service, refer to the [Service Documentation](service-documentation.html).
 
 ### Trigger Overview
-<div>
-<figure>
-    <img src="assets/images/trigger-overview.png" alt="Trigger Overview image">
-    <figurecaption><br/>Orange shapes represent preferred trigger approaches. Items with clear/white centers are available (developed in earlier pilot testing prior to EHR support for order based hooks) for implementation at sites without preferred trigger capabilities in existing software for CDS Hooks.</figurecaption>
-</figure>
-</div>
+{% include img.html img="trigger-overview.png" caption="Trigger Overview Diagram: orange shapes represent preferred trigger approaches. Items with clear/white centers are available (developed in earlier pilot testing prior to EHR support for order based hooks) for implementation at sites without preferred trigger capabilities in existing software for CDS Hooks" %}
 <br />
  
 ### Morphine Milligram Equivalent (MME) Calculation Cautions

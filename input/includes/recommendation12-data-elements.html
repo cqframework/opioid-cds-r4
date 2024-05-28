@@ -38,3 +38,52 @@
     </td>
   </tr>
 </table>
+
+<a name="rationale-for-treatment"> </a>
+<h4>Rationale for Medication-Assisted Treatment</h4>
+
+<table class="list" style="margin-top: 2em; margin-bottom: 2em">
+  <thead>
+    <tr>
+      <th>Definition</th>
+      <th>Expression</th>
+      <th>Data (Terminology) Requirement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Presence of diagnosis of opioid misuse disorder</td>
+      <td>Existing <i>active</i> diagnosis of opioid misuse disorder</td>
+      <td>Opioid misuse disorders value set</td>
+    </tr>
+    <tr>
+      <td>Positive result from opioid misuse disorder evaluation tool</td>
+      <td>
+        <ul>
+          <li>Evidence of positive result from opioid misuse disorder evaluation tool</li>
+          <li>Timing - within 90 days</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Value set for opioid misuse disorders evaluation tool(s) - LOINC pan</li>
+          <li>Result options for such opioid misuse disorder evaluation tool(s) - perhaps LOINC normative responses that differentiate positive from negative results.</li>
+          <!--QUESTION TO CDC: Do opioid use disorder evaluation tools exist and, if so, how can we be sure we have a comprehensive list of such tools (represented by LOINC), and determine what represents a positive result from each?-->
+          <li>Consider this element a FUTURE option</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>Not Receiving Evidence-Based Treatment for Opioid Use Disorder</td>
+      <td>
+        <ul>
+          <li>Evidence of an ordered medication for opioid misuse disorder treatment in the last 90 days </li>
+          <li>Status <i>active</i> or <i>completed</i></li>
+        </ul>
+      </td>
+      <td>Buprenorphine and methadone medications</td>
+    </tr>
+  </tbody>
+</table>
+<p> </p>
+<a href="PlanDefinition-opioidcds-12-patient-view.html#effective-data-requirements">Effective Data Requirements</a>

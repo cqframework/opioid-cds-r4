@@ -1,0 +1,24 @@
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-7">Patient is 18 years or older and has a Medication Request authored "Today" for 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet which is an "Extended Release Opioid with Ambulatory Abuse Potential". This will result in a recommendation message: "Recommend use of immediate-release opioids instead of extended release/long acting opioids when starting patient on opioids."</td>
+      <td><a href="requests/OpioidCDSREC03/request-example-rec-03-long-acting-opioid.json">Request JSON</a></td>
+      <td><a href="responses/OpioidCDSREC03/response-example-rec-03-long-acting-opioid.json">Response JSON</a></td>
+    </tr>
+    <tr>
+      <td class="col-7">Patient is 18 years or older and has a Medication Request authored "Today" for Buprenorphine 2 MG / Naloxone 0.5 MG Oral Strip which is not an "Extended Release Opioid". This will not result in any recommendation messages.</td>
+      <td><a href="requests/OpioidCDSREC03/request-example-rec-03-not-long-acting-opioid.json">Request JSON</a></td>
+      <td><a href="responses/OpioidCDSREC03/response-example-rec-03-not-long-acting-opioid.json">Response JSON</a></td>
+    </tr>
+    <tr>
+      <td class="col-7">Patient is 18 years or older and has a Medication Request authored "Today" for Buprenorphine 2 MG / Naloxone 0.5 MG Oral Strip which is not an "Extended Release Opioid". Additionally, the patient has an active Medication Request for 12 HR Oxycodone Hydrochloride 10 MG Extended Release Oral Tablet which is an "Extended Release Opioid with Ambulatory Abuse Potential". This will not result in any recommendation messages.</td>
+      <td><a href="requests/OpioidCDSREC03/request-example-rec-03-preexisting-long-acting-opioid.json">Request JSON</a></td>
+      <td><a href="responses/OpioidCDSREC03/response-example-rec-03-preexisting-long-acting-opioid.json">Response JSON</a></td>
+    </tr>
+  </tbody>
+</table>

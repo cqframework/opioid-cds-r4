@@ -1,102 +1,13 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
-  <p>
-    Recommendations #9 (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation9" target="_blank">2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain</a>):
-  </p>
-  <p>
-    <strong>When prescribing initial opioid therapy for acute, subacute, or chronic pain, and periodically during opioid therapy for chronic pain, clinicians should review the patient’s history of controlled substance prescriptions using state prescription drug monitoring program (PDMP) data to determine whether the patient is receiving opioid dosages or combinations that put the patient at high risk for overdose 
-    (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of">recommendation category</a>: B; 
-    <a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of">evidence type</a>: 4).</strong>
-  </p>
-
-  <div class="toc-container">
-    <p class="toc-title">Contents</p>
-    <ul id="toc-list">
-      <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
-      <li><a href="#content">Content</a></li>
-      <li><a href="#example-data-requests">Example Data/Requests</a></li>
-    </ul>
-  </div>
-
-  <details class="tree-nav__item is-expandable" open="true">
-    <summary class="tree-nav__item-title">
-      <a name="functional-description"> </a>
-      <h3 class="title">Functional Description</h3>
-    </summary>
-
-    {% include recommendation09-functional-description.html %}
-
-    <img src="assets/images/Recommendation09-flow.png" style="max-width: 100%;" />
-    <p></p>
-    {% include recommendation09-data-elements.html %}
-  </details>
-  <p></p>
-  <a href="PlanDefinition-opioidcds-09.html#effective-data-requirements">Effective Data Requirements</a>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="opioid-review-useful"> </a>
-      <h3 class="title">Opioid Review Useful</h3>
-    </summary>
-    {% include opioid-review-useful-definitions.html %}
-  </details>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="content"> </a>
-      <h3 class="title">Content</h3>
-    </summary>
-
-    <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
-
-    <table class="list">
-      <thead>
-        <tr>
-          <th>Resource</th>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="PlanDefinition-opioidcds-09.html">2022 CDC Clinical Practice Guideline Recommendation #9</a></td>
-          <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for 2022 CDC Clinical Practice Guideline Recommendation #9</td>
-        </tr>
-        <tr>
-          <td><a href="Library-OpioidCDSREC09.html">Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions</a></td>
-          <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
-          <td>Defines the data requirements to support evaluation of recommendation #9</td>
-        </tr>
-        {% include common-libraries.html %}
-      </tbody>
-    </table>
-  </details>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="example-data-requests"> </a>
-      <h3>Example Data/Requests</h3>
-    </summary>
-    <table class="grid">
-      <thead>
-        <tr>
-          <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Commented out because the example response is empty. Need to capture the expected response and add it to that file -->
-        <tr>
-          <td class="col-7">Patient is 18 or older. Patient has been prescribed Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) Patients "Dosage Instructions" are 1 FIlm per day for 30 days. This will trigger the message "PDMP Data Review" </td>
-          <td><a href="requests/OpioidCDSREC09/request-example-rec-09-in-criteria-met.json">Request JSON</a></td>
-          <td><a href="responses/OpioidCDSREC09/response-example-rec-09-in-criteria-met.json">Response JSON</a></td>
-        </tr>
-        <tr>
-          <td class="col-7">Patient is 18 or older. Patient has been prescribed Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) Patients "Dosage Instructions" are 1 Film per day for 30 days. The patient will be excluded and no message will be triggered - an empty set of cards will be returned.</td>
-          <td><a href="requests/OpioidCDSREC09/request-example-rec-09-out-PDMP-review-90-days.json">Request JSON</a></td>
-          <td><a href="responses/OpioidCDSREC09/response-example-rec-09-out-PDMP-review-90-days.json">Response JSON</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </details>
+  {% include recommendation-page-template.html 
+    recommendationNum='9' 
+    topic='Assessing Risk and Addressing Potential Harms of Opioid Use' 
+    description='When prescribing initial opioid therapy for acute, subacute, or chronic pain, and periodically during opioid therapy for chronic pain, clinicians should review the patient’s history of controlled substance prescriptions using state prescription drug monitoring program (PDMP) data to determine whether the patient is receiving opioid dosages or combinations that put the patient at high risk for overdose.' 
+    recommendation-category='B' 
+    evidence-type='4' 
+    flow-diagram='Recommendation09-flow.png'
+    func-desc='recommendation09-functional-description.html'
+    data-elements='recommendation09-data-elements.html'
+    content-table='recommendation09-content-table.html'
+    test-data='recommendation09-test-data.html' %}
 </div>

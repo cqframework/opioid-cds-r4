@@ -1,0 +1,18 @@
+<table id="dataElements">
+  {% include data-elements-intro.html %}
+  {% include data-elements-headers.html %}
+  <tr>
+    <td>Is this order for extended-release opioid analgesics with ambulatory misuse potential?</td>
+    <td>Yes</td>
+    <td>Look for a new prescription for extended release opioids. [Ideally the order should be selected prior to being committed to the system]</td>
+    <td>Extended-release opioid analgesics with ambulatory misuse potential</td>
+    <td>
+      <a href="StructureDefinition-cdc-medicationrequest.html">MedicationRequest</a>
+    </td>
+    <td>MedicationRequest.medication</td>
+  </tr>
+  {% include data-elements-opioid-review-useful.html %}
+  {% include data-elements-opioid-naive.html %}
+</table>
+<p> </p>
+<a href="PlanDefinition-opioidcds-03.html#effective-data-requirements">Effective Data Requirements</a>

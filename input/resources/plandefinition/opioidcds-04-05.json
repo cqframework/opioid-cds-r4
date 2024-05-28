@@ -706,59 +706,39 @@
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC04And05" ],
   "action": [ {
-    "title": "High risk for opioid overdose.",
-    "description": "Total morphine milligram equivalent (MME) exceeds recommended amount. Taper to less than 50.",
-    "documentation": [ {
-      "type": "documentation",
-      "label": "Recommendation 4",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "strong",
-              "display": "Strong"
-            } ]
-          }
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "id": "recommendation-4-strength-of-recommendation",
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "strong",
+          "display": "Strong"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "low",
-              "display": "Low quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation4:~:text=risks%20to%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%203).,-Implementation%20Considerations"
+          "id": "recommendation-5-strength-of-recommendation",
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "weak",
+          "display": "Weak"
+        } ]
       }
     }, {
-      "type": "documentation",
-      "label": "Recommendation 5",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "weak",
-              "display": "Weak"
-            } ]
-          }
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "id": "recommendation-4-evidence-quality",
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "low",
+          "display": "Low quality"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "very-low",
-              "display": "Very low quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation5:~:text=from%20higher%20dosages-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations"
+          "id": "recommendation-5-evidence-quality",
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "very-low",
+          "display": "Very low quality"
+        } ]
       }
     } ],
+    "title": "High risk for opioid overdose.",
+    "description": "Total morphine milligram equivalent (MME) exceeds recommended amount. Taper to less than 50.",
     "trigger": [ {
       "type": "named-event",
       "name": "order-sign"

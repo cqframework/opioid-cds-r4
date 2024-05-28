@@ -29,7 +29,7 @@
     A visual representation of the database is shown below:
   </p>
 
-  <img style="max-width: 100%; max-height: 100%" src="assets/images/omtk-db.png" />
+  {% include img.html img="omtk-db.png" caption="OMTK Database Class Diagram" %}
 
   <p></p>
 
@@ -152,7 +152,7 @@
     Below is a sample screenshot of the end output from the MME rule in Epic. It is currently in operational use at University of Utah Health. Other recommendations have similar outputs. Note that the user-interface displayed here is part of the implementation of these artifacts at a health system. The responses provided by the artifacts here only provide the test for the user-interface.
   </p>
 
-  <img style="max-width: 100%; max-height: 100%" src="assets/images/end-output.png" />
+  {% include img.html img="end-output.png" caption="Example Output" %}
 
   <p></p>
 </div>

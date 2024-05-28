@@ -38,7 +38,7 @@
 
   <p>The following flowchart provides a summary of the operations required to implement the 2022 CDC Clinical Practice Guideline:</p>
 
-  <img src="assets/images/OpioidGuidanceFlowchart.png" />
+  {% include img.html img="OpioidGuidanceFlowchart.png" caption="Opioid Guidance flow diagram" %}
 
   <p></p>
 
@@ -489,7 +489,7 @@
     is depicted in the following diagram:
   </p>
 
-  <img src="assets/images/CDC_Opioid_Guidelines_$apply_flowchart.png" />
+  {% include img.html img="CDC_Opioid_Guidelines_$apply_flowchart.png" caption="PlanDefinition $apply flow diagram" %}
 
   <p></p>
 

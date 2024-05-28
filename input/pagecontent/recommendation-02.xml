@@ -1,119 +1,13 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
-  <p>
-    Recommendation #2 (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation2" target="_blank">2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain</a>):
-  </p>
-  <p>
-    <strong>Nonopioid therapies are preferred for subacute and chronic pain. Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific condition and patient and only consider initiating opioid therapy if expected benefits for pain and function are anticipated to outweigh risks to the patient. Before starting opioid therapy for subacute or chronic pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy, should work with patients to establish treatment goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks 
-    (<a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of">recommendation category</a>: A; 
-    <a href="https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of">evidence type</a>: 2).</strong>
-  </p>
-
-  <div class="toc-container">
-    <p class="toc-title">Contents</p>
-    <ul id="toc-list">
-      <li><a href="#functional-description">Functional Description</a></li>
-      <li><a href="#for-subacute-or-chronic-pain">For Subacute or Chronic Pain</a></li>
-      <li><a href="#opioid-review-useful">Opioid Review Useful</a></li>
-      <li><a href="#opioid-naive">Opioid Naive</a></li>
-      <li><a href="#content">Content</a></li>
-      <li><a href="#example-data-requests">Example Data/Requests</a></li>
-    </ul>
-  </div>
-
-  <details class="tree-nav__item is-expandable" open="true">
-    <summary class="tree-nav__item-title">
-      <a name="functional-description"> </a>
-      <h3 class="title">Functional Description</h3>
-    </summary>
-
-    {% include recommendation02-functional-description.html %}
-
-    <img src="assets/images/Recommendation02-flow.png" style="max-width: 100%;" />
-    <p></p>
-    {% include recommendation02-data-elements.html %}
-  </details>
-  <p></p>
-  <a href="PlanDefinition-opioidcds-02.html#effective-data-requirements">Effective Data Requirements</a>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="for-subacute-or-chronic-pain"> </a>
-      <h3 class="title">For Subacute or Chronic Pain</h3>
-    </summary>
-    {% include for-subacute-and-chronic-pain-definitions.html %}
-  </details>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="opioid-review-useful"> </a>
-      <h3 class="title">Opioid Review Useful Definitions</h3>
-    </summary>
-    {% include opioid-review-useful-definitions.html %}
-  </details>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="opioid-naive"> </a>
-      <h3 class="title">Opioid Naive Definitions</h3>
-    </summary>
-    {% include opioid-naive-definitions.html %}
-  </details>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="content"> </a>
-      <h3 class="title">Content</h3>
-    </summary>
-
-    <p>The following artifacts formalize the description of the logic and behavior defined by this recommendation.</p>
-
-    <table class="list">
-      <thead>
-        <tr>
-          <th>Resource</th>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="PlanDefinition-opioidcds-02.html">2022 CDC Clinical Practice Guideline Recommendation #2</a></td>
-          <td><a href="{{site.data.fhir.path}}plandefinition.html">PlanDefinition</a></td>
-          <td>Event-Condition-Action rule that implements behavior for 2022 CDC Clinical Practice Guideline Recommendation #2</td>
-        </tr>
-        <tr>
-          <td><a href="Library-OpioidCDSREC02.html">Recommendation #2 - Opioid Therapy Goals Discussion</a></td>
-          <td><a href="{{site.data.fhir.path}}library.html">Library</a></td>
-          <td>Defines the data requirements to support evaluation of recommendation #2</td>
-        </tr>
-        {% include common-libraries.html %}
-      </tbody>
-    </table>
-  </details>
-  <p></p>
-  <details class="tree-nav__item is-expandable">
-    <summary class="tree-nav__item-title">
-      <a name="example-data-requests"> </a>
-      <h3>Example Data/Requests</h3>
-    </summary>
-    <table class="grid">
-      <thead>
-        <tr>
-          <th>Description</th><th>CDS Hooks Request</th><th>Expected Response</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored "Today" as well as an Opioid Treatment Care Plan updated 89 days prior to today. Patients "Dosage Instructions" are 1 Film per day for 30 days. This patient will not trigger any cards and there should not be a recommendation message.</td>
-            <td><a href="requests/OpioidCDSREC02/request-example-rec-02-in-careplan-revisited.json">Request JSON example-rec-02-in-careplan-revisited</a></td>
-            <td><a href="responses/OpioidCDSREC02/response-example-rec-02-in-careplan-revisited.json">Response JSON example-rec-02-in-careplan-revisited</a></td>
-          </tr>
-          <tr>
-            <td class="col-7">Patient is 18 years or older and has an outpatient Medication Request of Suboxone 2 MG / 0.5 MG Sublingual Film (RXNorm 1010603) authored "Today" as well as a Care Plan most recently updated 120 days prior to today. Patients "Dosage Instructions" are 1 Film per day for 30 days. Due to the most recent review of the Care Plan having been conducted more than 89 days prior to today this will result in a summary message: "Recommend creation, review or update of opioid treatment plan."</td>
-            <td><a href="requests/OpioidCDSREC02/request-example-rec-02-out-careplan-not-revisited.json">Request JSON example-rec-02-out-careplan-not-revisited</a></td>
-            <td><a href="responses/OpioidCDSREC02/response-example-rec-02-out-careplan-not-revisited.json">Response JSON example-rec-02-out-careplan-not-revisited</a></td>
-          </tr>
-      </tbody>
-    </table>
-  </details>
+  {% include recommendation-page-template.html 
+    recommendationNum='2' 
+    topic='Determining Whether or Not to Initiate Opioids for Pain' 
+    description='Nonopioid therapies are preferred for subacute and chronic pain. Clinicians should maximize use of nonpharmacologic and nonopioid pharmacologic therapies as appropriate for the specific condition and patient and only consider initiating opioid therapy if expected benefits for pain and function are anticipated to outweigh risks to the patient. Before starting opioid therapy for subacute or chronic pain, clinicians should discuss with patients the realistic benefits and known risks of opioid therapy, should work with patients to establish treatment goals for pain and function, and should consider how opioid therapy will be discontinued if benefits do not outweigh risks.' 
+    recommendation-category='A' 
+    evidence-type='2' 
+    flow-diagram='Recommendation02-flow.png'
+    func-desc='recommendation02-functional-description.html'
+    data-elements='recommendation02-data-elements.html'
+    content-table='recommendation02-content-table.html'
+    test-data='recommendation02-test-data.html' %}
 </div>

@@ -182,7 +182,7 @@
                             </tr>
                         </table>
                         {% for statementExtension in extension.extension.where(url = 'statement') %}
-                            <pre><code class="language-cql">{{statementExtension.value.escape('html')}}</code></pre>
+                            <pre style="max-width: 990px;"><code class="language-cql">{{statementExtension.value}}</code></pre>
                         {% endfor %}
                         <br/><br/>
                     {% endfor %}
