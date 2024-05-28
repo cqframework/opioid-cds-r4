@@ -15,9 +15,7 @@
     Clinical Reasoning resources, typically using a PlanDefinition resource to build
     Event-Condition-Action rules.</p>
 
-  <div>
-    <img src="assets/images/Recommendation04-05-flow.png" style="max-width: 100%;"/>
-  </div>
+  {% include img.html img="Recommendation04-05-flow.png" caption="Recommendation 4 and 5 flow diagram" %}
 
   <p>The orange starting point for the flow indicates the point at which a clinician is
     prescribing a medication for a patient. The next steps in green involve determinations
@@ -30,7 +28,7 @@
     in a PlanDefinition resource, while the logic components (the steps in green) are represented
     in a CQL library. These components are then used in an overall approach as depicted below:</p>
 
-  <img src="assets/images/ClinicalReasoningApproach.png"/>
+  {% include img.html img="ClinicalReasoningApproach.png" caption="Clinical Reasoning Approach" %}
 
   <p>Briefly, the EHR invokes the "order-select" hook at the appropriate point in the
     prescription workflow. The CDS Service is called via the CDS Hooks API and passed the

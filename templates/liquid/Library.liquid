@@ -374,7 +374,7 @@
           <td colspan="2">
             <table>
               <tr><th><a id="cql-content"><b>Content: </b></a> {{c.contentType}}</th></tr>
-              <tr><td><pre><code class="language-cql">{{c.data.decode('base64').escape('html')}}</code></pre></td></tr>
+              <tr><td><pre style="max-width: 1084px;"><code class="language-cql">{{c.data.decode('base64')}}</code></pre></td></tr>
             </table>
           </td>
         </tr>
@@ -384,7 +384,7 @@
           <td colspan="2">
             <table>
               <tr><th><b>Content: </b> {{c.contentType}}</th></tr>
-              <tr><td><pre><code>{{'Encoded data (' + c.data.length().toString() + ' characters)'}}</code></pre></td></tr>
+              <tr><td><pre style="max-width: 1084px;"><code>{{'Encoded data (' + c.data.length().toString() + ' characters)'}}</code></pre></td></tr>
             </table>
           </td>
         </tr>

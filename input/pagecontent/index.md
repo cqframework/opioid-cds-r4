@@ -49,12 +49,7 @@ For a detailed description of how to implement the functionality with a Java-bas
 service, refer to the [Service Documentation](service-documentation.html).
 
 ### Trigger Overview
-<div>
-<figure>
-    <img src="assets/images/trigger-overview.png" alt="Trigger Overview image">
-    <figurecaption><br/>Orange shapes represent preferred trigger approaches. Items with clear/white centers are available (developed in earlier pilot testing prior to EHR support for order based hooks) for implementation at sites without preferred trigger capabilities in existing software for CDS Hooks.</figurecaption>
-</figure>
-</div>
+{% include img.html img="trigger-overview.png" caption="Trigger Overview Diagram: orange shapes represent preferred trigger approaches. Items with clear/white centers are available (developed in earlier pilot testing prior to EHR support for order based hooks) for implementation at sites without preferred trigger capabilities in existing software for CDS Hooks" %}
 <br />
  
 ### Morphine Milligram Equivalent (MME) Calculation Cautions

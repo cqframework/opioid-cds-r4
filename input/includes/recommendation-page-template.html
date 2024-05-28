@@ -3,6 +3,7 @@
 {% assign topic-anchor=include.topic | replace: ' ', '' %}
 {% assign recommendation-category-anchor=':~:text=evidence%20type%3A%201).-,Recommendation%20categories,-(on%20basis%20of' %}
 {% assign evidence-type-anchor=':~:text=specific%20clinical%20situations.-,Evidence%20types,-(on%20basis%20of' %}
+{% assign flow-caption='Flow Diagram for Recommendation ' | append: include.recommendationNum %}
 {% assign func-desc-anchor=include.func-desc | replace: '.html', '' %}
 {% assign data-elements-anchor=include.data-elements | replace: '.html', '' %}
 {% assign content-anchor=include.content-table | replace: '.html', '' %}
@@ -19,7 +20,7 @@
   </tbody>
 </table>
 
-<img src="{{ include.flow-diagram }}" alt="Flow Diagram for the Recommendation" style="max-width: 100%;" />
+{% include img.html img=include.flow-diagram caption=flow-caption %}
 
 <p> </p>
 
