@@ -1,0 +1,14 @@
+@startuml For Acute Pain Flow Diagram
+!theme sketchy-outline
+start
+
+if (Order for opioid analgesics 
+with ambulatory misuse potential 
+of duration < 28 days?) then (yes)
+:Conclude True;
+kill
+else (no)
+:Conclude False;
+kill
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml For Subacute or Chronic Pain Flow Diagram
+!theme sketchy-outline
+start
+if (Order for opioid 
+analgesic with an 
+expected supply 
+duration of 28 days 
+or longer?) then (yes)
+(no) elseif (Order in the past 90 
+davs for opioid analgesic
+with a therapy type of
+"continuous"?) then (yes)
+(no) elseif (Order for opioid analgesic 
+prescribed for 28 out of the 
+past 90 days including today, 
+and an active or pending 
+order for opioid analgesic?) then (yes)
+else (no)
+:Conclude False;
+kill
+endif
+:Conclude True;
+@enduml
