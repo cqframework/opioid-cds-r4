@@ -7,82 +7,82 @@
   "content": "example",
   "concept": [
     {
-      "code": "SNOOZE_1_MONTH",
+      "code": "snooze-1-month",
       "display": "Snooze Alert for 1 Month",
       "definition": "Disable the alert for 1 month for a particular patient, user(s), department(s), site(s), or organization"
     },
     {
-      "code": "SNOOZE_3_MONTHS",
+      "code": "snooze-3-months",
       "display": "Snooze Alert for 3 Months",
       "definition": "Disable the alert for 3 months for a particular patient, user(s), department(s), site(s), or organization"
     },
     {
-      "code": "SNOOZE_6_MONTHS",
+      "code": "snooze-6-months",
       "display": "Snooze Alert for 6 Months",
       "definition": "Disable the alert for 6 months for a particular patient, user(s), department(s), site(s), or organization"
     },
     {
-      "code": "SNOOZE_1_YEAR",
+      "code": "snooze-1-year",
       "display": "Snooze Alert for 1 Year",
       "definition": "Disable the alert for 1 year for a particular patient, user(s), department(s), site(s), or organization"
     },
     {
-      "code": "SNOOZE_1_MONTH_WITH_COMMENT",
+      "code": "snooze-1-month-with-comment",
       "display": "Snooze Alert for 1 Month with a Comment",
       "definition": "Disable the alert for 1 month for a particular patient, user(s), department(s), site(s), or organization. Reasoning and/or justification supplied in an additional comment"
     },
     {
-      "code": "SNOOZE_3_MONTHS_WITH_COMMENT",
+      "code": "snooze-3-months-with-comment",
       "display": "Snooze Alert for 3 Months with a Comment",
       "definition": "Disable the alert for 3 months for a particular patient, user(s), department(s), site(s), or organization. Reasoning and/or justification supplied in an additional comment"
     },
     {
-      "code": "SNOOZE_6_MONTHS_WITH_COMMENT",
+      "code": "snooze-6-months-with-comment",
       "display": "Snooze Alert for 6 Months with a Comment",
       "definition": "Disable the alert for 6 months for a particular patient, user(s), department(s), site(s), or organization. Reasoning and/or justification supplied in an additional comment"
     },
     {
-      "code": "SNOOZE_1_YEAR_WITH_COMMENT",
+      "code": "snooze-1-year-with-comment",
       "display": "Snooze Alert for 1 Year with a Comment",
       "definition": "Disable the alert for 1 year for a particular patient, user(s), department(s), site(s), or organization. Reasoning and/or justification supplied in an additional comment"
     },
     {
-      "code": "COMMENT",
+      "code": "comment",
       "display": "Comment",
       "definition": "A comment about the received information or suggestion. This can include feedback for improvement/refinement."
     },
     {
-      "code": "UPDATE_ORDER",
+      "code": "update-order",
       "display": "Update Order",
       "definition": "The order will be updated to the order(s) suggested by the service"
     },
     {
-      "code": "CANCEL_ORDER",
+      "code": "cancel-order",
       "display": "Cancel Order",
       "definition": "The order will be canceled based on the information provided by the service"
     },
     {
-      "code": "LAUNCH_APP",
+      "code": "launch-app",
       "display": "Launch App",
       "definition": "An application will be used to complete the workflow"
     },
     {
-      "code": "ACCEPT_SUGGESTION",
+      "code": "accept-suggestion",
       "display": "Accept Suggestion",
       "definition": "The suggestion provided by the service has been accepted"
     },
     {
-      "code": "ACCEPT_SUGGESTION_WITH_COMMENT",
+      "code": "accept-suggestion-with-comment",
       "display": "Accept Suggestion with Comment",
       "definition": "The suggestion provided by the service has been accepted. Additional action(s) documented in an associated comment"
     },
     {
-      "code": "DECLINE_SUGGESTION",
+      "code": "decline-suggestion",
       "display": "Decline Suggestion",
       "definition": "The suggestion provided by the service has been declined"
     },
     {
-      "code": "DECLINE_SUGGESTION_WITH_COMMENT",
+      "code": "decline-suggestion-with-comment",
       "display": "Decline Suggestion with Comment",
       "definition": "The suggestion provided by the service has been declined. Reasoning and/or justification supplied in an additional comment"
     }

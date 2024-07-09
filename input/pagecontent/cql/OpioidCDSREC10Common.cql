@@ -370,7 +370,7 @@ define "Generate Footer Rows":
               then singleton from (
                 BOT.unexpectedPosDetails PosDetail
                   where PosDetail.date = LabDate
-                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unprescribed substance found: ' + PosDetail.udsDetail) + '<\/tr>'
+                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unexpected substance found: ' + PosDetail.udsDetail) + '<\/tr>'
               )
             else if BOT.unexpectedNegDetails.udsDate contains LabDate
               then singleton from (
@@ -414,8 +414,8 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     ),
     unexpectedPosDetails: (
       ThePosLabs PosLab
-        with TheMeds Rx
-          such that not (Rx.authoredOn in day of Interval[PosLab.effective - 31 days, PosLab.effective - 1 days])
+        with (if exists(TheMeds) then TheMeds else {null as MedicationRequest}) Rx
+          such that Rx is null or not (Rx.authoredOn in day of Interval[PosLab.effective - 31 days, PosLab.effective - 1 days])
             return {
               date: date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime),
               udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
@@ -423,8 +423,8 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     ),
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
-        TheMeds Rx
-          where (Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective - 1 days])
+        (if exists(TheMeds) then TheMeds else {null as MedicationRequest}) Rx
+          where Rx is not null and (Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective - 1 days])
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
