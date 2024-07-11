@@ -2044,7 +2044,7 @@
       "valueString": "Generate Footer Rows"
     }, {
       "url": "statement",
-      "valueString": "define \"Generate Footer Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n      let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1),\n      colspan: Length(\"All Lab Dates in Lookback Period\") + 1\n      return Combine(\n        \"All Lab Dates in Lookback Period\" LabDate\n          let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n          return all (\n            if BOT.unexpectedPosDetails.date contains LabDate\n              then singleton from (\n                BOT.unexpectedPosDetails PosDetail\n                  where PosDetail.date = LabDate\n                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unexpected substance found: ' + PosDetail.udsDetail) + '<\\/tr>'\n              )\n            else if BOT.unexpectedNegDetails.udsDate contains LabDate\n              then singleton from (\n                BOT.unexpectedNegDetails NegDetail\n                  where NegDetail.udsDate = LabDate\n                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unexpected negative result found: prescribed ' + NegDetail.rxDetail + ' on ' + ToString(NegDetail.rxDate)) + '<\\/tr>'\n              )\n            else ''\n          )\n      )"
+      "valueString": "define \"Generate Footer Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n      let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1),\n      colspan: Length(\"All Lab Dates in Lookback Period\") + 1\n      return Combine(\n        \"All Lab Dates in Lookback Period\" LabDate\n          let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n          return all (\n            if BOT.unexpectedPosDetails.date contains LabDate\n              then singleton from (\n                BOT.unexpectedPosDetails PosDetail\n                  where PosDetail.date = LabDate\n                    return '<tr>' & GetFooterColumn(colspan, row & ':' & col & ' - Possible unexpected substance found: ' & PosDetail.udsDetail) & '<\\/tr>'\n              )\n            else if BOT.unexpectedNegDetails.udsDate contains LabDate\n              then singleton from (\n                BOT.unexpectedNegDetails NegDetail\n                  where NegDetail.udsDate = LabDate\n                    return '<tr>' & GetFooterColumn(colspan, row + ':' & col & ' - Possible unexpected negative result found: prescribed ' & NegDetail.rxDetail & ' on ' & ToString(NegDetail.rxDate)) & '<\\/tr>'\n              )\n            else ''\n          )\n      )"
     }, {
       "url": "displaySequence",
       "valueInteger": 88
@@ -2163,7 +2163,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-07-08",
+  "date": "2024-07-10",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {

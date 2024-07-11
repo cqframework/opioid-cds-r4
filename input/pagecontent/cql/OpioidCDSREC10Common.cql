@@ -358,6 +358,30 @@ define "Generate Table Rows":
         )
     ) + '<\/tr>'
 
+define "Footer Row Test 1":
+  Flatten (
+    "Remove Substances Without Positive or Negative Results" BOT
+      return BOT.unexpectedNegDetails.rxDate
+  )
+
+define "Footer Row Test 2":
+  Flatten (
+      "Remove Substances Without Positive or Negative Results" BOT
+        return BOT.unexpectedNegDetails.rxDetail
+    )
+
+define "Footer Row Test 3":
+  Flatten (
+      "Remove Substances Without Positive or Negative Results" BOT
+        return BOT.unexpectedNegDetails.udsDate
+    )
+
+define "Footer Row Test 4":
+  Flatten (
+      "Remove Substances Without Positive or Negative Results" BOT
+        return BOT.unexpectedNegDetails.udsDetail
+    )
+
 define "Generate Footer Rows":
   "Remove Substances Without Positive or Negative Results" BOT
       let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1),
@@ -370,13 +394,13 @@ define "Generate Footer Rows":
               then singleton from (
                 BOT.unexpectedPosDetails PosDetail
                   where PosDetail.date = LabDate
-                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unexpected substance found: ' + PosDetail.udsDetail) + '<\/tr>'
+                    return '<tr>' & GetFooterColumn(colspan, row & ':' & col & ' - Possible unexpected substance found: ' & PosDetail.udsDetail) & '<\/tr>'
               )
             else if BOT.unexpectedNegDetails.udsDate contains LabDate
               then singleton from (
                 BOT.unexpectedNegDetails NegDetail
                   where NegDetail.udsDate = LabDate
-                    return '<tr>' + GetFooterColumn(colspan, row + ':' + col + ' - Possible unexpected negative result found: prescribed ' + NegDetail.rxDetail + ' on ' + ToString(NegDetail.rxDate)) + '<\/tr>'
+                    return '<tr>' & GetFooterColumn(colspan, row + ':' & col & ' - Possible unexpected negative result found: prescribed ' & NegDetail.rxDetail & ' on ' & ToString(NegDetail.rxDate)) & '<\/tr>'
               )
             else ''
           )
@@ -386,7 +410,7 @@ define "Table End":
   '<\/table><\/div>'
 
 define "Details More Info":
-  '<div id=\"box\">\r\n  <p>Note on false positives and unexpected negative results...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n  <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p>\r\n  <p>An unexpectedly negative test may be due to time since last dose, diversion, intermittent use, aberrant drug use behavior, or other factors, including a false negative result. Clinicians should interpret this result in the context of the overall treatment plan.<\/p>\r\n  <\/div>\r\n<\/div>'
+  '<div id=\"box\">\r\n  <p>Note on false positives and unexpected negative results...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n  <p>An unexpectedly negative test may be due to time since last dose, diversion, intermittent use, aberrant drug use behavior, or other factors, including a false negative result. Clinicians should interpret this result in the context of the overall treatment plan.<\/p>\r\n\r\n  <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p><\/div>\r\n<\/div>'
 
 define "Div End": '<\/div>'
 
@@ -423,19 +447,16 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     ),
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
-        (if exists(TheMeds) then TheMeds else {null as MedicationRequest}) Rx
-          where Rx is not null and (Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective - 1 days])
+        TheMeds Rx
+          where Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective - 1 days]
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
               rxDate: date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime),
               rxDetail: 
-                if Rx.medication is FHIR.Reference 
-                  then Combine(
-                    [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))] Med 
-                      return if Med.code.text is not null then Med.code.text else 'Unable to determine a detailed identifier'
-                  ) 
-                else if exists (Rx.medication.coding) then Rx.medication.coding[0].display.value else 'Unable to determine a detailed identifier'
+                if Rx.medication.text is not null then Rx.medication.text
+                else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display.value 
+                else 'Unable to determine a detailed identifier'
             }
     )
   }
