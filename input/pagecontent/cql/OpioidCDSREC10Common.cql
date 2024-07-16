@@ -358,30 +358,6 @@ define "Generate Table Rows":
         )
     ) + '<\/tr>'
 
-define "Footer Row Test 1":
-  Flatten (
-    "Remove Substances Without Positive or Negative Results" BOT
-      return BOT.unexpectedNegDetails.rxDate
-  )
-
-define "Footer Row Test 2":
-  Flatten (
-      "Remove Substances Without Positive or Negative Results" BOT
-        return BOT.unexpectedNegDetails.rxDetail
-    )
-
-define "Footer Row Test 3":
-  Flatten (
-      "Remove Substances Without Positive or Negative Results" BOT
-        return BOT.unexpectedNegDetails.udsDate
-    )
-
-define "Footer Row Test 4":
-  Flatten (
-      "Remove Substances Without Positive or Negative Results" BOT
-        return BOT.unexpectedNegDetails.udsDetail
-    )
-
 define "Generate Footer Rows":
   "Remove Substances Without Positive or Negative Results" BOT
       let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1),
@@ -439,7 +415,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     unexpectedPosDetails: (
       ThePosLabs PosLab
         with (if exists(TheMeds) then TheMeds else {null as MedicationRequest}) Rx
-          such that Rx is null or not (Rx.authoredOn in day of Interval[PosLab.effective - 31 days, PosLab.effective - 1 days])
+          such that Rx is null or not (date from Rx.authoredOn in day of Interval[date from PosLab.effective - 31 days, date from PosLab.effective - 1 days])
             return {
               date: date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime),
               udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
@@ -448,7 +424,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
         TheMeds Rx
-          where Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective - 1 days]
+          where date from Rx.authoredOn in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
