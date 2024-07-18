@@ -250,10 +250,7 @@ define "Positive Lab Dates In Lookback Period":
 
 define "Normalize Rx In Lookback Period":
   Common."Get MedicationRequest Medication as Code"(
-    [MedicationRequest] Rx
-      where Rx.category in Common."Community"
-        and Rx.intent = 'order'
-        and Rx.authoredOn.value in day of "Rx Lookback Period"
+    [MedicationRequest] 
   )
 
 define "Remove Substances Without Positive or Negative Results":
