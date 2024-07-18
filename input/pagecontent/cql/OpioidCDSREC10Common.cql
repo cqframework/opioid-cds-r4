@@ -39,7 +39,7 @@ define "Inclusion Criteria For UDS Recommendation":
 
 define "Inclusion Criteria For Unexpected Results":
   AnyTrue(
-    "Unexpected Details" Details
+    "Remove Substances Without Positive or Negative Results" Details
       return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
   )
 
@@ -424,7 +424,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
         TheMeds Rx
-          where date from Rx.authoredOn in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]
+          where date from Rx.authoredOn in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective]
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',

@@ -1906,13 +1906,28 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Inclusion Criteria For Unexpected Results"
+      "valueString": "Remove Substances Without Positive or Negative Results"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria For Unexpected Results\":\n  AnyTrue(\n    \"Unexpected Details\" Details\n      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)\n  )"
+      "valueString": "define \"Remove Substances Without Positive or Negative Results\":\n  \"Unexpected Details\" Details\n    where (Details.posDates is not null and Length(Details.posDates) != 0)\n      or (Details.negDates is not null and Length(Details.negDates) != 0)"
     }, {
       "url": "displaySequence",
       "valueInteger": 79
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "Inclusion Criteria For Unexpected Results"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Inclusion Criteria For Unexpected Results\":\n  AnyTrue(\n    \"Remove Substances Without Positive or Negative Results\" Details\n      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)\n  )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 80
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1927,7 +1942,7 @@
       "valueString": "define \"Applicable Because of Unexpected Results\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Rec10Common.\"Inclusion Criteria For Unexpected Results\"\n    and not Rec10Common.\"Exclusion Criteria\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 80
+      "valueInteger": 81
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1942,7 +1957,7 @@
       "valueString": "define \"Style Header\":\n  '<style>\\r\\n  .alert-body {\\r\\n    width: 670px;\\r\\n    font-family: segoe-ui, sans-serif;\\r\\n    background-color: #FEFFF1;\\r\\n  }\\r\\n\\r\\n  .details-table {\\r\\n    border-collapse:collapse;\\r\\n    border-style: ridge;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-caption {\\r\\n    border-style: ridge;\\r\\n    border-bottom: none;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-table-header {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-footer-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    font-size: small;\\r\\n  }\\r\\n\\r\\n  .details-table-cell-unexpected {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    color: red;\\r\\n    font-weight: bold;\\r\\n  }\\r\\n\\r\\n  .more-text {\\r\\n    position: relative;\\r\\n    margin-bottom: 2em;\\r\\n  }\\r\\n  \\r\\n  .more {\\r\\n    display:none;\\r\\n  }\\r\\n\\r\\n  .show-more:checked + .more {\\r\\n    display:block;\\r\\n  }\\r\\n<\\/style>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 81
+      "valueInteger": 82
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1957,7 +1972,7 @@
       "valueString": "define \"Unexpected Div Start\":\n  '<div class=\\\"alert-body\\\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\\/strong> in the past year.<\\/p><\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 82
+      "valueInteger": 83
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1972,7 +1987,7 @@
       "valueString": "define \"Table Start\":\n  '<div><table class=\\\"details-table\\\"><caption class=\\\"details-caption\\\">Urine Toxicology Results<\\/caption><tr><th class=\\\"details-table-header\\\">Substance<\\/th>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 83
+      "valueInteger": 84
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1987,7 +2002,7 @@
       "valueString": "define \"All Lab Dates in Lookback Period\":\n  (\n    \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)\n  ) X sort desc"
     }, {
       "url": "displaySequence",
-      "valueInteger": 84
+      "valueInteger": 85
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2000,21 +2015,6 @@
     }, {
       "url": "statement",
       "valueString": "define \"Table Headers\":\n  \"All Lab Dates in Lookback Period\" LabDate\n    return '<th class=\\\"details-table-header\\\">' + ToString(LabDate) + '<\\/th>'"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 85
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
-    }, {
-      "url": "name",
-      "valueString": "Remove Substances Without Positive or Negative Results"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Remove Substances Without Positive or Negative Results\":\n  \"Unexpected Details\" Details\n    where (Details.posDates is not null and Length(Details.posDates) != 0)\n      or (Details.negDates is not null and Length(Details.negDates) != 0)"
     }, {
       "url": "displaySequence",
       "valueInteger": 86
