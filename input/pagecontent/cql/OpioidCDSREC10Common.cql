@@ -39,7 +39,7 @@ define "Inclusion Criteria For UDS Recommendation":
 
 define "Inclusion Criteria For Unexpected Results":
   AnyTrue(
-    "Remove Substances Without Positive or Negative Results" Details
+    "Unexpected Details" Details
       return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
   )
 
