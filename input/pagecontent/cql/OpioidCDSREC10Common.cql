@@ -250,7 +250,7 @@ define "Positive Lab Dates In Lookback Period":
 
 define "Normalize Rx In Lookback Period":
   Common."Get MedicationRequest Medication as Code"(
-    [MedicationRequest: status in { 'active', 'completed', 'stopped' }] Rx
+    [MedicationRequest] Rx
       where Rx.category in Common."Community"
         and Rx.intent = 'order'
         and Rx.authoredOn.value in day of "Rx Lookback Period"
@@ -420,7 +420,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     ),
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
-        (if exists(TheMeds) then TheMeds else {null as MedicationRequest}) Rx
+        TheMeds Rx
           where Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective]
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
