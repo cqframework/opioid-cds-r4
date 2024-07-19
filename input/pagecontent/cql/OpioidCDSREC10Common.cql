@@ -416,7 +416,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
             }
     ),
     unexpectedNegDetails: {{
-              udsDate: @7000-01-01,
+              udsDate: @2024-07-10,
               udsDetail: 'Unable to determine a detailed identifier',
               rxDate: @7000-01-01,
               rxDetail: 'Unable to determine a detailed identifier'
