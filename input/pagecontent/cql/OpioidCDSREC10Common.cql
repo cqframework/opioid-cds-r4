@@ -315,9 +315,9 @@ define "Unexpected Details":
 // HTML Generation
 
 define "Get HTML Details":
-  "Unexpected Details" details
+  Combine("Unexpected Details" details
     return details.ingredient & ' Positive Labs: ' & Combine(details.posDates pd return ToString(pd), ' ') & ' Negative Labs: ' & Combine(details.negDates nd return ToString(nd), ' ') 
-      & ' Postive Rx: ' & Combine(details.unexpectedNegDetails.rxDate rx return ToString(rx), ' ')
+      & ' Postive Rx: ' & Combine(details.unexpectedNegDetails.rxDate rx return ToString(rx), ' '))
 
 // define "Get HTML Details":
 //   Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Details More Info" & "Div End"

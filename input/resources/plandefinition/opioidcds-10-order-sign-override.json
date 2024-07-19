@@ -161,7 +161,7 @@
       "name": "Detail",
       "use": "out",
       "min": 0,
-      "max": "*",
+      "max": "1",
       "type": "string"
     } ],
     "dataRequirement": [ {
@@ -1702,7 +1702,7 @@
       "valueString": "Get HTML Details"
     }, {
       "url": "statement",
-      "valueString": "// HTML Generation\ndefine \"Get HTML Details\":\n  \"Unexpected Details\" details\n    return details.ingredient & ' Positive Labs: ' & Combine(details.posDates pd return ToString(pd), ' ') & ' Negative Labs: ' & Combine(details.negDates nd return ToString(nd), ' ') \n      & ' Postive Rx: ' & Combine(details.unexpectedNegDetails.rxDate rx return ToString(rx), ' ')"
+      "valueString": "// HTML Generation\ndefine \"Get HTML Details\":\n  Combine(\"Unexpected Details\" details\n    return details.ingredient & ' Positive Labs: ' & Combine(details.posDates pd return ToString(pd), ' ') & ' Negative Labs: ' & Combine(details.negDates nd return ToString(nd), ' ') \n      & ' Postive Rx: ' & Combine(details.unexpectedNegDetails.rxDate rx return ToString(rx), ' '))"
     }, {
       "url": "displaySequence",
       "valueInteger": 79
