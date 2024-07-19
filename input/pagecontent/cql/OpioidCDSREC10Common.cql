@@ -327,7 +327,7 @@ define "Unexpected Div Start":
 
 define "Details Table": 
   "Table Start" & Combine("Table Headers") 
-    & '<tbody>' & Combine("Generate Table Rows") & '</tbody>' 
+    & '<tbody>' & Combine("Generate Table Rows") & '<\/tbody>' 
     & '<tfoot>' & Combine("Generate Footer Rows") & '<\/tfoot>' 
   & "Table End"
 
@@ -420,13 +420,19 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
               udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
             }
     ),
-    unexpectedNegDetails: {{
-              udsDate: @2024-07-10,
-              udsDetail: 'Unable to determine a detailed identifier',
-              rxDate: @7000-01-01,
-              rxDetail: 'Unable to determine a detailed identifier'
-            }}
-    
+    unexpectedNegDetails: (
+      from TheNegLabs NegLab,
+        TheMeds Rx
+            return {
+              udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
+              udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
+              rxDate: date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime),
+              rxDetail: 
+                if Rx.medication.text is not null then Rx.medication.text
+                else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display.value 
+                else 'Unable to determine a detailed identifier'
+            }
+    )
   }
 
 define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>):
