@@ -315,7 +315,12 @@ define "Unexpected Details":
 // HTML Generation
 
 define "Get HTML Details":
-  Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Details More Info" & "Div End"
+  "Unexpected Details" details
+    return details.ingredient & ' Positive Labs: ' & Combine(details.posDates pd return ToString(pd), ' ') & ' Negative Labs: ' & Combine(details.negDates nd return ToString(nd), ' ') 
+      & ' Postive Rx: ' & Combine(details.unexpectedNegDetails.rxDate rx return ToString(rx), ' ')
+
+// define "Get HTML Details":
+//   Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Details More Info" & "Div End"
 
 define "Unexpected Div Start":
   '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year.<\/p><\/div>'
@@ -334,8 +339,8 @@ define "Table Headers":
     return '<th class=\"details-table-header\">' & ToString(LabDate) & '<\/th>'
 
 define "Generate Table Rows":
-  "Remove Substances Without Positive or Negative Results" BOT
-    let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1)
+  "Unexpected Details" BOT
+    let row: ToString(IndexOf("Unexpected Details", BOT) + 1)
     return '<tr>' & GetExpectedColumn(BOT.ingredient) & Combine(
       "All Lab Dates in Lookback Period" LabDate
         let col: ToString(IndexOf("All Lab Dates in Lookback Period", LabDate) + 2)
@@ -353,8 +358,8 @@ define "Generate Table Rows":
     ) & '<\/tr>'
 
 define "Generate Footer Rows":
-  "Remove Substances Without Positive or Negative Results" BOT
-      let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1),
+  "Unexpected Details" BOT
+      let row: ToString(IndexOf("Unexpected Details", BOT) + 1),
       colspan: Length("All Lab Dates in Lookback Period") + 1
       return Combine(
         "All Lab Dates in Lookback Period" LabDate
