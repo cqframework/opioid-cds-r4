@@ -417,7 +417,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     ),
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
-        TheMeds Rx
+        (if exists(TheMeds) then TheMeds else {null as MedicationRequest}) Rx
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
