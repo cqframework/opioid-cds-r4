@@ -350,7 +350,7 @@ define "Generate Table Rows":
             then GetExpectedColumn('neg')
           else GetExpectedColumn('n/a')
         )
-    ) + '<\/tr>'
+    ) & '<\/tr>'
 
 define "Generate Footer Rows":
   "Remove Substances Without Positive or Negative Results" BOT
@@ -418,7 +418,6 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
         TheMeds Rx
-          where Rx.authoredOn in day of Interval[NegLab.effective - 31 days, NegLab.effective]
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',

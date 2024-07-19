@@ -1828,7 +1828,7 @@
       "valueString": "Generate Table Rows"
     }, {
       "url": "statement",
-      "valueString": "define \"Generate Table Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n    let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1)\n    return '<tr>' & GetExpectedColumn(BOT.ingredient) & Combine(\n      \"All Lab Dates in Lookback Period\" LabDate\n        let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n        return all (\n          if BOT.unexpectedPosDetails.date contains LabDate\n            then GetUnexpectedColumn('pos', row & ':' & col)\n          else if BOT.unexpectedNegDetails.udsDate contains LabDate\n            then GetUnexpectedColumn('neg', row & ':' & col)\n          else if BOT.posDates contains LabDate\n            then GetExpectedColumn('pos')\n          else if BOT.negDates contains LabDate\n            then GetExpectedColumn('neg')\n          else GetExpectedColumn('n/a')\n        )\n    ) + '<\\/tr>'"
+      "valueString": "define \"Generate Table Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n    let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1)\n    return '<tr>' & GetExpectedColumn(BOT.ingredient) & Combine(\n      \"All Lab Dates in Lookback Period\" LabDate\n        let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n        return all (\n          if BOT.unexpectedPosDetails.date contains LabDate\n            then GetUnexpectedColumn('pos', row & ':' & col)\n          else if BOT.unexpectedNegDetails.udsDate contains LabDate\n            then GetUnexpectedColumn('neg', row & ':' & col)\n          else if BOT.posDates contains LabDate\n            then GetExpectedColumn('pos')\n          else if BOT.negDates contains LabDate\n            then GetExpectedColumn('neg')\n          else GetExpectedColumn('n/a')\n        )\n    ) & '<\\/tr>'"
     }, {
       "url": "displaySequence",
       "valueInteger": 86
@@ -1962,7 +1962,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-07-18",
+  "date": "2024-07-19",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
