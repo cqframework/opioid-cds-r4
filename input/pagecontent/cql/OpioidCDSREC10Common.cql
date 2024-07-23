@@ -7,6 +7,8 @@ include OpioidCDSCommon version '2022.1.0' called Common
 include OpioidCDSRoutines version '2022.1.0' called Routines
 include OpioidCDSCommonConfig version '2022.1.0' called Config
 
+parameter PastMedList List<MedicationRequest>
+
 context Patient
 
 // Constants
@@ -38,7 +40,10 @@ define "Inclusion Criteria For UDS Recommendation":
     and not exists ("All Opioid or Non-opioid UDS in Lookback Period")
 
 define "Inclusion Criteria For Unexpected Results":
-  true
+  AnyTrue(
+    "Remove Substances Without Positive or Negative Results" Details
+      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
+  )
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
@@ -250,7 +255,11 @@ define "Positive Lab Dates In Lookback Period":
 
 define "Normalize Rx In Lookback Period":
   Common."Get MedicationRequest Medication as Code"(
-    [MedicationRequest] 
+    PastMedList Rx
+      where Rx.status in { 'active', 'completed', 'stopped' } 
+        and Rx.category in Common."Community"
+        and Rx.intent = 'order'
+        and Rx.authoredOn.value in day of "Rx Lookback Period"
   )
 
 define "Remove Substances Without Positive or Negative Results":
@@ -315,51 +324,46 @@ define "Unexpected Details":
 // HTML Generation
 
 define "Get HTML Details":
-  Combine("Unexpected Details" details
-    return details.ingredient & ' Positive Labs: ' & Combine(details.posDates pd return ToString(pd), ' ') & ' Negative Labs: ' & Combine(details.negDates nd return ToString(nd), ' ') 
-      & ' Postive Rx: ' & Combine(details.unexpectedNegDetails.rxDate rx return ToString(rx), ' '))
-
-// define "Get HTML Details":
-//   Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Details More Info" & "Div End"
+  Common."Style Header" + "Unexpected Div Start" + "Details Table" + "Details More Info" + "Div End"
 
 define "Unexpected Div Start":
   '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year.<\/p><\/div>'
 
 define "Details Table": 
-  "Table Start" & Combine("Table Headers") 
-    & '<tbody>' & Combine("Generate Table Rows") & '<\/tbody>' 
-    & '<tfoot>' & Combine("Generate Footer Rows") & '<\/tfoot>' 
-  & "Table End"
+  "Table Start" + Combine("Table Headers") 
+    + '<tbody>' + Combine("Generate Table Rows") + '</tbody>' 
+    + '<tfoot>' + Combine("Generate Footer Rows") + '<\/tfoot>' 
+  + "Table End"
 
 define "Table Start":
   '<div><table class=\"details-table\"><caption class=\"details-caption\">Urine Toxicology Results<\/caption><tr><th class=\"details-table-header\">Substance<\/th>'
 
 define "Table Headers":
   "All Lab Dates in Lookback Period" LabDate
-    return '<th class=\"details-table-header\">' & ToString(LabDate) & '<\/th>'
+    return '<th class=\"details-table-header\">' + ToString(LabDate) + '<\/th>'
 
 define "Generate Table Rows":
-  "Unexpected Details" BOT
-    let row: ToString(IndexOf("Unexpected Details", BOT) + 1)
-    return '<tr>' & GetExpectedColumn(BOT.ingredient) & Combine(
+  "Remove Substances Without Positive or Negative Results" BOT
+    let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1)
+    return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(
       "All Lab Dates in Lookback Period" LabDate
         let col: ToString(IndexOf("All Lab Dates in Lookback Period", LabDate) + 2)
         return all (
           if BOT.unexpectedPosDetails.date contains LabDate
-            then GetUnexpectedColumn('pos', row & ':' & col)
+            then GetUnexpectedColumn('pos', row + ':' + col)
           else if BOT.unexpectedNegDetails.udsDate contains LabDate
-            then GetUnexpectedColumn('neg', row & ':' & col)
+            then GetUnexpectedColumn('neg', row + ':' + col)
           else if BOT.posDates contains LabDate
             then GetExpectedColumn('pos')
           else if BOT.negDates contains LabDate
             then GetExpectedColumn('neg')
           else GetExpectedColumn('n/a')
         )
-    ) & '<\/tr>'
+    ) + '<\/tr>'
 
 define "Generate Footer Rows":
-  "Unexpected Details" BOT
-      let row: ToString(IndexOf("Unexpected Details", BOT) + 1),
+  "Remove Substances Without Positive or Negative Results" BOT
+      let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1),
       colspan: Length("All Lab Dates in Lookback Period") + 1
       return Combine(
         "All Lab Dates in Lookback Period" LabDate
@@ -375,7 +379,7 @@ define "Generate Footer Rows":
               then singleton from (
                 BOT.unexpectedNegDetails NegDetail
                   where NegDetail.udsDate = LabDate
-                    return '<tr>' & GetFooterColumn(colspan, row & ':' & col & ' - Possible unexpected negative result found: prescribed ' & NegDetail.rxDetail & ' on ' & ToString(NegDetail.rxDate)) & '<\/tr>'
+                    return '<tr>' & GetFooterColumn(colspan, row + ':' & col & ' - Possible unexpected negative result found: prescribed ' & NegDetail.rxDetail & ' on ' & ToString(NegDetail.rxDate)) & '<\/tr>'
               )
             else ''
           )
@@ -392,13 +396,13 @@ define "Div End": '<\/div>'
 // Functions
 
 define function GetUnexpectedColumn(Result String, Superscript String):
-  '<td class=\"details-table-cell-unexpected\">' & Result & '<sup>' & Superscript & '<\/sup><\/td>'
+  '<td class=\"details-table-cell-unexpected\">' + Result + '<sup>' + Superscript + '<\/sup><\/td>'
 
 define function GetExpectedColumn(Content String):
-  '<td class=\"details-table-cell\">' & Content & '<\/td>'
+  '<td class=\"details-table-cell\">' + Content + '<\/td>'
 
 define function GetFooterColumn(colspan Integer, message String):
-  '<td class=\"details-table-cell\"' & ' colspan=' & ToString(colspan) & '>' & message & '<\/td>'
+  '<td class=\"details-table-cell\"' + ' colspan=' + ToString(colspan) + '>' + message + '<\/td>'
 
 define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>):
   {
@@ -423,6 +427,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
         TheMeds Rx
+          where date from Rx.authoredOn in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]
             return {
               udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
               udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
