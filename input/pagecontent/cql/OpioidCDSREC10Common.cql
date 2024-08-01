@@ -63,7 +63,6 @@ define "Negative Amphetamine Screenings In Lookback Period":
 
 define "Amphetamine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Amphetamine Medications"
 
 // Barbiturates
 define "Barbiturate Screenings In Lookback Period":
@@ -78,7 +77,6 @@ define "Negative Barbiturate Screenings In Lookback Period":
 
 define "Barbiturate Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Barbiturate Medications"
 
 // Benzodiazepines
 define "Benzodiazepine Screenings In Lookback Period":
@@ -93,7 +91,6 @@ define "Negative Benzodiazepine Screenings In Lookback Period":
 
 define "Benzodiazepine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Benzodiazepine medications"
 
 // Buprenorphine
 define "Buprenorphine Screenings In Lookback Period":
@@ -108,7 +105,6 @@ define "Negative Buprenorphine Screenings In Lookback Period":
 
 define "Buprenorphine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Buprenorphine Medications"
 
 // Cannabinoids
 define "Cannabinoid Screenings In Lookback Period":
@@ -151,7 +147,6 @@ define "Negative Fentanyl Screenings In Lookback Period":
 
 define "Fentanyl Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-    where Rx.medication in Common."Fentanyl Medications"
 
 // Heroin
 define "Heroin Screenings In Lookback Period":
@@ -177,7 +172,6 @@ define "Negative Methadone Screenings In Lookback Period":
 
 define "Methadone Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Methadone Medications"
 
 // Opiates
 define "Opiate Screenings In Lookback Period":
@@ -195,7 +189,6 @@ define "Negative Opiate Screenings In Lookback Period":
 
 define "Opiate Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Opiate Medications"
 
 // Oxycodone
 define "Oxycodone Screenings In Lookback Period":
@@ -213,7 +206,6 @@ define "Negative Oxycodone Screenings In Lookback Period":
 
 define "Oxycodone Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Oxycodone Medications"
 
 // PCP
 define "PCP Screenings In Lookback Period":
@@ -249,11 +241,9 @@ define "Positive Lab Dates In Lookback Period":
   ) X sort desc
 
 define "Normalize Rx In Lookback Period":
-  Common."Get MedicationRequest Medication as Code"(
-    [MedicationRequest: category in Common."Community"] Rx
-      where Rx.status in { 'active', 'completed', 'stopped' }
-        and Rx.intent = 'order'
-  )
+  [MedicationRequest: category in Common."Community"] Rx
+    where Rx.status in { 'active', 'completed', 'stopped' }
+      and Rx.intent = 'order'
 
 define "Remove Substances Without Positive or Negative Results":
   "Unexpected Details" Details
