@@ -250,10 +250,9 @@ define "Positive Lab Dates In Lookback Period":
 
 define "Normalize Rx In Lookback Period":
   Common."Get MedicationRequest Medication as Code"(
-    [MedicationRequest: status in { 'active', 'completed', 'stopped' }] Rx
-      where Rx.category in Common."Community"
+    [MedicationRequest: category in Common."Community"] Rx
+      where Rx.status in { 'active', 'completed', 'stopped' }
         and Rx.intent = 'order'
-        and date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of "Rx Lookback Period"
   )
 
 define "Remove Substances Without Positive or Negative Results":

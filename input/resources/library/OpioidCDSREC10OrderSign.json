@@ -312,30 +312,18 @@
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "Observation",
@@ -348,16 +336,10 @@
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "Observation",
@@ -370,16 +352,10 @@
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "Observation",
@@ -392,30 +368,18 @@
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "Observation",
@@ -428,44 +392,26 @@
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "Observation",
@@ -486,16 +432,10 @@
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "Observation",
@@ -564,114 +504,66 @@
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "MedicationRequest",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-    "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+    "mustSupport": [ "category", "status", "intent", "medication" ],
     "codeFilter": [ {
-      "path": "status",
-      "code": [ {
-        "code": "active"
-      }, {
-        "code": "completed"
-      }, {
-        "code": "stopped"
-      } ]
+      "path": "category",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   } ],
   "content": [ {
