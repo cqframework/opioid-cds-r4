@@ -38,7 +38,10 @@ define "Inclusion Criteria For UDS Recommendation":
     and not exists ("All Opioid or Non-opioid UDS in Lookback Period")
 
 define "Inclusion Criteria For Unexpected Results":
-  true
+  AnyTrue(
+    "Remove Substances Without Positive or Negative Results" Details
+      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
+  )
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
@@ -63,6 +66,7 @@ define "Negative Amphetamine Screenings In Lookback Period":
 
 define "Amphetamine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Amphetamine Medications"
 
 // Barbiturates
 define "Barbiturate Screenings In Lookback Period":
@@ -77,6 +81,7 @@ define "Negative Barbiturate Screenings In Lookback Period":
 
 define "Barbiturate Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Barbiturate Medications"
 
 // Benzodiazepines
 define "Benzodiazepine Screenings In Lookback Period":
@@ -91,6 +96,7 @@ define "Negative Benzodiazepine Screenings In Lookback Period":
 
 define "Benzodiazepine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Benzodiazepine medications"
 
 // Buprenorphine
 define "Buprenorphine Screenings In Lookback Period":
@@ -105,6 +111,7 @@ define "Negative Buprenorphine Screenings In Lookback Period":
 
 define "Buprenorphine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Buprenorphine Medications"
 
 // Cannabinoids
 define "Cannabinoid Screenings In Lookback Period":
@@ -147,6 +154,7 @@ define "Negative Fentanyl Screenings In Lookback Period":
 
 define "Fentanyl Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+    where Rx.medication in Common."Fentanyl Medications"
 
 // Heroin
 define "Heroin Screenings In Lookback Period":
@@ -172,6 +180,7 @@ define "Negative Methadone Screenings In Lookback Period":
 
 define "Methadone Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Methadone Medications"
 
 // Opiates
 define "Opiate Screenings In Lookback Period":
@@ -189,6 +198,7 @@ define "Negative Opiate Screenings In Lookback Period":
 
 define "Opiate Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Opiate Medications"
 
 // Oxycodone
 define "Oxycodone Screenings In Lookback Period":
@@ -206,6 +216,7 @@ define "Negative Oxycodone Screenings In Lookback Period":
 
 define "Oxycodone Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
+      where Rx.medication in Common."Oxycodone Medications"
 
 // PCP
 define "PCP Screenings In Lookback Period":
@@ -241,9 +252,12 @@ define "Positive Lab Dates In Lookback Period":
   ) X sort desc
 
 define "Normalize Rx In Lookback Period":
-  [MedicationRequest: category in Common."Community"] Rx
-    where Rx.status in { 'active', 'completed', 'stopped' }
-      and Rx.intent = 'order'
+  Common."Get MedicationRequest Medication as Code"(
+    [MedicationRequest: status in { 'active', 'completed', 'stopped' }] Rx
+      where Rx.category in Common."Community"
+        and Rx.intent = 'order'
+        and date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of "Rx Lookback Period"
+  )
 
 define "Remove Substances Without Positive or Negative Results":
   "Unexpected Details" Details
@@ -252,162 +266,62 @@ define "Remove Substances Without Positive or Negative Results":
 
 // Details Logic
 
-// define "Unexpected Details":
-//   {
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Amphetamine Simple Identifier", "Positive Amphetamine Screenings In Lookback Period", 
-//       "Negative Amphetamine Screenings In Lookback Period", "Amphetamine Rx In Lookback Period"
-//     ),
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Barbiturate Simple Identifier", "Positive Barbiturate Screenings In Lookback Period", 
-//       "Negative Barbiturate Screenings In Lookback Period", "Barbiturate Rx In Lookback Period"
-//     ),
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Benzodiazepine Simple Identifier", "Positive Benzodiazepine Screenings In Lookback Period", 
-//       "Negative Benzodiazepine Screenings In Lookback Period", "Benzodiazepine Rx In Lookback Period"
-//     ),
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Buprenorphine Simple Identifier", "Positive Buprenorphine Screenings In Lookback Period", 
-//       "Negative Buprenorphine Screenings In Lookback Period", "Buprenorphine Rx In Lookback Period"
-//     ),
-//     CreateDetailWithoutPossibleUnexpectedNegative(
-//       "Cannabinoid Simple Identifier", "Positive Cannabinoid Screenings In Lookback Period", 
-//       "Negative Cannabinoid Screenings In Lookback Period"
-//     ),
-//     CreateDetailWithoutPossibleUnexpectedNegative(
-//       "Cocaine Simple Identifier", "Positive Cocaine Screenings In Lookback Period", 
-//       "Negative Cocaine Screenings In Lookback Period"
-//     ),
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Fentanyl Simple Identifier", "Positive Fentanyl Screenings In Lookback Period", 
-//       "Negative Fentanyl Screenings In Lookback Period", "Fentanyl Rx In Lookback Period"
-//     ),
-//     CreateDetailWithoutPossibleUnexpectedNegative(
-//       "Heroin Simple Identifier", "Positive Heroin Screenings In Lookback Period", 
-//       "Negative Heroin Screenings In Lookback Period"
-//     ),
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Methadone Simple Identifier", "Positive Methadone Screenings In Lookback Period", 
-//       "Negative Methadone Screenings In Lookback Period", "Methadone Rx In Lookback Period"
-//     ),
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Opiate Simple Identifier", "Positive Opiate Screenings In Lookback Period", 
-//       "Negative Opiate Screenings In Lookback Period", "Opiate Rx In Lookback Period"
-//     ),
-//     CreateDetailWithPossibleUnexpectedNegative(
-//       "Oxycodone Simple Identifier", "Positive Oxycodone Screenings In Lookback Period", 
-//       "Negative Oxycodone Screenings In Lookback Period", "Oxycodone Rx In Lookback Period"
-//     ),
-//     CreateDetailWithoutPossibleUnexpectedNegative(
-//       "PCP Simple Identifier", "Positive PCP Screenings In Lookback Period", 
-//       "Negative PCP Screenings In Lookback Period"
-//     )
-//   }
-
 define "Unexpected Details":
   {
-    LogDetails(
+    CreateDetailWithPossibleUnexpectedNegative(
       "Amphetamine Simple Identifier", "Positive Amphetamine Screenings In Lookback Period", 
       "Negative Amphetamine Screenings In Lookback Period", "Amphetamine Rx In Lookback Period"
     ),
-    LogDetails(
+    CreateDetailWithPossibleUnexpectedNegative(
       "Barbiturate Simple Identifier", "Positive Barbiturate Screenings In Lookback Period", 
       "Negative Barbiturate Screenings In Lookback Period", "Barbiturate Rx In Lookback Period"
     ),
-    LogDetails(
+    CreateDetailWithPossibleUnexpectedNegative(
       "Benzodiazepine Simple Identifier", "Positive Benzodiazepine Screenings In Lookback Period", 
       "Negative Benzodiazepine Screenings In Lookback Period", "Benzodiazepine Rx In Lookback Period"
     ),
-    LogDetails(
+    CreateDetailWithPossibleUnexpectedNegative(
       "Buprenorphine Simple Identifier", "Positive Buprenorphine Screenings In Lookback Period", 
       "Negative Buprenorphine Screenings In Lookback Period", "Buprenorphine Rx In Lookback Period"
     ),
-    LogDetails(
+    CreateDetailWithoutPossibleUnexpectedNegative(
+      "Cannabinoid Simple Identifier", "Positive Cannabinoid Screenings In Lookback Period", 
+      "Negative Cannabinoid Screenings In Lookback Period"
+    ),
+    CreateDetailWithoutPossibleUnexpectedNegative(
+      "Cocaine Simple Identifier", "Positive Cocaine Screenings In Lookback Period", 
+      "Negative Cocaine Screenings In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
       "Fentanyl Simple Identifier", "Positive Fentanyl Screenings In Lookback Period", 
       "Negative Fentanyl Screenings In Lookback Period", "Fentanyl Rx In Lookback Period"
     ),
-    LogDetails(
+    CreateDetailWithoutPossibleUnexpectedNegative(
+      "Heroin Simple Identifier", "Positive Heroin Screenings In Lookback Period", 
+      "Negative Heroin Screenings In Lookback Period"
+    ),
+    CreateDetailWithPossibleUnexpectedNegative(
       "Methadone Simple Identifier", "Positive Methadone Screenings In Lookback Period", 
       "Negative Methadone Screenings In Lookback Period", "Methadone Rx In Lookback Period"
     ),
-    LogDetails(
+    CreateDetailWithPossibleUnexpectedNegative(
       "Opiate Simple Identifier", "Positive Opiate Screenings In Lookback Period", 
       "Negative Opiate Screenings In Lookback Period", "Opiate Rx In Lookback Period"
     ),
-    LogDetails(
+    CreateDetailWithPossibleUnexpectedNegative(
       "Oxycodone Simple Identifier", "Positive Oxycodone Screenings In Lookback Period", 
       "Negative Oxycodone Screenings In Lookback Period", "Oxycodone Rx In Lookback Period"
+    ),
+    CreateDetailWithoutPossibleUnexpectedNegative(
+      "PCP Simple Identifier", "Positive PCP Screenings In Lookback Period", 
+      "Negative PCP Screenings In Lookback Period"
     )
   }
 
 // HTML Generation
 
-// define "Get HTML Details":
-//   Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Details More Info" & "Div End"
-
 define "Get HTML Details":
-  Combine(
-    "Unexpected Details" Details  
-      return
-        Details.ingredient & ':' 
-        & '\r\nPositive Lab Date(s): ' & (if exists(Details.posDates) then Combine(Details.posDates pd return ToString(pd), ' ') else 'null')
-        & '\r\nNegative Lab Date(s): ' & (if exists(Details.negDates) then Combine(Details.negDates nd return ToString(nd), ' ') else 'null')
-        & '\r\nPositive Lab Substance(s):' & (if exists(Details.unexpectedPosDetails) then Combine(Details.unexpectedPosDetails.udsDetail) else 'null')
-        & '\r\nNegative Lab Substance(s):' & (if exists(Details.unexpectedNegLabDetails) then Combine(Details.unexpectedNegLabDetails.udsDetail) else 'null')
-        & '\r\nPast Medication Date(s):' & (if exists(Details.unexpectedNegMedDetails) then Combine(Details.unexpectedNegMedDetails.rxDate d return ToString(d)) else 'null'),
-        '\r\n'
-  )
-
-define function LogDetails(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>):
-  {
-    ingredient: TheSubstance,
-    posDates: (
-      ThePosLabs PosLab
-        return date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime)
-    ),
-    negDates: (
-      TheNegLabs NegLab
-        return date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime)
-    ),
-    unexpectedPosDetails: (
-      ThePosLabs PosLab
-            return {
-              date: date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime),
-              udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
-            }
-    ),
-    unexpectedNegLabDetails: (
-      TheNegLabs NegLab
-        return {
-          udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
-          udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
-        }
-    ),
-    unexpectedNegMedDetails: (
-      TheMeds Rx
-        return {
-          rxDate: date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime),
-          rxDetail: 
-            if Rx.medication.text is not null then Rx.medication.text
-            else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display.value 
-            else 'Unable to determine a detailed identifier'
-        }
-    ),
-    unexpectedNegDetails: (
-      from TheNegLabs NegLab,
-        TheMeds Rx
-          where true
-            return {
-              udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
-              udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
-              rxDate: date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime),
-              rxDetail: 
-                if Rx.medication.text is not null then Rx.medication.text
-                else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display.value 
-                else 'Unable to determine a detailed identifier'
-            }
-    )
-  }
+  Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Details More Info" & "Div End"
 
 define "Unexpected Div Start":
   '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year.<\/p><\/div>'
