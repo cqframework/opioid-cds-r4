@@ -82,6 +82,9 @@ valueset "Sickle Cell Diseases": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet
 
 context Patient
 
+define "13 Month Lookback Period":
+  Interval[Today() - 12 months - 31 days, Today()]
+
 // TODO: Capture process decisions for long-term opioid use
 
 define "Opioid Other Than Synthetic Ordered In Last 12 Months":
@@ -137,6 +140,49 @@ define "Active Ambulatory Naloxone Rx":
 define "Active Medication List":
   [MedicationRequest: status in { 'active' }] ActiveMeds
     where ActiveMeds.category in "Community"
+
+define "Amphetamine Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" AmphetamineRx
+    where AmphetamineRx.medication in "Amphetamine Medications"
+
+define "Barbiturate Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" BarbiturateRx
+    where BarbiturateRx.medication in "Barbiturate Medications"
+
+define "Benzodiazepine Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" BenzodiazepineRx
+    where BenzodiazepineRx.medication in "Benzodiazepine medications"
+
+define "Buprenorphine Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" BuprenorphineRx
+    where BuprenorphineRx.medication in "Buprenorphine Medications"
+
+define "Fentanyl Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" FentanylRx
+    where FentanylRx.medication in "Fentanyl Medications"
+
+define "Methadone Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" MethadoneRx
+    where MethadoneRx.medication in "Methadone Medications"
+
+define "Opiate Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" OpiateRx
+    where OpiateRx.medication in "Opiate Medications"
+
+define "Oxycodone Orders in Past 13 Months":
+  "Medication Orders in Past 13 Months as Code" OxycodoneRx
+    where OxycodoneRx.medication in "Oxycodone Medications"
+
+define "Medication Orders in Past 13 Months as Code":
+  "Get MedicationRequest Medication as Code"("Active, Completed or Stopped Medication Orders in Past 13 Months")
+
+// TODO: This is horrible for performance... Should only be used when a bundle of resources is used as the data provider (i.e. when the prefetch is present)
+define "Active, Completed or Stopped Medication Orders in Past 13 Months":
+  [MedicationRequest] Rx
+    where Rx.status in { 'active', 'completed', 'stopped' }
+      and Rx.category in "Community"
+      and Rx.intent = 'order'
+      and date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of "13 Month Lookback Period"
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
