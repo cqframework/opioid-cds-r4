@@ -24,16 +24,16 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2022.1.0"
     }, {
       "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
+    }, {
+      "type": "depends-on",
       "display": "Library Rec10Common",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10Common|2022.1.0"
     }, {
       "type": "depends-on",
       "display": "Library Routines",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2022.1.0"
-    }, {
-      "type": "depends-on",
-      "display": "Library FHIRHelpers",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
     }, {
       "type": "depends-on",
       "display": "Library Config",
@@ -1998,7 +1998,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-05",
+  "date": "2024-08-06",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {

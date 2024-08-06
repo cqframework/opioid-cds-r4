@@ -262,11 +262,24 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
 */
 
 define function "Is Subacute or Chronic Pain Prescription?"(prescription FHIR.MedicationRequest):
+  "Is Subacute or Chronic Pain Using Expected Supply Duration"(prescription)
+    or "Is Subacute or Chronic Pain Using Validity Period"(prescription)
+
+define function "Is Subacute or Chronic Pain Using Expected Supply Duration"(prescription FHIR.MedicationRequest):
   (
     prescription.dispenseRequest is not null
       and prescription.dispenseRequest.expectedSupplyDuration is not null
       and (
         Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28 days 
+      )
+  )
+
+define function "Is Subacute or Chronic Pain Using Validity Period"(prescription FHIR.MedicationRequest):
+  (
+    prescription.dispenseRequest is not null
+      and prescription.dispenseRequest.validityPeriod is not null
+      and (
+        days between prescription.dispenseRequest.validityPeriod.start and prescription.dispenseRequest.validityPeriod.end >= 28 
       )
   )
 
