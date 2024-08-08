@@ -142,35 +142,35 @@ define "Active Medication List":
     where ActiveMeds.category in "Community"
 
 define "Amphetamine Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" AmphetamineRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" AmphetamineRx
     where AmphetamineRx.medication in "Amphetamine Medications"
 
 define "Barbiturate Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" BarbiturateRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" BarbiturateRx
     where BarbiturateRx.medication in "Barbiturate Medications"
 
 define "Benzodiazepine Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" BenzodiazepineRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" BenzodiazepineRx
     where BenzodiazepineRx.medication in "Benzodiazepine medications"
 
 define "Buprenorphine Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" BuprenorphineRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" BuprenorphineRx
     where BuprenorphineRx.medication in "Buprenorphine Medications"
 
 define "Fentanyl Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" FentanylRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" FentanylRx
     where FentanylRx.medication in "Fentanyl Medications"
 
 define "Methadone Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" MethadoneRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" MethadoneRx
     where MethadoneRx.medication in "Methadone Medications"
 
 define "Opiate Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" OpiateRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" OpiateRx
     where OpiateRx.medication in "Opiate Medications"
 
 define "Oxycodone Orders in Past 13 Months":
-  "Medication Orders in Past 13 Months as Code" OxycodoneRx
+  "Active, Completed or Stopped Medication Orders in Past 13 Months" OxycodoneRx
     where OxycodoneRx.medication in "Oxycodone Medications"
 
 define "Medication Orders in Past 13 Months as Code":
