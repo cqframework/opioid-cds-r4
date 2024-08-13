@@ -215,8 +215,7 @@ define "Negative Oxycodone Screenings In Lookback Period":
   GetNegativeLabsInLookbackPeriod("Oxycodone Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Oxycodone Rx In Lookback Period":
-  "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Oxycodone Medications"
+  "Normalize Rx In Lookback Period" 
 
 // PCP
 define "PCP Screenings In Lookback Period":
