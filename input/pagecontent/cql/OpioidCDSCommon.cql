@@ -82,9 +82,6 @@ valueset "Sickle Cell Diseases": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet
 
 context Patient
 
-define "13 Month Lookback Period":
-  Interval[Today() - 12 months - 31 days, Today()]
-
 // TODO: Capture process decisions for long-term opioid use
 
 define "Opioid Other Than Synthetic Ordered In Last 12 Months":
@@ -141,49 +138,6 @@ define "Active Medication List":
   [MedicationRequest: status in { 'active' }] ActiveMeds
     where ActiveMeds.category in "Community"
 
-define "Amphetamine Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" AmphetamineRx
-    where AmphetamineRx.medication in "Amphetamine Medications"
-
-define "Barbiturate Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" BarbiturateRx
-    where BarbiturateRx.medication in "Barbiturate Medications"
-
-define "Benzodiazepine Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" BenzodiazepineRx
-    where BenzodiazepineRx.medication in "Benzodiazepine medications"
-
-define "Buprenorphine Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" BuprenorphineRx
-    where BuprenorphineRx.medication in "Buprenorphine Medications"
-
-define "Fentanyl Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" FentanylRx
-    where FentanylRx.medication in "Fentanyl Medications"
-
-define "Methadone Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" MethadoneRx
-    where MethadoneRx.medication in "Methadone Medications"
-
-define "Opiate Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" OpiateRx
-    where OpiateRx.medication in "Opiate Medications"
-
-define "Oxycodone Orders in Past 13 Months":
-  "Active, Completed or Stopped Medication Orders in Past 13 Months" OxycodoneRx
-    where OxycodoneRx.medication in "Oxycodone Medications"
-
-define "Medication Orders in Past 13 Months as Code":
-  "Get MedicationRequest Medication as Code"("Active, Completed or Stopped Medication Orders in Past 13 Months")
-
-// TODO: This is horrible for performance... Should only be used when a bundle of resources is used as the data provider (i.e. when the prefetch is present)
-define "Active, Completed or Stopped Medication Orders in Past 13 Months":
-  [MedicationRequest] Rx
-    where Rx.status in { 'active', 'completed', 'stopped' }
-      and Rx.category in "Community"
-      and Rx.intent = 'order'
-      and date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of "13 Month Lookback Period"
-
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
     where Rx.status.value = 'active'
@@ -207,14 +161,14 @@ define function "Is Benzodiazepine or CNS Depressant?"(value List<MedicationRequ
 
 define function "Get MedicationRequest Medication as Code"(value List<MedicationRequest>):
   value Rx
-    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+    let Med: singleton from ([Medication: id = (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))])
     return 
       MedicationRequest {
         id: Rx.id,
         status: Rx.status,
         intent: Rx.intent,
         category: Rx.category,
-        medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
+        medication: if Rx.medication is Reference then Med.code else Rx.medication as CodeableConcept,
         subject: Rx.subject,
         authoredOn: Rx.authoredOn,
         recorder: Rx.recorder,

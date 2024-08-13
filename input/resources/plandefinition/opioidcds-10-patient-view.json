@@ -207,68 +207,39 @@
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
       } ]
     }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "type": "Medication",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
+      "mustSupport": [ "id" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+        "path": "id"
       } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
       } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "MedicationRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
       } ]
     }, {
       "type": "Observation",
@@ -281,15 +252,61 @@
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
@@ -297,6 +314,20 @@
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
       } ]
     }, {
       "type": "Observation",
@@ -315,92 +346,46 @@
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
       } ]
     }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
       } ]
     }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
       } ]
     }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
       "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
-      } ]
-    }, {
-      "type": "Observation",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status", "status.value" ],
-      "codeFilter": [ {
-        "path": "code",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
       } ]
     }, {
       "type": "Observation",
@@ -469,35 +454,241 @@
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code", "effective", "status", "status.value" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ]
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "status", "category", "intent", "authoredOn", "medication" ],
+      "codeFilter": [ {
+        "path": "status",
+        "code": [ {
+          "code": "active"
+        }, {
+          "code": "completed"
+        }, {
+          "code": "stopped"
+        } ]
+      } ]
     } ]
   } ],
   "extension": [ {
@@ -857,13 +1048,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "13 Month Lookback Period"
+      "valueString": "Rx Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"13 Month Lookback Period\":\n  Interval[Today() - 12 months - 31 days, Today()]"
+      "valueString": "define \"Rx Lookback Period\":\n  Interval[Today() - 12 months - 31 days, Today()]"
     }, {
       "url": "displaySequence",
       "valueInteger": 22
@@ -872,13 +1063,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Active, Completed or Stopped Medication Orders in Past 13 Months"
+      "valueString": "Normalize Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "// TODO: This is horrible for performance... Should only be used when a bundle of resources is used as the data provider (i.e. when the prefetch is present)\ndefine \"Active, Completed or Stopped Medication Orders in Past 13 Months\":\n  [MedicationRequest] Rx\n    where Rx.status in { 'active', 'completed', 'stopped' }\n      and Rx.category in \"Community\"\n      and Rx.intent = 'order'\n      and date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of \"13 Month Lookback Period\""
+      "valueString": "define \"Normalize Rx In Lookback Period\":\n  Common.\"Get MedicationRequest Medication as Code\"(\n    [MedicationRequest: status in { 'active', 'completed', 'stopped' }] Rx\n      where Rx.category in Common.\"Community\"\n        and Rx.intent = 'order'\n        and date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of \"Rx Lookback Period\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 23
@@ -887,13 +1078,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Amphetamine Orders in Past 13 Months"
+      "valueString": "Amphetamine Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Amphetamine Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" AmphetamineRx\n    where AmphetamineRx.medication in \"Amphetamine Medications\""
+      "valueString": "define \"Amphetamine Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Amphetamine Medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 24
@@ -962,13 +1153,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Barbiturate Orders in Past 13 Months"
+      "valueString": "Barbiturate Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Barbiturate Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" BarbiturateRx\n    where BarbiturateRx.medication in \"Barbiturate Medications\""
+      "valueString": "define \"Barbiturate Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Barbiturate Medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 29
@@ -1037,13 +1228,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Benzodiazepine Orders in Past 13 Months"
+      "valueString": "Benzodiazepine Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Benzodiazepine Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" BenzodiazepineRx\n    where BenzodiazepineRx.medication in \"Benzodiazepine medications\""
+      "valueString": "define \"Benzodiazepine Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Benzodiazepine medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 34
@@ -1112,13 +1303,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Buprenorphine Orders in Past 13 Months"
+      "valueString": "Buprenorphine Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Buprenorphine Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" BuprenorphineRx\n    where BuprenorphineRx.medication in \"Buprenorphine Medications\""
+      "valueString": "define \"Buprenorphine Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Buprenorphine Medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 39
@@ -1337,13 +1528,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Fentanyl Orders in Past 13 Months"
+      "valueString": "Fentanyl Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Fentanyl Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" FentanylRx\n    where FentanylRx.medication in \"Fentanyl Medications\""
+      "valueString": "define \"Fentanyl Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n    where Rx.medication in Common.\"Fentanyl Medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 54
@@ -1472,13 +1663,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Methadone Orders in Past 13 Months"
+      "valueString": "Methadone Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Methadone Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" MethadoneRx\n    where MethadoneRx.medication in \"Methadone Medications\""
+      "valueString": "define \"Methadone Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Methadone Medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 63
@@ -1547,13 +1738,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Opiate Orders in Past 13 Months"
+      "valueString": "Opiate Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Opiate Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" OpiateRx\n    where OpiateRx.medication in \"Opiate Medications\""
+      "valueString": "define \"Opiate Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Opiate Medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 68
@@ -1622,13 +1813,13 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
+      "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Oxycodone Orders in Past 13 Months"
+      "valueString": "Oxycodone Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Oxycodone Orders in Past 13 Months\":\n  \"Active, Completed or Stopped Medication Orders in Past 13 Months\" OxycodoneRx\n    where OxycodoneRx.medication in \"Oxycodone Medications\""
+      "valueString": "define \"Oxycodone Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Oxycodone Medications\""
     }, {
       "url": "displaySequence",
       "valueInteger": 73
@@ -1703,7 +1894,7 @@
       "valueString": "Unexpected Details"
     }, {
       "url": "statement",
-      "valueString": "// Details Logic\ndefine \"Unexpected Details\":\n  {\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Amphetamine Simple Identifier\", \"Positive Amphetamine Screenings In Lookback Period\", \n      \"Negative Amphetamine Screenings In Lookback Period\", Common.\"Amphetamine Orders in Past 13 Months\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Barbiturate Simple Identifier\", \"Positive Barbiturate Screenings In Lookback Period\", \n      \"Negative Barbiturate Screenings In Lookback Period\", Common.\"Barbiturate Orders in Past 13 Months\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Benzodiazepine Simple Identifier\", \"Positive Benzodiazepine Screenings In Lookback Period\", \n      \"Negative Benzodiazepine Screenings In Lookback Period\", Common.\"Benzodiazepine Orders in Past 13 Months\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Buprenorphine Simple Identifier\", \"Positive Buprenorphine Screenings In Lookback Period\", \n      \"Negative Buprenorphine Screenings In Lookback Period\", Common.\"Buprenorphine Orders in Past 13 Months\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Cannabinoid Simple Identifier\", \"Positive Cannabinoid Screenings In Lookback Period\", \n      \"Negative Cannabinoid Screenings In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Cocaine Simple Identifier\", \"Positive Cocaine Screenings In Lookback Period\", \n      \"Negative Cocaine Screenings In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Fentanyl Simple Identifier\", \"Positive Fentanyl Screenings In Lookback Period\", \n      \"Negative Fentanyl Screenings In Lookback Period\", Common.\"Fentanyl Orders in Past 13 Months\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Heroin Simple Identifier\", \"Positive Heroin Screenings In Lookback Period\", \n      \"Negative Heroin Screenings In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Methadone Simple Identifier\", \"Positive Methadone Screenings In Lookback Period\", \n      \"Negative Methadone Screenings In Lookback Period\", Common.\"Methadone Orders in Past 13 Months\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Opiate Simple Identifier\", \"Positive Opiate Screenings In Lookback Period\", \n      \"Negative Opiate Screenings In Lookback Period\", Common.\"Opiate Orders in Past 13 Months\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Oxycodone Simple Identifier\", \"Positive Oxycodone Screenings In Lookback Period\", \n      \"Negative Oxycodone Screenings In Lookback Period\", Common.\"Oxycodone Orders in Past 13 Months\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"PCP Simple Identifier\", \"Positive PCP Screenings In Lookback Period\", \n      \"Negative PCP Screenings In Lookback Period\"\n    )\n  }"
+      "valueString": "// Details Logic\ndefine \"Unexpected Details\":\n  {\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Amphetamine Simple Identifier\", \"Positive Amphetamine Screenings In Lookback Period\", \n      \"Negative Amphetamine Screenings In Lookback Period\", \"Amphetamine Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Barbiturate Simple Identifier\", \"Positive Barbiturate Screenings In Lookback Period\", \n      \"Negative Barbiturate Screenings In Lookback Period\", \"Barbiturate Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Benzodiazepine Simple Identifier\", \"Positive Benzodiazepine Screenings In Lookback Period\", \n      \"Negative Benzodiazepine Screenings In Lookback Period\", \"Benzodiazepine Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Buprenorphine Simple Identifier\", \"Positive Buprenorphine Screenings In Lookback Period\", \n      \"Negative Buprenorphine Screenings In Lookback Period\", \"Buprenorphine Rx In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Cannabinoid Simple Identifier\", \"Positive Cannabinoid Screenings In Lookback Period\", \n      \"Negative Cannabinoid Screenings In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Cocaine Simple Identifier\", \"Positive Cocaine Screenings In Lookback Period\", \n      \"Negative Cocaine Screenings In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Fentanyl Simple Identifier\", \"Positive Fentanyl Screenings In Lookback Period\", \n      \"Negative Fentanyl Screenings In Lookback Period\", \"Fentanyl Rx In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Heroin Simple Identifier\", \"Positive Heroin Screenings In Lookback Period\", \n      \"Negative Heroin Screenings In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Methadone Simple Identifier\", \"Positive Methadone Screenings In Lookback Period\", \n      \"Negative Methadone Screenings In Lookback Period\", \"Methadone Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Opiate Simple Identifier\", \"Positive Opiate Screenings In Lookback Period\", \n      \"Negative Opiate Screenings In Lookback Period\", \"Opiate Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Oxycodone Simple Identifier\", \"Positive Oxycodone Screenings In Lookback Period\", \n      \"Negative Oxycodone Screenings In Lookback Period\", \"Oxycodone Rx In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"PCP Simple Identifier\", \"Positive PCP Screenings In Lookback Period\", \n      \"Negative PCP Screenings In Lookback Period\"\n    )\n  }"
     }, {
       "url": "displaySequence",
       "valueInteger": 78
@@ -1972,7 +2163,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-08",
+  "date": "2024-08-12",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
