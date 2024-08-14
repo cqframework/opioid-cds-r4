@@ -73,13 +73,6 @@
       "type": "boolean"
     } ],
     "dataRequirement": [ {
-      "type": "Medication",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-      "mustSupport": [ "id" ],
-      "codeFilter": [ {
-        "path": "id"
-      } ]
-    }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
       "mustSupport": [ "category" ],
@@ -347,7 +340,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-13",
+  "date": "2024-08-14",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When opioids are needed for acute pain, clinicians should prescribe no greater quantity than needed for the expected duration of pain severe enough to require opioids.",
   "useContext": [ {

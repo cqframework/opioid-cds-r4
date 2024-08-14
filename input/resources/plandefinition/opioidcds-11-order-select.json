@@ -81,13 +81,6 @@
       "type": "boolean"
     } ],
     "dataRequirement": [ {
-      "type": "Medication",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-      "mustSupport": [ "id" ],
-      "codeFilter": [ {
-        "path": "id"
-      } ]
-    }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
       "mustSupport": [ "category" ],
@@ -449,7 +442,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-13",
+  "date": "2024-08-14",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently and consider whether benefits outweigh risks of concurrent prescribing of opioids and other central nervous system depressants.",
   "useContext": [ {
