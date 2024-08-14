@@ -50,8 +50,10 @@ define "All Opioid or Non-opioid UDS in Lookback Period":
   (
     [Observation: Common."All Drug Urine Screening"] Lab
       where date from Lab.effective in day of "UDS Lookback Period"
-        and not (Lab.status.value in { 'unknown', 'entered-in-error', 'cancelled' })
-  ) X sort by date from FHIRHelpers.ToDateTime(effective as FHIR.dateTime) desc
+        and not (
+          Lab.status in { 'unknown', 'entered-in-error', 'cancelled' }
+        )
+  ) X sort by date from effective desc
 
 // Amphetamines
 define "Amphetamine Screenings In Lookback Period":
@@ -96,7 +98,7 @@ define "Negative Benzodiazepine Screenings In Lookback Period":
 
 define "Benzodiazepine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Benzodiazepine medications"
+    where Rx.medication in Common."Benzodiazepine medications"
 
 // Buprenorphine
 define "Buprenorphine Screenings In Lookback Period":
@@ -111,7 +113,7 @@ define "Negative Buprenorphine Screenings In Lookback Period":
 
 define "Buprenorphine Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Buprenorphine Medications"
+    where Rx.medication in Common."Buprenorphine Medications"
 
 // Cannabinoids
 define "Cannabinoid Screenings In Lookback Period":
@@ -180,7 +182,7 @@ define "Negative Methadone Screenings In Lookback Period":
 
 define "Methadone Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Methadone Medications"
+    where Rx.medication in Common."Methadone Medications"
 
 // Opiates
 define "Opiate Screenings In Lookback Period":
@@ -198,7 +200,7 @@ define "Negative Opiate Screenings In Lookback Period":
 
 define "Opiate Rx In Lookback Period":
   "Normalize Rx In Lookback Period" Rx
-      where Rx.medication in Common."Opiate Medications"
+    where Rx.medication in Common."Opiate Medications"
 
 // Oxycodone
 define "Oxycodone Screenings In Lookback Period":
@@ -215,7 +217,8 @@ define "Negative Oxycodone Screenings In Lookback Period":
   GetNegativeLabsInLookbackPeriod("Oxycodone Screenings In Lookback Period", Config."Opiate Urine Screening Check Enabled")
 
 define "Oxycodone Rx In Lookback Period":
-  "Normalize Rx In Lookback Period" 
+  "Normalize Rx In Lookback Period" Rx
+    where Rx.medication in Common."Oxycodone Medications"
 
 // PCP
 define "PCP Screenings In Lookback Period":
@@ -241,21 +244,21 @@ define "All Positive Labs In Lookback Period":
 define "All Lab Dates in Lookback Period":
   (
     "All Opioid or Non-opioid UDS in Lookback Period" Lab
-      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)
+      return date from Lab.effective
   ) X sort desc
 
 define "Positive Lab Dates In Lookback Period":
   (
     "All Positive Labs In Lookback Period" Lab
-      return date from FHIRHelpers.ToDateTime(Lab.effective as FHIR.dateTime)
+      return date from Lab.effective
   ) X sort desc
 
 define "Normalize Rx In Lookback Period":
   Common."Get MedicationRequest Medication as Code"(
-    [MedicationRequest: status in { 'active', 'completed', 'stopped' }] Rx
-      where Rx.category in Common."Community"
+    [MedicationRequest: category in Common."Community"] Rx
+      where Rx.status in { 'active', 'completed', 'stopped' }
         and Rx.intent = 'order'
-        and date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of "Rx Lookback Period"
+        and date from Rx.authoredOn in day of "Rx Lookback Period"
   )
 
 define "Remove Substances Without Positive or Negative Results":
@@ -405,40 +408,38 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     ingredient: TheSubstance,
     posDates: (
       ThePosLabs PosLab
-        return date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime)
+        return date from PosLab.effective
     ),
     negDates: (
       TheNegLabs NegLab
-        return date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime)
+        return date from NegLab.effective
     ),
     unexpectedPosDetails: (
       ThePosLabs PosLab
-        with (if exists(TheMeds) then TheMeds else {null as MedicationRequest}) Rx
+        with (
+          if exists(TheMeds) then TheMeds else { null as MedicationRequest }
+        ) Rx
           such that Rx is null or not (
-            date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of 
-              Interval[date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime) - 31 days, 
-                date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime) - 1 days]
+            date from Rx.authoredOn in day of Interval[date from PosLab.effective - 31 days, date from PosLab.effective - 1 days]
           )
-            return {
-              date: date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime),
-              udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
-            }
+          return {
+            date: date from PosLab.effective,
+            udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display else 'Unable to determine a detailed identifier'
+          }
     ),
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
         TheMeds Rx
-          where date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime) in day of 
-            Interval[date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime) - 31 days, 
-              date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime) - 1 days]
-            return {
-              udsDate: date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime),
-              udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display.value else 'Unable to determine a detailed identifier',
-              rxDate: date from FHIRHelpers.ToDateTime(Rx.authoredOn as FHIR.dateTime),
-              rxDetail: 
-                if Rx.medication.text is not null then Rx.medication.text
-                else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display.value 
-                else 'Unable to determine a detailed identifier'
-            }
+          where date from Rx.authoredOn in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]
+          return {
+            udsDate: date from NegLab.effective,
+            udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display else 'Unable to determine a detailed identifier',
+            rxDate: date from Rx.authoredOn,
+            rxDetail: 
+              if Rx.medication.text is not null then Rx.medication.text
+              else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display 
+              else 'Unable to determine a detailed identifier'
+          }
     )
   }
 
@@ -447,21 +448,21 @@ define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance Strin
     ingredient: TheSubstance,
     posDates: (
       ThePosLabs PosLab
-        return date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime)
+        return date from PosLab.effective
     ),
     negDates: (
       TheNegLabs NegLab
-        return date from FHIRHelpers.ToDateTime(NegLab.effective as FHIR.dateTime)
+        return date from NegLab.effective
     ),
     unexpectedPosDetails: (
       ThePosLabs PosLab
         return {
-          date: date from FHIRHelpers.ToDateTime(PosLab.effective as FHIR.dateTime),
-          udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display.value else 'Unable to determine a detailed identifier'
+          date: date from PosLab.effective,
+          udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display else 'Unable to determine a detailed identifier'
         }
     ),
     unexpectedNegDetails: {
-      null as Tuple{udsDate System.Date, udsDetail System.String, rxDate System.Date, rxDetail System.String}
+      null as Tuple{ udsDate System.Date, udsDetail System.String, rxDate System.Date, rxDetail System.String }
     }
   }
 

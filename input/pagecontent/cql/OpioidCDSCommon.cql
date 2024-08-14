@@ -161,7 +161,11 @@ define function "Is Benzodiazepine or CNS Depressant?"(value List<MedicationRequ
 
 define function "Get MedicationRequest Medication as Code"(value List<MedicationRequest>):
   value Rx
-    let Med: singleton from ([Medication: id = (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))])
+    let Med: 
+      if Rx.medication is Reference then singleton from (
+        [Medication] M
+          where M.id = (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))
+      ) else null
     return 
       MedicationRequest {
         id: Rx.id,
