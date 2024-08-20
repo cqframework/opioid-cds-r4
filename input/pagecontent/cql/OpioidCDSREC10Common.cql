@@ -233,23 +233,9 @@ define "Negative PCP Screenings In Lookback Period":
 
 // Helpers  
 
-define "All Positive Labs In Lookback Period":
-  "Amphetamine Screenings In Lookback Period" union "Barbiturate Screenings In Lookback Period" 
-    union "Benzodiazepine Screenings In Lookback Period" union "Buprenorphine Screenings In Lookback Period" 
-    union "Cannabinoid Screenings In Lookback Period" union "Cocaine Screenings In Lookback Period" 
-    union "Fentanyl Screenings In Lookback Period" union "Heroin Screenings In Lookback Period" 
-    union "Methadone Screenings In Lookback Period" union "Opiate Screenings In Lookback Period"
-    union "Oxycodone Screenings In Lookback Period" union "PCP Screenings In Lookback Period" 
-
 define "All Lab Dates in Lookback Period":
   (
     "All Opioid or Non-opioid UDS in Lookback Period" Lab
-      return date from Lab.effective
-  ) X sort desc
-
-define "Positive Lab Dates In Lookback Period":
-  (
-    "All Positive Labs In Lookback Period" Lab
       return date from Lab.effective
   ) X sort desc
 

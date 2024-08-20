@@ -1884,7 +1884,7 @@
       "valueString": "All Lab Dates in Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"All Lab Dates in Lookback Period\":\n  (\n    \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n      return date from Lab.effective\n  ) X sort desc"
+      "valueString": "// Helpers\ndefine \"All Lab Dates in Lookback Period\":\n  (\n    \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n      return date from Lab.effective\n  ) X sort desc"
     }, {
       "url": "displaySequence",
       "valueInteger": 84
@@ -2048,7 +2048,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-14",
+  "date": "2024-08-20",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
