@@ -351,23 +351,25 @@ define "Generate Footer Rows":
       let row: ToString(IndexOf("Remove Substances Without Positive or Negative Results", BOT) + 1),
       colspan: Length("All Lab Dates in Lookback Period") + 1
       return Combine(
-        "All Lab Dates in Lookback Period" LabDate
-          let col: ToString(IndexOf("All Lab Dates in Lookback Period", LabDate) + 2)
-          return all (
-            if BOT.unexpectedPosDetails.date contains LabDate
-              then singleton from (
-                BOT.unexpectedPosDetails PosDetail
-                  where PosDetail.date same day as LabDate
-                    return '<tr>' & GetFooterColumn(colspan, row & ':' & col & ' - Possible unexpected substance found: ' & PosDetail.udsDetail) & '<\/tr>'
-              )
-            else if BOT.unexpectedNegDetails.udsDate contains LabDate
-              then singleton from (
-                BOT.unexpectedNegDetails NegDetail
-                  where NegDetail.udsDate  same day as LabDate
-                    return '<tr>' & GetFooterColumn(colspan, row + ':' & col & ' - Possible unexpected negative result found: prescribed ' & NegDetail.rxDetail & ' on ' & ToString(NegDetail.rxDate)) & '<\/tr>'
-              )
-            else ''
-          )
+        flatten(
+          "All Lab Dates in Lookback Period" LabDate
+            let col: ToString(IndexOf("All Lab Dates in Lookback Period", LabDate) + 2)
+            return all (
+              if BOT.unexpectedPosDetails.date contains LabDate
+                then (
+                  BOT.unexpectedPosDetails PosDetail
+                    where PosDetail.date same day as LabDate
+                      return '<tr>' & GetFooterColumn(colspan, row & ':' & col & ' - Possible unexpected substance found: ' & PosDetail.udsDetail) & '<\/tr>'
+                )
+              else if BOT.unexpectedNegDetails.udsDate contains LabDate
+                then (
+                  BOT.unexpectedNegDetails NegDetail
+                    where NegDetail.udsDate  same day as LabDate
+                      return '<tr>' & GetFooterColumn(colspan, row + ':' & col & ' - Possible unexpected negative result found: prescribed ' & NegDetail.rxDetail & ' on ' & ToString(NegDetail.rxDate)) & '<\/tr>'
+                )
+              else ''
+            )
+        )
       )
 
 define "Table End":
