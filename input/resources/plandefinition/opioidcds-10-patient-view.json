@@ -1914,7 +1914,7 @@
       "valueString": "Generate Table Rows"
     }, {
       "url": "statement",
-      "valueString": "define \"Generate Table Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n    let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1)\n    return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(\n      \"All Lab Dates in Lookback Period\" LabDate\n        let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n        return all (\n          if BOT.unexpectedPosDetails.date contains LabDate\n            then GetUnexpectedColumn('pos', row & ':' & col)\n          else if BOT.unexpectedNegDetails.udsDate contains LabDate\n            then GetUnexpectedColumn('neg', row & ':' & col)\n          else if BOT.posDates contains LabDate\n            then GetExpectedColumn('pos')\n          else if BOT.negDates contains LabDate\n            then GetExpectedColumn('neg')\n          else GetExpectedColumn('n/a')\n        )\n    ) + '<\\/tr>'"
+      "valueString": "define \"Generate Table Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n    let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1)\n    return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(\n      \"All Lab Dates in Lookback Period\" LabDate\n        let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n        return all (\n          if BOT.unexpectedPosDetails.date contains LabDate\n            then GetUnexpectedColumn('pos', row & ':' & col)\n          else if BOT.unexpectedNegDetails.udsDate contains LabDate\n            then GetUnexpectedColumn('neg', row & ':' & col)\n          else if BOT.posDates contains LabDate\n            then GetExpectedColumn('pos*')\n          else if BOT.negDates contains LabDate\n            then GetExpectedColumn('neg*')\n          else GetExpectedColumn('n/a')\n        )\n    ) + '<\\/tr>'"
     }, {
       "url": "displaySequence",
       "valueInteger": 87
@@ -1971,13 +1971,28 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
+      "valueString": "Expected Result Footnote"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Expected Result Footnote\":\n  '<div>* - These are expected results based on an analysis of the patient\\'s med list 30 days prior to the corresponding lab.<\\/div>'"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 91
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
       "valueString": "Details More Info"
     }, {
       "url": "statement",
       "valueString": "define \"Details More Info\":\n  '<div id=\\\"box\\\">\\r\\n  <p>Note on false positives and unexpected negative results...<\\/p>\\r\\n  <input type=\\\"checkbox\\\" class=\\\"show-more\\\"> Show more\\r\\n  <div class=\\\"more\\\">\\r\\n  <p>An unexpectedly negative test may be due to time since last dose, diversion, intermittent use, aberrant drug use behavior, or other factors, including a false negative result. Clinicians should interpret this result in the context of the overall treatment plan.<\\/p>\\r\\n\\r\\n  <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\\/><br\\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836\\\">http:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836<\\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\\/><br\\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/www.cdc.gov\\/mmwr\\/volumes\\/71\\/rr\\/rr7103a1.htm#Recommendation10\\\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\\/a>.<\\/p><\\/div>\\r\\n<\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 91
+      "valueInteger": 92
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -1992,7 +2007,7 @@
       "valueString": "define \"Div End\": '<\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 92
+      "valueInteger": 93
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2004,10 +2019,10 @@
       "valueString": "Get HTML Details"
     }, {
       "url": "statement",
-      "valueString": "// HTML Generation\ndefine \"Get HTML Details\":\n  Common.\"Style Header\" & \"Unexpected Div Start\" & \"Details Table\" & \"Details More Info\" & \"Div End\""
+      "valueString": "// HTML Generation\ndefine \"Get HTML Details\":\n  Common.\"Style Header\" & \"Unexpected Div Start\" & \"Details Table\" & \"Expected Result Footnote\" & \"Details More Info\" & \"Div End\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 93
+      "valueInteger": 94
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -2022,7 +2037,7 @@
       "valueString": "define \"Detail\":\n  Rec10Common.\"Get HTML Details\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 94
+      "valueInteger": 95
     } ]
   }, {
     "id": "effective-data-requirements",
@@ -2048,7 +2063,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-26",
+  "date": "2024-08-28",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {

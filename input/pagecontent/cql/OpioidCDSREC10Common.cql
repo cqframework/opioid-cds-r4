@@ -309,7 +309,7 @@ define "Unexpected Details":
 // HTML Generation
 
 define "Get HTML Details":
-  Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Details More Info" & "Div End"
+  Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Expected Result Footnote" & "Details More Info" & "Div End"
 
 define "Unexpected Div Start":
   '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year.<\/p><\/div>'
@@ -339,9 +339,9 @@ define "Generate Table Rows":
           else if BOT.unexpectedNegDetails.udsDate contains LabDate
             then GetUnexpectedColumn('neg', row & ':' & col)
           else if BOT.posDates contains LabDate
-            then GetExpectedColumn('pos')
+            then GetExpectedColumn('pos*')
           else if BOT.negDates contains LabDate
-            then GetExpectedColumn('neg')
+            then GetExpectedColumn('neg*')
           else GetExpectedColumn('n/a')
         )
     ) + '<\/tr>'
@@ -375,6 +375,9 @@ define "Table End":
 
 define "Details More Info":
   '<div id=\"box\">\r\n  <p>Note on false positives and unexpected negative results...<\/p>\r\n  <input type=\"checkbox\" class=\"show-more\"> Show more\r\n  <div class=\"more\">\r\n  <p>An unexpectedly negative test may be due to time since last dose, diversion, intermittent use, aberrant drug use behavior, or other factors, including a false negative result. Clinicians should interpret this result in the context of the overall treatment plan.<\/p>\r\n\r\n  <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\/><br\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\"_blank\" href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/24986836\">http:\/\/pubmed.ncbi.nlm.nih.gov\/24986836<\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\/><br\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\"_blank\" href=\"https:\/\/www.cdc.gov\/mmwr\/volumes\/71\/rr\/rr7103a1.htm#Recommendation10\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\/a>.<\/p><\/div>\r\n<\/div>'
+
+define "Expected Result Footnote":
+  '<div>* - These are expected results based on an analysis of the patient\'s med list 30 days prior to the corresponding lab.<\/div>'
 
 define "Div End": '<\/div>'
 
