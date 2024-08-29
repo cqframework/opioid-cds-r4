@@ -1,96 +1,41 @@
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F11"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Opioid related disorders",
-  "code" : "F11",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "Z71.4"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Alcohol abuse counseling and surveillance",
-  "code" : "Z71.4",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "Z71.5"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Drug abuse counseling and surveillance",
-  "code" : "Z71.5",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F55"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Abuse of non-psychoactive substances",
-  "code" : "F55",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F10-F19"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "severity" : "error",
-  "error" : "The code \"F10-F19\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#F10-F19) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F17"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Nicotine dependence",
-  "code" : "F17",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "C00-C96"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
 v: {
+  "code" : "C00-C96",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "severity" : "error",
-  "error" : "The code \"C00-C96\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#C00-C96) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
+  "error" : "Unknown code 'C00-C96' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'C00-C96' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }
@@ -98,311 +43,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "D03"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Melanoma in situ",
-  "code" : "D03",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D37-D48"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "severity" : "error",
-  "error" : "The code \"D37-D48\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#D37-D48) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D49-D49"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "severity" : "error",
-  "error" : "The code \"D49-D49\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#D49-D49) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "G89.3"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Neoplasm related pain (acute) (chronic)",
-  "code" : "G89.3",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D3A-D3A"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "severity" : "error",
-  "error" : "The code \"D3A-D3A\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#D3A-D3A) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C76-C80"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "severity" : "error",
-  "error" : "The code \"C76-C80\" is not valid in the system http://hl7.org/fhir/sid/icd-10-cm; The code provided (http://hl7.org/fhir/sid/icd-10-cm#C76-C80) is not valid in the value set 'All codes known to the system' (from http://tx.fhir.org/r4)",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C25"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Malignant neoplasm of pancreas",
-  "code" : "C25",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "K70.4"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Alcoholic hepatic failure",
-  "code" : "K70.4",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "K72"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Hepatic failure, not elsewhere classified",
-  "code" : "K72",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C43",
-  "display" : "Malignant melanoma of skin"
-}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "Malignant melanoma of skin",
-  "code" : "C43",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C43",
-  "display" : "Malignant melanoma of skin"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Malignant melanoma of skin",
-  "code" : "C43",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F11"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Opioid related disorders",
-  "code" : "F11",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "Z71.4"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Alcohol abuse counseling and surveillance",
-  "code" : "Z71.4",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "Z71.5"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Drug abuse counseling and surveillance",
-  "code" : "Z71.5",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F55"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Abuse of non-psychoactive substances",
-  "code" : "F55",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F10-F19"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "Unknown Code 'F10-F19' in the system 'http://hl7.org/fhir/sid/icd-10-cm'; The provided code http://hl7.org/fhir/sid/icd-10-cm#F10-F19 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F17"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Nicotine dependence",
-  "code" : "F17",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C00-C96"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "Unknown Code 'C00-C96' in the system 'http://hl7.org/fhir/sid/icd-10-cm'; The provided code http://hl7.org/fhir/sid/icd-10-cm#C00-C96 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D03"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -413,7 +54,9 @@ v: {
   "display" : "Melanoma in situ",
   "code" : "D03",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -423,7 +66,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "D37-D48"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -431,11 +74,32 @@ v: {
   }]
 }}####
 v: {
+  "code" : "D37-D48",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "severity" : "error",
-  "error" : "Unknown Code 'D37-D48' in the system 'http://hl7.org/fhir/sid/icd-10-cm'; The provided code http://hl7.org/fhir/sid/icd-10-cm#D37-D48 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "error" : "Unknown code 'D37-D48' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
   "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'D37-D48' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }
@@ -443,7 +107,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "D49-D49"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -451,11 +115,32 @@ v: {
   }]
 }}####
 v: {
+  "code" : "D49-D49",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "severity" : "error",
-  "error" : "Unknown Code 'D49-D49' in the system 'http://hl7.org/fhir/sid/icd-10-cm'; The provided code http://hl7.org/fhir/sid/icd-10-cm#D49-D49 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "error" : "Unknown code 'D49-D49' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
   "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'D49-D49' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }
@@ -463,7 +148,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "G89.3"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -474,7 +159,9 @@ v: {
   "display" : "Neoplasm related pain (acute) (chronic)",
   "code" : "G89.3",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -484,7 +171,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "D3A-D3A"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -492,138 +179,32 @@ v: {
   }]
 }}####
 v: {
+  "code" : "D3A-D3A",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "severity" : "error",
-  "error" : "Unknown Code 'D3A-D3A' in the system 'http://hl7.org/fhir/sid/icd-10-cm'; The provided code http://hl7.org/fhir/sid/icd-10-cm#D3A-D3A is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "error" : "Unknown code 'D3A-D3A' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
   "class" : "UNKNOWN",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C76-C80"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "Unknown Code 'C76-C80' in the system 'http://hl7.org/fhir/sid/icd-10-cm'; The provided code http://hl7.org/fhir/sid/icd-10-cm#C76-C80 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C25"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Malignant neoplasm of pancreas",
-  "code" : "C25",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "K70.4"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Alcoholic hepatic failure",
-  "code" : "K70.4",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "K72"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Hepatic failure, not elsewhere classified",
-  "code" : "K72",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C43",
-  "display" : "Malignant melanoma of skin"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "display" : "Malignant melanoma of skin",
-  "code" : "C43",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "F11"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'D3A-D3A' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
   }]
-}}####
-v: {
-  "code" : "F11",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
 }
 
 }
@@ -631,7 +212,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "Z71.4"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -639,9 +220,11 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Alcohol abuse counseling and surveillance",
   "code" : "Z71.4",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -652,7 +235,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "Z71.5"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -660,9 +243,11 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Drug abuse counseling and surveillance",
   "code" : "Z71.5",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -673,7 +258,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "F55"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -681,9 +266,11 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Abuse of non-psychoactive substances",
   "code" : "F55",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -694,7 +281,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "F10-F19"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -702,12 +289,32 @@ v: {
   }]
 }}####
 v: {
+  "code" : "F10-F19",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "severity" : "error",
-  "error" : "Unknown Code 'F10-F19' in the system 'http://hl7.org/fhir/sid/icd-10-cm|2021'; The provided code 'http://hl7.org/fhir/sid/icd-10-cm#F10-F19' is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "error" : "Unknown code 'F10-F19' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
   "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'F10-F19' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }
@@ -715,7 +322,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "F17"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -723,135 +330,11 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Nicotine dependence",
   "code" : "F17",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "C00-C96"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "Unknown Code 'C00-C96' in the system 'http://hl7.org/fhir/sid/icd-10-cm|2021'; The provided code 'http://hl7.org/fhir/sid/icd-10-cm#C00-C96' is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D03"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "code" : "D03",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D37-D48"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "Unknown Code 'D37-D48' in the system 'http://hl7.org/fhir/sid/icd-10-cm|2021'; The provided code 'http://hl7.org/fhir/sid/icd-10-cm#D37-D48' is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D49-D49"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "Unknown Code 'D49-D49' in the system 'http://hl7.org/fhir/sid/icd-10-cm|2021'; The provided code 'http://hl7.org/fhir/sid/icd-10-cm#D49-D49' is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "G89.3"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "code" : "G89.3",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "D3A-D3A"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "parameter" : [{
-    "name" : "x-system-cache-id",
-    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "Unknown Code 'D3A-D3A' in the system 'http://hl7.org/fhir/sid/icd-10-cm|2021'; The provided code 'http://hl7.org/fhir/sid/icd-10-cm#D3A-D3A' is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -862,7 +345,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "C76-C80"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -870,12 +353,32 @@ v: {
   }]
 }}####
 v: {
+  "code" : "C76-C80",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "severity" : "error",
-  "error" : "Unknown Code 'C76-C80' in the system 'http://hl7.org/fhir/sid/icd-10-cm|2021'; The provided code 'http://hl7.org/fhir/sid/icd-10-cm#C76-C80' is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "error" : "Unknown code 'C76-C80' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
   "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'C76-C80' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }
@@ -883,7 +386,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "C25"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -891,9 +394,11 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Malignant neoplasm of pancreas",
   "code" : "C25",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -904,7 +409,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "K70.4"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -912,9 +417,11 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Alcoholic hepatic failure",
   "code" : "K70.4",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -925,7 +432,7 @@ v: {
 {"code" : {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "K72"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "parameter" : [{
     "name" : "x-system-cache-id",
@@ -933,9 +440,534 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Hepatic failure, not elsewhere classified",
   "code" : "K72",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "F11"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Opioid related disorders",
+  "code" : "F11",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "C43",
+  "display" : "Malignant melanoma of skin"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Malignant melanoma of skin",
+  "code" : "C43",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "C00-C96"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "C00-C96",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "severity" : "error",
+  "error" : "Unknown code 'C00-C96' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'C00-C96' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "D03"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Melanoma in situ",
+  "code" : "D03",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "D37-D48"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "D37-D48",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "severity" : "error",
+  "error" : "Unknown code 'D37-D48' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'D37-D48' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "D49-D49"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "D49-D49",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "severity" : "error",
+  "error" : "Unknown code 'D49-D49' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'D49-D49' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "G89.3"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Neoplasm related pain (acute) (chronic)",
+  "code" : "G89.3",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "D3A-D3A"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "D3A-D3A",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "severity" : "error",
+  "error" : "Unknown code 'D3A-D3A' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'D3A-D3A' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "Z71.4"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Alcohol abuse counseling and surveillance",
+  "code" : "Z71.4",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "Z71.5"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Drug abuse counseling and surveillance",
+  "code" : "Z71.5",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "F55"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Abuse of non-psychoactive substances",
+  "code" : "F55",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "F10-F19"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "F10-F19",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "severity" : "error",
+  "error" : "Unknown code 'F10-F19' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'F10-F19' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "F17"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Nicotine dependence",
+  "code" : "F17",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "C76-C80"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "code" : "C76-C80",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "severity" : "error",
+  "error" : "Unknown code 'C76-C80' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'C76-C80' in the CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' version '2024'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "C25"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Malignant neoplasm of pancreas",
+  "code" : "C25",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "K70.4"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Alcoholic hepatic failure",
+  "code" : "K70.4",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "K72"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Hepatic failure, not elsewhere classified",
+  "code" : "K72",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "F11"
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  }]
+}}####
+v: {
+  "display" : "Opioid related disorders",
+  "code" : "F11",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
