@@ -1974,7 +1974,7 @@
       "valueString": "Expected Result Footnote"
     }, {
       "url": "statement",
-      "valueString": "define \"Expected Result Footnote\":\n  '<div>* - These are expected results based on an analysis of the patient\\'s med list 30 days prior to the corresponding lab.<\\/div>'"
+      "valueString": "define \"Expected Result Footnote\":\n  '<div>* - These are expected results based on an analysis of the patient\\'s medication list 30 days prior to the corresponding lab results.<\\/div>'"
     }, {
       "url": "displaySequence",
       "valueInteger": 90
@@ -2063,7 +2063,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-28",
+  "date": "2024-09-09",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
@@ -2185,13 +2185,44 @@
         "display": "Create"
       } ]
     },
+    "selectionBehavior": "at-most-one",
     "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request",
     "action": [ {
-      "description": "Document - Ordered toxicology screen"
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "accept-suggestion",
+          "display": "Action Taken"
+        } ],
+        "text": "Document - Ordered toxicology screen"
+      } ]
     }, {
-      "description": "Document - Risks outweigh benefits"
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "decline-suggestion-with-comment",
+          "display": "No Action Taken - Alert not appropriate"
+        } ],
+        "text": "Document - Risks outweigh benefits"
+      } ]
     }, {
-      "description": "Snooze* - N/A see comment, snooze 3 months"
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "snooze-3-months-with-comment",
+          "display": "No Action Taken - Patient declined"
+        } ],
+        "text": "Snooze - N/A see comment, snooze 3 months"
+      } ]
+    }, {
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "snooze-1-year-with-comment",
+          "display": "No Action Taken - Wrong provider"
+        } ],
+        "text": "Snooze - N/A see comment, snooze 1 year"
+      } ]
     } ]
   }, {
     "prefix": "2.",
@@ -2236,6 +2267,7 @@
         "expression": "Applicable Because of Unexpected Results"
       }
     } ],
+    "selectionBehavior": "at-most-one",
     "dynamicValue": [ {
       "path": "action.description",
       "expression": {
@@ -2244,13 +2276,32 @@
       }
     } ],
     "action": [ {
-      "description": "Document - Will repeat urine drug screen more frequently"
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "accept-suggestion-with-comment",
+          "display": "Action Taken"
+        } ],
+        "text": "Document - Will repeat urine drug screen more frequently"
+      } ]
     }, {
-      "description": "Document - Will assess patient for substance use disorder"
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "snooze-6-months-with-comment",
+          "display": "No Action Taken - Alert not appropriate"
+        } ],
+        "text": "The suggestion provided by the service has been declined"
+      } ]
     }, {
-      "description": "Snooze* - Patient's test results were expected, snooze for 3 months"
-    }, {
-      "description": "Snooze* - N/A snooze for 3 months"
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "snooze-1-year-with-comment",
+          "display": "No Action Taken - Wrong provider"
+        } ],
+        "text": "Snooze* - N/A snooze for 1 year"
+      } ]
     } ]
   } ]
 }

@@ -1974,7 +1974,7 @@
       "valueString": "Expected Result Footnote"
     }, {
       "url": "statement",
-      "valueString": "define \"Expected Result Footnote\":\n  '<div>* - These are expected results based on an analysis of the patient\\'s med list 30 days prior to the corresponding lab.<\\/div>'"
+      "valueString": "define \"Expected Result Footnote\":\n  '<div>* - These are expected results based on an analysis of the patient\\'s medication list 30 days prior to the corresponding lab results.<\\/div>'"
     }, {
       "url": "displaySequence",
       "valueInteger": 91
@@ -2063,7 +2063,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-08-28",
+  "date": "2024-09-09",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
