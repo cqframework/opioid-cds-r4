@@ -2186,44 +2186,7 @@
       } ]
     },
     "selectionBehavior": "at-most-one",
-    "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request",
-    "action": [ {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxAccepted",
-          "display": "Action Taken"
-        } ],
-        "text": "Document - Ordered toxicology screen"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxNA",
-          "display": "Alert not appropriate"
-        } ],
-        "text": "Document - Risks outweigh benefits"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxPDeclined",
-          "display": "Patient declined"
-        } ],
-        "text": "Snooze - N/A see comment, snooze 3 months"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxWrongProvider",
-          "display": "Wrong provider"
-        } ],
-        "text": "Snooze - N/A see comment, snooze 1 year"
-      } ]
-    } ]
+    "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"
   }, {
     "prefix": "2.",
     "title": "Patient May Have Unexpected Toxicology Test Results",
@@ -2274,34 +2237,6 @@
         "language": "text/cql.identifier",
         "expression": "Detail"
       }
-    } ],
-    "action": [ {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UnExptResultAccepted",
-          "display": "Action Taken"
-        } ],
-        "text": "Document - Will repeat urine drug screen more frequently"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UnExptResultNA",
-          "display": "Alert not appropriate"
-        } ],
-        "text": "The suggestion provided by the service has been declined"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UnExptResultWrongProvider",
-          "display": "Wrong provider"
-        } ],
-        "text": "Snooze* - N/A snooze for 1 year"
-      } ]
     } ]
   } ]
 }
