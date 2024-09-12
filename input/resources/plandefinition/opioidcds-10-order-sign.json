@@ -2185,7 +2185,6 @@
         "display": "Create"
       } ]
     },
-    "selectionBehavior": "at-most-one",
     "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request"
   }, {
     "prefix": "2.",
@@ -2230,7 +2229,6 @@
         "expression": "Applicable Because of Unexpected Results"
       }
     } ],
-    "selectionBehavior": "at-most-one",
     "dynamicValue": [ {
       "path": "action.description",
       "expression": {
