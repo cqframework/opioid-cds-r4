@@ -14,6 +14,9 @@ context Patient
 define "UDS Lookback Period":
   Interval[Today() - 12 months - 1 days, Today()]
 
+define "UDS Recommendation Lookback Period":
+  Interval[Today() - 6 months - 1 days, Today()]
+
 define "Rx Lookback Period":
   Interval[Today() - 12 months - 31 days, Today()]
 
@@ -31,11 +34,11 @@ define "Oxycodone Simple Identifier": 'Oxycodone'
 define "PCP Simple Identifier": 'Phencyclidine (PCP)'
 
 /*
-@description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS performed in the past year
+@description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS performed in the specified lookback period
 */
 define "Inclusion Criteria For UDS Recommendation":
   Routines."Is Opioid Review Useful?"
-    and not exists ("All Opioid or Non-opioid UDS in Lookback Period")
+    and not exists ("All Opioid or Non-opioid UDS in Recommendation Lookback Period")
 
 define "Inclusion Criteria For Unexpected Results":
   AnyTrue(
@@ -45,6 +48,15 @@ define "Inclusion Criteria For Unexpected Results":
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
+
+define "All Opioid or Non-opioid UDS in Recommendation Lookback Period":
+  (
+    [Observation: Common."All Drug Urine Screening"] Lab
+      where date from Lab.effective in day of "UDS Recommendation Lookback Period"
+        and not (
+          Lab.status in { 'unknown', 'entered-in-error', 'cancelled' }
+        )
+  ) X sort by date from effective desc
 
 define "All Opioid or Non-opioid UDS in Lookback Period":
   (
