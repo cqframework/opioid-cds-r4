@@ -90,3 +90,6 @@ define "Applicable Because of Unexpected Results":
 
 define "Detail":
   Rec10Common."Get HTML Details"
+
+define "Get Subject":
+  'Patient/' + Patient.id

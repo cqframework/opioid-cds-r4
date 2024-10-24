@@ -2063,7 +2063,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-10-01",
+  "date": "2024-10-24",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {
@@ -2178,15 +2178,26 @@
         "expression": "Is Perform Drug Screen Recommendation Applicable?"
       }
     } ],
-    "type": {
-      "coding": [ {
-        "system": "http://terminology.hl7.org/CodeSystem/action-type",
-        "code": "create",
-        "display": "Create"
-      } ]
-    },
-    "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request",
+    "selectionBehavior": "at-most-one",
     "action": [ {
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/action-type",
+          "code": "create",
+          "display": "Create"
+        } ]
+      },
+      "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-1"
+    }, {
+      "type": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/action-type",
+          "code": "create",
+          "display": "Create"
+        } ]
+      },
+      "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-2"
+    }, {
       "reason": [ {
         "coding": [ {
           "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
