@@ -35,7 +35,11 @@ define "PCP Simple Identifier": 'Phencyclidine (PCP)'
 */
 define "Inclusion Criteria For UDS Recommendation":
   Routines."Is Opioid Review Useful?"
-    and not exists ("All Opioid or Non-opioid UDS in Lookback Period")
+    and not exists (
+      if Config."Use Alternative UDS Lookback Period"
+        then "All Opioid or Non-opioid UDS in Alternative Lookback Period"
+      else "All Opioid or Non-opioid UDS in Lookback Period"
+    )
 
 define "Inclusion Criteria For Unexpected Results":
   AnyTrue(
@@ -45,6 +49,15 @@ define "Inclusion Criteria For Unexpected Results":
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"
+
+define "All Opioid or Non-opioid UDS in Alternative Lookback Period":
+  (
+    [Observation: Common."All Drug Urine Screening"] Lab
+      where date from Lab.effective in day of Config."Alternative UDS Lookback Period"
+        and not (
+          Lab.status in { 'unknown', 'entered-in-error', 'cancelled' }
+        )
+  ) X sort by date from effective desc
 
 define "All Opioid or Non-opioid UDS in Lookback Period":
   (

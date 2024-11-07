@@ -66,6 +66,12 @@ define "Opiate Urine Screening Check Enabled":
 define "Cannabinoid Urine Screening Check Enabled":
   false
 
+define "Use Alternative UDS Lookback Period":
+  false
+
+define "Alternative UDS Lookback Period":
+  Interval[Today() - 6 months - 1 days, Today()]
+
 // Recommendation 12
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":
   true
