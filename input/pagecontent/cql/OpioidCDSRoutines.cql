@@ -203,7 +203,7 @@ define "Active Cancer Diagnoses":
     where C.code in Common."CDC malignant cancer conditions"
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
-  [Encounter: Common."Office Visit"] Encounter
+  [Encounter] Encounter
     where date from Encounter.period."start".value in day of "Encounter Period"
       and (
         exists (
