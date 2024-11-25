@@ -61,6 +61,416 @@
   } ],
   "purpose": "Opioid medications that should have opioid management CDS",
   "copyright": "© CDC 2016+.",
+  "compose": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/originalText",
+        "valueString": "The following code filters are retrieved using the following query: https://rxnav.nlm.nih.gov/REST/rxclass/classMembers?relaSource=SNOMEDCT&rela=isa_disposition&ttys=IN%20MIN%20PIN&classId=360204007, which returns the RXNORM drug members associated with the SNOMEDCT concept 360204007 ('Opioid receptor agonist-containing product')."
+      }
+    ],
+    "include": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10597"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "BPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10597"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "GPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10597"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SBD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10597"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SCD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10689"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "BPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10689"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "GPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10689"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SBD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "10689"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SCD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1819"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "BPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1819"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "GPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1819"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SBD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1819"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SCD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1841"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "BPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1841"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "GPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1841"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SBD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "1841"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SCD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "2001357"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "BPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "2001357"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "GPCK"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "2001357"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SBD"
+          }
+        ]
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "filter": [
+          {
+            "property": "code",
+            "op": "descendent-of",
+            "value": "2001357"
+          },
+          {
+            "property": "display",
+            "op": "regex",
+            "value": "^(?!.*\b(Guaifenesin|Chlorpheniramine|Pseudoephedrine|Brompheniramine|Phenylephrine|Phenylpropanolamine|Promethazine|Bromodiphenhydramine|guaiacolsulfonate|homatropine|inject|cartridge|syringe)\b).*"
+          },
+          {
+            "property": "TTY",
+            "op": "=",
+            "value": "SCD"
+          }
+        ]
+      }
+    ]
+  },
   "expansion": {
     "identifier": "4906e30f-1ba6-436d-a51b-de0b1ed7a891",
     "timestamp": "2023-05-25T18:08:12-06:00",

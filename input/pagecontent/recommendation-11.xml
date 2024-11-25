@@ -12,9 +12,9 @@
         {% include recommendation-page-template.html 
           recommendationNum='11' 
           topic='Selecting Opioids and Determining Opioid Dosages' 
-          description='When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.' 
+          description='Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently and consider whether benefits outweigh risks of concurrent prescribing of opioids and other central nervous system depressants.' 
           recommendation-category='B' 
-          evidence-type='4' 
+          evidence-type='3' 
           flow-diagram='Recommendation11-order-select-flow.png'
           func-desc='recommendation11-order-select-functional-description.html'
           data-elements='recommendation11-order-select-data-elements.html'
@@ -25,9 +25,9 @@
         {% include recommendation-page-template.html 
           recommendationNum='11' 
           topic='Selecting Opioids and Determining Opioid Dosages' 
-          description='When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.' 
+          description='Clinicians should use particular caution when prescribing opioid pain medication and benzodiazepines concurrently and consider whether benefits outweigh risks of concurrent prescribing of opioids and other central nervous system depressants.' 
           recommendation-category='B' 
-          evidence-type='4' 
+          evidence-type='3' 
           flow-diagram='Recommendation11-patient-view-flow.png'
           func-desc='recommendation11-patient-view-functional-description.html'
           data-elements='recommendation11-patient-view-data-elements.html'

@@ -48,6 +48,7 @@
   "compose": {
     "include": [ {
       "system": "http://loinc.org",
+      "version": "2.78",
       "filter": [ {
         "property": "parent",
         "op": "=",

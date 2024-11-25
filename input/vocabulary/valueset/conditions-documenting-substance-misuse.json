@@ -235,7 +235,7 @@
       "version": "http://snomed.info/sct/731000124108/version/20210901",
       "filter": [ {
         "property": "concept",
-        "op": "=",
+        "op": "is-a",
         "value": "390867000"
       } ]
     }, {
@@ -275,7 +275,7 @@
       "version": "http://snomed.info/sct/731000124108/version/20210901",
       "filter": [ {
         "property": "concept",
-        "op": "=",
+        "op": "is-a",
         "value": "708079007"
       } ]
     }, {

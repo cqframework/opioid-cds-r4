@@ -21,7 +21,7 @@ use of this IG as well as other CQF projects take place regularly on the <a href
 
 This implementation guide includes support for the following guideline recommendations:
 * [Recommendation #1 - Nonpharmacologic and Nonopioid Pharmacologic Therapy Consideration](recommendation-01.html)
-* [Recommendation #2 - Opioid Therapy Goals Discussion](recommendation-02.html)
+* [Recommendation #2 - Prioritize Nonopioid Pain Therapies](recommendation-02.html)
 * [Recommendation #3 - Opioid Immediate Release Form When Starting Opioid Therapy](recommendation-03.html)
 * [Recommendations #4 and #5 - Lowest Effective Dose](recommendation-04-05.html)
 * [Recommendation #6 - Prescribe Lowest Effective Dose and Duration](recommendation-06.html)
