@@ -54,16 +54,14 @@ define "Is Opioid Review Useful?":
 define "Patient Age Less Than 18":
   if (Config."Age Less than 18 Years Is Enabled") then
     AgeInYearsAt(Today()) < 18
-  else
-    false
+  else false
 
 define "Condition Positive for Sickle Cell":
-      if (Config."Sickle Cell Check Enabled") then
-        exists(
-            Common."Positive Sickle Cell Condition"
-        )  else
-        false
-
+  if (Config."Sickle Cell Check Enabled") then
+    exists(
+      Common."Positive Sickle Cell Condition"
+    ) 
+  else false
 
 define "Conditions Indicating End Of Life Present":
   exists (
@@ -79,8 +77,7 @@ define "Conditions Including Cancer To Exclude Opioid Management Indicating End-
         where EOLC.code in Common."Conditions likely terminal for opioid prescribing"
           and EOLC.clinicalStatus in Common."Active Condition"
     )
-  else
-    false
+  else false
 
 // End of Opioid Review Useful Routine
 
@@ -133,8 +130,7 @@ define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
 define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
     if (Config."Opioid Naive Prescription Condition Is Enabled") then
       exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
-    else
-      false
+    else false
 
 // NOTE: 2020-02-05: Review direction of MedicationStatement resource (US-Core focusing on MedicationRequest i/o Statement)
 // NOTE: 2020-04-21: MedicationStatement a) Shouldn't be use since guidance/direction from USCore is targeting MedicationUse in R5, and b) Breaks in the publisher
@@ -155,8 +151,7 @@ define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
 define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
   if (Config."Opioid Naive Prescription Condition Is Enabled") then
     exists ("Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
-  else
-    false
+  else false
 
 // End of Opioid Naive Routine
 
@@ -190,15 +185,16 @@ define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
 */
 
 define "Encounter Period":
-  Interval[Now() - 12 months, Now())
+  Interval[Today() - 12 months, Today())
 
 define "Is Active Cancer Treatment?":
-  if (Config."Active Cancer Treatment Encounters Condition Is Enabled") then
-      "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
-    else
-      false
+  if (Config."Active Cancer Treatment Encounters Condition Is Enabled") 
+    then "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
+      or "Has Active Cancer Diagnosis on Problem List"
+  else false
 
-define "Active Cancer Diagnoses":
+// encounter-diagnosis, problem-list and health-concern Conditions
+define "US Core-Categorized Cancer Diagnoses":
   Common."US Core-Categorized Conditions" C
     where C.code in Common."CDC malignant cancer conditions"
 
@@ -208,16 +204,25 @@ define "Encounters with Cancer Diagnosis During Encounter Period":
       and (
         exists (
           Encounter.diagnosis EncounterDiagnosis
-            with "Active Cancer Diagnoses" CancerDiagnosis
+            with "US Core-Categorized Cancer Diagnoses" CancerDiagnosis
             such that EndsWith(EncounterDiagnosis.condition.reference, CancerDiagnosis.id)
         )
       )
 
-define "Number of Enounters with Cancer Diagnosis During Encounter Period":
+define "Number of Encounters with Cancer Diagnosis During Encounter Period":
   Count ("Encounters with Cancer Diagnosis During Encounter Period")
 
 define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period":
-  "Number of Enounters with Cancer Diagnosis During Encounter Period" >= 2
+  "Number of Encounters with Cancer Diagnosis During Encounter Period" >= 2
+
+define "Has Active Cancer Diagnosis on Problem List":
+  exists ("US Core-Categorized Cancer Diagnoses" CancerDiagnosis
+    where CancerDiagnosis.category in Common."Problem List Condition Category"
+      and exists(
+        CancerDiagnosis.clinicalStatus.coding ClinicalStatus
+          where ClinicalStatus.code ~ 'active'
+      )
+  )
 
 // End of Active Cancer Treatment Routine
 
