@@ -350,9 +350,17 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
   )
 
 define "Positive Sickle Cell Condition":
-    "US Core-Categorized Conditions" C
-    where C.code in "Sickle Cell Diseases"
-        and C.clinicalStatus in "Active Condition"
+  if Config."Sickle Cell Check Enabled" and not Config."Sickle Cell Assumed Active"
+    then (
+      "US Core-Categorized Conditions" C
+        where C.code in "Sickle Cell Diseases"
+          and C.clinicalStatus in "Active Condition"
+    ) else if Config."Sickle Cell Check Enabled" and Config."Sickle Cell Assumed Active"
+        then (
+          "US Core-Categorized Conditions" C
+            where C.code in "Sickle Cell Diseases"
+        )
+      else null
 
 define "Patient 18 or Older?":
   Config."Age Less than 18 Years Is Enabled"

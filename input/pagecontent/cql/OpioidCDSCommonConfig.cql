@@ -12,6 +12,9 @@ define "End-Stage Disease Criteria Enabled":
 define "Sickle Cell Check Enabled":
  true
 
+define "Sickle Cell Assumed Active":
+  true
+
 // Active Cancer Treatment
 define "Active Cancer Treatment Encounters Condition Is Enabled":
   true
