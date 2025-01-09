@@ -2179,7 +2179,6 @@
     } ],
     "action": [ {
       "prefix": "UDS 1",
-      "description": "The first UDS ServiceRequest",
       "type": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/action-type",
@@ -2190,7 +2189,6 @@
       "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-1"
     }, {
       "prefix": "UDS 2",
-      "description": "The second UDS ServiceRequest",
       "type": {
         "coding": [ {
           "system": "http://terminology.hl7.org/CodeSystem/action-type",

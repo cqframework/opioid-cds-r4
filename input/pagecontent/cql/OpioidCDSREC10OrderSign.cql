@@ -93,3 +93,24 @@ define "Detail":
 
 define "Get Subject":
   'Patient/' + Patient.id
+
+/*
+<category>
+    <coding>
+        <system value="urn:oid:1.2.840.114350.1.13.861.1.7.10.798268.30" />
+        <code value="7" />
+        <display value="Lab" />
+    </coding>
+    <text value="Lab" />
+</category>
+*/
+define "Get Lab Category":
+  FHIR.CodeableConcept {
+    coding: {
+      FHIR.Coding {
+        system: FHIR.uri { value: 'urn:oid:1.2.840.114350.1.13.861.1.7.10.798268.30'},
+        code: FHIR.code { value: '7' },
+        display: FHIR.string { value: 'Lab' }
+      }
+    }
+  }
