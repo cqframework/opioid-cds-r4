@@ -29,7 +29,7 @@ Debugging information is available here:
 
 ### Local Build
 
-The HL7 IG Publisher is committed to this repository to make building as easy as possible. To build locally, clone the repository and issue the following command in the root:
+The HL7 IG Publisher is committed to this repository to make building as easy as possible. To build locally, clone the repository and issue the following command at the root:
 
     java -jar "org.hl7.fhir.publisher.jar" -ig ig.json
 
