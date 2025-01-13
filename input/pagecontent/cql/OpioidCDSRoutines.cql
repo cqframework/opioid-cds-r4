@@ -200,14 +200,9 @@ define "US Core-Categorized Cancer Diagnoses":
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
   [Encounter] Encounter
-    where date from Encounter.period."start".value in day of "Encounter Period"
-      and (
-        exists (
-          Encounter.diagnosis EncounterDiagnosis
-            with "US Core-Categorized Cancer Diagnoses" CancerDiagnosis
-            such that EndsWith(EncounterDiagnosis.condition.reference, CancerDiagnosis.id)
-        )
-      )
+    with "US Core-Categorized Cancer Diagnoses" CancerDiagnosis
+    such that date from Encounter.period."start".value in day of "Encounter Period"
+      and EndsWith(CancerDiagnosis.encounter.reference, Encounter.id)
 
 define "Number of Encounters with Cancer Diagnosis During Encounter Period":
   Count ("Encounters with Cancer Diagnosis During Encounter Period")
