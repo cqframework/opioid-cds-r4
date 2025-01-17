@@ -67,7 +67,7 @@ define "Conditions Indicating End Of Life Present":
   exists (
     Common."US Core-Categorized Conditions" LLEC
       where LLEC.code in Common."Limited life expectancy conditions"
-        and LLEC.clinicalStatus in Common."Active Condition"
+        // and LLEC.clinicalStatus in Common."Active Condition"
   )
 
 define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
@@ -75,7 +75,7 @@ define "Conditions Including Cancer To Exclude Opioid Management Indicating End-
     exists (
       Common."US Core-Categorized Conditions" EOLC
         where EOLC.code in Common."Conditions likely terminal for opioid prescribing"
-          and EOLC.clinicalStatus in Common."Active Condition"
+          // and EOLC.clinicalStatus in Common."Active Condition"
     )
   else false
 

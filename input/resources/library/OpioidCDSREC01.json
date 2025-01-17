@@ -127,10 +127,6 @@
     "type": "depends-on",
     "display": "Value set Limited life expectancy conditions",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Active Condition",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
   } ],
   "parameter": [ {
     "name": "ContextPrescriptions",

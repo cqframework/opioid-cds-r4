@@ -2178,26 +2178,6 @@
       }
     } ],
     "action": [ {
-      "prefix": "UDS 1",
-      "type": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/action-type",
-          "code": "create",
-          "display": "Create"
-        } ]
-      },
-      "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-1"
-    }, {
-      "prefix": "UDS 2",
-      "type": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/action-type",
-          "code": "create",
-          "display": "Create"
-        } ]
-      },
-      "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-2"
-    }, {
       "reason": [ {
         "coding": [ {
           "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
