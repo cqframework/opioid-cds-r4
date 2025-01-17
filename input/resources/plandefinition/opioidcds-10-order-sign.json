@@ -2177,7 +2177,7 @@
         "expression": "Is Perform Drug Screen Recommendation Applicable?"
       }
     } ],
-    "selectionBehavior": "at-most-one",
+    "selectionBehavior": "any",
     "action": [ {
       "prefix": "UDS 1",
       "type": {
