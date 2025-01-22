@@ -2177,42 +2177,27 @@
         "expression": "Is Perform Drug Screen Recommendation Applicable?"
       }
     } ],
+    "selectionBehavior": "any",
     "action": [ {
-      "reason": [ {
+      "prefix": "UDS 1",
+      "type": {
         "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxAccepted",
-          "display": "Action Taken"
-        } ],
-        "text": "Document - Ordered toxicology screen"
-      } ]
+          "system": "http://terminology.hl7.org/CodeSystem/action-type",
+          "code": "create",
+          "display": "Create"
+        } ]
+      },
+      "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-1"
     }, {
-      "reason": [ {
+      "prefix": "UDS 2",
+      "type": {
         "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxNA",
-          "display": "Alert not appropriate"
-        } ],
-        "text": "Document - Risks outweigh benefits"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxPDeclined",
-          "display": "Action not taken"
-        } ],
-        "text": "Snooze - N/A see comment, snooze 3 months"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UToxWrongProvider",
-          "display": "Wrong clinician"
-        } ],
-        "text": "Snooze - N/A see comment, snooze 1 year"
-      } ]
+          "system": "http://terminology.hl7.org/CodeSystem/action-type",
+          "code": "create",
+          "display": "Create"
+        } ]
+      },
+      "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-2"
     } ]
   }, {
     "title": "Patient May Have Unexpected Toxicology Test Results",
@@ -2262,34 +2247,6 @@
         "language": "text/cql.identifier",
         "expression": "Detail"
       }
-    } ],
-    "action": [ {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UnExptResultAccepted",
-          "display": "Action Taken"
-        } ],
-        "text": "Document - Will repeat urine drug screen more frequently"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UnExptResultNA",
-          "display": "Alert not appropriate"
-        } ],
-        "text": "The suggestion provided by the service has been declined"
-      } ]
-    }, {
-      "reason": [ {
-        "coding": [ {
-          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-          "code": "UnExptResultWrongProvider",
-          "display": "Wrong clinician"
-        } ],
-        "text": "Snooze* - N/A snooze for 1 year"
-      } ]
     } ]
   } ]
 }

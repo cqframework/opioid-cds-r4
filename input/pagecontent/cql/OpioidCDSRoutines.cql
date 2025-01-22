@@ -194,15 +194,23 @@ define "Is Active Cancer Treatment?":
   else false
 
 // encounter-diagnosis, problem-list and health-concern Conditions
-define "US Core-Categorized Cancer Diagnoses":
-  Common."US Core-Categorized Conditions" C
-    where C.code in Common."CDC malignant cancer conditions"
+// define "US Core-Categorized Cancer Diagnoses":
+//   Common."US Core-Categorized Conditions" C
+//     where C.code in Common."CDC malignant cancer conditions"
+
+// define "Encounters with Cancer Diagnosis During Encounter Period":
+//   [Encounter] Encounter
+//     with "US Core-Categorized Cancer Diagnoses" CancerDiagnosis
+//     such that date from Encounter.period."start".value in day of "Encounter Period"
+//       and EndsWith(CancerDiagnosis.encounter.reference, Encounter.id)
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
-  [Encounter] Encounter
-    with "US Core-Categorized Cancer Diagnoses" CancerDiagnosis
-    such that date from Encounter.period."start".value in day of "Encounter Period"
-      and EndsWith(CancerDiagnosis.encounter.reference, Encounter.id)
+  [Encounter] Encounters
+    where date from Encounters.period."start" in day of "Encounter Period"
+      and exists (
+        Common."USCore Encounter Cancer Diagnoses" CancerDiagnoses
+          where EndsWith(CancerDiagnoses.encounter.reference, Encounters.id)
+      )
 
 define "Number of Encounters with Cancer Diagnosis During Encounter Period":
   Count ("Encounters with Cancer Diagnosis During Encounter Period")
@@ -211,12 +219,13 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
   "Number of Encounters with Cancer Diagnosis During Encounter Period" >= 2
 
 define "Has Active Cancer Diagnosis on Problem List":
-  exists ("US Core-Categorized Cancer Diagnoses" CancerDiagnosis
-    where CancerDiagnosis.category in Common."Problem List Condition Category"
-      and exists(
-        CancerDiagnosis.clinicalStatus.coding ClinicalStatus
-          where ClinicalStatus.code ~ 'active'
-      )
+  exists (
+    Common."USCore Problem List Cancer Diagnoses" CancerDiagnoses
+      where CancerDiagnoses.category in Common."Problem List Condition Category"
+        and exists(
+          CancerDiagnoses.clinicalStatus.coding ClinicalStatus
+            where ClinicalStatus.code ~ 'active'
+        )
   )
 
 // End of Active Cancer Treatment Routine

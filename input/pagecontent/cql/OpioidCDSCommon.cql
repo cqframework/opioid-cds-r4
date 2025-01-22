@@ -199,6 +199,14 @@ define "US Core-Categorized Conditions":
     union [Condition: category in "Problem List Condition Category"]
     union [Condition: category in "US Core Health Concern Condition Category"]
 
+define "USCore Encounter Cancer Diagnoses":
+  [Condition: category in "Encounter Diagnosis Condition Category"] CancerDiagnoses
+    where CancerDiagnoses.code in "CDC malignant cancer conditions"
+
+define "USCore Problem List Cancer Diagnoses":
+  [Condition: category in "Problem List Condition Category"] CancerDiagnoses
+    where CancerDiagnoses.code in "CDC malignant cancer conditions"
+
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
     "US Core-Categorized Conditions" C
