@@ -12,7 +12,7 @@ The guide currently includes artifacts to support all 12 recommendations contain
 
 Feedback and issues can be submitted via the [issues](issues) page, and will be incorporated into subsequent releases as time and resources allow.
 
-Contributions must follow the commit policy defined [here](/commit_policy.md)
+Contributions must follow the commit policy defined [here](/commit_policy.md).
 
 ## Repository and Build Information
 
