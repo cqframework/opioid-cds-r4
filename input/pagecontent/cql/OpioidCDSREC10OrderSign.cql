@@ -81,12 +81,10 @@ define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Pote
 define "Is Perform Drug Screen Recommendation Applicable?":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
     and Rec10Common."Inclusion Criteria For UDS Recommendation"
-    and not Rec10Common."Exclusion Criteria"
 
 define "Applicable Because of Unexpected Results":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
     and Rec10Common."Inclusion Criteria For Unexpected Results"
-    and not Rec10Common."Exclusion Criteria"
 
 define "Detail":
   Rec10Common."Get HTML Details"
