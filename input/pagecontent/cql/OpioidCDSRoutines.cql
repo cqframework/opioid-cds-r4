@@ -22,15 +22,6 @@ context Patient
 **  sickle cell disease?    |                     | with those listed in the sickle cell         |
 **                          |                     | value set                                    |
 **  ------------------------------------------------------------------------------------------------------------------------------------
-**  Limited life            | No                  | Look for documented findings consistent      | Limited life expectancy conditions
-**  expectancy conditions   |                     | with those listed in the limited life        |
-**  present?                |                     | expectancy value set (terminal illness, bad  |
-**                          |                     | prognosis, pre-terminal)                     |
-**  ------------------------------------------------------------------------------------------------------------------------------------
-**  Order for therapies     | No                  | Look for patients with an existing order for | Therapies indicating end of life care
-**  indicating end of life  |                     | therapies indicating end of life care        |
-**  care in past 90 days?   |                     | written within past 90 days                  |
-**  ------------------------------------------------------------------------------------------------------------------------------------
 **  Active cancer           | No                  | See sub-routine 3                            | See sub-routine 3
 **  treatment?              |                     |                                              |
 **  ------------------------------------------------------------------------------------------------------------------------------------
@@ -47,9 +38,8 @@ define "Palliative Care Lookback Period":
 define "Is Opioid Review Useful?":
   not "Patient Age Less Than 18"
     and not "Condition Positive for Sickle Cell"
-    and not "Conditions Indicating End Of Life Present"
     and not "Is Active Cancer Treatment?"
-    and not "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
+    and not "Conditions Likely Terminal for Opioid Prescribing"
 
 define "Patient Age Less Than 18":
   if (Config."Age Less than 18 Years Is Enabled") then
@@ -63,14 +53,7 @@ define "Condition Positive for Sickle Cell":
     ) 
   else false
 
-define "Conditions Indicating End Of Life Present":
-  exists (
-    Common."US Core-Categorized Conditions" LLEC
-      where LLEC.code in Common."Limited life expectancy conditions"
-        // and LLEC.clinicalStatus in Common."Active Condition"
-  )
-
-define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
+define "Conditions Likely Terminal for Opioid Prescribing":
   if (Config."End-Stage Disease Criteria Enabled") then
     exists (
       Common."US Core-Categorized Conditions" EOLC
