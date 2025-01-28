@@ -42,7 +42,8 @@ define "Inclusion Criteria For UDS Recommendation":
     )
 
 define "Inclusion Criteria For Unexpected Results":
-  AnyTrue(
+  Routines."Is Opioid Review Useful?"
+  and AnyTrue(
     "Remove Substances Without Positive or Negative Results" Details
       return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
   )
