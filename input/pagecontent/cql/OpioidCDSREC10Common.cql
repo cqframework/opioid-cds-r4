@@ -424,6 +424,8 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
         ) Rx
           such that Rx is null or not (
             date from Rx.authoredOn in day of Interval[date from PosLab.effective - 31 days, date from PosLab.effective - 1 days]
+          ) and not (
+            date from Rx.authoredOn after date from PosLab.effective
           )
           return {
             date: date from PosLab.effective,
