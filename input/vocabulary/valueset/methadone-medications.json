@@ -31,7 +31,7 @@
   "title": "Methadone medications",
   "status": "active",
   "experimental": false,
-  "date": "2023-05-25T18:08:12-06:00",
+  "date": "2025-02-24T13:06:52-07:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "contact": [ {
     "name": "Centers for Disease Control and Prevention (CDC)",
@@ -49,93 +49,90 @@
   } ],
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "identifier": "dd164d13-bb36-4f4e-b28b-c68c280466b5",
-    "timestamp": "2023-05-25T18:08:12-06:00",
+    "identifier": "bbb8823a-9702-4271-afc7-fdb3499e3808",
+    "timestamp": "2025-02-24T13:06:52-07:00",
     "total": 16,
-    "parameter": [ {
-      "name": "version",
-      "valueString": "2023-03"
-    } ],
-    "contains": [ {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864708",
-      "display": "methadone hydrochloride 10 MG Oral Tablet [Dolophine]"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864712",
-      "display": "methadone hydrochloride 10 MG Oral Tablet [Methadose]"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "991149",
-      "display": "methadone hydrochloride 10 MG/ML Oral Solution [Methadose]"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1990745",
-      "display": "methadone hydrochloride 40 MG Tablet for Oral Suspension [Diskets]"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864980",
-      "display": "methadone hydrochloride 40 MG Tablet for Oral Suspension [Methadose]"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864720",
-      "display": "methadone hydrochloride 5 MG Oral Tablet [Dolophine]"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864737",
-      "display": "methadone hydrochloride 5 MG Oral Tablet [Methadose]"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864761",
-      "display": "methadone hydrochloride 1 MG/ML Oral Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864706",
-      "display": "methadone hydrochloride 10 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864714",
-      "display": "methadone hydrochloride 10 MG/ML Injectable Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "991147",
-      "display": "methadone hydrochloride 10 MG/ML Oral Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864769",
-      "display": "methadone hydrochloride 2 MG/ML Oral Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864984",
-      "display": "methadone hydrochloride 20 MG/ML Oral Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864978",
-      "display": "methadone hydrochloride 40 MG Tablet for Oral Suspension"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864718",
-      "display": "methadone hydrochloride 5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "864826",
-      "display": "methadone hydrochloride 5 MG/ML Oral Solution"
-    } ]
+    "contains": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1990745",
+        "display": "methadone hydrochloride 40 MG Tablet for Oral Suspension [Diskets]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864708",
+        "display": "methadone hydrochloride 10 MG Oral Tablet [Dolophine]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864712",
+        "display": "methadone hydrochloride 10 MG Oral Tablet [Methadose]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864720",
+        "display": "methadone hydrochloride 5 MG Oral Tablet [Dolophine]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864737",
+        "display": "methadone hydrochloride 5 MG Oral Tablet [Methadose]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864980",
+        "display": "methadone hydrochloride 40 MG Tablet for Oral Suspension [Methadose]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "991149",
+        "display": "methadone hydrochloride 10 MG/ML Oral Solution [Methadose]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864706",
+        "display": "methadone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864714",
+        "display": "methadone hydrochloride 10 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864718",
+        "display": "methadone hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864761",
+        "display": "methadone hydrochloride 1 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864769",
+        "display": "methadone hydrochloride 2 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864826",
+        "display": "methadone hydrochloride 5 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864978",
+        "display": "methadone hydrochloride 40 MG Tablet for Oral Suspension"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "864984",
+        "display": "methadone hydrochloride 20 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "991147",
+        "display": "methadone hydrochloride 10 MG/ML Oral Solution"
+      }
+    ]
   }
 }

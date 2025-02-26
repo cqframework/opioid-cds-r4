@@ -36,6 +36,10 @@
     {
       "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
       "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
+      "valueMarkdown": "https://mor.nlm.nih.gov/RxMix/ Script:\r\nStep 1 \r\nCreate Batch text input file (SCT-60978003.txt) with following SCT identifier (for the concept \"Product containing barbiturate derivative (product)\") as an input within the file: \r\n60978003       \r\n\r\nStep 2\r\nSubmit batch job using the above SCT-60978003.txt file to following workflow by uploading the config file (Barbiturate-meds.config) with the following in the file:  <WFE><filteredOutputs>RXCUI|name|term_type</filteredOutputs><input>NOINPUT</input><FS><service>NOINPUT</service><function>getClassMembers</function><level>0</level><paramSize>5</paramSize><param order ='0'>?</param><param order ='1'>SNOMEDCT</param><param order ='2'>isa_structure</param><param order ='3'>0</param><param order ='4'>IN,MIN,PIN</param></FS><FS><service>NOINPUT</service><function>getRelatedByType</function><level>1</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>BPCK,GPCK,SBD,SCD</param></FS></WFE>\r\nThis will produce a result file with all Barbiturate clinical drugs included"
     }
   ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-medications",
@@ -43,9 +47,20 @@
   "title": "Barbiturate Medications",
   "status": "active",
   "experimental": false,
-  "date": "2024-01-23T01:10:32-05:00",
-  "publisher": "NCQA PHEMUR",
-  "description": "Barbiturate medications including amobarbital, butabarbital, butalbital, pentobarbital, phenobarbital and secobarbital. Includes concepts that represent generic, human use and prescribable medications",
+  "date": "2025-02-24T13:06:41-07:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "contact": [
+    {
+      "name": "Centers for Disease Control and Prevention (CDC)",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.cdc.gov"
+        }
+      ]
+    }
+  ],
+  "description": "All Barbiturate medications",
   "jurisdiction": [
     {
       "coding": [
@@ -57,229 +72,605 @@
     }
   ],
   "purpose": "Barbiturate medications for opioid management",
-  "compose": {
-    "include": [
-      {
-        "valueSet": [
-          "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1055"
-        ]
-      }
-    ]
-  },
   "expansion": {
-    "identifier": "urn:uuid:680bca18-60df-4f4c-ae27-9bab4a820e82",
-    "timestamp": "2024-04-17T15:58:50-04:00",
-    "total": 34,
-    "parameter": [
-      {
-        "name": "version",
-        "valueString": "04012024"
-      }
-    ],
+    "identifier": "b7213444-c8b8-42a4-90d7-bce074a24e46",
+    "timestamp": "2025-02-24T13:06:41-07:00",
+    "total": 119,
     "contains": [
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "1046787",
-        "display": "atropine sulfate 0.00388 MG/ML / hyoscyamine sulfate 0.0207 MG/ML / phenobarbital 3.24 MG/ML / scopolamine hydrobromide 0.0013 MG/ML Oral Solution"
+        "code": "314259",
+        "display": "thiopental 25 MG/ML Injectable Solution"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "1046815",
-        "display": "atropine sulfate 0.0194 MG / hyoscyamine sulfate 0.1037 MG / phenobarbital 16.2 MG / scopolamine hydrobromide 0.0065 MG Oral Tablet"
+        "code": "727931",
+        "display": "20 ML thiopental 20 MG/ML Prefilled Syringe"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "1046997",
-        "display": "atropine sulfate 0.0582 MG / hyoscyamine sulfate 0.311 MG / phenobarbital 48.6 MG / scopolamine hydrobromide 0.0195 MG Extended Release Oral Tablet"
+        "code": "1100907",
+        "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule [Capacet]"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
+        "code": "1428622",
+        "display": "acetaminophen 300 MG / butalbital 50 MG Oral Tablet [Bupap]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1432261",
+        "display": "acetaminophen 300 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule [Fioricet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1433802",
+        "display": "acetaminophen 300 MG / butalbital 50 MG / caffeine 40 MG / codeine phosphate 30 MG Oral Capsule [Fioricet with Codeine]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1483329",
+        "display": "acetaminophen 325 MG / butalbital 50 MG Oral Tablet [Tencon]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1487251",
+        "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule [Zebutal]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1648584",
+        "display": "acetaminophen 21.7 MG/ML / butalbital 3.33 MG/ML / caffeine 2.67 MG/ML Oral Solution [Vanatol]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "209826",
+        "display": "acetaminophen 325 MG / butalbital 50 MG Oral Tablet [Marten-Tab]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "211161",
+        "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule [Esgic]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "211189",
+        "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG Oral Tablet [Esgic]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "211194",
+        "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG Oral Tablet [Repan]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2261403",
+        "display": "acetaminophen 21.7 MG/ML / butalbital 3.33 MG/ML / caffeine 2.67 MG/ML Oral Solution [Vtol]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2279007",
+        "display": "acetaminophen 325 MG / butalbital 25 MG Oral Tablet [Allzital]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "994239",
+        "display": "aspirin 325 MG / butalbital 50 MG / caffeine 40 MG / codeine phosphate 30 MG Oral Capsule [Ascomp]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
         "code": "1249617",
         "display": "acetaminophen 300 MG / butalbital 50 MG Oral Tablet"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "1431286",
         "display": "acetaminophen 300 MG / butalbital 50 MG / caffeine 40 MG / codeine phosphate 30 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "1724446",
         "display": "acetaminophen 325 MG / butalbital 25 MG Oral Tablet"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
+        "code": "197425",
+        "display": "acetaminophen 325 MG / butalbital 50 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
         "code": "197426",
         "display": "acetaminophen 325 MG / butalbital 50 MG Oral Tablet"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "198083",
-        "display": "phenobarbital 100 MG Oral Tablet"
+        "code": "197427",
+        "display": "acetaminophen 650 MG / butalbital 50 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "198085",
-        "display": "phenobarbital 16 MG Oral Tablet"
+        "code": "197428",
+        "display": "acetaminophen 650 MG / butalbital 50 MG Oral Tablet"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "198086",
-        "display": "phenobarbital 16.2 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "198089",
-        "display": "phenobarbital 60 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "198150",
-        "display": "primidone 50 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "198368",
-        "display": "phenobarbital 65 MG/ML Injectable Solution"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "199164",
-        "display": "phenobarbital 97.2 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "199167",
-        "display": "phenobarbital 32.4 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "199168",
-        "display": "phenobarbital 64.8 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "1995136",
         "display": "acetaminophen 300 MG / butalbital 50 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "238134",
         "display": "aspirin 325 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "238135",
         "display": "aspirin 325 MG / butalbital 50 MG / caffeine 40 MG Oral Tablet"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "238153",
         "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "238154",
         "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG Oral Tablet"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "2624719",
-        "display": "phenobarbital sodium 100 MG Injection"
+        "code": "240093",
+        "display": "acetaminophen 500 MG / butalbital 50 MG / caffeine 40 MG Oral Tablet"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "2671204",
-        "display": "1 ML phenobarbital sodium 130 MG/ML Injection"
+        "code": "2583731",
+        "display": "aspirin 500 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "2671207",
-        "display": "1 ML phenobarbital sodium 65 MG/ML Injection"
+        "code": "308322",
+        "display": "acetaminophen 500 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "312357",
-        "display": "phenobarbital 15 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "312362",
-        "display": "phenobarbital 30 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "312370",
-        "display": "phenobarbital 130 MG/ML Injectable Solution"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "328176",
-        "display": "primidone 125 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "702519",
-        "display": "phenobarbital 4 MG/ML Oral Solution"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "756245",
         "display": "acetaminophen 21.7 MG/ML / butalbital 3.33 MG/ML / caffeine 2.67 MG/ML Oral Solution"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "889520",
         "display": "acetaminophen 300 MG / butalbital 50 MG / caffeine 40 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
-        "code": "96304",
-        "display": "primidone 250 MG Oral Tablet"
-      },
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "993943",
         "display": "acetaminophen 325 MG / butalbital 50 MG / caffeine 40 MG / codeine phosphate 30 MG Oral Capsule"
       },
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "version": "04012024",
         "code": "994237",
         "display": "aspirin 325 MG / butalbital 50 MG / caffeine 40 MG / codeine phosphate 30 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "245970",
+        "display": "butobarbital 100 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1251616",
+        "display": "butabarbital sodium 30 MG Oral Tablet [Butisol]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1047805",
+        "display": "butabarbital 15 MG / hyoscyamine hydrobromide 0.3 MG / phenazopyridine hydrochloride 150 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1251600",
+        "display": "butabarbital sodium 100 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1251610",
+        "display": "butabarbital sodium 15 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1251614",
+        "display": "butabarbital sodium 30 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1251621",
+        "display": "butabarbital sodium 50 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1251625",
+        "display": "butabarbital sodium 6 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "310767",
+        "display": "hexobarbital 260 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "197923",
+        "display": "mephobarbital 100 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "197924",
+        "display": "mephobarbital 32 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "197925",
+        "display": "mephobarbital 50 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "201628",
+        "display": "amobarbital sodium 500 MG Injection [Amytal]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "250431",
+        "display": "amobarbital 60 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "308165",
+        "display": "amobarbital 50 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "308167",
+        "display": "amobarbital 100 MG / secobarbital 100 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "308169",
+        "display": "amobarbital 200 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "308170",
+        "display": "amobarbital sodium 500 MG Injection"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "308171",
+        "display": "amobarbital 50 MG / secobarbital 50 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1100453",
+        "display": "pentobarbital sodium 390 MG/ML / phenytoin sodium 50 MG/ML Injectable Solution [Euthasol]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1602561",
+        "display": "pentobarbital sodium 392 MG/ML Injectable Solution [Fatal-Plus]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1603490",
+        "display": "pentobarbital sodium 390 MG/ML Injectable Solution [Fatal-Plus]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "207468",
+        "display": "pentobarbital sodium 50 MG/ML Injectable Solution [Nembutal]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2626485",
+        "display": "pentobarbital sodium 390 MG/ML / phenytoin sodium 50 MG/ML Injectable Solution [Euthaphen]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2626494",
+        "display": "pentobarbital sodium 390 MG/ML Injectable Solution [Pentobarsol]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2626645",
+        "display": "pentobarbital sodium 390 MG/ML Injectable Solution [Pentosol]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1099882",
+        "display": "pentobarbital sodium 392 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1100449",
+        "display": "pentobarbital sodium 390 MG/ML / phenytoin sodium 50 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1603488",
+        "display": "pentobarbital sodium 390 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "238090",
+        "display": "pentobarbital sodium 50 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312295",
+        "display": "pentobarbital sodium 120 MG Rectal Suppository"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312296",
+        "display": "pentobarbital sodium 200 MG Rectal Suppository"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312297",
+        "display": "pentobarbital sodium 30 MG Rectal Suppository"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312298",
+        "display": "pentobarbital sodium 50 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312299",
+        "display": "pentobarbital sodium 60 MG Rectal Suppository"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "315167",
+        "display": "pentobarbital sodium 100 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "392262",
+        "display": "pentobarbital sodium 50 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "756322",
+        "display": "pentobarbital sodium 3.64 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "756323",
+        "display": "pentobarbital sodium 4 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1046924",
+        "display": "atropine sulfate 0.00388 MG/ML / hyoscyamine sulfate 0.0207 MG/ML / phenobarbital 3.24 MG/ML / scopolamine hydrobromide 0.0013 MG/ML Oral Solution [Donnatal]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1046978",
+        "display": "atropine sulfate 0.0194 MG / hyoscyamine sulfate 0.1037 MG / phenobarbital 16.2 MG / scopolamine hydrobromide 0.0065 MG Oral Tablet [Donnatal]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1046999",
+        "display": "atropine sulfate 0.0582 MG / hyoscyamine sulfate 0.311 MG / phenobarbital 48.6 MG / scopolamine hydrobromide 0.0195 MG Extended Release Oral Tablet [Donnatal]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739887",
+        "display": "atropine sulfate 0.0194 MG / hyoscyamine sulfate 0.1037 MG / phenobarbital 16.2 MG / scopolamine hydrobromide 0.0065 MG Oral Tablet [Phenohytro]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2048017",
+        "display": "atropine sulfate 0.00388 MG/ML / hyoscyamine sulfate 0.0207 MG/ML / phenobarbital 3.24 MG/ML / scopolamine hydrobromide 0.0013 MG/ML Oral Solution [Phenohytro]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624724",
+        "display": "phenobarbital sodium 100 MG Injection [Sezaby]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1046787",
+        "display": "atropine sulfate 0.00388 MG/ML / hyoscyamine sulfate 0.0207 MG/ML / phenobarbital 3.24 MG/ML / scopolamine hydrobromide 0.0013 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1046815",
+        "display": "atropine sulfate 0.0194 MG / hyoscyamine sulfate 0.1037 MG / phenobarbital 16.2 MG / scopolamine hydrobromide 0.0065 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1046997",
+        "display": "atropine sulfate 0.0582 MG / hyoscyamine sulfate 0.311 MG / phenobarbital 48.6 MG / scopolamine hydrobromide 0.0195 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1091265",
+        "display": "phenobarbital 10 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1294394",
+        "display": "belladonna alkaloids 0.2 MG / ergotamine tartrate 0.6 MG / phenobarbital 40 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198083",
+        "display": "phenobarbital 100 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198084",
+        "display": "phenobarbital 16 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198085",
+        "display": "phenobarbital 16 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198086",
+        "display": "phenobarbital 16.2 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198089",
+        "display": "phenobarbital 60 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198368",
+        "display": "phenobarbital 65 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199164",
+        "display": "phenobarbital 97.2 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199167",
+        "display": "phenobarbital 32.4 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199168",
+        "display": "phenobarbital 64.8 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "199964",
+        "display": "phenobarbital 200 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "251325",
+        "display": "phenobarbital 15 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624719",
+        "display": "phenobarbital sodium 100 MG Injection"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2671204",
+        "display": "1 ML phenobarbital sodium 130 MG/ML Injection"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2671207",
+        "display": "1 ML phenobarbital sodium 65 MG/ML Injection"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "282462",
+        "display": "phenobarbital 30 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "282463",
+        "display": "phenobarbital 60 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "308589",
+        "display": "belladonna alkaloids 0.13 MG / phenobarbital 16.2 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312357",
+        "display": "phenobarbital 15 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312362",
+        "display": "phenobarbital 30 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312363",
+        "display": "phenobarbital 32 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312368",
+        "display": "phenobarbital 90 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312370",
+        "display": "phenobarbital 130 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "429777",
+        "display": "phenobarbital 50 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "702519",
+        "display": "phenobarbital 4 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "756143",
+        "display": "phenobarbital 3 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "756260",
+        "display": "belladonna alkaloids 0.026 MG/ML / phenobarbital 3.24 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "201747",
+        "display": "primidone 250 MG Oral Tablet [Mysoline]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "207478",
+        "display": "primidone 50 MG Oral Tablet [Mysoline]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "198150",
+        "display": "primidone 50 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312627",
+        "display": "primidone 50 MG/ML Oral Suspension"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "328176",
+        "display": "primidone 125 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "96304",
+        "display": "primidone 250 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "312914",
+        "display": "secobarbital sodium 100 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "315201",
+        "display": "secobarbital 50 MG Oral Capsule"
       }
     ]
   }
