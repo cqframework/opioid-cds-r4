@@ -1,0 +1,5 @@
+services:
+  db:
+    image: "cschuler72/cqf-ruler"
+    ports:
+      - "8080:8080"
