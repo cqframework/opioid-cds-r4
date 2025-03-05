@@ -1,0 +1,22 @@
+name: CI
+on: [pull_request]
+jobs:
+  build:
+    env:
+      NODE_ENV: test
+      DATABASE_URL: postgresql://leap-sls-test:postgres@localhost/leap-sls-test
+    name: Test
+    runs-on: ubuntu-latest
+    services:
+      fhir-cds:
+        image: cschuler72/cqf-ruler
+        ports:
+          - "8080:8080"
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - run: npm install
+      - run: npm test
