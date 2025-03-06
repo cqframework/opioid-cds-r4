@@ -2,9 +2,6 @@ name: CI
 on: [pull_request]
 jobs:
   build:
-    env:
-      NODE_ENV: test
-      DATABASE_URL: postgresql://leap-sls-test:postgres@localhost/leap-sls-test
     name: Test
     runs-on: ubuntu-latest
     services:
@@ -12,12 +9,20 @@ jobs:
         image: cschuler72/cqf-ruler
         ports:
           - "8080:8080"
-
+    defaults:
+        run:
+          shell: bash
     steps:
+      - uses: actions/setup-java@v4
+        with: 
+          distribution: 'zulu' 
+          java-version: '21'    
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 20.x
+      - run: sh ./_updateCQFTooling-ci.sh
+      - run: sh ./_refresh.sh
       - run: npm install
       - run: sh ./wait-for-container.sh
       - run: npm test

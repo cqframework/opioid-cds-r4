@@ -21,6 +21,12 @@ fi
 
 echo "$fsoption"
 
+if ! type "JAVA" > /dev/null; then
+	JAVA() { 
+		java "$@" 
+	}
+fi
+
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
 	JAVA -jar $tooling -RefreshIG -ini="$ig_ini_path" -rp="$resources_path" -d -p -t -ss=false $fsoption
