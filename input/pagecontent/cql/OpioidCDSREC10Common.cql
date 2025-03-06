@@ -258,7 +258,7 @@ define "Normalize Rx In Lookback Period":
     [MedicationRequest: category in Common."Community"] Rx
       where Rx.status in { 'active', 'completed', 'stopped' }
         and Rx.intent = 'order'
-        and date from Rx.authoredOn in day of "Rx Lookback Period"
+        and Common."GetDateFromMedicationRequest"(Rx) in day of "Rx Lookback Period"
   )
 
 define "Remove Substances Without Positive or Negative Results":
@@ -419,27 +419,31 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     ),
     unexpectedPosDetails: (
       ThePosLabs PosLab
-        with (
-          if exists(TheMeds) then TheMeds else { null as MedicationRequest }
-        ) Rx
-          such that Rx is null or not (
-            date from Rx.authoredOn in day of Interval[date from PosLab.effective - 31 days, date from PosLab.effective - 1 days]
-          ) and not (
-            date from Rx.authoredOn after date from PosLab.effective
-          )
-          return {
-            date: date from PosLab.effective,
-            udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display else 'Unable to determine a detailed identifier'
-          }
+        where not exists (
+          TheMeds Rx
+            where Common.GetDateFromMedicationRequest(Rx)
+              in day of Interval[
+                date from PosLab.effective - 31 days,
+                date from PosLab.effective - 1 days
+              ]
+        )
+        return {
+          date: date from PosLab.effective,
+          udsDetail:
+            if exists(PosLab.code.coding)
+              then PosLab.code.coding[0].display
+              else 'Unable to determine a detailed identifier'
+        }
     ),
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
-        TheMeds Rx
-          where date from Rx.authoredOn in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]
+        ( if exists(TheMeds) then TheMeds else { null as MedicationRequest } ) Rx
+        let medDate: Common.GetDateFromMedicationRequest(Rx)
+          where medDate in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]
           return {
             udsDate: date from NegLab.effective,
             udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display else 'Unable to determine a detailed identifier',
-            rxDate: date from Rx.authoredOn,
+            rxDate: medDate,
             rxDetail: 
               if Rx.medication.text is not null then Rx.medication.text
               else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display 
