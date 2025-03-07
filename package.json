@@ -1,7 +1,7 @@
 {
     "name": "opioid-cds-r4-test-scripts",
     "scripts": {
-      "test": "npx jest --runInBand --forceExit"
+      "test": "npx jest --runInBand --forceExit --silent=false"
     },
     "devDependencies": {
       "dotenv": "^16.4.7",
