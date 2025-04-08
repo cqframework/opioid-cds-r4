@@ -20,7 +20,11 @@
   </tbody>
 </table>
 
-{% include img.html img=include.flow-diagram caption=flow-caption %}
+{% if include.flow-diagram %}
+  {% include img.html img=include.flow-diagram caption=flow-caption %}
+{% elsif include.narrative %}
+  {% include {{ include.narrative }} %}
+{% endif %}
 
 <p> </p>
 
