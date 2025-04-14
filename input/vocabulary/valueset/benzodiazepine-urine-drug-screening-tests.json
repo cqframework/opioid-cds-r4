@@ -1,0 +1,252 @@
+{
+  "resourceType": "ValueSet",
+  "id": "benzodiazepine-urine-drug-screening-tests",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
+      "valueString": "Step 1: go to https://loinc.org/tree/\nStep 2: use query benzodiazepine AND system:urine\nStep 3: export the results to CSV\nStep 4: Filter results by properties defined in query"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail": {
+        "name": "MD Partners, Inc.",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "info@mdpartners.com"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+      "valueString": "Presumed general urine tests for benzodiazepines that are not specific to a particular substance."
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+      "valueString": "Urine test"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+      "valueString": "Codes"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+      "valueString": "None"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueCode": "computable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueCode": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+      "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+    }
+  ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-urine-drug-screening-tests",
+  "name": "BENZODIAZEPINE_URINE_DRUG_SCREENING_TESTS",
+  "title": "Benzodiazepine urine drug screening tests",
+  "status": "draft",
+  "experimental": true,
+  "date": "2024-04-15T12:22:34-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "description": "Presumed general urine tests for benzodiazepines that are not specific to a particular substance.",
+  "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
+  "copyright": "© CDC 2016+.",
+  "expansion": {
+    "timestamp": "2024-04-15T12:22:36-06:00",
+    "total": 30,
+    "contains": [
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "99262-8",
+        "display": "Designer benzodiazepines Ur Ql Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "99263-6",
+        "display": "Delorazepam Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "99276-8",
+        "display": "3-OH-phenazepam Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "42235-2",
+        "display": "Benzodiaz metab Ur Ql Scn"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "3386-0",
+        "display": "Deprecated Benzodiaz Neg Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "3385-2",
+        "display": "Benzodiaz Neg Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "3388-6",
+        "display": "Deprecated Benzodiaz Pos Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "3387-8",
+        "display": "Benzodiaz Pos Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19282-3",
+        "display": "Benzodiaz Pos Ur Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "9428-4",
+        "display": "Benzodiaz Ur-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "20412-3",
+        "display": "Benzodiaz Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "70140-9",
+        "display": "Benzodiaz Ur Scn-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "3390-2",
+        "display": "Benzodiaz Ur Ql"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "16195-0",
+        "display": "Benzodiaz Ur Ql Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "14316-4",
+        "display": "Benzodiaz Ur Ql Scn"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "70141-7",
+        "display": "Benzodiaz Ur Ql Scn>200 ng/mL"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "70142-5",
+        "display": "Benzodiaz Ur Ql Scn>300 ng/mL"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "52955-2",
+        "display": "Benzodiaz Ur-sCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19286-4",
+        "display": "Benzodiaz Cfm Meth Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19064-5",
+        "display": "Benzodiaz CtO Ur-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19284-9",
+        "display": "Benzodiaz CtO Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19283-1",
+        "display": "Benzodiaz CtO Ur Scn-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19285-6",
+        "display": "Benzodiaz Scn Meth Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19280-7",
+        "display": "Benzodiaz Tested Ur Scn"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19279-9",
+        "display": "Benzodiaz Tested Ur Scn"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "41467-2",
+        "display": "Benzodiaz/Creat Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "53736-5",
+        "display": "Benzodiaz.other Ur-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "53745-6",
+        "display": "Benzodiazepines Pnl Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "90890-5",
+        "display": "Benzodiazepines Pnl Ur Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "94117-9",
+        "display": "Benzodiazepines Pnl Ur Scn"
+      }
+    ]
+  }
+}

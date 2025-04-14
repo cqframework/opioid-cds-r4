@@ -34,19 +34,8 @@ This implementation guide includes support for the following guideline recommend
 
 ### Getting Started
 
-For a quick start to get up and running and see how the artifacts work, refer to the [Quick Start](quick-start.html)
-
 For clinical informaticists interested in how the behavior for the artifacts was determined,
 refer to the [Process Documentation](process-documentation.html).
-
-For an overview of how the artifacts are represented in the FHIR Clinical Reasoning resources,
-refer to the [Integration Documentation](integration-documentation.html).
-
-For a detailed description of how to implement the functionality with CDS Hooks calling into a
-FHIR Clinical Reasoning server, refer to the [Implementation Documentation](implementation-documentation.html).
-
-For a detailed description of how to implement the functionality with a Java-based CDS Hooks
-service, refer to the [Service Documentation](service-documentation.html).
 
 ### Trigger Overview
 {% include img.html img="trigger-overview.png" caption="Trigger Overview Diagram: orange shapes represent preferred trigger approaches. Items with clear/white centers are available (developed in earlier pilot testing prior to EHR support for order based hooks) for implementation at sites without preferred trigger capabilities in existing software for CDS Hooks" %}

@@ -85,22 +85,3 @@ define "Exclusion Criteria":
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
-
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'Notify: PDMP data for this patient has not been reviewed in the past 90 days.'
-  else null
-
-define "Get Detail":
-  if "Is Recommendation Applicable?"
-    then 'Review PDMP data for this patient before completing an opioid order
-
-[Recommendation 9 of the 2022 CDC Clinical Practice Guideline provides guidance about utilizing PDMP information to improve patient safety](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20take,see%20Recommendation%2010).)
-
-[CDC advises not to dismiss patients from your practice on the basis of PDMP information](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20not%20dismiss,Recommendations%208%20and%2012%5D).)'
-  else null

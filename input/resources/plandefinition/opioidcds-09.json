@@ -60,10 +60,6 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
     }, {
       "type": "depends-on",
-      "display": "Value set Therapies indicating end of life care",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-    }, {
-      "type": "depends-on",
       "display": "Value set PDMP review procedure",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure"
     }, {
@@ -78,38 +74,13 @@
       "max": "*",
       "type": "MedicationRequest"
     }, {
-      "name": "Get Summary",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
-    }, {
       "name": "Is Recommendation Applicable?",
       "use": "out",
       "min": 0,
       "max": "1",
       "type": "boolean"
-    }, {
-      "name": "Get Detail",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
-    }, {
-      "name": "Get Indicator",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "string"
     } ],
     "dataRequirement": [ {
-      "type": "Medication",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-      "mustSupport": [ "id" ],
-      "codeFilter": [ {
-        "path": "id"
-      } ]
-    }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
       "mustSupport": [ "category" ],
@@ -133,13 +104,6 @@
         "path": "category",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
       } ]
-    }, {
-      "type": "ServiceRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
-    }, {
-      "type": "ServiceRequest",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-      "mustSupport": [ "status", "intent", "authoredOn", "code" ]
     }, {
       "type": "Procedure",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
@@ -176,20 +140,11 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC09"
-    }, {
-      "url": "name",
-      "valueString": "Get Summary"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Summary\":\n  if \"Is Recommendation Applicable?\"\n    then 'Notify: PDMP data for this patient has not been reviewed in the past 90 days.'\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 0
-    } ]
+    "id": "effective-data-requirements",
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
     "extension": [ {
@@ -203,7 +158,7 @@
       "valueString": "define \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\":\n  ( Common.\"Is Opioid Analgesic with Ambulatory Misuse Potential?\"( ContextPrescriptions ) ) AmbulatoryOpioidPrescription\n    where Routines.\"Is Subacute or Chronic Pain Prescription?\"( AmbulatoryOpioidPrescription )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 1
+      "valueInteger": 0
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -218,7 +173,7 @@
       "valueString": "define \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\":\n  exists( \"Chronic Pain Opioid Analgesic with Ambulatory Misuse Potential Prescriptions\" )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 2
+      "valueInteger": 1
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -233,7 +188,7 @@
       "valueString": "define \"Patient Age Less Than 18\":\n  if (Config.\"Age Less than 18 Years Is Enabled\") then\n    AgeInYearsAt(Today()) < 18\n  else\n    false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 3
+      "valueInteger": 2
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -248,7 +203,7 @@
       "valueString": "define \"Condition Positive for Sickle Cell\":\n      if (Config.\"Sickle Cell Check Enabled\") then\n        exists(\n            Common.\"Positive Sickle Cell Condition\"\n        )  else\n        false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 4
+      "valueInteger": 3
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -263,7 +218,7 @@
       "valueString": "// 3. Medications indicating end of life\n    /* or exists (\n      \"Medications Indicating End of Life\"\n    ) */\ndefine \"US Core-Categorized Conditions\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"]\n    union [Condition: category in \"Problem List Condition Category\"]\n    union [Condition: category in \"US Core Health Concern Condition Category\"]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 5
+      "valueInteger": 4
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -278,52 +233,7 @@
       "valueString": "define \"Conditions Indicating End Of Life Present\":\n  exists (\n    Common.\"US Core-Categorized Conditions\" LLEC\n      where LLEC.code in Common.\"Limited life expectancy conditions\"\n        and LLEC.clinicalStatus in Common.\"Active Condition\"\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 6
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
-    }, {
-      "url": "name",
-      "valueString": "Service Requests"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Service Requests\":\n   [ServiceRequest] SR\n    return SR"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 7
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSRoutines"
-    }, {
-      "url": "name",
-      "valueString": "Palliative Care Lookback Period"
-    }, {
-      "url": "statement",
-      "valueString": "/*\n**  Routine #1\n**  Opioid Review Useful Routine\n**\n**  Definition              | Answer to Proceed   | Details                                      | Data (Terminology) Requirement\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Age < 18 years?         | No                  | Calculate age from date of birth; exclude    | Date of birth\n**                          |                     | patients with age less than 18 years at the  |\n**                          |                     | time of the prescription                     |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Evidence of             | No                  | Look for documented findings consistent      | Sickle cell disease conditions\n**  sickle cell disease?    |                     | with those listed in the sickle cell         |\n**                          |                     | value set                                    |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Limited life            | No                  | Look for documented findings consistent      | Limited life expectancy conditions\n**  expectancy conditions   |                     | with those listed in the limited life        |\n**  present?                |                     | expectancy value set (terminal illness, bad  |\n**                          |                     | prognosis, pre-terminal)                     |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Order for therapies     | No                  | Look for patients with an existing order for | Therapies indicating end of life care\n**  indicating end of life  |                     | therapies indicating end of life care        |\n**  care in past 90 days?   |                     | written within past 90 days                  |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Active cancer           | No                  | See sub-routine 3                            | See sub-routine 3\n**  treatment?              |                     |                                              |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**  Conditions Likely       | No                  | Look for patients with active conditions in  | Conditions likely terminal for opioid\n**  Terminal for opioid     |                     | the value set end-of-life-conditions         | prescribing\n**  prescribing present?    |                     |                                              |\n**  ------------------------------------------------------------------------------------------------------------------------------------\n**\n*/\ndefine \"Palliative Care Lookback Period\":\n  Interval[Today() - 90 days, Today()]"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 8
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSRoutines"
-    }, {
-      "url": "name",
-      "valueString": "Order For Palliative Care In Past 90 Days"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Order For Palliative Care In Past 90 Days\":\n  exists (\n    Common.\"Service Requests\" SR\n    where SR.status in { 'active', 'completed'}\n      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}\n      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of \"Palliative Care Lookback Period\"\n      and SR.code in Common.\"Therapies indicating end of life care\"\n  )"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 9
+      "valueInteger": 5
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -338,7 +248,7 @@
       "valueString": "define \"Is Active Cancer Treatment?\":\n  if (Config.\"Active Cancer Treatment Encounters Condition Is Enabled\") then\n      \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n    else\n      false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 10
+      "valueInteger": 6
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -353,7 +263,7 @@
       "valueString": "define \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions likely terminal for opioid prescribing\"\n          and EOLC.clinicalStatus in Common.\"Active Condition\"\n    )\n  else\n    false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 11
+      "valueInteger": 7
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -365,10 +275,10 @@
       "valueString": "Is Opioid Review Useful?"
     }, {
       "url": "statement",
-      "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Conditions Indicating End Of Life Present\"\n    and not \"Order For Palliative Care In Past 90 Days\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\""
+      "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Conditions Indicating End Of Life Present\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 12
+      "valueInteger": 8
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -383,7 +293,7 @@
       "valueString": "// Recommendation 9\ndefine \"PDMP Data Not Reviewed in Past 90 Days Criteria Enabled\":\n  true"
     }, {
       "url": "displaySequence",
-      "valueInteger": 13
+      "valueInteger": 9
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -398,7 +308,7 @@
       "valueString": "define \"Look Back 90 Days\":\n  Interval[Today() - 90 days, Today()]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 14
+      "valueInteger": 10
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -413,7 +323,7 @@
       "valueString": "define \"PDMP Data Not Reviewed in Past 90 Days\":\n  Config.\"PDMP Data Not Reviewed in Past 90 Days Criteria Enabled\"\n    and not (\n      exists (\n        [Procedure: Common.\"PDMP review procedure\"] P\n          where P.status ~ 'completed'\n            and P.performed during \"Look Back 90 Days\"\n      )\n      or exists (\n        [Observation: Common.\"PDMP data reviewed finding\"] O\n          where O.status in { 'final', 'amended' }\n            and (\n              if O.effective is FHIR.Period\n                then (O.effective as FHIR.Period) during day of \"Look Back 90 Days\"\n                else if O.effective is FHIR.dateTime\n                  then date from O.effective in day of \"Look Back 90 Days\"\n                  else false\n          )\n      )\n    )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 15
+      "valueInteger": 11
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -428,7 +338,7 @@
       "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and \"PDMP Data Not Reviewed in Past 90 Days\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 16
+      "valueInteger": 12
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -443,7 +353,7 @@
       "valueString": "define \"Exclusion Criteria\":\n  false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 17
+      "valueInteger": 13
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -458,41 +368,11 @@
       "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\"\n    and not \"Exclusion Criteria\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 18
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC09"
-    }, {
-      "url": "name",
-      "valueString": "Get Detail"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Detail\":\n  if \"Is Recommendation Applicable?\"\n    then 'Review PDMP data for this patient before completing an opioid order\n\n[Recommendation 9 of the 2022 CDC Clinical Practice Guideline provides guidance about utilizing PDMP information to improve patient safety](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20take,see%20Recommendation%2010).)\n\n[CDC advises not to dismiss patients from your practice on the basis of PDMP information](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20not%20dismiss,Recommendations%208%20and%2012%5D).)'\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 19
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC09"
-    }, {
-      "url": "name",
-      "valueString": "Get Indicator"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Get Indicator\":\n  if \"Is Recommendation Applicable?\"\n    then 'warning'\n  else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 20
+      "valueInteger": 14
     } ]
   }, {
     "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
     "valueReference": {
       "reference": "#effective-data-requirements"
     }
@@ -503,8 +383,8 @@
     "value": "cdc-opioid-guidance"
   } ],
   "version": "2022.1.0",
-  "name": "CDC_opioid_09",
-  "title": "PlanDefinition - 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain: Recommendation #9",
+  "name": "PlanDefinition_Recommendation_09_Order_Sign",
+  "title": "Recommendation #9 - Consider Patient's History of Controlled Substance Prescriptions",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
@@ -514,9 +394,9 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2023-05-01",
+  "date": "2024-11-19",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
-  "description": "Clinicians should review PDMP data when starting opioid therapy for subacute or chronic pain and periodically during opioid therapy for chronic pain.",
+  "description": "When prescribing initial opioid therapy for acute, subacute, or chronic pain, and periodically during opioid therapy for chronic pain, clinicians should review the patient's history of controlled substance prescriptions using state prescription drug monitoring program (PDMP) data to determine whether the patient is receiving opioid dosages or combinations that put the patient at high risk for overdose.",
   "useContext": [ {
     "code": {
       "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
@@ -543,6 +423,28 @@
         "display": "Chronic pain (finding)"
       } ]
     }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "coding": [ {
+        "system": "http://snomed.info/sct",
+        "code": "274663001",
+        "display": "Acute pain (finding)"
+      } ]
+    }
+  }, {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+      "code": "focus",
+      "display": "Clinical Focus"
+    },
+    "valueCodeableConcept": {
+      "text": "Subacute pain"
+    }
   } ],
   "jurisdiction": [ {
     "coding": [ {
@@ -551,8 +453,8 @@
       "display": "United States of America"
     } ]
   } ],
-  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care.",
-  "usage": "Clinicians should review PDMP data when starting opioid therapy for chronic pain and periodically during opioid therapy for chronic pain.",
+  "purpose": "The 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain is intended to improve communication between clinicians and patients about the benefits and risks of pain treatments, including opioid therapy; improve the effectiveness and safety of pain treatment; mitigate pain; improve function and quality of life for patients with pain; and reduce risks associated with opioid pain therapy, including opioid use disorder, overdose, and death. The recommendations do not apply to pain related to sickle cell disease or cancer or to patients receiving palliative or end-of-life care.",
+  "usage": "At a minimum, during long-term opioid therapy, PDMP data should be reviewed before an initial opioid prescription and then every 3 months or more frequently.",
   "copyright": "© CDC 2016+.",
   "topic": [ {
     "text": "Opioid Prescribing"
@@ -569,34 +471,44 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf",
     "document": {
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+      "contentType": "application/pdf",
+      "language": "en-US",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC09" ],
   "action": [ {
-    "extension": [ {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-          "code": "weak",
-          "display": "Weak"
-        } ]
-      }
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-          "code": "very-low",
-          "display": "Very low quality"
-        } ]
+    "title": "Before Ordering Opioids, Review PDMP Data",
+    "description": "Review PDMP data for this patient before completing an opioid order.\r\n\r\nFor guidance about utilizing PDMP information to improve patient safety, see [Recommendation 9 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20take,see%20Recommendation%2010).).\r\n\r\n[CDC advises not to dismiss patients from your practice on the basis of PDMP information](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20not%20dismiss,Recommendations%208%20and%2012%5D).)",
+    "priority": "urgent",
+    "documentation": [ {
+      "type": "documentation",
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation9:~:text=risk%20for%20overdose-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
+      "document": {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+              "code": "weak",
+              "display": "Weak"
+            } ]
+          }
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+          "valueCodeableConcept": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+              "code": "very-low",
+              "display": "Very low quality"
+            } ]
+          }
+        } ],
+        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation9:~:text=risk%20for%20overdose-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations"
       }
     } ],
-    "title": "Current Order is for Opioid With Ambulatory Misuse Potential.",
-    "description": "Checking if the trigger prescription meets the inclusion criteria for recommendation #9 workflow.",
     "trigger": [ {
       "type": "named-event",
       "name": "order-sign"
@@ -604,32 +516,13 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Check whether the current Order is for Opioid With Ambulatory Misuse Potential.",
+        "description": "Check whether the current order is for an opioid with ambulatory misuse potential, if an opioid review is appropriate or there exists evidence of a prescription drug monitoring program (PDMP) review procedure or finding occurred in the past 90 days.",
         "language": "text/cql.identifier",
         "expression": "Is Recommendation Applicable?"
       }
     } ],
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
-    "dynamicValue": [ {
-      "path": "action.title",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Summary"
-      }
-    }, {
-      "path": "action.description",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Detail"
-      }
-    }, {
-      "path": "activity.extension",
-      "expression": {
-        "language": "text/cql.identifier",
-        "expression": "Get Indicator"
-      }
-    } ],
     "action": [ {
       "description": "Access Data - Launch app to review PDMP data"
     }, {

@@ -15,7 +15,8 @@
       <value value="https://www.cdc.gov" />
     </telecom>
   </contact>
-  <description value="2022 CDC Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
+  <description
+    value="2022 CDC Clinical Practice Guideline for Prescribing Opioids Implementation Guide" />
   <packageId value="fhir.cdc.opioid-cds-r4" />
   <fhirVersion value="4.0.1" />
   <dependsOn>
@@ -32,6 +33,11 @@
     <uri value="http://fhir.org/guides/cdc/opioid-mme-r4/ImplementationGuide/fhir.cdc.opioid-mme-r4" />
     <packageId value="fhir.cdc.opioid-mme-r4" />
     <version value="3.0.0" />
+  </dependsOn>
+  <dependsOn>
+    <uri value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi" />
+    <packageId value="hl7.fhir.uv.crmi" />
+    <version value="1.0.0" />
   </dependsOn>
   <!-- Using older version of the R4 extension pack here as the updated (v5.1.0) version contains R5 extension for cqf-strengthOfRecommendation and cqf-qualityOfEvidence -->
   <!-- <dependsOn>
@@ -337,7 +343,7 @@
       </reference>
       <name value="OpioidCDSREC02Library" />
       <description
-        value="Logic Library for Recommendation #2 (order-sign) - Prioritize Nonopioid Pain Therapies" />
+        value="Logic Library for Recommendation #2 (order-sign) - Opioid Therapy Goals Discussion" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
     </resource>
@@ -408,10 +414,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC10" />
+        <reference value="Library/OpioidCDSREC10OrderSign" />
         <display value="Recommendation 10 (order-sign) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC10Library" />
+      <name value="OpioidCDSREC10OrderSignLibrary" />
       <description value="Logic Library for Recommendation #10 (order-sign) - Urine Drug Testing" />
       <exampleBoolean value="false" />
       <groupingId value="recommendation-libraries" />
@@ -428,10 +434,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="Library/OpioidCDSREC11" />
+        <reference value="Library/OpioidCDSREC11OrderSelect" />
         <display value="Recommendation 11 (order-select) Logic Library" />
       </reference>
-      <name value="OpioidCDSREC11Library" />
+      <name value="OpioidCDSREC11OrderSelectLibrary" />
       <description
         value="Logic Library for Recommendation #11 (order-select) - Concurrent Use of Opioids and Benzodiazepines" />
       <exampleBoolean value="false" />
@@ -474,6 +480,26 @@
       <reference>
         <reference value="ActivityDefinition/opioidcds-urine-screening-request" />
         <display value="Urine Screening ActivityDefinition" />
+      </reference>
+      <name value="OpioidUrineScreeningActivityDefinition" />
+      <description value="An ActivityDefinition for recommendation of urine screening" />
+      <exampleBoolean value="false" />
+      <groupingId value="activitydefinitions" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ActivityDefinition/opioidcds-urine-screening-request-1" />
+        <display value="Urine Screening ActivityDefinition 1" />
+      </reference>
+      <name value="OpioidUrineScreeningActivityDefinition" />
+      <description value="An ActivityDefinition for recommendation of urine screening" />
+      <exampleBoolean value="false" />
+      <groupingId value="activitydefinitions" />
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ActivityDefinition/opioidcds-urine-screening-request-2" />
+        <display value="Urine Screening ActivityDefinition 2" />
       </reference>
       <name value="OpioidUrineScreeningActivityDefinition" />
       <description value="An ActivityDefinition for recommendation of urine screening" />
@@ -525,23 +551,8 @@
         <title value="2022 CDC Clinical Practice Guideline - Documentation" />
         <generation value="html" />
         <page>
-          <nameUrl value="implementation-documentation.html" />
-          <title value="2022 CDC Clinical Practice Guideline - Implementation Documentation" />
-          <generation value="html" />
-        </page>
-        <page>
-          <nameUrl value="integration-documentation.html" />
-          <title value="2022 CDC Clinical Practice Guideline - Integration Documentation" />
-          <generation value="html" />
-        </page>
-        <page>
           <nameUrl value="process-documentation.html" />
           <title value="2022 CDC Clinical Practice Guideline - Process Documentation" />
-          <generation value="html" />
-        </page>
-        <page>
-          <nameUrl value="service-documentation.html" />
-          <title value="2022 CDC Clinical Practice Guideline - Service Documentation" />
           <generation value="html" />
         </page>
       </page>
@@ -559,11 +570,6 @@
         <nameUrl value="acute-pain.html" />
         <title value="2022 CDC Clinical Practice Guideline - Acute Pain" />
         <generation value="markdown" />
-      </page>
-      <page>
-        <nameUrl value="quick-start.html" />
-        <title value="2022 CDC Clinical Practice Guideline - Quick Start" />
-        <generation value="html" />
       </page>
       <page>
         <nameUrl value="chronic-pain.html" />
