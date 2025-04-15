@@ -9,17 +9,19 @@
     </ul>
     <div class="tab-content">
       <div id="order-sign" class="tab-pane fade in active">
-        {% include recommendation-page-template.html 
-          recommendationNum='10' 
-          topic='Selecting Opioids and Determining Opioid Dosages' 
-          description='When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.' 
-          recommendation-category='B' 
-          evidence-type='4' 
-          flow-diagram='Recommendation10-order-sign-flow.png'
-          func-desc='recommendation10-order-sign-functional-description.html'
-          data-elements='recommendation10-order-sign-data-elements.html'
-          content-table='recommendation10-order-sign-content-table.html'
-          test-data='recommendation10-order-sign-test-data.html' %}
+        {% include recommendation-page-template.html
+        recommendationNum='10'
+        topic='Selecting Opioids and Determining Opioid Dosages'
+        description='When prescribing opioids for subacute or chronic pain, clinicians should
+        consider the benefits and risks of toxicology testing to assess for prescribed medications
+        as well as other prescribed and nonprescribed controlled substances.'
+        recommendation-category='B'
+        evidence-type='4'
+        flow-diagram='rec10_ordersign_flow.svg'
+        func-desc='recommendation10-order-sign-functional-description.html'
+        data-elements='recommendation10-order-sign-data-elements.html'
+        content-table='recommendation10-order-sign-content-table.html'
+        test-data='recommendation10-order-sign-test-data.html' %}
       </div>
       <div id="patient-view" class="tab-pane fade">
         {% include recommendation-page-template.html 

@@ -1,0 +1,10 @@
+@startuml legend_flow
+!theme carbon-gray
+skinparam LegendFontSize 10
+legend left
+|<#1C2ED5>|  EHR Triggering Event |
+|<#306516>|  Calculation Logic |
+|<#fc914d>|  Subroutine Calculation Logic |
+|<#b06f19>|  User Interaction |
+endlegend
+@enduml

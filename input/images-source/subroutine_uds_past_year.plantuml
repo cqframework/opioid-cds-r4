@@ -1,0 +1,31 @@
+@startuml subroutine_uds_past_year
+!theme carbon-gray
+skinparam hyperlinkColor lightblue
+skinparam svgLinkTarget _blank
+skinparam ActivityBackgroundColor #306516
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title Urine Drug Screening in Past Year Subroutine
+start
+fork
+: Opioid urine drug screening in past year?;
+fork again
+: Nonopioid urine drug screening in past year?;
+end merge
+if (Any answer is yes?) then (yes)
+#BC2C73:Return Yes;
+kill
+else (no)
+#BC2C73:Return No;
+kill
+@enduml

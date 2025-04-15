@@ -1,0 +1,30 @@
+@startuml subroutine_subacute_chronic_pain
+!theme carbon-gray
+skinparam hyperlinkColor lightblue
+skinparam svgLinkTarget _blank
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title Subacute or Chronic Pain Subroutine
+start
+if (       Order for opioid \nanalgesic with an expected \n      supply duration of \n      28 days or longer?) then (yes)
+(no) elseif (    Order in the past 90\n days for opioid analgesic\n    with therapy type of\n          "continuous"?) then (yes)
+(no) elseif (     Order for opioid\n analgesic for 28 of the\n past 90 days including\n             today?) then (no)
+#BC2C73:Return No;
+kill
+(yes) elseif (     An active or pending\n order for opioid analgesic?) then (yes)
+else (no)
+#BC2C73:Return No;
+kill
+endif
+#BC2C73:Return Yes;
+@enduml
