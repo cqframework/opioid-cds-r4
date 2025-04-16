@@ -7,6 +7,7 @@
   "contained": [ {
     "resourceType": "Library",
     "id": "effective-data-requirements",
+    "name": "EffectiveDataRequirements",
     "status": "active",
     "type": {
       "coding": [ {
@@ -34,26 +35,6 @@
       "type": "depends-on",
       "display": "Value set Community",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Encounter Diagnosis Condition Category",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Problem List Condition Category",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
-    }, {
-      "type": "depends-on",
-      "display": "Value set US Core Health Concern Condition Category",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Limited life expectancy conditions",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Active Condition",
-      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
     } ],
     "parameter": [ {
       "name": "ContextPrescriptions",
@@ -67,31 +48,6 @@
       "min": 0,
       "max": "1",
       "type": "boolean"
-    } ],
-    "dataRequirement": [ {
-      "type": "Condition",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-      "mustSupport": [ "category" ],
-      "codeFilter": [ {
-        "path": "category",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
-      } ]
-    }, {
-      "type": "Condition",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-      "mustSupport": [ "category" ],
-      "codeFilter": [ {
-        "path": "category",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
-      } ]
-    }, {
-      "type": "Condition",
-      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-      "mustSupport": [ "category" ],
-      "codeFilter": [ {
-        "path": "category",
-        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
-      } ]
     } ]
   } ],
   "extension": [ {
@@ -110,12 +66,6 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
       "reference": "Device/cqf-tooling"
-    }
-  }, {
-    "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
-    "valueReference": {
-      "reference": "#effective-data-requirements"
     }
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -157,7 +107,7 @@
       "valueString": "Patient Age Less Than 18"
     }, {
       "url": "statement",
-      "valueString": "define \"Patient Age Less Than 18\":\n  if (Config.\"Age Less than 18 Years Is Enabled\") then\n    AgeInYearsAt(Today()) < 18\n  else\n    false"
+      "valueString": "define \"Patient Age Less Than 18\":\n  if (Config.\"Age Less than 18 Years Is Enabled\") then\n    AgeInYearsAt(Today()) < 18\n  else false"
     }, {
       "url": "displaySequence",
       "valueInteger": 2
@@ -172,40 +122,10 @@
       "valueString": "Condition Positive for Sickle Cell"
     }, {
       "url": "statement",
-      "valueString": "define \"Condition Positive for Sickle Cell\":\n      if (Config.\"Sickle Cell Check Enabled\") then\n        exists(\n            Common.\"Positive Sickle Cell Condition\"\n        )  else\n        false"
+      "valueString": "define \"Condition Positive for Sickle Cell\":\n  if (Config.\"Sickle Cell Check Enabled\") then\n    exists(\n      Common.\"Positive Sickle Cell Condition\"\n    ) \n  else false"
     }, {
       "url": "displaySequence",
       "valueInteger": 3
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
-    }, {
-      "url": "name",
-      "valueString": "US Core-Categorized Conditions"
-    }, {
-      "url": "statement",
-      "valueString": "// 3. Medications indicating end of life\n    /* or exists (\n      \"Medications Indicating End of Life\"\n    ) */\ndefine \"US Core-Categorized Conditions\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"]\n    union [Condition: category in \"Problem List Condition Category\"]\n    union [Condition: category in \"US Core Health Concern Condition Category\"]"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 4
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSRoutines"
-    }, {
-      "url": "name",
-      "valueString": "Conditions Indicating End Of Life Present"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Conditions Indicating End Of Life Present\":\n  exists (\n    Common.\"US Core-Categorized Conditions\" LLEC\n      where LLEC.code in Common.\"Limited life expectancy conditions\"\n        and LLEC.clinicalStatus in Common.\"Active Condition\"\n  )"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 5
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -217,10 +137,10 @@
       "valueString": "Is Active Cancer Treatment?"
     }, {
       "url": "statement",
-      "valueString": "define \"Is Active Cancer Treatment?\":\n  if (Config.\"Active Cancer Treatment Encounters Condition Is Enabled\") then\n      \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n    else\n      false"
+      "valueString": "define \"Is Active Cancer Treatment?\":\n  if (Config.\"Active Cancer Treatment Encounters Condition Is Enabled\") \n    then \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n      or \"Has Active Cancer Diagnosis on Problem List\"\n  else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 6
+      "valueInteger": 4
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -229,13 +149,13 @@
       "valueString": "OpioidCDSRoutines"
     }, {
       "url": "name",
-      "valueString": "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
+      "valueString": "Conditions Likely Terminal for Opioid Prescribing"
     }, {
       "url": "statement",
-      "valueString": "define \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions likely terminal for opioid prescribing\"\n          and EOLC.clinicalStatus in Common.\"Active Condition\"\n    )\n  else\n    false"
+      "valueString": "define \"Conditions Likely Terminal for Opioid Prescribing\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions likely terminal for opioid prescribing\"\n          // and EOLC.clinicalStatus in Common.\"Active Condition\"\n    )\n  else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 7
+      "valueInteger": 5
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -247,10 +167,10 @@
       "valueString": "Is Opioid Review Useful?"
     }, {
       "url": "statement",
-      "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Conditions Indicating End Of Life Present\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present\""
+      "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Likely Terminal for Opioid Prescribing\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 8
+      "valueInteger": 6
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -262,10 +182,10 @@
       "valueString": "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days"
     }, {
       "url": "statement",
-      "valueString": "define \"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\":\n    if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n      exists (\"Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    else\n      false"
+      "valueString": "define \"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\":\n    if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n      exists (\"Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 9
+      "valueInteger": 7
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -277,10 +197,10 @@
       "valueString": "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days"
     }, {
       "url": "statement",
-      "valueString": "define \"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\":\n  if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n    exists (\"Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")\n  else\n    false"
+      "valueString": "define \"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\":\n  if (Config.\"Opioid Naive Prescription Condition Is Enabled\") then\n    exists (\"Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")\n  else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 10
+      "valueInteger": 8
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -295,7 +215,7 @@
       "valueString": "// NOTE: MedicationStatement-dependent logic comment out due to bug in Publisher not supporting MedicationStatement in AllTypes.\ndefine \"Is Opioid Naive?\":\n    not (\"Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days\")\n    /* and not (\"Has Report of Opioid with Ambulatory Care Abuse Potential Reported in Past 90 Days\") */\n    and not (\"Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 11
+      "valueInteger": 9
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -310,7 +230,7 @@
       "valueString": "define \"Inclusion Criteria\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Routines.\"Is Opioid Review Useful?\"\n    and Routines.\"Is Opioid Naive?\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 12
+      "valueInteger": 10
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -325,7 +245,7 @@
       "valueString": "define \"Exclusion Criteria\":\n  false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 13
+      "valueInteger": 11
     } ]
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
@@ -340,14 +260,87 @@
       "valueString": "define \"Is Recommendation Applicable?\":\n  \"Inclusion Criteria\"\n    and not \"Exclusion Criteria\""
     }, {
       "url": "displaySequence",
+      "valueInteger": 12
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "Is Opioid Analgesic with Ambulatory Misuse Potential?"
+    }, {
+      "url": "statement",
+      "valueString": "define function \"Is Opioid Analgesic with Ambulatory Misuse Potential?\"(value List<MedicationRequest>):\n  (\"Get MedicationRequest Medication as Code\"(value)) Rx\n    where Rx.medication in \"Opioid analgesics with ambulatory misuse potential\" \n      and Rx.category in \"Community\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 13
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "Get MedicationRequest Medication as Code"
+    }, {
+      "url": "statement",
+      "valueString": "define function \"Get MedicationRequest Medication as Code\"(value List<MedicationRequest>):\n  value Rx\n    let Med: \n      if Rx.medication is Reference then singleton from (\n        [Medication] M\n          where M.id = (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))\n      ) else null\n    return \n      MedicationRequest {\n        id: Rx.id,\n        status: Rx.status,\n        intent: Rx.intent,\n        category: Rx.category,\n        medication: if Rx.medication is Reference then Med.code else Rx.medication as CodeableConcept,\n        subject: Rx.subject,\n        authoredOn: Rx.authoredOn,\n        recorder: Rx.recorder,\n        dosageInstruction: Rx.dosageInstruction,\n        dispenseRequest: Rx.dispenseRequest\n      }"
+    }, {
+      "url": "displaySequence",
       "valueInteger": 14
     } ]
   }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToConcept"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToConcept(concept FHIR.CodeableConcept):\n    if concept is null then\n        null\n    else\n        System.Concept {\n            codes: concept.coding C return ToCode(C),\n            display: concept.text.value\n        }"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 15
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSRoutines"
+    }, {
+      "url": "name",
+      "valueString": "Is Acute Pain Prescription?"
+    }, {
+      "url": "statement",
+      "valueString": "// End of For Subacute or Chronic Pain Routine\n\n/*\n**  Routine #5\n**  For Acute Pain Routine\n**\n**  Definition                  | Answer to Proceed   | Details                                        | Data (Terminology) Requirement\n**  -----------------------------------------------------------------------------------------------------------------------------------\n**  Order for opioid analgesics | Yes                 | Look for an existing prescription (order) for  | Opioid analgesics with\n**  with ambulatory misuse      |                     | opioid analgesics with ambulatory abuse        | ambulatory misuse potential\n**  potential of duration < 28  |                     | potential of duration < 28 days                |\n**  days                        |                     |                                                |\n**  -----------------------------------------------------------------------------------------------------------------------------------\n**\n*/\n\n// should allow DateTime precision, but not working in the Ruler specifically\ndefine function \"Is Acute Pain Prescription?\"(prescription FHIR.MedicationRequest):\n  prescription.dispenseRequest is not null\n    and prescription.dispenseRequest.expectedSupplyDuration is not null\n    and Common.GetDurationInDays( prescription.dispenseRequest.expectedSupplyDuration ) < 28 days"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 16
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "GetDurationInDays"
+    }, {
+      "url": "statement",
+      "valueString": "define function GetDurationInDays(value FHIR.Duration):\n  if value is null then null\n  else\n    case\n      when value.code.value ~ 'a' then System.Quantity{ value: value.value.value * 365.0, unit: 'days' }\n      when value.code.value ~ 'mo' then System.Quantity{ value: value.value.value * 30.0, unit: 'days' }\n      when value.code.value ~ 'wk' then System.Quantity{ value: value.value.value * 7.0, unit: 'days' }\n      when value.code.value ~ 'd' then System.Quantity{ value: value.value.value, unit: 'days' }\n      when value.code.value ~ 'h' then System.Quantity{ value: value.value.value / 24.0, unit: 'days' }\n      when value.code.value ~ 'min' then System.Quantity{ value: value.value.value / 60.0 / 24.0, unit: 'days' }\n      when value.code.value ~ 's' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0, unit: 'days' }\n      when value.code.value ~ 'ms' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0 / 1000.0, unit: 'days' }\n      when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')\n      else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)\nend"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 17
+    } ]
+  }, {
     "id": "effective-data-requirements",
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
-    "valueReference": {
-      "reference": "#effective-data-requirements"
-    }
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
+    "valueCanonical": "#effective-data-requirements"
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-01",
   "identifier": [ {
@@ -366,7 +359,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-11-19",
+  "date": "2025-04-16",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "contact": [ {
     "telecom": [ {
