@@ -202,16 +202,6 @@
         value="Declares the DateLastUpdated and Frequency arguments to be used by the Data Date Roller for maintaining/rolling test data dates to keep them from going stale." />
       <exampleBoolean value="false" />
     </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/effectiveDataRequirements" />
-        <display value="Effective Data Requirements Extension" />
-      </reference>
-      <name value="EffectiveDataRequirement Extension" />
-      <description
-        value="A module definition library that contains the effective data requirements for the PlanDefinition (i.e. the calculated data requirements for the expressions referenced by the PlanDefinition structure)." />
-      <exampleBoolean value="false" />
-    </resource>
     <!-- Libraries -->
     <!-- Common Libraries-->
     <resource>

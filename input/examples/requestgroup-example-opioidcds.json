@@ -1,11 +1,6 @@
 {
    "resourceType": "RequestGroup",
    "id": "example-opioidcds",
-   "meta": {
-      "profile": [
-         "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup"
-      ]
-   },
    "status": "active",
    "intent": "proposal",
    "action": [

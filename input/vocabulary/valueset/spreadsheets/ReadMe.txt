@@ -1,1 +1,0 @@
-This directory is for VSAC ValueSet SpreadSheets that need to be converted into FHIR Resources
