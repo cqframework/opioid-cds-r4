@@ -771,53 +771,35 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "contentType": "application/pdf",
-      "language": "en-US",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
-    }
-  }, {
-    "type": "documentation",
-    "display": "MME Conversion Tables",
-    "url": "https://www.cdc.gov/opioids/providers/prescribing/pdf/calculating-total-daily-dose.pdf",
-    "document": {
-      "contentType": "application/pdf",
-      "language": "en-US",
-      "url": "https://www.cdc.gov/opioids/providers/prescribing/pdf/calculating-total-daily-dose.pdf"
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC07" ],
   "action": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "strong",
+          "display": "Strong"
+        } ]
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "very-low",
+          "display": "Very Low quality"
+        } ]
+      }
+    } ],
     "title": "Regularly Evaluate the Benefits and Risks of Opioid Therapy",
     "description": "Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.\r\n\r\nFor additional guidance regarding opioid therapy patient consultations, see [Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7)",
     "priority": "urgent",
-    "documentation": [ {
-      "type": "documentation",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7:~:text=therapy%20with%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "strong",
-              "display": "Strong"
-            } ]
-          }
-        }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "very-low",
-              "display": "Very Low quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7:~:text=therapy%20with%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%204).,-Implementation%20Considerations"
-      }
-    } ],
     "trigger": [ {
       "type": "named-event",
       "name": "order-sign"

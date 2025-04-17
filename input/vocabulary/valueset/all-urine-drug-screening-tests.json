@@ -68,18 +68,17 @@
     "include": [
       {
         "valueSet": [
-          "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening"
+          "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-urine-drug-screening"
         ]
       },
       {
         "valueSet": [
-          "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
+          "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-drug-screening"
         ]
       }
     ]
   },
   "expansion": {
-    "identifier": "15e05245-0bf3-4cd7-898f-c713bb920d13",
     "timestamp": "2023-11-04T18:08:12-06:00",
     "total": 1669,
     "contains": [

@@ -726,6 +726,10 @@
       <code value="path-resource" />
       <value value="input/vocabulary/valueset" />
     </parameter>
+    <parameter>
+      <code value="path-expansion-params" />
+      <value value="../exp-params.json" />
+    </parameter>
     <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings
          <parameter>
            <code value="excludexml"/>

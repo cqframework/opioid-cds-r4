@@ -330,8 +330,8 @@
     "valueCodeableConcept": {
       "coding": [ {
         "system": "http://snomed.info/sct",
-        "code": "5602001",
-        "display": "Opioid abuse (disorder)"
+        "code": "1336192000",
+        "display": "Opioid use disorder (disorder)"
       } ]
     }
   } ],
@@ -360,44 +360,35 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "contentType": "application/pdf",
-      "language": "en-US",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC12PatientView" ],
   "action": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "strong",
+          "display": "Strong"
+        } ]
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "high",
+          "display": "High quality"
+        } ]
+      }
+    } ],
     "title": "Offer Evidence-based Medications to Treat Patients with Opioid Use Disorder",
     "description": "For patients diagnosed with opioid use disorder, consider opioid agonist or partial agonist treatment with methadone or buprenorphine maintenance therapy. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks of resuming drug use, overdose, and overdose death. \r\n\r\nFor guidance regarding diagnosing and treating opioid use disorder, see [Recommendation 12 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Implementation%20Considerations,-Although%20stigma%20can).\r\n\r\n[CDC recommends against releasing patients from care due to diagnosis of opioid use disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=opioid%20use%20disorder.-,Clinicians%20should%20not%20dismiss%20patients%20from%20their%20practice%20because%20of%20opioid%20use%20disorder%20because%20this%20can%20adversely%20affect%20patient%20safety.,-Medication%20treatment%20of).\r\n\r\n[MME conversion factors should not be applied to dosage decisions related to the management of opioid use disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=These%20conversion%20factors%20should%20not%20be%20applied%20to%20dosage%20decisions%20related%20to%20the%20management%20of%20opioid%20use%20disorder.).\r\n\r\n[Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Do%20not%20use%20the,variability%20in%20opioid%20pharmacokinetics.). Consult the FDA approved product labeling for specific guidance on medications.",
     "priority": "urgent",
-    "documentation": [ {
-      "type": "documentation",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation12:~:text=and%20overdose%20death-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%201).,-Implementation%20Considerations",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "strong",
-              "display": "Strong"
-            } ]
-          }
-        }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "high",
-              "display": "High quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation12:~:text=and%20overdose%20death-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%201).,-Implementation%20Considerations"
-      }
-    } ],
     "trigger": [ {
       "type": "named-event",
       "name": "patient-view"

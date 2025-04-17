@@ -10,7 +10,7 @@
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
-      "valueString": "Step 1: go to https://loinc.org/tree/\nStep 2: use query benzodiazepine AND system:urine\nStep 3: export the results to CSV\nStep 4: Filter results by properties defined in query"
+      "valueMarkdown": "Step 1: go to https://loinc.org/tree/\nStep 2: use query benzodiazepine AND system:urine\nStep 3: export the results to CSV\nStep 4: Filter results by properties defined in query"
     },
     {
       "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",

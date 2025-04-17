@@ -1931,36 +1931,29 @@
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10PatientView" ],
   "action": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "weak",
+          "display": "Weak"
+        } ]
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "very-low",
+          "display": "Very Low quality"
+        } ]
+      }
+    } ],
     "prefix": "1.",
     "title": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen",
     "description": "Consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.\r\n\r\nFor guidance regarding utilizing toxicology tests when prescribing opioids, see [Recommendation 10 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%204).-,Implementation%20Considerations,-Toxicology%20testing%20should).",
     "priority": "urgent",
-    "documentation": [ {
-      "type": "documentation",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10:~:text=nonprescribed%20controlled%20substances-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "weak",
-              "display": "Weak"
-            } ]
-          }
-        }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "very-low",
-              "display": "Very Low quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10:~:text=nonprescribed%20controlled%20substances-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations"
-      }
-    } ],
     "trigger": [ {
       "type": "named-event",
       "name": "patient-view"
@@ -1989,36 +1982,29 @@
       "description": "Snooze* - N/A see comment, snooze 3 months"
     } ]
   }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "weak",
+          "display": "Weak"
+        } ]
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "very-low",
+          "display": "Very Low quality"
+        } ]
+      }
+    } ],
     "prefix": "2.",
     "title": "Patient May Have Unexpected Toxicology Test Results",
     "description": "Patient may have unexpected urine toxicology test results in the past year",
     "priority": "urgent",
-    "documentation": [ {
-      "type": "documentation",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10:~:text=nonprescribed%20controlled%20substances-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "weak",
-              "display": "Weak"
-            } ]
-          }
-        }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "very-low",
-              "display": "Very Low quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10:~:text=nonprescribed%20controlled%20substances-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations"
-      }
-    } ],
     "trigger": [ {
       "type": "named-event",
       "name": "patient-view"

@@ -1081,80 +1081,47 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "contentType": "application/pdf",
-      "language": "en-US",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
-    }
-  }, {
-    "type": "documentation",
-    "display": "MME Conversion Tables",
-    "url": "https://www.cdc.gov/opioids/providers/prescribing/pdf/calculating-total-daily-dose.pdf",
-    "document": {
-      "contentType": "application/pdf",
-      "language": "en-US",
-      "url": "https://www.cdc.gov/opioids/providers/prescribing/pdf/calculating-total-daily-dose.pdf"
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC04And05" ],
   "action": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "id": "recommendation-4-strength-of-recommendation",
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "strong",
+          "display": "Strong"
+        }, {
+          "id": "recommendation-5-strength-of-recommendation",
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "weak",
+          "display": "Weak"
+        } ]
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "id": "recommendation-4-evidence-quality",
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "low",
+          "display": "Low quality"
+        }, {
+          "id": "recommendation-5-evidence-quality",
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "very-low",
+          "display": "Very low quality"
+        } ]
+      }
+    } ],
     "title": "Calibrate to Lowest Opioid Dose Needed for Expected Results and Exercise Care When Changing Opioid Dosages",
     "description": "When opioid therapy is considered appropriate, calibrate opioid dosages to lowest dose needed to achieve expected effects. For patients already receiving opioid therapy, clinicians should carefully weigh benefits and risks and exercise care when changing opioid dosage.\r\n\r\n[For guidance in determining the lowest effective opioid dosage, see Recommendation 4 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation4)\r\n\r\n[For patients who have received opioid therapy for longer durations of time, if tapering, consider working closely with the patient to gradually taper dosages (no more than 10% per month)](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=When%20patients%20have%20been%20taking%20opioids%20for%20longer%20durations%20(e.g.%2C%20for%20%E2%89%A51%20year)%2C%20tapers%20of%2010%25%20per%20month%20or%20slower%20are%20likely%20to%20be%20better%20tolerated%20than%20more%20rapid%20tapers.)\r\n\r\nFor a tapering calculator, go to [https://agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html](https://www.agencymeddirectors.wa.gov/Calculator/TaperDoseCalculator.html)\r\n\r\n[For more guidance regarding tapering, please see Recommendation 5 of the 2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation5).)\r\n\r\n**MME Calculator Cautions**\r\n1) All doses are in mg/day except for fentanyl, which is mcg/hr. \r\n2) Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. \r\n3) Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. \r\n4) Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. \r\n5) Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. \r\n6) Buprenorphine products approved for the treatment of pain are not included in the table because of their partial µ-receptor agonist activity and resultant ceiling effects compared with full µ-receptor agonists. \r\n7) These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder.\r\n- Tapentadol is a µ-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.\r\n- Tramadol is a µ-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.",
     "priority": "urgent",
-    "documentation": [ {
-      "type": "documentation",
-      "label": "Recommendation 4",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation4:~:text=risks%20to%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%203).,-Implementation%20Considerations",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "strong",
-              "display": "Strong"
-            } ]
-          }
-        }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "low",
-              "display": "Low quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation4:~:text=risks%20to%20patients-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%203).,-Implementation%20Considerations"
-      }
-    }, {
-      "type": "documentation",
-      "label": "Recommendation 5",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation5:~:text=from%20higher%20dosages-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "weak",
-              "display": "Weak"
-            } ]
-          }
-        }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "very-low",
-              "display": "Very low quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation5:~:text=from%20higher%20dosages-,(recommendation%20category%3A%20B%3B%20evidence%20type%3A%204).,-Implementation%20Considerations"
-      }
-    } ],
     "trigger": [ {
       "type": "named-event",
       "name": "order-sign"
