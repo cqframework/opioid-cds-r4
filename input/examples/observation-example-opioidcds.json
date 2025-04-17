@@ -1,11 +1,6 @@
 {
    "resourceType": "Observation",
    "id": "example-opioidcds",
-   "meta": {
-      "profile": [
-         "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-observation"
-      ]
-   },
    "extension": [
       {
          "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/dataDateRoller",

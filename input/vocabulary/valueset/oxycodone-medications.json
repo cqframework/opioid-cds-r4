@@ -1,0 +1,582 @@
+{
+  "resourceType": "ValueSet",
+  "id": "oxycodone-medications",
+  "meta": {
+    "profile": [
+      "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+      "valueString": "Oxycodone medications"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+      "valueString": "Medication"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+      "valueString": "All Oxycodone medications"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+      "valueString": "None"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail": {
+        "name": "MD Partners, Inc.",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "info@mdpartners.com"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueCode": "computable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueCode": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+      "valueCode": "structured"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+      "valueCode": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+      "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
+      "valueMarkdown": "https://mor.nlm.nih.gov/RxMix/ Script: \r\nStep 1 Upload to RxMix a workflow config file  named GetRelatedByType.config containing the following workflow text: <WFE><filteredOutputs>RXCUI|name|term_type</filteredOutputs><input>NOINPUT</input><FS><service>NOINPUT</service><function>getRelatedByType</function><level>0</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>BPCK,GPCK,SBD,SCD</param></FS></WFE> \r\n\r\nStep 2 Create Batch text input file (Ingredients.txt) with following RxNorm Oxycodone as an input within the file:\r\n7804\r\n\r\nStep 3 Upload the batch text input file Ingredients.txt created in step 2. \r\n\r\nStep 4 Submit the batch which will run the workflow using the input codes to generate a combined set of all the concepts needed..\r\n"
+    }
+  ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-medications",
+  "name": "OXYCODONE_MEDICATIONS",
+  "title": "Oxycodone Medications",
+  "status": "active",
+  "experimental": false,
+  "date": "2025-02-24T13:06:49-07:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "contact": [
+    {
+      "name": "Centers for Disease Control and Prevention (CDC)",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.cdc.gov"
+        }
+      ]
+    }
+  ],
+  "description": "All Oxycodone medications",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "Oxycodone medications for opioid management",
+  "copyright": "© CDC 2016+.",
+  "expansion": {
+    "timestamp": "2025-02-24T13:06:49-07:00",
+    "total": 96,
+    "contains": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049216",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 10 MG Oral Tablet [Endocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049223",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet [Endocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049227",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 7.5 MG Oral Tablet [Endocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049504",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 10 MG Extended Release Oral Tablet [Oxycontin]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049545",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet [Oxycontin]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049565",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 20 MG Extended Release Oral Tablet [Oxycontin]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049576",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 30 MG Extended Release Oral Tablet [Oxycontin]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049586",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 40 MG Extended Release Oral Tablet [Oxycontin]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049595",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 60 MG Extended Release Oral Tablet [Oxycontin]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049601",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 80 MG Extended Release Oral Tablet [Oxycontin]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049613",
+        "display": "oxycodone hydrochloride 15 MG Oral Tablet [Roxicodone]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049620",
+        "display": "oxycodone hydrochloride 30 MG Oral Tablet [Roxicodone]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049623",
+        "display": "oxycodone hydrochloride 5 MG Oral Tablet [Roxicodone]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049625",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 10 MG Oral Tablet [Percocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049637",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 2.5 MG Oral Tablet [Percocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049640",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet [Percocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049642",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 7.5 MG Oral Tablet [Percocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1487288",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 2.5 MG Oral Tablet [Endocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1537116",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 5 MG Oral Tablet [Primlev]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1537120",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 10 MG Oral Tablet [Primlev]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1537122",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 7.5 MG Oral Tablet [Primlev]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1664448",
+        "display": "oxycodone hydrochloride 5 MG Oral Tablet [Oxaydo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1664634",
+        "display": "oxycodone hydrochloride 7.5 MG Oral Tablet [Oxaydo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1790533",
+        "display": "Abuse-Deterrent 12 HR oxycodone 9 MG Extended Release Oral Capsule [Xtampza]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791560",
+        "display": "Abuse-Deterrent 12 HR oxycodone 13.5 MG Extended Release Oral Capsule [Xtampza]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791569",
+        "display": "Abuse-Deterrent 12 HR oxycodone 18 MG Extended Release Oral Capsule [Xtampza]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791576",
+        "display": "Abuse-Deterrent 12 HR oxycodone 27 MG Extended Release Oral Capsule [Xtampza]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791582",
+        "display": "Abuse-Deterrent 12 HR oxycodone 36 MG Extended Release Oral Capsule [Xtampza]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1944535",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 15 MG Oral Tablet [Roxybond]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1944540",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 30 MG Oral Tablet [Roxybond]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1944543",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 5 MG Oral Tablet [Roxybond]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2045500",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 2.5 MG Oral Tablet [Nalocet]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2279510",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 10 MG Oral Tablet [Prolate]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2279512",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 5 MG Oral Tablet [Prolate]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2279514",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 7.5 MG Oral Tablet [Prolate]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2281851",
+        "display": "acetaminophen 60 MG/ML / oxycodone hydrochloride 2 MG/ML Oral Solution [Prolate]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2693196",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 10 MG Oral Tablet [Roxybond]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "848928",
+        "display": "aspirin 325 MG / oxycodone hydrochloride 4.84 MG Oral Tablet [Endodan Reformulated May 2009]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1014599",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1014615",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1014632",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 7.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1037259",
+        "display": "acetaminophen 300 MG / oxycodone hydrochloride 2.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049214",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049221",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049225",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 7.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049233",
+        "display": "acetaminophen 500 MG / oxycodone hydrochloride 7.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049251",
+        "display": "acetaminophen 400 MG / oxycodone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049260",
+        "display": "acetaminophen 400 MG / oxycodone hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049267",
+        "display": "acetaminophen 400 MG / oxycodone hydrochloride 7.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049270",
+        "display": "acetaminophen 650 MG / oxycodone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049502",
+        "display": "12 HR oxycodone hydrochloride 10 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049543",
+        "display": "12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049563",
+        "display": "12 HR oxycodone hydrochloride 20 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049574",
+        "display": "12 HR oxycodone hydrochloride 30 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049580",
+        "display": "acetaminophen 65 MG/ML / oxycodone hydrochloride 1 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049584",
+        "display": "12 HR oxycodone hydrochloride 40 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049589",
+        "display": "ibuprofen 400 MG / oxycodone hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049593",
+        "display": "12 HR oxycodone hydrochloride 60 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049599",
+        "display": "12 HR oxycodone hydrochloride 80 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049604",
+        "display": "oxycodone hydrochloride 1 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049611",
+        "display": "oxycodone hydrochloride 15 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049615",
+        "display": "oxycodone hydrochloride 20 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049618",
+        "display": "oxycodone hydrochloride 30 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049621",
+        "display": "oxycodone hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049635",
+        "display": "acetaminophen 325 MG / oxycodone hydrochloride 2.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049651",
+        "display": "acetaminophen 500 MG / oxycodone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049658",
+        "display": "acetaminophen 500 MG / oxycodone hydrochloride 5 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049683",
+        "display": "oxycodone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049686",
+        "display": "oxycodone hydrochloride 20 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049696",
+        "display": "oxycodone hydrochloride 5 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049717",
+        "display": "oxycodone hydrochloride 10 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049719",
+        "display": "oxycodone hydrochloride 10 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049720",
+        "display": "oxycodone hydrochloride 10 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049721",
+        "display": "oxycodone hydrochloride 20 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049727",
+        "display": "oxycodone hydrochloride 5 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1113314",
+        "display": "oxycodone hydrochloride 7.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1790527",
+        "display": "Abuse-Deterrent 12 HR oxycodone 9 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791558",
+        "display": "Abuse-Deterrent 12 HR oxycodone 13.5 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791567",
+        "display": "Abuse-Deterrent 12 HR oxycodone 18 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791574",
+        "display": "Abuse-Deterrent 12 HR oxycodone 27 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1791580",
+        "display": "Abuse-Deterrent 12 HR oxycodone 36 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1860127",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 60 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1860129",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 20 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1860137",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 40 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1860148",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 80 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1860151",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 30 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1860154",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1860157",
+        "display": "Abuse-Deterrent 12 HR oxycodone hydrochloride 10 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1944529",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 15 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1944538",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 30 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1944541",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2105822",
+        "display": "acetaminophen 60 MG/ML / oxycodone hydrochloride 2 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2693194",
+        "display": "Abuse-Deterrent oxycodone hydrochloride 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "637540",
+        "display": "aspirin 325 MG / oxycodone hydrochloride 4.5 MG / oxycodone terephthalate 0.38 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "724614",
+        "display": "aspirin 325 MG / oxycodone hydrochloride 2.25 MG / oxycodone terephthalate 0.19 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "848768",
+        "display": "aspirin 325 MG / oxycodone hydrochloride 4.84 MG Oral Tablet"
+      }
+    ]
+  }
+}

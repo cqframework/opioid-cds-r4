@@ -10,14 +10,14 @@ define "End-Stage Disease Criteria Enabled":
 
 // Sickle Cell
 define "Sickle Cell Check Enabled":
- true
+  true
+
+define "Sickle Cell Assumed Active":
+  true
 
 // Active Cancer Treatment
 define "Active Cancer Treatment Encounters Condition Is Enabled":
   true
-
-define "Active Cancer Treatment PractitionerRole Specialty Is Enabled":
-  false
 
 // Opioid Naive
 define "Opioid Naive Prescription Condition Is Enabled":
@@ -62,6 +62,15 @@ define "PDMP Data Not Reviewed in Past 90 Days Criteria Enabled":
 // Recommendation 10
 define "Opiate Urine Screening Check Enabled":
   true
+
+define "Cannabinoid Urine Screening Check Enabled":
+  false
+
+define "Use Alternative UDS Lookback Period":
+  false
+
+define "Alternative UDS Lookback Period":
+  Interval[Today() - 6 months - 1 days, Today()]
 
 // Recommendation 12
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":

@@ -85,20 +85,3 @@ define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
 
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'Regularly Evaluate the Benefits and Risks of Opioid Therapy'
-  else null
-
-define "Get Detail":
-  if "Is Recommendation Applicable?"
-    then
-      'Recommend that clinicians evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should also regularly reevaluate the benefits and risks of continued opioid therapy with patients.
-
-[Consult Recommendation 7 of the 2022 CDC Clinical Practice Guideline for additional guidance](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7)'
-  else null

@@ -74,6 +74,13 @@ define "Has Substance Abuse History":
         where C.code in Common."Conditions documenting substance misuse"
     )
 
+define "Has Sleep Disordered Breathing Condition":
+  exists (
+    Common."US Core-Categorized Conditions" C
+        where C.code in Common."Conditions Documenting Sleep Disordered Breathing"
+        and C.clinicalStatus in Common."Active Condition"
+  )
+
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
     and Routines."Is Opioid Review Useful?"
@@ -81,7 +88,7 @@ define "Inclusion Criteria":
       "On Benzodiazepine"
         or "Total MME" >= 50 '{MME}/d'
         or "Has Substance Abuse History"
-        // Need Concept for Diagnosed with a sleep-disordered breathing condition?
+        or "Has Sleep Disordered Breathing Condition"
     )
 
 define "On Naloxone":
@@ -97,33 +104,3 @@ define "Exclusion Criteria":
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
-
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'Incorporate into the management plan strategies to mitigate risk; including considering offering naloxone when factors that increase risk for opioid overdose are present'
-  else null
-
-define "Get Detail":
-  if "Is Recommendation Applicable?"
-    then
-      'Recommend incorporating strategies to mitigate opioid therapy risks, including offering naloxone
-
-For more information about prescribing naloxone see 
-https://prescribetoprevent.org
-
-**MME Calculator Cautions**
-1) All doses are in mg/day except for fentanyl, which is mcg/hr. 
-2) Equianalgesic dose conversions are only estimates and cannot account for individual variability in genetics and pharmacokinetics. 
-3) Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics. Consult the FDA approved product labeling for specific guidance on medications. 
-4) Use particular caution with methadone dose conversions because methadone has a long and variable half-life, and peak respiratory depressant effect occurs later and lasts longer than peak analgesic effect. 
-5) Use particular caution with transdermal fentanyl because it is dosed in mcg/hr instead of mg/day, and its absorption is affected by heat and other factors. 
-6) Buprenorphine products approved for the treatment of pain are not included in the table because of their partial µ-receptor agonist activity and resultant ceiling effects compared with full µ-receptor agonists. 
-7) These conversion factors should not be applied to dosage decisions related to the management of opioid use disorder.
-† Tapentadol is a µ-receptor agonist and norepinephrine reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tapentadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.
-§ Tramadol is a µ-receptor agonist and norepinephrine and serotonin reuptake inhibitor. MMEs are based on degree of µ-receptor agonist activity; however, it is unknown whether tramadol is associated with overdose in the same dose-dependent manner as observed with medications that are solely µ-receptor agonists.'
-  else null

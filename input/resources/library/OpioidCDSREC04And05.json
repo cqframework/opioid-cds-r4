@@ -1,6 +1,56 @@
 {
   "resourceType": "Library",
   "id": "OpioidCDSREC04And05",
+  "contained": [ {
+    "resourceType": "Parameters",
+    "id": "options",
+    "parameter": [ {
+      "name": "translatorVersion",
+      "valueString": "3.22.0"
+    }, {
+      "name": "option",
+      "valueString": "EnableAnnotations"
+    }, {
+      "name": "option",
+      "valueString": "EnableLocators"
+    }, {
+      "name": "option",
+      "valueString": "DisableListDemotion"
+    }, {
+      "name": "option",
+      "valueString": "DisableListPromotion"
+    }, {
+      "name": "format",
+      "valueString": "JSON"
+    }, {
+      "name": "format",
+      "valueString": "XML"
+    }, {
+      "name": "analyzeDataRequirements",
+      "valueBoolean": false
+    }, {
+      "name": "collapseDataRequirements",
+      "valueBoolean": true
+    }, {
+      "name": "compatibilityLevel",
+      "valueString": "1.5"
+    }, {
+      "name": "enableCqlOnly",
+      "valueBoolean": false
+    }, {
+      "name": "errorLevel",
+      "valueString": "Info"
+    }, {
+      "name": "signatureLevel",
+      "valueString": "Overloads"
+    }, {
+      "name": "validateUnits",
+      "valueBoolean": true
+    }, {
+      "name": "verifyOnly",
+      "valueBoolean": false
+    } ]
+  } ],
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
@@ -10,6 +60,11 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
       "reference": "Device/cqf-tooling"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions",
+    "valueReference": {
+      "reference": "#options"
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC04And05",
@@ -50,10 +105,6 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
-    "display": "Library Common",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon|2022.1.0"
-  }, {
-    "type": "depends-on",
     "display": "Library OMTKLogic",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OMTKLogic|3.0.0"
   }, {
@@ -62,20 +113,12 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OMTKData|3.0.0"
   }, {
     "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
-  }, {
-    "type": "depends-on",
     "display": "Library ConversionFactors",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/ConversionFactors|3.0.0"
   }, {
     "type": "depends-on",
     "display": "Library CDCMMEClinicalConversionFactors",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/CDCMMEClinicalConversionFactors|3.0.0"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers|4.0.1"
   }, {
     "type": "depends-on",
     "display": "Code system Usage Context Type",
@@ -106,24 +149,16 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
   }, {
     "type": "depends-on",
-    "display": "Value set Limited life expectancy conditions",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+    "display": "Value set Conditions likely terminal for opioid prescribing",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
   }, {
     "type": "depends-on",
     "display": "Value set Active Condition",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
   }, {
     "type": "depends-on",
-    "display": "Value set Therapies indicating end of life care",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Conditions likely terminal for opioid prescribing",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Hospice Procedure Codes",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+    "display": "Value set Limited life expectancy conditions",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
   } ],
   "parameter": [ {
     "name": "ContextPrescriptions",
@@ -197,39 +232,14 @@
     "min": 0,
     "max": "1",
     "type": "boolean"
-  }, {
-    "name": "Get Indicator",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "string"
-  }, {
-    "name": "Get Summary",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "string"
-  }, {
-    "name": "Get Detail",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "string"
   } ],
   "dataRequirement": [ {
     "type": "Patient",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
   }, {
-    "type": "Medication",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-    "mustSupport": [ "id" ],
-    "codeFilter": [ {
-      "path": "id"
-    } ]
-  }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
@@ -237,7 +247,7 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
@@ -245,36 +255,17 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "status", "intent", "authoredOn", "code" ]
-  }, {
-    "type": "Procedure",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-    "mustSupport": [ "code", "status", "status.value" ],
-    "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
-    } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "status", "status.value" ]
-  }, {
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
     "mustSupport": [ "period", "period.start", "status", "status.value" ]
   } ],
-  "content" : [{
-    "id" : "ig-loader-OpioidCDSREC04And05.cql"
-  }]
+  "content": [ {
+    "id": "ig-loader-OpioidCDSREC04And05.cql"
+  } ]
 }

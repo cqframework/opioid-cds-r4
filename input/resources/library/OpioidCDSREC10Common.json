@@ -1,10 +1,65 @@
 {
   "resourceType": "Library",
   "id": "OpioidCDSREC10Common",
+  "contained": [ {
+    "resourceType": "Parameters",
+    "id": "options",
+    "parameter": [ {
+      "name": "translatorVersion",
+      "valueString": "3.22.0"
+    }, {
+      "name": "option",
+      "valueString": "EnableAnnotations"
+    }, {
+      "name": "option",
+      "valueString": "EnableLocators"
+    }, {
+      "name": "option",
+      "valueString": "DisableListDemotion"
+    }, {
+      "name": "option",
+      "valueString": "DisableListPromotion"
+    }, {
+      "name": "format",
+      "valueString": "JSON"
+    }, {
+      "name": "format",
+      "valueString": "XML"
+    }, {
+      "name": "analyzeDataRequirements",
+      "valueBoolean": false
+    }, {
+      "name": "collapseDataRequirements",
+      "valueBoolean": true
+    }, {
+      "name": "compatibilityLevel",
+      "valueString": "1.5"
+    }, {
+      "name": "enableCqlOnly",
+      "valueBoolean": false
+    }, {
+      "name": "errorLevel",
+      "valueString": "Info"
+    }, {
+      "name": "signatureLevel",
+      "valueString": "Overloads"
+    }, {
+      "name": "validateUnits",
+      "valueBoolean": true
+    }, {
+      "name": "verifyOnly",
+      "valueBoolean": false
+    } ]
+  } ],
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
       "reference": "Device/cqf-tooling"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions",
+    "valueReference": {
+      "reference": "#options"
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10Common",
@@ -39,24 +94,76 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommonConfig|2022.1.0"
   }, {
     "type": "depends-on",
-    "display": "Value set Observation Category Laboratory",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
+    "display": "Value set All Drug Urine Screening",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Amphetamine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Community",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Amphetamine Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Barbiturate Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Barbiturate Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Benzodiazepine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Benzodiazepine medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Buprenorphine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Buprenorphine Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-medications"
   }, {
     "type": "depends-on",
     "display": "Value set Cocaine Urine Tests",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
   }, {
     "type": "depends-on",
+    "display": "Value set Fentanyl Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Heroin Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/heroin-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Methadone Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Methadone Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Opiate Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Oxycodone Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-medications"
+  }, {
+    "type": "depends-on",
     "display": "Value set PCP Urine Tests",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Opioid drug urine screening",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Non-opioid drug urine screening",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening"
   }, {
     "type": "depends-on",
     "display": "Value set Encounter Diagnosis Condition Category",
@@ -71,24 +178,16 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
   }, {
     "type": "depends-on",
-    "display": "Value set Limited life expectancy conditions",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+    "display": "Value set Conditions likely terminal for opioid prescribing",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
   }, {
     "type": "depends-on",
     "display": "Value set Active Condition",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
   }, {
     "type": "depends-on",
-    "display": "Value set Therapies indicating end of life care",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Conditions likely terminal for opioid prescribing",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Hospice Procedure Codes",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
+    "display": "Value set Limited life expectancy conditions",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
   } ],
   "parameter": [ {
     "name": "Patient",
@@ -97,73 +196,391 @@
     "max": "1",
     "type": "Patient"
   }, {
-    "name": "Lookback Year",
+    "name": "UDS Lookback Period",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "Period"
   }, {
-    "name": "Laboratory Observations",
+    "name": "Rx Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "Period"
+  }, {
+    "name": "Amphetamine Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Barbiturate Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Benzodiazepine Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Buprenorphine Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Cannabinoid Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Cocaine Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Fentanyl Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Heroin Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Methadone Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Opiate Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "Oxycodone Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "PCP Simple Identifier",
+    "use": "out",
+    "min": 0,
+    "max": "1",
+    "type": "string"
+  }, {
+    "name": "All Opioid or Non-opioid UDS in Alternative Lookback Period",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "Observation"
   }, {
-    "name": "Cocaine Screenings",
+    "name": "All Opioid or Non-opioid UDS in Lookback Period",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "Observation"
   }, {
-    "name": "Has Positive Screening for Cocaine in Last 12 Months",
+    "name": "Inclusion Criteria For UDS Recommendation",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "boolean"
   }, {
-    "name": "PCP Screenings",
+    "name": "Amphetamine Screenings In Lookback Period",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "Observation"
   }, {
-    "name": "Has Positive Screening for PCP in Last 12 Months",
+    "name": "Positive Amphetamine Screenings In Lookback Period",
     "use": "out",
     "min": 0,
-    "max": "1",
-    "type": "boolean"
+    "max": "*",
+    "type": "Resource"
   }, {
-    "name": "Opiate Screenings",
+    "name": "Negative Amphetamine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Normalize Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Amphetamine Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Barbiturate Screenings In Lookback Period",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "Observation"
   }, {
-    "name": "Has Positive Screening for Opiates in Last 12 Months",
+    "name": "Positive Barbiturate Screenings In Lookback Period",
     "use": "out",
     "min": 0,
-    "max": "1",
-    "type": "boolean"
+    "max": "*",
+    "type": "Resource"
   }, {
-    "name": "Applicable Because of Positive Cocaine or PCP or Opiates",
+    "name": "Negative Barbiturate Screenings In Lookback Period",
     "use": "out",
     "min": 0,
-    "max": "1",
-    "type": "boolean"
+    "max": "*",
+    "type": "Resource"
   }, {
-    "name": "Non-opioid Screenings",
+    "name": "Barbiturate Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Benzodiazepine Screenings In Lookback Period",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "Observation"
   }, {
-    "name": "Patient had Urine Screening in Last 12 Months",
+    "name": "Positive Benzodiazepine Screenings In Lookback Period",
     "use": "out",
     "min": 0,
-    "max": "1",
-    "type": "boolean"
+    "max": "*",
+    "type": "Resource"
   }, {
-    "name": "Inclusion Criteria",
+    "name": "Negative Benzodiazepine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Benzodiazepine Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Buprenorphine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Buprenorphine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Buprenorphine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Buprenorphine Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Cannabinoid Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Cannabinoid Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Cannabinoid Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Cocaine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Cocaine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Cocaine Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Fentanyl Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Fentanyl Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Fentanyl Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Fentanyl Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Heroin Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Heroin Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Heroin Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Methadone Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Methadone Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Methadone Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Methadone Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Opiate Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Opiate Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Opiate Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Opiate Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "Oxycodone Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive Oxycodone Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative Oxycodone Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Oxycodone Rx In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "MedicationRequest"
+  }, {
+    "name": "PCP Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Observation"
+  }, {
+    "name": "Positive PCP Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Negative PCP Screenings In Lookback Period",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Unexpected Details",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Remove Substances Without Positive or Negative Results",
+    "use": "out",
+    "min": 0,
+    "max": "*",
+    "type": "Resource"
+  }, {
+    "name": "Inclusion Criteria For Unexpected Results",
     "use": "out",
     "min": 0,
     "max": "1",
@@ -175,127 +592,73 @@
     "max": "1",
     "type": "boolean"
   }, {
-    "name": "Positive Opiate Screenings",
+    "name": "All Lab Dates in Lookback Period",
     "use": "out",
     "min": 0,
     "max": "*",
-    "type": "Observation"
+    "type": "date"
   }, {
-    "name": "Negative Opiate Screenings",
-    "use": "out",
-    "min": 0,
-    "max": "*",
-    "type": "Observation"
-  }, {
-    "name": "Positive PCP Screenings",
-    "use": "out",
-    "min": 0,
-    "max": "*",
-    "type": "Observation"
-  }, {
-    "name": "Negative PCP Screenings",
-    "use": "out",
-    "min": 0,
-    "max": "*",
-    "type": "Observation"
-  }, {
-    "name": "Positive Cocaine Screenings",
-    "use": "out",
-    "min": 0,
-    "max": "*",
-    "type": "Observation"
-  }, {
-    "name": "Negative Cocaine Screenings",
-    "use": "out",
-    "min": 0,
-    "max": "*",
-    "type": "Observation"
-  }, {
-    "name": "Negative PCP Screenings Count Since Last Positive Screening",
+    "name": "Unexpected Div Start",
     "use": "out",
     "min": 0,
     "max": "1",
-    "type": "integer"
+    "type": "string"
   }, {
-    "name": "Negative Opiate Screenings Count Since Last Positive Screening",
+    "name": "Table Start",
     "use": "out",
     "min": 0,
     "max": "1",
-    "type": "integer"
+    "type": "string"
   }, {
-    "name": "Negative Cocaine Screenings Count Since Last Positive Screening",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "integer"
-  }, {
-    "name": "Positive Opiate Dates in Lookback Period",
+    "name": "Table Headers",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "string"
   }, {
-    "name": "Positive Cocaine Dates in Lookback Period",
+    "name": "Generate Table Rows",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "string"
   }, {
-    "name": "Positive PCP Dates in Lookback Period",
+    "name": "Generate Footer Rows",
     "use": "out",
     "min": 0,
     "max": "*",
     "type": "string"
   }, {
-    "name": "Cocaine Summary",
+    "name": "Table End",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "string"
   }, {
-    "name": "Cocaine Detail",
+    "name": "Details Table",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "string"
   }, {
-    "name": "Opiates Summary",
+    "name": "Expected Result Footnote",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "string"
   }, {
-    "name": "Opiates Detail",
+    "name": "Details More Info",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "string"
   }, {
-    "name": "PCP Summary",
+    "name": "Div End",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "string"
   }, {
-    "name": "PCP Detail",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "string"
-  }, {
-    "name": "Indicator",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "string"
-  }, {
-    "name": "Urine Drug Screening ProcedureRequest Category",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "CodeableConcept"
-  }, {
-    "name": "Cocaine And PCP Summary",
+    "name": "Get HTML Details",
     "use": "out",
     "min": 0,
     "max": "1",
@@ -307,63 +670,23 @@
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "code", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
     } ]
   }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "category", "status", "intent", "id", "subject", "authoredOn", "recorder", "dosageInstruction", "dispenseRequest", "medication" ],
     "codeFilter": [ {
       "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
@@ -371,7 +694,7 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
@@ -379,164 +702,17 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
   }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "status", "intent", "authoredOn", "code" ]
-  }, {
-    "type": "Procedure",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-    "mustSupport": [ "code", "status", "status.value" ],
-    "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
-    } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "status", "status.value" ]
-  }, {
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
     "mustSupport": [ "period", "period.start", "status", "status.value" ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code", "value", "effective" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
   } ],
-  "content" : [{
-    "id" : "ig-loader-OpioidCDSREC10Common.cql"
-  }]
+  "content": [ {
+    "id": "ig-loader-OpioidCDSREC10Common.cql"
+  } ]
 }

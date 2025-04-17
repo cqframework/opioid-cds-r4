@@ -1,6 +1,60 @@
 {
   "resourceType": "Library",
   "id": "OpioidCDSREC10PatientView",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">library-OpioidCDSREC10PatientView</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"> logic-library </td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">2022.1.0</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"3\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>http://fhir.org/guides/cdc/opioid-cds/Library/FHIRHelpers</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSCommon</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"2\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>code</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library OpioidCDSREC10PatientView version '2022.1.0'\n\nusing FHIR version '4.0.1'\n\ninclude FHIRHelpers version '4.0.1' called FHIRHelpers\ninclude OpioidCDSCommon version '2022.1.0' called Common\ninclude OpioidCDSRoutines version '2022.1.0' called Routines\n\ncode &quot;Urine Drug Screening&quot;: '310627008' from Common.SNOMED display 'Urine drug screening (procedure)'\n\n/*\n**  Recommendation #10\n**    When prescribing opioids for subacute or chronic pain, providers should use urine drug\n**    testing before starting opioid therapy and consider urine drug testing at\n**    least annually to assess for prescribed medications as well as other controlled\n**    prescription drugs and illicit drugs (recommendation category: B, evidence type: 4)\n**\n**  When\n**    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting\n**    Prescription is for treating chronic pain.\n**    Opioid review is useful for this patient:\n**      Patient is 18 or over\n**      Patient does not have findings indicating limited life expectancy\n**      Patient does not have orders for therapies indicating end of life care\n**      Patient is not undergoing active cancer treatment:\n**        Patient has had at least 2 encounters within the past year with any diagnosis of cancer\n**    Urine drug screening has not been performed in last 12 months\n**  Then\n**    Recommend urine drug screening\n**      Will perform urine screening\n**      Not for chronic pain management, snooze 3 months\n**      N/A - see comment, snooze 3 months\n**\n*/\n\n// META: Plan Definition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-10-patient-view\n\ncontext Patient\n\ndefine &quot;Lookback Year&quot;:\n  Interval[Today() - 12 months - 1 days, Today() - 1 day]\n\ndefine &quot;Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential&quot;:\n  exists (\n    Common.&quot;Active Ambulatory Opioid Rx&quot; AmbulatoryOpioidPrescription\n      where Routines.&quot;Is Acute Pain Prescription?&quot;( AmbulatoryOpioidPrescription )\n  )\n\ndefine &quot;Is Recommendation Applicable?&quot;:\n  &quot;Inclusion Criteria&quot;\n    and not &quot;Exclusion Criteria&quot;\n\ndefine &quot;Inclusion Criteria&quot;:\n  &quot;Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential&quot;\n    and Routines.&quot;Is Opioid Review Useful?&quot;\n    and not &quot;Patient had Urine Screening in Last 12 Months&quot;\n\ndefine &quot;Exclusion Criteria&quot;:\n  Common.&quot;End of Life Assessment&quot;\n\ndefine &quot;Patient had Urine Screening in Last 12 Months&quot;:\n  exists( &quot;Urine Screenings during the Last 12 Months&quot; )\n\ndefine &quot;Urine Screenings during the Last 12 Months&quot;:\n  (\n    [Observation: &quot;code&quot; in Common.&quot;Non-opioid drug urine screening&quot;] IllicitDrugScreen\n      where date from IllicitDrugScreen.effective in day of &quot;Lookback Year&quot;\n        and not (IllicitDrugScreen.status.value in { 'unknown', 'entered-in-error', 'cancelled' })\n  )\n  union\n  (\n    [Observation: &quot;code&quot; in Common.&quot;Opioid drug urine screening&quot;] OpioidDrugScreen\n      where date from OpioidDrugScreen.effective in day of &quot;Lookback Year&quot;\n        and not (OpioidDrugScreen.status.value in { 'unknown', 'entered-in-error', 'cancelled' })\n  )\n\ndefine &quot;No Screening In Last 12 Months Indicator&quot;:\n  if &quot;Is Recommendation Applicable?&quot;\n    then 'warning'\n  else null\n\ndefine &quot;No Screening In Last 12 Months Summary&quot;:\n  if &quot;Is Recommendation Applicable?&quot;\n    then 'Annual Urine Screening Check'\n  else null\n\ndefine &quot;No Screening In Last 12 Months Detail&quot;:\n  if &quot;Is Recommendation Applicable?&quot;\n    then 'Patients on opioid therapy should have a urine drug test performed every 12 months.'\n  else null\n\n/*\nPlanDefinition:\n  Inclusion Criteria:\n    No Screening in Last 12 months - ServiceRequest - Urine Screening\n    Opioids found in urine screening\n    Illicit drugs found in urine screening\n*/\n\n// Service Request - Urine Screening\n// Detected Issue - Opioids found in urine screening\n// Detected Issue - Illicit drugs found in urine screening\n\ndefine &quot;Urine Drug Screening Request&quot;:\n    ServiceRequest {\n      //identifier:,\n      instantiatesCanonical: { FHIR.canonical { value: 'http://fhir.org/guides/cdc/activitydefinition/urine-screening-request' } },\n      status: FHIR.RequestStatus { value: 'draft' },\n      intent: FHIR.RequestIntent { value: 'proposal' },\n      priority: FHIR.RequestPriority { value: 'routine' },\n      code: FHIR.CodeableConcept { coding: { ToCoding(&quot;Urine Drug Screening&quot;) } },\n      subject: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },\n      occurrence: FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 7 days } },\n      authoredOn: FHIR.dateTime { value: Now() },\n      reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: &quot;No Screening In Last 12 Months Detail&quot; } } }\n      // doesn't really work, need a relatedArtifact here...\n      //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Introduction:~:text=9%2C%20Implementation%20Considerations).-,Recommendation,-10' } } }\n    }\n\n/*\ndefine &quot;Opioids Issue&quot;:\n  DetectedIssue {\n    //identifier:,\n    status: FHIR.ObservationStatus { value: 'preliminary' },\n    code: FHIR.CodeableConcept { text: FHIR.string { value: &quot;Evidence of Opioids Summary&quot; } },\n    severity: FHIR.DetectedIssueSeverity { value: 'moderate' },\n    patient: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },\n    identified: FHIR.dateTime { value: Now() },\n    // TODO: Device representation...\n    // author:,\n    // TODO: Reference the lab results that were used to infer this\n    // implicated:,\n    detail: FHIR.string { value: &quot;Evidence of Opioids Detail&quot; },\n    reference: FHIR.uri { value: 'http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-patient-view'}\n  }\n\ndefine &quot;Illicit Drugs Issue&quot;:\n  DetectedIssue {\n    //identifier:,\n    status: FHIR.ObservationStatus { value: 'preliminary' },\n    code: FHIR.CodeableConcept { text: FHIR.string { value: &quot;Evidence of Illicit Drugs Summary&quot; } },\n    severity: FHIR.DetectedIssueSeverity { value: 'moderate' },\n    patient: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },\n    identified: FHIR.dateTime { value: Now() },\n    // TODO: Device representation...\n    // author:,\n    // TODO: Reference the lab results that were used to infer this\n    // implicated:,\n    detail: FHIR.string { value: &quot;Evidence of Illicit Drugs Detail&quot; },\n    reference: FHIR.uri { value: 'http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-patient-view'}\n  }\n*/\n\ndefine function ToCoding(code System.Code):\n  FHIR.Coding {\n    code: FHIR.code { value: code.code },\n    system: FHIR.uri { value: code.system },\n    version: FHIR.string { value: code.version },\n    display: FHIR.string { value: code.display }\n  }\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
+  },
+  "contained": [ {
+    "resourceType": "Parameters",
+    "id": "options",
+    "parameter": [ {
+      "name": "translatorVersion",
+      "valueString": "3.22.0"
+    }, {
+      "name": "option",
+      "valueString": "EnableAnnotations"
+    }, {
+      "name": "option",
+      "valueString": "EnableLocators"
+    }, {
+      "name": "option",
+      "valueString": "DisableListDemotion"
+    }, {
+      "name": "option",
+      "valueString": "DisableListPromotion"
+    }, {
+      "name": "format",
+      "valueString": "JSON"
+    }, {
+      "name": "format",
+      "valueString": "XML"
+    }, {
+      "name": "analyzeDataRequirements",
+      "valueBoolean": false
+    }, {
+      "name": "collapseDataRequirements",
+      "valueBoolean": true
+    }, {
+      "name": "compatibilityLevel",
+      "valueString": "1.5"
+    }, {
+      "name": "enableCqlOnly",
+      "valueBoolean": false
+    }, {
+      "name": "errorLevel",
+      "valueString": "Info"
+    }, {
+      "name": "signatureLevel",
+      "valueString": "Overloads"
+    }, {
+      "name": "validateUnits",
+      "valueBoolean": true
+    }, {
+      "name": "verifyOnly",
+      "valueBoolean": false
+    } ]
+  } ],
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
@@ -10,6 +64,11 @@
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
       "reference": "Device/cqf-tooling"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlOptions",
+    "valueReference": {
+      "reference": "#options"
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC10PatientView",
@@ -50,12 +109,8 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2022.1.0"
   }, {
     "type": "depends-on",
-    "display": "Library Routines",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSRoutines|2022.1.0"
-  }, {
-    "type": "depends-on",
     "display": "Code system SNOMED",
-    "resource": "http://snomed.info/sct/731000124108"
+    "resource": "http://snomed.info/sct"
   }, {
     "type": "depends-on",
     "display": "Value set Encounter Diagnosis Condition Category",
@@ -70,40 +125,88 @@
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
   }, {
     "type": "depends-on",
-    "display": "Value set Limited life expectancy conditions",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
+    "display": "Value set Conditions likely terminal for opioid prescribing",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
   }, {
     "type": "depends-on",
     "display": "Value set Active Condition",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
   }, {
     "type": "depends-on",
-    "display": "Value set Therapies indicating end of life care",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/therapies-indicating-end-of-life-care"
+    "display": "Value set Limited life expectancy conditions",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions"
   }, {
     "type": "depends-on",
-    "display": "Value set Observation Category Laboratory",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
+    "display": "Value set All Drug Urine Screening",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
   }, {
     "type": "depends-on",
-    "display": "Value set Non-opioid drug urine screening",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening"
+    "display": "Value set Amphetamine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Community",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Amphetamine Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Barbiturate Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Barbiturate Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Benzodiazepine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Benzodiazepine medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Buprenorphine Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Buprenorphine Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-medications"
   }, {
     "type": "depends-on",
     "display": "Value set Cocaine Urine Tests",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
   }, {
     "type": "depends-on",
+    "display": "Value set Fentanyl Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Heroin Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/heroin-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Methadone Urine Tests",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-urine-drug-screening-tests"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Methadone Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Opiate Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications"
+  }, {
+    "type": "depends-on",
+    "display": "Value set Oxycodone Medications",
+    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-medications"
+  }, {
+    "type": "depends-on",
     "display": "Value set PCP Urine Tests",
     "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Conditions likely terminal for opioid prescribing",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
-  }, {
-    "type": "depends-on",
-    "display": "Value set Hospice Procedure Codes",
-    "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
   } ],
   "parameter": [ {
     "name": "Patient",
@@ -130,25 +233,13 @@
     "max": "1",
     "type": "boolean"
   }, {
-    "name": "Applicable Because of Positive Cocaine or PCP or Opiates",
+    "name": "Applicable Because of Unexpected Results",
     "use": "out",
     "min": 0,
     "max": "1",
     "type": "boolean"
   }, {
     "name": "Detail",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "string"
-  }, {
-    "name": "Indicator",
-    "use": "out",
-    "min": 0,
-    "max": "1",
-    "type": "string"
-  }, {
-    "name": "Summary",
     "use": "out",
     "min": 0,
     "max": "1",
@@ -166,7 +257,7 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
@@ -174,7 +265,7 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
@@ -182,62 +273,11 @@
   }, {
     "type": "Condition",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-    "mustSupport": [ "category" ],
+    "mustSupport": [ "category", "code", "clinicalStatus" ],
     "codeFilter": [ {
       "path": "category",
       "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
     } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "status", "intent", "authoredOn", "code" ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Procedure",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
-    "mustSupport": [ "code", "status", "status.value" ],
-    "codeFilter": [ {
-      "path": "code",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure"
-    } ]
-  }, {
-    "type": "ServiceRequest",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
-    "mustSupport": [ "code", "status", "status.value" ]
   }, {
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
@@ -245,29 +285,21 @@
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "mustSupport": [ "code", "effective", "status" ],
     "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
+      "path": "code",
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
     } ]
   }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
+    "type": "MedicationRequest",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+    "mustSupport": [ "category", "status", "intent", "id", "subject", "authoredOn", "recorder", "dosageInstruction", "dispenseRequest", "medication" ],
     "codeFilter": [ {
       "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
-    } ]
-  }, {
-    "type": "Observation",
-    "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-    "mustSupport": [ "category", "code" ],
-    "codeFilter": [ {
-      "path": "category",
-      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory"
+      "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     } ]
   } ],
-  "content" : [{
-    "id" : "ig-loader-OpioidCDSREC10PatientView.cql"
-  }]
+  "content": [ {
+    "id": "ig-loader-OpioidCDSREC10PatientView.cql"
+  } ]
 }

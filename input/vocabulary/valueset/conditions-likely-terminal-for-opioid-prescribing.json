@@ -129,7 +129,6 @@
     } ]
   },
   "expansion": {
-    "identifier": "7d221f20-b7ec-46c5-81f1-8f1a4a7d6cc1",
     "timestamp": "2022-05-09T13:03:22-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
@@ -5006,6 +5005,11 @@
       "version": "FY2021",
       "code": "K72",
       "display": "Hepatic failure, not elsewhere classified"
+    }, {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "version": "FY2021",
+      "code": "Z51.5",
+      "display": "Palliative care"
     }, {
       "system": "http://snomed.info/sct",
       "version": "2021-03",

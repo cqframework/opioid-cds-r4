@@ -24,14 +24,14 @@
     "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
-    "valueMarkdown": "https://mor.nlm.nih.gov/RxMix/ Script:\r\nStep 1 \r\nCreate Batch text input file (SCT-785276005.txt) with following SCT identifier (for the concept \"Product containing amfetamine and/or amfetamine derivative (product)\") as an input within the file: \r\n785276005       \r\n\r\nStep 2\r\nSubmit batch job using the above SCT-Opioids.txt file to following workflow by uploading the config file (Amphetamine-class-meds.config) with the following in the file:  <WFE><filteredOutputs>RXCUI|name|term_type</filteredOutputs><input>NOINPUT</input><FS><service>NOINPUT</service><function>getClassMembers</function><level>0</level><paramSize>5</paramSize><param order ='0'>?</param><param order ='1'>SNOMEDCT</param><param order ='2'>isa_structure</param><param order ='3'>0</param><param order ='4'>IN,MIN,PIN</param></FS><FS><service>NOINPUT</service><function>getRelatedByType</function><level>1</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>GPCK,SCD</param></FS></WFE>\r\nThis will produce a result file with all Amphetamine-class clinical drugs included"
+    "valueMarkdown": "https://mor.nlm.nih.gov/RxMix/ Script:\r\nStep 1 \r\nCreate Batch text input file (SCT-785276005.txt) with following SCT identifier (for the concept \"Product containing amfetamine and/or amfetamine derivative (product)\") as an input within the file: \r\n785276005       \r\n\r\nStep 2\r\nSubmit batch job using the above SCT-Opioids.txt file to following workflow by uploading the config file (Amphetamine-class-meds.config) with the following in the file:  <WFE><filteredOutputs>RXCUI|name|term_type</filteredOutputs><input>NOINPUT</input><FS><service>NOINPUT</service><function>getClassMembers</function><level>0</level><paramSize>5</paramSize><param order ='0'>?</param><param order ='1'>SNOMEDCT</param><param order ='2'>isa_structure</param><param order ='3'>0</param><param order ='4'>IN,MIN,PIN</param></FS><FS><service>NOINPUT</service><function>getRelatedByType</function><level>1</level><paramSize>2</paramSize><param order ='0'>?</param><param order ='1'>BPCK,GPCK,SBD,SCD</param></FS></WFE>\r\nThis will produce a result file with all Amphetamine-class clinical drugs included"
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications",
   "name": "AMPHETAMINES_CLASS_MEDICATIONS",
   "title": "Amphetamine class medications",
   "status": "active",
   "experimental": false,
-  "date": "2023-05-25T18:08:12-06:00",
+  "date": "2025-02-24T13:06:44-07:00",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "contact": [ {
     "name": "Centers for Disease Control and Prevention (CDC)",
@@ -50,533 +50,824 @@
   "purpose": "Identify amphetamine medications",
   "copyright": "© CDC 2016+.",
   "expansion": {
-    "identifier": "2a99671b-3c9a-45d5-b293-5b38f3207b02",
-    "timestamp": "2023-05-25T18:08:12-06:00",
-    "total": 104,
-    "parameter": [ {
-      "name": "version",
-      "valueString": "2023-03"
-    } ],
-    "contains": [ {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "904372",
-      "display": "benzphetamine hydrochloride 25 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "904368",
-      "display": "benzphetamine hydrochloride 50 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861237",
-      "display": "24 HR amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861221",
-      "display": "24 HR amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861223",
-      "display": "24 HR amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861225",
-      "display": "24 HR amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861227",
-      "display": "24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861232",
-      "display": "24 HR amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927610",
-      "display": "3-Bead 24 HR amphetamine aspartate 12.5 MG / amphetamine sulfate 12.5 MG / dextroamphetamine saccharate 12.5 MG / dextroamphetamine sulfate 12.5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927630",
-      "display": "3-Bead 24 HR amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927617",
-      "display": "3-Bead 24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927637",
-      "display": "3-Bead 24 HR amphetamine aspartate 9.375 MG / amphetamine sulfate 9.375 MG / dextroamphetamine saccharate 9.375 MG / dextroamphetamine sulfate 9.375 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2624726",
-      "display": "9 HR dextroamphetamine 0.5 MG/HR Transdermal System"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2624732",
-      "display": "9 HR dextroamphetamine 1 MG/HR Transdermal System"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2624701",
-      "display": "9 HR dextroamphetamine 1.5 MG/HR Transdermal System"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2624712",
-      "display": "9 HR dextroamphetamine 2 MG/HR Transdermal System"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "541878",
-      "display": "amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1009145",
-      "display": "amphetamine aspartate 1.875 MG / amphetamine sulfate 1.875 MG / dextroamphetamine saccharate 1.875 MG / dextroamphetamine sulfate 1.875 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "541892",
-      "display": "amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "687043",
-      "display": "amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "577957",
-      "display": "amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "577961",
-      "display": "amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "541363",
-      "display": "amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884522",
-      "display": "dextroamphetamine sulfate 1 MG/ML Oral Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884520",
-      "display": "dextroamphetamine sulfate 10 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884385",
-      "display": "dextroamphetamine sulfate 10 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884532",
-      "display": "dextroamphetamine sulfate 15 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884684",
-      "display": "dextroamphetamine sulfate 15 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1425847",
-      "display": "dextroamphetamine sulfate 2.5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1535454",
-      "display": "dextroamphetamine sulfate 20 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1535470",
-      "display": "dextroamphetamine sulfate 30 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884535",
-      "display": "dextroamphetamine sulfate 5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884386",
-      "display": "dextroamphetamine sulfate 5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1425854",
-      "display": "dextroamphetamine sulfate 7.5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "979543",
-      "display": "24 HR phendimetrazine tartrate 105 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "979549",
-      "display": "phendimetrazine tartrate 35 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2381138",
-      "display": "fenfluramine 2.2 MG/ML Oral Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "238234",
-      "display": "mephentermine 30 MG/ML Injectable Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "977860",
-      "display": "methamphetamine hydrochloride 5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "238223",
-      "display": "methoxamine 20 MG/ML Injectable Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1871464",
-      "display": "lisdexamfetamine dimesylate 10 MG Chewable Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1593856",
-      "display": "lisdexamfetamine dimesylate 10 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1871462",
-      "display": "lisdexamfetamine dimesylate 20 MG Chewable Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "854830",
-      "display": "lisdexamfetamine dimesylate 20 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1871460",
-      "display": "lisdexamfetamine dimesylate 30 MG Chewable Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "854834",
-      "display": "lisdexamfetamine dimesylate 30 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1871456",
-      "display": "lisdexamfetamine dimesylate 40 MG Chewable Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "854838",
-      "display": "lisdexamfetamine dimesylate 40 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1871468",
-      "display": "lisdexamfetamine dimesylate 50 MG Chewable Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "854850",
-      "display": "lisdexamfetamine dimesylate 50 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1871466",
-      "display": "lisdexamfetamine dimesylate 60 MG Chewable Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "854846",
-      "display": "lisdexamfetamine dimesylate 60 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "854842",
-      "display": "lisdexamfetamine dimesylate 70 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2585460",
-      "display": "24 HR amphetamine 10 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1739803",
-      "display": "24 HR amphetamine 12.5 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2585462",
-      "display": "24 HR amphetamine 15 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1739813",
-      "display": "24 HR amphetamine 15.7 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1739819",
-      "display": "24 HR amphetamine 18.8 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1720586",
-      "display": "24 HR amphetamine 2.5 MG/ML Extended Release Suspension"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2585468",
-      "display": "24 HR amphetamine 20 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1739825",
-      "display": "24 HR amphetamine 3.1 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2585473",
-      "display": "24 HR amphetamine 5 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1739831",
-      "display": "24 HR amphetamine 6.3 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1739837",
-      "display": "24 HR amphetamine 9.4 MG Extended Release Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861237",
-      "display": "24 HR amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861221",
-      "display": "24 HR amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861223",
-      "display": "24 HR amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861225",
-      "display": "24 HR amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861227",
-      "display": "24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "861232",
-      "display": "24 HR amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927610",
-      "display": "3-Bead 24 HR amphetamine aspartate 12.5 MG / amphetamine sulfate 12.5 MG / dextroamphetamine saccharate 12.5 MG / dextroamphetamine sulfate 12.5 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927630",
-      "display": "3-Bead 24 HR amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927617",
-      "display": "3-Bead 24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1927637",
-      "display": "3-Bead 24 HR amphetamine aspartate 9.375 MG / amphetamine sulfate 9.375 MG / dextroamphetamine saccharate 9.375 MG / dextroamphetamine sulfate 9.375 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1945840",
-      "display": "amphetamine 1.25 MG/ML Extended Release Suspension"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "541878",
-      "display": "amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1009145",
-      "display": "amphetamine aspartate 1.875 MG / amphetamine sulfate 1.875 MG / dextroamphetamine saccharate 1.875 MG / dextroamphetamine sulfate 1.875 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "541892",
-      "display": "amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "687043",
-      "display": "amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "577957",
-      "display": "amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "577961",
-      "display": "amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "541363",
-      "display": "amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2118896",
-      "display": "amphetamine sulfate 10 MG Disintegrating Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1600695",
-      "display": "amphetamine sulfate 10 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2118898",
-      "display": "amphetamine sulfate 15 MG Disintegrating Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2118900",
-      "display": "amphetamine sulfate 20 MG Disintegrating Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "2118895",
-      "display": "amphetamine sulfate 5 MG Disintegrating Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "884655",
-      "display": "amphetamine sulfate 5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "204426",
-      "display": "p-hydroxyamphetamine 10 MG/ML / tropicamide 2.5 MG/ML Ophthalmic Solution"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1313059",
-      "display": "24 HR phentermine 11.25 MG / topiramate 69 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1302850",
-      "display": "24 HR phentermine 15 MG / topiramate 92 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1302839",
-      "display": "24 HR phentermine 3.75 MG / topiramate 23 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1302827",
-      "display": "24 HR phentermine 7.5 MG / topiramate 46 MG Extended Release Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1112982",
-      "display": "phentermine hydrochloride 15 MG Disintegrating Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "968766",
-      "display": "phentermine hydrochloride 15 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "826131",
-      "display": "phentermine hydrochloride 18.8 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1112987",
-      "display": "phentermine hydrochloride 30 MG Disintegrating Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "900038",
-      "display": "phentermine hydrochloride 30 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "1249083",
-      "display": "phentermine hydrochloride 37.5 MG Disintegrating Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "803348",
-      "display": "phentermine hydrochloride 37.5 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "803353",
-      "display": "phentermine hydrochloride 37.5 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "826919",
-      "display": "phentermine hydrochloride 8 MG Oral Tablet"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "826600",
-      "display": "phentermine resin 15 MG Oral Capsule"
-    }, {
-      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-      "version": "2023-03",
-      "code": "826910",
-      "display": "phentermine resin 30 MG Oral Capsule"
-    } ]
+    "timestamp": "2025-02-24T13:06:44-07:00",
+    "total": 163,
+    "contains": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "904368",
+        "display": "benzphetamine hydrochloride 50 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "904372",
+        "display": "benzphetamine hydrochloride 25 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1009147",
+        "display": "amphetamine aspartate 1.875 MG / amphetamine sulfate 1.875 MG / dextroamphetamine saccharate 1.875 MG / dextroamphetamine sulfate 1.875 MG Oral Tablet [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1425337",
+        "display": "dextroamphetamine sulfate 10 MG Oral Tablet [Zenzedi]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1425339",
+        "display": "dextroamphetamine sulfate 5 MG Oral Tablet [Zenzedi]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1426251",
+        "display": "dextroamphetamine sulfate 2.5 MG Oral Tablet [Zenzedi]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1426253",
+        "display": "dextroamphetamine sulfate 7.5 MG Oral Tablet [Zenzedi]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1535451",
+        "display": "dextroamphetamine sulfate 15 MG Oral Tablet [Zenzedi]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1535456",
+        "display": "dextroamphetamine sulfate 20 MG Oral Tablet [Zenzedi]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1535472",
+        "display": "dextroamphetamine sulfate 30 MG Oral Tablet [Zenzedi]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1541609",
+        "display": "dextroamphetamine sulfate 10 MG Oral Tablet [Dexedrine]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927616",
+        "display": "3-Bead 24 HR amphetamine aspartate 12.5 MG / amphetamine sulfate 12.5 MG / dextroamphetamine saccharate 12.5 MG / dextroamphetamine sulfate 12.5 MG Extended Release Oral Capsule [Mydayis]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927619",
+        "display": "3-Bead 24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule [Mydayis]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927632",
+        "display": "3-Bead 24 HR amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Extended Release Oral Capsule [Mydayis]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927639",
+        "display": "3-Bead 24 HR amphetamine aspartate 9.375 MG / amphetamine sulfate 9.375 MG / dextroamphetamine saccharate 9.375 MG / dextroamphetamine sulfate 9.375 MG Extended Release Oral Capsule [Mydayis]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624708",
+        "display": "9 HR dextroamphetamine 1.5 MG/HR Transdermal System [Xelstrym]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624715",
+        "display": "9 HR dextroamphetamine 2 MG/HR Transdermal System [Xelstrym]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624729",
+        "display": "9 HR dextroamphetamine 0.5 MG/HR Transdermal System [Xelstrym]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624735",
+        "display": "9 HR dextroamphetamine 1 MG/HR Transdermal System [Xelstrym]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "541365",
+        "display": "amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Oral Tablet [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "541879",
+        "display": "amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Oral Tablet [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "541894",
+        "display": "amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Oral Tablet [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "577960",
+        "display": "amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Oral Tablet [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "577962",
+        "display": "amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Oral Tablet [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "687045",
+        "display": "amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Oral Tablet [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861222",
+        "display": "24 HR amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Extended Release Oral Capsule [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861224",
+        "display": "24 HR amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Extended Release Oral Capsule [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861226",
+        "display": "24 HR amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Extended Release Oral Capsule [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861228",
+        "display": "24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861233",
+        "display": "24 HR amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Extended Release Oral Capsule [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861238",
+        "display": "24 HR amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Extended Release Oral Capsule [Adderall]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884526",
+        "display": "dextroamphetamine sulfate 1 MG/ML Oral Solution [ProCentra]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884528",
+        "display": "dextroamphetamine sulfate 10 MG Extended Release Oral Capsule [Dexedrine]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884534",
+        "display": "dextroamphetamine sulfate 15 MG Extended Release Oral Capsule [Dexedrine]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884537",
+        "display": "dextroamphetamine sulfate 5 MG Extended Release Oral Capsule [Dexedrine]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1009145",
+        "display": "amphetamine aspartate 1.875 MG / amphetamine sulfate 1.875 MG / dextroamphetamine saccharate 1.875 MG / dextroamphetamine sulfate 1.875 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1425847",
+        "display": "dextroamphetamine sulfate 2.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1425854",
+        "display": "dextroamphetamine sulfate 7.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1535454",
+        "display": "dextroamphetamine sulfate 20 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1535470",
+        "display": "dextroamphetamine sulfate 30 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927610",
+        "display": "3-Bead 24 HR amphetamine aspartate 12.5 MG / amphetamine sulfate 12.5 MG / dextroamphetamine saccharate 12.5 MG / dextroamphetamine sulfate 12.5 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927617",
+        "display": "3-Bead 24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927630",
+        "display": "3-Bead 24 HR amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1927637",
+        "display": "3-Bead 24 HR amphetamine aspartate 9.375 MG / amphetamine sulfate 9.375 MG / dextroamphetamine saccharate 9.375 MG / dextroamphetamine sulfate 9.375 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624701",
+        "display": "9 HR dextroamphetamine 1.5 MG/HR Transdermal System"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624712",
+        "display": "9 HR dextroamphetamine 2 MG/HR Transdermal System"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624726",
+        "display": "9 HR dextroamphetamine 0.5 MG/HR Transdermal System"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2624732",
+        "display": "9 HR dextroamphetamine 1 MG/HR Transdermal System"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "541363",
+        "display": "amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "541878",
+        "display": "amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "541892",
+        "display": "amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "577957",
+        "display": "amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "577961",
+        "display": "amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "687043",
+        "display": "amphetamine aspartate 3.125 MG / amphetamine sulfate 3.125 MG / dextroamphetamine saccharate 3.125 MG / dextroamphetamine sulfate 3.125 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861221",
+        "display": "24 HR amphetamine aspartate 2.5 MG / amphetamine sulfate 2.5 MG / dextroamphetamine saccharate 2.5 MG / dextroamphetamine sulfate 2.5 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861223",
+        "display": "24 HR amphetamine aspartate 3.75 MG / amphetamine sulfate 3.75 MG / dextroamphetamine saccharate 3.75 MG / dextroamphetamine sulfate 3.75 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861225",
+        "display": "24 HR amphetamine aspartate 5 MG / amphetamine sulfate 5 MG / dextroamphetamine saccharate 5 MG / dextroamphetamine sulfate 5 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861227",
+        "display": "24 HR amphetamine aspartate 6.25 MG / amphetamine sulfate 6.25 MG / dextroamphetamine saccharate 6.25 MG / dextroamphetamine sulfate 6.25 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861232",
+        "display": "24 HR amphetamine aspartate 7.5 MG / amphetamine sulfate 7.5 MG / dextroamphetamine saccharate 7.5 MG / dextroamphetamine sulfate 7.5 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "861237",
+        "display": "24 HR amphetamine aspartate 1.25 MG / amphetamine sulfate 1.25 MG / dextroamphetamine saccharate 1.25 MG / dextroamphetamine sulfate 1.25 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884385",
+        "display": "dextroamphetamine sulfate 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884386",
+        "display": "dextroamphetamine sulfate 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884520",
+        "display": "dextroamphetamine sulfate 10 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884522",
+        "display": "dextroamphetamine sulfate 1 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884532",
+        "display": "dextroamphetamine sulfate 15 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884535",
+        "display": "dextroamphetamine sulfate 5 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884684",
+        "display": "dextroamphetamine sulfate 15 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "994071",
+        "display": "24 HR phendimetrazine tartrate 105 MG Extended Release Oral Capsule [Melfiat]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "979543",
+        "display": "24 HR phendimetrazine tartrate 105 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "979549",
+        "display": "phendimetrazine tartrate 35 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2381144",
+        "display": "fenfluramine 2.2 MG/ML Oral Solution [Fintepla]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2381138",
+        "display": "fenfluramine 2.2 MG/ML Oral Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "238234",
+        "display": "mephentermine 30 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "977861",
+        "display": "methamphetamine hydrochloride 5 MG Oral Tablet [Desoxyn]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "977860",
+        "display": "methamphetamine hydrochloride 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "238223",
+        "display": "methoxamine 20 MG/ML Injectable Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1593858",
+        "display": "lisdexamfetamine dimesylate 10 MG Oral Capsule [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871459",
+        "display": "lisdexamfetamine dimesylate 40 MG Chewable Tablet [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871461",
+        "display": "lisdexamfetamine dimesylate 30 MG Chewable Tablet [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871463",
+        "display": "lisdexamfetamine dimesylate 20 MG Chewable Tablet [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871465",
+        "display": "lisdexamfetamine dimesylate 10 MG Chewable Tablet [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871467",
+        "display": "lisdexamfetamine dimesylate 60 MG Chewable Tablet [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871469",
+        "display": "lisdexamfetamine dimesylate 50 MG Chewable Tablet [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854832",
+        "display": "lisdexamfetamine dimesylate 20 MG Oral Capsule [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854836",
+        "display": "lisdexamfetamine dimesylate 30 MG Oral Capsule [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854840",
+        "display": "lisdexamfetamine dimesylate 40 MG Oral Capsule [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854844",
+        "display": "lisdexamfetamine dimesylate 70 MG Oral Capsule [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854848",
+        "display": "lisdexamfetamine dimesylate 60 MG Oral Capsule [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854852",
+        "display": "lisdexamfetamine dimesylate 50 MG Oral Capsule [Vyvanse]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1593856",
+        "display": "lisdexamfetamine dimesylate 10 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871456",
+        "display": "lisdexamfetamine dimesylate 40 MG Chewable Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871460",
+        "display": "lisdexamfetamine dimesylate 30 MG Chewable Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871462",
+        "display": "lisdexamfetamine dimesylate 20 MG Chewable Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871464",
+        "display": "lisdexamfetamine dimesylate 10 MG Chewable Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871466",
+        "display": "lisdexamfetamine dimesylate 60 MG Chewable Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1871468",
+        "display": "lisdexamfetamine dimesylate 50 MG Chewable Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854830",
+        "display": "lisdexamfetamine dimesylate 20 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854834",
+        "display": "lisdexamfetamine dimesylate 30 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854838",
+        "display": "lisdexamfetamine dimesylate 40 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854842",
+        "display": "lisdexamfetamine dimesylate 70 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854846",
+        "display": "lisdexamfetamine dimesylate 60 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "854850",
+        "display": "lisdexamfetamine dimesylate 50 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1600698",
+        "display": "amphetamine sulfate 10 MG Oral Tablet [Evekeo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1600700",
+        "display": "amphetamine sulfate 5 MG Oral Tablet [Evekeo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1720592",
+        "display": "24 HR amphetamine 2.5 MG/ML Extended Release Suspension [Dyanavel]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739809",
+        "display": "24 HR amphetamine 12.5 MG Extended Release Oral Tablet [Adzenys]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739815",
+        "display": "24 HR amphetamine 15.7 MG Extended Release Oral Tablet [Adzenys]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739821",
+        "display": "24 HR amphetamine 18.8 MG Extended Release Oral Tablet [Adzenys]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739827",
+        "display": "24 HR amphetamine 3.1 MG Extended Release Oral Tablet [Adzenys]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739833",
+        "display": "24 HR amphetamine 6.3 MG Extended Release Oral Tablet [Adzenys]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739839",
+        "display": "24 HR amphetamine 9.4 MG Extended Release Oral Tablet [Adzenys]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2175796",
+        "display": "amphetamine sulfate 10 MG Disintegrating Oral Tablet [Evekeo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2175891",
+        "display": "amphetamine sulfate 15 MG Disintegrating Oral Tablet [Evekeo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2175893",
+        "display": "amphetamine sulfate 20 MG Disintegrating Oral Tablet [Evekeo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2175894",
+        "display": "amphetamine sulfate 5 MG Disintegrating Oral Tablet [Evekeo]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585461",
+        "display": "24 HR amphetamine 10 MG Extended Release Oral Tablet [Dyanavel]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585465",
+        "display": "24 HR amphetamine 15 MG Extended Release Oral Tablet [Dyanavel]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585471",
+        "display": "24 HR amphetamine 20 MG Extended Release Oral Tablet [Dyanavel]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585476",
+        "display": "24 HR amphetamine 5 MG Extended Release Oral Tablet [Dyanavel]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1600695",
+        "display": "amphetamine sulfate 10 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1720586",
+        "display": "24 HR amphetamine 2.5 MG/ML Extended Release Suspension"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739803",
+        "display": "24 HR amphetamine 12.5 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739813",
+        "display": "24 HR amphetamine 15.7 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739819",
+        "display": "24 HR amphetamine 18.8 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739825",
+        "display": "24 HR amphetamine 3.1 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739831",
+        "display": "24 HR amphetamine 6.3 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1739837",
+        "display": "24 HR amphetamine 9.4 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1945840",
+        "display": "amphetamine 1.25 MG/ML Extended Release Suspension"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2118895",
+        "display": "amphetamine sulfate 5 MG Disintegrating Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2118896",
+        "display": "amphetamine sulfate 10 MG Disintegrating Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2118898",
+        "display": "amphetamine sulfate 15 MG Disintegrating Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2118900",
+        "display": "amphetamine sulfate 20 MG Disintegrating Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585460",
+        "display": "24 HR amphetamine 10 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585462",
+        "display": "24 HR amphetamine 15 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585468",
+        "display": "24 HR amphetamine 20 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2585473",
+        "display": "24 HR amphetamine 5 MG Extended Release Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "884655",
+        "display": "amphetamine sulfate 5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "206629",
+        "display": "p-hydroxyamphetamine 10 MG/ML / tropicamide 2.5 MG/ML Ophthalmic Solution [Paremyd]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "204426",
+        "display": "p-hydroxyamphetamine 10 MG/ML / tropicamide 2.5 MG/ML Ophthalmic Solution"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1302833",
+        "display": "24 HR phentermine 7.5 MG / topiramate 46 MG Extended Release Oral Capsule [Qsymia]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1302845",
+        "display": "24 HR phentermine 3.75 MG / topiramate 23 MG Extended Release Oral Capsule [Qsymia]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1302856",
+        "display": "24 HR phentermine 15 MG / topiramate 92 MG Extended Release Oral Capsule [Qsymia]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1313061",
+        "display": "24 HR phentermine 11.25 MG / topiramate 69 MG Extended Release Oral Capsule [Qsymia]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1810304",
+        "display": "phentermine hydrochloride 8 MG Oral Tablet [Lomaira]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "803350",
+        "display": "phentermine hydrochloride 37.5 MG Oral Capsule [Adipex-P]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "803354",
+        "display": "phentermine hydrochloride 37.5 MG Oral Tablet [Adipex-P]"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1112982",
+        "display": "phentermine hydrochloride 15 MG Disintegrating Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1112987",
+        "display": "phentermine hydrochloride 30 MG Disintegrating Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1249083",
+        "display": "phentermine hydrochloride 37.5 MG Disintegrating Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1302827",
+        "display": "24 HR phentermine 7.5 MG / topiramate 46 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1302839",
+        "display": "24 HR phentermine 3.75 MG / topiramate 23 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1302850",
+        "display": "24 HR phentermine 15 MG / topiramate 92 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1313059",
+        "display": "24 HR phentermine 11.25 MG / topiramate 69 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "803348",
+        "display": "phentermine hydrochloride 37.5 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "803353",
+        "display": "phentermine hydrochloride 37.5 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "826131",
+        "display": "phentermine hydrochloride 18.8 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "826586",
+        "display": "phentermine resin 15 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "826600",
+        "display": "phentermine resin 15 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "826832",
+        "display": "phentermine resin 30 MG Extended Release Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "826910",
+        "display": "phentermine resin 30 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "826919",
+        "display": "phentermine hydrochloride 8 MG Oral Tablet"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "900038",
+        "display": "phentermine hydrochloride 30 MG Oral Capsule"
+      },
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "968766",
+        "display": "phentermine hydrochloride 15 MG Oral Capsule"
+      }
+    ]
   }
 }
