@@ -10,7 +10,7 @@ define "End-Stage Disease Criteria Enabled":
 
 // Sickle Cell
 define "Sickle Cell Check Enabled":
- true
+  true
 
 define "Sickle Cell Assumed Active":
   true

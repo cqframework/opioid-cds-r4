@@ -1,0 +1,102 @@
+{
+  "systems" : [
+    {
+      "system" : "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+      "authoritative" : [],
+      "candidates" : []
+    },
+    {
+      "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+      "authoritative" : ["http://tx.fhir.org/r4"],
+      "candidates" : ["http://tx.hl7europe.eu/r4"]
+    },
+    {
+      "system" : "http://loinc.org",
+      "authoritative" : [],
+      "candidates" : [
+        "http://tx.fhir.org/r4",
+        "https://tx.ontoserver.csiro.au/fhir",
+        "https://terminologystandardsservice.ca/tx/fhir",
+        "http://tx.hl7europe.eu/r4"
+      ]
+    },
+    {
+      "system" : "http://nucc.org/provider-taxonomy",
+      "authoritative" : [],
+      "candidates" : ["http://tx.fhir.org/r4", "http://tx.hl7europe.eu/r4"]
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "authoritative" : [],
+      "candidates" : [
+        "http://tx.fhir.org/r4",
+        "https://tx.ontoserver.csiro.au/fhir",
+        "https://terminologystandardsservice.ca/tx/fhir",
+        "https://smt.esante.gouv.fr/fhir",
+        "http://tx.hl7europe.eu/r4"
+      ]
+    },
+    {
+      "system" : "http://snomed.info/sct|http://snomed.info/sct/731000124108",
+      "authoritative" : [],
+      "candidates" : [
+        "http://tx.fhir.org/r4",
+        "https://tx.ontoserver.csiro.au/fhir",
+        "https://terminologystandardsservice.ca/tx/fhir",
+        "https://smt.esante.gouv.fr/fhir",
+        "http://tx.hl7europe.eu/r4"
+      ]
+    },
+    {
+      "system" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/",
+      "authoritative" : [],
+      "candidates" : [
+        "http://tx.fhir.org/r4",
+        "https://tx.ontoserver.csiro.au/fhir",
+        "https://terminologystandardsservice.ca/tx/fhir",
+        "https://smt.esante.gouv.fr/fhir",
+        "http://tx.hl7europe.eu/r4"
+      ]
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "authoritative" : [],
+      "candidates" : [
+        "http://tx.fhir.org/r4",
+        "https://tx.ontoserver.csiro.au/fhir",
+        "https://terminologystandardsservice.ca/tx/fhir",
+        "http://tx.hl7europe.eu/r4"
+      ]
+    },
+    {
+      "system" : "http://www.ama-assn.org/go/cpt",
+      "authoritative" : [],
+      "candidates" : ["http://tx.fhir.org/r4"]
+    },
+    {
+      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "authoritative" : [],
+      "candidates" : ["http://tx.fhir.org/r4"]
+    },
+    {
+      "system" : "urn:com.epic.cdshooks.action.code.system.preference-list-item",
+      "authoritative" : [],
+      "candidates" : []
+    },
+    {
+      "system" : "urn:ietf:bcp:13",
+      "authoritative" : [],
+      "candidates" : ["http://tx.fhir.org/r4", "http://tx.hl7europe.eu/r4"]
+    },
+    {
+      "system" : "urn:ietf:bcp:47",
+      "authoritative" : [],
+      "candidates" : [
+        "http://tx.fhir.org/r4",
+        "https://tx.ontoserver.csiro.au/fhir",
+        "https://terminologystandardsservice.ca/tx/fhir",
+        "http://tx.hl7europe.eu/r4"
+      ]
+    }
+  ]
+}
