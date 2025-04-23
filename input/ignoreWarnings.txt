@@ -1,6 +1,29 @@
 == Suppressed Messages ==
 
 # The following URLs resolve despite the publisher warning
+WARNING: Library/ConversionFactors: Library.relatedArtifact[0].url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/ConversionFactors: Library.relatedArtifact[0].document.url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/ConversionFactors: Library.relatedArtifact[2].url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/ConversionFactors: Library.relatedArtifact[2].document.url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/FHIR-ModelInfo: Library.content[0].url: URL value 'https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/quick/src/main/resources/org/hl7/fhir/fhir-modelinfo-4.0.1.xml' does not resolve
+WARNING: Library/MMECalculator: Library.relatedArtifact[0].url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/MMECalculator: Library.relatedArtifact[0].document.url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/MMECalculator: Library.relatedArtifact[2].url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/MMECalculator: Library.relatedArtifact[2].document.url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/MMECalculator: Library.relatedArtifact[3].url: URL value 'https://fhir.org/guides/cdc/opioid-mme-r4/mme-calculator.html' does not resolve
+WARNING: Library/MMECalculator: Library.relatedArtifact[3].document.url: URL value 'https://fhir.org/guides/cdc/opioid-mme-r4/mme-calculator.html' does not resolve
+WARNING: Library/OMTKData: Library.relatedArtifact[0].url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/OMTKData: Library.relatedArtifact[0].document.url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/OMTKData: Library.relatedArtifact[2].url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/OMTKData: Library.relatedArtifact[2].document.url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/OMTKData: Library.relatedArtifact[3].url: URL value 'https://fhir.org/guides/cdc/opioid-mme-r4/omtkdata-processing.html' does not resolve
+WARNING: Library/OMTKData: Library.relatedArtifact[3].document.url: URL value 'https://fhir.org/guides/cdc/opioid-mme-r4/omtkdata-processing.html' does not resolve
+WARNING: Library/OMTKLogic: Library.relatedArtifact[0].url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/OMTKLogic: Library.relatedArtifact[0].document.url: URL value 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3128404/' does not resolve
+WARNING: Library/OMTKLogic: Library.relatedArtifact[2].url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/OMTKLogic: Library.relatedArtifact[2].document.url: URL value 'http://dx.doi.org/10.15585/mmwr.rr7103a1' does not resolve
+WARNING: Library/OMTKLogic: Library.relatedArtifact[3].url: URL value 'https://fhir.org/guides/cdc/opioid-mme-r4/mme-calculator.html' does not resolve
+WARNING: Library/OMTKLogic: Library.relatedArtifact[3].document.url: URL value 'https://fhir.org/guides/cdc/opioid-mme-r4/mme-calculator.html' does not resolve
 WARNING: RequestGroup/example-opioidcds: RequestGroup.action[0].documentation[0].url: URL value 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm' does not resolve
 WARNING: PlanDefinition/opioidcds-01: PlanDefinition.relatedArtifact[0].url: URL value 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm' does not resolve
 WARNING: PlanDefinition/opioidcds-01: PlanDefinition.relatedArtifact[0].document.url: URL value 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm' does not resolve
@@ -49,6 +72,44 @@ WARNING: ValueSet/non-synthetic-opioid-medications: ValueSet.extension[4].value.
 WARNING: ValueSet/opioid-analgesics-with-ambulatory-misuse-potential: ValueSet.extension[8].value.ofType(markdown): The markdown contains content that appears to be an embedded HTML tag starting at '<W'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/oxycodone-medications: ValueSet.extension[10].value.ofType(markdown): The markdown contains content that appears to be an embedded HTML tag starting at '<W'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: ValueSet/synthetic-opioid-medications: ValueSet.extension[8].value.ofType(markdown): The markdown contains content that appears to be an embedded HTML tag starting at '<W'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+
+# This is a CodeSystem defined in this IG
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[0].action[0].reason[0].coding[0].system: A definition for CodeSystem 'http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons' could not be found, so the code cannot be validated
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[0].action[1].reason[0].coding[0].system: A definition for CodeSystem 'http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons' could not be found, so the code cannot be validated
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[0].action[2].reason[0].coding[0].system: A definition for CodeSystem 'http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons' could not be found, so the code cannot be validated
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[0].action[3].reason[0].coding[0].system: A definition for CodeSystem 'http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons' could not be found, so the code cannot be validated
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[1].action[0].reason[0].coding[0].system: A definition for CodeSystem 'http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons' could not be found, so the code cannot be validated
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[1].action[1].reason[0].coding[0].system: A definition for CodeSystem 'http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons' could not be found, so the code cannot be validated
+WARNING: PlanDefinition/opioidcds-10-order-sign: PlanDefinition.action[1].action[2].reason[0].coding[0].system: A definition for CodeSystem 'http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons' could not be found, so the code cannot be validated
+
+# There is a bug in the translator resolving the library by canonical resulting in the ELM not being populated (will update once resolved)
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/FHIRHelpers.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC10PatientView.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC06.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC01.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSCommon.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OMTKLogic.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC04And05.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC11PatientView.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC10Common.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/ConversionFactors.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC02.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/HelloWorld.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/MMECalculator.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OMTKData.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSRoutines.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC12PatientView.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OMTKLogicMK2020.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSCommonConfig.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC09.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/HelloWorldPatientView.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/CDCMMEClinicalConversionFactors.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OMTKData2020.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC10OrderSign.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC07.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC03.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC08.cql: CQL source was not associated with a library resource in the IG.
+ERROR: /Users/christopherschuler/Documents/workspace/srs/opioid-cds-r4/input/cql/OpioidCDSREC11OrderSelect.cql: CQL source was not associated with a library resource in the IG.
 
 # The following errors will be resolved as soon as an OID is established for this IG - correspondence with CDC in progress
 ERROR: Resource: The resource ValueSet/all-urine-drug-screening-tests must have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)

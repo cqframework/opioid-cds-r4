@@ -123,12 +123,6 @@
       } ]
     }
   } ],
-  "jurisdiction": [ {
-    "coding": [ {
-      "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
-      "code": "840"
-    } ]
-  } ],
   "usage": "NOTE: Do not use the calculated dose in MMEs to determine dosage for converting one opioid to another—the new opioid should be lower to avoid unintentional overdose caused by incomplete cross-tolerance and individual differences in opioid pharmacokinetics. Consult the medication label.",
   "copyright": "Copyright 2019+ Centers for Disease Control and Prevention (CDC)",
   "lastReviewDate": "2020-09-26",
@@ -166,21 +160,12 @@
     }
   }, {
     "type": "citation",
-    "label": "CDC Opioid Prescribing Guideline",
-    "display": "Centers For Disease Control and Prevention (CDC) Guideline for Prescribing Opioids for Chronic Pain — United States, 2016",
-    "citation": "Dowell D, Haegerich TM, Chou R. CDC Guideline for Prescribing Opioids for Chronic Pain — United States, 2016. MMWR Recomm Rep 2016;65(No. RR-1):1–49. DOI: http://dx.doi.org/10.15585/mmwr.rr6501e1",
-    "url": "http://dx.doi.org/10.15585/mmwr.rr6501e1",
+    "label": "CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
+    "display": "CDC Clinical Practice Guideline for Prescribing Opioids for Pain — United States, 2022",
+    "citation": "Dowell D, Ragan KR, Jones CM, Baldwin GT, Chou R. CDC Clinical Practice Guideline for Prescribing Opioids for Pain — United States, 2022. MMWR Recomm Rep 2022;71(No. RR-3):1-95. DOI: http://dx.doi.org/10.15585/mmwr.rr7103a1",
+    "url": "http://dx.doi.org/10.15585/mmwr.rr7103a1",
     "document": {
-      "url": "http://dx.doi.org/10.15585/mmwr.rr6501e1"
-    }
-  }, {
-    "type": "citation",
-    "label": "Calculating total daily dose of opioids for safer dosage",
-    "display": "National Center for Injury Prevention and Control. Calculating total daily dose of opioids for safer dosage.",
-    "citation": "National Center for Injury Prevention and Control. Calculating total daily dose of opioids for safer dosage.<br/>Atlanta, GA: Centers for Disease Control and Prevention; https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf, accessed November 19th, 2020",
-    "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf",
-    "document": {
-      "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+      "url": "http://dx.doi.org/10.15585/mmwr.rr7103a1"
     }
   }, {
     "type": "documentation",
