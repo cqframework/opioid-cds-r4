@@ -498,6 +498,11 @@
     "id": "effective-data-requirements",
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
     "valueCanonical": "#effective-data-requirements"
+  }, {
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-03",
   "identifier": [ {
@@ -516,7 +521,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2025-04-22",
+  "date": "2025-04-24",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When starting opioid therapy for acute, subacute, or chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release and long-acting (ER/LA) opioids.",
   "useContext": [ {
