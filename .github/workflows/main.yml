@@ -23,6 +23,7 @@ jobs:
           node-version: 20.x
       - run: sh ./_updateCQFTooling-ci.sh
       - run: sh ./_refresh.sh
+      - run: cd tests
       - run: npm install
       - run: sh ./wait-for-container.sh
       - run: npm test
