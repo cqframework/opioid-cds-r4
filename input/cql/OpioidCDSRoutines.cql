@@ -22,15 +22,6 @@ context Patient
 **  sickle cell disease?    |                     | with those listed in the sickle cell         |
 **                          |                     | value set                                    |
 **  ------------------------------------------------------------------------------------------------------------------------------------
-**  Limited life            | No                  | Look for documented findings consistent      | Limited life expectancy conditions
-**  expectancy conditions   |                     | with those listed in the limited life        |
-**  present?                |                     | expectancy value set (terminal illness, bad  |
-**                          |                     | prognosis, pre-terminal)                     |
-**  ------------------------------------------------------------------------------------------------------------------------------------
-**  Order for therapies     | No                  | Look for patients with an existing order for | Therapies indicating end of life care
-**  indicating end of life  |                     | therapies indicating end of life care        |
-**  care in past 90 days?   |                     | written within past 90 days                  |
-**  ------------------------------------------------------------------------------------------------------------------------------------
 **  Active cancer           | No                  | See sub-routine 3                            | See sub-routine 3
 **  treatment?              |                     |                                              |
 **  ------------------------------------------------------------------------------------------------------------------------------------
@@ -47,50 +38,29 @@ define "Palliative Care Lookback Period":
 define "Is Opioid Review Useful?":
   not "Patient Age Less Than 18"
     and not "Condition Positive for Sickle Cell"
-    and not "Conditions Indicating End Of Life Present"
-    and not "Order For Palliative Care In Past 90 Days"
     and not "Is Active Cancer Treatment?"
-    and not "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present"
+    and not "Conditions Likely Terminal for Opioid Prescribing"
 
 define "Patient Age Less Than 18":
   if (Config."Age Less than 18 Years Is Enabled") then
     AgeInYearsAt(Today()) < 18
-  else
-    false
+  else false
 
 define "Condition Positive for Sickle Cell":
-      if (Config."Sickle Cell Check Enabled") then
-        exists(
-            Common."Positive Sickle Cell Condition"
-        )  else
-        false
+  if (Config."Sickle Cell Check Enabled") then
+    exists(
+      Common."Positive Sickle Cell Condition"
+    ) 
+  else false
 
-
-define "Conditions Indicating End Of Life Present":
-  exists (
-    Common."US Core-Categorized Conditions" LLEC
-      where LLEC.code in Common."Limited life expectancy conditions"
-        and LLEC.clinicalStatus in Common."Active Condition"
-  )
-
-define "Order For Palliative Care In Past 90 Days":
-  exists (
-    Common."Service Requests" SR
-    where SR.status in { 'active', 'completed'}
-      and SR.intent in {'proposal', 'plan,', 'directive', 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order'}
-      and FHIRHelpers.ToDateTime(SR.authoredOn) during day of "Palliative Care Lookback Period"
-      and SR.code in Common."Therapies indicating end of life care"
-  )
-
-define "Conditions Including Cancer To Exclude Opioid Management Indicating End-Stage Disease Present":
+define "Conditions Likely Terminal for Opioid Prescribing":
   if (Config."End-Stage Disease Criteria Enabled") then
     exists (
       Common."US Core-Categorized Conditions" EOLC
         where EOLC.code in Common."Conditions likely terminal for opioid prescribing"
-          and EOLC.clinicalStatus in Common."Active Condition"
+          // and EOLC.clinicalStatus in Common."Active Condition"
     )
-  else
-    false
+  else false
 
 // End of Opioid Review Useful Routine
 
@@ -143,8 +113,7 @@ define "Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
 define "Has Opioid RX with Ambulatory Abuse Potential In Past 90 Days":
     if (Config."Opioid Naive Prescription Condition Is Enabled") then
       exists ("Opioid RX with Ambulatory Abuse Potential In Past 90 Days")
-    else
-      false
+    else false
 
 // NOTE: 2020-02-05: Review direction of MedicationStatement resource (US-Core focusing on MedicationRequest i/o Statement)
 // NOTE: 2020-04-21: MedicationStatement a) Shouldn't be use since guidance/direction from USCore is targeting MedicationUse in R5, and b) Breaks in the publisher
@@ -165,8 +134,7 @@ define "Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
 define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
   if (Config."Opioid Naive Prescription Condition Is Enabled") then
     exists ("Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days")
-  else
-    false
+  else false
 
 // End of Opioid Naive Routine
 
@@ -200,52 +168,48 @@ define "Has Opioid Dispense with Ambulatory Abuse Potential In Past 90 Days":
 */
 
 define "Encounter Period":
-  Interval[Now() - 12 months, Now())
+  Interval[Today() - 12 months, Today())
 
 define "Is Active Cancer Treatment?":
-  if (Config."Active Cancer Treatment Encounters Condition Is Enabled") then
-      "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
-    else
-      false
+  if (Config."Active Cancer Treatment Encounters Condition Is Enabled") 
+    then "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
+      or "Has Active Cancer Diagnosis on Problem List"
+  else false
 
-define "Active Cancer Diagnoses":
-  Common."US Core-Categorized Conditions" C
-    where C.code in Common."CDC malignant cancer conditions"
+// encounter-diagnosis, problem-list and health-concern Conditions
+// define "US Core-Categorized Cancer Diagnoses":
+//   Common."US Core-Categorized Conditions" C
+//     where C.code in Common."CDC malignant cancer conditions"
 
-define "Oncologist Practitioner Roles":
-  [PractitionerRole: specialty in Common."Oncology specialty designations (NUCC)"] PractitionerRole
+// define "Encounters with Cancer Diagnosis During Encounter Period":
+//   [Encounter] Encounter
+//     with "US Core-Categorized Cancer Diagnoses" CancerDiagnosis
+//     such that date from Encounter.period."start".value in day of "Encounter Period"
+//       and EndsWith(CancerDiagnosis.encounter.reference, Encounter.id)
 
 define "Encounters with Cancer Diagnosis During Encounter Period":
-  [Encounter: Common."Office Visit"] Encounter
-    where date from Encounter.period."start".value in day of "Encounter Period"
-      and (
-        exists (
-          Encounter.diagnosis EncounterDiagnosis
-            with "Active Cancer Diagnoses" CancerDiagnosis
-            such that EndsWith(EncounterDiagnosis.condition.reference, CancerDiagnosis.id)
-        )
-        or exists (
-          Encounter.participant EncounterParticipant
-            where EncounterParticipant.type in Common."Oncology specialty designations (NUCC)"
-              or (
-                if (Config."Active Cancer Treatment PractitionerRole Specialty Is Enabled") then
-                  exists (
-                    "Oncologist Practitioner Roles" PractitionerRole
-                      where EndsWith(EncounterParticipant.individual.reference, PractitionerRole.id)
-                  )
-                else
-                  false
-              )
-        )
+  [Encounter] Encounters
+    where date from Encounters.period."start" in day of "Encounter Period"
+      and exists (
+        Common."USCore Encounter Cancer Diagnoses" CancerDiagnoses
+          where EndsWith(CancerDiagnoses.encounter.reference, Encounters.id)
       )
 
-
-
-define "Number of Enounters with Cancer Diagnosis During Encounter Period":
+define "Number of Encounters with Cancer Diagnosis During Encounter Period":
   Count ("Encounters with Cancer Diagnosis During Encounter Period")
 
 define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period":
-  "Number of Enounters with Cancer Diagnosis During Encounter Period" >= 2
+  "Number of Encounters with Cancer Diagnosis During Encounter Period" >= 2
+
+define "Has Active Cancer Diagnosis on Problem List":
+  exists (
+    Common."USCore Problem List Cancer Diagnoses" CancerDiagnoses
+      where CancerDiagnoses.category in Common."Problem List Condition Category"
+        and exists(
+          CancerDiagnoses.clinicalStatus.coding ClinicalStatus
+            where ClinicalStatus.code ~ 'active'
+        )
+  )
 
 // End of Active Cancer Treatment Routine
 
@@ -272,12 +236,24 @@ define "Has Two or More Encounters with Cancer Diagnosis During Encounter Period
 */
 
 define function "Is Subacute or Chronic Pain Prescription?"(prescription FHIR.MedicationRequest):
+  "Is Subacute or Chronic Pain Using Expected Supply Duration"(prescription)
+    or "Is Subacute or Chronic Pain Using Validity Period"(prescription)
+
+define function "Is Subacute or Chronic Pain Using Expected Supply Duration"(prescription FHIR.MedicationRequest):
   (
     prescription.dispenseRequest is not null
       and prescription.dispenseRequest.expectedSupplyDuration is not null
       and (
-        Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) between 30 days and 60 days
-          or Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 60 days
+        Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28 days 
+      )
+  )
+
+define function "Is Subacute or Chronic Pain Using Validity Period"(prescription FHIR.MedicationRequest):
+  (
+    prescription.dispenseRequest is not null
+      and prescription.dispenseRequest.validityPeriod is not null
+      and (
+        days between prescription.dispenseRequest.validityPeriod.start and prescription.dispenseRequest.validityPeriod.end >= 28 
       )
   )
 

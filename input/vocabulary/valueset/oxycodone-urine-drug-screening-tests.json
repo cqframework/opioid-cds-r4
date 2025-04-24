@@ -1,0 +1,206 @@
+{
+  "resourceType": "ValueSet",
+  "id": "oxycodone-urine-drug-screening-tests",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computablevalueset",
+      "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-rules-text",
+      "valueMarkdown": "Step 1: go to https://loinc.org/tree/\nStep 2: use query oxycodone AND system:urine\nStep 3: export the results to CSV\nStep 4: Filter results by properties defined in query"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/valueset-author",
+      "valueContactDetail": {
+        "name": "MD Partners, Inc.",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "info@mdpartners.com"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-clinical-focus",
+      "valueString": "Presumed general urine tests for oxycodone."
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-dataelement-scope",
+      "valueString": "Urine test"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion-criteria",
+      "valueString": "Codes"
+    },
+    {
+      "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-exclusion-criteria",
+      "valueString": "None"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueCode": "computable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+      "valueCode": "structured"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+      "valueCode": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+      "valueCode": "executable"
+    },
+    {
+      "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+      "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+    }
+  ],
+  "url": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-urine-drug-screening-tests",
+  "name": "OXYCODONE_URINE_DRUG_SCREENING_TESTS",
+  "title": "Oxycodone urine drug screening tests",
+  "status": "draft",
+  "experimental": true,
+  "date": "2024-04-15T12:22:34-06:00",
+  "publisher": "Centers for Disease Control and Prevention (CDC)",
+  "description": "Presumed general urine tests for oxycodone.",
+  "purpose": "Identification of urine drug tests where results can be used when considering pain management therapy",
+  "copyright": "© CDC 2016+.",
+  "expansion": {
+    "timestamp": "2024-04-15T12:22:37-06:00",
+    "total": 20,
+    "contains": [
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "51954-6",
+        "display": "oxyCODONE Free Ur-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "46973-4",
+        "display": "oxyCODONE Free Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "61197-0",
+        "display": "oxyCODONE+oxyMORphone Ur Ql Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "58430-0",
+        "display": "oxyCODONE+oxyMORphone Ur Ql Scn"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "60276-3",
+        "display": "oxyCODONE+oxyMORphone CtO Ur Scn-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "90894-7",
+        "display": "Noroxymorphone Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "89302-4",
+        "display": "Noroxymorphone Ur Ql Scn"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "86609-5",
+        "display": "Noroxymorphone/Creat Ur Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "11246-6",
+        "display": "oxyCODONE Ur-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "16249-5",
+        "display": "oxyCODONE Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "10998-3",
+        "display": "oxyCODONE Ur Ql"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19643-6",
+        "display": "oxyCODONE Ur Ql Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19642-8",
+        "display": "oxyCODONE Ur Ql Scn"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "70215-9",
+        "display": "oxyCODONE Ur Cfm-sCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "78873-7",
+        "display": "oxyCODONE Z-score Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19645-1",
+        "display": "oxyCODONE CtO Ur Cfm-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "19644-4",
+        "display": "oxyCODONE CtO Ur Scn-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "58395-5",
+        "display": "oxyCODONE/Creat Ur"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "78767-1",
+        "display": "oxyCODONE adj bodymass+crea Ur-mCnc"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "94304-3",
+        "display": "OxyCODONE+metabolites Pnl Ur Cfm"
+      },
+      {
+        "system": "http://loinc.org",
+        "version": "2.76",
+        "code": "94305-0",
+        "display": "OxyMORphone+Noroxymorph Pnl Ur Cfm"
+      }
+    ]
+  }
+}

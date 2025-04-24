@@ -80,20 +80,16 @@ define "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Pote
 
 define "Is Perform Drug Screen Recommendation Applicable?":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and Rec10Common."Inclusion Criteria"
+    and Rec10Common."Inclusion Criteria For UDS Recommendation"
     and not Rec10Common."Exclusion Criteria"
 
-define "Applicable Because of Positive Cocaine or PCP or Opiates":
-  Rec10Common."Applicable Because of Positive Cocaine or PCP or Opiates"
+define "Applicable Because of Unexpected Results":
+  "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
+    and Rec10Common."Inclusion Criteria For Unexpected Results"
+    and not Rec10Common."Exclusion Criteria"
 
 define "Detail":
-  Rec10Common."Get Detail" ("Is Perform Drug Screen Recommendation Applicable?")
-
-define "Indicator":
-  Rec10Common."Indicator"
-
-define "Summary":
-  Rec10Common."Get Summary" ("Is Perform Drug Screen Recommendation Applicable?")
+  Rec10Common."Get HTML Details"
 
 // Service Request - Urine Screening
 // Detected Issue - Opioids found in urine screening
@@ -109,8 +105,7 @@ define "Urine Drug Screening Request":
       code: FHIR.CodeableConcept { coding: { ToCoding("Urine Drug Screening") } },
       subject: FHIR.Reference { reference: FHIR.string { value: 'Patient/' + Patient.id } },
       occurrence: FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() + 7 days } },
-      authoredOn: FHIR.dateTime { value: Now() },
-      reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: "Detail" } } }
+      authoredOn: FHIR.dateTime { value: Now() }
       // doesn't really work, need a relatedArtifact here...
       //reasonCode: { FHIR.CodeableConcept { text: FHIR.string { value: 'https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10' } } }
     }

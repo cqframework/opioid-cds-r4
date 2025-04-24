@@ -26,7 +26,7 @@ include OpioidCDSCommonConfig version '2022.1.0' called Config
 **
 */
 
-// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/plandefinition-OpioidCDSREC12PatientView
+// META: PlanDefinition: http://fhir.org/guides/cdc/opioid-cds-r4/PlanDefinition/opioid-cds-12-patient-view
 
 context Patient
 
@@ -84,18 +84,3 @@ define "Exclusion Criteria":
 define "Is Recommendation Applicable?":
   "Inclusion Criteria"
     and not "Exclusion Criteria"
-
-define "Get Indicator":
-  if "Is Recommendation Applicable?"
-    then 'warning'
-  else null
-
-define "Get Summary":
-  if "Is Recommendation Applicable?"
-    then 'Recommend opioid agonist or partial agonist treatment with methadone maintenance therapy or buprenorphine'/* and/or behavioral therapy' */
-  else null
-
-define "Get Detail":
-  if "Is Recommendation Applicable?"
-    then null
-  else null

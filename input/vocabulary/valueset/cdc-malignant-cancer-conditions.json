@@ -100,7 +100,7 @@
       "filter": [ {
         "property": "concept",
         "op": "is-a",
-        "value": "Section-D49"
+        "value": "D49"
       } ]
     }, {
       "system": "http://hl7.org/fhir/sid/icd-10-cm",
@@ -115,12 +115,11 @@
       "filter": [ {
         "property": "concept",
         "op": "is-a",
-        "value": "Section-D3A"
+        "value": "D3A"
       } ]
     } ]
   },
   "expansion": {
-    "identifier": "98f0fd02-c881-4d66-a151-13b86a98e5b5",
     "timestamp": "2022-05-09T13:00:29-06:00",
     "contains": [ {
       "system": "http://hl7.org/fhir/sid/icd-10-cm",

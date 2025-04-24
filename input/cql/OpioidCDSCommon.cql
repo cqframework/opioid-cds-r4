@@ -7,13 +7,7 @@ include OMTKLogicMK2020 version '2022.1.0' called OMTKLogic
 include OpioidCDSCommonConfig version '2022.1.0' called Config
 
 codesystem "LOINC": 'http://loinc.org'
-codesystem "SNOMED": 'http://snomed.info/sct/731000124108'
-
-// Expression-based
-valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
-valueset "Extended release opioid with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
-valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
-valueset "Non-synthetic opioid medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+codesystem "SNOMED": 'http://snomed.info/sct'
 
 // Enumerated-compose
 valueset "Limited life expectancy conditions": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/limited-life-expectancy-conditions'
@@ -29,27 +23,56 @@ valueset "Conditions documenting substance misuse": 'http://fhir.org/guides/cdc/
 valueset "Office Visit": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/office-visit'
 valueset "Opioid counseling procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-counseling-procedure'
 /* Existing sets for first six recs */
-valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
-valueset "Non-opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-drug-urine-screening'
-valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
 valueset "Opioid misuse assessment procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-misuse-assessment-procedure'
-valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-drug-urine-screening'
 valueset "Hospice Disposition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-disposition' // Harvested from VSAC - OID: 2.16.840.1.113762.1.4.1108.15
 valueset "Hospice Finding Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-finding'
-valueset "Hospice Procedure Codes": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/hospice-procedure'
 valueset "Observation Category Laboratory": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-laboratory'
 valueset "Observation Category Procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/observation-category-procedure'
 valueset "Pain treatment plan": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-treatment-plan'
 valueset "Pain management procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pain-management-procedure'
 valueset "PDMP review procedure": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-review-procedure'
 valueset "PDMP data reviewed finding": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/pdmp-data-reviewed-finding'
+valueset "Conditions Documenting Sleep Disordered Breathing": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-documenting-sleep-disordered-breathing'
+
+// Rx
+valueset "Opioid analgesics with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-analgesics-with-ambulatory-misuse-potential'
+valueset "Extended release opioid with ambulatory misuse potential": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/extended-release-opioid-with-ambulatory-misuse-potential'
+valueset "Buprenorphine Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-medications'
+valueset "Buprenorphine and methadone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-and-methadone-medications'
+valueset "Non-synthetic opioid medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+valueset "Barbiturate Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-medications'
+valueset "Benzodiazepine medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-medications'
+valueset "Naloxone medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/naloxone-medications'
+valueset "Fentanyl Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-medications'
+valueset "Amphetamine Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamines-class-medications'
+valueset "Methadone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications'
+valueset "Opiate Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications'
+valueset "Oxycodone Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-medications'
+valueset "Synthetic Opioid Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-medications'
+valueset "CNS Depressant Medications": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cns-depressant-medications'
+
+// UDS
+valueset "All Drug Urine Screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests'
+valueset "Non-opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-opioid-urine-drug-screening'
+valueset "Opiate Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opiate-specific-urine-drug-screening-tests'
+valueset "General Opiate Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/general-opiate-urine-drug-screening-tests'
+valueset "Opioid drug urine screening": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/opioid-urine-drug-screening'
 valueset "Cocaine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests'
 valueset "PCP Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/phencyclidine-urine-drug-screening-tests'
+valueset "Fentanyl Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests'
+valueset "Amphetamine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/amphetamine-urine-drug-screening-tests'
+valueset "Cannabinoid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-urine-drug-screening-tests'
+valueset "Methadone Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-urine-drug-screening-tests'
+valueset "Synthetic Opioid Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/synthetic-opioid-urine-drug-screening-tests'
+valueset "Barbiturate Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/barbiturate-urine-drug-screening-tests'
+valueset "Benzodiazepine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/benzodiazepine-urine-drug-screening-tests'
+valueset "Buprenorphine Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-urine-drug-screening-tests'
+valueset "Heroin Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/heroin-urine-drug-screening-tests'
+valueset "Oxycodone Urine Tests": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-urine-drug-screening-tests'
 
 valueset "Community": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community'
 valueset "Active Condition": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active'
 valueset "Active MedicationRequest": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-status-active'
-/* valueset "US Core Condition Categories": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-categories' */
 valueset "Encounter Diagnosis Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category'
 valueset "Problem List Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category'
 valueset "US Core Health Concern Condition Category": 'http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category'
@@ -90,6 +113,17 @@ define "Active Ambulatory Benzodiazepine Rx":
     else
          List<FHIR.MedicationRequest>{}
 
+define "Active Ambulatory Benzodiazepine or CNS Depressant Rx":
+    if Config."Can the implementing EHR support queries for past medications by date range?" then
+      (
+        "Get MedicationRequest Medication as Code"("Active Medication List")
+      ) Rx
+        where date from Rx.authoredOn 2 years or less on or before Today()
+          and Rx.medication in "Benzodiazepine medications"
+          or  Rx.medication in "CNS Depressant Medications"
+    else
+         List<FHIR.MedicationRequest>{}
+
 define "Active Ambulatory Naloxone Rx":
     if Config."Can the implementing EHR support queries for past medications by date range?" then
       (
@@ -99,6 +133,10 @@ define "Active Ambulatory Naloxone Rx":
           and Rx.medication in "Naloxone medications"
     else
         List<FHIR.MedicationRequest>{}
+
+define "Active Medication List":
+  [MedicationRequest: status in { 'active' }] ActiveMeds
+    where ActiveMeds.category in "Community"
 
 define function "Get Active Ambulatory Medication Requests" (value List<MedicationRequest>) returns List<MedicationRequest>:
   value Rx
@@ -115,16 +153,26 @@ define function "Is Benzodiazepine?"(value List<MedicationRequest>):
     where Rx.medication in "Benzodiazepine medications" 
       and Rx.category in "Community"
 
+define function "Is Benzodiazepine or CNS Depressant?"(value List<MedicationRequest>):
+  ("Get MedicationRequest Medication as Code"(value)) Rx
+    where Rx.medication in "Benzodiazepine medications"
+      or Rx.medication in "CNS Depressant Medications"
+      and Rx.category in "Community"
+
 define function "Get MedicationRequest Medication as Code"(value List<MedicationRequest>):
   value Rx
-    let Med: [Medication: id in (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))]
+    let Med: 
+      if Rx.medication is Reference then singleton from (
+        [Medication] M
+          where M.id = (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))
+      ) else null
     return 
       MedicationRequest {
         id: Rx.id,
         status: Rx.status,
         intent: Rx.intent,
         category: Rx.category,
-        medication: if Rx.medication is Reference then First(Med.code) else Rx.medication as CodeableConcept,
+        medication: if Rx.medication is Reference then Med.code else Rx.medication as CodeableConcept,
         subject: Rx.subject,
         authoredOn: Rx.authoredOn,
         recorder: Rx.recorder,
@@ -151,6 +199,14 @@ define "US Core-Categorized Conditions":
     union [Condition: category in "Problem List Condition Category"]
     union [Condition: category in "US Core Health Concern Condition Category"]
 
+define "USCore Encounter Cancer Diagnoses":
+  [Condition: category in "Encounter Diagnosis Condition Category"] CancerDiagnoses
+    where CancerDiagnoses.code in "CDC malignant cancer conditions"
+
+define "USCore Problem List Cancer Diagnoses":
+  [Condition: category in "Problem List Condition Category"] CancerDiagnoses
+    where CancerDiagnoses.code in "CDC malignant cancer conditions"
+
 define "Conditions Indicating End of Life or With Limited Life Expectancy":
   (
     "US Core-Categorized Conditions" C
@@ -165,17 +221,6 @@ define "Conditions Indicating End of Life or With Limited Life Expectancy":
   )
 
 define "Admitted/Referred/Discharged to Hospice Care":
-  (
-    [Procedure: code in "Hospice Procedure Codes"] P
-      where P.status.value in { 'in-progress', 'completed' }
-  )
-  union
-  (
-    "Service Requests" SR
-      where SR.code in "Hospice Procedure Codes"
-        and SR.status.value in { 'active', 'completed' }
-  )
-  union
   (
     if (Config."Hospice Findings Exclusion Enabled") then
       [Observation: code in "Hospice Finding Codes"] O
@@ -260,8 +305,6 @@ define function "Days on Opioids during Period"(period Interval<Date>):
       return days between start of OpioidUseInterval and end of OpioidUseInterval
   )
 
-
-
 define function GetDurationInDays(value FHIR.Duration):
   if value is null then null
   else
@@ -277,6 +320,27 @@ define function GetDurationInDays(value FHIR.Duration):
       when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')
       else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)
 end
+
+define function "GetDateFromMedicationRequest"(med FHIR.MedicationRequest):
+  if med is null then
+    null
+  else if med.authoredOn is not null then
+    date from med.authoredOn
+  else
+    Max(
+      med.dosageInstruction DI
+        return Coalesce(
+          // If there are timing events, take the latest.
+          Max(DI.timing.event E return date from E),
+          // Otherwise, if there's a Period, use its start.
+          if DI.timing.repeat is not null
+             and DI.timing.repeat.bounds is FHIR.Period
+          then
+            date from start of FHIRHelpers.ToInterval(DI.timing.repeat.bounds as FHIR.Period)
+          else
+            null
+        )
+    )
 
 /*
 *  Conversion Functions
@@ -315,13 +379,17 @@ define function ToRxNormCode(coding List<FHIR.Coding>):
   )
 
 define "Positive Sickle Cell Condition":
-    "US Core-Categorized Conditions" C
-    where C.code in "Sickle Cell Diseases"
-        and C.clinicalStatus in "Active Condition"
-
- define "Service Requests":
-   [ServiceRequest] SR
-    return SR
+  if Config."Sickle Cell Check Enabled" and not Config."Sickle Cell Assumed Active"
+    then (
+      "US Core-Categorized Conditions" C
+        where C.code in "Sickle Cell Diseases"
+          and C.clinicalStatus in "Active Condition"
+    ) else if Config."Sickle Cell Check Enabled" and Config."Sickle Cell Assumed Active"
+        then (
+          "US Core-Categorized Conditions" C
+            where C.code in "Sickle Cell Diseases"
+        )
+      else null
 
 define "Patient 18 or Older?":
   Config."Age Less than 18 Years Is Enabled"
@@ -332,3 +400,6 @@ define "Patient Age Less Than 18":
     AgeInYearsAt(Today()) < 18
   else
     false
+
+define "Style Header":
+  '<style>\r\n  .alert-body {\r\n    width: 670px;\r\n    font-family: segoe-ui, sans-serif;\r\n    background-color: #FEFFF1;\r\n  }\r\n\r\n  .details-table {\r\n    border-collapse:collapse;\r\n    border-style: ridge;\r\n    background-color: #FEFFF1;\r\n    padding: 2px;\r\n  }\r\n\r\n  .details-caption {\r\n    border-style: ridge;\r\n    border-bottom: none;\r\n    background-color: #FEFFF1;\r\n    padding: 2px;\r\n  }\r\n\r\n  .details-table-header {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n  }\r\n\r\n  .details-table-cell {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n  }\r\n\r\n  .details-table-footer-cell {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n    font-size: small;\r\n  }\r\n\r\n  .details-table-cell-unexpected {\r\n    border-style: ridge;\r\n    padding: 5px;\r\n    color: red;\r\n    font-weight: bold;\r\n  }\r\n\r\n  .more-text {\r\n    position: relative;\r\n    margin-bottom: 2em;\r\n  }\r\n  \r\n  .more {\r\n    display:none;\r\n  }\r\n\r\n  .show-more:checked + .more {\r\n    display:block;\r\n  }\r\n<\/style>'

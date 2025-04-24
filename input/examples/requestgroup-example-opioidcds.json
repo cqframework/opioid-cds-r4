@@ -1,11 +1,6 @@
 {
    "resourceType": "RequestGroup",
    "id": "example-opioidcds",
-   "meta": {
-      "profile": [
-         "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-requestgroup"
-      ]
-   },
    "status": "active",
    "intent": "proposal",
    "action": [
@@ -18,11 +13,6 @@
                "type": "documentation",
                "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
                "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
-            },
-            {
-               "type": "documentation",
-               "display": "MME Conversion Tables",
-               "url": "https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
             }
          ],
          "resource": {
