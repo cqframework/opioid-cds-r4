@@ -21,9 +21,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20.x
-      - run: sh ./_updateCQFTooling-ci.sh
-      - run: sh ./_refresh.sh
-      - run: cd tests
-      - run: npm install
-      - run: sh ./wait-for-container.sh
-      - run: npm test
+      - name: update CQF tooling
+        run: sh ./_updateCQFTooling-ci.sh
+      - name: refresh artifacts
+        run: sh ./_refresh.sh
+      - name: install test dependencies
+        working-directory: ./tests
+        run: npm install
+      - name: wait for the container to be ready
+        run: sh ./wait-for-container.sh
+      - name: run the tetsts 
+        working-directory: ./tests
+        run: npm test
