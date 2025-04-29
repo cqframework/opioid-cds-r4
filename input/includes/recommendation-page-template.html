@@ -20,10 +20,13 @@
   </tbody>
 </table>
 
-{% if include.flow-diagram %}
-  {% include img.html img=include.flow-diagram caption=flow-caption %}
+{% assign extension=include.flow-diagram | split: '.' | last %}
+{% if extension == 'svg' %}
+<div>{% include {{include.flow-diagram}} %}</div>
 {% elsif include.narrative %}
-  {% include {{ include.narrative }} %}
+{% include {{ include.narrative }} %}
+{% else %}
+{% include img.html img=include.flow-diagram caption=flow-caption %}
 {% endif %}
 
 <p> </p>
