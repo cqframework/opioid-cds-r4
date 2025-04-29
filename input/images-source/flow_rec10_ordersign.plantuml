@@ -1,4 +1,4 @@
-@startuml rec10_ordersign_flow
+@startuml flow_rec10_ordersign
 !theme carbon-gray
 skinparam hyperlinkColor white
 skinparam svgLinkTarget _blank
@@ -16,7 +16,7 @@ activityDiagram {
 </style>
 title Recommendation 10 Order Sign Flow Diagram
 #1C2ED5:Order Sign; 
-if ([[subroutines.html#for-subacute-or-chronic-pain{- Order for opioid analgesic with an expected supply duration of 28 days or longer? OR\n- Order in the past 90 days for opioid analgesic with therapy type of "continuous"? OR\n- Order for opioid analgesic for 28 of the past 90 days including today? AND\n- An active or pending order for opioid analgesic?} Opioid order for \n    subacute or \n   chronic pain?]]) then (no)
+if ([[subroutines.html#for-subacute-or-chronic-pain Opioid order for \n    subacute or \n   chronic pain?]]) then (no)
 (yes) elseif ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
 (yes) elseif ([[subroutines.html#recommendation-10-urine-drug-screening Urine drug screening \n      in past year?]]) then (no) 
 #b06f19:[[user-interaction-alerts.html#recommendation-10-uds-alert UDS Alert]];<<output>> 

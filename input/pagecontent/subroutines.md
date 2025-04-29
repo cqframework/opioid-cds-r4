@@ -6,17 +6,17 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 
 ### For Subacute or Chronic Pain
 
-{% include for-subacute-and-chronic-pain-definitions.html %}
+<div>{% include subroutine_subacute_chronic_pain.svg %}</div>
 
 For more information see the <a href="chronic-pain.html">subacute and/or chronic pain documentation</a>
 
 ### Opioid Review Useful
 
-{% include opioid-review-useful-definitions.html %}
+<div>{% include subroutine_opioid_review_useful.svg %}</div>
 
 ### Active Cancer Treatment
 
-{% include active-cancer-treatment-definitions.html %}
+<div>{% include subroutine_active_cancer_treatment.svg %}</div>
 
 ### Opioid Naive
 

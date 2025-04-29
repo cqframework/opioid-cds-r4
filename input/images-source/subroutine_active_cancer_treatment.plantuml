@@ -1,0 +1,30 @@
+@startuml subroutine_active_cancer_treatment
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title Active Cancer Treatment Subroutine
+start
+if (Two office visits in\n past 12 months?) then (no)
+#BC2C73:Return No;
+kill
+(yes) elseif (       Office visits with an\n oncology specialist present?) then (yes)
+#BC2C73:Return Yes;
+kill
+(no) elseif (Office visit including\n  a CDC malignant\n  cancer condition?) then (no)
+#BC2C73:Return No;
+kill
+else (yes)
+#BC2C73:Return Yes;
+kill
+endif
+@enduml
