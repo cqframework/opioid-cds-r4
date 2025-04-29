@@ -162,11 +162,11 @@
             <td style="padding-left: 4px;">{{PlanDefinition.description.escape('html')}}</td>
         </tr>
         {% endif %}
-        {% if PlanDefinition.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition').exists() %}
+        {% if PlanDefinition.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition').exists() %}
             <tr>
                 <th scope="row"><a name="effective-data-requirements"> </a><b>Logic Definitions: </b></th>
                 <td style="padding-left: 4px;">
-                    {% for extension in PlanDefinition.extension.where(url = 'http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition') %}
+                    {% for extension in PlanDefinition.extension.where(url = 'http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition') %}
                         <table class="grid-dict">
                             <tr><th><b>Library Name</b></th><th><b>Name</b></th><th><b>sequence</b></th></tr>
                             <tr>

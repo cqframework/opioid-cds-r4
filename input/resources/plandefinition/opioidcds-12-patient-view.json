@@ -7,6 +7,7 @@
   "contained": [ {
     "resourceType": "Library",
     "id": "effective-data-requirements",
+    "name": "EffectiveDataRequirements",
     "status": "active",
     "type": {
       "coding": [ {
@@ -60,7 +61,7 @@
     }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-      "mustSupport": [ "category" ],
+      "mustSupport": [ "category", "code", "clinicalStatus", "recordedDate" ],
       "codeFilter": [ {
         "path": "category",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
@@ -68,7 +69,7 @@
     }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-      "mustSupport": [ "category" ],
+      "mustSupport": [ "category", "code", "clinicalStatus", "recordedDate" ],
       "codeFilter": [ {
         "path": "category",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
@@ -76,7 +77,7 @@
     }, {
       "type": "Condition",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
-      "mustSupport": [ "category" ],
+      "mustSupport": [ "category", "code", "clinicalStatus", "recordedDate" ],
       "codeFilter": [ {
         "path": "category",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
@@ -96,18 +97,7 @@
     "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
     "valueCode": "publishable"
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
-    "valueReference": {
-      "reference": "Device/cqf-tooling"
-    }
-  }, {
-    "id": "effective-data-requirements",
-    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/effectiveDataRequirements",
-    "valueReference": {
-      "reference": "#effective-data-requirements"
-    }
-  }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSCommonConfig"
@@ -122,7 +112,7 @@
       "valueInteger": 0
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSCommon"
@@ -137,7 +127,7 @@
       "valueInteger": 1
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSCommonConfig"
@@ -152,7 +142,7 @@
       "valueInteger": 2
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSREC12PatientView"
@@ -167,7 +157,7 @@
       "valueInteger": 3
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSCommon"
@@ -176,13 +166,13 @@
       "valueString": "US Core-Categorized Conditions"
     }, {
       "url": "statement",
-      "valueString": "// 3. Medications indicating end of life\n    /* or exists (\n      \"Medications Indicating End of Life\"\n    ) */\ndefine \"US Core-Categorized Conditions\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"]\n    union [Condition: category in \"Problem List Condition Category\"]\n    union [Condition: category in \"US Core Health Concern Condition Category\"]"
+      "valueString": "// 3. Medications indicating end of life\n    /* or exists (\n      \"Medications Indicating End of Life\"\n    ) */\n\ndefine \"US Core-Categorized Conditions\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"]\n    union [Condition: category in \"Problem List Condition Category\"]\n    union [Condition: category in \"US Core Health Concern Condition Category\"]"
     }, {
       "url": "displaySequence",
       "valueInteger": 4
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSREC12PatientView"
@@ -197,7 +187,7 @@
       "valueInteger": 5
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSREC12PatientView"
@@ -212,7 +202,7 @@
       "valueInteger": 6
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSREC12PatientView"
@@ -227,7 +217,7 @@
       "valueInteger": 7
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSREC12PatientView"
@@ -242,7 +232,7 @@
       "valueInteger": 8
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSREC12PatientView"
@@ -257,7 +247,7 @@
       "valueInteger": 9
     } ]
   }, {
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
       "valueString": "OpioidCDSREC12PatientView"
@@ -272,10 +262,43 @@
       "valueInteger": 10
     } ]
   }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToConcept"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToConcept(concept FHIR.CodeableConcept):\n    if concept is null then\n        null\n    else\n        System.Concept {\n            codes: concept.coding C return ToCode(C),\n            display: concept.text.value\n        }"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 11
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToDateTime"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToDateTime(value dateTime): value.value"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 12
+    } ]
+  }, {
     "id": "effective-data-requirements",
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
+    "valueCanonical": "#effective-data-requirements"
+  }, {
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
     "valueReference": {
-      "reference": "#effective-data-requirements"
+      "reference": "Device/cqf-tooling"
     }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-12-patient-view",
@@ -295,7 +318,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2024-11-19",
+  "date": "2025-04-24",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should offer or arrange treatment with evidence-based medications to treat patients with opioid use disorder. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks for resuming drug use, overdose, and overdose death.",
   "useContext": [ {
@@ -307,8 +330,8 @@
     "valueCodeableConcept": {
       "coding": [ {
         "system": "http://snomed.info/sct",
-        "code": "5602001",
-        "display": "Opioid abuse (disorder)"
+        "code": "1336192000",
+        "display": "Opioid use disorder (disorder)"
       } ]
     }
   } ],
@@ -337,44 +360,35 @@
   "relatedArtifact": [ {
     "type": "documentation",
     "display": "2022 CDC Clinical Practice Guideline for Prescribing Opioids for Pain",
-    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf",
+    "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm",
     "document": {
-      "contentType": "application/pdf",
-      "language": "en-US",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/pdfs/rr7103a1-H.pdf"
+      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
     }
   } ],
   "library": [ "http://fhir.org/guides/cdc/opioid-cds/Library/OpioidCDSREC12PatientView" ],
   "action": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
+          "code": "strong",
+          "display": "Strong"
+        } ]
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
+          "code": "high",
+          "display": "High quality"
+        } ]
+      }
+    } ],
     "title": "Offer Evidence-based Medications to Treat Patients with Opioid Use Disorder",
     "description": "For patients diagnosed with opioid use disorder, consider opioid agonist or partial agonist treatment with methadone or buprenorphine maintenance therapy. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks of resuming drug use, overdose, and overdose death. \r\n\r\nFor guidance regarding diagnosing and treating opioid use disorder, see [Recommendation 12 of the 2022 CDC Clinical Practice Guideline](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Implementation%20Considerations,-Although%20stigma%20can).\r\n\r\n[CDC recommends against releasing patients from care due to diagnosis of opioid use disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=opioid%20use%20disorder.-,Clinicians%20should%20not%20dismiss%20patients%20from%20their%20practice%20because%20of%20opioid%20use%20disorder%20because%20this%20can%20adversely%20affect%20patient%20safety.,-Medication%20treatment%20of).\r\n\r\n[MME conversion factors should not be applied to dosage decisions related to the management of opioid use disorder](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=These%20conversion%20factors%20should%20not%20be%20applied%20to%20dosage%20decisions%20related%20to%20the%20management%20of%20opioid%20use%20disorder.).\r\n\r\n[Do not use the calculated dose in MMEs to determine the doses to use when converting one opioid to another; when converting opioids, the new opioid is typically dosed at a substantially lower dose than the calculated MME dose to avoid overdose because of incomplete cross-tolerance and individual variability in opioid pharmacokinetics](https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Do%20not%20use%20the,variability%20in%20opioid%20pharmacokinetics.). Consult the FDA approved product labeling for specific guidance on medications.",
     "priority": "urgent",
-    "documentation": [ {
-      "type": "documentation",
-      "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation12:~:text=and%20overdose%20death-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%201).,-Implementation%20Considerations",
-      "document": {
-        "extension": [ {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/recommendation-strength",
-              "code": "strong",
-              "display": "Strong"
-            } ]
-          }
-        }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence",
-          "valueCodeableConcept": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/evidence-quality",
-              "code": "high",
-              "display": "High quality"
-            } ]
-          }
-        } ],
-        "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation12:~:text=and%20overdose%20death-,(recommendation%20category%3A%20A%3B%20evidence%20type%3A%201).,-Implementation%20Considerations"
-      }
-    } ],
     "trigger": [ {
       "type": "named-event",
       "name": "patient-view"
