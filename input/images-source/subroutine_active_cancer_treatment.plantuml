@@ -1,5 +1,6 @@
 @startuml subroutine_active_cancer_treatment
 !theme carbon-gray
+skinparam ActivityBackgroundColor #306516
 <style>
 activityDiagram {
  FontColor white
@@ -14,17 +15,17 @@ activityDiagram {
 </style>
 title Active Cancer Treatment Subroutine
 start
-if (Two office visits in\n past 12 months?) then (no)
-#BC2C73:Return No;
-kill
-(yes) elseif (       Office visits with an\n oncology specialist present?) then (yes)
+fork
+:    Patient problem list\n includes CDC malignant\n     cancer condition?;
+fork again
+: Two office visits in\n  past 12 months?;
+-> AND;
+:    Patient problem list\n includes CDC malignant\n     cancer condition?;
+end merge
+if (Any answer is yes?) then (yes)
 #BC2C73:Return Yes;
 kill
-(no) elseif (Office visit including\n  a CDC malignant\n  cancer condition?) then (no)
+else (no)
 #BC2C73:Return No;
 kill
-else (yes)
-#BC2C73:Return Yes;
-kill
-endif
 @enduml

@@ -1,6 +1,16 @@
 <table id="dataElements">
   {% include data-elements-headers.html %}
   <tr>
+    <td>Patient problem list includes CDC malignant cancer condition?</td>
+    <td>No</td>
+    <td>&#8226; An active CDC malignant cancer condition entry is present within the Patient's problem list</td>
+    <td>CDC malignant cancer conditions</td>
+    <td>
+      <a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-condition">Condition</a>
+    </td>
+    <td>Condition.category and Condition.code</td>
+  </tr>
+  <tr>
     <td>Two office visits within the past 12 months?</td>
     <td>No</td>
     <td>Look for a minimum of two distinct encounters within 12 months of the date of the current visit for which each of the following is true:<br />
@@ -10,17 +20,6 @@
       <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter">Encounter</a>
     </td>
     <td>Encounter.class and Encounter.period.start</td>
-  </tr>
-  <tr>
-    <td>Office visits with an oncology specialist present?</td>
-    <td>No</td>
-    <td>&#8226; The encounter is performed by an oncologist as defined in the oncology specialty designations using the National Uniform Claim <br />Committee (NUCC) classifications</td>
-    <td>Oncology specialty designations (NUCC)</td>
-    <td>
-      <a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-practitionerrole">PractitionerRole</a> and 
-      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter">Encounter</a>
-    </td>
-    <td>PractitionerRole.specialty, Encounter.participant.type, and Encounter.participant.individual</td>
   </tr>
   <tr>
     <td>Office visits including CDC malignant cancer condition?</td>
