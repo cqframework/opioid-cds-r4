@@ -38,8 +38,10 @@ For clinical informaticists interested in how the behavior for the artifacts was
 refer to the [Process Documentation](process-documentation.html).
 
 ### Trigger Overview
-{% include img.html img="trigger-overview.png" caption="Trigger Overview Diagram: orange shapes represent preferred trigger approaches. Items with clear/white centers are available (developed in earlier pilot testing prior to EHR support for order based hooks) for implementation at sites without preferred trigger capabilities in existing software for CDS Hooks" %}
-<br />
+
+This implementation guide [assumes](process-documentation.html#technical-assumptions) that [CDS Hooks](http://cds-hooks.hl7.org/index.html) will serve as the technical framework for EHR integration. The table below outlines the supported triggering events for each guideline recommendation:
+
+<div>{% include trigger_overview.svg %}</div>
  
 ### Morphine Milligram Equivalent (MME) Calculation Cautions
 

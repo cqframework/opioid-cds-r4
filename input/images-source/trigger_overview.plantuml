@@ -1,0 +1,23 @@
+@startuml trigger_overview
+!theme carbon-gray
+skinparam hyperlinkColor black
+
+object "Trigger Overview Table" as obj {
+  <#lightblue,#black>|=  Recommendation #  |=  [[http://cds-hooks.hl7.org/hooks/patient-view.html Patient View]]  |=  [[http://cds-hooks.hl7.org/hooks/order-select.html Order Select]]  |= [[http://cds-hooks.hl7.org/hooks/order-sign.html Order Sign]] |
+  <#white>|  [[recommendation-01.html 1]]      |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-02.html 2]]      |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-03.html 3]]      |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-04-05.html 4]]   |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-04-05.html 5]]   |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-06.html 6]]      |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-07.html 7]]      |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-08.html 8]]      |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-09.html 9]]      |  No                  |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-10.html 10]]     | <#Orange>  Yes**     |  No                 | <#LightGreen>  Yes* |
+  <#white>|  [[recommendation-11.html 11]]     | <#Orange>  Yes**     | <#LightGreen>  Yes* |  No                 |
+  <#white>|  [[recommendation-12.html 12]]     | <#LightGreen>  Yes*  |  No                 |  No                 |
+  ~* The preferred trigger approach.
+  ~*~* Developed for implementation without preferred trigger capabilities
+}
+
+@enduml
