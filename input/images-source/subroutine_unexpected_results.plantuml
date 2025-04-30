@@ -1,9 +1,6 @@
 @startuml subroutine_unexpected_results
 !theme carbon-gray
-skinparam hyperlinkColor lightblue
-skinparam svgLinkTarget _blank
 skinparam ActivityBackgroundColor #306516
-skinparam ranksep 50
 <style>
 activityDiagram {
  FontColor white

@@ -6,6 +6,7 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 
 ### For Subacute or Chronic Pain
 
+{% include subacute-and-chronic-pain-functional-description.html %}
 <div>{% include subroutine_subacute_chronic_pain.svg %}</div>
 {% include subacute-and-chronic-pain-data-elements.html %}
 
