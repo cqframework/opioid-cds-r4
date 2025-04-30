@@ -331,11 +331,14 @@
       <li>Patient is being prescribed opioid medications for subacute or chronic pain</li>
       <li>Patient does not appear to be at end of life</li>
   </ul>
+
+  <a name="chronic-pain"> </a>
   <h4>Chronic Pain</h4>
   <ul>
     <li>Inferred based on prescription being for a duration of 28 days or more.</li>
   </ul>
 
+  <a name="end-of-life-assessment"> </a>
   <h4>End of Life Assessment</h4>
   <p>The assessment to determine whether the patient appears to be at end of life consists of three elements:</p>
   <ul>
