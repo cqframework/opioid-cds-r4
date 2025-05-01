@@ -1,13 +1,29 @@
 <table id="dataElements">
     {% include data-elements-headers.html %}
     <tr>
-        <td>Order for opioid analgesic with expected supply duration &ge; 28 days</td>
+        <td>Order for opioid analgesic with expected supply duration &ge; 28 days, or</td>
         <td>Yes</td>
         <td>Order for opioid analgesics with ambulatory misuse potential with a supply duration &ge; 28 days<br />
         &#8226; Subacute definition = order for opioid analgesic with ambulatory misuse potential with a supply duration of one to two months<br />
         &#8226; Chronic pain definition = order for opioid analgesic with ambulatory misuse potential with a supply duration of &ge; two months</td>
         <td>Opioid analgesics with ambulatory misuse potential</td>
         <td><a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a></td>
-        <td>MedicationRequest.medication and MedicationRequest.dispenseRequest.expectedSupplyDuration</td>
+        <td>MedicationRequest.medication and MedicationRequest.dispenseRequest.expectedSupplyDuration or MedicationRequest.dispenseRequest.validityPeriod or MedicationRequest.dosageInstruction.timing.repeat.boundsPeriod</td>
+    </tr>
+    <tr>
+        <td>A present or past order in the last 90 days for opioid analgesic with ambulatory misuse potential with courseOfTherapyType of continuous, or</td>
+        <td>Yes</td>
+        <td>&#8226; Note that <a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest-definitions.html#MedicationRequest.courseOfTherapyType">courseOfTherapyType</a> is an element of the US Core MedicationRequest resource. In some EHRs, users can populate this element by setting a flag indicating that order is part of long-term care.</td>
+        <td>Opioid analgesics with ambulatory misuse potential</td>
+        <td><a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a></td>
+        <td>MedicationRequest.medication and MedicationRequest.authoredOn or MedicationRequest.dosageInstruction.timing.event and MedicationRequest.courseOfTherapyType</td>
+    </tr>
+    <tr>
+        <td>Order for opioid analgesic with ambulatory misuse potential prescribed for 28 of the past 90 days from today, and an active or pending order for opioid analgesics with ambulatory misuse potential</td>
+        <td>Yes</td>
+        <td>&#8226; Reviews active and past medications for an indication of recent treatment for chronic pain.</td>
+        <td>Opioid analgesics with ambulatory misuse potential</td>
+        <td><a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a></td>
+        <td>MedicationRequest.medication and MedicationRequest.dispenseRequest.expectedSupplyDuration or MedicationRequest.dispenseRequest.validityPeriod or MedicationRequest.dosageInstruction.timing.repeat.boundsPeriod and MedicationRequest.status</td>
     </tr>
 </table>

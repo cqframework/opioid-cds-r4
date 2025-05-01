@@ -23,6 +23,7 @@
 {% assign extension=include.flow-diagram | split: '.' | last %}
 {% if extension == 'svg' %}
 <div>{% include {{include.flow-diagram}} %}</div>
+<div>{% include legend_flow.svg %}</div>
 {% elsif include.narrative %}
 {% include {{ include.narrative }} %}
 {% else %}

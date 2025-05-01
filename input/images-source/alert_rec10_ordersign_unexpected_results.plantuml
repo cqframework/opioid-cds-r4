@@ -1,0 +1,81 @@
+@startuml alert_rec10_ordersign_unexpected_results
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ arrow {
+  FontColor: Black
+ }
+ note {
+  FontColor: Black
+  BackgroundColor: #fafad2
+ }
+}
+</style>
+#b06f19:Possible Unexpected\n      Results Alert;<<output>>
+note right
+**SUMMARY**: Patient may have possible unexpected toxicology test results
+
+**DETAILS** (example):
+Patient may have possible unexpected toxicology test results in the past 
+year including:
+
+- Possible unexpected substance found:
+  - opiate [Presence] in urine by screen method on 2024-10-16
+- Possible unexpected substance found:
+  - benzoylecgonine [Presence] in urine by screen method on 2024-07-15
+- Possible unexpected negative result found:
+  - dextroamphetamine Sulfate 20 MG Oral Tablet on 2024 -10-16 
+
+Note on false positives and unexpected negative results...
+
+An unexpectedly negative test may be due to time since last dose, diversion, 
+intermittent use, aberrant drug use behavior, or other factors, including a 
+false negative result. Clinicians should interpret this result in the context 
+of the overall treatment plan.
+
+Positive results may be a false positives or could represent occasional use 
+or possible substance use disorder.
+
+For a review regarding interpreting possible false positive urine toxicology 
+results, see [[https://pubmed.ncbi.nlm.nih.gov/24986836 http://pubmed.ncbi.nlm.nih.gov/24986836]]. 
+It is unknown if the findings reported in this article can be extrapolated to 
+other laboratory analyzers that were not used in the referenced studies.
+
+For guidance regarding evaluating and addressing unexpected toxicology tests 
+results, see [[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10 Recommendation 10 of the 2022 CDC Clinical Practice Guideline]]
+end note
+split
+#c05046:Document - 
+Will repeat urine
+drug screen more
+frequently;<<input>>
+kill
+split again
+#c05046:Document - 
+will consult with 
+patient regarding 
+possible unexpected 
+test results;<<input>>
+kill
+split again
+#c05046:Document - 
+Will assess patient
+for substance abuse 
+disorder;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+Patient's test 
+results were 
+expected, snooze 
+for 3 months;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+N/A snooze for 
+3 months;<<input>>
+kill
+end split
+caption ~*Snooze as referenced in alert response examples is generally intended to be applied to a particular patient
+@enduml

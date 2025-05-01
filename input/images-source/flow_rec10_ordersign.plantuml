@@ -1,0 +1,30 @@
+@startuml flow_rec10_ordersign
+!theme carbon-gray
+skinparam hyperlinkColor white
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #fc914d
+ }
+}
+</style>
+title Recommendation 10 Order Sign Flow Diagram
+#1C2ED5:Order Sign; 
+if ([[subroutines.html#for-subacute-or-chronic-pain Opioid order for \n    subacute or \n   chronic pain?]]) then (no)
+(yes) elseif ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
+(yes) elseif ([[subroutines.html#recommendation-10-urine-drug-screening Urine toxicology\n   screening in\n     past year?]]) then (no) 
+#b06f19:[[user-interaction-alerts.html#recommendation-10-uds-alert UDS Alert]];<<output>> 
+kill
+(yes) elseif ([[subroutines.html#recommendation-10-possible-unexpected-results Possible unexpected results\n  found in urine toxicology\n            screening?]]) then (no) 
+else (yes) 
+#b06f19:[[user-interaction-alerts.html#recommendation-10-possible-unexpected-results-alert Possible Unexpected \n      Results Alert]];<<output>>
+kill
+endif
+#BC2C73:No Alert*;
+caption ~*When no alert is warranted by the guidance, the user should not experience any interruption.
+@enduml

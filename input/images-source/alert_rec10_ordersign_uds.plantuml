@@ -1,0 +1,45 @@
+@startuml alert_rec10_ordersign_uds
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ arrow {
+  FontColor: Black
+ }
+ note {
+  FontColor: Black
+  BackgroundColor: #fafad2
+ }
+}
+</style>
+#b06f19:UDS Alert;<<output>>
+note right
+**SUMMARY**: Consider the benefits and risks of conducting a 
+Urine Toxicology Screen
+
+**DETAILS**:
+Consider the benefits and risks of toxicology testing to 
+assess for prescribed medications as well as other prescribed 
+and non-prescribed controlled substances.
+
+For guidance regarding utilizing toxicology tests for prescribing 
+opioids see [[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation10 Recommendation 10 of the 2022 CDC Clinical Practice Guideline]].
+end note
+split
+#c05046:Document - 
+Ordered toxicology 
+screen;<<input>>
+kill
+split again
+#c05046:Document - 
+Risks outweigh 
+benefits;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+N/A see comment, 
+snooze 3 months;<<input>>
+kill
+end split
+caption ~*Snooze as referenced in alert response examples is generally intended to be applied to a particular patient
+@enduml

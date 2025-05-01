@@ -1,0 +1,39 @@
+@startuml subroutine_opioid_review_useful
+!theme carbon-gray
+skinparam hyperlinkColor white
+skinparam ActivityBackgroundColor #306516
+skinparam ranksep 50
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title Opioid Review Useful Subroutine
+start
+fork
+:  Age < 18 years?;
+fork again
+: Evidence of Sickle\n    Cell Disease?;
+fork again
+: Limited life expectancy\n    conditions present?;
+fork again
+:  Order for therapies\n  indicating end of life\n care in past 90 days?;
+fork again
+: [[subroutines.html#active-cancer-treatment Active cancer\n  treatment?]];
+fork again
+:    Condition likely\n  terminal for opioid\n prescribing present?;
+end merge
+if (Any answer is yes?) then (yes)
+#BC2C73:Return No;
+kill
+else (no)
+#BC2C73:Return Yes;
+kill
+@enduml

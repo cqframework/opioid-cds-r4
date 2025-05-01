@@ -1,0 +1,31 @@
+@startuml subroutine_active_cancer_treatment
+!theme carbon-gray
+skinparam ActivityBackgroundColor #306516
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title Active Cancer Treatment Subroutine
+start
+fork
+:    Patient problem list\n includes CDC malignant\n     cancer condition?;
+fork again
+: Two office visits in\n  past 12 months?;
+-> AND;
+:    Patient problem list\n includes CDC malignant\n     cancer condition?;
+end merge
+if (Any answer is yes?) then (yes)
+#BC2C73:Return Yes;
+kill
+else (no)
+#BC2C73:Return No;
+kill
+@enduml
