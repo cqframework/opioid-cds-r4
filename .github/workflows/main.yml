@@ -24,7 +24,7 @@ jobs:
       - name: update CQF tooling
         run: sh ./_updateCQFTooling-ci.sh
       - name: refresh artifacts
-        run: sh ./_refresh.sh
+        run: sh ./_refresh-ci.sh
       - name: install test dependencies
         working-directory: ./tests
         run: npm install
