@@ -5,7 +5,7 @@
 r=releases
 g=org.opencds.cqf
 a=tooling-cli
-v=3.7.0
+v=2.5.0
 
 dlurl='https://oss.sonatype.org/service/local/artifact/maven/redirect?r='${r}'&g='${g}'&a='${a}'&v='${v}''
 
@@ -42,19 +42,7 @@ else
 	fi
 fi
 
-if $upgrade ; then
-	message="Overwrite $jarlocation? [Y/N] "
-else
-	#echo Will place tooling jar here: $input_cache_path$tooling_jar
-	echo Will place tooling jar here: $jarlocation
-	message="Ok? [Y/N]"
-fi
+echo "Downloading most recent tooling to $jarlocationname - it's ~170 MB, so this may take a bit"
+curl $dlurl -L -o "$jarlocation" --create-dirs
+echo "Download complete."
 
-read -r -p "$message" response
-if [[ "$response" =~ ^([yY])$ ]]; then
-	echo "Downloading most recent tooling to $jarlocationname - it's ~170 MB, so this may take a bit"
-	curl $dlurl -L -o "$jarlocation" --create-dirs
-	echo "Download complete."
-else
-	echo cancel...
-fi

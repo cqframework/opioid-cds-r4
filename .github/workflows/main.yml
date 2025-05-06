@@ -1,0 +1,35 @@
+name: CI
+on: [pull_request]
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    services:
+      fhir-cds:
+        image: cschuler72/cqf-ruler
+        ports:
+          - "8080:8080"
+    defaults:
+        run:
+          shell: bash
+    steps:
+      - uses: actions/setup-java@v4
+        with: 
+          distribution: 'zulu' 
+          java-version: '21'    
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - name: update CQF tooling
+        run: sh ./_updateCQFTooling-ci.sh
+      - name: refresh artifacts
+        run: sh ./_refresh-ci.sh
+      - name: install test dependencies
+        working-directory: ./tests
+        run: npm install
+      - name: wait for the container to be ready
+        run: sh ./wait-for-container.sh
+      - name: run the tetsts 
+        working-directory: ./tests
+        run: npm test
