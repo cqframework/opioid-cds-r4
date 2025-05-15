@@ -20,7 +20,7 @@ fork
 fork again
 : Two office visits in\n  past 12 months?;
 -> AND;
-:    Patient problem list\n includes CDC malignant\n     cancer condition?;
+:    Office visit including CDC \n  malignant cancer condition?;
 end merge
 if (Any answer is yes?) then (yes)
 #BC2C73:Return Yes;
