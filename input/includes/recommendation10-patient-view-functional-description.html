@@ -2,11 +2,11 @@
   <li>When</li>
     <ul>
       <li>There exists an opioid analgesic with ambulatory misuse potential in the outpatient setting</li>
-      {% include subacute-and-chronic-pain-definition.html %}
+      {% include subacute-and-chronic-pain-functional-description.html %}
       <li>Opioid review is useful for this patient:</li>
       {% include opioid-review-useful-functional-description.html %}
-      <li>Nonopioid drug urine screening has not been performed in last 12 months or</li>
-      <li>Opioid drug urine screening has not been performed in last 12 months</li>
+      <li>Urine toxicology screening has not been performed in last 12 months</li>
+      {% include urine-toxicology-past-year-functional-description.html %}
     </ul>
   <li>Then</li>
     <ul>
@@ -20,26 +20,20 @@
   <li>When</li>
     <ul>
       <li>There exists an opioid analgesic with ambulatory misuse potential in the outpatient setting</li>
-      {% include subacute-and-chronic-pain-definition.html %}
+      {% include subacute-and-chronic-pain-functional-description.html %}
       <li>Opioid review is useful for this patient:</li>
       {% include opioid-review-useful-functional-description.html %}
-      <li>Nonopioid drug urine screening has been performed in last 12 months and</li>
-      <li>Opioid drug urine screening has been performed in last 12 months and</li>
-      <li>Positive result for synthetic opioid in the past year and not currently prescribed synthetic opioid or</li>
-      <li>Positive result for phencyclidine(PCP) in the past year or</li>
-      <li>Positive result for fentanyl in the past year and not currently prescribed fentanyl or</li>
-      <li>Positive result for cocaine in the past year or</li>
-      <li>Positive result for amphetamine in the past year and not currently prescribed amphetamine or</li>
-      <li>Positive result for tetrahydrocannabinol (THC) in the past year and not currently prescribed tetrahydrocannabinol (THC) or</li>
-      <li>Positive result for opiate in the past year and not currently prescribed natural opiate or</li>
-      <li>Positive result for alcohol in the past year or</li>
-      <li>Positive result for methadone in the past year and not currently prescribed methadone</li>
+      <li>Urine toxicology screening has been performed in last 12 months</li>
+      {% include urine-toxicology-past-year-functional-description.html %}
+      <li>Possible unexpected results in urine toxicology</li>
+      {% include possible-unexpected-results-functional-description.html %}
     </ul>
   <li>Then</li>
     <ul>
       <li>Patient may have unexpected toxicology test results:</li>
       <ul>
         <li>Document - Will repeat urine drug screening more frequently</li>
+        <li>Document - Will consult with patient regarding possible unexpected test results</li>
         <li>Document - Will assess patient for substance use disorder</li>
         <li>Snooze - Patient's test results were expected, snooze for 3 months</li>
         <li>Snooze - N/A snooze for 3 months</li>

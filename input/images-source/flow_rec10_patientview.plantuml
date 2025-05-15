@@ -1,4 +1,4 @@
-@startuml flow_rec10_ordersign
+@startuml flow_rec10_patientview
 !theme carbon-gray
 skinparam hyperlinkColor white
 <style>
@@ -13,9 +13,9 @@ activityDiagram {
  }
 }
 </style>
-title Recommendation 10 Order Sign Flow Diagram
-#1C2ED5:Order Sign; 
-if ([[subroutines.html#for-subacute-or-chronic-pain Opioid order for \n    subacute or \n   chronic pain?]]) then (no)
+title Recommendation 10 Patient View Flow Diagram
+#1C2ED5:Patient View; 
+if ([[subroutines.html#for-subacute-or-chronic-pain Active opioid order for subacute \n           or chronic pain?]]) then (no)
 (yes) elseif ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
 (yes) elseif ([[subroutines.html#recommendation-10-urine-toxicology-screening Urine toxicology\n   screening in\n     past year?]]) then (no) 
 #b06f19:[[user-interaction-alerts.html#recommendation-10-uds-alert UDS Alert]];<<output>> 
