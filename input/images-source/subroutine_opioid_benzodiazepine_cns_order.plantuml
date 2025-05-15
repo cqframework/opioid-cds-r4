@@ -1,4 +1,4 @@
-@startuml subroutine_active_cancer_treatment
+@startuml subroutine_opioid_benzodiazepine_cns_order
 !theme carbon-gray
 skinparam ActivityBackgroundColor #306516
 <style>
@@ -13,14 +13,14 @@ activityDiagram {
  }
 }
 </style>
-title Active Cancer Treatment Subroutine
+title Order for Opioid Analgesic, Benzodiazepine or CNS Depressant Subroutine
 start
 fork
-:    Patient problem list\n includes CDC malignant\n     cancer condition?;
+:      Order for opioid \nanalgesic with ambulatory \n      misuse potential?;
 fork again
-: Two office visits in\n  past 12 months?;
--> AND;
-:    Office visit including CDC \n  malignant cancer condition?;
+: Order for benzodiazepine?;
+fork again
+: Order for central nervous \n     system depressant?;
 end merge
 if (Any answer is yes?) then (yes)
 #BC2C73:Return Yes;

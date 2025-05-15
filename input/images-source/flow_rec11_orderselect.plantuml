@@ -1,0 +1,27 @@
+@startuml flow_rec11_orderselect
+!theme carbon-gray
+skinparam hyperlinkColor white
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #fc914d
+ }
+}
+</style>
+title Recommendation 11 Order Select Flow Diagram
+#1C2ED5:Order Sign; 
+if ([[subroutines.html#recommendation-11-opioid-analgesic-or-benzodiazepine-or-cns-depressant-order Order for opioid analgesic, \n  benzodiazepine or other \n   central nervous system \n           depressant?]]) then (no)
+(yes) elseif ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
+#306516:(yes) elseif (    Receiving both opioid analgesic \nand benzodiazepine or other central \n      nervous system depressant?) then (no) 
+else (yes) 
+#b06f19:[[user-interaction-alerts.html#recommendation-11-alert Alert]];<<output>>
+kill
+endif
+#BC2C73:No Alert*;
+caption ~*When no alert is warranted by the guidance, the user should not experience any interruption.
+@enduml
