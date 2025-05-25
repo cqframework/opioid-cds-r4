@@ -1,0 +1,80 @@
+<table id="dataElements">
+  {% include data-elements-headers.html %}
+  <tr>
+    <td>Positive result for a substance of potential interest in the past year?</td>
+    <td>Yes</td>
+    <td>Urine toxicology screen result contains a substance of potential interest</td>
+    <td>
+      Cocaine urine toxicology test result
+      Heroin urine toxicology test result
+      Phencyclidine (PCP) urine toxicology test result
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab">Observation</a>
+    </td>
+    <td>
+      Observation.category, Observation.code, and Observation.value
+    </td>
+  </tr>
+  <tr>
+    <td>Possible unexpected negative result for prescribable substance?</td>
+    <td>Yes</td>
+    <td>Negative result for a prescribable substance in the past year and an order for that substance exists in the 30 days prior to the test</td>
+    <td>
+      Amphetamine urine toxicology test result <br />
+      Barbiturate urine toxicology test result <br />
+      Benzodiazepine urine toxicology test result <br />
+      Buprenorphine urine toxicology test result <br />
+      Fentanyl urine toxicology test result <br />
+      Methadone urine toxicology test result <br />
+      Opiate urine toxicology test result <br />
+      Oxycodone urine toxicology test result <br />
+      Amphetamine medication <br />
+      Barbiturate medication <br />
+      Benzodiazepine medication <br />
+      Buprenorphine medication <br />
+      Fentanyl medication <br />
+      Methadone medication <br />
+      Opiate medication <br />
+      Oxycodone medication
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab">Observation</a>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a>
+    </td>
+    <td>
+      Observation.category, Observation.code, and Observation.value, MedicationRequest.status, MedicationRequest.authoredOn, and MedicationRequest.medication
+    </td>
+  </tr>
+  <tr>
+    <td>Possible unexpected positive result for prescribable substance?</td>
+    <td>Yes</td>
+    <td>Positive result for a prescribable substance in the past year and no order for that substance exists in the 30 days prior to the test</td>
+    <td>
+      Amphetamine urine toxicology test result <br />
+      Barbiturate urine toxicology test result <br />
+      Benzodiazepine urine toxicology test result <br />
+      Buprenorphine urine toxicology test result <br />
+      Fentanyl urine toxicology test result <br />
+      Methadone urine toxicology test result <br />
+      Opiate urine toxicology test result <br />
+      Oxycodone urine toxicology test result <br />
+      Amphetamine medication <br />
+      Barbiturate medication <br />
+      Benzodiazepine medication <br />
+      Buprenorphine medication <br />
+      Fentanyl medication <br />
+      Methadone medication <br />
+      Opiate medication <br />
+      Oxycodone medication
+    </td>
+    <td>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab">Observation</a>
+      <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a>
+    </td>
+    <td>
+      Observation.category, Observation.code, and Observation.value, MedicationRequest.status,
+      MedicationRequest.authoredOn, and MedicationRequest.medication
+    </td>
+  </tr>
+</table>
