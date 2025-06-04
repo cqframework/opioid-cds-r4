@@ -2,11 +2,11 @@
   <li>When</li>
     <ul>
       <li>Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting</li>
-      {% include subacute-and-chronic-pain-definition.html %}
+      {% include subacute-and-chronic-pain-functional-description.html %}
       <li>Opioid review is useful for this patient:</li>
       {% include opioid-review-useful-functional-description.html %}
-      <li>Nonopioid drug urine screening has not been performed in last 12 months or</li>
-      <li>Opioid drug urine screening has not been performed in last 12 months</li>
+      <li>Urine toxicology screening has not been performed in last 12 months</li>
+      {% include urine-toxicology-past-year-functional-description.html %}
     </ul>
   <li>Then</li>
     <ul>
@@ -20,24 +20,21 @@
   <li>When</li>
     <ul>
       <li>Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting</li>
-      {% include subacute-and-chronic-pain-definition.html %}
+      {% include subacute-and-chronic-pain-functional-description.html %}
       <li>Opioid review is useful for this patient:</li>
       {% include opioid-review-useful-functional-description.html %}
-      <li>Nonopioid drug urine screening has been performed in last 12 months or</li>
-      <li>Opioid drug urine screening has been performed in last 12 months and</li>
-      <li>Positive result for a substance of potential interest in the past year or</li>
-      <li>Negative result for a prescribable substance in the past year and</li>
-      <li>An order for that substance exists in the 30 days prior to the test or</li>
-      <li>Positive result for a prescribable\n substance in the past year and</li>
-      <li>No order for that substance exists\n in the 30 days prior to the test</li>
+      <li>Urine toxicology screening has been performed in last 12 months</li>
+      {% include urine-toxicology-past-year-functional-description.html %}
+      <li>Possible unexpected results in urine toxicology</li>
+      {% include possible-unexpected-results-functional-description.html %}
     </ul>
   <li>Then</li>
     <ul>
       <li>Patient may have possible unexpected toxicology test results:</li>
       <ul>
         <li>Document - Will repeat urine drug screening more frequently</li>
+        <li>Document - Will consult with patient regarding possible unexpected test results</li>
         <li>Document - Will assess patient for substance use disorder</li>
-        <li>Document - will consult with patient regarding possible unexpected test results</li>
         <li>Snooze - Patient's test results were expected, snooze for 3 months</li>
         <li>Snooze - N/A snooze for 3 months</li>
       </ul>
