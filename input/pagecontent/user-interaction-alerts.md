@@ -1,3 +1,8 @@
+### Recommendation 7 Alert
+
+<div>{% include alert_rec07_ordersign.svg %}</div>
+<div>{% include legend_user_interaction.svg %}</div>
+
 ### Recommendation 10 UDS Alert
 
 <div>{% include alert_rec10_ordersign_uds.svg %}</div>
