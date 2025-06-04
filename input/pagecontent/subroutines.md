@@ -22,6 +22,10 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 
 ### Recommendation-specific Subroutines
 
+#### Recommendation 8 Factors that Increase Risk for Opioid Related Harms
+
+{% include opioid-related-harms-definitions.html %}
+
 #### Recommendation 10 Urine Toxicology Screening
 
 {% include urine-toxicology-past-year-definitions.html %}
