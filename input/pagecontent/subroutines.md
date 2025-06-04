@@ -32,6 +32,4 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 
 #### Recommendation 11 Opioid Analgesic or Benzodiazepine or CNS Depressant Order
 
-{% include opioid-analgesic-benzodiazepine-cns-order-fd.html %}
-<div>{% include subroutine_opioid_benzodiazepine_cns_order.svg %}</div>
-{% include opioid-analgesic-benzodiazepine-cns-order-de.html %}
+{% include opioid-analgesic-benzodiazepine-cns-order-definitions.html %}
