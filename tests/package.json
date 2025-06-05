@@ -1,11 +1,11 @@
 {
-    "name": "opioid-cds-r4-test-scripts",
-    "scripts": {
-      "test": "npx jest --runInBand --forceExit --silent=false"
-    },
-    "devDependencies": {
-      "dotenv": "^16.4.7",
-      "jest": "^29.7.0",
-      "superagent": "^10.1.1"
-    }
+  "name": "opioid-cds-r4-test-scripts",
+  "scripts": {
+    "test": "npx jest --runInBand --forceExit --silent=false"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "jest": "^29.7.0",
+    "superagent": "^10.1.1"
   }
+}
