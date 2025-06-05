@@ -29,3 +29,7 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 #### Recommendation 10 Possible Unexpected Results
 
 {% include possible-unexpected-results-definitions.html %}
+
+#### Recommendation 11 Opioid Analgesic or Benzodiazepine or CNS Depressant Order
+
+{% include opioid-analgesic-benzodiazepine-cns-order-definitions.html %}
