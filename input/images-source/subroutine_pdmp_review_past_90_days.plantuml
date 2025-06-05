@@ -1,0 +1,29 @@
+@startuml subroutine_pdmp_review_past_90_days
+!theme carbon-gray
+skinparam ActivityBackgroundColor #306516
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title PDMP Review in Past 90 Days Subroutine
+start
+fork
+:PDMP review procedure in past 90 days?;
+fork again
+:PDMP data reviewed finding in past 90 days?;
+end merge
+if (Any answer is yes?) then (yes)
+#BC2C73:Return Yes;
+kill
+else (no)
+#BC2C73:Return No;
+kill
+@enduml
