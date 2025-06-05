@@ -1,0 +1,33 @@
+@startuml subroutine_opioid_related_harms
+!theme carbon-gray
+skinparam ActivityBackgroundColor #306516
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title Factors That Increase Risk For Opioid Related Harms Subroutine
+start
+fork
+:Currently receiving benzodiazepine\n   or other central nervous system\n        depressant medications?;
+fork again
+:Daily MME >= 50?;
+fork again
+:History of conditions documenting\n       substance use disorder?;
+fork again
+:Diagnosed with sleep-disordered\n         breathing condition?;
+end merge
+if (Any answer is yes?) then (yes)
+#BC2C73:Return Yes;
+kill
+else (no)
+#BC2C73:Return No;
+kill
+@enduml
