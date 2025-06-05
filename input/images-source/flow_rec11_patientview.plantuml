@@ -1,0 +1,26 @@
+@startuml flow_rec11_patientview
+!theme carbon-gray
+skinparam hyperlinkColor white
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #fc914d
+ }
+}
+</style>
+title Recommendation 11 Patient View Flow Diagram
+#1C2ED5:Patient View; 
+if ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
+#306516:(yes) elseif (   Receiving an opioid analgesic along\n with either a benzodiazepine or other\n   central nervous system depressant?) then (no) 
+else (yes) 
+#b06f19:[[user-interaction-alerts.html#recommendation-11-alert Alert]];<<output>>
+kill
+endif
+#BC2C73:No Alert*;
+caption ~*When no alert is warranted by the guidance, the user should not experience any interruption.
+@enduml

@@ -1,0 +1,55 @@
+@startuml alert_rec11_orderselect
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ arrow {
+  FontColor: Black
+ }
+ note {
+  FontColor: Black
+  BackgroundColor: #fafad2
+ }
+}
+</style>
+#b06f19:Alert;<<output>>
+note right
+**SUMMARY**: Use Particular Caution When Prescribing Opioid 
+Pain Medication and Benzodiazepines or Other CNS Depressants 
+Concurrently
+
+**DETAILS**:
+Consider whether the benefits outweigh the risks of concurrently 
+prescribing opioids and benzodiazepines, or other central nervous 
+system depressant medications.
+
+When co-prescribing risks outweigh benefits, consult 
+[[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%203).-,Implementation%20Considerations,-Although%20in%20some Recommendation 11 of the 2022 CDC Clinical Practice Guideline]] 
+for further guidance.
+
+For patients being treated for opioid use disorder who are also 
+taking benzodiazepines or other medications that depress the 
+central nervous system, the CDC recommends not withholding 
+buprenorphine or methadone.<sup>[[[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=gabapentin%20and%20pregabalin).-,Buprenorphine%20or%20methadone%20for%20opioid%20use%20disorder%20should%20not%20be%20withheld%20from%20patients%20taking%20benzodiazepines%20or%20other%20medications%20that%20depress%20the%20central%20nervous%20system.,-Clinicians%20should%20check 1]]]</sup>
+
+If the decision is made to taper benzodiazepine medications, 
+the CDC recommends tapering benzodiazepines gradually prior 
+to discontinuation.<sup>[[[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Clinicians%20should%20taper%20benzodiazepines%20gradually%20before%20discontinuation%20because%20abrupt%20withdrawal%20can%20be%20associated%20with%20rebound%20anxiety%2C%20hallucinations%2C%20seizures%2C%20delirium%20tremens%2C%20and%2C%20rarely%2C%20death.%20The%20rate%20of%20tapering%20should%20be%20individualized 2]]]</sup>
+end note
+split
+#c05046:Document - 
+Will modify prescription;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+Benefits outweigh risks, 
+snooze 3 months;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+N/A see comment, 
+snooze 3 months;<<input>>
+kill
+end split
+caption ~*Snooze as referenced in alert response examples is generally intended to be applied to a particular patient
+@enduml

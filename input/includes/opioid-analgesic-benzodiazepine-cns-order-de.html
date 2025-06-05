@@ -1,11 +1,11 @@
 <table id="dataElements">
   {% include data-elements-intro.html %}
   {% include data-elements-headers.html %}
-  {% include data-elements-opioid-review-useful.html %}
   <tr>
-    <td>Active order for opioid analgesics with ambulatory misuse potential</td>
+    <td>Order for opioid analgesics with ambulatory misuse potential?</td>
     <td>Yes</td>
-    <td>Review active medication orders for opioid analgesics with ambulatory misuse potential</td>
+    <td>Trigger based on a new prescription (order) for opioid analgesics with ambulatory misuse potential - ideally the
+      prescription should be selected prior to being committed to the system</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
     <td>
       <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a>
@@ -15,9 +15,10 @@
     </td>
   </tr>
   <tr>
-    <td>Active order for benzodiazepine medication?</td>
+    <td>Order for benzodiazepine medications?</td>
     <td>Yes</td>
-    <td>Review active medication orders for benzodiazepine medications</td>
+    <td>Trigger based on a new prescription (order) for benzodiazepines in the relevant value sets - ideally the
+      prescription should be selected prior to being committed to the system</td>
     <td>Benzodiazepine medications</td>
     <td>
       <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a>
@@ -27,9 +28,10 @@
     </td>
   </tr>
   <tr>
-    <td>Active order for central nervous system depressant?</td>
+    <td>Order for central nervous system depressant medications?</td>
     <td>Yes</td>
-    <td>Review active medication orders for central nervous system depressant medications</td>
+    <td>Trigger based on a new prescription (order) for central nervous system depressant in the relevant value sets - 
+      ideally the prescription should be selected prior to being committed to the system</td>
     <td>CNS depressant medications</td>
     <td>
       <a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a>
@@ -39,5 +41,3 @@
     </td>
   </tr>
 </table>
-<p> </p>
-<a href="PlanDefinition-opioidcds-11-patient-view.html#effective-data-requirements">Effective Data Requirements</a>

@@ -1,13 +1,17 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
-  {% include recommendation-page-template.html 
-    recommendationNum='9' 
-    topic='Assessing Risk and Addressing Potential Harms of Opioid Use' 
-    description='When prescribing initial opioid therapy for acute, subacute, or chronic pain, and periodically during opioid therapy for chronic pain, clinicians should review the patient’s history of controlled substance prescriptions using state prescription drug monitoring program (PDMP) data to determine whether the patient is receiving opioid dosages or combinations that put the patient at high risk for overdose.' 
-    recommendation-category='B' 
-    evidence-type='4' 
-    flow-diagram='Recommendation09-flow.png'
-    func-desc='recommendation09-functional-description.html'
-    data-elements='recommendation09-data-elements.html'
-    content-table='recommendation09-content-table.html'
-    test-data='recommendation09-test-data.html' %}
+  {% include recommendation-page-template.html
+  recommendationNum='9'
+  topic='Assessing Risk and Addressing Potential Harms of Opioid Use'
+  description='When prescribing initial opioid therapy for acute, subacute, or chronic pain, and
+  periodically during opioid therapy for chronic pain, clinicians should review the patient’s
+  history of controlled substance prescriptions using state prescription drug monitoring program
+  (PDMP) data to determine whether the patient is receiving opioid dosages or combinations that put
+  the patient at high risk for overdose.'
+  recommendation-category='B'
+  evidence-type='4'
+  flow-diagram='flow_rec09_ordersign.svg'
+  func-desc='recommendation09-functional-description.html'
+  data-elements='recommendation09-data-elements.html'
+  content-table='recommendation09-content-table.html'
+  test-data='recommendation09-test-data.html' %}
 </div>

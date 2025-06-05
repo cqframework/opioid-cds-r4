@@ -1,4 +1,4 @@
-@startuml subroutine_active_cancer_treatment
+@startuml subroutine_pdmp_review_past_90_days
 !theme carbon-gray
 skinparam ActivityBackgroundColor #306516
 <style>
@@ -13,14 +13,12 @@ activityDiagram {
  }
 }
 </style>
-title Active Cancer Treatment Subroutine
+title PDMP Review in Past 90 Days Subroutine
 start
 fork
-:    Patient problem list\n includes CDC malignant\n     cancer condition?;
+:PDMP review procedure in past 90 days?;
 fork again
-: Two office visits in\n  past 12 months?;
--> AND;
-:    Office visit including CDC \n  malignant cancer condition?;
+:PDMP data reviewed finding in past 90 days?;
 end merge
 if (Any answer is yes?) then (yes)
 #BC2C73:Return Yes;

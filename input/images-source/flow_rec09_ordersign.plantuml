@@ -1,0 +1,27 @@
+@startuml flow_rec09_ordersign
+!theme carbon-gray
+skinparam hyperlinkColor white
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #fc914d
+ }
+}
+</style>
+title Recommendation 9 Order Sign Flow Diagram
+#1C2ED5:Order Sign; 
+#306516:if (Order for opioid analgesic with\n ambulatory misuse potential?) then (no)
+(yes) elseif ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
+(yes) elseif ([[subroutines.html#recommendation-9-pdmp-review-in-past-90-days PDMP review in past 90 days?]]) then (yes) 
+else (no) 
+#b06f19:[[user-interaction-alerts.html#recommendation-9-alert Alert]];<<output>>
+kill
+endif
+#BC2C73:No Alert*;
+caption ~*When no alert is warranted by the guidance, the user should not experience any interruption.
+@enduml

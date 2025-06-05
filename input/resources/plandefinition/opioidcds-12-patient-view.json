@@ -404,6 +404,10 @@
     "groupingBehavior": "visual-group",
     "selectionBehavior": "any",
     "action": [ {
+      "description": "Snooze* - Patient already provided medication elsewhere to treat opioid use disorder, snooze 3 months"
+    }, {
+      "description": "Snooze* - Patient declined medication therapy, snooze 3 months"
+    }, {
       "description": "Document - Will order medication to treat opioid use disorder"
     }, {
       "description": "Refer - Will refer patient to SUD specialist"

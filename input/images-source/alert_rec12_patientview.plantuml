@@ -1,0 +1,80 @@
+@startuml alert_rec12_patientview
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ arrow {
+  FontColor: Black
+ }
+ note {
+  FontColor: Black
+  BackgroundColor: #fafad2
+ }
+}
+</style>
+#b06f19:Alert;<<output>>
+note right
+**SUMMARY**: Offer Evidence-based Medications to Treat Patients 
+with Opioid Use Disorder
+
+**DETAILS**:
+For patients diagnosed with opioid use disorder, consider opioid 
+agonist or partial agonist treatment with methadone or buprenorphine 
+maintenance therapy. Detoxification on its own, without medications 
+for opioid use disorder, is not recommended for opioid use disorder 
+because of increased risks of resuming drug use, overdose, and 
+overdose death. 
+
+For guidance regarding diagnosing and treating opioid use disorder, 
+see [[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=evidence%20type%3A%201).-,Implementation%20Considerations,-Although%20stigma%20can Recommendation 12 of the 2022 CDC Clinical Practice Guideline]].
+
+CDC recommends against releasing patients from care due to diagnosis 
+of opioid use disorder.<sup>[[[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=opioid%20use%20disorder.-,Clinicians%20should%20not%20dismiss%20patients%20from%20their%20practice%20because%20of%20opioid%20use%20disorder%20because%20this%20can%20adversely%20affect%20patient%20safety.,-Medication%20treatment%20of 1]]]</sup>
+
+MME conversion factors should not be applied to dosage decisions 
+related to the management of opioid use disorder.<sup>[[[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=These%20conversion%20factors%20should%20not%20be%20applied%20to%20dosage%20decisions%20related%20to%20the%20management%20of%20opioid%20use%20disorder. 2]]]</sup>
+
+Do not use the calculated dose in MMEs to determine the doses to use 
+when converting one opioid to another; when converting opioids, the 
+new opioid is typically dosed at a substantially lower dose than the 
+calculated MME dose to avoid overdose because of incomplete 
+cross-tolerance and individual variability in opioid pharmacokinetics.<sup>[[[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#:~:text=Do%20not%20use%20the,variability%20in%20opioid%20pharmacokinetics. 3]]]</sup>
+
+Consult the FDA approved product labeling for specific guidance on 
+medications.
+end note
+split
+#c05046:Snooze* - 
+Patient already 
+provided medication 
+elsewhere to treat 
+opioid use disorder, 
+snooze 3 months;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+Patient declined 
+medication therapy, 
+snooze 3 months;<<input>>
+kill
+split again
+#c05046:Document - 
+Will order 
+medication to 
+treat opioid 
+use disorder;<<input>>
+kill
+split again
+#c05046:Refer - 
+Will refer 
+patient to SUD 
+specialist;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+N/A see comment, 
+snooze 3 months;<<input>>
+kill
+end split
+caption ~*Snooze as referenced in alert response examples is generally intended to be applied to a particular patient
+@enduml

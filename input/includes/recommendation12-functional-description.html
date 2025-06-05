@@ -1,7 +1,8 @@
 <ul>
   <li>When</li>
     <ul>
-      <li>Patient is 18 years or older</li>
+      <li>Opioid review is useful for this patient:</li>
+      {% include opioid-review-useful-functional-description.html %}
       <li>Patient has a diagnosis of opioid use disorder in the past 90 days</li>
       <li>No active order for buprenorphine or methadone medication</li>
     </ul>
@@ -9,6 +10,8 @@
     <ul>
       <li>Offer evidence-based medications to treat patients with opioid use disorder:</li>
       <ul>
+        <li>Snooze - Patient already provided medication elsewhere to treat opioid use disorder, snooze 3 months</li>
+        <li>Snooze - Patient declined medication therapy, snooze 3 months</li>
         <li>Document - Will order medication to treat opioid use disorder</li>
         <li>Refer - Will refer patient to SUD specialist</li>
         <li>Snooze - N/A see comment, snooze 3 months</li>
