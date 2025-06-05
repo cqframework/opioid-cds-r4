@@ -15,7 +15,7 @@ activityDiagram {
 </style>
 title Recommendation 12 Patient View Flow Diagram
 #1C2ED5:Patient View; 
-if (Age >= 18?) then (no)
+#fc914d:if ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
 (yes) elseif (  Diagnosis of opioid use\n disorder in past 90 days?) then (no)
 (yes) elseif (      No active order \n  for buprenorphine or \nmethadone medications?) then (no) 
 else (yes) 

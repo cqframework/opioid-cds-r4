@@ -1,18 +1,7 @@
 <table id="dataElements">
   {% include data-elements-intro.html %}
   {% include data-elements-headers.html %}
-  <tr>
-    <td>Age &ge; 18?</td>
-    <td>Yes</td>
-    <td>Age greater than or equal to 18 years</td>
-    <td></td>
-    <td>
-      <a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-patient">Patient</a>
-    </td>
-    <td>
-      Patient.birthDate
-    </td>
-  </tr>
+  {% include data-elements-opioid-review-useful.html %}
   <tr>
     <td>Presence of diagnosis of opioid misuse disorders in past 90 days?</td>
     <td>Yes</td>
