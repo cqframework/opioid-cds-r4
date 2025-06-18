@@ -1,0 +1,47 @@
+@startuml alert_rec07_ordersign
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ arrow {
+  FontColor: Black
+ }
+ note {
+  FontColor: Black
+  BackgroundColor: #fafad2
+ }
+}
+</style>
+#b06f19:Alert;<<output>>
+note right
+**SUMMARY**: Regularly Evaluate the Benefits and Risks of
+Opioid Therapy 
+
+**DETAILS**:
+Recommend that clinicians evaluate benefits and risks with
+patients within 1-4 weeks of starting opioid therapy for
+subacute or chronic pain or dosage escalation. Clinicians
+should also regularly reevaluate the benefits and risks of
+continued opioid therapy with patients.
+
+For additional guidance regarding opioid therapy patient consultations,
+see [[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation7 Recommendation 7 of the 2022 CDC Clinical Practice Guideline]].
+end note
+split
+#c05046:Document - 
+Conducted benefit and
+risk assessment;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+Conducted assessment, 
+snooze 3 months;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+N/A see comment, 
+snooze 3 months;<<input>>
+kill
+end split
+caption ~*Snooze as referenced in alert response examples is generally intended to be applied to a particular patient
+@enduml
