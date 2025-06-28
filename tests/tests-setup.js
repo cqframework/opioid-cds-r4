@@ -13,6 +13,7 @@ const loadKnowledgeArtifacts = () =>
 
 async function setUp() {
   await loadKnowledgeArtifacts();
+  console.log("Successfully pushed knowledge artifacts bundle to the server.");
 }
 
 module.exports = setUp;
