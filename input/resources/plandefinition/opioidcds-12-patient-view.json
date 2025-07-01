@@ -295,11 +295,6 @@
     "id": "effective-data-requirements",
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
     "valueCanonical": "#effective-data-requirements"
-  }, {
-    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
-    "valueReference": {
-      "reference": "Device/cqf-tooling"
-    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-12-patient-view",
   "identifier": [ {
@@ -318,7 +313,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2025-04-24",
+  "date": "2025-07-01",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should offer or arrange treatment with evidence-based medications to treat patients with opioid use disorder. Detoxification on its own, without medications for opioid use disorder, is not recommended for opioid use disorder because of increased risks for resuming drug use, overdose, and overdose death.",
   "useContext": [ {

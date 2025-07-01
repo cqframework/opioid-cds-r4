@@ -684,11 +684,6 @@
     "id": "effective-data-requirements",
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
     "valueCanonical": "#effective-data-requirements"
-  }, {
-    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
-    "valueReference": {
-      "reference": "Device/cqf-tooling"
-    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-07",
   "identifier": [ {
@@ -707,7 +702,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2025-04-24",
+  "date": "2025-07-01",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "Clinicians should evaluate benefits and risks with patients within 1-4 weeks of starting opioid therapy for subacute or chronic pain or of dosage escalation. Clinicians should regularly reevaluate benefits and risks of continued opioid therapy with patients.",
   "useContext": [ {

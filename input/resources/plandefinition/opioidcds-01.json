@@ -336,11 +336,6 @@
     "id": "effective-data-requirements",
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
     "valueCanonical": "#effective-data-requirements"
-  }, {
-    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
-    "valueReference": {
-      "reference": "Device/cqf-tooling"
-    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-01",
   "identifier": [ {
@@ -359,7 +354,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2025-04-24",
+  "date": "2025-07-01",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "contact": [ {
     "telecom": [ {
