@@ -4,6 +4,8 @@ const {
   createMedicationRequestWithRef
 } = require("./helpers/fhir-resource-helpers");
 
+jest.setTimeout(10 * 1000);
+
 const FHIR_SERVER = process.env.FHIR_SERVER || "http://localhost:8080/fhir";
 const CDS_SERVICE =
   process.env.CDS_SERVICE || "http://localhost:8080/cds-services";
