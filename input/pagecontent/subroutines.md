@@ -22,6 +22,10 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 
 ### Recommendation-specific Subroutines
 
+#### Recommendation 8 Factors that Increase Risk for Opioid Related Harms
+
+{% include opioid-related-harms-definitions.html %}
+
 #### Recommendation 9 PDMP Review in Past 90 Days
 
 {% include pdmp-review-past-90-days-definitions.html %}
