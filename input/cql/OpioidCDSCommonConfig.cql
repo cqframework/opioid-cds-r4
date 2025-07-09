@@ -67,10 +67,10 @@ define "Cannabinoid Urine Screening Check Enabled":
   false
 
 define "Recommendation 10 UDS Lookback Period":
-  Interval[Today() - 6 months - 1 days, Today()]
+  Interval[Today() - 12 months - 1 days, Today()]
 
 define "Recommendation 10 Rx Lookback Period":
-  Interval[Today() - 6 months - 31 days, Today()]
+  Interval[Today() - 12 months - 31 days, Today()]
 
 // Recommendation 12
 define "Evidence Based Treatment Criteria For Opioid Use Disorder":

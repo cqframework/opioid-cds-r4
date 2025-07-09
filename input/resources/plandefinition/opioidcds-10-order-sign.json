@@ -1871,7 +1871,7 @@
     "condition": [ {
       "kind": "applicability",
       "expression": {
-        "description": "Patient has not had a urine screening in the past 12 months",
+        "description": "Patient has not had a urine screening in the lookback period",
         "language": "text/cql.identifier",
         "expression": "Is Perform Drug Screen Recommendation Applicable?"
       }
@@ -1957,7 +1957,7 @@
       }
     } ],
     "title": "Patient May Have Unexpected Toxicology Test Results",
-    "description": "Patient may have unexpected urine toxicology test results in the past year",
+    "description": "Patient may have unexpected urine toxicology test results in the lookback period",
     "priority": "urgent",
     "trigger": [ {
       "type": "named-event",
