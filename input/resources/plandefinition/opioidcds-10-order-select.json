@@ -3251,7 +3251,7 @@
   "action": [
     {
       "title": "Consider the Benefits and Risks of Conducting a Urine Toxicology Screen",
-      "description": "Urine drug screening should be done at least 1-2 times a year \r\n\r\n• Screening frequency should be based on assessed risk, guidelines, and regulations \r\n\r\n• UDS monitors opioid adherence and detects non-prescribed substances for patient safety \r\n\r\n• Confirmatory testing may be helpful; results may be affected by drug metabolism and dose timing \r\n\r\n• Discuss concerns with the patient before making therapeutic changes",
+      "description": "<ul><li>Urine drug screening should be done at least 1-2 times a year</li><li>Screening frequency should be based on assessed risk, guidelines, and regulations</li><li>UDS monitors opioid adherence and detects non-prescribed substances for patient safety</li><li>Confirmatory testing may be helpful; results may be affected by drug metabolism and dose timing</li><li>Discuss concerns with the patient before making therapeutic changes</li></ul>",
       "priority": "urgent",
       "documentation": [
         {
@@ -3302,6 +3302,93 @@
             "language": "text/cql.identifier",
             "expression": "Is Perform Drug Screen Recommendation Applicable?"
           }
+        }
+      ],
+      "selectionBehavior": "any",
+      "action": [
+        {
+          "prefix": "UDS 1",
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/action-type",
+                "code": "create",
+                "display": "Create"
+              }
+            ]
+          },
+          "precheckBehavior": "no",
+          "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-1"
+        },
+        {
+          "prefix": "UDS 2",
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/action-type",
+                "code": "create",
+                "display": "Create"
+              }
+            ]
+          },
+          "precheckBehavior": "no",
+          "definitionCanonical": "http://fhir.org/guides/cdc/opioid-cds/ActivityDefinition/opioidcds-urine-screening-request-2"
+        },
+        {
+          "reason": [
+            {
+              "coding": [
+                {
+                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+                  "code": "UToxAccepted",
+                  "display": "Action Taken"
+                }
+              ],
+              "text": "Document - Ordered toxicology screen"
+            }
+          ]
+        },
+        {
+          "reason": [
+            {
+              "coding": [
+                {
+                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+                  "code": "UToxNA",
+                  "display": "Alert not appropriate"
+                }
+              ],
+              "text": "Document - Risks outweigh benefits"
+            }
+          ]
+        },
+        {
+          "reason": [
+            {
+              "coding": [
+                {
+                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+                  "code": "UToxPDeclined",
+                  "display": "Action not taken"
+                }
+              ],
+              "text": "Snooze - N/A see comment, snooze 3 months"
+            }
+          ]
+        },
+        {
+          "reason": [
+            {
+              "coding": [
+                {
+                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+                  "code": "UToxWrongProvider",
+                  "display": "Wrong clinician"
+                }
+              ],
+              "text": "Snooze - N/A see comment, snooze 1 year"
+            }
+          ]
         }
       ]
     },
@@ -3367,6 +3454,50 @@
             "language": "text/cql.identifier",
             "expression": "Detail"
           }
+        }
+      ],
+      "action": [
+        {
+          "reason": [
+            {
+              "coding": [
+                {
+                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+                  "code": "UnExptResultAccepted",
+                  "display": "Action Taken"
+                }
+              ],
+              "text": "Document - Will repeat urine drug screen more frequently"
+            }
+          ]
+        },
+        {
+          "reason": [
+            {
+              "coding": [
+                {
+                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+                  "code": "UnExptResultNA",
+                  "display": "Alert not appropriate"
+                }
+              ],
+              "text": "The suggestion provided by the service has been declined"
+            }
+          ]
+        },
+        {
+          "reason": [
+            {
+              "coding": [
+                {
+                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+                  "code": "UnExptResultWrongProvider",
+                  "display": "Wrong clinician"
+                }
+              ],
+              "text": "Snooze* - N/A snooze for 1 year"
+            }
+          ]
         }
       ]
     }
