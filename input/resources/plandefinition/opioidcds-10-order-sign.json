@@ -1912,6 +1912,15 @@
       "reason": [ {
         "coding": [ {
           "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "UToxDefer",
+          "display": "Will Address at Future Visit"
+        } ],
+        "text": "Document - Will Address at Future Visit"
+      } ]
+    }, {
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
           "code": "UToxNA",
           "display": "Alert not appropriate"
         } ],
@@ -1979,6 +1988,15 @@
       }
     } ],
     "action": [ {
+      "reason": [ {
+        "coding": [ {
+          "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
+          "code": "UToxDefer",
+          "display": "Will Address at Future Visit"
+        } ],
+        "text": "Document - Will Address at Future Visit"
+      } ]
+    }, {
       "reason": [ {
         "coding": [ {
           "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
