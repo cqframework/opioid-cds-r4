@@ -17,7 +17,7 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting or
 **    Provider is prescribing a benzodiazepine or other central nervous system depressant medication
-**    Opioid review is useful for this patient:
+**    CDC 2022 guideline general inclusion criteria met for this patient:
 **      Patient is 18 or over
 **      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
@@ -64,7 +64,7 @@ define "Inclusion Criteria":
           and exists Common."Active Ambulatory Opioid Rx"
       )
   )
-    and Routines."Is Opioid Review Useful?"
+    and Routines."CDC 2022 Guideline General Inclusion Criteria"
 
 define "Exclusion Criteria":
   Common."End of Life Assessment"

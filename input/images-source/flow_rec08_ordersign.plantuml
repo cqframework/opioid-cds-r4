@@ -16,9 +16,7 @@ activityDiagram {
 title Recommendation 8 Order Sign Flow Diagram
 #1C2ED5:Order Sign; 
 #306516:if (Order for opioid analgesics with\n  ambulatory misuse potential?) then (no)
-(yes) elseif ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
-#306516:(yes) elseif (Evidence of current naloxone\n       medication order?) then (yes)
-(no) elseif ([[subroutines.html#recommendation-8-factors-that-increase-risk-for-opioid-related-harms Factors that increase risk\nfor opioid-related harms\n         are present?]]) then (no)
+(yes) elseif ([[subroutines.html#cdc-2022-general-inclusion-criteria CDC 2022 guideline\n   general inclusion\n      criteria met?]]) then (no)
 else (yes) 
 #b06f19:[[user-interaction-alerts.html#recommendation-8-alert Alert]];<<output>>
 kill

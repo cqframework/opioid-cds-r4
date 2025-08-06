@@ -8,9 +8,9 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 
 {% include for-subacute-and-chronic-pain-definitions.html %}
 
-### Opioid Review Useful
+### CDC 2022 General Inclusion Criteria
 
-{% include opioid-review-useful-definitions.html %}
+{% include general-inclusion-criteria-definitions.html %}
 
 ### Active Cancer Treatment
 
