@@ -49,13 +49,13 @@ Patient already
 provided medication 
 elsewhere to treat 
 opioid use disorder, 
-snooze 3 months;<<input>>
+Snooze 3 months*;<<input>>
 kill
 split again
 #c05046:Snooze* - 
 Patient declined 
 medication therapy, 
-snooze 3 months;<<input>>
+Snooze 3 months*;<<input>>
 kill
 split again
 #c05046:Document - 
@@ -73,7 +73,7 @@ kill
 split again
 #c05046:Snooze* - 
 N/A see comment, 
-snooze 3 months;<<input>>
+Snooze 3 months*;<<input>>
 kill
 end split
 caption ~*Snooze duration referenced in the alert response is an example and is intended to be patient specific.

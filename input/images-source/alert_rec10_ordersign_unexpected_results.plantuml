@@ -68,13 +68,13 @@ split again
 #c05046:Snooze* - 
 Patient's test 
 results were 
-expected, snooze 
-for 3 months;<<input>>
+expected, Snooze 
+for 3 months*;<<input>>
 kill
 split again
 #c05046:Snooze* - 
-N/A snooze for 
-3 months;<<input>>
+N/A Snooze for 
+3 months*;<<input>>
 kill
 end split
 caption ~*Snooze duration referenced in the alert response is an example and is intended to be patient specific.
