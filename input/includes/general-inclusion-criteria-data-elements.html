@@ -1,0 +1,51 @@
+<table id="dataElements">
+  {% include data-elements-headers.html %}
+  <tr>
+    <td>Age &lt; 18 years?</td>
+    <td>No</td>
+    <td>Calculate age from date of birth; exclude patients with age less than 18 years at the time of the prescription</td>
+    <td>Date of birth</td>
+    <td><a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-patient">Patient</a></td> 
+    <td>Patient.birthDate</td>
+  </tr>
+  <tr>
+    <td>Evidence of sickle cell disease?</td>
+    <td>No</td>
+    <td>Look for patients with a diagnosis or problem list entry indicating sickle cell disease</td>
+    <td>Sickle cell disease condition</td>
+    <td><a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-condition">Condition</a></td>
+    <td>Condition.category, Condition.code, and Condition.clinicalStatus</td>
+  </tr>
+  <tr>
+    <td>Limited life expectancy conditions present?</td>
+    <td>No</td>
+    <td>Look for documented findings consistent with those listed in the limited life expectancy value set (terminal illness, bad prognosis, pre-terminal)</td>
+    <td>Limited life expectancy conditions</td>
+    <td><a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-condition">Condition</a></td>
+    <td>Condition.category and Condition.code</td>
+  </tr>
+  <tr>
+    <td>Order for therapies indicating end of life care in past 90 days?</td>
+    <td>No</td>
+    <td>Look for patients with an existing order for therapies indicating end of life care written within past 90 days</td>
+    <td>Therapies indicating end of life care</td>
+    <td><a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-servicerequest">ServiceRequest</a></td>
+    <td>ServiceRequest.status, ServiceRequest.intent, ServiceRequest.authoredOn, and ServiceRequest.code</td>
+  </tr>
+  <tr>
+    <td>Active cancer treatment?</td>
+    <td>No</td>
+    <td>See <a href="subroutines.html#active-cancer-treatment">Active Cancer Treatment sub-routine</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Conditions Likely Terminal for opioid prescribing present?</td>
+    <td>No</td>
+    <td>Look for patients with <em>active</em> conditions in the value set end-of-life-conditions</td>
+    <td>Conditions likely terminal for opioid prescribing</td>
+    <td><a href="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-condition">Condition</a></td>
+    <td>Condition.category, Condition.code, and Condition.clinicalStatus</td>
+  </tr>
+</table>

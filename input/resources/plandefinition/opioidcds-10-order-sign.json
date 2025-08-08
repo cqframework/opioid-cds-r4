@@ -45,6 +45,34 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
     }, {
       "type": "depends-on",
+      "display": "Value set Encounter Diagnosis Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Problem List Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set US Core Health Concern Condition Category",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Sickle Cell Diseases",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/sickle-cell-diseases"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Active Condition",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-clinical-status-active"
+    }, {
+      "type": "depends-on",
+      "display": "Value set CDC malignant cancer conditions",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cdc-malignant-cancer-conditions"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Conditions likely terminal for opioid prescribing",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/conditions-likely-terminal-for-opioid-prescribing"
+    }, {
+      "type": "depends-on",
       "display": "Value set All Drug Urine Screening",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
     }, {
@@ -81,8 +109,16 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/buprenorphine-medications"
     }, {
       "type": "depends-on",
+      "display": "Value set Cannabinoid Urine Tests",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cannabinoid-urine-drug-screening-tests"
+    }, {
+      "type": "depends-on",
       "display": "Value set Cocaine Urine Tests",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/cocaine-urine-drug-screening-tests"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Fentanyl Urine Tests",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/fentanyl-type-urine-drug-screening-tests"
     }, {
       "type": "depends-on",
       "display": "Value set Fentanyl Medications",
@@ -101,8 +137,16 @@
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/methadone-medications"
     }, {
       "type": "depends-on",
+      "display": "Value set General Opiate Urine Tests",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/general-opiate-urine-drug-screening-tests"
+    }, {
+      "type": "depends-on",
       "display": "Value set Opiate Medications",
       "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/non-synthetic-opioid-medications"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Oxycodone Urine Tests",
+      "resource": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/oxycodone-urine-drug-screening-tests"
     }, {
       "type": "depends-on",
       "display": "Value set Oxycodone Medications",
@@ -138,9 +182,44 @@
       "type": "string"
     } ],
     "dataRequirement": [ {
+      "type": "Medication",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
+      "mustSupport": [ "id", "code" ]
+    }, {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category", "code", "clinicalStatus" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-us-core-health-concern-category"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category", "code", "clinicalStatus", "encounter", "encounter.reference" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-encounter-diagnosis-category"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "category", "code", "clinicalStatus", "clinicalStatus.coding" ],
+      "codeFilter": [ {
+        "path": "category",
+        "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/condition-problem-list-category"
+      } ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "period", "period.start", "id" ]
+    }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "status" ],
+      "mustSupport": [ "code", "effective", "status", "code.coding", "value" ],
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/all-urine-drug-screening-tests"
@@ -148,7 +227,7 @@
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "category", "status", "intent", "id", "subject", "authoredOn", "recorder", "dosageInstruction", "dispenseRequest", "medication" ],
+      "mustSupport": [ "category", "status", "intent", "medication", "medication.reference", "id", "subject", "authoredOn", "recorder", "dosageInstruction", "dispenseRequest", "timing", "timing.event", "timing.repeat", "timing.repeat.bounds", "medication.text", "medication.coding" ],
       "codeFilter": [ {
         "path": "category",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
@@ -201,6 +280,21 @@
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
+      "valueString": "OpioidCDSCommonConfig"
+    }, {
+      "url": "name",
+      "valueString": "Age Less than 18 Years Is Enabled"
+    }, {
+      "url": "statement",
+      "valueString": "// CDC 2022 General Inclusion Criteria\ndefine \"Age Less than 18 Years Is Enabled\":\n  true"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 2
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
       "valueString": "OpioidCDSRoutines"
     }, {
       "url": "name",
@@ -210,7 +304,67 @@
       "valueString": "define \"Patient Age Less Than 18\":\n  if (Config.\"Age Less than 18 Years Is Enabled\") then\n    AgeInYearsAt(Today()) < 18\n  else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 2
+      "valueInteger": 3
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommonConfig"
+    }, {
+      "url": "name",
+      "valueString": "Sickle Cell Check Enabled"
+    }, {
+      "url": "statement",
+      "valueString": "// Sickle Cell\ndefine \"Sickle Cell Check Enabled\":\n  true"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 4
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommonConfig"
+    }, {
+      "url": "name",
+      "valueString": "Sickle Cell Assumed Active"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Sickle Cell Assumed Active\":\n  true"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 5
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "US Core-Categorized Conditions"
+    }, {
+      "url": "statement",
+      "valueString": "// 3. Medications indicating end of life\n    /* or exists (\n      \"Medications Indicating End of Life\"\n    ) */\n\ndefine \"US Core-Categorized Conditions\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"]\n    union [Condition: category in \"Problem List Condition Category\"]\n    union [Condition: category in \"US Core Health Concern Condition Category\"]"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 6
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "Positive Sickle Cell Condition"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Positive Sickle Cell Condition\":\n  if Config.\"Sickle Cell Check Enabled\" and not Config.\"Sickle Cell Assumed Active\"\n    then (\n      \"US Core-Categorized Conditions\" C\n        where C.code in \"Sickle Cell Diseases\"\n          and C.clinicalStatus in \"Active Condition\"\n    ) else if Config.\"Sickle Cell Check Enabled\" and Config.\"Sickle Cell Assumed Active\"\n        then (\n          \"US Core-Categorized Conditions\" C\n            where C.code in \"Sickle Cell Diseases\"\n        )\n      else null"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 7
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -225,7 +379,127 @@
       "valueString": "define \"Condition Positive for Sickle Cell\":\n  if (Config.\"Sickle Cell Check Enabled\") then\n    exists(\n      Common.\"Positive Sickle Cell Condition\"\n    ) \n  else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 3
+      "valueInteger": 8
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommonConfig"
+    }, {
+      "url": "name",
+      "valueString": "Active Cancer Treatment Encounters Condition Is Enabled"
+    }, {
+      "url": "statement",
+      "valueString": "// Active Cancer Treatment\ndefine \"Active Cancer Treatment Encounters Condition Is Enabled\":\n  true"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 9
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSRoutines"
+    }, {
+      "url": "name",
+      "valueString": "Encounter Period"
+    }, {
+      "url": "statement",
+      "valueString": "// End of Opioid Naive Routine\n\n/*\n**  Routine #3\n**  Active Cancer Treatment Routine\n**\n**  Definition                    | Answer to Proceed   | Details                                    | Data (Terminology) Requirement\n**  ---------------------------------------------------------------------------------------------------------------------------------\n**  Two office visits within the  | No                  | Look for a minimum of two distinct         | Office Visit\n**  past 12 months                |                     | encounters within 12 months of the date    |\n**                                |                     | of the current visit for which each of the |\n**                                |                     | following is true:                         |\n**                                |                     |   - the encounter diagnosis (primary or    |\n**                                |                     |     secondary or co-morbidity diagnosis)   |\n**                                |                     |     is listed in the CDC Malignant Cancer  |\n**                                |                     |     Conditions value set                   |\n**  ---------------------------------------------------------------------------------------------------------------------------------\n**  Office visits with an         | No                  | The encounter is performed by an           | Oncology specialty\n**  oncology specialist           |                     | oncologist as defined in the oncology      | designations (NUCC)\n**  present                       |                     | specialty designations using the           |\n**                                |                     | National Uniform Claim Committee           |\n**                                |                     | (NUCC) classifications                     |\n**  ---------------------------------------------------------------------------------------------------------------------------------\n**  Office visits including CDC   | No                  | The encounter diagnosis (primary or        | CDC malignant cancer\n**  malignant cancer              |                     | secondary or co-morbidity diagnosis)       | conditions\n**  condition                     |                     | is listed in the CDC Malignant Cancer      |\n**                                |                     | Conditions value set                       |\n**  ----------------------------------------------------------------------------------------------------------------------------------\n**\n*/\n\ndefine \"Encounter Period\":\n  Interval[Today() - 12 months, Today())"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 10
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "USCore Encounter Cancer Diagnoses"
+    }, {
+      "url": "statement",
+      "valueString": "define \"USCore Encounter Cancer Diagnoses\":\n  [Condition: category in \"Encounter Diagnosis Condition Category\"] CancerDiagnoses\n    where CancerDiagnoses.code in \"CDC malignant cancer conditions\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 11
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSRoutines"
+    }, {
+      "url": "name",
+      "valueString": "Encounters with Cancer Diagnosis During Encounter Period"
+    }, {
+      "url": "statement",
+      "valueString": "// encounter-diagnosis, problem-list and health-concern Conditions\n// define \"US Core-Categorized Cancer Diagnoses\":\n//   Common.\"US Core-Categorized Conditions\" C\n//     where C.code in Common.\"CDC malignant cancer conditions\"\n\n// define \"Encounters with Cancer Diagnosis During Encounter Period\":\n//   [Encounter] Encounter\n//     with \"US Core-Categorized Cancer Diagnoses\" CancerDiagnosis\n//     such that date from Encounter.period.\"start\".value in day of \"Encounter Period\"\n//       and EndsWith(CancerDiagnosis.encounter.reference, Encounter.id)\n\ndefine \"Encounters with Cancer Diagnosis During Encounter Period\":\n  [Encounter] Encounters\n    where date from Encounters.period.\"start\" in day of \"Encounter Period\"\n      and exists (\n        Common.\"USCore Encounter Cancer Diagnoses\" CancerDiagnoses\n          where EndsWith(CancerDiagnoses.encounter.reference, Encounters.id)\n      )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 12
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSRoutines"
+    }, {
+      "url": "name",
+      "valueString": "Number of Encounters with Cancer Diagnosis During Encounter Period"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Number of Encounters with Cancer Diagnosis During Encounter Period\":\n  Count (\"Encounters with Cancer Diagnosis During Encounter Period\")"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 13
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSRoutines"
+    }, {
+      "url": "name",
+      "valueString": "Has Two or More Encounters with Cancer Diagnosis During Encounter Period"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\":\n  \"Number of Encounters with Cancer Diagnosis During Encounter Period\" >= 2"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 14
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "USCore Problem List Cancer Diagnoses"
+    }, {
+      "url": "statement",
+      "valueString": "define \"USCore Problem List Cancer Diagnoses\":\n  [Condition: category in \"Problem List Condition Category\"] CancerDiagnoses\n    where CancerDiagnoses.code in \"CDC malignant cancer conditions\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 15
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSRoutines"
+    }, {
+      "url": "name",
+      "valueString": "Has Active Cancer Diagnosis on Problem List"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Has Active Cancer Diagnosis on Problem List\":\n  exists (\n    Common.\"USCore Problem List Cancer Diagnoses\" CancerDiagnoses\n      where CancerDiagnoses.category in Common.\"Problem List Condition Category\"\n        and exists(\n          CancerDiagnoses.clinicalStatus.coding ClinicalStatus\n            where ClinicalStatus.code ~ 'active'\n        )\n  )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 16
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -240,7 +514,22 @@
       "valueString": "define \"Is Active Cancer Treatment?\":\n  if (Config.\"Active Cancer Treatment Encounters Condition Is Enabled\") \n    then \"Has Two or More Encounters with Cancer Diagnosis During Encounter Period\"\n      or \"Has Active Cancer Diagnosis on Problem List\"\n  else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 4
+      "valueInteger": 17
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommonConfig"
+    }, {
+      "url": "name",
+      "valueString": "End-Stage Disease Criteria Enabled"
+    }, {
+      "url": "statement",
+      "valueString": "// CDC 2022 General Inclusion Criteria\ndefine \"End-Stage Disease Criteria Enabled\":\n  true"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 18
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -255,7 +544,7 @@
       "valueString": "define \"Conditions Likely Terminal for Opioid Prescribing\":\n  if (Config.\"End-Stage Disease Criteria Enabled\") then\n    exists (\n      Common.\"US Core-Categorized Conditions\" EOLC\n        where EOLC.code in Common.\"Conditions likely terminal for opioid prescribing\"\n          // and EOLC.clinicalStatus in Common.\"Active Condition\"\n    )\n  else false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 5
+      "valueInteger": 19
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -264,13 +553,43 @@
       "valueString": "OpioidCDSRoutines"
     }, {
       "url": "name",
-      "valueString": "Is Opioid Review Useful?"
+      "valueString": "CDC 2022 Guideline General Inclusion Criteria"
     }, {
       "url": "statement",
-      "valueString": "define \"Is Opioid Review Useful?\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Likely Terminal for Opioid Prescribing\""
+      "valueString": "define \"CDC 2022 Guideline General Inclusion Criteria\":\n  not \"Patient Age Less Than 18\"\n    and not \"Condition Positive for Sickle Cell\"\n    and not \"Is Active Cancer Treatment?\"\n    and not \"Conditions Likely Terminal for Opioid Prescribing\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 6
+      "valueInteger": 20
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommonConfig"
+    }, {
+      "url": "name",
+      "valueString": "Use Alternative UDS Lookback Period"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Use Alternative UDS Lookback Period\":\n  false"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 21
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommonConfig"
+    }, {
+      "url": "name",
+      "valueString": "Alternative UDS Lookback Period"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Alternative UDS Lookback Period\":\n  Interval[Today() - 6 months - 1 days, Today()]"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 22
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -279,43 +598,13 @@
       "valueString": "OpioidCDSREC10Common"
     }, {
       "url": "name",
-      "valueString": "Inclusion Criteria For UDS Recommendation"
+      "valueString": "All Opioid or Non-opioid UDS in Alternative Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "/*\n@description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS performed in the past year\n*/\ndefine \"Inclusion Criteria For UDS Recommendation\":\n  Routines.\"Is Opioid Review Useful?\"\n    and not exists (\n      if Config.\"Use Alternative UDS Lookback Period\"\n        then \"All Opioid or Non-opioid UDS in Alternative Lookback Period\"\n      else \"All Opioid or Non-opioid UDS in Lookback Period\"\n    )"
+      "valueString": "define \"All Opioid or Non-opioid UDS in Alternative Lookback Period\":\n  (\n    [Observation: Common.\"All Drug Urine Screening\"] Lab\n      where date from Lab.effective in day of Config.\"Alternative UDS Lookback Period\"\n        and not (\n          Lab.status in { 'unknown', 'entered-in-error', 'cancelled' }\n        )\n  ) X sort by date from effective desc"
     }, {
       "url": "displaySequence",
-      "valueInteger": 7
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10OrderSign"
-    }, {
-      "url": "name",
-      "valueString": "Is Perform Drug Screen Recommendation Applicable?"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Is Perform Drug Screen Recommendation Applicable?\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Rec10Common.\"Inclusion Criteria For UDS Recommendation\""
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 8
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
-    }, {
-      "url": "name",
-      "valueString": "Amphetamine Simple Identifier"
-    }, {
-      "url": "statement",
-      "valueString": "define \"Amphetamine Simple Identifier\": 'Amphetamine'"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 9
+      "valueInteger": 23
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -330,7 +619,7 @@
       "valueString": "// Constants\n\ndefine \"UDS Lookback Period\":\n  Interval[Today() - 12 months - 1 days, Today()]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 10
+      "valueInteger": 24
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -345,7 +634,52 @@
       "valueString": "define \"All Opioid or Non-opioid UDS in Lookback Period\":\n  (\n    [Observation: Common.\"All Drug Urine Screening\"] Lab\n      where date from Lab.effective in day of \"UDS Lookback Period\"\n        and not (\n          Lab.status in { 'unknown', 'entered-in-error', 'cancelled' }\n        )\n  ) X sort by date from effective desc"
     }, {
       "url": "displaySequence",
-      "valueInteger": 11
+      "valueInteger": 25
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "Inclusion Criteria For UDS Recommendation"
+    }, {
+      "url": "statement",
+      "valueString": "/*\n@description: Determines whether the general inclusion criteria is met for the patient and whether they had a UDS performed in the past year\n*/\ndefine \"Inclusion Criteria For UDS Recommendation\":\n  Routines.\"CDC 2022 Guideline General Inclusion Criteria\"\n    and not exists (\n      if Config.\"Use Alternative UDS Lookback Period\"\n        then \"All Opioid or Non-opioid UDS in Alternative Lookback Period\"\n      else \"All Opioid or Non-opioid UDS in Lookback Period\"\n    )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 26
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10OrderSign"
+    }, {
+      "url": "name",
+      "valueString": "Is Perform Drug Screen Recommendation Applicable?"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Is Perform Drug Screen Recommendation Applicable?\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Rec10Common.\"Inclusion Criteria For UDS Recommendation\""
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 27
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "Amphetamine Simple Identifier"
+    }, {
+      "url": "statement",
+      "valueString": "define \"Amphetamine Simple Identifier\": 'Amphetamine'"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 28
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -360,7 +694,7 @@
       "valueString": "// Amphetamines\ndefine \"Amphetamine Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n    where Lab.code in Common.\"Amphetamine Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 12
+      "valueInteger": 29
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -375,7 +709,7 @@
       "valueString": "define \"Positive Amphetamine Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Amphetamine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 13
+      "valueInteger": 30
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -390,7 +724,7 @@
       "valueString": "define \"Negative Amphetamine Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Amphetamine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 14
+      "valueInteger": 31
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -405,7 +739,7 @@
       "valueString": "define \"Rx Lookback Period\":\n  Interval[Today() - 12 months - 31 days, Today()]"
     }, {
       "url": "displaySequence",
-      "valueInteger": 15
+      "valueInteger": 32
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -420,7 +754,7 @@
       "valueString": "define \"Normalize Rx In Lookback Period\":\n  Common.\"Get MedicationRequest Medication as Code\"(\n    [MedicationRequest: category in Common.\"Community\"] Rx\n      where Rx.status in { 'active', 'completed', 'stopped' }\n        and Rx.intent = 'order'\n        and Common.\"GetDateFromMedicationRequest\"(Rx) in day of \"Rx Lookback Period\"\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 16
+      "valueInteger": 33
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -435,7 +769,7 @@
       "valueString": "define \"Amphetamine Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Amphetamine Medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 17
+      "valueInteger": 34
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -450,7 +784,7 @@
       "valueString": "define \"Barbiturate Simple Identifier\": 'Barbiturate'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 18
+      "valueInteger": 35
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -465,7 +799,7 @@
       "valueString": "// Barbiturates\ndefine \"Barbiturate Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n    where Lab.code in Common.\"Barbiturate Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 19
+      "valueInteger": 36
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -480,7 +814,7 @@
       "valueString": "define \"Positive Barbiturate Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Barbiturate Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 20
+      "valueInteger": 37
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -495,7 +829,7 @@
       "valueString": "define \"Negative Barbiturate Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Barbiturate Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 21
+      "valueInteger": 38
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -510,7 +844,7 @@
       "valueString": "define \"Barbiturate Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n      where Rx.medication in Common.\"Barbiturate Medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 22
+      "valueInteger": 39
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -525,7 +859,7 @@
       "valueString": "define \"Benzodiazepine Simple Identifier\": 'Benzodiazepine'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 23
+      "valueInteger": 40
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -540,7 +874,7 @@
       "valueString": "// Benzodiazepines\ndefine \"Benzodiazepine Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n    where Lab.code in Common.\"Benzodiazepine Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 24
+      "valueInteger": 41
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -555,7 +889,7 @@
       "valueString": "define \"Positive Benzodiazepine Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Benzodiazepine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 25
+      "valueInteger": 42
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -570,7 +904,7 @@
       "valueString": "define \"Negative Benzodiazepine Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Benzodiazepine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 26
+      "valueInteger": 43
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -585,7 +919,7 @@
       "valueString": "define \"Benzodiazepine Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n    where Rx.medication in Common.\"Benzodiazepine medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 27
+      "valueInteger": 44
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -600,7 +934,7 @@
       "valueString": "define \"Buprenorphine Simple Identifier\": 'Buprenorphine'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 28
+      "valueInteger": 45
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -615,7 +949,7 @@
       "valueString": "// Buprenorphine\ndefine \"Buprenorphine Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n    where Lab.code in Common.\"Buprenorphine Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 29
+      "valueInteger": 46
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -630,7 +964,7 @@
       "valueString": "define \"Positive Buprenorphine Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Buprenorphine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 30
+      "valueInteger": 47
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -645,7 +979,7 @@
       "valueString": "define \"Negative Buprenorphine Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Buprenorphine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 31
+      "valueInteger": 48
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -660,7 +994,7 @@
       "valueString": "define \"Buprenorphine Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n    where Rx.medication in Common.\"Buprenorphine Medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 32
+      "valueInteger": 49
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -675,22 +1009,7 @@
       "valueString": "define \"Cannabinoid Simple Identifier\": 'Cannabinoid'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 33
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
-    }, {
-      "url": "name",
-      "valueString": "Cannabinoid Screenings In Lookback Period"
-    }, {
-      "url": "statement",
-      "valueString": "// Cannabinoids\ndefine \"Cannabinoid Screenings In Lookback Period\":\n  if Config.\"Cannabinoid Urine Screening Check Enabled\"\n    then (\n      \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n        where Lab.code in Common.\"Cannabinoid Urine Tests\"\n    ) else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 34
+      "valueInteger": 50
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -705,7 +1024,22 @@
       "valueString": "define \"Cannabinoid Urine Screening Check Enabled\":\n  false"
     }, {
       "url": "displaySequence",
-      "valueInteger": 35
+      "valueInteger": 51
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "Cannabinoid Screenings In Lookback Period"
+    }, {
+      "url": "statement",
+      "valueString": "// Cannabinoids\ndefine \"Cannabinoid Screenings In Lookback Period\":\n  if Config.\"Cannabinoid Urine Screening Check Enabled\"\n    then (\n      \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n        where Lab.code in Common.\"Cannabinoid Urine Tests\"\n    ) else null"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 52
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -720,7 +1054,7 @@
       "valueString": "define \"Positive Cannabinoid Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Cannabinoid Screenings In Lookback Period\", Config.\"Cannabinoid Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 36
+      "valueInteger": 53
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -735,7 +1069,7 @@
       "valueString": "define \"Negative Cannabinoid Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Cannabinoid Screenings In Lookback Period\", Config.\"Cannabinoid Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 37
+      "valueInteger": 54
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -750,7 +1084,7 @@
       "valueString": "define \"Cocaine Simple Identifier\": 'Cocaine'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 38
+      "valueInteger": 55
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -765,7 +1099,7 @@
       "valueString": "// Cocaine\ndefine \"Cocaine Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n    where Lab.code in Common.\"Cocaine Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 39
+      "valueInteger": 56
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -780,7 +1114,7 @@
       "valueString": "define \"Positive Cocaine Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Cocaine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 40
+      "valueInteger": 57
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -795,7 +1129,7 @@
       "valueString": "define \"Negative Cocaine Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Cocaine Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 41
+      "valueInteger": 58
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -810,22 +1144,7 @@
       "valueString": "define \"Fentanyl Simple Identifier\": 'Fentanyl'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 42
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
-    }, {
-      "url": "name",
-      "valueString": "Fentanyl Screenings In Lookback Period"
-    }, {
-      "url": "statement",
-      "valueString": "// Fentanyl\ndefine \"Fentanyl Screenings In Lookback Period\":\n  if Config.\"Opiate Urine Screening Check Enabled\"\n  then (\n    \"All Opioid or Non-opioid UDS in Lookback Period\" AllLabs\n      where AllLabs.code in Common.\"Fentanyl Urine Tests\"\n  ) else null"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 43
+      "valueInteger": 59
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -840,7 +1159,22 @@
       "valueString": "// Recommendation 10\ndefine \"Opiate Urine Screening Check Enabled\":\n  true"
     }, {
       "url": "displaySequence",
-      "valueInteger": 44
+      "valueInteger": 60
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "Fentanyl Screenings In Lookback Period"
+    }, {
+      "url": "statement",
+      "valueString": "// Fentanyl\ndefine \"Fentanyl Screenings In Lookback Period\":\n  if Config.\"Opiate Urine Screening Check Enabled\"\n  then (\n    \"All Opioid or Non-opioid UDS in Lookback Period\" AllLabs\n      where AllLabs.code in Common.\"Fentanyl Urine Tests\"\n  ) else null"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 61
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -855,7 +1189,7 @@
       "valueString": "define \"Positive Fentanyl Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Fentanyl Screenings In Lookback Period\", Config.\"Opiate Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 45
+      "valueInteger": 62
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -870,7 +1204,7 @@
       "valueString": "define \"Negative Fentanyl Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Fentanyl Screenings In Lookback Period\", Config.\"Opiate Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 46
+      "valueInteger": 63
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -885,7 +1219,7 @@
       "valueString": "define \"Fentanyl Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n    where Rx.medication in Common.\"Fentanyl Medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 47
+      "valueInteger": 64
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -900,7 +1234,7 @@
       "valueString": "define \"Heroin Simple Identifier\": 'Heroin (6-AM)'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 48
+      "valueInteger": 65
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -915,7 +1249,7 @@
       "valueString": "// Heroin\ndefine \"Heroin Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n    where Lab.code in Common.\"Heroin Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 49
+      "valueInteger": 66
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -930,7 +1264,7 @@
       "valueString": "define \"Positive Heroin Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Heroin Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 50
+      "valueInteger": 67
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -945,7 +1279,7 @@
       "valueString": "define \"Negative Heroin Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Heroin Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 51
+      "valueInteger": 68
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -960,7 +1294,7 @@
       "valueString": "define \"Methadone Simple Identifier\": 'Methadone'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 52
+      "valueInteger": 69
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -975,7 +1309,7 @@
       "valueString": "// Methadone\ndefine \"Methadone Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n    where Lab.code in Common.\"Methadone Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 53
+      "valueInteger": 70
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -990,7 +1324,7 @@
       "valueString": "define \"Positive Methadone Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Methadone Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 54
+      "valueInteger": 71
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1005,7 +1339,7 @@
       "valueString": "define \"Negative Methadone Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Methadone Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 55
+      "valueInteger": 72
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1020,7 +1354,7 @@
       "valueString": "define \"Methadone Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n    where Rx.medication in Common.\"Methadone Medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 56
+      "valueInteger": 73
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1035,7 +1369,7 @@
       "valueString": "define \"Opiate Simple Identifier\": 'Opiate'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 57
+      "valueInteger": 74
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1050,7 +1384,7 @@
       "valueString": "// Opiates\ndefine \"Opiate Screenings In Lookback Period\":\n  if Config.\"Opiate Urine Screening Check Enabled\"\n    then (\n      \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n        where Lab.code in Common.\"General Opiate Urine Tests\"\n    ) else null"
     }, {
       "url": "displaySequence",
-      "valueInteger": 58
+      "valueInteger": 75
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1065,7 +1399,7 @@
       "valueString": "define \"Positive Opiate Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Opiate Screenings In Lookback Period\", Config.\"Opiate Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 59
+      "valueInteger": 76
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1080,7 +1414,7 @@
       "valueString": "define \"Negative Opiate Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Opiate Screenings In Lookback Period\", Config.\"Opiate Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 60
+      "valueInteger": 77
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1095,7 +1429,7 @@
       "valueString": "define \"Opiate Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n    where Rx.medication in Common.\"Opiate Medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 61
+      "valueInteger": 78
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1110,7 +1444,7 @@
       "valueString": "define \"Oxycodone Simple Identifier\": 'Oxycodone'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 62
+      "valueInteger": 79
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1125,7 +1459,7 @@
       "valueString": "// Oxycodone\ndefine \"Oxycodone Screenings In Lookback Period\":\n  if Config.\"Opiate Urine Screening Check Enabled\"\n    then (\n      \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n        where Lab.code in Common.\"Oxycodone Urine Tests\"\n    ) else null"
     }, {
       "url": "displaySequence",
-      "valueInteger": 63
+      "valueInteger": 80
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1140,7 +1474,7 @@
       "valueString": "define \"Positive Oxycodone Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"Oxycodone Screenings In Lookback Period\", Config.\"Opiate Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 64
+      "valueInteger": 81
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1155,7 +1489,7 @@
       "valueString": "define \"Negative Oxycodone Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"Oxycodone Screenings In Lookback Period\", Config.\"Opiate Urine Screening Check Enabled\")"
     }, {
       "url": "displaySequence",
-      "valueInteger": 65
+      "valueInteger": 82
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1170,7 +1504,7 @@
       "valueString": "define \"Oxycodone Rx In Lookback Period\":\n  \"Normalize Rx In Lookback Period\" Rx\n    where Rx.medication in Common.\"Oxycodone Medications\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 66
+      "valueInteger": 83
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1185,7 +1519,7 @@
       "valueString": "define \"PCP Simple Identifier\": 'Phencyclidine (PCP)'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 67
+      "valueInteger": 84
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1200,7 +1534,7 @@
       "valueString": "// PCP\ndefine \"PCP Screenings In Lookback Period\":\n  \"All Opioid or Non-opioid UDS in Lookback Period\" AllLabs\n    where AllLabs.code in Common.\"PCP Urine Tests\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 68
+      "valueInteger": 85
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1215,7 +1549,7 @@
       "valueString": "define \"Positive PCP Screenings In Lookback Period\":\n  GetPositiveLabsInLookbackPeriod(\"PCP Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 69
+      "valueInteger": 86
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1230,7 +1564,7 @@
       "valueString": "define \"Negative PCP Screenings In Lookback Period\":\n  GetNegativeLabsInLookbackPeriod(\"PCP Screenings In Lookback Period\", true)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 70
+      "valueInteger": 87
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1245,7 +1579,7 @@
       "valueString": "// Details Logic\n\ndefine \"Unexpected Details\":\n  {\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Amphetamine Simple Identifier\", \"Positive Amphetamine Screenings In Lookback Period\", \n      \"Negative Amphetamine Screenings In Lookback Period\", \"Amphetamine Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Barbiturate Simple Identifier\", \"Positive Barbiturate Screenings In Lookback Period\", \n      \"Negative Barbiturate Screenings In Lookback Period\", \"Barbiturate Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Benzodiazepine Simple Identifier\", \"Positive Benzodiazepine Screenings In Lookback Period\", \n      \"Negative Benzodiazepine Screenings In Lookback Period\", \"Benzodiazepine Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Buprenorphine Simple Identifier\", \"Positive Buprenorphine Screenings In Lookback Period\", \n      \"Negative Buprenorphine Screenings In Lookback Period\", \"Buprenorphine Rx In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Cannabinoid Simple Identifier\", \"Positive Cannabinoid Screenings In Lookback Period\", \n      \"Negative Cannabinoid Screenings In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Cocaine Simple Identifier\", \"Positive Cocaine Screenings In Lookback Period\", \n      \"Negative Cocaine Screenings In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Fentanyl Simple Identifier\", \"Positive Fentanyl Screenings In Lookback Period\", \n      \"Negative Fentanyl Screenings In Lookback Period\", \"Fentanyl Rx In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"Heroin Simple Identifier\", \"Positive Heroin Screenings In Lookback Period\", \n      \"Negative Heroin Screenings In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Methadone Simple Identifier\", \"Positive Methadone Screenings In Lookback Period\", \n      \"Negative Methadone Screenings In Lookback Period\", \"Methadone Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Opiate Simple Identifier\", \"Positive Opiate Screenings In Lookback Period\", \n      \"Negative Opiate Screenings In Lookback Period\", \"Opiate Rx In Lookback Period\"\n    ),\n    CreateDetailWithPossibleUnexpectedNegative(\n      \"Oxycodone Simple Identifier\", \"Positive Oxycodone Screenings In Lookback Period\", \n      \"Negative Oxycodone Screenings In Lookback Period\", \"Oxycodone Rx In Lookback Period\"\n    ),\n    CreateDetailWithoutPossibleUnexpectedNegative(\n      \"PCP Simple Identifier\", \"Positive PCP Screenings In Lookback Period\", \n      \"Negative PCP Screenings In Lookback Period\"\n    )\n  }"
     }, {
       "url": "displaySequence",
-      "valueInteger": 71
+      "valueInteger": 88
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1260,7 +1594,7 @@
       "valueString": "define \"Remove Substances Without Positive or Negative Results\":\n  \"Unexpected Details\" Details\n    where (Details.posDates is not null and Length(Details.posDates) != 0)\n      or (Details.negDates is not null and Length(Details.negDates) != 0)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 72
+      "valueInteger": 89
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1272,10 +1606,10 @@
       "valueString": "Inclusion Criteria For Unexpected Results"
     }, {
       "url": "statement",
-      "valueString": "define \"Inclusion Criteria For Unexpected Results\":\n  Routines.\"Is Opioid Review Useful?\"\n  and AnyTrue(\n    \"Remove Substances Without Positive or Negative Results\" Details\n      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)\n  )"
+      "valueString": "define \"Inclusion Criteria For Unexpected Results\":\n  Routines.\"CDC 2022 Guideline General Inclusion Criteria\"\n  and AnyTrue(\n    \"Remove Substances Without Positive or Negative Results\" Details\n      return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 73
+      "valueInteger": 90
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1290,7 +1624,7 @@
       "valueString": "define \"Applicable Because of Unexpected Results\":\n  \"Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential\"\n    and Rec10Common.\"Inclusion Criteria For Unexpected Results\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 74
+      "valueInteger": 91
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1305,7 +1639,7 @@
       "valueString": "define \"Style Header\":\n  '<style>\\r\\n  .alert-body {\\r\\n    width: 670px;\\r\\n    font-family: segoe-ui, sans-serif;\\r\\n    background-color: #FEFFF1;\\r\\n  }\\r\\n\\r\\n  .details-table {\\r\\n    border-collapse:collapse;\\r\\n    border-style: ridge;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-caption {\\r\\n    border-style: ridge;\\r\\n    border-bottom: none;\\r\\n    background-color: #FEFFF1;\\r\\n    padding: 2px;\\r\\n  }\\r\\n\\r\\n  .details-table-header {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n  }\\r\\n\\r\\n  .details-table-footer-cell {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    font-size: small;\\r\\n  }\\r\\n\\r\\n  .details-table-cell-unexpected {\\r\\n    border-style: ridge;\\r\\n    padding: 5px;\\r\\n    color: red;\\r\\n    font-weight: bold;\\r\\n  }\\r\\n\\r\\n  .more-text {\\r\\n    position: relative;\\r\\n    margin-bottom: 2em;\\r\\n  }\\r\\n  \\r\\n  .more {\\r\\n    display:none;\\r\\n  }\\r\\n\\r\\n  .show-more:checked + .more {\\r\\n    display:block;\\r\\n  }\\r\\n<\\/style>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 75
+      "valueInteger": 92
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1320,7 +1654,7 @@
       "valueString": "define \"Unexpected Div Start\":\n  '<div class=\\\"alert-body\\\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\\/strong> in the past year.<\\/p><\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 76
+      "valueInteger": 93
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1335,7 +1669,7 @@
       "valueString": "define \"Table Start\":\n  '<div><table class=\\\"details-table\\\"><caption class=\\\"details-caption\\\">Urine Toxicology Results<\\/caption><tr><th class=\\\"details-table-header\\\">Substance<\\/th>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 77
+      "valueInteger": 94
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1350,7 +1684,7 @@
       "valueString": "// Helpers  \n\ndefine \"All Lab Dates in Lookback Period\":\n  (\n    \"All Opioid or Non-opioid UDS in Lookback Period\" Lab\n      return date from Lab.effective\n  ) X sort desc"
     }, {
       "url": "displaySequence",
-      "valueInteger": 78
+      "valueInteger": 95
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1365,7 +1699,7 @@
       "valueString": "define \"Table Headers\":\n  \"All Lab Dates in Lookback Period\" LabDate\n    return '<th class=\\\"details-table-header\\\">' & ToString(LabDate) & '<\\/th>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 79
+      "valueInteger": 96
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1380,7 +1714,7 @@
       "valueString": "define \"Generate Table Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n    let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1)\n    return '<tr>' + GetExpectedColumn(BOT.ingredient) + Combine(\n      \"All Lab Dates in Lookback Period\" LabDate\n        let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n        return all (\n          if BOT.unexpectedPosDetails.date contains LabDate\n            then GetUnexpectedColumn('pos', row & ':' & col)\n          else if BOT.unexpectedNegDetails.udsDate contains LabDate\n            then GetUnexpectedColumn('neg', row & ':' & col)\n          else if BOT.posDates contains LabDate\n            then GetExpectedColumn('pos*')\n          else if BOT.negDates contains LabDate\n            then GetExpectedColumn('neg*')\n          else GetExpectedColumn('n/a')\n        )\n    ) + '<\\/tr>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 80
+      "valueInteger": 97
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1395,7 +1729,7 @@
       "valueString": "define \"Generate Footer Rows\":\n  \"Remove Substances Without Positive or Negative Results\" BOT\n      let row: ToString(IndexOf(\"Remove Substances Without Positive or Negative Results\", BOT) + 1),\n      colspan: Length(\"All Lab Dates in Lookback Period\") + 1\n      return Combine(\n          \"All Lab Dates in Lookback Period\" LabDate\n            let col: ToString(IndexOf(\"All Lab Dates in Lookback Period\", LabDate) + 2)\n            return all (\n              if BOT.unexpectedPosDetails.date contains LabDate\n                then Coalesce(\n                  BOT.unexpectedPosDetails PosDetail\n                    where PosDetail.date same day as LabDate\n                      return '<tr>' & GetFooterColumn(colspan, row & ':' & col & ' - Possible unexpected substance found: ' & PosDetail.udsDetail) & '<\\/tr>'\n                )\n              else if BOT.unexpectedNegDetails.udsDate contains LabDate\n                then Coalesce(\n                  BOT.unexpectedNegDetails NegDetail\n                    where NegDetail.udsDate same day as LabDate\n                      return '<tr>' & GetFooterColumn(colspan, row + ':' & col & ' - Possible unexpected negative result found: prescribed ' & NegDetail.rxDetail & ' on ' & ToString(NegDetail.rxDate)) & '<\\/tr>'\n                )\n              else ''\n            )\n      )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 81
+      "valueInteger": 98
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1410,7 +1744,7 @@
       "valueString": "define \"Table End\":\n  '<\\/table><\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 82
+      "valueInteger": 99
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1425,7 +1759,7 @@
       "valueString": "define \"Details Table\": \n  \"Table Start\" & Combine(\"Table Headers\") \n    & '<tbody>' & Combine(\"Generate Table Rows\") & '</tbody>' \n    & '<tfoot>' & Combine(\"Generate Footer Rows\") & '<\\/tfoot>' \n  & \"Table End\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 83
+      "valueInteger": 100
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1440,7 +1774,7 @@
       "valueString": "define \"Expected Result Footnote\":\n  '<div>* - These are expected results based on an analysis of the patient\\'s medication list 30 days prior to the corresponding lab results.<\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 84
+      "valueInteger": 101
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1455,7 +1789,7 @@
       "valueString": "define \"Details More Info\":\n  '<div id=\\\"box\\\">\\r\\n  <p>Note on false positives and unexpected negative results...<\\/p>\\r\\n  <input type=\\\"checkbox\\\" class=\\\"show-more\\\"> Show more\\r\\n  <div class=\\\"more\\\">\\r\\n  <p>An unexpectedly negative test may be due to time since last dose, diversion, intermittent use, aberrant drug use behavior, or other factors, including a false negative result. Clinicians should interpret this result in the context of the overall treatment plan.<\\/p>\\r\\n\\r\\n  <p>Positive results may be a false positives or could represent occasional use or possible substance use disorder.<br\\/><br\\/>For a review regarding interpreting possible false positive urine toxicology results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836\\\">http:\\/\\/pubmed.ncbi.nlm.nih.gov\\/24986836<\\/a>. It is unknown if the findings reported in this article can be extrapolated to other laboratory analyzers that were not used in the referenced studies.<br\\/><br\\/>For guidance regarding evaluating and addressing unexpected toxicology tests results, see <a target=\\\"_blank\\\" href=\\\"https:\\/\\/www.cdc.gov\\/mmwr\\/volumes\\/71\\/rr\\/rr7103a1.htm#Recommendation10\\\">Recommendation 10 of the 22 CDC Clinical Practice Guideiline<\\/a>.<\\/p><\\/div>\\r\\n<\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 85
+      "valueInteger": 102
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1470,7 +1804,7 @@
       "valueString": "define \"Div End\": '<\\/div>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 86
+      "valueInteger": 103
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1485,7 +1819,7 @@
       "valueString": "// HTML Generation\n\ndefine \"Get HTML Details\":\n  Common.\"Style Header\" & \"Unexpected Div Start\" & \"Details Table\" & \"Expected Result Footnote\" & \"Details More Info\" & \"Div End\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 87
+      "valueInteger": 104
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1500,7 +1834,7 @@
       "valueString": "define \"Detail\":\n  Rec10Common.\"Get HTML Details\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 88
+      "valueInteger": 105
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1515,7 +1849,7 @@
       "valueString": "define function \"Is Opioid Analgesic with Ambulatory Misuse Potential?\"(value List<MedicationRequest>):\n  (\"Get MedicationRequest Medication as Code\"(value)) Rx\n    where Rx.medication in \"Opioid analgesics with ambulatory misuse potential\" \n      and Rx.category in \"Community\""
     }, {
       "url": "displaySequence",
-      "valueInteger": 89
+      "valueInteger": 106
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1530,7 +1864,22 @@
       "valueString": "define function \"Get MedicationRequest Medication as Code\"(value List<MedicationRequest>):\n  value Rx\n    let Med: \n      if Rx.medication is Reference then singleton from (\n        [Medication] M\n          where M.id = (Last(Split((Rx.medication as FHIR.Reference).reference, '/')))\n      ) else null\n    return \n      MedicationRequest {\n        id: Rx.id,\n        status: Rx.status,\n        intent: Rx.intent,\n        category: Rx.category,\n        medication: if Rx.medication is Reference then Med.code else Rx.medication as CodeableConcept,\n        subject: Rx.subject,\n        authoredOn: Rx.authoredOn,\n        recorder: Rx.recorder,\n        dosageInstruction: Rx.dosageInstruction,\n        dispenseRequest: Rx.dispenseRequest\n      }"
     }, {
       "url": "displaySequence",
-      "valueInteger": 90
+      "valueInteger": 107
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToString"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToString(value string): value.value"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 108
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1545,7 +1894,22 @@
       "valueString": "define function ToConcept(concept FHIR.CodeableConcept):\n    if concept is null then\n        null\n    else\n        System.Concept {\n            codes: concept.coding C return ToCode(C),\n            display: concept.text.value\n        }"
     }, {
       "url": "displaySequence",
-      "valueInteger": 91
+      "valueInteger": 109
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToCode"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToCode(coding FHIR.Coding):\n    if coding is null then\n        null\n    else\n        System.Code {\n          code: coding.code.value,\n          system: coding.system.value,\n          version: coding.version.value,\n          display: coding.display.value\n        }"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 110
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1560,7 +1924,7 @@
       "valueString": "// End of Active Cancer Treatment Routine\n\n/*\n**  Routine #4\n**  For Subacute or Chronic Pain Routine\n**\n**  Definition                  | Answer to Proceed   | Details                                        | Data (Terminology) Requirement\n**  -----------------------------------------------------------------------------------------------------------------------------------\n**  Order for opioid analgesic  | Yes                 | Order for opioid analgesics with ambulatory    | Opioid analgesics with\n**  with expected supply        |                     | misuse potential with a supply duration of >=  | ambulatory misuse potential\n**  duration >= 28 days         |                     | 28 days                                        |\n**                              |                     |                                                |\n**                              |                     | - Subacute definition = order for opioid       |\n**                              |                     |   analgesics with ambulatory misuse            |\n**                              |                     |   potential with a supply duration of one to   |\n**                              |                     |   two months.                                  |\n**                              |                     | - Chronic pain definition = order for opioid   |\n**                              |                     |   analgesics with ambulatory misuse            |\n**                              |                     |   potential with a supply duration of >= two   |\n**                              |                     |   months.                                      |\n**  -----------------------------------------------------------------------------------------------------------------------------------\n**\n*/\n\ndefine function \"Is Subacute or Chronic Pain Prescription?\"(prescription FHIR.MedicationRequest):\n  \"Is Subacute or Chronic Pain Using Expected Supply Duration\"(prescription)\n    or \"Is Subacute or Chronic Pain Using Validity Period\"(prescription)"
     }, {
       "url": "displaySequence",
-      "valueInteger": 92
+      "valueInteger": 111
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1575,7 +1939,7 @@
       "valueString": "define function \"Is Subacute or Chronic Pain Using Expected Supply Duration\"(prescription FHIR.MedicationRequest):\n  (\n    prescription.dispenseRequest is not null\n      and prescription.dispenseRequest.expectedSupplyDuration is not null\n      and (\n        Common.GetDurationInDays(prescription.dispenseRequest.expectedSupplyDuration) >= 28 days \n      )\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 93
+      "valueInteger": 112
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1590,7 +1954,7 @@
       "valueString": "define function GetDurationInDays(value FHIR.Duration):\n  if value is null then null\n  else\n    case\n      when value.code.value ~ 'a' then System.Quantity{ value: value.value.value * 365.0, unit: 'days' }\n      when value.code.value ~ 'mo' then System.Quantity{ value: value.value.value * 30.0, unit: 'days' }\n      when value.code.value ~ 'wk' then System.Quantity{ value: value.value.value * 7.0, unit: 'days' }\n      when value.code.value ~ 'd' then System.Quantity{ value: value.value.value, unit: 'days' }\n      when value.code.value ~ 'h' then System.Quantity{ value: value.value.value / 24.0, unit: 'days' }\n      when value.code.value ~ 'min' then System.Quantity{ value: value.value.value / 60.0 / 24.0, unit: 'days' }\n      when value.code.value ~ 's' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0, unit: 'days' }\n      when value.code.value ~ 'ms' then System.Quantity{ value: value.value.value / 60.0 / 60.0 / 24.0 / 1000.0, unit: 'days' }\n      when value.code.value is null then Message(1000, true, 'Undefined', 'Error', 'Duration unit code is null')\n      else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)\nend"
     }, {
       "url": "displaySequence",
-      "valueInteger": 94
+      "valueInteger": 113
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1605,7 +1969,7 @@
       "valueString": "define function \"Is Subacute or Chronic Pain Using Validity Period\"(prescription FHIR.MedicationRequest):\n  (\n    prescription.dispenseRequest is not null\n      and prescription.dispenseRequest.validityPeriod is not null\n      and (\n        days between prescription.dispenseRequest.validityPeriod.start and prescription.dispenseRequest.validityPeriod.end >= 28 \n      )\n  )"
     }, {
       "url": "displaySequence",
-      "valueInteger": 95
+      "valueInteger": 114
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1620,52 +1984,22 @@
       "valueString": "define function ToDateTime(value dateTime): value.value"
     }, {
       "url": "displaySequence",
-      "valueInteger": 96
+      "valueInteger": 115
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
     "extension": [ {
       "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
+      "valueString": "FHIRHelpers"
     }, {
       "url": "name",
-      "valueString": "CreateDetailWithPossibleUnexpectedNegative"
+      "valueString": "ToDateTime"
     }, {
       "url": "statement",
-      "valueString": "define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>):\n  {\n    ingredient: TheSubstance,\n    posDates: (\n      ThePosLabs PosLab\n        return date from PosLab.effective\n    ),\n    negDates: (\n      TheNegLabs NegLab\n        return date from NegLab.effective\n    ),\n    unexpectedPosDetails: (\n      ThePosLabs PosLab\n        where not exists (\n          TheMeds Rx\n            where Common.GetDateFromMedicationRequest(Rx)\n              in day of Interval[\n                date from PosLab.effective - 31 days,\n                date from PosLab.effective - 1 days\n              ]\n        )\n        return {\n          date: date from PosLab.effective,\n          udsDetail:\n            if exists(PosLab.code.coding)\n              then PosLab.code.coding[0].display\n              else 'Unable to determine a detailed identifier'\n        }\n    ),\n    unexpectedNegDetails: (\n      from TheNegLabs NegLab,\n        ( if exists(TheMeds) then TheMeds else { null as MedicationRequest } ) Rx\n        let medDate: Common.GetDateFromMedicationRequest(Rx)\n          where medDate in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]\n          return {\n            udsDate: date from NegLab.effective,\n            udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display else 'Unable to determine a detailed identifier',\n            rxDate: medDate,\n            rxDetail: \n              if Rx.medication.text is not null then Rx.medication.text\n              else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display \n              else 'Unable to determine a detailed identifier'\n          }\n    )\n  }"
+      "valueString": "define function ToDateTime(value instant): value.value"
     }, {
       "url": "displaySequence",
-      "valueInteger": 97
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSCommon"
-    }, {
-      "url": "name",
-      "valueString": "GetDateFromMedicationRequest"
-    }, {
-      "url": "statement",
-      "valueString": "define function \"GetDateFromMedicationRequest\"(med FHIR.MedicationRequest):\n  if med is null then\n    null\n  else if med.authoredOn is not null then\n    date from med.authoredOn\n  else\n    Max(\n      med.dosageInstruction DI\n        return Coalesce(\n          // If there are timing events, take the latest.\n          Max(DI.timing.event E return date from E),\n          // Otherwise, if there's a Period, use its start.\n          if DI.timing.repeat is not null\n             and DI.timing.repeat.bounds is FHIR.Period\n          then\n            date from start of FHIRHelpers.ToInterval(DI.timing.repeat.bounds as FHIR.Period)\n          else\n            null\n        )\n    )"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 98
-    } ]
-  }, {
-    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
-    "extension": [ {
-      "url": "libraryName",
-      "valueString": "OpioidCDSREC10Common"
-    }, {
-      "url": "name",
-      "valueString": "GetPositiveLabsInLookbackPeriod"
-    }, {
-      "url": "statement",
-      "valueString": "define function GetPositiveLabsInLookbackPeriod(Labs List<FHIR.Observation>, Enabled Boolean):\n  if Enabled\n    then Labs Lab\n     where StartsWith(Lower(Lab.value as FHIR.string), 'pos')\n  else {}"
-    }, {
-      "url": "displaySequence",
-      "valueInteger": 99
+      "valueInteger": 116
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1680,7 +2014,67 @@
       "valueString": "define function ToString(value ObservationStatus): value.value"
     }, {
       "url": "displaySequence",
-      "valueInteger": 100
+      "valueInteger": 117
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "CreateDetailWithPossibleUnexpectedNegative"
+    }, {
+      "url": "statement",
+      "valueString": "define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>):\n  {\n    ingredient: TheSubstance,\n    posDates: (\n      ThePosLabs PosLab\n        return date from PosLab.effective\n    ),\n    negDates: (\n      TheNegLabs NegLab\n        return date from NegLab.effective\n    ),\n    unexpectedPosDetails: (\n      ThePosLabs PosLab\n        where not exists (\n          TheMeds Rx\n            where Common.GetDateFromMedicationRequest(Rx)\n              in day of Interval[\n                date from PosLab.effective - 31 days,\n                date from PosLab.effective - 1 days\n              ]\n        )\n        return {\n          date: date from PosLab.effective,\n          udsDetail:\n            if exists(PosLab.code.coding)\n              then PosLab.code.coding[0].display\n              else 'Unable to determine a detailed identifier'\n        }\n    ),\n    unexpectedNegDetails: (\n      from TheNegLabs NegLab,\n        ( if exists(TheMeds) then TheMeds else { null as MedicationRequest } ) Rx\n        let medDate: Common.GetDateFromMedicationRequest(Rx)\n          where medDate in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]\n          return {\n            udsDate: date from NegLab.effective,\n            udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display else 'Unable to determine a detailed identifier',\n            rxDate: medDate,\n            rxDetail: \n              if Rx.medication.text is not null then Rx.medication.text\n              else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display \n              else 'Unable to determine a detailed identifier'\n          }\n    )\n  }"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 118
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSCommon"
+    }, {
+      "url": "name",
+      "valueString": "GetDateFromMedicationRequest"
+    }, {
+      "url": "statement",
+      "valueString": "define function \"GetDateFromMedicationRequest\"(med FHIR.MedicationRequest):\n  if med is null then\n    null\n  else if med.authoredOn is not null then\n    date from med.authoredOn\n  else\n    Max(\n      med.dosageInstruction DI\n        return Coalesce(\n          // If there are timing events, take the latest.\n          Max(DI.timing.event E return date from E),\n          // Otherwise, if there's a Period, use its start.\n          if DI.timing.repeat is not null\n             and DI.timing.repeat.bounds is FHIR.Period\n          then\n            date from start of FHIRHelpers.ToInterval(DI.timing.repeat.bounds as FHIR.Period)\n          else\n            null\n        )\n    )"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 119
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToInterval"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToInterval(period FHIR.Period):\n    if period is null then\n        null\n    else\n        if period.\"start\" is null then\n            Interval(period.\"start\".value, period.\"end\".value]\n        else\n            Interval[period.\"start\".value, period.\"end\".value]"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 120
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "GetPositiveLabsInLookbackPeriod"
+    }, {
+      "url": "statement",
+      "valueString": "define function GetPositiveLabsInLookbackPeriod(Labs List<FHIR.Observation>, Enabled Boolean):\n  if Enabled\n    then Labs Lab\n     where StartsWith(Lower(Lab.value as FHIR.string), 'pos')\n  else {}"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 121
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1695,7 +2089,37 @@
       "valueString": "define function GetNegativeLabsInLookbackPeriod(Labs List<FHIR.Observation>, Enabled Boolean):\n  if Enabled\n    then Labs Lab\n     where StartsWith(Lower(Lab.value as FHIR.string), 'neg')\n  else {}"
     }, {
       "url": "displaySequence",
-      "valueInteger": 101
+      "valueInteger": 122
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToString"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToString(value MedicationRequestStatus): value.value"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 123
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "FHIRHelpers"
+    }, {
+      "url": "name",
+      "valueString": "ToString"
+    }, {
+      "url": "statement",
+      "valueString": "define function ToString(value MedicationRequestIntent): value.value"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 124
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1710,7 +2134,7 @@
       "valueString": "define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>):\n  {\n    ingredient: TheSubstance,\n    posDates: (\n      ThePosLabs PosLab\n        return date from PosLab.effective\n    ),\n    negDates: (\n      TheNegLabs NegLab\n        return date from NegLab.effective\n    ),\n    unexpectedPosDetails: (\n      ThePosLabs PosLab\n        return {\n          date: date from PosLab.effective,\n          udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display else 'Unable to determine a detailed identifier'\n        }\n    ),\n    unexpectedNegDetails: {\n      null as Tuple{ udsDate System.Date, udsDetail System.String, rxDate System.Date, rxDetail System.String }\n    }\n  }"
     }, {
       "url": "displaySequence",
-      "valueInteger": 102
+      "valueInteger": 125
     } ]
   }, {
     "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -1725,7 +2149,37 @@
       "valueString": "define function GetExpectedColumn(Content String):\n  '<td class=\\\"details-table-cell\\\">' & Content & '<\\/td>'"
     }, {
       "url": "displaySequence",
-      "valueInteger": 103
+      "valueInteger": 126
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "GetUnexpectedColumn"
+    }, {
+      "url": "statement",
+      "valueString": "// Functions\n\ndefine function GetUnexpectedColumn(Result String, Superscript String):\n  '<td class=\\\"details-table-cell-unexpected\\\">' & Result & '<sup>' & Superscript & '<\\/sup><\\/td>'"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 127
+    } ]
+  }, {
+    "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+    "extension": [ {
+      "url": "libraryName",
+      "valueString": "OpioidCDSREC10Common"
+    }, {
+      "url": "name",
+      "valueString": "GetFooterColumn"
+    }, {
+      "url": "statement",
+      "valueString": "define function GetFooterColumn(colspan Integer, message String):\n  '<td class=\\\"details-table-cell\\\"' & ' colspan=' & ToString(colspan) & '>' & message & '<\\/td>'"
+    }, {
+      "url": "displaySequence",
+      "valueInteger": 128
     } ]
   }, {
     "id": "effective-data-requirements",
@@ -1749,7 +2203,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2025-04-24",
+  "date": "2025-08-06",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {

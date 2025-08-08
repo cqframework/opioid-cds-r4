@@ -18,7 +18,7 @@ include OpioidCDSRoutines version '2022.1.0' called Routines
 **
 **  When
 **    Provider is prescribing an opioid analgesic with ambulatory misuse potential in the outpatient setting
-**    Opioid review is useful for this patient:
+**    CDC 2022 guideline general inclusion criteria met for this patient:
 **      Patient is 18 or over
 **      Patient does not have evidence of sickle cell disease
 **      Patient does not have findings indicating limited life expectancy
@@ -76,7 +76,7 @@ define "PDMP Data Not Reviewed in Past 90 Days":
 
 define "Inclusion Criteria":
   "Patient Is Being Prescribed Opioid Analgesic with Ambulatory Misuse Potential"
-    and Routines."Is Opioid Review Useful?"
+    and Routines."CDC 2022 Guideline General Inclusion Criteria"
     and "PDMP Data Not Reviewed in Past 90 Days"
 
 define "Exclusion Criteria":

@@ -8,9 +8,9 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 
 {% include for-subacute-and-chronic-pain-definitions.html %}
 
-### Opioid Review Useful
+### CDC 2022 General Inclusion Criteria
 
-{% include opioid-review-useful-definitions.html %}
+{% include general-inclusion-criteria-definitions.html %}
 
 ### Active Cancer Treatment
 
@@ -21,6 +21,10 @@ For more information see the <a href="acute-pain.html">acute pain documentation<
 {% include opioid-naive-definitions.html %}
 
 ### Recommendation-specific Subroutines
+
+#### Recommendation 8 Factors that Increase Risk for Opioid Related Harms
+
+{% include opioid-related-harms-definitions.html %}
 
 #### Recommendation 9 PDMP Review in Past 90 Days
 

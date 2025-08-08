@@ -16,7 +16,7 @@ activityDiagram {
 title Recommendation 10 Order Sign Flow Diagram
 #1C2ED5:Order Sign; 
 if ([[subroutines.html#for-subacute-or-chronic-pain Opioid order for \n    subacute or \n   chronic pain?]]) then (no)
-(yes) elseif ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
+(yes) elseif ([[subroutines.html#cdc-2022-general-inclusion-criteria CDC 2022 guideline\n   general inclusion\n      criteria met?]]) then (no)
 (yes) elseif ([[subroutines.html#recommendation-10-urine-toxicology-screening Urine toxicology\n   screening in\n     past year?]]) then (no) 
 #b06f19:[[user-interaction-alerts.html#recommendation-10-uds-alert UDS Alert]];<<output>> 
 kill

@@ -1,0 +1,55 @@
+@startuml alert_rec08_ordersign
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ arrow {
+  FontColor: Black
+ }
+ note {
+  FontColor: Black
+  BackgroundColor: #fafad2
+ }
+}
+</style>
+#b06f19:Alert;<<output>>
+note right
+**SUMMARY**: Discuss Risks and Offer Naloxone 
+
+**DETAILS**:
+Recommend incorporating strategies to mitigate opioid 
+therapy risks, including offering naloxone
+
+For guidance regarding assessing opioid therapy risks, see 
+[[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation8 Recommendation 8 of the 2022 CDC Clinical Practice Guideline]].
+
+For more information about prescribing naloxone, see 
+[[https://prescribetoprevent.org https://prescribetoprevent.org]]
+
+[[index.html#morphine-milligram-equivalent-mme-calculation-cautions MME Calculator Cautions]]
+end note
+split
+#c05046:Order - 
+Naloxone ordered;<<input>>
+kill
+split again
+#c05046:Document - 
+Verified patient is
+on Naloxone an has
+been educated on use,
+Snooze 3 months*;<<input>>
+kill
+split again
+#c05046:Document - 
+Naloxone discussed
+but declined,
+Snooze 3 months*;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+N/A see comment, 
+Snooze 3 months*;<<input>>
+kill
+end split
+caption ~*Snooze duration referenced in the alert response is an example and is intended to be patient specific.
+@enduml
