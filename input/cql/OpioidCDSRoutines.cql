@@ -10,7 +10,7 @@ context Patient
 
 /*
 **  Routine #1
-**  Opioid Review Useful Routine
+**  CDC 2022 General Inclusion Criteria Routine
 **
 **  Definition              | Answer to Proceed   | Details                                      | Data (Terminology) Requirement
 **  ------------------------------------------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ context Patient
 define "Palliative Care Lookback Period":
   Interval[Today() - 90 days, Today()]
 
-define "Is Opioid Review Useful?":
+define "CDC 2022 Guideline General Inclusion Criteria":
   not "Patient Age Less Than 18"
     and not "Condition Positive for Sickle Cell"
     and not "Is Active Cancer Treatment?"
@@ -62,7 +62,7 @@ define "Conditions Likely Terminal for Opioid Prescribing":
     )
   else false
 
-// End of Opioid Review Useful Routine
+// End of CDC 2022 General Inclusion Criteria Routine
 
 /*
 **  Routine #2

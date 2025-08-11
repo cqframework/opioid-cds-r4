@@ -1,10 +1,10 @@
 library OpioidCDSCommonConfig version '2022.1.0'
 
-// Opioid Review Useful
+// CDC 2022 General Inclusion Criteria
 define "Age Less than 18 Years Is Enabled":
   true
 
-// Opioid Review Useful
+// CDC 2022 General Inclusion Criteria
 define "End-Stage Disease Criteria Enabled":
   true
 

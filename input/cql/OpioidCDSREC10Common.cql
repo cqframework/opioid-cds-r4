@@ -31,10 +31,10 @@ define "Oxycodone Simple Identifier": 'Oxycodone'
 define "PCP Simple Identifier": 'Phencyclidine (PCP)'
 
 /*
-@description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS performed in the past year
+@description: Determines whether the general inclusion criteria is met for the patient and whether they had a UDS performed in the past year
 */
 define "Inclusion Criteria For UDS Recommendation":
-  Routines."Is Opioid Review Useful?"
+  Routines."CDC 2022 Guideline General Inclusion Criteria"
     and not exists (
       if Config."Use Alternative UDS Lookback Period"
         then "All Opioid or Non-opioid UDS in Alternative Lookback Period"
@@ -42,7 +42,7 @@ define "Inclusion Criteria For UDS Recommendation":
     )
 
 define "Inclusion Criteria For Unexpected Results":
-  Routines."Is Opioid Review Useful?"
+  Routines."CDC 2022 Guideline General Inclusion Criteria"
   and AnyTrue(
     "Remove Substances Without Positive or Negative Results" Details
       return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)
