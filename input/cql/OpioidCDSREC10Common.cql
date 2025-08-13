@@ -26,13 +26,13 @@ define "PCP Simple Identifier": 'Phencyclidine (PCP)'
 @description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS performed in the specified lookback period
 */
 define "Inclusion Criteria For UDS Recommendation":
-  Routines."Is Opioid Review Useful?"
+  Routines."CDC 2022 Guideline General Inclusion Criteria"
     and not exists (
       "All Opioid or Non-opioid UDS in Lookback Period"
     )
 
 define "Inclusion Criteria For Unexpected Results":
-  Routines."Is Opioid Review Useful?"
+  Routines."CDC 2022 Guideline General Inclusion Criteria"
   and AnyTrue(
     "Remove Substances Without Positive or Negative Results" Details
       return (exists Details.unexpectedPosDetails) or (exists Details.unexpectedNegDetails)

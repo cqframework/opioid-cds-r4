@@ -15,7 +15,7 @@ activityDiagram {
 </style>
 title Recommendation 11 Patient View Flow Diagram
 #1C2ED5:Patient View; 
-if ([[subroutines.html#opioid-review-useful Opioid review useful?]]) then (no)
+if ([[subroutines.html#cdc-2022-general-inclusion-criteria CDC 2022 guideline\n   general inclusion\n      criteria met?]]) then (no)
 #306516:(yes) elseif (   Receiving an opioid analgesic along\n with either a benzodiazepine or other\n   central nervous system depressant?) then (no) 
 else (yes) 
 #b06f19:[[user-interaction-alerts.html#recommendation-11-alert Alert]];<<output>>
