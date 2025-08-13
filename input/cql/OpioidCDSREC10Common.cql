@@ -9,14 +9,6 @@ include OpioidCDSCommonConfig version '2022.1.0' called Config
 
 context Patient
 
-// Constants
-
-define "UDS Lookback Period":
-  Interval[Today() - 12 months - 1 days, Today()]
-
-define "Rx Lookback Period":
-  Interval[Today() - 12 months - 31 days, Today()]
-
 define "Amphetamine Simple Identifier": 'Amphetamine'
 define "Barbiturate Simple Identifier": 'Barbiturate'
 define "Benzodiazepine Simple Identifier": 'Benzodiazepine'
@@ -31,14 +23,12 @@ define "Oxycodone Simple Identifier": 'Oxycodone'
 define "PCP Simple Identifier": 'Phencyclidine (PCP)'
 
 /*
-@description: Determines whether the general inclusion criteria is met for the patient and whether they had a UDS performed in the past year
+@description: Determines whether an opioid review is appropriate for the patient and whether they had a UDS performed in the specified lookback period
 */
 define "Inclusion Criteria For UDS Recommendation":
   Routines."CDC 2022 Guideline General Inclusion Criteria"
     and not exists (
-      if Config."Use Alternative UDS Lookback Period"
-        then "All Opioid or Non-opioid UDS in Alternative Lookback Period"
-      else "All Opioid or Non-opioid UDS in Lookback Period"
+      "All Opioid or Non-opioid UDS in Lookback Period"
     )
 
 define "Inclusion Criteria For Unexpected Results":
@@ -51,19 +41,10 @@ define "Inclusion Criteria For Unexpected Results":
 define "Exclusion Criteria":
   Common."End of Life Assessment"
 
-define "All Opioid or Non-opioid UDS in Alternative Lookback Period":
-  (
-    [Observation: Common."All Drug Urine Screening"] Lab
-      where date from Lab.effective in day of Config."Alternative UDS Lookback Period"
-        and not (
-          Lab.status in { 'unknown', 'entered-in-error', 'cancelled' }
-        )
-  ) X sort by date from effective desc
-
 define "All Opioid or Non-opioid UDS in Lookback Period":
   (
     [Observation: Common."All Drug Urine Screening"] Lab
-      where date from Lab.effective in day of "UDS Lookback Period"
+      where date from Lab.effective in day of Config."Recommendation 10 UDS Lookback Period"
         and not (
           Lab.status in { 'unknown', 'entered-in-error', 'cancelled' }
         )
@@ -258,7 +239,7 @@ define "Normalize Rx In Lookback Period":
     [MedicationRequest: category in Common."Community"] Rx
       where Rx.status in { 'active', 'completed', 'stopped' }
         and Rx.intent = 'order'
-        and Common."GetDateFromMedicationRequest"(Rx) in day of "Rx Lookback Period"
+        and Common."GetDateFromMedicationRequest"(Rx) in day of Config."Recommendation 10 Rx Lookback Period"
   )
 
 define "Remove Substances Without Positive or Negative Results":
@@ -325,8 +306,11 @@ define "Unexpected Details":
 define "Get HTML Details":
   Common."Style Header" & "Unexpected Div Start" & "Details Table" & "Expected Result Footnote" & "Details More Info" & "Div End"
 
+define "UDS Lookback String":
+  ToString(months between start of Config."Recommendation 10 UDS Lookback Period" and Today()) & ' months'
+
 define "Unexpected Div Start":
-  '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past year.<\/p><\/div>'
+  '<div class=\"alert-body\"><div><p>Patient may have <strong>unexpected urine toxicology test results<\/strong> in the past ' & "UDS Lookback String" & '.<\/p><\/div>'
 
 define "Details Table": 
   "Table Start" & Combine("Table Headers") 
