@@ -3354,25 +3354,11 @@
               "coding": [
                 {
                   "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-                  "code": "UToxAccepted",
-                  "display": "Action Taken"
-                }
-              ],
-              "text": "Document - Ordered toxicology screen"
-            }
-          ]
-        },
-        {
-          "reason": [
-            {
-              "coding": [
-                {
-                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
                   "code": "UToxNA",
-                  "display": "Alert not appropriate"
+                  "display": "Not indicated"
                 }
               ],
-              "text": "Document - Risks outweigh benefits"
+              "text": "Document - Not indicated"
             }
           ]
         },
@@ -3383,10 +3369,10 @@
                 {
                   "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
                   "code": "UToxPDeclined",
-                  "display": "Action not taken"
+                  "display": "Patient declines"
                 }
               ],
-              "text": "Snooze - N/A see comment, snooze 3 months"
+              "text": "Snooze - Patient declines, snooze 3 months"
             }
           ]
         },
@@ -3397,10 +3383,10 @@
                 {
                   "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
                   "code": "UToxWrongProvider",
-                  "display": "Wrong clinician"
+                  "display": "Alert triggered in error"
                 }
               ],
-              "text": "Snooze - N/A see comment, snooze 1 year"
+              "text": "Snooze - Alert triggered in error, snooze 1 year"
             }
           ]
         }
@@ -3477,7 +3463,7 @@
               "coding": [
                 {
                   "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-                  "code": "UToxDefer",
+                  "code": "UnExptResultDefer",
                   "display": "Will Address at Future Visit"
                 }
               ],
@@ -3491,39 +3477,11 @@
               "coding": [
                 {
                   "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-                  "code": "UnExptResultAccepted",
-                  "display": "Action Taken"
-                }
-              ],
-              "text": "Document - Will repeat urine drug screen more frequently"
-            }
-          ]
-        },
-        {
-          "reason": [
-            {
-              "coding": [
-                {
-                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
-                  "code": "UnExptResultNA",
-                  "display": "Alert not appropriate"
-                }
-              ],
-              "text": "The suggestion provided by the service has been declined"
-            }
-          ]
-        },
-        {
-          "reason": [
-            {
-              "coding": [
-                {
-                  "system": "http://fhir.org/guides/cdc/opioid-cds/CodeSystem/opioidcds-overrideReasons",
                   "code": "UnExptResultWrongProvider",
-                  "display": "Wrong clinician"
+                  "display": "Alert triggered in error"
                 }
               ],
-              "text": "Snooze* - N/A snooze for 1 year"
+              "text": "Snooze* - Alert triggered in error, snooze for 1 year"
             }
           ]
         }
