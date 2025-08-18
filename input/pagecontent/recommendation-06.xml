@@ -1,13 +1,14 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas-r5/fhir-single.xsd">
-  {% include recommendation-page-template.html 
-    recommendationNum='6' 
-    topic='Deciding Duration of Initial Opioid Prescription and Conducting Follow-Up' 
-    description='When opioids are needed for acute pain, clinicians should prescribe no greater quantity than needed for the expected duration of pain severe enough to require opioids.' 
-    recommendation-category='A' 
-    evidence-type='4' 
-    flow-diagram='Recommendation06-flow.png'
-    func-desc='recommendation06-functional-description.html'
-    data-elements='recommendation06-data-elements.html'
-    content-table='recommendation06-content-table.html'
-    test-data='recommendation06-test-data.html' %}
+  {% include recommendation-page-template.html
+  recommendationNum='6'
+  topic='Deciding Duration of Initial Opioid Prescription and Conducting Follow-Up'
+  description='When opioids are needed for acute pain, clinicians should prescribe no greater
+  quantity than needed for the expected duration of pain severe enough to require opioids.'
+  recommendation-category='A'
+  evidence-type='4'
+  flow-diagram='flow_rec06_ordersign.svg'
+  func-desc='recommendation06-functional-description.html'
+  data-elements='recommendation06-data-elements.html'
+  content-table='recommendation06-content-table.html'
+  test-data='recommendation06-test-data.html' %}
 </div>

@@ -1,11 +1,19 @@
 <table id="dataElements">
   {% include data-elements-headers.html %}
   <tr>
-    <td>Order for opioid analgesics with ambulatory misuse potential of duration &lt; 28 days</td>
+    <td>Order for opioid analgesics with ambulatory misuse potential with duration &lt; 28 days</td>
     <td>Yes</td>
-    <td>Look for an existing prescription (order) for opioid analgesics with ambulatory misuse potential of duration &lt; 28 days</td>
+    <td>Look for an existing prescription (order) for opioid analgesics with ambulatory misuse potential with duration &lt; 28 days</td>
     <td>Opioid analgesics with ambulatory misuse potential</td>
     <td><a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a></td>
     <td>MedicationRequest.medication, MedicationRequest.category, and MedicationRequest.dispenseRequest.expectedSupplyDuration</td>
+  </tr>
+  <tr>
+    <td>Order for opioid analgesics with ambulatory misuse potential with therapy type of "acute"</td>
+    <td>Yes</td>
+    <td>Look for an existing prescription (order) for opioid analgesics with ambulatory misuse potential with therapy type of "acute"</td>
+    <td>Opioid analgesics with ambulatory misuse potential</td>
+    <td><a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest">MedicationRequest</a></td>
+    <td>MedicationRequest.medication, MedicationRequest.category, and MedicationRequest.therapyType</td>
   </tr>
 </table>

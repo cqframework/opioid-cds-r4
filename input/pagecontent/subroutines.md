@@ -2,8 +2,6 @@
 
 {% include for-acute-pain-definitions.html %}
 
-For more information see the <a href="acute-pain.html">acute pain documentation</a>
-
 ### For Subacute or Chronic Pain
 
 {% include for-subacute-and-chronic-pain-definitions.html %}
