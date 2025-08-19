@@ -1,0 +1,45 @@
+@startuml alert_rec06_ordersign
+!theme carbon-gray
+<style>
+activityDiagram {
+ FontColor white
+ arrow {
+  FontColor: Black
+ }
+ note {
+  FontColor: Black
+  BackgroundColor: #fafad2
+ }
+}
+</style>
+#b06f19:Alert;<<output>>
+note right
+**SUMMARY**: When Treating for Acute Pain, Prescribe No 
+More Opioid Than Needed 
+
+**DETAILS**:
+Please verify that the opioid order quantity and duration 
+are no more than need for the expected duration of pain 
+severe enough to require opioids 
+
+For guidance regarding prescribing opioids for acute pain,
+see [[https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm#Recommendation6 Recommendation 6 of the 2022 CDC Clinical Practice Guideline]].
+end note
+split
+#c05046:Document - 
+Will adjust opioid order;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+Benefits of opioid therapy
+duration outweigh risks,
+Snooze 3 months*;<<input>>
+kill
+split again
+#c05046:Snooze* - 
+N/A see comment, 
+Snooze 3 months*;<<input>>
+kill
+end split
+caption ~*Snooze duration referenced in the alert response is an example and is intended to be patient specific.
+@enduml

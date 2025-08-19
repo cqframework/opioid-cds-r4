@@ -1,0 +1,29 @@
+@startuml subroutine_acute_pain
+!theme carbon-gray
+skinparam ActivityBackgroundColor #306516
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #306516
+ }
+}
+</style>
+title For Acute Pain Subroutine
+start
+fork
+:Order for opioid analgesic with \n  an expected supply duration \n        of less than 28 days?;
+fork again
+:Order for opioid analgesic with\n      therapy type of "acute"?;
+end merge
+if (Any answer is yes?) then (yes)
+#BC2C73:Return Yes;
+kill
+else (no)
+#BC2C73:Return No;
+kill
+@enduml

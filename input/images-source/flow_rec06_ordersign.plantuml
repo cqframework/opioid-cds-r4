@@ -1,0 +1,27 @@
+@startuml flow_rec06_ordersign
+!theme carbon-gray
+skinparam hyperlinkColor white
+<style>
+activityDiagram {
+ FontColor white
+ RoundCorner 50
+ arrow {
+  FontColor: Black
+ }
+ diamond {
+  BackgroundColor #fc914d
+ }
+}
+</style>
+title Recommendation 6 Order Sign Flow Diagram
+#1C2ED5:Order Sign; 
+if ([[subroutines.html#for-acute-pain For acute pain?]]) then (no)
+(yes) elseif ([[subroutines.html#cdc-2022-general-inclusion-criteria CDC 2022 guideline\n   general inclusion\n      criteria met?]]) then (no)
+#306516:(yes) elseif (Order for opioid analgesics with\n   ambulatory misuse potential\n              for > 7 days?) then (no) 
+else (yes) 
+#b06f19:[[user-interaction-alerts.html#recommendation-6-alert Alert]];<<output>>
+kill
+endif
+#BC2C73:No Alert*;
+caption ~*When no alert is warranted by the guidance, the user should not experience any interruption.
+@enduml
