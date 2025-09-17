@@ -10,7 +10,7 @@
     "id": "options",
     "parameter": [ {
       "name": "translatorVersion",
-      "valueString": "3.22.0"
+      "valueString": "3.5.1"
     }, {
       "name": "option",
       "valueString": "EnableAnnotations"
@@ -25,10 +25,10 @@
       "valueString": "DisableListPromotion"
     }, {
       "name": "format",
-      "valueString": "XML"
+      "valueString": "JSON"
     }, {
       "name": "format",
-      "valueString": "JSON"
+      "valueString": "XML"
     }, {
       "name": "analyzeDataRequirements",
       "valueBoolean": false

@@ -190,7 +190,7 @@
     }, {
       "type": "MedicationRequest",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
-      "mustSupport": [ "category", "status", "intent", "id", "subject", "authoredOn", "recorder", "dosageInstruction", "dispenseRequest", "medication" ],
+      "mustSupport": [ "category", "status", "intent", "timing", "timing.repeat", "timing.repeat.bounds", "timing.repeat.bounds.start", "timing.event", "id", "subject", "authoredOn", "recorder", "dosageInstruction", "dispenseRequest", "medication" ],
       "codeFilter": [ {
         "path": "category",
         "valueSet": "http://fhir.org/guides/cdc/opioid-cds/ValueSet/medicationrequest-category-community"
@@ -339,7 +339,7 @@
       "valueString": "Recommendation 10 UDS Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Recommendation 10 UDS Lookback Period\":\n  Interval[Today() - 6 months - 1 days, Today()]"
+      "valueString": "define \"Recommendation 10 UDS Lookback Period\":\n  Interval[Today() - 12 months - 1 days, Today()]"
     }, {
       "url": "displaySequence",
       "valueInteger": 8
@@ -534,7 +534,7 @@
       "valueString": "Recommendation 10 Rx Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Recommendation 10 Rx Lookback Period\":\n  Interval[Today() - 6 months - 31 days, Today()]"
+      "valueString": "define \"Recommendation 10 Rx Lookback Period\":\n  Interval[Today() - 12 months - 31 days, Today()]"
     }, {
       "url": "displaySequence",
       "valueInteger": 21
@@ -549,7 +549,7 @@
       "valueString": "Normalize Rx In Lookback Period"
     }, {
       "url": "statement",
-      "valueString": "define \"Normalize Rx In Lookback Period\":\n  Common.\"Get MedicationRequest Medication as Code\"(\n    [MedicationRequest: category in Common.\"Community\"] Rx\n      where Rx.status in { 'active', 'completed', 'stopped' }\n        and Rx.intent = 'order'\n        and Common.\"GetDateFromMedicationRequest\"(Rx) in day of Config.\"Recommendation 10 Rx Lookback Period\"\n  )"
+      "valueString": "define \"Normalize Rx In Lookback Period\":\n  Common.\"Get MedicationRequest Medication as Code\"(\n    [MedicationRequest: category in Common.\"Community\"] Rx\n      where Rx.status in { 'active', 'completed', 'stopped' }\n        and Rx.intent = 'order'\n        and Common.\"Get Administration Date\"(Rx) in day of Config.\"Recommendation 10 Rx Lookback Period\"\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 22
@@ -1764,7 +1764,7 @@
       "valueString": "CreateDetailWithPossibleUnexpectedNegative"
     }, {
       "url": "statement",
-      "valueString": "define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>):\n  {\n    ingredient: TheSubstance,\n    posDates: (\n      ThePosLabs PosLab\n        return date from PosLab.effective\n    ),\n    negDates: (\n      TheNegLabs NegLab\n        return date from NegLab.effective\n    ),\n    unexpectedPosDetails: (\n      ThePosLabs PosLab\n        where not exists (\n          TheMeds Rx\n            where Common.GetDateFromMedicationRequest(Rx)\n              in day of Interval[\n                date from PosLab.effective - 31 days,\n                date from PosLab.effective - 1 days\n              ]\n        )\n        return {\n          date: date from PosLab.effective,\n          udsDetail:\n            if exists(PosLab.code.coding)\n              then PosLab.code.coding[0].display\n              else 'Unable to determine a detailed identifier'\n        }\n    ),\n    unexpectedNegDetails: (\n      from TheNegLabs NegLab,\n        ( if exists(TheMeds) then TheMeds else { null as MedicationRequest } ) Rx\n        let medDate: Common.GetDateFromMedicationRequest(Rx)\n          where medDate in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]\n          return {\n            udsDate: date from NegLab.effective,\n            udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display else 'Unable to determine a detailed identifier',\n            rxDate: medDate,\n            rxDetail: \n              if Rx.medication.text is not null then Rx.medication.text\n              else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display \n              else 'Unable to determine a detailed identifier'\n          }\n    )\n  }"
+      "valueString": "define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>) returns Tuple{ingredient System.String,posDates List<System.Date>,negDates List<System.Date>,unexpectedPosDetails List<Tuple{date System.Date,udsDetail System.String}>,unexpectedNegDetails List<Tuple{udsDate System.Date,udsDetail System.String,rxDate System.DateTime,rxDetail System.String}>}:\n  {\n    ingredient: TheSubstance,\n    posDates: (\n      ThePosLabs PosLab\n        return date from PosLab.effective\n    ),\n    negDates: (\n      TheNegLabs NegLab\n        return date from NegLab.effective\n    ),\n    unexpectedPosDetails: (\n      ThePosLabs PosLab\n        where not exists (\n          TheMeds Rx\n            where Common.\"Get Administration Date\"(Rx)\n              in day of Interval[\n                date from PosLab.effective - 31 days,\n                date from PosLab.effective - 1 days\n              ]\n        )\n        return {\n          date: date from PosLab.effective,\n          udsDetail:\n            if exists(PosLab.code.coding)\n              then PosLab.code.coding[0].display\n              else 'Unable to determine a detailed identifier'\n        }\n    ),\n    unexpectedNegDetails: (\n      from TheNegLabs NegLab,\n        ( if exists(TheMeds) then TheMeds else { null as MedicationRequest } ) Rx\n        let medDate: Common.\"Get Administration Date\"(Rx)\n          where medDate in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]\n          return {\n            udsDate: date from NegLab.effective,\n            udsDetail: if exists (NegLab.code.coding) then NegLab.code.coding[0].display else 'Unable to determine a detailed identifier',\n            rxDate: medDate,\n            rxDetail: \n              if Rx.medication.text is not null then Rx.medication.text\n              else if exists (Rx.medication.coding) and Rx.medication.coding[0].display is not null then Rx.medication.coding[0].display \n              else 'Unable to determine a detailed identifier'\n          }\n    )\n  }"
     }, {
       "url": "displaySequence",
       "valueInteger": 103
@@ -1776,10 +1776,10 @@
       "valueString": "OpioidCDSCommon"
     }, {
       "url": "name",
-      "valueString": "GetDateFromMedicationRequest"
+      "valueString": "Get Administration Date"
     }, {
       "url": "statement",
-      "valueString": "define function \"GetDateFromMedicationRequest\"(med FHIR.MedicationRequest):\n  if med is null then\n    null\n  else if med.authoredOn is not null then\n    date from med.authoredOn\n  else\n    Max(\n      med.dosageInstruction DI\n        return Coalesce(\n          // If there are timing events, take the latest.\n          Max(DI.timing.event E return date from E),\n          // Otherwise, if there's a Period, use its start.\n          if DI.timing.repeat is not null\n             and DI.timing.repeat.bounds is FHIR.Period\n          then\n            date from start of FHIRHelpers.ToInterval(DI.timing.repeat.bounds as FHIR.Period)\n          else\n            null\n        )\n    )"
+      "valueString": "/*\nTODO: is authoredOn actually appropriate? We really want to determine the administration date here...\nReturns the earliest administration start date for a MedicationRequest, using this precedence:\n  1) dosageInstruction.timing.repeat.bounds as Period -> start\n  2) dosageInstruction.timing.event -> earliest (least recent)\n  3) dispenseRequest.validityPeriod.start\n  4) authoredOn\n*/\ndefine function \"Get Administration Date\"(order FHIR.MedicationRequest):\n  Coalesce(\n    // 1) Earliest boundsPeriod.start across all dosageInstructions\n    Min(\n      (\n        order.dosageInstruction di\n          where di.timing.repeat.bounds is FHIR.Period\n          return (di.timing.repeat.bounds as FHIR.Period).start\n      )\n    ),\n\n    // 2) Earliest timing.event across all dosageInstructions\n    Min(\n      flatten(\n        order.dosageInstruction di\n          return di.timing.event\n      )\n    ),\n\n    // 3) dispenseRequest.validityPeriod.start\n    order.dispenseRequest.validityPeriod.start,\n\n    // 4) authoredOn (last resort)\n    order.authoredOn\n  )"
     }, {
       "url": "displaySequence",
       "valueInteger": 104
@@ -1839,7 +1839,7 @@
       "valueString": "CreateDetailWithoutPossibleUnexpectedNegative"
     }, {
       "url": "statement",
-      "valueString": "define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>):\n  {\n    ingredient: TheSubstance,\n    posDates: (\n      ThePosLabs PosLab\n        return date from PosLab.effective\n    ),\n    negDates: (\n      TheNegLabs NegLab\n        return date from NegLab.effective\n    ),\n    unexpectedPosDetails: (\n      ThePosLabs PosLab\n        return {\n          date: date from PosLab.effective,\n          udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display else 'Unable to determine a detailed identifier'\n        }\n    ),\n    unexpectedNegDetails: {\n      null as Tuple{ udsDate System.Date, udsDetail System.String, rxDate System.Date, rxDetail System.String }\n    }\n  }"
+      "valueString": "define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>) returns Tuple{ingredient System.String,posDates List<System.Date>,negDates List<System.Date>,unexpectedPosDetails List<Tuple{date System.Date,udsDetail System.String}>,unexpectedNegDetails List<Tuple{udsDate System.Date,udsDetail System.String,rxDate System.DateTime,rxDetail System.String}>}:\n  {\n    ingredient: TheSubstance,\n    posDates: (\n      ThePosLabs PosLab\n        return date from PosLab.effective\n    ),\n    negDates: (\n      TheNegLabs NegLab\n        return date from NegLab.effective\n    ),\n    unexpectedPosDetails: (\n      ThePosLabs PosLab\n        return {\n          date: date from PosLab.effective,\n          udsDetail: if exists (PosLab.code.coding) then PosLab.code.coding[0].display else 'Unable to determine a detailed identifier'\n        }\n    ),\n    unexpectedNegDetails: {\n      null as Tuple{ udsDate System.Date, udsDetail System.String, rxDate System.DateTime, rxDetail System.String }\n    }\n  }"
     }, {
       "url": "displaySequence",
       "valueInteger": 108
@@ -1863,6 +1863,11 @@
     "id": "effective-data-requirements",
     "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
     "valueCanonical": "#effective-data-requirements"
+  }, {
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
   } ],
   "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-10-patient-view",
   "identifier": [ {
@@ -1881,7 +1886,7 @@
   },
   "status": "draft",
   "experimental": true,
-  "date": "2025-07-01",
+  "date": "2025-09-17",
   "publisher": "Centers for Disease Control and Prevention (CDC)",
   "description": "When prescribing opioids for subacute or chronic pain, clinicians should consider the benefits and risks of toxicology testing to assess for prescribed medications as well as other prescribed and nonprescribed controlled substances.",
   "useContext": [ {

@@ -321,26 +321,39 @@ define function GetDurationInDays(value FHIR.Duration):
       else Message(1000, true, 'Undefined', 'Error', 'Unsupported duration unit code: ' + value.code.value)
 end
 
-define function "GetDateFromMedicationRequest"(med FHIR.MedicationRequest):
-  if med is null then
-    null
-  else if med.authoredOn is not null then
-    date from med.authoredOn
-  else
-    Max(
-      med.dosageInstruction DI
-        return Coalesce(
-          // If there are timing events, take the latest.
-          Max(DI.timing.event E return date from E),
-          // Otherwise, if there's a Period, use its start.
-          if DI.timing.repeat is not null
-             and DI.timing.repeat.bounds is FHIR.Period
-          then
-            date from start of FHIRHelpers.ToInterval(DI.timing.repeat.bounds as FHIR.Period)
-          else
-            null
-        )
-    )
+/*
+TODO: is authoredOn actually appropriate? We really want to determine the administration date here...
+Returns the earliest administration start date for a MedicationRequest, using this precedence:
+  1) dosageInstruction.timing.repeat.bounds as Period -> start
+  2) dosageInstruction.timing.event -> earliest (least recent)
+  3) dispenseRequest.validityPeriod.start
+  4) authoredOn
+*/
+define function "Get Administration Date"(order FHIR.MedicationRequest):
+  Coalesce(
+    // 1) Earliest boundsPeriod.start across all dosageInstructions
+    Min(
+      (
+        order.dosageInstruction di
+          where di.timing.repeat.bounds is FHIR.Period
+          return (di.timing.repeat.bounds as FHIR.Period).start
+      )
+    ),
+
+    // 2) Earliest timing.event across all dosageInstructions
+    Min(
+      flatten(
+        order.dosageInstruction di
+          return di.timing.event
+      )
+    ),
+
+    // 3) dispenseRequest.validityPeriod.start
+    order.dispenseRequest.validityPeriod.start,
+
+    // 4) authoredOn (last resort)
+    order.authoredOn
+  )
 
 /*
 *  Conversion Functions
