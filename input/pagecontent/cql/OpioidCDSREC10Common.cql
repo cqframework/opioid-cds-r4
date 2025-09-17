@@ -258,7 +258,7 @@ define "Normalize Rx In Lookback Period":
     [MedicationRequest: category in Common."Community"] Rx
       where Rx.status in { 'active', 'completed', 'stopped' }
         and Rx.intent = 'order'
-        and Common."GetDateFromMedicationRequest"(Rx) in day of "Rx Lookback Period"
+        and Common."Get Administration Date"(Rx) in day of "Rx Lookback Period"
   )
 
 define "Remove Substances Without Positive or Negative Results":
@@ -406,7 +406,7 @@ define function GetExpectedColumn(Content String):
 define function GetFooterColumn(colspan Integer, message String):
   '<td class=\"details-table-cell\"' & ' colspan=' & ToString(colspan) & '>' & message & '<\/td>'
 
-define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>):
+define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>, TheMeds List<MedicationRequest>) returns Tuple{ingredient System.String,posDates List<System.Date>,negDates List<System.Date>,unexpectedPosDetails List<Tuple{date System.Date,udsDetail System.String}>,unexpectedNegDetails List<Tuple{udsDate System.Date,udsDetail System.String,rxDate System.DateTime,rxDetail System.String}>}:
   {
     ingredient: TheSubstance,
     posDates: (
@@ -421,7 +421,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
       ThePosLabs PosLab
         where not exists (
           TheMeds Rx
-            where Common.GetDateFromMedicationRequest(Rx)
+            where Common."Get Administration Date"(Rx)
               in day of Interval[
                 date from PosLab.effective - 31 days,
                 date from PosLab.effective - 1 days
@@ -438,7 +438,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     unexpectedNegDetails: (
       from TheNegLabs NegLab,
         ( if exists(TheMeds) then TheMeds else { null as MedicationRequest } ) Rx
-        let medDate: Common.GetDateFromMedicationRequest(Rx)
+        let medDate: Common."Get Administration Date"(Rx)
           where medDate in day of Interval[date from NegLab.effective - 31 days, date from NegLab.effective - 1 days]
           return {
             udsDate: date from NegLab.effective,
@@ -452,7 +452,7 @@ define function CreateDetailWithPossibleUnexpectedNegative(TheSubstance String, 
     )
   }
 
-define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>):
+define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance String, ThePosLabs List<Observation>, TheNegLabs List<Observation>) returns Tuple{ingredient System.String,posDates List<System.Date>,negDates List<System.Date>,unexpectedPosDetails List<Tuple{date System.Date,udsDetail System.String}>,unexpectedNegDetails List<Tuple{udsDate System.Date,udsDetail System.String,rxDate System.DateTime,rxDetail System.String}>}:
   {
     ingredient: TheSubstance,
     posDates: (
@@ -471,7 +471,7 @@ define function CreateDetailWithoutPossibleUnexpectedNegative(TheSubstance Strin
         }
     ),
     unexpectedNegDetails: {
-      null as Tuple{ udsDate System.Date, udsDetail System.String, rxDate System.Date, rxDetail System.String }
+      null as Tuple{ udsDate System.Date, udsDetail System.String, rxDate System.DateTime, rxDetail System.String }
     }
   }
 
