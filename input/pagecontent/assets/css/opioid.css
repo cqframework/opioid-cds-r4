@@ -245,13 +245,13 @@ Data Elements table style
 table{
     border-collapse: collapse;
     border-spacing: 0;
-    border:2px solid #000000;
+    border:2px solid #c0c0c0;
 }
 
 th{
-    border:2px solid #000000;
+    border:2px solid #c0c0c0;
 }
 
 td{
-    border:1px solid #000000;
+    border:1px solid #c0c0c0;
 }
