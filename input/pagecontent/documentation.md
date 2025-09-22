@@ -22,7 +22,7 @@ This section contains documentation for implementers from both the clinical and 
 
 ### Pilot Testing Reports
 
-| Guideline Recommendation | Clinical Site | Test Period | Hook Tested | <div style="width:300px"> Functionality Validated </div>| <div style="width:300px">Functionality Not Validated </div>| <div style="width:350px">Comments</div>
+| Guideline Recommendation | Clinical Site | Test Period | Hook Tested |  Functionality Validated | Functionality Not Validated | Comments
 | :---: | :---: | :---: | :---: | :--- | :--- | :--- |
 | 2016 Recommendation 4 | Yale | 2020 | [`patient-view`](https://cds-hooks.hl7.org/hooks/patient-view.html)|Alert when a patient is initiating therapy for chronic pain and an extended release opioid was prescribed instead of an immediate release opioid.||| 
 | 2016 Recommendation 10 | Yale | 2020 | [`patient-view`](https://cds-hooks.hl7.org/hooks/patient-view.html)|When a patient was prescribed opioids for chronic pain, and there has not been a urine toxicology screen conducted over the past year, the service issues an alert recommending that a screen be conducted.|||
