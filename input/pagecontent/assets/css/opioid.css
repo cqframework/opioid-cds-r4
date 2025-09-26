@@ -241,3 +241,17 @@ Data Elements table style
   border: 1px solid #ddd !important;
   padding: 5px !important;
 }
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border:1px solid #c0c0c0;
+}
+
+th{
+    border:1px solid #c0c0c0;
+}
+
+td{
+    border:1px solid #c0c0c0;
+}
